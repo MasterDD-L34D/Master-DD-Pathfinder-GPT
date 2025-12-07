@@ -10,6 +10,12 @@ class Settings:
 
     def __init__(self) -> None:
         self.api_key: str | None = os.getenv("API_KEY")
+        self.allow_anonymous: bool = os.getenv("ALLOW_ANONYMOUS", "false").lower() in (
+            "1",
+            "true",
+            "yes",
+            "y",
+        )
         self.allow_module_dump: bool = os.getenv("ALLOW_MODULE_DUMP", "true").lower() in (
             "1",
             "true",
