@@ -59,8 +59,11 @@ data_structures:
       archivist: []          # citazioni RAW/PFS (badge e ref)
       meta: []               # link guide/analisi (badge META)
       RAW: []
+      RAI: []
       PFS: []
       META: []
+      primary: []
+      reference: []
     embeds:
       minmax_build_cards: []
       taverna_exports: []
@@ -71,7 +74,7 @@ data_structures:
     style:
       tone: "metodico"
       audience: "GM"
-      language: "it"
+      language: "mixed"     # Nomi ufficiali EN, spiegazioni IT/EN come nel kernel
     review:
       checklist: []
       comments:
@@ -112,7 +115,15 @@ helpers:
     params: [kind]
     logic: |
       k = (kind or "").lower()
-      return {"raw":"[RAW]","pfs":"[PFS]","meta":"🧠","hr":"[HR]"}.get(k,"❓")
+      return {
+        "raw": "[RAW]",
+        "rai": "[RAI]",
+        "pfs": "[PFS]",
+        "meta": "🧠",
+        "hr": "[HR]",
+        "primary": "🏛️",
+        "reference": "📖"
+      }.get(k,"❓")
   default_outline_for:
     params: [kind]
     logic: |
@@ -822,7 +833,7 @@ notes:
     separazione tra RAW/PFS e META con badge chiari. Include TOC, gestione sezioni,
     e gate extra per Release Notes. Compatibile con Homebrewery V3 (renderer) e
     con la Documentazione dinamica (manuale, /doc, mappa ASCII, MDA, Lint).
-  limits: "Non mostra mai contenuti integrali di file; solo estratti/riassunti."
+  limits: "Preferisce estratti/riassunti; il dump completo è consentito solo se il server espone ALLOW_MODULE_DUMP=true."
   community_use_assets_note: >-
     I pacchetti Community Use (Record Sheets, PFS Pregenerated Characters) sono considerati asset di esempio/modulistica.
     NON vanno citati come fonti RAW/PFS dell'Archivist; se richiamati nella Documentazione, etichettarli sempre come META.

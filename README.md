@@ -43,7 +43,9 @@ richieste prive di chiave.
 
 Se vuoi evitare che l'endpoint `/modules/{name}` restituisca contenuti troppo lunghi,
 puoi disattivare il dump completo impostando `ALLOW_MODULE_DUMP=false`. In quel caso
-il testo del modulo verrà troncato a 4000 caratteri con un marcatore finale.
+il testo del modulo verrà troncato a 4000 caratteri con un marcatore finale. Il
+modulo **Documentazione** si aspetta estratti/riassunti come default; usa il dump
+completo solo se imposti `ALLOW_MODULE_DUMP=true` lato server.
 
 ### Avvio API locale
 
