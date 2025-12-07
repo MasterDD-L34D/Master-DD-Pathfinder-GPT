@@ -45,6 +45,28 @@ def test_get_module_content_not_found(auth_headers):
     assert response.json()["detail"] == "Module not found"
 
 
+def test_get_module_meta_valid_file(auth_headers):
+    sample_file = next(p for p in MODULES_DIR.iterdir() if p.is_file())
+    response = client.get(f"/modules/{quote(sample_file.name)}/meta", headers=auth_headers)
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["name"] == sample_file.name
+    assert payload["size_bytes"] == sample_file.stat().st_size
+    assert payload["suffix"] == sample_file.suffix
+
+
+def test_get_module_meta_not_found(auth_headers):
+    response = client.get("/modules/missing_module.txt/meta", headers=auth_headers)
+    assert response.status_code == 404
+    assert response.json()["detail"] == "Module not found"
+
+
+def test_get_module_meta_path_traversal(auth_headers):
+    response = client.get(f"/modules/{quote('../config.py', safe='')}/meta", headers=auth_headers)
+    assert response.status_code == 400
+    assert response.json()["detail"] == "Invalid module path"
+
+
 def test_get_knowledge_meta_valid_file(auth_headers):
     sample_file = next(DATA_DIR.iterdir())
     response = client.get(f"/knowledge/{quote(sample_file.name)}/meta", headers=auth_headers)
@@ -75,3 +97,15 @@ def test_wrong_api_key_returns_unauthorized(auth_headers):
 def test_correct_api_key_allows_access(auth_headers):
     response = client.get("/modules", headers=auth_headers)
     assert response.status_code == 200
+
+
+def test_knowledge_requires_api_key():
+    response = client.get("/knowledge")
+    assert response.status_code == 401
+    assert response.json()["detail"] == "Invalid or missing API key"
+
+
+def test_knowledge_with_valid_api_key(auth_headers):
+    response = client.get("/knowledge", headers=auth_headers)
+    assert response.status_code == 200
+    assert isinstance(response.json(), list)
