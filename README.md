@@ -31,6 +31,12 @@ pathfinder_master_dd_repo/
 - Python 3.10+
 - `pip install -r requirements.txt`
 
+Per abilitare l'autenticazione a chiave API, esporta `API_KEY` nell'ambiente:
+
+```bash
+export API_KEY="la-tua-chiave-segreta"
+```
+
 ### Avvio API locale
 
 ```bash
@@ -47,6 +53,9 @@ L'endpoint di base sarà ad esempio: `http://localhost:8000`
 - `GET /modules/{name}/meta` — info sintetiche sul modulo (dimensione, tipo)
 - `GET /knowledge` — lista risorse PDF/MD disponibili
 - `GET /knowledge/{name}/meta` — metadata su una risorsa
+
+Per tutti gli endpoint di moduli e knowledge è richiesto l'header `x-api-key` che deve
+contenere il valore configurato in `API_KEY`. Se non imposti `API_KEY` l'accesso resta aperto.
 
 > Nel builder GPT userai il file `gpt/openapi.json` come **Actions Spec** e il testo
 > di `gpt/system_prompt_core.md` come **istruzioni**. Così il GPT non deve più contenere
