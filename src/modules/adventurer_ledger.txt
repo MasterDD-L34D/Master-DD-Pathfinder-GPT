@@ -65,7 +65,7 @@ policies:
   rounding: nearest_0_1
   mic_default_mode: Standard
   mic_flavor_tone: arcane
-  mic_randomization: Mild
+  mic_randomization: Moderate   # allineato al setup rapido in welcome_message
 
 sources_registry:
   - id: AON_CRB_Equipment
@@ -173,7 +173,7 @@ data_structures:
       last_buylist_enriched: false
       mic_memory: []   # traccia nomi/varianti create in sessione
 
-types:
+  types:
   Item:
     fields: [id,name,type,slot,price_gp,weight_lb,quantity,stackable,pfs_legal,rarity,source_book,source_page,source_url,tags,notes,badges]
   MagicItem:
@@ -297,7 +297,9 @@ helpers:
         step_pool = [x for x in val_steps if x <= max(25, remain)]
         if not step_pool: break
         v = rng.choice(step_pool)
-        pieces.append({"id": gen_id("art"), "name":"Art Object","price_gp":v,"type":"art","source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"})
+        item_type = rng.choice(["art","gem"])
+        name = "Art Object" if item_type == "art" else "Gemstone"
+        pieces.append({"id": gen_id(item_type[:3]), "name":name,"price_gp":v,"type":item_type,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"})
         remain -= v
       return pieces
   generate_mundane:
@@ -307,6 +309,7 @@ helpers:
       if budget <= 0: return []
       import random
       rng = random.Random(int(seed)) if seed is not None else random
+      # Catalogo di esempio: sostituire con dataset dinamico/filtrato quando disponibile.
       catalog = [
         {"name":"Rope, hemp 50 ft.","type":"mundane","price_gp":1,"weight_lb":10,"quantity":1,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
         {"name":"Tinderbox (flint & steel)","type":"mundane","price_gp":1,"weight_lb":0,"quantity":1,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
@@ -332,6 +335,7 @@ helpers:
       if budget <= 0: return []
       import random
       rng = random.Random(int(seed)) if seed is not None else random
+      # Catalogo esemplificativo (non è una tabella RAW completa); sostituire con sorgente dinamica.
       base = [
         {"name":"Cloak of Resistance +1","type":"magic","slot":"shoulders","price_gp":1000,"pfs_legal":True,"source_url":"https://www.d20pfsrd.com/magic-items/wondrous-items/c-d/cloak-of-resistance/"},
         {"name":"Ring of Protection +1","type":"magic","slot":"ring","price_gp":2000,"pfs_legal":True,"source_url":"https://www.d20pfsrd.com/magic-items/rings/ring-of-protection/"},
@@ -339,7 +343,14 @@ helpers:
         {"name":"Belt of Incredible Dexterity +2","type":"magic","slot":"belt","price_gp":4000,"pfs_legal":True,"source_url":"https://www.d20pfsrd.com/magic-items/wondrous-items/b-c/belt-of-incredible-dexterity/"},
         {"name":"Headband of Inspired Wisdom +2","type":"magic","slot":"headband","price_gp":4000,"pfs_legal":True,"source_url":"https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/headband-of-inspired-wisdom/"}
       ]
-      # (per ora 'style' non altera la selezione: hook riservato a profili futuri)
+      preferred = {
+        "spike": ["Ring of Protection +1","Belt of Incredible Dexterity +2"],
+        "timmy": ["Headband of Inspired Wisdom +2"],
+        "johnny": ["Amulet of Natural Armor +1","Cloak of Resistance +1"]
+      }
+      style_key = (style or "").lower()
+      if style_key in preferred:
+        base = sorted(base, key=lambda x: 0 if x.get("name") in preferred[style_key] else 1)
       out, remain = [], budget
       for it in base:
         if remain >= it["price_gp"] and (not pfs_active or it.get("pfs_legal",True)):
@@ -1746,6 +1757,14 @@ integrations:
     # Suggerimento non vincolante per il kernel router (documentativo)
     role: "ledger"
     triggers: ["ledger","wbl","loot","shop","craft","audit"]
+output_checklist:
+  - "Header con modulo, lingua, seed se usato; mostra policies correnti (sell_rate, rounding, pfs)."
+  - "Fonti marcate RAW/PFS/HR/META e badge origine kernel."
+  - "Dati numerici con unità: gp, %, tolleranza WBL, vendor cap; rounding esplicitato."
+  - "QA rapida: delta WBL entro policies.wbl_tolerance_pct; export gate; badge applicati; memoria toccata (loot_state.*)."
+  - "Struttura minima: riepilogo loot/cassa, buylist/gaps, ledger sintetico, CTA di export (/export_pg_sheet_json)."
+  - "Formato locale: lingua IT, separatore decimale punto; tabelle compatibili Markdown/VTT."
+  - "Magic Item Creator: blocchi Nome/CL/Aura/Slot/Prezzo/Descrizione/Costruzione sempre presenti, con tag PFS se rilevante."
 flow:
   cache_enabled: true
   cta_guard:

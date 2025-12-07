@@ -9,6 +9,7 @@
 {% set SHOW_QA       = show_qa       | default(true)  %}
 {% set SHOW_EXPLAIN  = show_explain  | default(true)  %}
 {% set SHOW_LEDGER   = show_ledger   | default(true)  %}  {# <-- nuovo: Libro Mastro #}
+{% set DECIMAL_COMMA = decimal_comma | default(true)  %}
 
 {% macro d(val, fallback='—') -%}{{ (val if (val is not none and val != '') else fallback) }}{%- endmacro %}
 {% macro mod(x) -%}{{ (((x|default(10))|int) - 10) // 2 }}{%- endmacro %}
@@ -20,7 +21,10 @@
 {% macro coin_str(pp=0,gp=0,sp=0,cp=0) -%}
 PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{cp|default(0)}}
 {%- endmacro %}
-{% macro fmt_gp(x) -%}{{ ('{:.2f}'.format(x|float)).rstrip('0').rstrip('.') }} gp{%- endmacro %}
+{% macro fmt_gp(x) -%}
+{%- set raw = ('{:.2f}'.format(x|float)).rstrip('0').rstrip('.') -%}
+{{ (raw.replace('.', ',') if DECIMAL_COMMA else raw) }} gp
+{%- endmacro %}
 
 {% set ST  = statistiche or {} %}
 {% set STK = statistiche_chiave or {} %}
@@ -193,7 +197,14 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 ## Risorse Giornaliere
 | Risorsa | Max | Usate | Rimaste | Reset |
 |---|---:|---:|---:|---|
-| Rage / Ki / Panache / Grit / Arcane Pool / Performance | {{ d(res_max) }} | {{ d(res_used,0) }} | {{ (res_max|default(0)) - (res_used|default(0)) }} | {{ d(res_reset,'giornaliero') }}
+{% set risorse = risorse_giornaliere or [] %}
+{% if risorse %}
+{% for r in risorse -%}
+| {{ d(r.nome) }} | {{ d(r.max) }} | {{ d(r.usate,0) }} | {{ (r.max|default(0)) - (r.usate|default(0)) }} | {{ d(r.reset,'giornaliero') }} |
+{%- endfor %}
+{% else %}
+| Rage / Ki / Panache / Grit / Arcane Pool / Performance | {{ d(res_max) }} | {{ d(res_used,0) }} | {{ (res_max|default(0)) - (res_used|default(0)) }} | {{ d(res_reset,'giornaliero') }} |
+{% endif %}
 
 ---
 
@@ -205,7 +216,7 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 ---
 
 ## WBL & Shopping
-- **Budget attuale:** {{ gp|default(0) }} gp | **Breakpoint prossimo:** {{ d(next_wbl_gp) }} gp  
+- **Budget attuale:** {{ gp|default(0) }} gp | **Breakpoint prossimo:** {{ d(next_wbl_gp) }} gp
 - **Priorità acquisti:** {{ d(buylist_priority) }}
 
 ---
@@ -290,6 +301,14 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 
 {% endif %}
 
+{% if not PRINT_MODE and SHOW_VTT %}
+---
+## Hook VTT / Export
+- **Formati supportati:** Markdown strutturato, JSON ledger/vtt_json, blocchi compatibili con VTT.
+- **Note localizzazione numerica:** separatore {{ ',' if DECIMAL_COMMA else '.' }}, unità in gp.
+- **CTA export:** /export_pg_sheet • /export_pg_sheet_json
+{% endif %}
+
 ---
 
 {# ========== SEZIONE DIDATTICA INTEGRATA (EXPLAIN) ========== #}
@@ -331,8 +350,8 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% if not PRINT_MODE and SHOW_MINMAX %}
 ---
 ## Analisi MinMax
-- **DPR medio (base/nova):** {{ d(STK.DPR_Base) }} / {{ d(STK.DPR_Nova) }}  
-- **Sostenibilità difensiva:** {{ d(BM.Defense_status) }} {{ (BM.Defense_delta ~ '%') if BM.Defense_delta is not none else '' }}  
+- **DPR medio (base/nova):** {{ d(STK.DPR_Base) }} / {{ d(STK.DPR_Nova) }}
+- **Sostenibilità difensiva:** {{ d(BM.Defense_status) }} {{ (BM.Defense_delta ~ '%') if BM.Defense_delta is not none else '' }}
 - **Meta Tier:** {{ d(BM.meta_tier, STK.meta_tier) }}
 
 **Benchmark (auto) — Ref: {{ d(benchmark_reference_label, FIRST_CLASS) }}**
@@ -357,6 +376,23 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 | {{ k }} | {{ v.status }} | {{ v.diff }} |
 {%- endfor %}
 {% endif %}
+
+{% if not PRINT_MODE and SHOW_QA %}
+---
+## QA rapido
+- **Tabelle popolate?:** armi/skill/incantesimi non vuote o placeholder indicato.
+- **Valute normalizzate:** {{ coin_str(pp, gp, sp, cp) }} (usa fmt_gp per export).
+- **Coerenza WBL:** Δ vs target {{ d(wbl_delta_gp) }} gp; vendite/acquisti loggati nel ledger.
+- **Badge/Lingua:** tag PFS/RAW se noti; lingua coerente con prompt.
+{% endif %}
+
+---
+## Output checklist (inserire nel render finale)
+- Header con toggle attivi (MINMAX/VTT/QA/EXPLAIN/LEDGER) e lingua.
+- Fonti/tag: RAW/PFS/HR/META e richiami al Ledger/Explain/MinMax usati.
+- Struttura minima: sommario PG, blocchi statistici, economia (ledger/WBL), eventuale sezione Explain/MinMax.
+- Dati numerici formattati con {{ ',' if DECIMAL_COMMA else '.' }} come separatore decimale e unità gp/%. 
+- Sezioni vuote: sostituire con placeholder espliciti per evitare header orfani.
 {% endif %}
 
 {% if not PRINT_MODE %}

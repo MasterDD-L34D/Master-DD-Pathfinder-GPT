@@ -84,6 +84,7 @@ commands:
     description: "Spiega un concetto usando un metodo."
     params: [topic, method, depth, output_mode]
     defaults: {method: auto, depth: "medio", output_mode: "Completo"}
+    notes: "Se il topic è RAW/RAI/PFS → mostra messaggio di redirect e inoltra a Ruling/Archivist."
   /switch_method:
     description: "Rigenera con un altro metodo."
     params: [method]
@@ -102,6 +103,7 @@ commands:
     description: "Imposta speed mode a Completo."
   /status:
     description: "Mostra stato Explain (metodo, profondità, speed, output_mode)."
+    notes: "Includi raw_gate attivo e ultimo redirect eseguito."
   /set_method:
     description: "Imposta il metodo."
     params: [method]
@@ -194,10 +196,22 @@ output_modes:
   - {name: "Solo fonti", max_words: 80}
   default: "Completo"
 
+method_output_examples:
+  - "Visualization + Sintesi → schema ASCII breve + 2 bullet takeaway."
+  - "Technical Breakdown + Completo → sezioni numerate, calcoli mostrati, citazioni estese."
+  - "Storytelling + Sintesi → micro-storia (3 paragrafi max) con chiusura in bullet."
+  - "ELI5 + Solo fonti → definizione in 2 frasi + elenco fonti puntuali."
+
 policies:
   citations_policy:
     preferred: extended_with_refs
     fallback: excerpt_plus_page_ref
+output_checklist:
+  - "Header: metodo scelto, profondità, speed, lingua, raw_gate attivo/sospeso."
+  - "Fonti marcate (RAW/RAI/FAQ/PFS/META) con citazioni estese o excerpt." 
+  - "Struttura minima: definizione/contesto, corpo per metodo, esempio PF1e, takeaway."
+  - "QA rapida: coverage, grounding, jargon definito, almeno 1 esempio." 
+  - "Memoria: prefer_last_method aggiornato; note su eventuale redirect eseguito."
     when_unknown: ask_or_flag_uncertain
   raw_router:
     kernel_managed: true
