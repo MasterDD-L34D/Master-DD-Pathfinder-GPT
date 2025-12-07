@@ -40,7 +40,7 @@ async def list_modules() -> List[Dict]:
     return _list_files(MODULES_DIR)
 
 
-@app.get("/modules/{name}", response_class=PlainTextResponse)
+@app.get("/modules/{name:path}", response_class=PlainTextResponse)
 async def get_module_content(name: str) -> str:
     """Return the raw text content of a module file.
 
@@ -49,19 +49,25 @@ async def get_module_content(name: str) -> str:
     - Taverna_NPC.txt
     - minmax_builder.txt
     """
-    path = MODULES_DIR / name
-    if not path.exists() or not path.is_file():
+    name_path = Path(name)
+    path = (MODULES_DIR / name_path).resolve()
+    if not path.is_relative_to(MODULES_DIR):
+        raise HTTPException(status_code=400, detail="Invalid module path")
+    if not path.is_file():
         raise HTTPException(status_code=404, detail="Module not found")
     # In caso tu voglia tagliare per lunghezza, puoi farlo qui
     text = path.read_text(encoding="utf-8", errors="ignore")
     return text
 
 
-@app.get("/modules/{name}/meta")
+@app.get("/modules/{name:path}/meta")
 async def get_module_meta(name: str) -> Dict:
     """Return metadata (no content) for a module file."""
-    path = MODULES_DIR / name
-    if not path.exists() or not path.is_file():
+    name_path = Path(name)
+    path = (MODULES_DIR / name_path).resolve()
+    if not path.is_relative_to(MODULES_DIR):
+        raise HTTPException(status_code=400, detail="Invalid module path")
+    if not path.is_file():
         raise HTTPException(status_code=404, detail="Module not found")
     return {
         "name": path.name,
@@ -76,11 +82,14 @@ async def list_knowledge() -> List[Dict]:
     return _list_files(DATA_DIR)
 
 
-@app.get("/knowledge/{name}/meta")
+@app.get("/knowledge/{name:path}/meta")
 async def get_knowledge_meta(name: str) -> Dict:
     """Return metadata for a knowledge file (PDF/MD)."""
-    path = DATA_DIR / name
-    if not path.exists() or not path.is_file():
+    name_path = Path(name)
+    path = (DATA_DIR / name_path).resolve()
+    if not path.is_relative_to(DATA_DIR):
+        raise HTTPException(status_code=400, detail="Invalid knowledge path")
+    if not path.is_file():
         raise HTTPException(status_code=404, detail="Knowledge file not found")
     return {
         "name": path.name,
