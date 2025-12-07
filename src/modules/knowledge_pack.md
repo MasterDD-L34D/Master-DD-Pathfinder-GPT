@@ -12,6 +12,12 @@
 * [Paizo](https://paizo.com)
 * [d20PFSRD (fallback)](https://www.d20pfsrd.com)
 
+### 📂 Risorse locali (`src/data`)
+- Homebrewery Formatting Guide (V3) - The Homebrewery.pdf
+- Items Master List.pdf
+- The Gear Guide.pdf
+- Ultimate Crafter Guide.pdf
+
 ---
 
 ## 📣 Supporto

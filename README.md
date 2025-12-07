@@ -41,11 +41,11 @@ Se vuoi abilitare esplicitamente l'accesso anonimo, imposta `ALLOW_ANONYMOUS=tru
 assenza di `API_KEY` e senza questo flag, l'API risponderà con `401 Unauthorized` alle
 richieste prive di chiave.
 
-Se vuoi evitare che l'endpoint `/modules/{name}` restituisca contenuti troppo lunghi,
-puoi disattivare il dump completo impostando `ALLOW_MODULE_DUMP=false`. In quel caso
-il testo del modulo verrà troncato a 4000 caratteri con un marcatore finale. Il
-modulo **Documentazione** si aspetta estratti/riassunti come default; usa il dump
-completo solo se imposti `ALLOW_MODULE_DUMP=true` lato server.
+Per i moduli, il dump completo è **attivo di default**. Se vuoi evitare che
+`/modules/{name}` restituisca contenuti troppo lunghi, imposta
+`ALLOW_MODULE_DUMP=false`: il testo verrà troncato a 4000 caratteri con un marcatore
+finale. Il modulo **Documentazione** si aspetta estratti/riassunti come default; attiva
+solo se ti serve il dump completo.
 
 ### Avvio API locale
 

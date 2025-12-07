@@ -74,6 +74,7 @@
             "get": {
                 "operationId": "getModuleContent",
                 "summary": "Contenuto testuale di un modulo",
+                "description": "Restituisce il testo del modulo. Se ALLOW_MODULE_DUMP=false lato server, il contenuto viene troncato a 4000 caratteri con un marcatore finale.",
                 "parameters": [
                     {
                         "name": "name",
@@ -254,7 +255,7 @@
                 "type": "apiKey",
                 "in": "header",
                 "name": "x-api-key",
-                "description": "Chiave API condivisa impostata tramite variabile d'ambiente API_KEY"
+                "description": "Chiave API condivisa impostata tramite variabile d'ambiente API_KEY; richiesta salvo ALLOW_ANONYMOUS=true"
             }
         }
     }
