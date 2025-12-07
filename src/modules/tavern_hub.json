@@ -33,6 +33,8 @@
   },
   "vtt_exports": [],
   "snapshots": [],
+  "hooks": [],
+  "handoff_log": [],
   "id_counter": {
     "character": 1,
     "build": 1,
