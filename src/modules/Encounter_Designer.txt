@@ -32,6 +32,10 @@ principles:
   - Distinzione chiara tra RAW / RAI / PFS / HR
   - Ogni incontro deve avere: CR, XP, Enemy roles, Terrain, Loot
   - QA obbligatorio prima di export
+ruling_policy:
+  summary: "Ordine di giurisdizione: ✅ RAW → 📘 RAI → 🧭 PFS → ❗ HR. Usa Ruling Expert per controversie o mancanza di fonti."
+  pfs_gate: "Se party.rules.pfs_active = true, escludi ❗ HR e segnala contenuti non legali."
+  offline_disclaimer: "Offline non supportato: servono riferimenti a fonti Paizo/AoN."
 
 modes:
   - {name: Encounter Builder, description: "Crea incontri da CR/XP target"}
@@ -109,7 +113,7 @@ data_structures:
           mobility: ''
           morale: ''               # quando fuggono/si arrendono
         loot_policy: 'auto'        # auto | none | custom
-        source_tag: '[RAW]'        # badge di provenienza
+        ruling_badge: '✅ RAW-Summarized'  # badge RAW/RAI/PFS/HR
     pacing:
       waves: []                    # es. [ {round:3, add:[{ref:'enemy#2', qty:2}]} ]
       escalation: 'none'           # none | soft | hard
@@ -242,8 +246,8 @@ commands:
       - output: "🎯 Obiettivo: {{encounter_state.objectives.type}} (timer: {{encounter_state.objectives.timer_rounds or '—'}})."
 
   /add_enemy:
-    description: Aggiunge un nemico (ruolo, CR, quantità) con stat sintetiche.
-    params: [name, role, CR, quantity, type, tags, source_tag]
+    description: Aggiunge un nemico (ruolo, CR, quantità) con stat sintetiche e badge RAW/RAI/PFS/HR.
+    params: [name, role, CR, quantity, type, tags, ruling_badge]
     action:
       - append: encounter_state.enemies
         value:
@@ -266,7 +270,7 @@ commands:
             speed_ft: 30
           tactics: {opening:"", focus_fire:"", mobility:"", morale:""}
           loot_policy: 'auto'
-          source_tag: '{{source_tag or "[RAW]"}}'
+          ruling_badge: '{{ normalize_ruling_badge(ruling_badge, encounter_state.party.rules.pfs_active) }}'
       - output: "➕ Aggiunto: {{name}} ({{role}}) CR {{CR}} ×{{quantity or 1}}."
 
   /auto_pick_enemies:
@@ -379,12 +383,19 @@ commands:
         then: { output: "❌ Nessun nemico nell'incontro." }
       - if: '{{ not encounter_state.balance_snapshot.cr_effective_est }}'
         then: { command: /auto_balance }
+      - set: encounter_state.export.sources_tagged
+        value: '{{ enemies_badge_ok(encounter_state.enemies) }}'
+      - set: encounter_state.export.pfs_gate_ok
+        value: '{{ pfs_hr_gate(encounter_state.enemies, encounter_state.party.rules.pfs_active) }}'
       - run_qagates:
-          requires: [enemies_exist, cr_estimated]
+          requires: [enemies_exist, cr_estimated, sources_tagged, pfs_gate_ok]
           as: qa_ok
       - set: encounter_state.export.qa_ok
-        value: '{{ qa_ok }}'
-      - output: "{{ '✅ QA OK.' if qa_ok else '❌ QA FAIL: rivedi bilanciamento o rischi.' }}"
+        value: '{{ qa_ok and encounter_state.export.sources_tagged and encounter_state.export.pfs_gate_ok }}'
+      - output: >-
+          {{ '✅ QA OK.' if encounter_state.export.qa_ok else '❌ QA FAIL: rivedi bilanciamento o rischi.' }}
+          Checklist: badge={{'OK' if encounter_state.export.sources_tagged else 'KO'}},
+          PFS={{'OK' if encounter_state.export.pfs_gate_ok else 'KO (HR bloccato)'}}.
 
   /export_encounter:
     description: Esporta card estesa, JSON VTT o MD (QA-gated).
@@ -548,7 +559,7 @@ ui_templates:
 
     ## Nemici
     {% for e in (encounter_state.enemies or []) -%}
-    - **{{e.name}}** — {{e.role}} | CR {{e.CR}} ×{{e.quantity}} | {{e.source_tag}}
+    - **{{e.name}}** — {{e.role}} | CR {{e.CR}} ×{{e.quantity}} | {{e.ruling_badge}}
       - Tags: {{ (e.tags or []) | join(", ") or "—" }}
       - Stat: AC {{e.stat_summary.AC}} | HP {{e.stat_summary.HP}} | Atk {{e.stat_summary.attack_bonus}} | DPR {{e.stat_summary.DPR_est}} | Saves T/R/V {{e.stat_summary.saves.Fort}}/{{e.stat_summary.saves.Ref}}/{{e.stat_summary.saves.Will}}
       - Tattiche: Open: {{e.tactics.opening or "—"}} | Focus: {{e.tactics.focus_fire or "—"}} | Move: {{e.tactics.mobility or "—"}} | Morale: {{e.tactics.morale or "—"}}
@@ -610,12 +621,19 @@ qa_templates:
   gates:
     - enemies_exist
     - cr_estimated
+    - sources_tagged
+    - pfs_gate_ok
   errors:
     no_enemies: "Nessun nemico impostato."
     no_cr: "CR effettivo non stimato: esegui /auto_balance."
+    no_sources: "Badge RAW/RAI/PFS/HR mancanti: aggiungi ruling_badge a ogni nemico."
+    pfs_block: "PFS attivo: ❗ HR non consentito, rimuovi/riclassifica i nemici HR."
   resolution_tips:
     - "Riduci o aumenta quantità/CR dei nemici."
     - "Adegua la difficoltà target o inserisci ondate per scalare pressione."
+  checklist:
+    - sources_tagged
+    - pfs_gate_ok
 
 helpers:
   now:
@@ -639,6 +657,35 @@ helpers:
       parts.append("ABP ON" if r.get('abp_active') else "ABP OFF")
       parts.append("EitR ON" if r.get('eitr_active') else "EitR OFF")
       return " • ".join(parts)
+  normalize_ruling_badge:
+    params: [badge, pfs_active]
+    logic: |
+      allowed = {
+        '✅ RAW-QUOTED': '✅ RAW-Quoted',
+        '✅ RAW-SUMMARIZED': '✅ RAW-Summarized',
+        '📘 RAI': '📘 RAI',
+        '🧭 PFS': '🧭 PFS',
+        '❗ HOUSE RULE': '❗ HR'
+      }
+      b = (badge or '✅ RAW-Summarized').upper()
+      normalized = allowed.get(b, '✅ RAW-Summarized')
+      if str(pfs_active).lower() in ['true','1','on'] and normalized.startswith('❗'):
+        return '🧭 PFS'
+      return normalized
+  enemies_badge_ok:
+    params: [enemies]
+    logic: |
+      es = enemies or []
+      return all(bool(e.get('ruling_badge')) for e in es)
+  pfs_hr_gate:
+    params: [enemies, pfs_active]
+    logic: |
+      if not pfs_active:
+        return True
+      for e in (enemies or []):
+        if str(e.get('ruling_badge','')).startswith('❗'):
+          return False
+      return True
 
   compute_xp_budget_estimate:
     params: [party_level, party_size, difficulty]
