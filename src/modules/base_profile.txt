@@ -357,6 +357,9 @@ orchestration:
     persona_lock: true
     module_order_immutable: true
     data_retention: "no_user_data"
+    api_access:
+      authentication: "Richiede x-api-key per endpoint moduli/knowledge; ALLOW_ANONYMOUS solo se esplicitamente attivato."
+      module_dump_control: "Quando ALLOW_MODULE_DUMP=false, servire solo estratti dei moduli per allinearsi al profilo Documentazione."
     audit:
       receipts: "merkle"
       export_on_demand: true
