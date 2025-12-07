@@ -1,15 +1,25 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.responses import PlainTextResponse
 from typing import List, Dict
 from pathlib import Path
 
-from .config import MODULES_DIR, DATA_DIR
+from .config import MODULES_DIR, DATA_DIR, settings
 
 app = FastAPI(
     title="Pathfinder 1E Master DD Core API",
     version="1.0.0",
     description="API minimale per esporre i moduli del kernel Master DD a un GPT tramite Actions.",
 )
+
+
+async def require_api_key(x_api_key: str | None = Header(default=None, alias="x-api-key")) -> None:
+    """Validate the provided API key header against settings."""
+
+    if settings.api_key is None:
+        # Se non configurata, non forziamo l'autenticazione.
+        return
+    if x_api_key != settings.api_key:
+        raise HTTPException(status_code=401, detail="Invalid or missing API key")
 
 
 def _list_files(base: Path) -> List[Dict]:
@@ -35,13 +45,13 @@ async def health() -> Dict[str, str]:
 
 
 @app.get("/modules", response_model=List[Dict])
-async def list_modules() -> List[Dict]:
+async def list_modules(_: None = Depends(require_api_key)) -> List[Dict]:
     """Return the list of available module files (txt/md/json)."""
     return _list_files(MODULES_DIR)
 
 
 @app.get("/modules/{name:path}", response_class=PlainTextResponse)
-async def get_module_content(name: str) -> str:
+async def get_module_content(name: str, _: None = Depends(require_api_key)) -> str:
     """Return the raw text content of a module file.
 
     Example names:
@@ -61,7 +71,7 @@ async def get_module_content(name: str) -> str:
 
 
 @app.get("/modules/{name:path}/meta")
-async def get_module_meta(name: str) -> Dict:
+async def get_module_meta(name: str, _: None = Depends(require_api_key)) -> Dict:
     """Return metadata (no content) for a module file."""
     name_path = Path(name)
     path = (MODULES_DIR / name_path).resolve()
@@ -77,13 +87,13 @@ async def get_module_meta(name: str) -> Dict:
 
 
 @app.get("/knowledge", response_model=List[Dict])
-async def list_knowledge() -> List[Dict]:
+async def list_knowledge(_: None = Depends(require_api_key)) -> List[Dict]:
     """List knowledge PDFs/MD available in /data."""
     return _list_files(DATA_DIR)
 
 
 @app.get("/knowledge/{name:path}/meta")
-async def get_knowledge_meta(name: str) -> Dict:
+async def get_knowledge_meta(name: str, _: None = Depends(require_api_key)) -> Dict:
     """Return metadata for a knowledge file (PDF/MD)."""
     name_path = Path(name)
     path = (DATA_DIR / name_path).resolve()
