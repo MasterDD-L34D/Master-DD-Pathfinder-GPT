@@ -50,6 +50,22 @@ async def list_modules(_: None = Depends(require_api_key)) -> List[Dict]:
     return _list_files(MODULES_DIR)
 
 
+@app.get("/modules/{name:path}/meta")
+async def get_module_meta(name: str, _: None = Depends(require_api_key)) -> Dict:
+    """Return metadata (no content) for a module file."""
+    name_path = Path(name)
+    path = (MODULES_DIR / name_path).resolve()
+    if not path.is_relative_to(MODULES_DIR):
+        raise HTTPException(status_code=400, detail="Invalid module path")
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="Module not found")
+    return {
+        "name": path.name,
+        "size_bytes": path.stat().st_size,
+        "suffix": path.suffix,
+    }
+
+
 @app.get("/modules/{name:path}", response_class=PlainTextResponse)
 async def get_module_content(name: str, _: None = Depends(require_api_key)) -> str:
     """Return the raw text content of a module file.
@@ -71,22 +87,6 @@ async def get_module_content(name: str, _: None = Depends(require_api_key)) -> s
         if len(text) > max_chars:
             text = text[:max_chars] + "\n\n[contenuto troncato]"
     return text
-
-
-@app.get("/modules/{name:path}/meta")
-async def get_module_meta(name: str, _: None = Depends(require_api_key)) -> Dict:
-    """Return metadata (no content) for a module file."""
-    name_path = Path(name)
-    path = (MODULES_DIR / name_path).resolve()
-    if not path.is_relative_to(MODULES_DIR):
-        raise HTTPException(status_code=400, detail="Invalid module path")
-    if not path.is_file():
-        raise HTTPException(status_code=404, detail="Module not found")
-    return {
-        "name": path.name,
-        "size_bytes": path.stat().st_size,
-        "suffix": path.suffix,
-    }
 
 
 @app.get("/knowledge", response_model=List[Dict])
