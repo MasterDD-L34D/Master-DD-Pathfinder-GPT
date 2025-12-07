@@ -17,9 +17,12 @@ client = TestClient(app)
 @pytest.fixture(autouse=True)
 def setup_api_key():
     original = settings.api_key
+    original_allow_anonymous = settings.allow_anonymous
     settings.api_key = "test-api-key"
+    settings.allow_anonymous = False
     yield
     settings.api_key = original
+    settings.allow_anonymous = original_allow_anonymous
 
 
 @pytest.fixture
@@ -109,3 +112,20 @@ def test_knowledge_with_valid_api_key(auth_headers):
     response = client.get("/knowledge", headers=auth_headers)
     assert response.status_code == 200
     assert isinstance(response.json(), list)
+
+
+def test_missing_configured_api_key_is_rejected():
+    settings.api_key = None
+    response = client.get("/modules")
+    assert response.status_code == 401
+    assert (
+        response.json()["detail"]
+        == "API key non configurata. Imposta API_KEY oppure abilita ALLOW_ANONYMOUS=true"
+    )
+
+
+def test_allow_anonymous_access():
+    settings.api_key = None
+    settings.allow_anonymous = True
+    response = client.get("/modules")
+    assert response.status_code == 200

@@ -31,11 +31,15 @@ pathfinder_master_dd_repo/
 - Python 3.10+
 - `pip install -r requirements.txt`
 
-Per abilitare l'autenticazione a chiave API, esporta `API_KEY` nell'ambiente:
+L'API richiede per default una chiave: esporta `API_KEY` nell'ambiente per abilitarla:
 
 ```bash
 export API_KEY="la-tua-chiave-segreta"
 ```
+
+Se vuoi abilitare esplicitamente l'accesso anonimo, imposta `ALLOW_ANONYMOUS=true`. In
+assenza di `API_KEY` e senza questo flag, l'API risponderà con `401 Unauthorized` alle
+richieste prive di chiave.
 
 Se vuoi evitare che l'endpoint `/modules/{name}` restituisca contenuti troppo lunghi,
 puoi disattivare il dump completo impostando `ALLOW_MODULE_DUMP=false`. In quel caso
@@ -59,7 +63,8 @@ L'endpoint di base sarà ad esempio: `http://localhost:8000`
 - `GET /knowledge/{name}/meta` — metadata su una risorsa
 
 Per tutti gli endpoint di moduli e knowledge è richiesto l'header `x-api-key` che deve
-contenere il valore configurato in `API_KEY`. Se non imposti `API_KEY` l'accesso resta aperto.
+contenere il valore configurato in `API_KEY`. L'accesso anonimo è disabilitato di default;
+per aprirlo è necessario impostare `ALLOW_ANONYMOUS=true`.
 
 > Nel builder GPT userai il file `gpt/openapi.json` come **Actions Spec** e il testo
 > di `gpt/system_prompt_core.md` come **istruzioni**. Così il GPT non deve più contenere

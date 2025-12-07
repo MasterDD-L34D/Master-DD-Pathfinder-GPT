@@ -15,9 +15,16 @@ app = FastAPI(
 async def require_api_key(x_api_key: str | None = Header(default=None, alias="x-api-key")) -> None:
     """Validate the provided API key header against settings."""
 
-    if settings.api_key is None:
-        # Se non configurata, non forziamo l'autenticazione.
+    if settings.allow_anonymous:
         return
+
+    if settings.api_key is None:
+        raise HTTPException(
+            status_code=401,
+            detail=(
+                "API key non configurata. Imposta API_KEY oppure abilita ALLOW_ANONYMOUS=true"
+            ),
+        )
     if x_api_key != settings.api_key:
         raise HTTPException(status_code=401, detail="Invalid or missing API key")
 
