@@ -46,7 +46,7 @@ L'endpoint di base sarà ad esempio: `http://localhost:8000`
 - `GET /modules/{name}` — contenuto testuale di un modulo (es. `base_profile.txt`)
 - `GET /modules/{name}/meta` — info sintetiche sul modulo (dimensione, tipo)
 - `GET /knowledge` — lista risorse PDF/MD disponibili
-- `GET /knowledge/{name}` — metadata su una risorsa
+- `GET /knowledge/{name}/meta` — metadata su una risorsa
 
 > Nel builder GPT userai il file `gpt/openapi.json` come **Actions Spec** e il testo
 > di `gpt/system_prompt_core.md` come **istruzioni**. Così il GPT non deve più contenere
