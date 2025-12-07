@@ -1,3 +1,4 @@
+import logging
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.responses import PlainTextResponse
 from typing import List, Dict
@@ -31,8 +32,11 @@ async def require_api_key(x_api_key: str | None = Header(default=None, alias="x-
 
 def _list_files(base: Path) -> List[Dict]:
     out: List[Dict] = []
-    if not base.exists():
-        return out
+    if not base.exists() or not base.is_dir():
+        raise HTTPException(
+            status_code=503,
+            detail=f"Directory di configurazione non trovata: {base}",
+        )
     for p in sorted(base.iterdir()):
         if p.is_file():
             out.append(
@@ -49,6 +53,19 @@ def _list_files(base: Path) -> List[Dict]:
 async def health() -> Dict[str, str]:
     """Simple healthcheck for Actions."""
     return {"status": "ok"}
+
+
+def _validate_directories() -> None:
+    """Ensure configured module/data directories exist and log issues."""
+
+    for label, path in ("modules", MODULES_DIR), ("data", DATA_DIR):
+        if not path.exists() or not path.is_dir():
+            logging.error("Directory %s mancante o non accessibile: %s", label, path)
+
+
+@app.on_event("startup")
+async def on_startup() -> None:
+    _validate_directories()
 
 
 @app.get("/modules", response_model=List[Dict])
