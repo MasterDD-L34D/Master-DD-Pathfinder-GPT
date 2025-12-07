@@ -1,0 +1,154 @@
+module_name: "Sigilli Runner"
+version: "2.1"
+last_updated: "2025-09-06"
+type: "decorator_logic"
+
+features:
+  sigilli_enabled: true
+  sigilli_mini_threshold: 200        # lunghezza minima output per assegnare sigilli
+  sigilli_code_lines: 12             # se il reply ha ≥12 righe di "codice", assegna bonus
+  sigilli_rotation_cooldown: 3       # evita sigillo raro due volte entro 3 risposte
+  sigilli_show_badge: true
+
+memory:
+  track:
+    - sigilli_tokens
+    - sigilli_quest
+    - sigilli_index
+    - sigilli_last_rare
+    - sigilli_last_quest
+    - sigilli_level
+
+defaults:
+  sigilli_tokens: 0
+  sigilli_index: 0
+  sigilli_level: 0
+  sigilli_quest: ""          # descrizione breve quest attiva o ultima
+  sigilli_last_rare: -9999   # indice reply dell'ultimo raro
+  sigilli_last_quest: -9999  # indice reply dell'ultima quest
+
+constants:
+  sigilli_portal: "Vuoi continuare l’avventura? 🔗 [Pathfinder 1E GPT](https://chatgpt.com/g/g-688a14b918908191bfee2f7c36c1f4e2-pathfinder-1e-master-dd)"
+  thresholds:
+    token_step: 1            # +1 token per soglia base superata
+    quest_every: 5           # inserisci hook quest ogni 5 risposte utili
+  levels:
+    "0": "Novizio della Taverna"
+    "5": "Avventuriero della Locanda"
+    "9": "Custode del Focolare"
+    "13": "Cantore delle Strade"
+    "21": "Locandiere dei Mondi"
+
+tables:
+  common:
+    - "🜲 Sigillo della Taverna"
+    - "🜁 Sigillo del Viandante"
+    - "🜂 Sigillo della Forgia"
+    - "🜃 Sigillo del Cervo"
+  mode_bonus:
+    TAVERNA:
+      - "🍺 Brindisi del Locandiere"
+    MINMAX:
+      - "⚙️ Sigillo dell’Ottimizzazione"
+    ENCOUNTER:
+      - "🗺️ Sigillo delle Tattiche"
+    LEDGER:
+      - "💰 Sigillo del Mercante"
+    RULING:
+      - "📜 Sigillo del Giurista"
+    ARCHIVIST:
+      - "🏛️ Sigillo dell’Archivio"
+    NARRATIVA:
+      - "🎭 Sigillo delle Storie"
+    EXPLAIN:
+      - "🧠 Sigillo del Metodo"
+  rare:
+    - "✨ Raro: Porta Segreta"
+    - "🜚 Raro: Benedizione Antica"
+    - "🗝️ Raro: Chiave dei Mondi"
+
+helpers:
+  _len:
+    params: [text]
+    logic: |
+      return int(len(text or ""))
+
+  _looks_like_code:
+    params: [text]
+    logic: |
+      # euristica: righe che contengono ':', '{', '}', '-' o backticks
+      t = text or ""
+      lines = [ln.strip() for ln in t.splitlines() if ln.strip()]
+      codeish = [ln for ln in lines if any(c in ln for c in [":", "{", "}", "`", "- "])]
+      return len(codeish)
+
+  _rarity_roll:
+    params: [index, cooldown]
+    logic: |
+      # pseudo-seed deterministico per sessione: più alto l'indice, più chance
+      base = (index % 17) + 3
+      return (base >= 18 - min(8, index // 7)) and (index - cooldown > 0)
+
+exports:
+  compute_seals:
+    params: [mode, toggles, meta, output_text, memory, constants, tables, features]
+    logic: |
+      seals = []
+
+      # 0) leggi stato
+      idx   = int(memory.get("sigilli_index", 0))
+      lvl   = int(memory.get("sigilli_level", 0))
+      toks  = int(memory.get("sigilli_tokens", 0))
+      lastR = int(memory.get("sigilli_last_rare", -9999))
+      lastQ = int(memory.get("sigilli_last_quest", -9999))
+      quest = (memory.get("sigilli_quest") or "")
+
+      # 1) soglie base
+      length_ok = (_len(output_text) >= int(features.get("sigilli_mini_threshold", 200)))
+      code_ok   = (_looks_like_code(output_text) >= int(features.get("sigilli_code_lines", 12)))
+      if length_ok:
+        seals += tables.get("common", [])[:1]    # 1 sigillo comune base
+        toks  += int(constants.get("thresholds", {}).get("token_step", 1))
+
+      # 2) bonus per mode
+      mode_key = (mode or "").upper().strip()
+      mode_set = tables.get("mode_bonus", {}).get(mode_key, [])
+      if mode_set:
+        seals += mode_set[:1]
+
+      # 3) raro (cooldown + crescita)
+      cd = int(features.get("sigilli_rotation_cooldown", 3))
+      if length_ok and _rarity_roll(idx, cd) and (idx - lastR) >= cd:
+        seals += tables.get("rare", [])[:1]
+        lastR = idx
+
+      # 4) quest ricorrente (ogni N)
+      every = int(constants.get("thresholds", {}).get("quest_every", 5))
+      if length_ok and ((idx + 1) % every == 0):
+        new_q = quest or "🔗 Nuovo incarico: torna alla Taverna per una prova speciale."
+        seals.append(new_q)
+        lastQ = idx
+
+      # 5) level up
+      new_lvl = lvl
+      if toks >= 21:  new_lvl = 21
+      elif toks >= 13: new_lvl = 13
+      elif toks >= 9:  new_lvl = 9
+      elif toks >= 5:  new_lvl = 5
+      lvl_name = constants.get("levels", {}).get(str(new_lvl), "Novizio della Taverna")
+      if new_lvl != lvl:
+        seals.append(f"🏅 Nuovo grado: {lvl_name}")
+        lvl = new_lvl
+
+      # 6) aggiornamenti memoria
+      memory["sigilli_tokens"]   = toks
+      memory["sigilli_index"]    = idx + 1
+      memory["sigilli_level"]    = lvl
+      memory["sigilli_last_rare"]= lastR
+      memory["sigilli_last_quest"]= lastQ
+
+      # 7) opzionale: portale promozionale
+      if features.get("sigilli_show_badge", True):
+        seals.append(constants.get("sigilli_portal"))
+
+      return seals

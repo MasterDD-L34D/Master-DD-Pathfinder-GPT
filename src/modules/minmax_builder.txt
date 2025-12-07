@@ -1,0 +1,1989 @@
+module_name: MinMax Builder
+version: 5
+last_updated: 2025-08-20T00:00:00.000Z
+inherits_from: base_profile.yaml
+type: minmax
+file_binding: /mnt/data/minmax_builder.txt
+
+compatibility_notes:
+  kernel_router: true
+  ruling_via_kernel: true
+  pfs_gate_inherits: true
+  sigilli_postproc_inherits: true
+
+description: >
+  Modulo professionale per creazione, ottimizzazione e simulazione PG/NPC PF1e.
+  Flow completo in 8+ step, validazione RAW, multiclasse/archetipi, companion
+  integrati, benchmark DPR/difesa, esportazioni (PDF/VTT/Excel), psicografia
+  adattiva (Timmy/Johnny/Spike), QA centralizzato, Mappa ASCII, Analisi
+  Multidimensionale (MDA), rollback/fork tracciabili, campi scheda RAW completi.
+
+triggers:
+  - ottimizza
+  - DPR
+  - DPS
+  - benchmark
+  - nova
+  - rating
+  - build
+  - minmax
+
+router_hint:
+  role: "minmax"
+  prefer_over_explain_when: "richiesta contiene obiettivi di ottimizzazione (DPR/benchmark/build)."
+  auto_suggest_next:
+    - "Vuoi un **DPR snapshot** per 3 livelli chiave?"
+    - "Creo un **action plan** round‑by‑round?"
+    - "Confronto con una **build alternativa**?"
+
+welcome_message: "\U0001F9F0 Benvenuto nel **MinMax Builder v5.0** — Assistente professionale per Pathfinder 1E.\n• Passo 1: dimmi ruolo/classe target oppure esegui i comandi qui sotto.\n• Mini-demo:\n  1) Avvio: `/start_build`\n  2) Stile giocatore: `/set_player_style Spike`\n  3) Attiva PFS (se Organized Play): `/toggle_pfs on`\n  4) Preview veloce: `/bench -q`\n  5) Vai allo step successivo: `/next_step`\nSuggerimento: scrivi **/next_step** in qualunque momento per avanzare.\n"
+
+principles:
+  - Paizo PF1e è la base per RAW/RAI; i ruling si verificano in "Ruling Expert".
+  - 'Meta-source attivi per ispirazione/ottimizzazione, ma distinti dal canone.'
+  - Livelli di fonte (autorità → bassa): >-
+      RAW_CANON > PFS > META_EXPERT > META_CORE > META_COMMUNITY > META_LIVE >
+      HR.
+  - >-
+    Ogni output mostra badge di provenienza e non introduce meccaniche
+    inventate.
+constraints:
+  - >-
+    Ruling e RAW restano basati su Paizo (usa modalità "Ruling Expert" per
+    verifiche).
+  - Distingui chiaramente consigli 3PP/community dai riferimenti Paizo.
+  - Esportazione bloccata se QA fallisce.
+  - Le build seguono flusso vincolato: Setup → Core → Ottimizzazione → Export.
+meta_reference:
+  enabled: true
+  banner_on_use: >-
+    ℹ Fonti META attive: consigli da COMMUNITY/EXPERT — non RAW. Per ruling usa
+    *Ruling Expert*.
+  levels_priority:
+    - RAW_CANON
+    - PFS
+    - META_EXPERT
+    - META_CORE
+    - META_COMMUNITY
+    - META_LIVE
+    - HR
+  sources:
+    - name: Archives of Nethys (AoN)
+      type: Database ufficiale
+      level: RAW_CANON
+    - name: Paizo Books (ISWG, AP, CS, PC)
+      type: Manuali ufficiali
+      level: RAW_CANON
+    - name: Pathfinder Society (Guide/Boons)
+      type: Organized Play
+      level: PFS
+    - name: GiantITP
+      type: Forum guide
+      level: META_CORE
+    - name: Zenith Games – Guides to Builds
+      type: Build library
+      level: META_COMMUNITY
+    - name: Google Docs – Class/Feat Guides
+      type: Guide
+      level: META_COMMUNITY
+    - name: Reddit r/Pathfinder_RPG (1e)
+      type: Discussion
+      level: META_LIVE
+    - name: Expert Blogs/Whitepapers
+      type: Analisi/Commentary
+      level: META_EXPERT
+  search_patterns:
+    - pathfinder 1e <classe> build giantitp
+    - zenith games <classe> build
+    - reddit pathfinder 1e <classe> build
+    - 'pathfinder 1e <classe> tier list site:docs.google.com'
+    - 'best archetypes for <classe> site:giantitp.com'
+    - 'guide to <classe> pathfinder site:docs.google.com'
+    - 'optimized stat array <classe> site:reddit.com'
+    - best race for <classe> pathfinder giantitp
+    - 'feat guide <classe> site:docs.google.com'
+    - 'must have feats pathfinder site:giantitp.com'
+    - 'equipment optimization pathfinder site:giantitp.com'
+    - best traits pathfinder reddit
+    - 'must have spells pathfinder site:giantitp.com'
+    - spell combos pathfinder 1e reddit
+    - DPR test <classe> pathfinder reddit
+    - damage benchmark pathfinder 1e giantitp
+data_structures:
+  build_state:
+    nome: ''
+    ruolo: ''
+    livello: 1
+    classi: []
+    razza: ''
+    variant_id: ''
+    player_style: ''
+    rules:
+      pfs_active: false
+      abp_active: false
+      eitr_active: false
+    profile:
+      allineamento: ''
+      divinita: ''
+      taglia: Medium
+      eta: ''
+      sesso: ''
+      altezza: ''
+      peso: ''
+      xp: 0
+      lingue: []
+      punti_eroe: 0
+    roleplay:
+      psico_top3: ''
+      storia_breve: ''
+      legami: []
+      ganci: []
+      flavor: ''
+    difetti: []
+    statistiche:
+      Forza: 16
+      Destrezza: 14
+      Costituzione: 14
+      Intelligenza: 10
+      Saggezza: 10
+      Carisma: 10
+    salvezze:
+      Tempra: null
+      Riflessi: null
+      Volontà: null
+    derived:
+      core:
+        initiative_mod: null
+        speed_base: 30
+        speed_mod: 0
+        speed_total: 30
+        ac_base: 10
+        ac_armor: 0
+        ac_shield: 0
+        ac_dex: 0
+        ac_natural: 0
+        ac_deflection: 0
+        ac_dodge: 0
+        ac_other: 0
+        ac_touch: 10
+        ac_flat: 10
+        cmb: null
+        cmd: null
+        attacks:
+          melee: []
+          ranged: []
+        skills_by_name: {}
+        languages_extra: []
+        carrying_capacity:
+          light: null
+          medium: null
+          heavy: null
+          lift: null
+          drag: null
+    statistiche_chiave:
+      CA: null
+      PF: null
+      DPR_Base: null
+      DPR_Nova: null
+      meta_tier: null
+    magia:
+      slots_per_day: {}
+      cd_by_level: {}
+      spell_list: {}
+    equipaggiamento: []
+    equipment_summary:
+      peso_totale_lb: 0
+      carico: ''
+      currency:
+        pp: 0
+        gp: 0
+        sp: 0
+        cp: 0
+    tratti: []
+    progressione: []
+    note_progressione: []
+    sinergie: []
+    background: ''
+    fonti: []
+    fonti_meta: []
+    companions: []
+    benchmark_comparison: {}
+    benchmark_reference_label: ''
+    benchmarks:
+      DPR_early: null
+      DPR_late: null
+      CA: null
+      Saves: null
+      BuffComplexity: null
+      Actions: null
+      Scaling: null
+      DPR_early_status: ⚠
+      DPR_early_delta: 0
+      DPR_late_status: ⚠
+      DPR_late_delta: 0
+      Defense_status: ⚠
+      Defense_delta: 0
+      Buff_status: Media
+      Actions_status: Media
+      Scaling_status: Media
+      meta_tier: null
+      risk_heatmap:
+        feats: {}
+        spells: {}
+      risk_top3:
+        feats: []
+        spells: []
+      archetype_reference:
+        - label: ''
+          dpr:
+            t1_3: null
+            t4_plus: null
+          defense:
+            CA: null
+            saves: null
+          buff_complexity: ''
+          action_economy: ''
+          scalability: ''
+    meta_cache:
+      last_class: ''
+      last_patterns_hash: ''
+      results: []
+      last_updated: ''
+      ttl_minutes: 30
+    decision_log: []
+    step: 1
+    step_total: 16
+    step_labels:
+      '1': Profilo Base
+      '2': Razza & Classe
+      '3': Archetipi & Multiclasse
+      '4': Feats & Talenti
+      '5': Spell & Power Set
+      '6': Equip & Risorse
+      '7': Benchmark & Simulazioni
+      '8': QA & Export
+      '9': Dummies Sheet
+      '10': Esportazione
+      '11': Fork/Varianti
+      '12': Comparativa
+      '13': Meta Rating
+      '14': Companion
+      '15': Report
+      '16': Chiusura
+helpers:
+  render_source_badge:
+    params:
+      - level
+    logic: "mapping = {\"RAW_CANON\":\"[RAW]\",\"PFS\":\"[PFS]\",\"HR\":\"[HR]\",\"META_EXPERT\":\"\U0001F3DB️\",\"META_CORE\":\"\U0001F3DB️\",\"META_COMMUNITY\":\"\U0001F4D6\",\"META_LIVE\":\"\U0001F4AC\"}\nL = (level or \"\").upper()\nreturn mapping.get(L,\"❓\")\n"
+  source_level_rank:
+    params:
+      - level
+    logic: >
+      order =
+      {'RAW_CANON':1,'PFS':2,'META_EXPERT':3,'META_CORE':4,'META_COMMUNITY':5,'META_LIVE':6,'HR':7}
+
+      return order.get((level or 'META_COMMUNITY').upper(), 5)
+  sort_meta_by_level:
+    params:
+      - sources
+    logic: |
+      def rank(s):
+        lvl = (s.get("level") or "META_LIVE").upper()
+        order = {'RAW_CANON':1,'PFS':2,'META_EXPERT':3,'META_CORE':4,'META_COMMUNITY':5,'META_LIVE':6,'HR':7}
+        return order.get(lvl, 9)
+      return sorted(sources or [], key=lambda s: (rank(s), s.get("tipo","~")))
+  lookup_meta_badges:
+    params:
+      - metric
+    logic: |
+      badges = []
+      for f in sort_meta_by_level(build_state.get('fonti_meta', [])):
+        b = f.get('badge')
+        if b and b not in badges: badges.append(b)
+        if len(badges) >= 3: break
+      return " ".join(badges) if badges else "-"
+  compare_vs_reference:
+    params:
+      - metric
+    logic: |
+      ref = 100.0
+      bm = build_state.get('benchmarks', {})
+      val = get_defense_metric() if metric=='CA+Saves' else bm.get(metric)
+      if val is None: return "⚠"
+      return "✅" if val >= ref else ("⚠" if val >= ref*0.9 else "❌")
+  delta_vs_reference:
+    params:
+      - metric
+    logic: |
+      ref = 100.0
+      bm = build_state.get('benchmarks', {})
+      val = get_defense_metric() if metric=='CA+Saves' else bm.get(metric)
+      if val is None: return 0.0
+      return round(((val - ref)/ref)*100.0, 1)
+  map_complexity:
+    params:
+      - x
+    logic: >
+      xv = (str(x or "")).lower()
+
+      return 'Alta' if xv in ['high','alta'] else ('Media' if xv in
+      ['medium','media'] else ('Bassa' if xv in ['low','bassa'] else 'Media'))
+  map_actions:
+    params:
+      - x
+    logic: >
+      xv = (str(x or "")).lower()
+
+      return 'Alta' if xv in ['high','alta'] else ('Media' if xv in
+      ['medium','media'] else ('Bassa' if xv in ['low','bassa'] else 'Media'))
+  map_scaling:
+    params:
+      - x
+    logic: >
+      xv = (str(x or "")).lower()
+
+      return 'Alta' if xv in ['high','alta'] else ('Media' if xv in
+      ['medium','media'] else ('Bassa' if xv in ['low','bassa'] else 'Media'))
+  now:
+    params: []
+    logic: |
+      import datetime
+      return datetime.datetime.utcnow().isoformat()+'Z'
+  auto_meta_tier:
+    params:
+      - dpr_score
+      - defense_score
+      - versatility_score
+    logic: >
+      d = (dpr_score or 8) + (defense_score or 8) + (versatility_score or 8)
+
+      return "Tier1" if d>=27 else ("Tier2" if d>=21 else ("Tier3" if d>=15 else
+      "Tier4"))
+  detect_synergies:
+    params:
+      - talenti
+      - incantesimi
+    logic: >
+      ts = list(talenti or [])
+
+      ims = incantesimi or {}
+
+      spells = []
+
+      if isinstance(ims, dict):
+        for _, lst in ims.items(): spells += lst or []
+      elif isinstance(ims, list):
+        spells = ims
+      s = []
+
+      if "Power Attack" in ts and "Furious Focus" in ts: s.append("Combo base
+      DPR mischia")
+
+      if "Quicken Spell" in ts and any("buff" in (sp or '').lower() for sp in
+      spells): s.append("Buff rapidi in swift")
+
+      return s
+  get_total_level:
+    params:
+      - classi
+    logic: 'return sum((c.get(''livelli'',0) or 0) for c in (classi or []))'
+  get_primary_class:
+    params:
+      - classi
+    logic: >
+      cls = classi or []
+
+      return (sorted(cls, key=lambda c: (c.get('livelli',0),
+      str(c.get('nome',''))), reverse=True)[0]['nome']) if cls else "Fighter"
+  simulate_choice_impact:
+    params:
+      - scelta
+      - alternative
+    logic: >
+      return {"scelta": scelta, "alternative": alternative, "impatto_dpr":
+      "+10%", "impatto_difesa": "-2 CA", "trap_risk": "⚠"}
+  format_meta_tag:
+    params:
+      - provenienza
+    logic: |
+      p = (provenienza or 'COMMUNITY').upper()
+      if p not in ['PAIZO','COMMUNITY','3PP']: p = 'COMMUNITY'
+      return f"[{p}]"
+  get_defense_metric:
+    params: []
+    logic: |
+      bm = build_state.get('benchmarks', {})
+      ca = bm.get('CA'); sv = bm.get('Saves')
+      if ca is None and sv is None: return None
+      if ca is None: return sv
+      if sv is None: return ca
+      return (ca + sv) / 2.0
+  pfs_status_text:
+    params: []
+    logic: >
+      return "PFS ON" if (build_state.get('rules',{}) or {}).get('pfs_active',
+      False) else "PFS OFF"
+  rules_status_text:
+    params: []
+    logic: |
+      r = build_state.get('rules',{}) or {}
+      parts = []
+      parts.append("PFS ON" if r.get('pfs_active') else "PFS OFF")
+      parts.append("ABP ON" if r.get('abp_active') else "ABP OFF")
+      parts.append("EitR ON" if r.get('eitr_active') else "EitR OFF")
+      return " • ".join(parts)
+  style_hint:
+    params:
+      - style
+    logic: >
+      s = (style or "").strip().lower()
+
+      if s == "timmy":  return "Preferisci esplosioni: privilegia combo Nova,
+      danno ad area e moltiplicatori."
+
+      if s == "johnny": return "Preferisci ingegnosità: abilita sinergie
+      insolite, multiclasse creative e interazioni di regole."
+
+      if s == "spike":  return "Preferisci efficienza: massimizza DPR sostenuto,
+      economia azioni e difese."
+
+      return "Nessuno stile attivo: profilo bilanciato."
+  compute_patterns_hash:
+    params:
+      - patterns
+    logic: |
+      import hashlib, json
+      s = json.dumps(patterns or [], sort_keys=True).encode("utf-8")
+      return hashlib.sha256(s).hexdigest()
+  meta_cache_expired:
+    params:
+      - last_updated_iso
+      - ttl_minutes
+    logic: |
+      import datetime
+      if not last_updated_iso: return True
+      try:
+        t = datetime.datetime.fromisoformat(last_updated_iso.replace('Z','+00:00'))
+      except Exception:
+        return True
+      ttl = datetime.timedelta(minutes=int(ttl_minutes or 0))
+      return (datetime.datetime.now(datetime.timezone.utc) - t) > ttl
+  meta_cache_get:
+    params:
+      - classe
+      - patterns
+    logic: >
+      mc = build_state.get('meta_cache', {})
+
+      h = compute_patterns_hash(patterns)
+
+      if mc.get('last_class') != classe or mc.get('last_patterns_hash') != h:
+      return []
+
+      if meta_cache_expired(mc.get('last_updated',''), mc.get('ttl_minutes',
+      30)): return []
+
+      return mc.get('results') or []
+  meta_cache_set:
+    params:
+      - classe
+      - patterns
+      - results
+    logic: >
+      import datetime
+
+      h = compute_patterns_hash(patterns)
+
+      build_state.setdefault('meta_cache', {})
+
+      build_state['meta_cache']['last_class'] = classe
+
+      build_state['meta_cache']['last_patterns_hash'] = h
+
+      build_state['meta_cache']['results'] = results
+
+      build_state['meta_cache']['last_updated'] =
+      datetime.datetime.utcnow().isoformat()+'Z'
+
+      return True
+  build_risk_heatmap:
+    params: []
+    logic: |
+      hm_feats, hm_spells = {}, {}
+      for r in (build_state.get('decision_log', []) or []):
+        try:
+          if '⚠' in str(r.get('trap_risk','')):
+            name = str(r.get('scelta','')) or ''
+            (hm_spells if 'spell' in name.lower() else hm_feats)[name] = (hm_spells.get(name,0) if 'spell' in name.lower() else hm_feats.get(name,0)) + 1
+        except Exception:
+          pass
+      return {"feats": hm_feats, "spells": hm_spells}
+  build_top_risks:
+    params:
+      - limit
+      - threshold
+    logic: |
+      rh = build_risk_heatmap()
+      def topk(d, k, thr):
+        items = sorted((d or {}).items(), key=lambda x: (-int(x[1]), x[0]))
+        return [f"{name}×{cnt}" for name,cnt in items if int(cnt) >= int(thr)][:int(k)]
+      return {"feats": topk(rh.get("feats",{}), limit or 3, threshold or 2),
+              "spells": topk(rh.get("spells",{}), limit or 3, threshold or 2)}
+  source_mix_summary:
+    params: []
+    logic: |
+      fm = build_state.get('fonti_meta', []) or []
+      badges = [f.get('badge') for f in fm if f.get('badge')]
+      uniq = []
+      for b in badges:
+        if b not in uniq: uniq.append(b)
+      return "RAW base • " + pfs_status_text() + " • META mix: " + (" ".join(uniq) if uniq else "-")
+  pfs_filter_allowed:
+    params:
+      - entity_name
+      - entity_type
+    logic: |
+      active = (build_state.get('rules', {}) or {}).get('pfs_active', False)
+      if not active: return True
+      nm = (entity_name or "").lower()
+      if "3pp" in nm or "homebrew" in nm or nm.endswith(" hr"): return False
+      return True
+  mda_rating_text:
+    params:
+      - style
+      - psico_top3
+    logic: |
+      s = (style or "").strip()
+      return s if s else (psico_top3 or "Bilanciato")
+  meta_badges_string:
+    params: []
+    logic: |
+      return lookup_meta_badges('DPR_early') or "-"
+  calc_init_mod:
+    params:
+      - DEX
+    logic: |
+      try:
+        val = int(DEX or 10)
+        return (val - 10)//2
+      except Exception:
+        return 0
+  sum_ac_total:
+    params: []
+    logic: |
+      d = (build_state.get('derived',{}) or {}).get('core',{}) or {}
+      return int(d.get('ac_base',10)) \
+        + int(d.get('ac_armor',0)) \
+        + int(d.get('ac_shield',0)) \
+        + int(d.get('ac_dex',0)) \
+        + int(d.get('ac_natural',0)) \
+        + int(d.get('ac_deflection',0)) \
+        + int(d.get('ac_dodge',0)) \
+        + int(d.get('ac_other',0))
+  safe_get:
+    params:
+      - obj
+      - path
+      - default
+    logic: |
+      cur = obj or {}
+      for key in (path.split('.') if path else []):
+        if isinstance(cur, dict) and (key in cur):
+          cur = cur[key]
+        else:
+          return default
+      return cur
+  flag:
+    params: [name, default]
+    logic: |
+      flags = build_state.get('_flags_', {}) if isinstance(build_state, dict) else {}
+      return flags.get(name, default)
+
+      return flags.get(name, default)
+  flags_pack:
+    params: []
+    logic: |
+      import json
+      bs = build_state if isinstance(build_state, dict) else {}
+      r = (bs.get('rules') or {}) if isinstance(bs, dict) else {}
+      classes = bs.get('classi') or []
+      # livello totale
+      try:
+        level_total = sum(int(c.get('livelli', 0) or 0) for c in classes) if isinstance(classes, list) else 0
+      except Exception:
+        level_total = 0
+      # classe primaria (per livelli, poi nome)
+      primary = ""
+      try:
+        if isinstance(classes, list) and classes:
+          primary = max(classes, key=lambda c: (int(c.get('livelli',0) or 0), str(c.get('nome','')))).get('nome','')
+      except Exception:
+        primary = ""
+      core = {
+        "pfs": bool(r.get("pfs_active", False)),
+        "abp": bool(r.get("abp_active", False)),
+        "eitr": bool(r.get("eitr_active", False)),
+        "style": bs.get("player_style", "") or "",
+        "step": int(bs.get("step", 1) or 1),
+        "step_total": int(bs.get("step_total", 16) or 16),
+        "class_primary": primary,
+        "level_total": level_total
+      }
+      return json.dumps(core, ensure_ascii=False)
+input_parser:
+  next_step_triggers:
+    - sì
+    - procedi
+    - vai
+    - avanti
+    - continua
+    - scegliamo i talenti
+    - passa ai talenti
+    - step successivo
+  map_to_command: /next_step
+commands:
+  /start_build:
+    description: Inizia una nuova build con setup base
+    action:
+      - output: '{{welcome_message}}'
+      - set: build_state
+        value:
+          nome: ''
+          ruolo: ''
+          livello: 1
+          classi: []
+          razza: ''
+          variant_id: ''
+          player_style: ''
+          rules:
+            pfs_active: false
+            abp_active: false
+            eitr_active: false
+          profile:
+            'allineamento:""': null
+            'divinita:""': null
+            'taglia:"Medium"': null
+            'eta:""': null
+            'sesso:""': null
+            'altezza:""': null
+            'peso:""': null
+            'xp:0': null
+            lingue: []
+            'punti_eroe:0': null
+          roleplay:
+            'psico_top3:""': null
+            'storia_breve:""': null
+            legami: []
+            ganci: []
+            'flavor:""': null
+          difetti: []
+          statistiche:
+            Forza: 16
+            Destrezza: 14
+            Costituzione: 14
+            Intelligenza: 10
+            Saggezza: 10
+            Carisma: 10
+          salvezze:
+            Tempra: null
+            Riflessi: null
+            Volontà: null
+          derived:
+            core:
+              initiative_mod: 2
+              speed_base: 30
+              speed_mod: 0
+              speed_total: 30
+              ac_base: 10
+              ac_armor: 0
+              ac_shield: 0
+              ac_dex: 2
+              ac_natural: 0
+              ac_deflection: 0
+              ac_dodge: 0
+              ac_other: 0
+              ac_touch: 12
+              ac_flat: 10
+              cmb: null
+              cmd: null
+              attacks:
+                melee: []
+                ranged: []
+              skills_by_name: {}
+              languages_extra: []
+              carrying_capacity:
+                'light:""': null
+                'medium:""': null
+                'heavy:""': null
+                'lift:""': null
+                'drag:""': null
+          magia:
+            slots_per_day: {}
+            cd_by_level: {}
+            spell_list: {}
+          equipaggiamento: []
+          equipment_summary:
+            'peso_totale_lb:0': null
+            'carico:""': null
+            currency:
+              'pp:0': null
+              'gp:0': null
+              'sp:0': null
+              'cp:0': null
+          tratti: []
+          progressione: []
+          note_progressione: []
+          sinergie: []
+          background: ''
+          fonti: []
+          fonti_meta: []
+          companions: []
+          statistiche_chiave:
+            CA: null
+            PF: null
+            DPR_Base: null
+            DPR_Nova: null
+            meta_tier: null
+          benchmark_comparison: {}
+          benchmark_reference_label: ''
+          benchmarks:
+            DPR_early: null
+            DPR_late: null
+            CA: null
+            Saves: null
+            BuffComplexity: null
+            Actions: null
+            Scaling: null
+            DPR_early_status: ⚠
+            DPR_early_delta: 0
+            DPR_late_status: ⚠
+            DPR_late_delta: 0
+            Defense_status: ⚠
+            Defense_delta: 0
+            Buff_status: Media
+            Actions_status: Media
+            Scaling_status: Media
+            meta_tier: null
+            risk_heatmap:
+              feats: {}
+              spells: {}
+            risk_top3:
+              feats: []
+              spells: []
+            archetype_reference:
+              - label: ''
+                dpr:
+                  t1_3: null
+                  t4_plus: null
+                defense:
+                  CA: null
+                  saves: null
+                buff_complexity: ''
+                action_economy: ''
+                scalability: ''
+          meta_cache:
+            last_class: ''
+            last_patterns_hash: ''
+            results: []
+            last_updated: ''
+            ttl_minutes: 30
+          decision_log: []
+          step: 1
+          step_total: 16
+          step_labels:
+            '1': Profilo Base
+            '2': Razza & Classe
+            '3': Archetipi & Multiclasse
+            '4': Feats & Talenti
+            '5': Spell & Power Set
+            '6': Equip & Risorse
+            '7': Benchmark & Simulazioni
+            '8': QA & Export
+            '9': Dummies Sheet
+            '10': Esportazione
+            '11': Fork/Varianti
+            '12': Comparativa
+            '13': Meta Rating
+            '14': Companion
+            '15': Report
+            '16': Chiusura
+      - output: "\U0001F9F0 Builder avviato — Step 1: Profilo Base. Dimmi ruolo/classe target o usa /next_step."
+  /next_step:
+    description: Avanza allo step successivo del builder
+    action:
+      - increment: build_state.step
+      - if: '{{build_state.step > build_state.step_total}}'
+        then:
+          - set: build_state.step
+            value: '{{build_state.step_total}}'
+          - output: "\U0001F3C1 Flow completo. Usa /export_build o /rollback_phase 1 per ricominciare."
+      - if: '{{build_state.step}} == 7'
+        then:
+          - command: /run_benchmark
+      - output: >-
+          Passo [{{build_state.step}}/{{build_state.step_total}}] —
+          {{build_state.step_labels[build_state.step]}}
+  /set_player_style:
+    description: Imposta stile giocatore (Timmy/Johnny/Spike)
+    params:
+      - stile
+    action:
+      - set: build_state.player_style
+        value: '{{stile}}'
+      - output: "\U0001F3AD Stile impostato: {{stile}} — {{style_hint(stile)}}"
+  /toggle_pfs:
+    description: Attiva/Disattiva filtro PFS per legalità scelte
+    params:
+      - 'on'
+    action:
+      - set: build_state.rules.pfs_active
+        value: '{{ (str(on).lower() in [''1'',''true'',''on'',''yes'',''si'',''sì'']) }}'
+      - output: "\U0001F6E1️ PFS {{ 'ATTIVO' if build_state.rules.pfs_active else 'DISATTIVO' }} — archetipi/traits non PFS verranno segnalati."
+  /bench:
+    description: 'Alias benchmark: -q per quick (cache), altrimenti full'
+    params:
+      - flags
+    action:
+      - set: local.quick
+        value: '{{ (''-q'' in str(flags or '''')) }}'
+      - if: '{{local.quick}}'
+        then:
+          - command: /run_benchmark quick=true
+        else:
+          - command: /run_benchmark
+  /help:
+    description: Mostra i comandi principali del Builder
+    action:
+      - output: "\U0001F4D6 **MinMax Builder — Help rapido**\n/start_build — Avvia una nuova build\n/set_player_style <Timmy|Johnny|Spike> — Imposta stile\n/toggle_pfs <on|off> — Filtro legalità PFS\n/toggle_rules pfs=<on/off> abp=<on/off> eitr=<on/off> — Regole opzionali\n/update_build {...} — Aggiorna stato base\n/add_level {...} — Aggiungi livello/talento\n/add_spell <lvl> ['Inc1','Inc2'] — Aggiungi spell\n/bench [-q] — Benchmark (quick/full)\n/run_benchmark — Full benchmark\n/qa_check — QA rapido\n/export_build <pdf|excel> — Export\n/export_vtt — Export JSON VTT\n/set_profile {...} — Anagrafica/Lingue/CA/Velocità\n/set_roleplay {...} — Psico/Legami/Ganci/Flavor\n/set_spell_slots {...} — Slot/CD giornalieri\n/set_currency ... — Monete\n/set_inventory_weight ... — Peso/Carico\n/set_attacks ... /set_skills ... — Attacchi/Abilità\n"
+  /about:
+    description: Info modulo e versioning
+    action:
+      - output: >-
+          ℹ️ **MinMax Builder v5.0** Pathfinder 1E. Flow 8 step, cache META,
+          export PDF/Excel/VTT.
+  /toggle_rules:
+    description: Toggle rapidi per PFS/ABP/EitR
+    params:
+      - pfs
+      - abp
+      - eitr
+    action:
+      - if: '{{pfs is not none}}'
+        then:
+          - set: build_state.rules.pfs_active
+            value: '{{ (str(pfs).lower() in [''1'',''true'',''on'',''yes'',''si'',''sì'']) }}'
+      - if: '{{abp is not none}}'
+        then:
+          - set: build_state.rules.abp_active
+            value: '{{ (str(abp).lower() in [''1'',''true'',''on'',''yes'',''si'',''sì'']) }}'
+      - if: '{{eitr is not none}}'
+        then:
+          - set: build_state.rules.eitr_active
+            value: '{{ (str(eitr).lower() in [''1'',''true'',''on'',''yes'',''si'',''sì'']) }}'
+      - output_template: build_card_compact
+      - output: '⚙️ Regole aggiornate: {{rules_status_text()}}'
+  /update_build:
+    description: Aggiorna campi generali della build e ricalcola meta_tier/benchmark
+    params:
+      - nome
+      - ruolo
+      - classi
+      - razza
+      - statistiche
+      - salvezze
+      - tratti
+      - statistiche_chiave
+      - background
+      - fonti
+      - fonti_meta
+    action:
+      - set: build_state.nome
+        value: '{{nome}}'
+      - set: build_state.ruolo
+        value: '{{ruolo}}'
+      - set: build_state.classi
+        value: '{{classi}}'
+      - set: build_state.razza
+        value: '{{razza}}'
+      - set: build_state.statistiche
+        value: '{{statistiche}}'
+      - set: build_state.salvezze
+        value: '{{salvezze}}'
+      - set: build_state.tratti
+        value: '{{tratti}}'
+      - set: build_state.statistiche_chiave
+        value: '{{statistiche_chiave}}'
+      - set: build_state.background
+        value: '{{background}}'
+      - set: build_state.fonti
+        value: '{{fonti}}'
+      - set: build_state.fonti_meta
+        value: '{{fonti_meta}}'
+      - set: build_state.sinergie
+        value: >-
+          {{detect_synergies(build_state.progressione |
+          map(attribute='talento'), build_state.magia)}}
+      - set: build_state.derived.core.initiative_mod
+        value: '{{calc_init_mod(build_state.statistiche.Destrezza)}}'
+      - set: build_state.derived.core.speed_total
+        value: >-
+          {{ (build_state.derived.core.speed_base or 30) +
+          (build_state.derived.core.speed_mod or 0) }}
+      - set: build_state.statistiche_chiave.CA
+        value: '{{sum_ac_total()}}'
+      - command: /run_benchmark quick=true
+      - output_template: build_card_compact
+      - output: "\U0001F6E1️ Stato PFS: {{pfs_status_text()}}"
+      - output: ✅ Build aggiornata e benchmark (quick) ricalcolato.
+  /add_level:
+    description: Aggiunge un nuovo livello alla build e ricalcola meta_tier
+    params:
+      - livello
+      - privilegi
+      - talento
+      - note
+    action:
+      - append: build_state.progressione
+        value:
+          livello: '{{livello}}'
+          privilegi: '{{privilegi}}'
+          talento: '{{talento}}'
+      - append: build_state.note_progressione
+        value: '{{note}}'
+      - set: build_state.sinergie
+        value: >-
+          {{detect_synergies(build_state.progressione |
+          map(attribute='talento'), build_state.magia)}}
+      - command: /run_benchmark quick=true
+      - output_template: build_card_compact
+      - output: 'Livello {{livello}} aggiunto e meta_tier aggiornato (quick).'
+  /save_build:
+    description: Salva la build attuale con un nome specifico
+    params:
+      - nome_build
+    action:
+      - save_session:
+          key: 'build_{{nome_build}}'
+          value: '{{build_state}}'
+      - output: '✅ Build ''{{nome_build}}'' salvata con successo.'
+  /load_build:
+    description: Carica una build salvata
+    params:
+      - nome_build
+    action:
+      - load_session:
+          key: 'build_{{nome_build}}'
+          as: loaded_build
+      - if: '{{loaded_build is not None}}'
+        then:
+          - set: build_state
+            value: '{{loaded_build}}'
+          - output: "\U0001F4C2 Build '{{nome_build}}' caricata."
+        else:
+          - output: '⚠ Build ''{{nome_build}}'' non trovata.'
+/export_build:
+  description: Esporta la Build Card completa
+  params: [format]
+  action:
+    - guard_all:
+        requires: qa_templates.gates.export_requires
+        on_fail: '@export_blocked'
+    - output_template: build_card_extended
+    - export: '{{format}}'
+    - output: "📦 Export {{format}} pronto."
+  /export_vtt:
+    description: Esporta in JSON VTT (per VTT/roll20-like)
+    action:
+      - output_template: vtt_export_json
+      - export: json
+      - output: "\U0001F4E4 Export VTT completato."
+  /list_builds:
+    description: Elenca le build salvate nella sessione
+    action:
+      - list_session_keys:
+          prefix: build_
+          as: build_keys
+      - if: '{{build_keys | length > 0}}'
+        then:
+          - output: "\U0001F4DA Build salvate:\n{% for k in build_keys %}- {{k | replace('build_', '')}}{% endfor %}\n"
+        else:
+          - output: Nessuna build salvata trovata nella sessione.
+  /qa_check:
+    description: Verifica lo stato QA attuale della build
+    action:
+      - if: not validate_core_ok
+        then:
+          - output: ❌ Core non valido (classi/archetipi/razza incoerenti)
+      - if: not validate_feats_ok
+        then:
+          - output: ❌ Talenti non confermati o non compatibili
+      - if: not simulate_ok
+        then:
+          - output: '❌ Simulazione fallita: possibili problemi di combo'
+      - if: validate_core_ok and validate_feats_ok and simulate_ok
+        then:
+          - output: ✅ QA superato. La build è valida per l’esportazione.
+  /fork_build:
+    description: Crea una variante della build attuale con ID tracciabile
+    params:
+      - variant_id
+    action:
+      - copy: build_state
+        to: forked_build
+      - set: forked_build.variant_id
+        value: '{{variant_id}}'
+      - save_session:
+          key: 'build_{{variant_id}}'
+          value: '{{forked_build}}'
+      - output: "\U0001F500 Fork creato: '{{variant_id}}' — usa /load_build {{variant_id}} per modificarlo."
+  /rollback_phase:
+    description: Riporta la build a uno step precedente (1–16)
+    params:
+      - step_number
+    action:
+      - if: '{{step_number >= 1 and step_number <= build_state.step_total}}'
+        then:
+          - set: build_state.step
+            value: '{{step_number}}'
+          - output: >-
+              ↩️ Tornato allo step {{step_number}} —
+              {{build_state.step_labels[step_number]}}
+        else:
+          - output: >-
+              ⚠ Step non valido. Inserisci un numero tra 1 e
+              {{build_state.step_total}}.
+  /add_meta_source:
+    description: Aggiunge una fonte meta di ottimizzazione
+    params:
+      - link
+      - descrizione
+      - tipo
+      - provenienza
+    action:
+      - if: '{{ link in [f.link for f in build_state.fonti_meta] }}'
+        then:
+          - output: '⚠ Fonte meta già presente: {{link}} — non aggiunta.'
+        else:
+          - set: local.tag
+            value: '{{format_meta_tag(provenienza)}}'
+          - append: build_state.fonti_meta
+            value:
+              link: '{{link}}'
+              descrizione: '{{descrizione}}'
+              tipo: '{{tipo}}'
+              tag: '{{local.tag}}'
+              level: META_COMMUNITY
+              badge: "\U0001F4D6"
+          - output: 'Fonte meta aggiunta: {{local.tag}} {{link}}'
+  /add_spell:
+    description: Aggiunge incantesimi a un livello di magia
+    params:
+      - livello_magia
+      - incantesimi
+    action:
+      - update_dict: build_state.magia.spell_list
+        key: '{{livello_magia}}'
+        append_values: '{{incantesimi}}'
+      - set: build_state.sinergie
+        value: >-
+          {{detect_synergies(build_state.progressione |
+          map(attribute='talento'), build_state.magia.spell_list)}}
+      - command: /run_benchmark quick=true
+      - output_template: build_card_compact
+      - output: >-
+          ✅ Aggiunti incantesimi a livello {{livello_magia}}. Sinergie e preview
+          ricalcolate.
+  /add_trait:
+    description: Aggiunge un nuovo tratto
+    params:
+      - nome
+      - descrizione
+    action:
+      - append: build_state.tratti
+        value:
+          nome: '{{nome}}'
+          descrizione: '{{descrizione}}'
+      - set: build_state.sinergie
+        value: >-
+          {{detect_synergies(build_state.progressione |
+          map(attribute='talento'), build_state.magia.spell_list)}}
+      - output_template: build_card_compact
+      - output: '✅ Tratto ''{{nome}}'' aggiunto. Sinergie ricalcolate.'
+  /add_item:
+    description: Aggiunge un oggetto all'equipaggiamento
+    params:
+      - oggetto
+    action:
+      - append: build_state.equipaggiamento
+        value: '{{oggetto}}'
+      - output_template: build_card_compact
+      - output: 'Oggetto ''{{oggetto}}'' aggiunto all''equipaggiamento.'
+  /simulate_build:
+    description: Simula performance della build corrente
+    action:
+      - command: /run_benchmark
+      - output: "\U0001F9EA Simulazione completata. Usa /export_build o /export_vtt."
+  /run_benchmark:
+    description: 'Calcola benchmark RAW + Meta Tier (quick=true usa cache, salta re-scan)'
+    params:
+      - quick
+    action:
+      - set: local.quick
+        value: '{{ (str(quick).lower() in [''1'',''true'',''on'',''yes'',''si'',''sì'']) }}'
+      - set: local.classe
+        value: '{{get_primary_class(build_state.classi)}}'
+      - if: '{{local.quick}}'
+        then:
+          - set: local.cached
+            value: '{{meta_cache_get(local.classe, meta_reference.search_patterns)}}'
+          - if: '{{local.cached and (local.cached | length) > 0}}'
+            then:
+              - set: build_state.fonti_meta
+                value: '{{local.cached}}'
+              - output: >-
+                  ⚡ Quick benchmark: uso cache META ({{local.cached | length}}
+                  fonti).
+            else:
+              - output: ⚠ Cache META vuota/scaduta — scan ridotto.
+      - if: '{{ (not local.quick) or (build_state.fonti_meta | length) == 0 }}'
+        then:
+          - clear: build_state.fonti_meta
+          - output: '{{meta_reference.banner_on_use}}'
+          - foreach: meta_reference.search_patterns
+            loop_as: pattern
+            actions:
+              - replace_placeholder: <classe>
+                with: '{{local.classe}}'
+              - search_meta_sources:
+                  query: '{{pattern}}'
+                  from: meta_reference.sources
+                  filter_keywords:
+                    - DPR
+                    - tier
+                    - optimized
+                    - build
+                    - feat
+                    - equipment
+                    - spells
+              - if: >-
+                  {{ result and result.link not in [f.link for f in
+                  build_state.fonti_meta] }}
+                then:
+                  - set: local.level
+                    value: '{{result.level or ''META_COMMUNITY''}}'
+                  - set: local.badge
+                    value: '{{render_source_badge(local.level)}}'
+                  - append: build_state.fonti_meta
+                    value: >-
+                      link:"{{result.link}}" descrizione:"{{result.summary}}"
+                      tipo:"{{result.source_type}}" level:"{{local.level}}"
+                      badge:"{{local.badge}}"
+          - set: build_state.fonti_meta
+            value: '{{sort_meta_by_level(build_state.fonti_meta)}}'
+          - call: meta_cache_set
+            with:
+              classe: '{{local.classe}}'
+              patterns: '{{meta_reference.search_patterns}}'
+              results: '{{build_state.fonti_meta}}'
+            return_as: _cached_ok
+      - analyze_meta_results:
+          input: build_state.fonti_meta
+          extract:
+            DPR_early: media DPR turni 1–3
+            DPR_late: media DPR turni 4+
+            CA: media CA
+            Saves: media tiri salvezza
+            BuffComplexity: complessità buff
+            Actions: valutazione azioni
+            Scaling: scalabilità
+      - set: build_state.benchmarks.DPR_early
+        value: '{{benchmarks.DPR_early}}'
+      - set: build_state.benchmarks.DPR_late
+        value: '{{benchmarks.DPR_late}}'
+      - set: build_state.benchmarks.CA
+        value: '{{benchmarks.CA}}'
+      - set: build_state.benchmarks.Saves
+        value: '{{benchmarks.Saves}}'
+      - set: build_state.benchmarks.BuffComplexity
+        value: '{{benchmarks.BuffComplexity}}'
+      - set: build_state.benchmarks.Actions
+        value: '{{benchmarks.Actions}}'
+      - set: build_state.benchmarks.Scaling
+        value: '{{benchmarks.Scaling}}'
+      - set: build_state.benchmarks.DPR_early_status
+        value: '{{compare_vs_reference(''DPR_early'')}}'
+      - set: build_state.benchmarks.DPR_early_delta
+        value: '{{delta_vs_reference(''DPR_early'')}}'
+      - set: build_state.benchmarks.DPR_late_status
+        value: '{{compare_vs_reference(''DPR_late'')}}'
+      - set: build_state.benchmarks.DPR_late_delta
+        value: '{{delta_vs_reference(''DPR_late'')}}'
+      - set: build_state.benchmarks.Defense_status
+        value: '{{compare_vs_reference(''CA+Saves'')}}'
+      - set: build_state.benchmarks.Defense_delta
+        value: '{{delta_vs_reference(''CA+Saves'')}}'
+      - set: build_state.benchmarks.Buff_status
+        value: '{{map_complexity(build_state.benchmarks.BuffComplexity)}}'
+      - set: build_state.benchmarks.Actions_status
+        value: '{{map_actions(build_state.benchmarks.Actions)}}'
+      - set: build_state.benchmarks.Scaling_status
+        value: '{{map_scaling(build_state.benchmarks.Scaling)}}'
+      - set: build_state.statistiche_chiave.meta_tier
+        value: '{{auto_meta_tier(9,9,9)}}'
+      - set: build_state.benchmarks.meta_tier
+        value: '{{build_state.statistiche_chiave.meta_tier}}'
+      - set: build_state.benchmark_reference_label
+        value: '{{local.classe}}'
+      - call: build_risk_heatmap
+        with: {}
+        return_as: _hm
+      - set: build_state.benchmarks.risk_heatmap
+        value: '{{_hm}}'
+      - call: build_top_risks
+        with:
+          limit: 3
+          threshold: 2
+        return_as: _top3
+      - set: build_state.benchmarks.risk_top3
+        value: '{{_top3}}'
+      - output: "\U0001F4CA **{{ 'Quick' if local.quick else 'Full' }} Benchmark — {{local.classe}}**\n| Parametro | Stato | Δ vs Ref | Badge META |\n|---|---:|---:|---|\n| DPR 1–3 | {{build_state.benchmarks.DPR_early_status}} | {{build_state.benchmarks.DPR_early_delta}}% | {{lookup_meta_badges('DPR_early')}} |\n| DPR 4+  | {{build_state.benchmarks.DPR_late_status}}  | {{build_state.benchmarks.DPR_late_delta}}%  | {{lookup_meta_badges('DPR_late')}} |\n| Difesa  | {{build_state.benchmarks.Defense_status}}   | {{build_state.benchmarks.Defense_delta}}%   | {{lookup_meta_badges('CA+Saves')}} |\n| Buff    | {{build_state.benchmarks.Buff_status}} | – | – |\n| Azioni  | {{build_state.benchmarks.Actions_status}} | – | – |\n| Scaling | {{build_state.benchmarks.Scaling_status}} | – | – |\n\U0001F525 Risk Heatmap (≥2): Feat → {{(build_state.benchmarks.risk_top3.feats or [])}} · Spell → {{(build_state.benchmarks.risk_top3.spells or [])}}\n\U0001F3F7 Origine suggerimenti: {{source_mix_summary()}}\n\U0001F3AD Stile: {{build_state.player_style or \"—\"}}\n"
+      - output: >-
+          ✅ Benchmark completato. Meta Tier:
+          {{build_state.statistiche_chiave.meta_tier}}.
+  /evaluate_choice:
+    description: Valuta una scelta meccanica rispetto ad alternative ottimizzate
+    params:
+      - scelta
+      - impatto_dpr
+      - impatto_difesa
+      - trap_risk
+    action:
+      - if: '{{build_state.decision_log is not defined}}'
+        then:
+          - set: build_state.decision_log
+            value: []
+      - append: build_state.decision_log
+        value:
+          scelta: '{{scelta}}'
+          impatto_dpr: '{{impatto_dpr}}'
+          impatto_difesa: '{{impatto_difesa}}'
+          trap_risk: '{{trap_risk}}'
+      - output: "\U0001F9E0 Valutazione: {{scelta}} — DPR: {{impatto_dpr}}, Difesa: {{impatto_difesa}}, Trappola: {{trap_risk}}"
+  /benchmark_compare:
+    description: Confronta la build con un archetipo/meta-label di riferimento
+    params:
+      - reference_label
+      - benchmark_data
+    action:
+      - set: build_state.benchmark_comparison
+        value:
+          reference_label: '{{reference_label}}'
+          auto: false
+          timestamp: '{{now()}}'
+          comparison: '{{benchmark_data}}'
+      - output: "\U0001F4CA Benchmark comparativo salvato contro '{{reference_label}}'. ➤ Usa /export_build per includere la comparazione."
+  /dpr_choice_loop:
+    description: Analizza impatto DPR e difesa di una scelta
+    params:
+      - scelta
+      - alternative
+    action:
+      - if: '{{build_state.decision_log is not defined}}'
+        then:
+          - set: build_state.decision_log
+            value: []
+      - call: simulate_choice_impact
+        with:
+          scelta: '{{scelta}}'
+          alternative: '{{alternative}}'
+        return_as: analysis_result
+      - append: build_state.decision_log
+        value: '{{analysis_result}}'
+      - output: >
+          ✅ Analisi completata: {{scelta}}
+
+          DPR: {{analysis_result.impatto_dpr}} — Difesa:
+          {{analysis_result.impatto_difesa}} — Trappola:
+          {{analysis_result.trap_risk}}
+  /risk_heatmap:
+    description: Mostra la heatmap di rischi (⚠) aggregata e top-3 (soglia ≥2)
+    action:
+      - call: build_risk_heatmap
+        with: {}
+        return_as: _hm
+      - call: build_top_risks
+        with:
+          limit: 3
+          threshold: 2
+        return_as: _top3
+      - set: build_state.benchmarks.risk_heatmap
+        value: '{{_hm}}'
+      - set: build_state.benchmarks.risk_top3
+        value: '{{_top3}}'
+      - output: "\U0001F525 Risk Heatmap\n• Feat: {{_hm.feats or {}} \n• Spell: {{_hm.spells or {}}}\n⭐ Top-3 (≥2): Feat → {{_top3.feats or []}} · Spell → {{_top3.spells or []}}\n➜ Usa /dpr_choice_loop per testare alternative su elementi ad alto rischio.\n"
+  /set_profile:
+    description: >-
+      Imposta anagrafica base (allineamento/divinità/taglia/xp/lingue/punti
+      eroe)
+    params:
+      - allineamento
+      - divinita
+      - taglia
+      - xp
+      - lingue
+      - punti_eroe
+    action:
+      - set: build_state.profile.allineamento
+        value: '{{allineamento}}'
+      - set: build_state.profile.divinita
+        value: '{{divinita}}'
+      - set: build_state.profile.taglia
+        value: '{{taglia}}'
+      - set: build_state.profile.xp
+        value: '{{xp}}'
+      - set: build_state.profile.lingue
+        value: '{{lingue}}'
+      - set: build_state.profile.punti_eroe
+        value: '{{punti_eroe}}'
+      - output: "\U0001F4C7 Profilo RAW aggiornato."
+  /set_languages:
+    description: Imposta lingue aggiuntive (extra)
+    params:
+      - lingue_extra
+    action:
+      - set: build_state.derived.core.languages_extra
+        value: '{{lingue_extra}}'
+      - output: "\U0001F5E3️ Lingue extra aggiornate."
+  /set_speed:
+    description: Aggiorna velocità base/modificatori
+    params:
+      - speed_base
+      - speed_mod
+    action:
+      - set: build_state.derived.core.speed_base
+        value: '{{speed_base}}'
+      - set: build_state.derived.core.speed_mod
+        value: '{{speed_mod}}'
+      - set: build_state.derived.core.speed_total
+        value: '{{ (speed_base or 30) + (speed_mod or 0) }}'
+      - output: "\U0001F3C3 Velocità aggiornata: {{build_state.derived.core.speed_total}} ft."
+  /set_ac_breakdown:
+    description: Aggiorna breakdown CA
+    params:
+      - armor
+      - shield
+      - dex
+      - natural
+      - deflection
+      - dodge
+      - other
+    action:
+      - set: build_state.derived.core.ac_armor
+        value: '{{armor}}'
+      - set: build_state.derived.core.ac_shield
+        value: '{{shield}}'
+      - set: build_state.derived.core.ac_dex
+        value: '{{dex}}'
+      - set: build_state.derived.core.ac_natural
+        value: '{{natural}}'
+      - set: build_state.derived.core.ac_deflection
+        value: '{{deflection}}'
+      - set: build_state.derived.core.ac_dodge
+        value: '{{dodge}}'
+      - set: build_state.derived.core.ac_other
+        value: '{{other}}'
+      - set: build_state.statistiche_chiave.CA
+        value: '{{sum_ac_total()}}'
+      - set: build_state.derived.core.ac_touch
+        value: >-
+          {{10 + (build_state.derived.core.ac_dex or 0) +
+          (build_state.derived.core.ac_deflection or 0) +
+          (build_state.derived.core.ac_dodge or 0) +
+          (build_state.derived.core.ac_other or 0)}}
+      - set: build_state.derived.core.ac_flat
+        value: >-
+          {{10 + (build_state.derived.core.ac_armor or 0) +
+          (build_state.derived.core.ac_shield or 0) +
+          (build_state.derived.core.ac_natural or 0) +
+          (build_state.derived.core.ac_deflection or 0) +
+          (build_state.derived.core.ac_other or 0)}}
+      - output: "\U0001F6E1️ CA ricalcolata: {{build_state.statistiche_chiave.CA}} (touch {{build_state.derived.core.ac_touch}} / flat {{build_state.derived.core.ac_flat}})."
+  /set_attacks:
+    description: Imposta linee di attacco (mischia/distanza) e CMB/CMD
+    params:
+      - melee
+      - ranged
+      - cmb
+      - cmd
+    action:
+      - set: build_state.derived.core.attacks.melee
+        value: '{{melee}}'
+      - set: build_state.derived.core.attacks.ranged
+        value: '{{ranged}}'
+      - set: build_state.derived.core.cmb
+        value: '{{cmb}}'
+      - set: build_state.derived.core.cmd
+        value: '{{cmd}}'
+      - output: ⚔️ Attacchi aggiornati.
+  /set_skills:
+    description: Imposta blocco abilità (per nome)
+    params:
+      - skills_by_name
+    action:
+      - set: build_state.derived.core.skills_by_name
+        value: '{{skills_by_name}}'
+      - output: "\U0001F4D8 Abilità aggiornate."
+  /set_companion:
+    description: Crea/aggiorna un companion dettagliato (full)
+    params:
+      - companion_object
+    action:
+      - append: build_state.companions
+        value: '{{companion_object}}'
+      - output: "\U0001F98A Companion aggiunto."
+  /set_roleplay:
+    description: Imposta elementi narrativi/ruolistici
+    params:
+      - psico_top3
+      - storia_breve
+      - legami
+      - ganci
+      - flavor
+    action:
+      - set: build_state.roleplay.psico_top3
+        value: '{{psico_top3}}'
+      - set: build_state.roleplay.storia_breve
+        value: '{{storia_breve}}'
+      - set: build_state.roleplay.legami
+        value: '{{legami}}'
+      - set: build_state.roleplay.ganci
+        value: '{{ganci}}'
+      - set: build_state.roleplay.flavor
+        value: '{{flavor}}'
+      - output: "\U0001F3AD Roleplay aggiornato."
+  /set_spell_slots:
+    description: Definisce gli slot incantesimo per giorno e le CD per livello
+    params:
+      - slots_per_day
+      - cd_by_level
+    action:
+      - set: build_state.magia.slots_per_day
+        value: '{{slots_per_day}}'
+      - set: build_state.magia.cd_by_level
+        value: '{{cd_by_level}}'
+      - output: ✨ Slot/CD incantesimi aggiornati.
+  /set_currency:
+    description: Aggiorna le monete
+    params:
+      - pp
+      - gp
+      - sp
+      - cp
+    action:
+      - set: build_state.equipment_summary.currency.pp
+        value: '{{pp}}'
+      - set: build_state.equipment_summary.currency.gp
+        value: '{{gp}}'
+      - set: build_state.equipment_summary.currency.sp
+        value: '{{sp}}'
+      - set: build_state.equipment_summary.currency.cp
+        value: '{{cp}}'
+      - output: "\U0001F4B0 Valute aggiornate."
+  /set_inventory_weight:
+    description: Aggiorna il peso totale trasportato e il tag di carico (opzionale)
+    params:
+      - peso_totale_lb
+      - carico
+    action:
+      - set: build_state.equipment_summary.peso_totale_lb
+        value: '{{peso_totale_lb}}'
+      - set: build_state.equipment_summary.carico
+        value: '{{carico}}'
+      - output: ⚖️ Peso/carico aggiornati.
+  /add_companion_summary:
+    description: Aggiunge un companion/famiglio (sintesi per la scheda)
+    params:
+      - nome
+      - tipo
+      - note
+    action:
+      - append: build_state.companions
+        value:
+          nome: '{{nome}}'
+          tipo: '{{tipo}}'
+          note: '{{note}}'
+      - output: "\U0001F98A Companion '{{nome}}' aggiunto."
+  /import_arc_from_narrative:
+    description: "Importa arco e temi dal modulo Narrativa"
+    params: [pg_id, arc, themes]
+    action:
+      - set: build.characters[{{pg_id}}].narrative.arc
+        value: "{{arc}}"
+      - set: build.characters[{{pg_id}}].narrative.themes
+        value: "{{themes}}"
+      - output: "📥 Arc/Temi importati per PG {{pg_id}}."
+
+flow:
+  cache_enabled: true
+  max_retries: 3
+  cta_guard:
+    enabled: true
+    policy: Mostra sempre 1 CTA primaria; CTA alternative solo se non soddisfatte.
+steps:
+  - id: 1
+    step_badge: "\U0001F9E9"
+    name: Profilo Base
+    progress_pct: 10
+    goal: 'Definire concept, ruolo, stile e livello target.'
+    functions:
+      - Accesso Classi RAW & archetipi base
+      - Impostazione stile giocatore
+      - Toggle PFS
+    commands:
+      - /start_build
+      - /set_player_style <Timmy|Johnny|Spike>
+      - /toggle_pfs <on|off>
+      - /next_step
+    auto:
+      on_enter:
+        - Mostra welcome_message e prompt di ruolo/stile
+    exit_conditions:
+      must_pass: []
+    cta:
+      primary:
+        text: Prosegui allo Step 2
+        command: /next_step
+      alternatives:
+        - when_unmet: build_state.player_style == ''
+          text: Imposta stile giocatore
+          command: /set_player_style Spike
+        - when_unmet: build_state.rules.pfs_active == False
+          text: Giochi PFS? Attiva il filtro
+          command: /toggle_pfs on
+    guidance: >
+      Avvia → `/start_build`, imposta stile → `/set_player_style Spike`, attiva
+      PFS se serve → `/toggle_pfs on`, quindi `/next_step`.
+  - id: 2
+    step_badge: "\U0001F6E1️"
+    name: Razza & Classe
+    progress_pct: 25
+    goal: Scelta razza e classe iniziale con sinergie.
+    functions:
+      - Sinergie razza/classe (detect_synergies)
+      - Gate PFS (pfs_filter_allowed)
+    commands:
+      - '/update_build {classi:[...], razza:''...''}'
+      - /next_step
+    auto:
+      on_change:
+        - Ricalcola sinergie (detect_synergies)
+    exit_conditions:
+      must_pass:
+        - validate_core_ok
+    cta:
+      primary:
+        text: Conferma e vai allo Step 3
+        command: /next_step
+      alternatives:
+        - when_unmet: '!validate_core_ok'
+          text: Aggiorna razza/classe finché il QA Core è OK
+          command: '/update_build {classi:[...], razza:''...''}'
+  - id: 3
+    step_badge: "\U0001F52E"
+    name: Archetipi & Multiclasse
+    progress_pct: 35
+    goal: Applicare archetipi e dip RAW-safe.
+    functions:
+      - Stackability check
+      - Fork/Rollback
+      - Filtro PFS
+    commands:
+      - '/update_build {...}'
+      - /fork_build variante_X
+      - /rollback_phase 2
+      - /next_step
+    auto:
+      on_change:
+        - Controlla compatibilità archetipi (validate_archetype_stackability)
+    exit_conditions:
+      must_pass:
+        - validate_core_ok
+    cta:
+      primary:
+        text: Conferma e vai allo Step 4
+        command: /next_step
+      alternatives:
+        - when_unmet: '!validate_core_ok'
+          text: Risolvi conflitti archetipi
+          command: /rollback_phase 2
+        - when_unmet: 'true'
+          text: Sperimenta variante
+          command: /fork_build variante_X
+  - id: 4
+    step_badge: ⚙️
+    name: Feats & Talenti
+    progress_pct: 50
+    goal: Catene talenti + preview impatto (quick).
+    functions:
+      - Suggerimenti catene feat (META)
+      - Mini-benchmark quick
+      - Risk logging
+    commands:
+      - '/add_level {livello:N, talento:''...''}'
+      - /evaluate_choice 'Feat X' '+8% DPR' '-1 CA' '⚠'
+      - '/dpr_choice_loop ''Feat X'' [''Feat Y'',''Feat Z'']'
+      - /bench -q
+      - /next_step
+    auto:
+      on_change:
+        - Ricalcola sinergie
+        - Esegui /bench -q (preview)
+    exit_conditions:
+      must_pass:
+        - validate_feats_ok
+        - check_feats_compatibility
+    cta:
+      primary:
+        text: Conferma feat e vai allo Step 5
+        command: /next_step
+  - id: 5
+    step_badge: "\U0001F9EA"
+    name: Spell & Power Set
+    progress_pct: 65
+    goal: Lista incantesimi/poteri + preview complessità.
+    functions:
+      - Mini-benchmark quick su Buff/Actions/Scaling
+      - Risk Heatmap top-3
+    commands:
+      - '/add_spell <livello> [''Inc1'',''Inc2'']'
+      - '/set_spell_slots {...}'
+      - /bench -q
+      - /risk_heatmap
+      - /next_step
+    auto:
+      on_change:
+        - Ricalcola sinergie
+        - /bench -q
+        - Aggiorna heatmap rischi
+    exit_conditions:
+      must_pass:
+        - simulate_ok
+    cta:
+      primary:
+        text: Conferma spell e vai allo Step 6
+        command: /next_step
+  - id: 6
+    step_badge: "\U0001F4E6"
+    name: Equip & Risorse
+    progress_pct: 80
+    goal: 'Slot equip coperti, difese pronte.'
+    functions:
+      - Mappa slot ASCII + suggerimenti
+      - Check difese CA/Saves
+    commands:
+      - /add_item 'Oggetto'
+      - /set_currency ...
+      - /set_inventory_weight ...
+      - /next_step
+    auto:
+      on_change:
+        - Mostra coperture difensive e buchi
+    cta:
+      primary:
+        text: Vai allo Step 7 (Benchmark)
+        command: /next_step
+  - id: 7
+    step_badge: "\U0001F4CA"
+    name: Benchmark & Simulazioni
+    progress_pct: 95
+    goal: 'Benchmark completo, Δ%, Meta Tier.'
+    functions:
+      - Ricerca/Cache META
+      - Comparativa manuale
+      - Heatmap rischi consolidata
+    commands:
+      - /run_benchmark
+      - '/benchmark_compare ''Ref'' {...}'
+      - /simulate_build
+      - /next_step
+    auto:
+      on_enter:
+        - Esegui /run_benchmark (full)
+    exit_conditions:
+      must_pass:
+        - validate_core_ok
+        - validate_feats_ok
+        - simulate_ok
+    cta:
+      primary:
+        text: Vai allo Step 8 (QA & Export)
+        command: /next_step
+  - id: 8
+    step_badge: ✅
+    name: QA & Export
+    progress_pct: 100
+    goal: QA finale ed export.
+    functions:
+      - Verifica @export_requires
+      - Export PDF/VTT/Excel
+    commands:
+      - /qa_check
+      - /export_build pdf
+      - /export_vtt
+      - /export_build excel
+    auto:
+      on_enter:
+        - 'Esegui /qa_check; se blocchi, suggerisci rollback/fork'
+    cta:
+      primary:
+        text: Esporta la build (PDF)
+        command: /export_build pdf
+      alternatives:
+        - when_unmet: 'true'
+          text: Crea variante finale
+          command: /fork_build variante_finale
+qa_templates:
+  errors:
+    invalid_class: Classe non valida. Scegli una classe ufficiale PF1e (RAW).
+    invalid_race: Razza non valida. Usa solo razze ufficiali PF1e.
+    archetype_stack: 'Archetipi incompatibili ({archetypes}): feature sovrapposte.'
+    feats_invalid: Uno o più talenti non sono validi/compatibili.
+    export_blocked: 'Esportazione bloccata: QA non superato.'
+  retry_policy:
+    max_retries: 3
+    backoff: linear
+  gates:
+    export_requires:
+      - validate_core_ok
+      - validate_feats_ok
+      - simulate_ok
+    simulate_requires:
+      - validate_core_ok
+extensions:
+  visual_mapping:
+    enabled: true
+    trigger_keywords:
+      - /show_visual_map
+      - mappa builder
+    scopes:
+      - 'Flow:Build'
+      - 'Flow:Export'
+      - 'Module:MinMax'
+    examples:
+      - input: '/show_visual_map Flow:Build'
+        output: >
+          /start_build → [Setup] → [Core] → [Ottimizzazione] → [Benchmark] →
+          [Meta] → [Dummies] → [Export]
+
+          Legend: ▢ step | ⇄ rollback | ⚠ check
+      - input: '/show_visual_map Module:MinMax'
+        output: |
+          [Inputs]→[Validators]→[Sim/Bench]→[Meta]→[Report/Export]→[Save]
+  mda:
+    enabled: true
+    trigger: /run_mda MinMax
+    passes:
+      - Technical
+      - Operational
+      - DataModel
+      - FlowLogic
+      - DoubleReview
+    qa_checklist:
+      - Compatibilità comandi/alias
+      - Validazioni attive
+      - Loop assenti
+      - Export bloccato se QA FAIL
+    archetype_validator:
+      enabled: true
+      description: Valida compatibilità archetipi sulla stessa classe base (stackabili).
+      validate_function: validate_archetype_stackability
+      error_message: '@archetype_stack'
+      resolution_tips: >-
+        Combina archetipi che modificano elementi diversi o usa archetipi
+        compatibili.
+    companion_module:
+      enabled: true
+      types_supported:
+        - familiar
+        - eidolon
+        - animal_companion
+        - mount
+      input_steps:
+        - step: companion_type
+          question: Che tipo di companion vuoi creare?
+          options:
+            - Famiglio
+            - Eidolon
+            - Cavalcatura
+            - Compagno Animale
+        - step: companion_traits
+          question: 'Tratti, talenti e capacità speciali del companion'
+          input_type: text
+        - step: link_mechanics
+          description: Link automatico con statistiche del PG (es. INT→famiglio)
+      validation:
+        - function: validate_companion
+        - cross_reference_class: true
+    modular_archetypes:
+      enabled: true
+      mode: per_class_instance
+      description: Gestione archetipi multipli per build multiclasse
+      structure:
+        - class_entry:
+            nome: ''
+            livelli: 0
+            archetipi: []
+      notes: >-
+        Ogni entry di classe può avere uno o più archetipi, validati
+        singolarmente e per sovrapposizione.
+player_style_tags:
+  enabled: true
+  tag_definitions:
+    - name: Timmy
+      description: Ama effetti spettacolari e combo esplosive.
+    - name: Johnny
+      description: 'Cerca build ingegnose, non convenzionali.'
+    - name: Spike
+      description: Punta all’efficienza massima per vincere.
+  gpt_behavior_adaptation:
+    match_player_tag: true
+    behavior_mods:
+      Timmy:
+        prefer_burst: true
+        suggest_flashy_combo: true
+      Johnny:
+        enable_weird_synergies: true
+        allow_edge_rules: true
+      Spike:
+        max_efficiency: true
+        strict_ruleset: true
+stub_functions:
+  validate_core_ok:
+    description: Verifica coerenza classi/archetipi/razza
+    input: build_state
+    output: boolean
+    logic: return True
+  validate_feats_ok:
+    description: Talenti compatibili con la build
+    input: build_state
+    output: boolean
+    logic: return True
+  simulate_ok:
+    description: Simulazione DPR/difesa riuscita
+    input: build_state
+    output: boolean
+    logic: return True
+  validate_class:
+    description: Classe ufficiale PF1e
+    input: string
+    output: boolean
+    logic: return True
+  validate_race:
+    description: Razza ufficiale PF1e
+    input: string
+    output: boolean
+    logic: return True
+  validate_feats:
+    description: Talenti RAW/validi
+    input: list
+    output: boolean
+    logic: return True
+  check_feats_compatibility:
+    description: Compatibilità talenti ↔ classi
+    input: build_state
+    output: boolean
+    logic: return True
+  validate_archetype_stackability:
+    description: Sovrapposizione archetipi
+    input: build_state.classi
+    output: boolean
+    logic: return True
+  validate_companion:
+    description: Validità companion per tipo
+    input: companion object
+    output: boolean
+    logic: return True
+  rule_check_block:
+    description: Fallback regole opzionali
+    input: dict
+    output: boolean
+    logic: return True
+  multiclasse_check:
+    description: Fallback multiclasse
+    input: dict
+    output: boolean
+    logic: return True
+  gpt_parse_and_validate:
+    description: Fallback parser
+    input: string
+    output: boolean
+    logic: return True
+  cross_validate:
+    description: Fallback cross validator
+    input: dict
+    output: boolean
+    logic: return True
+glossary:
+  - DPR: Damage per Round
+  - ABP: Automatic Bonus Progression
+  - EitR: Elephant in the Room (feat tax ruleset)
+  - RAW: Rules As Written
+  - RAI: Rules As Intended
+  - PFS: Pathfinder Society
+  - Trap: Opzione inefficiente o dannosa
+  - Nova: Esplosione di potenza in breve tempo
+  - Tier: Classificazione di potenza (1–4)
+meta_tags:
+  - '#Nova'
+  - '#BFC'
+  - '#SelfBuffCycle'
+  - '#DamageSpike'
+  - '#TierDropper'
+  - '#FeatLocked'
+  - '#TrapAvoided'
+notes:
+  compatibility: >-
+    Compatibile con GPT Power Builder, YAML Module Builder e sistemi export
+    (PDF, Excel, JSON VTT).
+  warnings: >-
+    Le simulazioni dipendono da settaggi specifici e possono variare in presenza
+    di HR.
+ui_templates:
+  build_card_compact: "---\n## \U0001F4DC Build Card — Stato Attuale\n**[Step {{step}}/{{step_total}}] {{step_labels[step]}}**\n\n### {% for c in classi %}{{c.nome}} ({{c.livelli}}){% if not loop.last %} / {% endif %}{% endfor %} — {{razza}} | CA {{statistiche_chiave.CA}} | PF {{statistiche_chiave.PF}} | DPR Nova {{statistiche_chiave.DPR_Nova}} | Meta Tier {{statistiche_chiave.meta_tier}}\n**Stats:** For {{statistiche.Forza}}, Dex {{statistiche.Destrezza}}, Cos {{statistiche.Costituzione}}, Int {{statistiche.Intelligenza}}, Sag {{statistiche.Saggezza}}, Car {{statistiche.Carisma}}\n**Salvezze:** T {{salvezze.Tempra}}, R {{salvezze.Riflessi}}, V {{salvezze.Volontà}}\n\n\U0001F9E0 Interprete: {{mda_rating_text(player_style, roleplay.psico_top3)}} · \U0001F3AD Psico: {{roleplay.psico_top3 or \"—\"}}\n\U0001F9F7 Legami: {{ (roleplay.legami or []) | join(\", \") or \"—\" }}\n\U0001FA99 Monete: PP {{equipment_summary.currency.pp}} • GP {{equipment_summary.currency.gp}} • SP {{equipment_summary.currency.sp}} • CP {{equipment_summary.currency.cp}} • Peso {{equipment_summary.peso_totale_lb}} lb {{(\"(\"+equipment_summary.carico+\")\") if equipment_summary.carico else \"\"}}\n✨ Slot/Giorno: {% if magia.slots_per_day %}{% for k,v in magia.slots_per_day.items() %}{{k}}°={{v}}{% if not loop.last %}, {% endif %}{% endfor %}{% else %}—{% endif %}\n\n\U0001F3AF Ruolo: {{ruolo}}  ·  \U0001F3AD Stile: {{player_style or \"—\"}}\n\U0001F527 Regole: {{rules_status_text()}}\n\U0001F3F7️ Fonti: {{fonti | join(\", \")}} |  \U0001F4DA **Fonti Meta (ord. autorità)**:  {% for f in fonti_meta %}{{f.badge}} [{{f.tipo}}]({{f.link}}) — {{f.descrizione}}{% if not loop.last %} · {% endif %}{% endfor %}\n{% if tratti %}\U0001F396️ Tratti: {% for t in tratti %}{{t.nome}} ({{t.descrizione}}){% if not loop.last %} — {% endif %}{% endfor %}{% endif %}\n\U0001F4D6 Background: {{background}}\n\n\U0001F4C8 Progressione Livelli:\n       {% for p in progressione %}\n       {% set _priv = p.privilegi %}\n\U0001F539 Livello {{p.livello}}:\n       {{ _priv if (_priv is string) else ((_priv | default([])) | join(\", \")) }}\n       {% if p.talento %} ⭐ Talento: {{p.talento}}{% endif %}{% if note_progressione[loop.index0] %} \U0001F4DD Note: {{note_progressione[loop.index0]}}{% endif %}\n       {% endfor %}\n\n✨ Magia:\n{% for lvl, spells in magia.spell_list.items() %}{{lvl}}°: {{spells | join(\", \")}}{% endfor %}\n\n\U0001F6E0 Equipaggiamento: {{equipaggiamento | join(\", \")}}\n---\n**Benchmark:**\nDPR Early {{benchmarks.DPR_early_status}} {{benchmarks.DPR_early_delta}}%  \nDPR Late {{benchmarks.DPR_late_status}} {{benchmarks.DPR_late_delta}}%  \nDifesa {{benchmarks.Defense_status}} {{benchmarks.Defense_delta}}%  \nScalabilità: {{benchmarks.Scaling_status}}  \nOrigine: {{source_mix_summary()}}\n---\n\n<!-- @minmax_flags {{ flags_pack() }} -->\n<!-- @view_toggles {\"pfs\":\"{{ 'on' if (rules.pfs_active) else 'off' }}\",\"abp\":\"{{ 'on' if (rules.abp_active) else 'off' }}\",\"eitr\":\"{{ 'on' if (rules.eitr_active) else 'off' }}\",\"style\":\"{{ player_style or '' }}\"} -->\n---\n"
+  build_card_extended: "# \U0001F5C2 Build Card — Estesa\n\n## Informazioni Base\n- Nome: {{nome}}\n- Classi:\n  {% for c in classi %}\n  - {{c.nome}} ({{c.livelli}}){% if c.archetipi %} — Archetipi: {{c.archetipi | join(\", \")}}{% endif %}\n  {% endfor %}\n- Razza: {{razza}} · Livello Totale: {{get_total_level(classi)}}\n- Ruolo: {{ruolo}}  ·  \U0001F3AD Stile: {{player_style or \"—\"}}\n- Regole: {{rules_status_text()}}\n- Allineamento: {{profile.allineamento}} · Divinità: {{profile.divinita}} · Taglia: {{profile.taglia}} · Lingue: {{(profile.lingue or []) | join(\", \") or \"—\"}}\n\n## \U0001F3AD Narrativa / Roleplay\n- Stile interpretativo: {{mda_rating_text(player_style, roleplay.psico_top3)}}  (Psico Top-3: {{roleplay.psico_top3 or \"—\"}})\n- Storia breve: {{roleplay.storia_breve or \"—\"}}\n- Legami: {{(roleplay.legami or []) | join(\", \") or \"—\"}}\n- Ganci: {{(roleplay.ganci or []) | join(\", \") or \"—\"}}\n- Flavor: {{roleplay.flavor or \"—\"}}\n\n## \U0001F4CA Statistiche\n| Stat      | Valore |\n|-----------|--------|\n| Forza     | {{statistiche.Forza}} |\n| Destrezza | {{statistiche.Destrezza}} |\n| Costituzione | {{statistiche.Costituzione}} |\n| Intelligenza | {{statistiche.Intelligenza}} |\n| Saggezza  | {{statistiche.Saggezza}} |\n| Carisma   | {{statistiche.Carisma}} |\n| CA Totale | {{statistiche_chiave.CA}} |\n| Touch / Flat | {{derived.core.ac_touch}} / {{derived.core.ac_flat}} |\n| PF        | {{statistiche_chiave.PF}} |\n| Tempra / Riflessi / Volontà | {{salvezze.Tempra}} / {{salvezze.Riflessi}} / {{salvezze.Volontà}} |\n| DPR Base / Nova | {{statistiche_chiave.DPR_Base}} / {{statistiche_chiave.DPR_Nova}} |\n\n### Breakdown CA\n- Base 10 + Armatura {{derived.core.ac_armor}} + Scudo {{derived.core.ac_shield}} + Des {{derived.core.ac_dex}} + Naturale {{derived.core.ac_natural}} + Deflessione {{derived.core.ac_deflection}} + Schivare {{derived.core.ac_dodge}} + Altro {{derived.core.ac_other}}\n\n## ⚔️ Combattimento\n- Iniziativa: {{derived.core.initiative_mod}}\n- Velocità: {{derived.core.speed_total}} ft (base {{derived.core.speed_base}}, mod {{derived.core.speed_mod}})\n- CMB/CMD: {{derived.core.cmb}} / {{derived.core.cmd}}\n- Attacchi (Mischia):\n  {% for a in (derived.core.attacks.melee or []) %}- {{a.name}} — {{a.atk}} — {{a.dmg}} {{(\"— \"+a.notes) if a.notes else \"\"}}{% endfor %}\n- Attacchi (Distanza):\n  {% for a in (derived.core.attacks.ranged or []) %}- {{a.name}} — {{a.atk}} — {{a.dmg}} {{(\"— \"+a.notes) if a.notes else \"\"}}{% endfor %}\n\n## \U0001F4D8 Abilità\n{% if derived.core.skills_by_name %}\n| Abilità | Gradi | Mod | Totale | Classe |\n|---|---:|---:|---:|:--:|\n{% for n, s in derived.core.skills_by_name.items() %}| {{n}} | {{s.gradi or 0}} | {{s.mod or 0}} | {{s.totale or 0}} | {{'✔' if s.classe else ''}} |\n{% endfor %}\n{% else %}- —{% endif %}\n\n## ✨ Magia\n### Riepilogo Slot & CD\n- Slot/giorno: {% if magia.slots_per_day %}{% for k,v in magia.slots_per_day.items() %}{{k}}°={{v}}{% if not loop.last %}, {% endif %}{% endfor %}{% else %}—{% endif %}\n- CD per livello: {% if magia.cd_by_level %}{% for k,v in magia.cd_by_level.items() %}{{k}}°={{v}}{% if not loop.last %}, {% endif %}{% endfor %}{% else %}—{% endif %}\n- Lista:\n{% for lvl, spells in magia.spell_list.items() %}- {{lvl}}°: {{spells | join(\", \")}}{% endfor %}\n\n## \U0001F4E6 Equipaggiamento\n- Oggetti: {{equipaggiamento | join(\", \") or \"—\"}}\n- Monete: PP {{equipment_summary.currency.pp}} • GP {{equipment_summary.currency.gp}} • SP {{equipment_summary.currency.sp}} • CP {{equipment_summary.currency.cp}}\n- Peso totale: {{equipment_summary.peso_totale_lb}} lb {{(\"— Carico: \"+equipment_summary.carico) if equipment_summary.carico else \"\"}}\n\n## \U0001F43E Companion / Famigli (sintesi)\n{% if companions and (companions | length) > 0 %}{% for c in companions %}- {{c.nome}} — {{c.tipo}} — {{c.note or \"\"}}{% endfor %}{% else %}- Nessuno{% endif %}\n\n## \U0001F517 Sinergie rilevate\n{% for s in sinergie %}- {{s}}{% endfor %}\n\n## \U0001F4DA Fonti Meta (ord. autorità)\n{% for f in fonti_meta %}- {{f.badge}} [{{f.tipo}}]({{f.link}}) — {{f.descrizione}}{% endfor %}\n\n## \U0001F4CA Benchmark Dettagliato — Auto Benchmark\n### \U0001F50E Riferimento: **{{benchmark_reference_label}}**\n| Categoria | Stato | Δ % vs Ref |\n|-----------|-------|------------|\n| DPR 1–3   | {{benchmarks.DPR_early_status}} | {{benchmarks.DPR_early_delta}}% |\n| DPR 4+    | {{benchmarks.DPR_late_status}} | {{benchmarks.DPR_late_delta}}% |\n| Difesa    | {{benchmarks.Defense_status}} | {{benchmarks.Defense_delta}}% |\n| Buff      | {{benchmarks.Buff_status}} | - |\n| Azioni    | {{benchmarks.Actions_status}} | - |\n| Scaling   | {{benchmarks.Scaling_status}} | - |\n\n**Origine suggerimenti:** {{source_mix_summary()}}\n\n## \U0001F3C6 Meta Tier\n**{{benchmarks.meta_tier or statistiche_chiave.meta_tier}}**\n\n{% if benchmark_comparison %}\n---\n## \U0001F4CA Confronto con Archetipi Esterni — Benchmark Comparativo\n### \U0001F50D Riferimento: **{{benchmark_comparison.reference_label}}** ({{\"Automatico\" if benchmark_comparison.auto else \"Manuale\"}})\n| Categoria | Stato | Δ % vs Ref |\n|-----------|-------|------------|\n{% for categoria, dati in benchmark_comparison.comparison.items() %}| {{categoria}} | {{dati.status}} | {{dati.diff}} |\n{% endfor %}\n{% endif %}\n\n<!-- @minmax_flags {{ flags_pack() }} -->\n<!-- @view_toggles {\"pfs\":\"{{ 'on' if (rules.pfs_active) else 'off' }}\",\"abp\":\"{{ 'on' if (rules.abp_active) else 'off' }}\",\"eitr\":\"{{ 'on' if (rules.eitr_active) else 'off' }}\",\"style\":\"{{ player_style or '' }}\"} -->\n"
+  vtt_export_json: |
+    {
+      "name": "{{nome}}",
+      "level": {{get_total_level(classi)}},
+      "race": "{{razza}}",
+      "alignment": "{{profile.allineamento}}",
+      "deity": "{{profile.divinita}}",
+      "size": "{{profile.taglia}}",
+      "languages": {{(profile.lingue or []) | tojson}},
+      "classes": [
+        {% for c in classi %}
+        {"name": "{{c.nome}}", "archetypes": {{c.archetipi | default([]) | tojson}}, "levels": {{c.livelli}}}{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+      "stats": {"STR": {{statistiche.Forza}},"DEX": {{statistiche.Destrezza}},"CON": {{statistiche.Costituzione}},"INT": {{statistiche.Intelligenza}},"WIS": {{statistiche.Saggezza}},"CHA": {{statistiche.Carisma}}},
+      "saves": {"Fort": {{salvezze.Tempra}},"Ref": {{salvezze.Riflessi}},"Will": {{salvezze.Volontà}}},
+      "initiative": {{derived.core.initiative_mod}},
+      "speed": {{derived.core.speed_total}},
+      "AC": {"total": {{statistiche_chiave.CA}},"touch": {{derived.core.ac_touch}},"flat": {{derived.core.ac_flat}}},
+      "attacks": {"melee": {{(derived.core.attacks.melee or []) | tojson}},"ranged": {{(derived.core.attacks.ranged or []) | tojson}}},
+      "skills": {{(derived.core.skills_by_name or {}) | tojson}},
+      "traits": [{% for t in tratti %}{"name":"{{t.nome}}","description":"{{t.descrizione}}"}{% if not loop.last %},{% endif %}{% endfor %}],
+      "equipment": {{equipaggiamento | tojson}},
+      "currency": {{equipment_summary.currency | tojson}},
+      "weight_lb": {{equipment_summary.peso_totale_lb}},
+      "spells": {{(magia.spell_list or {}) | tojson}},
+      "spell_slots": {{(magia.slots_per_day or {}) | tojson}},
+      "spell_dc": {{(magia.cd_by_level or {}) | tojson}},
+      "notes": "{{background}}",
+      "meta_tier": "{{statistiche_chiave.meta_tier}}",
+      "style": "{{player_style or ""}}",
+      "origin": "{{source_mix_summary()}}"
+    }
+auto_append:
+  mode: MinMax Builder
+  append_template: build_card_compact

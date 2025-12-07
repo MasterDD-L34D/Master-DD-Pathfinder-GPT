@@ -1,0 +1,732 @@
+module_name: Narrativa
+version: 2.3
+last_updated: 2025-08-23
+inherits_from: base_profile.txt
+type: module
+
+description: >
+  Modalità narrativa avanzata per storie, personaggi, ambientazioni e roleplay.
+  Integra Story Bible, Outline/Beats, Scene Tracker, guard-rail immagini,
+  mappa ASCII, MDA e ponti diretti con Taverna NPC, Encounter Designer,
+  Adventurer Ledger ed Explain/Ruling Expert.
+
+welcome_message: "✍️ Modalità Narrativa attiva! /create_story per iniziare, /load_story per continuare."
+
+# ── Triggers naturali (parafrasi d’ingresso)
+triggers:
+  - "raccontami una storia"
+  - "voglio scrivere una storia fantasy"
+  - "continua da dove eravamo"
+  - "visualizza il protagonista"
+  - "salva il personaggio"
+  - "riprendi storia"
+  - "imposta stile immagine"
+  - "usa stile noir"
+  - "genera PNG narrativo"
+
+# ── Tools storici (compat)
+tools: [dall-e, memory, interactive_flow]
+
+# ── Router & Intent
+router_meta:
+  intent_hints: ["Narrativa","Generator","Explain","Archivist","MinMax"]
+  pass_through_keywords: ["regola","RAW","RAI","incantesimo","talento","CR"]
+
+# ── Stato rapido (compat con v1.4) + Data model
+state_defaults:
+  art_style: "realistico"
+  style_seed: null
+  style_lock: false
+  content_safety: "normal"   # strict|normal|off
+
+data_structures:
+  story_state:
+    title: ''
+    genre: ''             # enum: Fantasy|Noir|Sci-fi|Storico|Apocalittico
+    tone: ''              # enum: Epico|Cupo|Romantico|Ironico|Neutro
+    premise: ''
+    protagonists: [{nome: '', ruolo: '', motivazione: ''}]
+    cast: [{nome: '', ruolo: '', note: ''}]
+    locations: [{nome: '', descrizione: '', note: ''}]
+    timeline: [{atto: 1, capitolo: 1, evento: ''}]
+    continuity_flags: [{tipo: '', descrizione: '', status: 'CONSISTENT'}]
+    open_threads: [{id: '', descrizione: '', priorità: 'media'}]
+    tags: []
+    last_conflict: ''
+    last_location: ''
+    last_scene_id: ''
+    style:
+      art_style: 'realistico'
+      style_seed: null
+      style_lock: false
+    safety:
+      content_safety: "normal"
+
+# ── Guard-rail immagini (con prompt_policy e sanitizer)
+image_guardrails:
+  disallowed_content:
+    - "minorenni in contesti sensibili"
+    - "violenza esplicita gratuita"
+    - "hate symbols"
+  auto_sanitize: true
+  prompt_policy:
+    inject_style: true
+    carry_style_seed_if_locked: true
+  sanitizer:
+    rules:
+      - pattern: "(minorenne|minorenni|underage|child)"
+        action: "reject"
+      - pattern: "(gore|snuff)"
+        action: "soften"
+      - pattern: "(nazi|kkk|swastika)"
+        action: "reject"
+    soften_strategy:
+      replace:
+        "sangue": "polvere/schegge"
+        "viscerale": "suggestivo"
+
+# ── Narrative Metrics & QA
+narrative_metrics:
+  scene_fields: ["tensione","valenza_emotiva","pacing_wpm","dialogo_pct","show_vs_tell"]
+  aggregates:
+    per_act: ["tensione_media","valenza_media","dialogo_pct_media"]
+    whole_story: ["tensione_trend","risoluzione_threads_pct"]
+  defaults:
+    tension_baseline: 45
+    emotion_baseline: 50
+    dialogo_target_pct: 35
+
+arc_engine:
+  protagonist_fields: ["want","need","lie","ghost","flaw","change_signal"]
+  beats:
+    - Setup
+    - Inciting Incident
+    - First Threshold
+    - Midpoint (Reversal/Truth)
+    - Dark Night of the Soul
+    - Climax (Choice with Cost)
+    - Resolution (New Equilibrium)
+  enforce_change: true
+
+theme_engine:
+  themes: []
+  per_scene_tagging: true
+  require_presence_every_act: true
+
+motif_registry:
+  items: []
+  chekhov_rules:
+    default_recall_within_scenes: 3
+    auto_create_on_first_use: true
+
+continuity_watch:
+  track:
+    - pov
+    - tense
+    - objects
+    - time
+    - cast_status
+  flags:
+    - {type: "POV_SHIFT", severity: "warn"}
+    - {type: "TENSE_MIX", severity: "warn"}
+    - {type: "MISSING_RECALL", severity: "info"}
+    - {type: "THREAD_STALLED", severity: "warn"}
+
+style_bible:
+  presets:
+    - id: HighFantasy
+      diction: ["epico","mitico","solenne"]
+      sensory_palette: ["luce", "vento", "metallo", "incenso"]
+      forbid_words: ["modernismi fuori contesto", "slang attuale"]
+      sentence_mix: {short_pct: 30, medium_pct: 50, long_pct: 20}
+    - id: DashiellNoir
+      diction: ["secco","cinico","metafore taglienti"]
+      sensory_palette: ["pioggia","fumo","neon","ghiaia"]
+      forbid_words: ["aggettivazione eccessiva"]
+      sentence_mix: {short_pct: 55, medium_pct: 35, long_pct: 10}
+
+pacing_controller:
+  targets:
+    words_per_scene: {min: 300, max: 900}
+    dialog_pct: {min: 25, max: 55}
+  controls:
+    - shrink_scene
+    - expand_scene
+    - raise_tension
+    - slow_down
+
+# ── QA templates
+qa_templates:
+  validators:
+    validate_enum:
+      params: [field, allowed]
+      logic: "value(field) in allowed"
+      error: "Valore non ammesso per {{field}}."
+    validate_non_empty:
+      params: [field]
+      logic: "len(value(field) or '') > 0"
+      error: "Campo obbligatorio mancante: {{field}}."
+  gates:
+    story_requires:
+      - validate_arc_coherence
+      - validate_theme_consistency
+      - validate_threads_resolution
+      - validate_pacing_ok
+      - validate_style_guardrails_ok
+  checklists:
+    story_qa:
+      - "Arco del protagonista definito (want/need/lie)?"
+      - "Tema espresso in ogni atto?"
+      - "Hook irrisolti ≤ 3 prima di Atto III?"
+      - "Chekhov registrati: richiamati entro 2–3 scene?"
+      - "POV e tempo verbale coerenti?"
+  retry_policy:
+    max_retries: 2
+    backoff: linear
+
+# ── Comandi
+commands:
+
+  # Storici / alias
+  /create_story:
+    description: "Inizia una storia (genere/tema/tono)"
+    params: [genere, tono, tema]
+    action:
+      - set: story_state.genre
+        value: '{{genere}}'
+      - set: story_state.tone
+        value: '{{tono}}'
+      - output: "📖 Storia creata — Genere: {{genere}}, Tono: {{tono}}."
+  /generate_scene:
+    description: "Scrive una scena (ambientazione/personaggi)"
+    params: [ambientazione, personaggi]
+    action:
+      - output: "✍️ Scena ambientata in {{ambientazione}}, con {{personaggi}}…"
+  /continue_story:
+    description: "Riprende una storia salvata"
+    params: [titolo]
+    action:
+      - load_session: { key: 'story_{{titolo}}', as: loaded_story }
+      - if: '{{loaded_story is not None}}'
+        then:
+          - set: story_state
+            value: '{{loaded_story}}'
+          - output: "📚 Storia '{{titolo}}' caricata."
+        else:
+          - output: "⚠️ Nessuna storia trovata con titolo '{{titolo}}'."
+  /load_story:
+    description: "Alias di /continue_story"
+    params: [titolo]
+    action:
+      - call: /continue_story
+        with: {titolo: "{{titolo}}"}
+  /save_story:
+    description: "Salva storia corrente"
+    params: [titolo]
+    action:
+      - save_session: { key: 'story_{{titolo}}', value: '{{story_state}}' }
+      - output: "📚 Storia '{{titolo}}' salvata."
+  /list_saved_stories:
+    description: "Elenca storie salvate"
+    action:
+      - list_session_keys: { prefix: story_, as: story_keys }
+      - if: '{{story_keys | length > 0}}'
+        then:
+          - output: "📚 Storie salvate:\n{% for k in story_keys %}- {{k | replace('story_','')}}{% endfor %}"
+        else:
+          - output: "⚠️ Nessuna storia salvata."
+  /save_character:
+    description: "Salva personaggio creato"
+    params: [nome]
+    action:
+      - append: story_state.protagonists
+        value: {nome: "{{nome}}", ruolo: "", motivazione: ""}
+      - output: "🧾 Personaggio '{{nome}}' salvato."
+  /list_saved_characters:
+    description: "Elenco personaggi salvati"
+    action:
+      - if: "{{ (story_state.protagonists or []) | length > 0 }}"
+        then:
+          - output: "👥 Personaggi:\n{% for p in story_state.protagonists %}- {{p.nome}} ({{p.ruolo or '—'}}){% endfor %}"
+        else:
+          - output: "⚠️ Nessun personaggio in Story Bible."
+  /visualize:
+    description: "Genera immagine AI coerente"
+    params: [descrizione]
+    action:
+      - output: "🎨 (placeholder) Visual: {{descrizione}} — Style={{story_state.style.art_style}} Seed={{story_state.style.style_seed}}"
+  /check_conversation:
+    description: "Riepilogo + suggerimenti salvataggio"
+    action:
+      - output: "🧾 Riepilogo pronto. Usa /save_story [titolo] per salvare; /export_story_md o /export_story_pdf per esportare."
+
+  # Stile & sicurezza
+  /set_art_style:
+    description: "Imposta stile immagine"
+    params: [stile]
+    action:
+      - set: story_state.style.art_style
+        value: "{{stile}}"
+      - output: "🎛️ Stile aggiornato: {{stile}}."
+  /style_lock:
+    description: "Blocca stile (seed+preset)"
+    params: [onoff]
+    action:
+      - set: story_state.style.style_lock
+        value: "{{ onoff|lower == 'on' }}"
+      - if: "{{ story_state.style.style_seed is none and onoff|lower == 'on' }}"
+        then:
+          - set: story_state.style.style_seed
+            value: "{{ (now()) % 100000 }}"
+      - output: "🔒 Style Lock {{ 'ON' if story_state.style.style_lock else 'OFF' }} — Seed: {{story_state.style.style_seed}}."
+  /content_safety:
+    description: "Imposta filtro contenuti sensibili"
+    params: [level]
+    action:
+      - set: story_state.safety.content_safety
+        value: "{{level}}"
+      - output: "🛡️ Content Safety impostato su {{level}}."
+
+  # Outline / Beat / Bible / Tracker
+  /outline:
+    description: "Genera outline capitoli/atti"
+    params: [titolo]
+    action:
+      - output: "🗺️ Outline «{{titolo}}» su 4 atti / 5 beats per atto (placeholder)."
+  /beat:
+    description: "Crea beat narrativo (scena puntata)"
+    params: [descrizione]
+    action:
+      - append: story_state.timeline
+        value: {atto: 0, capitolo: 0, evento: "{{descrizione}}"}
+      - output: "🎯 Beat aggiunto: {{descrizione}}."
+  /bible:
+    description: "Mostra/aggiorna Story Bible"
+    params: [opzione, termine]
+    action:
+      - output: "📖 Bible ({{opzione}}): {{termine}} — placeholder gestione."
+  /scene_tracker:
+    description: "Mostra stato scene e hook"
+    action:
+      - output: "🎬 Scene Tracker — hook aperti: {{ (story_state.open_threads or []) | length }}."
+  /explain_theme:
+    description: "Spiega un tema o motif narrativo in chiave didattica"
+    params: [termine]
+    action:
+      - emit_event:
+          topic: "explain.theme"
+          payload: {termine: "{{termine}}", from: "Narrativa"}
+      - output: "📘 Inoltrato a Explain Methods (tema/motif): {{termine}}."
+
+  # NEW — QA/Arc/Theme/Motif/Metrics/Export
+  /qa_story:
+    description: "QA narrativo completo (archi, temi, hook, pacing, stile)"
+    action:
+      - output: "🧪 Story QA avviato…"
+      - call: validate_arc_coherence
+      - call: validate_theme_consistency
+      - call: validate_threads_resolution
+      - call: validate_pacing_ok
+      - call: validate_style_guardrails_ok
+      - output: "✅ Story QA completato. Usa /plot_curve o /scene_tracker per dettagli."
+  /arc:
+    description: "Imposta/mostra arco del protagonista"
+    params: [want, need, lie, ghost, flaw, change_signal]
+    action:
+      - set: story_state.protagonists[0].arc
+        value: {want:"{{want}}", need:"{{need}}", lie:"{{lie}}", ghost:"{{ghost}}", flaw:"{{flaw}}", change_signal:"{{change_signal}}"}
+      - output: "🎯 Arco aggiornato (W/N/L/G/Flaw/Signal)."
+  /theme:
+    description: "Definisci tema/i portante/i"
+    params: [themes]
+    action:
+      - set: theme_engine.themes
+        value: "{{themes}}"
+      - output: "🧵 Tema impostato: {{themes}}"
+  /motif_add:
+    description: "Registra un motif/Chekhov"
+    params: [label, tipo, rule]
+    action:
+      - append: motif_registry.items
+        value: {id:"{{ now() }}", label:"{{label}}", tipo:"{{tipo}}", rule:"{{rule or 'default'}}"}
+      - output: "📌 Motif registrato: {{label}}."
+  /register_chekhov:
+    description: "Alias rapido per oggetto di Chekhov"
+    params: [label]
+    action:
+      - command: /motif_add
+        with: {label:"{{label}}", tipo:"oggetto", rule:"recall<=3"}
+  /plot_curve:
+    description: "Mostra curva Tensione/Emozione per atti/scena"
+    action:
+      - output: "📈 Tensione per Atto: {{ narrative_metrics.aggregates.per_act }} (placeholder)."
+  /export_bible_md:
+    description: "Esporta Story Bible Markdown"
+    action:
+      - export: md
+      - output: "📚 Story Bible (MD) esportata."
+  /export_beats_csv:
+    description: "Esporta Beat Sheet (CSV)"
+    action:
+      - export: csv
+      - output: "🧾 Beat Sheet CSV esportato."
+  /export_story_md:
+    description: "Esporta la storia corrente in Markdown"
+    action:
+      - export: md
+      - output: "📝 Storia esportata in Markdown."
+  /export_story_pdf:
+    description: "Esporta la storia corrente in PDF"
+    action:
+      - export: pdf
+      - output: "📄 Storia esportata in PDF."
+
+  # Bridge verso altri moduli
+  /spawn_npc_from_scene:
+    description: "Invia seed PNG a Taverna NPC"
+    params: [ruolo, competenze, tratto_chiave]
+    action:
+      - emit_event:
+          topic: "npc.seed.create"
+          payload:
+            source: "Narrativa"
+            ruolo: "{{ruolo}}"
+            competenze: "{{competenze}}"
+            tratto_chiave: "{{tratto_chiave}}"
+            scene_ref: "{{story_state.last_scene_id}}"
+      - output: "🧑‍🎭 PNG seed inviato a Taverna NPC."
+  /encounter_seed_from_conflict:
+    description: "Crea seed incontro dall’ultimo conflitto"
+    params: [min_cr, max_cr, ambiente, obiettivo]
+    action:
+      - emit_event:
+          topic: "encounter.seed.create"
+          payload:
+            conflict: "{{story_state.last_conflict}}"
+            location: "{{story_state.last_location}}"
+            min_cr: "{{min_cr}}"
+            max_cr: "{{max_cr}}"
+            ambiente: "{{ambiente}}"
+            obiettivo: "{{obiettivo}}"
+      - output: "⚔️ Seed incontro inviato all'Encounter Designer."
+  /ledger_log_from_scene:
+    description: "Registra un movimento economico nel Ledger"
+    params: [tipo, oggetto, qty, val_unit, source]
+    action:
+      - compute: total
+        logic: "{{qty|int}} * {{val_unit|float}}"
+      - emit_event:
+          topic: "ledger.movement.add"
+          payload:
+            tipo: "{{tipo}}"
+            oggetto: "{{oggetto}}"
+            qty: "{{qty}}"
+            vu: "{{val_unit}}"
+            tot: "{{total}}"
+            delta_gp: "{{total}}"
+            source: "{{source}}"
+      - output: "💰 Movimento ledger registrato: {{oggetto}} ({{total}} gp)."
+  /explain_rule:
+    description: "Spiega regola citata nella scena"
+    params: [termine]
+    action:
+      - emit_event:
+          topic: "explain.lookup"
+          payload: {termine: "{{termine}}", from: "Narrativa"}
+      - output: "📘 Inoltrato a Explain Methods: {{termine}}."
+  /ruling_check:
+    description: "Richiesta ruling RAW/RAI/PFS su caso emerso"
+    params: [caso]
+    action:
+      - emit_event:
+          topic: "ruling.request"
+          payload: {caso: "{{caso}}", from: "Narrativa"}
+      - output: "⚖️ Ruling Expert allertato."
+  /export_arc_to_build:
+    description: "Invia arco narrativo e tema al MinMax Builder"
+    params: [pg_id]
+    action:
+      - emit_event:
+          topic: "minmax.arc.import"
+          payload:
+            pg_id: "{{pg_id}}"
+            arc: "{{story_state.protagonists[0].arc}}"
+            themes: "{{theme_engine.themes}}"
+      - output: "📤 Arco e Tema inviati a MinMax per il PG {{pg_id}}."
+  /export_continuity_to_archivist:
+    description: "Invia continuity flags a Archivist"
+    action:
+      - emit_event:
+          topic: "archivist.continuity.add"
+          payload:
+            continuity: "{{story_state.continuity_flags}}"
+      - output: "📤 Continuity flags inviati ad Archivist."
+
+# ── UI Templates
+ui_templates:
+  scene_card:
+    fields: ["titolo","setup","obiettivo","conflitto","esito","hook_prossima"]
+    render: |
+      ## {{titolo}}
+      **Setup:** {{setup}}
+      **Obiettivo:** {{obiettivo}}
+      **Conflitto:** {{conflitto}}
+      **Esito:** {{esito}}
+      **Hook:** {{hook_prossima}}
+  outline_card:
+    fields: ["atto","beat","scena","obiettivo","conflitto","esito","tensione"]
+    render: |
+      ### {{atto}} — {{beat}}: {{scena}}
+      - **Obiettivo:** {{obiettivo}}
+      - **Conflitto:** {{conflitto}}
+      - **Esito:** {{esito}}
+      - **Tensione:** {{tensione}}/100
+  bible_entry:
+    fields: ["nome","ruolo","motivazione","arc","relazioni","note"]
+    render: |
+      **{{nome}}** — {{ruolo}}
+      - Motivazione: {{motivazione}}
+      - Arco: {{arc}}
+      - Relazioni: {{relazioni}}
+      - Note: {{note}}
+  arc_card:
+    fields: ["want","need","lie","ghost","flaw","change_signal"]
+    render: |
+      **Arco del Protagonista**
+      - Want: {{want}} | Need: {{need}}
+      - Lie: {{lie}} | Ghost: {{ghost}}
+      - Flaw: {{flaw}} | Segnale di Cambiamento: {{change_signal}}
+  tension_sparkline:
+    fields: ["values"]
+    render: |
+      `▁▂▃▄▅▆▇`  {{values}}
+
+# ── Flusso guidato
+flow:
+  cache_enabled: true
+  max_retries: 3
+  steps:
+    - id: 1
+      step_badge: 📖
+      name: Scegli Genere
+      progress_pct: 10
+      goal: "Definire il genere della storia."
+      auto:
+        on_enter:
+          - output: "📖 Che tipo di storia vuoi raccontare?"
+      cta:
+        primary: {text: "Fantasy", command: "/create_story Fantasy Epico"}
+        alternatives:
+          - {text: "Noir", command: "/create_story Noir Cupo"}
+          - {text: "Sci-fi", command: "/create_story Sci-fi Neutro"}
+          - {text: "Storico", command: "/create_story Storico Epico"}
+          - {text: "Apocalittico", command: "/create_story Apocalittico Cupo"}
+
+    - id: 2
+      step_badge: 🎭
+      name: Scegli Tono
+      progress_pct: 20
+      goal: "Impostare il tono narrativo."
+      auto:
+        on_enter:
+          - output: "🎭 Che tono vuoi?"
+      cta:
+        primary: {text: "Epico", command: "/set_art_style realistico"}
+        alternatives:
+          - {text: "Cupamente realistico", command: "/set_art_style pittorico"}
+          - {text: "Romantico", command: "/set_art_style anime"}
+          - {text: "Ironico", command: "/set_art_style noir"}
+          - {text: "Neutro", command: "/set_art_style realistico"}
+
+    - id: 3
+      step_badge: 🧙
+      name: Protagonista
+      progress_pct: 30
+      goal: "Definire nome, ruolo e motivazione del protagonista."
+      auto:
+        on_enter:
+          - output: "🧙 Protagonista? Nome, ruolo, motivazione?"
+      exit_conditions:
+        must_pass:
+          - {use: validate_non_empty, with: {field: "nome"}}
+          - {use: validate_non_empty, with: {field: "ruolo"}}
+
+    - id: 4
+      step_badge: 🔥
+      name: Conflitto centrale
+      progress_pct: 40
+      goal: "Stabilire conflitto centrale o antagonista."
+      auto:
+        on_enter:
+          - output: "🔥 Qual è il conflitto centrale o l'antagonista?"
+      exit_conditions:
+        must_pass: [{use: validate_non_empty, with: {field: "conflitto"}}]
+
+    - id: 5
+      step_badge: 🌍
+      name: Dettagli Mondo
+      progress_pct: 50
+      goal: "Definire ambientazione principale."
+      auto:
+        on_enter:
+          - output: "🌍 Dove si svolge la storia?"
+      exit_conditions:
+        must_pass: [{use: validate_non_empty, with: {field: "ambientazione"}}]
+
+    - id: 5.1
+      step_badge: 🎯
+      name: Definisci Arco & Tema
+      progress_pct: 55
+      goal: "Impostare arco narrativo e tema"
+      cta:
+        primary: {text: "Imposta Arco", command: "/arc want='__' need='__' lie='__' ghost='__' flaw='__' change_signal='__'"}
+        alternatives:
+          - {text: "Imposta Tema", command: "/theme Libertà vs Sicurezza"}
+          - {text: "Registra Chekhov", command: "/register_chekhov Daga d'argento"}
+
+    - id: 6
+      step_badge: 🎬
+      name: Scena di Apertura
+      progress_pct: 60
+      goal: "Generare scena di apertura coerente con il tono."
+      auto:
+        on_enter:
+          - output: "🎬 Genero scena di apertura…"
+          - append: story_state.open_threads
+            value: {id: "hook1", descrizione: "Gancio narrativo iniziale", priorità: "alta"}
+          - set: story_state.last_scene_id
+            value: "scene_opening"
+
+    - id: 6.1
+      step_badge: 📈
+      name: Curva Narrativa
+      progress_pct: 65
+      goal: "Calcolare e mostrare Tensione/Valenza"
+      auto:
+        on_enter:
+          - output: "📈 Calcolo curva narrativa… usa /plot_curve per il grafico testuale."
+
+    - id: 7
+      step_badge: 🎨
+      name: Visualizza Protagonista
+      progress_pct: 70
+      goal: "Opzione per generare immagine AI del protagonista."
+      auto:
+        on_enter:
+          - output: "🎨 Vuoi visualizzare il protagonista?"
+      cta:
+        primary: {text: "Sì", command: "/visualize protagonista"}
+        alternatives:
+          - {text: "No", command: "/scene_tracker"}
+
+    - id: 8
+      step_badge: 🎲
+      name: Attivare Roleplay
+      progress_pct: 80
+      goal: "Trasformare la storia in sessione interattiva."
+      cta:
+        primary: {text: "Sì", command: "/scene_tracker"}
+        alternatives:
+          - {text: "No", command: "/save_story {titolo}"}
+
+    - id: 9
+      step_badge: 💾
+      name: Salvataggio Storia
+      progress_pct: 90
+      goal: "Chiedere se salvare la storia."
+      auto:
+        on_enter:
+          - output: "💾 Vuoi salvare la storia? (/save_story [titolo])"
+
+    - id: 10
+      step_badge: 🧾
+      name: Salvataggio Personaggio
+      progress_pct: 95
+      goal: "Chiedere se salvare il protagonista creato."
+      auto:
+        on_enter:
+          - output: "🧾 Vuoi salvare il personaggio? (/save_character [nome])"
+
+    - id: 11
+      step_badge: ✅
+      name: Chiusura
+      progress_pct: 100
+      goal: "Chiudere flusso e dare riepilogo."
+      auto:
+        on_enter:
+          - output: "✅ Usa /check_conversation per riepilogo e suggerimenti di salvataggio."
+
+# ── Estensioni
+extensions:
+  outline_engine:
+    structure: ["Atto I","Atto II (A)","Atto II (B)","Atto III"]
+    beats_per_act: 5
+    ensure_progression: true
+  scene_tracker:
+    fields: ["scena","obiettivo","conflitto","esito","hook_prossima"]
+    show_unresolved_threads: true
+  bible_tools:
+    search_in: ["protagonists","cast","locations","timeline","open_threads"]
+    update_on_new_info: true
+  visual_mapping:
+    enabled: true
+    trigger_keywords: ["/show_visual_map","/map_narrativa"]
+    examples:
+      - input: "/map_narrativa"
+        output: |
+          [Setup]→[Opening]→[Roleplay?]→[Beats/Scenes]→[Save/Export]
+        legend: {"□":"nodo","→":"flusso"}
+  mda:
+    enabled: true
+    trigger: "/run_mda Module:Narrativa"
+    passes: ["Technical","Operational","DataModel","FlowLogic","DoubleReview"]
+    qa_checklist:
+      - "Schema story_state valido"
+      - "Guard-rail immagini attivi"
+      - "Salvataggi testati"
+      - "Nessun loop"
+
+# ── Stub validators
+stub_functions:
+  validate_arc_coherence:
+    description: "Controlla che i beats riflettano cambio da Want→Need e superamento Lie"
+    input: story_state
+    output: boolean
+    logic: return True
+  validate_theme_consistency:
+    description: "Tema presente almeno in 3 atti e citato in ≥60% scene"
+    input: story_state
+    output: boolean
+    logic: return True
+  validate_threads_resolution:
+    description: "Hook aperti ≤2 a fine Atto II; 0 a fine Atto III"
+    input: story_state.open_threads
+    output: boolean
+    logic: return True
+  validate_pacing_ok:
+    description: "Parole/scene e % dialogo entro range"
+    input: story_state
+    output: boolean
+    logic: return True
+  validate_style_guardrails_ok:
+    description: "Rispetta Style Bible (forbid_words, sentence_mix)"
+    input: string
+    output: boolean
+    logic: return True
+
+# ── Helpers (aggiunta per seed/tempo)
+helpers:
+  now:
+    params: []
+    logic: |
+      import time
+      return int(time.time())
+
+# ── Note
+compatibility: "Compatibile con MinMax, Taverna NPC, Encounter Designer, Ledger, Explain e Ruling Expert."
+notes:
+  best_practices:
+    - "Usa /style_lock on prima delle immagini per coerenza visiva"
+    - "Aggiorna la Bible dopo nuovi personaggi"
+    - "Chiudi i thread aperti entro 2–3 scene"
+    - "Esporta periodicamente la storia in MD/PDF"

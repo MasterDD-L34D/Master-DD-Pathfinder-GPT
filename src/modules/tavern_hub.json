@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "version": "1.0",
+    "last_updated": "2025-08-23",
+    "core_version": "3.3"
+  },
+  "feature_flags": {
+    "pfs": false,
+    "abp": false,
+    "eitr": false
+  },
+  "router": {
+    "last_mode": null
+  },
+  "quiz_runs": [],
+  "characters": [],
+  "builds": [],
+  "encounters": [],
+  "ledger": {
+    "currency": {
+      "pp": 0,
+      "gp": 0,
+      "sp": 0,
+      "cp": 0
+    },
+    "inventory": [],
+    "policies": {
+      "sell_rate": 0.5,
+      "encumbrance_variant": null
+    },
+    "wbl_target_level": null,
+    "audit": []
+  },
+  "vtt_exports": [],
+  "snapshots": [],
+  "id_counter": {
+    "character": 1,
+    "build": 1,
+    "encounter": 1,
+    "ledger_tx": 1
+  },
+  "notes": []
+}

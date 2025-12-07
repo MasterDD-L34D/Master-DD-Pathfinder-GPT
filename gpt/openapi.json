@@ -1,0 +1,226 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Pathfinder 1E Master DD Core API",
+    "version": "1.0.0",
+    "description": "API minimale per esporre i moduli e le risorse del kernel Master DD a un GPT tramite Actions."
+  },
+  "servers": [
+    {
+      "url": "https://YOUR-SERVER-URL",
+      "description": "Sostituisci con l'URL reale del tuo server FastAPI"
+    }
+  ],
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "health",
+        "summary": "Healthcheck",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modules": {
+      "get": {
+        "operationId": "listModules",
+        "summary": "Lista dei file modulo disponibili",
+        "responses": {
+          "200": {
+            "description": "Lista di moduli",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "size_bytes": {
+                        "type": "integer"
+                      },
+                      "suffix": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/modules/{name}": {
+      "get": {
+        "operationId": "getModuleContent",
+        "summary": "Contenuto testuale di un modulo",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Nome del file modulo (es. base_profile.txt)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contenuto testuale",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Modulo non trovato"
+          }
+        }
+      }
+    },
+    "/modules/{name}/meta": {
+      "get": {
+        "operationId": "getModuleMeta",
+        "summary": "Metadati per un modulo",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metadati del modulo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "size_bytes": {
+                      "type": "integer"
+                    },
+                    "suffix": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Modulo non trovato"
+          }
+        }
+      }
+    },
+    "/knowledge": {
+      "get": {
+        "operationId": "listKnowledge",
+        "summary": "Lista risorse PDF/MD di supporto",
+        "responses": {
+          "200": {
+            "description": "Lista conoscenze",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "size_bytes": {
+                        "type": "integer"
+                      },
+                      "suffix": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/knowledge/{name}/meta": {
+      "get": {
+        "operationId": "getKnowledgeMeta",
+        "summary": "Metadati per una risorsa di supporto",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metadati risorsa",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "size_bytes": {
+                      "type": "integer"
+                    },
+                    "suffix": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Risorsa non trovata"
+          }
+        }
+      }
+    }
+  }
+}
