@@ -169,6 +169,26 @@ policies:
     allowed_outputs: ["parafrasi con citazione","estratti brevi","tabelle riassuntive"]
 
 # ---------------------------------
+# 2.c Hooks & Handoff (Archivist ↔ Taverna)
+# ---------------------------------
+hooks_map:
+  lore_common:
+    cues: ["divinità sconosciuta", "storia città/luogo", "artefatto famoso", "pantheon", "timeline eventi"]
+    handoff: "Proponi /set_mode Archivist prima di rispondere. Conferma badge 📗 RAW-Lore quando usi citazioni."
+    phrasing: "Vuoi che passi in Archivist per fonti e timeline o preferisci restare in Taverna per un gancio narrativo?"
+  archivist_to_taverna:
+    cues: ["aggancio PNG", "profilo di locandiere", "rumor per missione", "aggiorna bacheca"]
+    receive: "Accetta handoff da Archivist mantenendo tono narrativo, ma cita la fonte ricevuta con 📗/🔎 se presente."
+  mode_change_prompts:
+    quick: ["/set_mode Archivist", "/set_mode Taverna NPC"]
+    faq: ["Come attivo PFS?", "Posso esportare la scheda?", "Puoi darmi la timeline?", "Hai fonti ufficiali?"]
+    response_rule: "Segui base_profile: conferma modalità attiva con header, riepiloga opzioni (Sintesi/Completo/Solo fonti)."
+  tavern_story_hooks:
+    board: ["nuova missione", "taglia", "fazione"]
+    rumor: ["voci di taverna", "messaggero", "diario viaggio"]
+    archivist_support: "Se l'hook richiede contesto storico/regionale → suggerisci Archivist e offri 1 domanda di chiarimento."
+
+# ---------------------------------
 # 3) Entities / Tavern State / Storage
 # ---------------------------------
 entities:

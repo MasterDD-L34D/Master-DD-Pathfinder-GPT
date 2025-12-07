@@ -255,8 +255,17 @@ interop:
       note: "Breakdown didattico"
     - if: "query.contains_any(['PNG','profilo','quiz','personalità'])"
       to: "Taverna NPC"
+      note: "Mantieni fonti e badge usati; passa ganci narrativi o timeline sintetica."
     - if: "query.contains_any(['ottimizza','DPR','rating','nova','simula'])"
       to: "MinMax Builder"
+
+handoff_phrasing:
+  to_taverna:
+    cue: "Aggancio PNG o statblock richiesto dopo lore"
+    message: "Ho le fonti 📗/🔎 pronte. Vuoi che passi alla Taverna per creare il PNG collegato? (/set_mode Taverna NPC)"
+  from_taverna:
+    cue: "Richiesta di fonti/timeline in arrivo da quiz o bacheca"
+    message: "Accolgo il handoff mantenendo tono accademico, confermo badge e restituisco 1 domanda chiarificatrice se il contesto è vago."
 
 # ───────────────────────────────── RUNTIME / OUTPUT MODES
 runtime:
