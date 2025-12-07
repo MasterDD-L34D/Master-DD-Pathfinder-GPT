@@ -47,6 +47,10 @@ principles:
   - >-
     Ogni output mostra badge di provenienza e non introduce meccaniche
     inventate.
+ruling_policy:
+  summary: "Priorità: ✅ RAW → 📘 RAI → 🧭 PFS → ❗ HR (solo su richiesta esplicita). Se manca RAW/RAI, rimanda a Ruling Expert."
+  pfs_gate: "Se PFS attivo, blocca ❗ HR e segnala contenuti META come non esportabili."
+  citation_policy: "Riferimenti obbligatori a fonti Paizo (AoN/Paizo)."
 constraints:
   - >-
     Ruling e RAW restano basati su Paizo (usa modalità "Ruling Expert" per
@@ -57,7 +61,8 @@ constraints:
 meta_reference:
   enabled: true
   banner_on_use: >-
-    ℹ Fonti META attive: consigli da COMMUNITY/EXPERT — non RAW. Per ruling usa
+    ℹ Fonti META attive: consigli da COMMUNITY/EXPERT — non RAW. Se PFS è
+    attivo, HR/META restano fuori dall'export; per ruling vincolanti usa
     *Ruling Expert*.
   levels_priority:
     - RAW_CANON
@@ -226,6 +231,7 @@ data_structures:
       Buff_status: Media
       Actions_status: Media
       Scaling_status: Media
+      ruling_badge: "✅ RAW-Summarized"
       meta_tier: null
       risk_heatmap:
         feats: {}
@@ -250,6 +256,10 @@ data_structures:
       results: []
       last_updated: ''
       ttl_minutes: 30
+    qa_flags:
+      sources_ok: false
+      pfs_ok: false
+      hr_flagged: false
     decision_log: []
     step: 1
     step_total: 16
@@ -423,6 +433,22 @@ helpers:
     logic: >
       return "PFS ON" if (build_state.get('rules',{}) or {}).get('pfs_active',
       False) else "PFS OFF"
+  any_hr_source:
+    params: [sources]
+    logic: |
+      for s in (sources or []):
+        lvl = (s.get('level') or '').upper()
+        if lvl == 'HR':
+          return True
+      return False
+  derive_ruling_badge:
+    params: []
+    logic: |
+      r = build_state.get('rules',{}) or {}
+      hr = any_hr_source(build_state.get('fonti_meta', []))
+      if r.get('pfs_active'):
+        return '🧭 PFS'
+      return '❗ House Rule' if hr else '✅ RAW-Summarized'
   rules_status_text:
     params: []
     logic: |
@@ -991,12 +1017,15 @@ commands:
     - output_template: build_card_extended
     - export: '{{format}}'
     - output: "📦 Export {{format}} pronto."
-  /export_vtt:
-    description: Esporta in JSON VTT (per VTT/roll20-like)
-    action:
-      - output_template: vtt_export_json
-      - export: json
-      - output: "\U0001F4E4 Export VTT completato."
+/export_vtt:
+  description: Esporta in JSON VTT (per VTT/roll20-like)
+  action:
+    - guard_all:
+        requires: qa_templates.gates.export_requires
+        on_fail: '@export_blocked'
+    - output_template: vtt_export_json
+    - export: json
+    - output: "\U0001F4E4 Export VTT completato."
   /list_builds:
     description: Elenca le build salvate nella sessione
     action:
@@ -1020,9 +1049,18 @@ commands:
       - if: not simulate_ok
         then:
           - output: '❌ Simulazione fallita: possibili problemi di combo'
+      - set: build_state.qa_flags.sources_ok
+        value: '{{ (build_state.fonti | length) > 0 or (build_state.fonti_meta | length) > 0 }}'
+      - set: build_state.qa_flags.hr_flagged
+        value: '{{ any_hr_source(build_state.fonti_meta) }}'
+      - set: build_state.qa_flags.pfs_ok
+        value: '{{ (not build_state.rules.pfs_active) or (not build_state.qa_flags.hr_flagged) }}'
       - if: validate_core_ok and validate_feats_ok and simulate_ok
         then:
-          - output: ✅ QA superato. La build è valida per l’esportazione.
+          - output: >-
+              ✅ QA superato. La build è valida per l’esportazione.
+              Checklist: fonti={{'OK' if build_state.qa_flags.sources_ok else 'KO'}},
+              PFS={{'OK' if build_state.qa_flags.pfs_ok else 'KO (HR bloccato)'}}.
   /fork_build:
     description: Crea una variante della build attuale con ID tracciabile
     params:
@@ -1228,6 +1266,8 @@ commands:
         value: '{{map_actions(build_state.benchmarks.Actions)}}'
       - set: build_state.benchmarks.Scaling_status
         value: '{{map_scaling(build_state.benchmarks.Scaling)}}'
+      - set: build_state.benchmarks.ruling_badge
+        value: '{{derive_ruling_badge()}}'
       - set: build_state.statistiche_chiave.meta_tier
         value: '{{auto_meta_tier(9,9,9)}}'
       - set: build_state.benchmarks.meta_tier
@@ -1246,7 +1286,7 @@ commands:
         return_as: _top3
       - set: build_state.benchmarks.risk_top3
         value: '{{_top3}}'
-      - output: "\U0001F4CA **{{ 'Quick' if local.quick else 'Full' }} Benchmark — {{local.classe}}**\n| Parametro | Stato | Δ vs Ref | Badge META |\n|---|---:|---:|---|\n| DPR 1–3 | {{build_state.benchmarks.DPR_early_status}} | {{build_state.benchmarks.DPR_early_delta}}% | {{lookup_meta_badges('DPR_early')}} |\n| DPR 4+  | {{build_state.benchmarks.DPR_late_status}}  | {{build_state.benchmarks.DPR_late_delta}}%  | {{lookup_meta_badges('DPR_late')}} |\n| Difesa  | {{build_state.benchmarks.Defense_status}}   | {{build_state.benchmarks.Defense_delta}}%   | {{lookup_meta_badges('CA+Saves')}} |\n| Buff    | {{build_state.benchmarks.Buff_status}} | – | – |\n| Azioni  | {{build_state.benchmarks.Actions_status}} | – | – |\n| Scaling | {{build_state.benchmarks.Scaling_status}} | – | – |\n\U0001F525 Risk Heatmap (≥2): Feat → {{(build_state.benchmarks.risk_top3.feats or [])}} · Spell → {{(build_state.benchmarks.risk_top3.spells or [])}}\n\U0001F3F7 Origine suggerimenti: {{source_mix_summary()}}\n\U0001F3AD Stile: {{build_state.player_style or \"—\"}}\n"
+      - output: "\U0001F4CA **{{ 'Quick' if local.quick else 'Full' }} Benchmark — {{local.classe}}**\nBadge Ruling: {{build_state.benchmarks.ruling_badge}} • PFS: {{pfs_status_text()}}\n| Parametro | Stato | Δ vs Ref | Badge META |\n|---|---:|---:|---|\n| DPR 1–3 | {{build_state.benchmarks.DPR_early_status}} | {{build_state.benchmarks.DPR_early_delta}}% | {{lookup_meta_badges('DPR_early')}} |\n| DPR 4+  | {{build_state.benchmarks.DPR_late_status}}  | {{build_state.benchmarks.DPR_late_delta}}%  | {{lookup_meta_badges('DPR_late')}} |\n| Difesa  | {{build_state.benchmarks.Defense_status}}   | {{build_state.benchmarks.Defense_delta}}%   | {{lookup_meta_badges('CA+Saves')}} |\n| Buff    | {{build_state.benchmarks.Buff_status}} | – | – |\n| Azioni  | {{build_state.benchmarks.Actions_status}} | – | – |\n| Scaling | {{build_state.benchmarks.Scaling_status}} | – | – |\n\U0001F525 Risk Heatmap (≥2): Feat → {{(build_state.benchmarks.risk_top3.feats or [])}} · Spell → {{(build_state.benchmarks.risk_top3.spells or [])}}\n\U0001F3F7 Origine suggerimenti: {{source_mix_summary()}}\n\U0001F3AD Stile: {{build_state.player_style or \"—\"}}\n"
       - output: >-
           ✅ Benchmark completato. Meta Tier:
           {{build_state.statistiche_chiave.meta_tier}}.
@@ -1757,8 +1797,14 @@ qa_templates:
       - validate_core_ok
       - validate_feats_ok
       - simulate_ok
+      - build_state.qa_flags.sources_ok
+      - build_state.qa_flags.pfs_ok
     simulate_requires:
       - validate_core_ok
+  checklist:
+    - sources_ok
+    - pfs_ok
+    - hr_flagged
 extensions:
   visual_mapping:
     enabled: true
