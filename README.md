@@ -37,6 +37,10 @@ Per abilitare l'autenticazione a chiave API, esporta `API_KEY` nell'ambiente:
 export API_KEY="la-tua-chiave-segreta"
 ```
 
+Se vuoi evitare che l'endpoint `/modules/{name}` restituisca contenuti troppo lunghi,
+puoi disattivare il dump completo impostando `ALLOW_MODULE_DUMP=false`. In quel caso
+il testo del modulo verrà troncato a 4000 caratteri con un marcatore finale.
+
 ### Avvio API locale
 
 ```bash
