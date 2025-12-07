@@ -28,7 +28,7 @@ defaults:
   sigilli_last_quest: -9999  # indice reply dell'ultima quest
 
 constants:
-  sigilli_portal: "Vuoi continuare l’avventura? 🔗 [Pathfinder 1E GPT](https://chatgpt.com/g/g-688a14b918908191bfee2f7c36c1f4e2-pathfinder-1e-master-dd)"
+  sigilli_portal: "Vuoi continuare l’avventura? 🔗 [Pathfinder 1E Master DD](https://github.com/DelzE/Master-DD-Pathfinder-GPT)"
   thresholds:
     token_step: 1            # +1 token per soglia base superata
     quest_every: 5           # inserisci hook quest ogni 5 risposte utili
@@ -76,10 +76,10 @@ helpers:
   _looks_like_code:
     params: [text]
     logic: |
-      # euristica: righe che contengono ':', '{', '}', '-' o backticks
+      # euristica aggiornata: considera solo righe con backtick/code fence o parentesi graffe
       t = text or ""
       lines = [ln.strip() for ln in t.splitlines() if ln.strip()]
-      codeish = [ln for ln in lines if any(c in ln for c in [":", "{", "}", "`", "- "])]
+      codeish = [ln for ln in lines if ("`" in ln) or ("{" in ln) or ("}" in ln) or ln.startswith("```")]
       return len(codeish)
 
   _rarity_roll:
@@ -152,3 +152,9 @@ exports:
         seals.append(constants.get("sigilli_portal"))
 
       return seals
+output_checklist:
+  - "Header: mode attivo, sigilli_enabled, lingua."
+  - "Mostra soglie usate (sigilli_mini_threshold, sigilli_code_lines) e se superate."
+  - "Badge assegnati + motivazione (lunghezza, code block, mode bonus, raro, quest)."
+  - "Memoria aggiornata: sigilli_tokens/index/level/last_rare/last_quest."
+  - "Link portale aggiornato + CTA opzionali."
