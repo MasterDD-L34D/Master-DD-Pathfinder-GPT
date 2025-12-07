@@ -4,11 +4,18 @@ last_updated: 2025-08-23
 inherits_from: base_profile.txt
 type: module
 
+api_usage:
+  note: "Recupera questo modulo via API e non duplicare il kernel nel prompt GPT."
+  flow: "Decidi la modalità → GET /modules/{name} con header x-api-key → riformula con badge RAW/RAI/PFS/HR/🧠META."
+  sample_call: |
+    curl -H "x-api-key: $API_KEY" http://localhost:8000/modules/meta_doc.txt
+
 summary: >-
   Modulo per creare, mantenere e pubblicare la documentazione dei moduli Master DD
   (MinMax Builder, Taverna NPC, Encounter Designer, Adventurer Ledger, Archivist,
   Explain/Ruling). Fornisce blueprint pronti (Spec, README, Changelog, Release Notes,
   Knowledge Pack, Manuale Homebrewery), peer review simulata a 3 esperti e pacchetti ZIP finali.
+  Ogni consultazione deve seguire il flusso architettura (`decidi modalità → GET /modules/{name} con x-api-key → riformula`), senza duplicare il kernel nel prompt GPT e mantenendo i tag [RAW]/[RAI]/[PFS]/[HR]/🧠META nelle sezioni esempio.
 
 integrates_with:
   - MinMax Builder

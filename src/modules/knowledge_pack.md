@@ -1,8 +1,9 @@
 # Knowledge Pack — Guida d’Uso + Demo + Prompt (PF1e Master DD)
 
-> **Versione:** v2 • **Data:** 2025-09-04 • **Compatibilità:** Core 3.3+  
-> **Nota migrazione:** tutti i percorsi ora puntano a **.txt** (niente .yaml).  
+> **Versione:** v2 • **Data:** 2025-09-04 • **Compatibilità:** Core 3.3+
+> **Nota migrazione:** tutti i percorsi ora puntano a **.txt** (niente .yaml).
 > **Badge:** [RAW] [RAI] [PFS] 🧠 META [HR]
+> **Recupero moduli:** segui il flusso `decidi modalità → GET /modules/{name} (header x-api-key) → riformula` senza duplicare il kernel nel profilo GPT.
 
 ---
 
@@ -42,6 +43,7 @@ Entra nel gruppo Facebook Pathfinder GdR Italia:
 ---
 
 ## 1) Quick Start — Guida d’uso
+- **Recupero via API (per tutte le modalità):** decidi la modalità → chiama `GET /modules/{name}` con header `x-api-key: <API_KEY>` → leggi il testo e riformula con i badge [RAW]/[RAI]/[PFS]/[HR]/🧠META quando servono.
 - **Crea eroe (Quiz Taverna):** “Voglio creare un PG con il quiz (PFS off).” → 3 fasi da 7–10 domande; output su `scheda_pg_markdown_template.md`; poi **/next_step**.
 - **Ottimizza (MinMax v5):** `/start_build` → `/set_player_style Spike` → `/toggle_pfs on` → `/bench -q` → `/next_step`.
 - **Ruling separato:** “Chiarisci Power Attack con TWF (PFS off).” → TL;DR → RAW → RAI → PFS.
@@ -122,23 +124,25 @@ Linee guida: snapshot prima di export; `sell_rate` default 0.5.
 ---
 
 ## 8) Demo Conversazione — End‑to‑End
-**Scena 1 — Taverna (Quiz PG)**  
-Utente: “Voglio creare un PG con il quiz, tono low‑fantasy, niente 3PP, PFS off. Stile Spike.”  
-Assistente [META]: avvio quiz 3×(7–10 domande); CTA → `/next_step`.  
+Prima di ogni scena: il GPT sceglie la modalità, chiama `GET /modules/{name}` (header `x-api-key`) e riformula i contenuti; ogni blocco di risposta mantiene i tag [RAW]/[RAI]/[PFS]/[HR]/🧠META coerenti con le fonti.
+
+**Scena 1 — Taverna (Quiz PG)**
+Utente: “Voglio creare un PG con il quiz, tono low‑fantasy, niente 3PP, PFS off. Stile Spike.”
+Assistente [META]: avvio quiz 3×(7–10 domande); CTA → `/next_step`.
 Output: scheda su `scheda_pg_markdown_template.md` con stats, ruolo, backstory breve, equip base.
 
-**Scena 2 — Ruling Expert**  
-Utente: “Power Attack con fauchard e due armi. PFS off.”  
-Risposta [RAW][RAI]:  
-- **TL;DR**: malus PA su entrambe le mani; bonus danni scala 2H (×1.5), non si duplica sulla off‑hand.  
+**Scena 2 — Ruling Expert**
+Utente: “Power Attack con fauchard e due armi. PFS off.”
+Risposta [RAW][RAI]:
+- **TL;DR**: malus PA su entrambe le mani; bonus danni scala 2H (×1.5), non si duplica sulla off‑hand.
 - **RAW**: CRB p.113–114; FAQ Paizo.  
 - **RAI**: note sullo scaling 2H/TWF.  
 - **PFS**: (off) nessun vincolo.  
 - **Fonti**: CRB; AoN.
 
-**Scena 3 — Encounter Designer**  
-Utente: “4 PG L6; foresta fitta, buio/alture; lupi crudeli + alfa (Jezelda); Difficile; PFS off.”  
-Output: **APL 6 → CR 8 (Difficile), XP 4.800**; nemici (3× Dire Wolf CR3 + 1× Werewolf Alpha CR6); ambiente (−5 Percezione, alture +1, sottobosco MD); **tattiche** (flanking & trip; alfa in copertura alta; ululato); **morale** (ritirata <30% PF); **varianti** (CR 7/9); **loot PFS‑safe** (pozioni CL3, frecce d’argento, talismano boschivo).  
+**Scena 3 — Encounter Designer**
+Utente: “4 PG L6; foresta fitta, buio/alture; lupi crudeli + alfa (Jezelda); Difficile; PFS off.”
+Output: **APL 6 → CR 8 (Difficile), XP 4.800**; nemici (3× Dire Wolf CR3 + 1× Werewolf Alpha CR6); ambiente (−5 Percezione, alture +1, sottobosco MD); **tattiche** (flanking & trip; alfa in copertura alta; ululato); **morale** (ritirata <30% PF); **varianti** (CR 7/9); **loot PFS‑safe** (pozioni CL3, frecce d’argento, talismano boschivo).
 CTA: `/send_to_ledger auto` o `/export_vtt`.
 
 **Scena 4 — Libro Mastro**  
