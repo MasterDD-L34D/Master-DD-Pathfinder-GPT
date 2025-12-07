@@ -65,8 +65,11 @@ async def get_module_content(name: str, _: None = Depends(require_api_key)) -> s
         raise HTTPException(status_code=400, detail="Invalid module path")
     if not path.is_file():
         raise HTTPException(status_code=404, detail="Module not found")
-    # In caso tu voglia tagliare per lunghezza, puoi farlo qui
     text = path.read_text(encoding="utf-8", errors="ignore")
+    if not settings.allow_module_dump:
+        max_chars = 4000
+        if len(text) > max_chars:
+            text = text[:max_chars] + "\n\n[contenuto troncato]"
     return text
 
 
