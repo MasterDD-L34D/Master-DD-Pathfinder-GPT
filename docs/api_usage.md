@@ -104,12 +104,31 @@ Metadati per un singolo asset in `src/data`.
 - `503 Service Unavailable`: directory `modules` o `data` non raggiungibili; anche `/health` riporta `503` in questo caso.
 - `500 Stub payload non valido`: solo per `/modules/minmax_builder.txt` se la generazione dello stub fallisce.
 
-## Metriche (`GET /metrics`)
+## Metriche
 
-- Protezione: richiede `x-api-key` uguale a `METRICS_API_KEY` (o `API_KEY`) **oppure** che l'IP del client sia presente in `METRICS_IP_ALLOWLIST`.
-- Output: formato testuale Prometheus con contatori per richieste totali per endpoint/metodo/status, errori 4xx/5xx, attivazioni del backoff di autenticazione e gauge sullo stato delle directory di configurazione.
-- Esempio di invocazione:
-  ```http
-  GET /metrics
-  x-api-key: ${METRICS_API_KEY}
+L'accesso a `/metrics` è protetto da `require_metrics_access`, che accetta le seguenti credenziali:
+
+- Header `x-api-key` valorizzato con `METRICS_API_KEY`.
+- In alternativa, lo stesso header può usare la chiave primaria `API_KEY`.
+- Allowlist IP configurabile con `METRICS_IP_ALLOWLIST="1.2.3.4,10.0.0.0"` (valori separati da virgole, senza spazi).
+
+Se la richiesta non include una chiave valida **né** proviene da un IP in allowlist, `/metrics` risponde con `403 Forbidden`.
+
+**Esempi `curl`**
+
+- Accesso con chiave dedicata:
+  ```bash
+  curl -H "x-api-key: ${METRICS_API_KEY}" https://example.org/metrics
   ```
+- Accesso con chiave primaria:
+  ```bash
+  curl -H "x-api-key: ${API_KEY}" https://example.org/metrics
+  ```
+- Accesso basato su allowlist IP (nessuna chiave, IP autorizzato):
+  ```bash
+  curl https://example.org/metrics
+  ```
+
+**Output**: testo Prometheus con contatori per richieste totali per endpoint/metodo/status, errori 4xx/5xx, attivazioni del backoff di autenticazione e gauge sullo stato delle directory di configurazione.
+
+> **Nota di sicurezza**: in ambienti pubblici usare sempre `METRICS_API_KEY` (o `API_KEY`) e limitare l'allowlist al minimo necessario; evitare allowlist larghe per prevenire scraping non autorizzato.
