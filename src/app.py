@@ -62,6 +62,12 @@ DIRECTORY_STATUS = Gauge(
 )
 
 
+REQUIRED_MODULE_FILES = [
+    "base_profile.txt",
+    "minmax_builder.txt",
+]
+
+
 def _reset_failed_attempts() -> None:
     """Utility to clear the in-memory tracker (mainly for tests)."""
 
@@ -252,9 +258,40 @@ def _validate_directories(raise_on_error: bool = False) -> Dict[str, Dict]:
         }
         DIRECTORY_STATUS.labels(directory=label).set(1 if is_valid else 0)
 
+    missing_required_files: list[str] = []
+    required_files_status = "ok"
+
+    if directories["modules"]["status"] == "ok":
+        missing_required_files = sorted(
+            name for name in REQUIRED_MODULE_FILES if not (MODULES_DIR / name).is_file()
+        )
+        if missing_required_files:
+            required_files_status = "error"
+            message = (
+                "File obbligatori mancanti in modules: "
+                + ", ".join(missing_required_files)
+            )
+            logging.error(
+                "Required module files missing",
+                extra={
+                    "event": "required_modules_missing",
+                    "path": str(MODULES_DIR),
+                    "missing_files": missing_required_files,
+                },
+            )
+            errors.append(message)
+    else:
+        required_files_status = "error"
+        missing_required_files = sorted(REQUIRED_MODULE_FILES)
+
     diagnostic = {
         "status": "ok" if not errors else "error",
         "directories": directories,
+        "required_module_files": {
+            "status": required_files_status,
+            "missing": missing_required_files,
+            "path": str(MODULES_DIR),
+        },
     }
 
     if errors:
