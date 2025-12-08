@@ -27,6 +27,11 @@ pathfinder_master_dd_repo/
    └─ module_index.md       # Indice rapido dei file in src/modules
 ```
 
+Per obiettivi, milestone e decisioni architetturali sulle build/moduli consulta anche la cartella `planning/`:
+
+- [planning/roadmap.md](planning/roadmap.md) raccoglie roadmap e obiettivi aggiornati.
+- [planning/decisions.md](planning/decisions.md) contiene le ADR sulle scelte di build e modularizzazione.
+
 Nota: `docs/module_index.md` elenca tutti i moduli richiesti e documenta anche le cartelle di servizio (es. `quarantine/`, `taverna_saves/`) che non rientrano nel flusso API standard ma vanno tracciate lì; per i dettagli su moduli obbligatori/di servizio vedi la [sezione dedicata](docs/module_index.md#cartelle-di-servizio).
 
 ### Requisiti
