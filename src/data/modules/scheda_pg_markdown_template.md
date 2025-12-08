@@ -383,11 +383,12 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 
 {% if not PRINT_MODE and SHOW_QA %}
 ---
-## QA rapido
-- **Tabelle popolate?:** armi/skill/incantesimi non vuote o placeholder indicato.
-- **Valute normalizzate:** {{ coin_str(pp, gp, sp, cp) }} (usa fmt_gp per export).
-- **Coerenza WBL:** Δ vs target {{ d(wbl_delta_gp) }} gp; vendite/acquisti loggati nel ledger.
-- **Badge/Lingua:** tag PFS/RAW se noti; lingua coerente con prompt.
+## QA
+- **Validazione dati:** tabelle armi/skill/incantesimi non vuote o placeholder indicato; badge/lingua coerenti.
+- **Valute normalizzate:** {{ d(coin_str(pp, gp, sp, cp), '—') }} (usa fmt_gp per export).
+- **Economia (Δ WBL):** {{ (wbl_delta_gp ~ ' gp') if wbl_delta_gp is not none else '—' }}; vendite/acquisti loggati nel ledger.
+- **Spoiler/AP warning:** spoiler_mode={{ d(spoiler_mode, 'light') }} | AP warning={{ d(ap_warning, '—') }}.
+- **Confidence:** {{ d(confidence_score, '—') }} | **Uncertainty flags:** {{ d(uncertainty_flags, '—') }}.
 {% endif %}
 
 ---
@@ -438,12 +439,7 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 - **Thread aperti / milestone:** {{ d(thread_aperti) }}
 {% if not PRINT_MODE and SHOW_QA %}
 ---
-## QA & Spoiler
-- **spoiler_mode:** {{ d(spoiler_mode, 'light') }}  
-- **AP warning:** {{ d(ap_warning) }}  
-- **Confidence:** {{ d(confidence_score) }} | **Uncertainty flags:** {{ d(uncertainty_flags) }}
-
-{% if glossario_golarion %}
+{%- if glossario_golarion %}
 ---
 ## Glossario Golarion (rapido)
 {% for g in glossario_golarion.termini or [] -%}
