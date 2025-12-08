@@ -111,6 +111,12 @@
       "type": "object",
       "additionalProperties": true
     },
+    "step_audit": {
+      "$ref": "#/$defs/step_audit"
+    },
+    "completeness": {
+      "$ref": "#/$defs/completeness"
+    },
     "composite": {
       "$ref": "#/$defs/composite"
     }
@@ -132,6 +138,66 @@
         "array",
         "null"
       ]
+    },
+    "step_audit": {
+      "type": "object",
+      "properties": {
+        "normalized_mode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expected_step_total": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "observed_step_total": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "step_total_ok": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "step_labels_count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "has_extended_steps": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "completeness": {
+      "type": "object",
+      "properties": {
+        "errors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "require_complete": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
     },
     "composite": {
       "type": "object",
