@@ -1,0 +1,28 @@
+# Decision Log (ADR brevi)
+
+Formato: contesto → decisione → conseguenze.
+
+## ADR 001 — Build DB e dump moduli
+- **Contesto**: lo script `tools/generate_build_db.py` deve produrre build estese (16 step) e scaricare i moduli critici per scheda/narrativa.
+- **Decisione**: usare `mode=extended` come default, con health check opzionale (`--skip-health-check`) e uso della variabile `API_URL`/flag `--api-url` per endpoint remoti. Combinare moduli pinnati e discovery `GET /modules` quando `--discover-modules` è attivo.
+- **Conseguenze**: gli output finiscono in `src/data/builds/` e `src/data/modules/` con indici `build_index.json` e `module_index.json`; i parametri `--modules`, `--include/--exclude` consentono di riprodurre la selezione indicata nel README.
+
+## ADR 002 — Livelli di validazione
+- **Contesto**: alcune risposte possono violare gli schemi in `schemas/` durante la generazione del DB o il download moduli.
+- **Decisione**: supportare livelli progressivi: `--strict` interrompe al primo payload non valido; `--keep-invalid` conserva comunque i file difettosi per debug; default tollerante ma con log dell'esito per ogni voce in `build_index.json` e `module_index.json`.
+- **Conseguenze**: consente di scegliere tra fail-fast e raccolta completa, come descritto nel troubleshooting del README; gli indici annotano gli errori per analisi successive.
+
+## ADR 003 — Discovery moduli e filtri glob
+- **Contesto**: il set di moduli esposti dall'API può variare; serve controllare quali asset entrano nel dump.
+- **Decisione**: quando `--discover-modules` è abilitato, unire la lista scoperta con moduli pinnati, applicando filtri `--include/--exclude` solo ai moduli scoperti.
+- **Conseguenze**: replica il flusso di selezione moduli documentato nel README; i filtri e i timestamp vengono registrati in `module_index.json` per rendere riproducibile la discovery.
+
+## ADR 004 — Uso di spec file e filtri combinatori
+- **Contesto**: servono combinazioni classe/razza/archetipo/background riproducibili senza hardcodare ogni variante.
+- **Decisione**: permettere `--spec-file` (default `docs/examples/pg_variants.yml` se non fornito) oppure l'uso di flag combinatori (`--races`, `--archetypes`, `--background-hooks`) per generare il prodotto cartesiano con le classi finali.
+- **Conseguenze**: gli output riportano `spec_id` e varianti nel `build_index.json`; l'approccio riusa il flusso di generazione build descritto nel README e mantiene compatibilità con moduli aggiuntivi scaricati tramite discovery.
+
+## ADR 005 — Hardening health/metrics e autenticazione
+- **Contesto**: probe falliti (`/health`), rate-limit (`429`) e chiavi assenti (`401`) possono interrompere la pipeline di build.
+- **Decisione**: seguire i passaggi di avvio API del README (esportare `API_KEY`, opzionale `ALLOW_ANONYMOUS`) e regolare il backoff tramite `AUTH_BACKOFF_*`; permettere `--skip-health-check` quando l'endpoint non espone `/health` ma è raggiungibile.
+- **Conseguenze**: riduce falsi negativi nei probe e blocchi temporanei durante `generate_build_db`; gli script devono documentare le variabili d'ambiente e i fallback nei log, collegandosi ai workflow di avvio API e probe.
