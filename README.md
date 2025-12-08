@@ -42,6 +42,18 @@ Se vuoi abilitare esplicitamente l'accesso anonimo, imposta `ALLOW_ANONYMOUS=tru
 assenza di `API_KEY` e senza questo flag, l'API risponderà con `401 Unauthorized` alle
 richieste prive di chiave.
 
+### Avvio rapido
+
+1. Esporta le variabili d'ambiente: `export API_KEY="la-tua-chiave"` e, se serve accesso senza chiave, `export ALLOW_ANONYMOUS=true`.
+2. Installa le dipendenze: `pip install -r requirements.txt`.
+3. Esegui il controllo di formattazione e sintassi: `tools/run_static_analysis.sh`.
+4. Avvia l'API: `uvicorn src.app:app --reload --port 8000`.
+5. Verifica che risponda: `curl http://localhost:8000/health`.
+
+Se incontri errori `401` o `429`, regola il [backoff di autenticazione](#backoff-autenticazione-auth_backoff_) tramite le variabili `AUTH_BACKOFF_*` per gestire ritardi e blocchi temporanei.
+
+#### Backoff autenticazione (`AUTH_BACKOFF_*`)
+
 Per mitigare tentativi ripetuti con chiavi errate, puoi regolare il backoff sugli
 header `x-api-key` tramite due variabili d'ambiente:
 
