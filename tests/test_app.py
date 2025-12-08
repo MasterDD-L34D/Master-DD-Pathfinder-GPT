@@ -2,7 +2,9 @@ from pathlib import Path
 from urllib.parse import quote
 
 import pytest
+import httpx
 from fastapi.testclient import TestClient
+from prometheus_client import CONTENT_TYPE_LATEST
 
 import sys
 
@@ -124,6 +126,24 @@ def short_backoff(monkeypatch):
 @pytest.fixture
 def auth_headers():
     return {"x-api-key": "test-api-key"}
+
+
+@pytest.fixture
+def metrics_security_settings():
+    original_metrics_key = settings.metrics_api_key
+    original_allowlist = list(settings.metrics_ip_allowlist)
+    yield
+    settings.metrics_api_key = original_metrics_key
+    settings.metrics_ip_allowlist = original_allowlist
+
+
+@pytest.fixture
+async def allowlisted_http_client():
+    transport = httpx.ASGITransport(app=app, client=("203.0.113.5", 8000))
+    async with httpx.AsyncClient(
+        transport=transport, base_url="http://testserver"
+    ) as http_client:
+        yield http_client
 
 
 def test_get_module_content_valid_file(client, auth_headers):
@@ -386,6 +406,50 @@ def test_allow_anonymous_access(client):
     settings.allow_anonymous = True
     response = client.get("/modules")
     assert response.status_code == 200
+
+
+def test_metrics_allows_valid_api_key(client, metrics_security_settings):
+    settings.metrics_api_key = "metrics-secret"
+
+    response = client.get("/metrics", headers={"x-api-key": "metrics-secret"})
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == CONTENT_TYPE_LATEST
+
+
+def test_metrics_rejects_invalid_api_key(client, metrics_security_settings):
+    settings.metrics_api_key = "metrics-secret"
+
+    response = client.get("/metrics", headers={"x-api-key": "wrong"})
+
+    assert response.status_code == 403
+    assert response.json()["detail"] == "Accesso alle metriche non autorizzato"
+
+
+@pytest.mark.anyio
+async def test_metrics_allowlisted_client_host(
+    metrics_security_settings, allowlisted_http_client
+):
+    settings.metrics_api_key = None
+    settings.metrics_ip_allowlist = ["203.0.113.5"]
+
+    response = await allowlisted_http_client.get("/metrics")
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == CONTENT_TYPE_LATEST
+
+
+def test_metrics_allowlisted_forwarded_for(client, metrics_security_settings):
+    settings.metrics_api_key = None
+    settings.metrics_ip_allowlist = ["203.0.113.5"]
+
+    response = client.get("/metrics", headers={"x-forwarded-for": "203.0.113.5"})
+    assert response.status_code == 200
+    assert response.headers["content-type"] == CONTENT_TYPE_LATEST
+
+    blocked_response = client.get("/metrics")
+    assert blocked_response.status_code == 403
+    assert blocked_response.json()["detail"] == "Accesso alle metriche non autorizzato"
 
 
 def test_modules_directory_missing_returns_error(
