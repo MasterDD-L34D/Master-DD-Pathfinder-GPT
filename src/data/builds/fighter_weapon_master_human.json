@@ -264,7 +264,7 @@
     }
   },
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&race=Human&archetype=Weapon+Master",
-  "fetched_at": "2025-12-08T16:34:45Z",
+  "fetched_at": "2025-12-08T16:41:05Z",
   "request": {
     "class": "Fighter",
     "race": "Human",
@@ -293,6 +293,6 @@
   },
   "completeness": {
     "errors": [],
-    "require_complete": true
+    "require_complete": false
   }
 }
