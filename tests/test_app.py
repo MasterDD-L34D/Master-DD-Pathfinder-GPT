@@ -42,6 +42,22 @@ def missing_data_dir(monkeypatch, tmp_path):
 
 
 @pytest.fixture
+def data_dir_file(monkeypatch, tmp_path):
+    data_file = tmp_path / "data_file"
+    data_file.write_text("not a directory")
+    monkeypatch.setattr(app_module, "DATA_DIR", data_file)
+    return data_file
+
+
+@pytest.fixture
+def temp_data_dir(monkeypatch, tmp_path):
+    data_dir = tmp_path / "data"
+    data_dir.mkdir()
+    monkeypatch.setattr(app_module, "DATA_DIR", data_dir)
+    return data_dir
+
+
+@pytest.fixture
 def allow_missing_directories(monkeypatch):
     def fake_validate(raise_on_error: bool = False):
         directories = {}
@@ -197,15 +213,18 @@ def test_get_module_content_binary_streamed_without_text_property(
         binary_path.unlink(missing_ok=True)
 
 
-def test_get_module_content_binary_blocked_when_dump_disabled(client, auth_headers):
+def test_get_module_content_binary_blocked_when_dump_disabled(
+    client, auth_headers, disable_module_dump
+):
     binary_path = MODULES_DIR / "binary_blocked.bin"
     binary_path.write_bytes(b"binary-content")
 
     try:
-        settings.allow_module_dump = False
         response = client.get("/modules/binary_blocked.bin", headers=auth_headers)
         assert response.status_code == 403
-        assert response.json()["detail"] == "Module download not allowed"
+        payload = response.json()
+        assert payload["detail"] == "Module download not allowed"
+        assert "contenuto troncato" not in response.text
     finally:
         binary_path.unlink(missing_ok=True)
 
@@ -238,6 +257,36 @@ def test_get_module_meta_not_found(client, auth_headers):
     response = client.get("/modules/missing_module.txt/meta", headers=auth_headers)
     assert response.status_code == 404
     assert response.json()["detail"] == "Module not found"
+
+
+@pytest.mark.parametrize(
+    "data_fixture",
+    ["missing_data_dir", "data_dir_file"],
+)
+def test_list_knowledge_returns_503_for_invalid_data_dir(
+    client, auth_headers, allow_missing_directories, request, data_fixture
+):
+    invalid_path = request.getfixturevalue(data_fixture)
+
+    response = client.get("/knowledge", headers=auth_headers)
+
+    assert response.status_code == 503
+    assert (
+        response.json()["detail"]
+        == f"Directory di configurazione non trovata: {invalid_path}"
+    )
+
+
+def test_get_knowledge_meta_returns_404_for_traversal_inside_data_dir(
+    client, auth_headers, temp_data_dir
+):
+    traversal_target = f"../{temp_data_dir.name}/ghost.md"
+    encoded_target = quote(traversal_target, safe="")
+
+    response = client.get(f"/knowledge/{encoded_target}/meta", headers=auth_headers)
+
+    assert response.status_code == 404
+    assert response.json()["detail"] == "Knowledge file not found"
 
 
 def test_get_module_meta_path_traversal(client, auth_headers):
