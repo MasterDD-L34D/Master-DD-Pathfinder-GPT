@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-08T17:10:13Z",
+  "generated_at": "2025-12-08T17:15:41Z",
   "api_url": "http://localhost:8000",
   "entries": [
     {
@@ -142,26 +142,5 @@
         "suffix": ".json"
       }
     }
-  ],
-  "discovery": {
-    "performed_at": "2025-12-08T17:10:13Z",
-    "include_filters": [
-      "*.txt"
-    ],
-    "exclude_filters": [],
-    "raw_count": 14,
-    "selected": [
-      "Encounter_Designer.txt",
-      "Taverna_NPC.txt",
-      "adventurer_ledger.txt",
-      "archivist.txt",
-      "base_profile.txt",
-      "explain_methods.txt",
-      "meta_doc.txt",
-      "minmax_builder.txt",
-      "narrative_flow.txt",
-      "ruling_expert.txt",
-      "sigilli_runner_module.txt"
-    ]
-  }
+  ]
 }
