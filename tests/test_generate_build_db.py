@@ -16,9 +16,13 @@ def test_review_local_database_reports_status(tmp_path):
     build_dir = tmp_path / "builds"
     build_dir.mkdir()
 
-    valid_payload = json.loads(Path("src/data/builds/alchemist.json").read_text(encoding="utf-8"))
+    valid_payload = json.loads(
+        Path("src/data/builds/alchemist.json").read_text(encoding="utf-8")
+    )
     (build_dir / "valid.json").write_text(json.dumps(valid_payload), encoding="utf-8")
-    (build_dir / "invalid.json").write_text(json.dumps({"build_state": {}}), encoding="utf-8")
+    (build_dir / "invalid.json").write_text(
+        json.dumps({"build_state": {}}), encoding="utf-8"
+    )
 
     module_dir = tmp_path / "modules"
     module_dir.mkdir()
@@ -111,7 +115,9 @@ async def _run_core_harvest(tmp_path, monkeypatch):
         return real_async_client(*args, **kwargs)
 
     monkeypatch.setattr("tools.generate_build_db.httpx.AsyncClient", client_factory)
-    monkeypatch.setattr("tools.generate_build_db.validate_with_schema", lambda *args, **kwargs: None)
+    monkeypatch.setattr(
+        "tools.generate_build_db.validate_with_schema", lambda *args, **kwargs: None
+    )
 
     output_dir = tmp_path / "builds"
     modules_dir = tmp_path / "modules"
@@ -145,7 +151,9 @@ async def _run_core_harvest(tmp_path, monkeypatch):
 def test_run_harvest_smoke(tmp_path, monkeypatch):
     output_dir, index_path = asyncio.run(_run_core_harvest(tmp_path, monkeypatch))
 
-    saved_build = json.loads((output_dir / "alchemist.json").read_text(encoding="utf-8"))
+    saved_build = json.loads(
+        (output_dir / "alchemist.json").read_text(encoding="utf-8")
+    )
     assert saved_build["build_state"]["class"] == "Alchemist"
 
     index = json.loads(index_path.read_text(encoding="utf-8"))

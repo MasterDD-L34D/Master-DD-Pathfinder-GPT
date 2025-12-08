@@ -13,6 +13,7 @@ from src.app import app
 from src.config import MODULES_DIR, DATA_DIR, settings
 from tools.generate_build_db import schema_for_mode, validate_with_schema
 
+
 @pytest.fixture
 def client():
     with TestClient(app) as test_client:
@@ -62,7 +63,10 @@ def allow_missing_directories(monkeypatch):
     def fake_validate(raise_on_error: bool = False):
         directories = {}
         errors = []
-        for label, path in ("modules", app_module.MODULES_DIR), ("data", app_module.DATA_DIR):
+        for label, path in ("modules", app_module.MODULES_DIR), (
+            "data",
+            app_module.DATA_DIR,
+        ):
             is_valid = path.exists() and path.is_dir()
             message = None
             if not is_valid:
@@ -74,7 +78,10 @@ def allow_missing_directories(monkeypatch):
                 "message": message,
             }
 
-        diagnostic = {"status": "ok" if not errors else "error", "directories": directories}
+        diagnostic = {
+            "status": "ok" if not errors else "error",
+            "directories": directories,
+        }
         if errors:
             diagnostic["errors"] = errors
 
@@ -185,7 +192,9 @@ def test_minmax_builder_stub_payload_matches_schema(client, auth_headers):
 
 
 def test_get_module_content_path_traversal(client, auth_headers):
-    response = client.get(f"/modules/{quote('../config.py', safe='')}" , headers=auth_headers)
+    response = client.get(
+        f"/modules/{quote('../config.py', safe='')}", headers=auth_headers
+    )
     assert response.status_code == 400
     assert response.json()["detail"] == "Invalid module path"
 
@@ -196,9 +205,7 @@ def test_get_module_content_not_found(client, auth_headers):
     assert response.json()["detail"] == "Module not found"
 
 
-def test_get_module_content_binary_streamed_without_text_property(
-    client, auth_headers
-):
+def test_get_module_content_binary_streamed_without_text_property(client, auth_headers):
     binary_path = MODULES_DIR / "binary_test.bin"
     binary_path.write_bytes(b"\x00\x01" * 2048)
 
@@ -229,7 +236,9 @@ def test_get_module_content_binary_blocked_when_dump_disabled(
         binary_path.unlink(missing_ok=True)
 
 
-def test_text_module_truncated_when_dump_disabled(client, auth_headers, disable_module_dump):
+def test_text_module_truncated_when_dump_disabled(
+    client, auth_headers, disable_module_dump
+):
     large_module = MODULES_DIR / "large_module.txt"
     large_module.write_text("A" * 5001)
 
@@ -245,7 +254,9 @@ def test_text_module_truncated_when_dump_disabled(client, auth_headers, disable_
 
 def test_get_module_meta_valid_file(client, auth_headers):
     sample_file = next(p for p in MODULES_DIR.iterdir() if p.is_file())
-    response = client.get(f"/modules/{quote(sample_file.name)}/meta", headers=auth_headers)
+    response = client.get(
+        f"/modules/{quote(sample_file.name)}/meta", headers=auth_headers
+    )
     assert response.status_code == 200
     payload = response.json()
     assert payload["name"] == sample_file.name
@@ -290,14 +301,18 @@ def test_get_knowledge_meta_returns_404_for_traversal_inside_data_dir(
 
 
 def test_get_module_meta_path_traversal(client, auth_headers):
-    response = client.get(f"/modules/{quote('../config.py', safe='')}/meta", headers=auth_headers)
+    response = client.get(
+        f"/modules/{quote('../config.py', safe='')}/meta", headers=auth_headers
+    )
     assert response.status_code == 400
     assert response.json()["detail"] == "Invalid module path"
 
 
 def test_get_knowledge_meta_valid_file(client, auth_headers):
     sample_file = next(p for p in DATA_DIR.iterdir() if p.is_file())
-    response = client.get(f"/knowledge/{quote(sample_file.name)}/meta", headers=auth_headers)
+    response = client.get(
+        f"/knowledge/{quote(sample_file.name)}/meta", headers=auth_headers
+    )
     assert response.status_code == 200
     payload = response.json()
     assert payload["name"] == sample_file.name
@@ -305,7 +320,9 @@ def test_get_knowledge_meta_valid_file(client, auth_headers):
 
 
 def test_get_knowledge_meta_path_traversal(client, auth_headers):
-    response = client.get(f"/knowledge/{quote('../config.py', safe='')}/meta", headers=auth_headers)
+    response = client.get(
+        f"/knowledge/{quote('../config.py', safe='')}/meta", headers=auth_headers
+    )
     assert response.status_code == 400
     assert response.json()["detail"] == "Invalid knowledge path"
 

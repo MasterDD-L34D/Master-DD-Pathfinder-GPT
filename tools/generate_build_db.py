@@ -1,4 +1,5 @@
 """Utility per popolare il database locale di build MinMax Builder."""
+
 from __future__ import annotations
 
 import argparse
@@ -62,7 +63,9 @@ PF1E_CLASSES: List[str] = [
 
 DEFAULT_MODE = "extended"
 DEFAULT_BASE_URL = "http://localhost:8000"
-DEFAULT_SPEC_FILE = Path(__file__).resolve().parent.parent / "docs/examples/pg_variants.yml"
+DEFAULT_SPEC_FILE = (
+    Path(__file__).resolve().parent.parent / "docs/examples/pg_variants.yml"
+)
 MODULE_ENDPOINT = "/modules/minmax_builder.txt"
 MODULE_DUMP_ENDPOINT = "/modules/{name}"
 MODULE_META_ENDPOINT = "/modules/{name}/meta"
@@ -87,7 +90,9 @@ DEFAULT_MODULE_TARGETS: Sequence[str] = (
 
 
 def now_iso_utc() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    return (
+        datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    )
 
 
 @dataclass(slots=True)
@@ -140,7 +145,12 @@ class BuildRequest:
         resolved_spec_id = self.spec_id or slugify(
             "_".join(
                 str(part)
-                for part in (self.class_name, resolved_race, resolved_archetype, resolved_background)
+                for part in (
+                    self.class_name,
+                    resolved_race,
+                    resolved_archetype,
+                    resolved_background,
+                )
                 if part
             )
         )
@@ -196,7 +206,9 @@ def _is_placeholder(value: object) -> bool:
     return False
 
 
-def _merge_prefer_existing(target: MutableMapping[str, object], *sources: Mapping) -> MutableMapping[str, object]:
+def _merge_prefer_existing(
+    target: MutableMapping[str, object], *sources: Mapping
+) -> MutableMapping[str, object]:
     for source in sources:
         if not isinstance(source, Mapping):
             continue
@@ -298,7 +310,9 @@ def _load_validator(schema_filename: str) -> Draft202012Validator:
     _schema_store[schema_filename] = schema
     if "$id" in schema:
         _schema_store[schema["$id"]] = schema
-    resolver = RefResolver(base_uri=path.resolve().as_uri(), referrer=schema, store=_schema_store)
+    resolver = RefResolver(
+        base_uri=path.resolve().as_uri(), referrer=schema, store=_schema_store
+    )
     return Draft202012Validator(schema, resolver=resolver)
 
 
@@ -333,7 +347,9 @@ def validate_with_schema(
             "context": context,
             "schema": schema_filename,
             "errors": [error.message for error in errors],
-            "paths": ["/".join(str(segment) for segment in error.path) for error in errors],
+            "paths": [
+                "/".join(str(segment) for segment in error.path) for error in errors
+            ],
         },
     )
     if strict:
@@ -342,7 +358,14 @@ def validate_with_schema(
 
 
 def _empty_review_section() -> dict[str, Any]:
-    return {"total": 0, "valid": 0, "invalid": 0, "errors": 0, "missing": 0, "entries": []}
+    return {
+        "total": 0,
+        "valid": 0,
+        "invalid": 0,
+        "errors": 0,
+        "missing": 0,
+        "entries": [],
+    }
 
 
 def _bump_review(section: MutableMapping[str, Any], status: str) -> None:
@@ -389,9 +412,9 @@ def review_local_database(
                     f"build {path.name}",
                     strict=strict,
                 )
-                sheet_payload = payload.get("export", {}).get("sheet_payload") or payload.get(
+                sheet_payload = payload.get("export", {}).get(
                     "sheet_payload"
-                )
+                ) or payload.get("sheet_payload")
                 sheet_error = None
                 if sheet_payload is not None:
                     sheet_error = validate_with_schema(
@@ -421,7 +444,9 @@ def review_local_database(
     module_entries: Sequence[Mapping[str, Any]] = []
     if module_index_path and module_index_path.is_file():
         try:
-            module_index_payload = json.loads(module_index_path.read_text(encoding="utf-8"))
+            module_index_payload = json.loads(
+                module_index_path.read_text(encoding="utf-8")
+            )
             module_entries = module_index_payload.get("entries", []) or []
         except Exception as exc:
             modules_section["entries"].append(
@@ -434,7 +459,11 @@ def review_local_database(
             {
                 "module": path.name,
                 "file": str(path),
-                "meta": {"name": path.name, "size_bytes": path.stat().st_size, "suffix": path.suffix},
+                "meta": {
+                    "name": path.name,
+                    "size_bytes": path.stat().st_size,
+                    "suffix": path.suffix,
+                },
             }
             for path in sorted(module_dir.iterdir())
             if path.is_file()
@@ -443,7 +472,10 @@ def review_local_database(
     for module_entry in module_entries:
         module_name = str(module_entry.get("module") or "")
         resolved_path = Path(module_entry.get("file") or module_dir / module_name)
-        entry: dict[str, Any] = {"module": module_name or resolved_path.name, "file": str(resolved_path)}
+        entry: dict[str, Any] = {
+            "module": module_name or resolved_path.name,
+            "file": str(resolved_path),
+        }
 
         if not resolved_path.exists():
             entry["status"] = "missing"
@@ -469,7 +501,10 @@ def review_local_database(
             entry["error"] = str(exc)
 
         entry["status"] = status
-        entry["size_bytes"] = module_entry.get("meta", {}).get("size_bytes") or resolved_path.stat().st_size
+        entry["size_bytes"] = (
+            module_entry.get("meta", {}).get("size_bytes")
+            or resolved_path.stat().st_size
+        )
         _bump_review(modules_section, status)
         modules_section["entries"].append(entry)
 
@@ -491,7 +526,9 @@ def review_local_database(
     return report
 
 
-def apply_glob_filters(entries: Sequence[str], include: Sequence[str], exclude: Sequence[str]) -> list[str]:
+def apply_glob_filters(
+    entries: Sequence[str], include: Sequence[str], exclude: Sequence[str]
+) -> list[str]:
     def matches(patterns: Sequence[str], candidate: str) -> bool:
         return any(fnmatchcase(candidate, pattern) for pattern in patterns)
 
@@ -542,7 +579,9 @@ def load_spec_requests(spec_path: Path, default_mode: str) -> list[BuildRequest]
             query_params=_normalize_mapping(
                 entry.get("query") or entry.get("query_params") or entry.get("params")
             ),
-            body_params=_normalize_mapping(entry.get("body") or entry.get("body_params") or entry.get("json")),
+            body_params=_normalize_mapping(
+                entry.get("body") or entry.get("body_params") or entry.get("json")
+            ),
         )
 
         requests.append(request)
@@ -551,7 +590,9 @@ def load_spec_requests(spec_path: Path, default_mode: str) -> list[BuildRequest]
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Genera un database JSON di build per classe.")
+    parser = argparse.ArgumentParser(
+        description="Genera un database JSON di build per classe."
+    )
     parser.add_argument(
         "--api-url",
         default=os.environ.get("API_URL", DEFAULT_BASE_URL),
@@ -756,7 +797,10 @@ def build_requests_from_args(args: argparse.Namespace) -> list[BuildRequest]:
         logging.info("Uso il file spec predefinito %s", DEFAULT_SPEC_FILE)
         return load_spec_requests(DEFAULT_SPEC_FILE, args.mode)
 
-    return [BuildRequest(class_name=class_name, mode=args.mode) for class_name in args.classes]
+    return [
+        BuildRequest(class_name=class_name, mode=args.mode)
+        for class_name in args.classes
+    ]
 
 
 async def request_with_retry(
@@ -775,7 +819,12 @@ async def request_with_retry(
     while True:
         try:
             response = await client.request(
-                method, url, headers=headers, params=params, json=json_body, timeout=timeout
+                method,
+                url,
+                headers=headers,
+                params=params,
+                json=json_body,
+                timeout=timeout,
             )
         except httpx.RequestError as exc:
             if attempt >= max_retries:
@@ -803,7 +852,11 @@ async def request_with_retry(
         delay = backoff_factor * 2**attempt
         attempt += 1
         logging.warning(
-            "Tentativo fallito per %s %s (status %s). Retry in %.1fs...", method, url, response.status_code, delay
+            "Tentativo fallito per %s %s (status %s). Retry in %.1fs...",
+            method,
+            url,
+            response.status_code,
+            delay,
         )
         await asyncio.sleep(delay)
 
@@ -876,7 +929,11 @@ def _enrich_sheet_payload(
     sheet_payload: MutableMapping[str, object] = {}
     for candidate in (
         _as_mapping(export_ctx.get("sheet_payload")),
-        _as_mapping(payload.get("sheet_payload")) if isinstance(payload, Mapping) else None,
+        (
+            _as_mapping(payload.get("sheet_payload"))
+            if isinstance(payload, Mapping)
+            else None
+        ),
         _as_mapping(payload.get("sheet")) if isinstance(payload, Mapping) else None,
     ):
         if candidate:
@@ -895,8 +952,7 @@ def _enrich_sheet_payload(
     saves_breakdown = _merge_prefer_existing(
         {},
         _as_mapping(export_ctx.get("salvezze_breakdown")) or {},
-        _as_mapping((payload.get("build_state") or {}).get("saves_breakdown"))
-        or {},
+        _as_mapping((payload.get("build_state") or {}).get("saves_breakdown")) or {},
     )
     normalized_saves: dict[str, object] = {}
     for name in ("Tempra", "Riflessi", "Volontà"):
@@ -927,9 +983,11 @@ def _enrich_sheet_payload(
         hp_block.get("totale") if hp_block else None,
         hp_block.get("total") if hp_block else None,
         hp_block.get("hp_total") if hp_block else None,
-        (sheet_payload.get("statistiche_chiave") or {}).get("PF")
-        if isinstance(sheet_payload.get("statistiche_chiave"), Mapping)
-        else None,
+        (
+            (sheet_payload.get("statistiche_chiave") or {}).get("PF")
+            if isinstance(sheet_payload.get("statistiche_chiave"), Mapping)
+            else None
+        ),
     )
     if pf_total is not None:
         sheet_payload["pf_totali"] = pf_total
@@ -967,19 +1025,23 @@ def _enrich_sheet_payload(
     }
     for ac_key, default in ac_defaults.items():
         value = _first_non_placeholder(
-            sheet_payload.get(ac_key), ac_breakdown.get(ac_key) if ac_breakdown else None
+            sheet_payload.get(ac_key),
+            ac_breakdown.get(ac_key) if ac_breakdown else None,
         )
         if value is None:
             value = default
         sheet_payload[ac_key] = value
     ac_base = _first_non_placeholder(
-        sheet_payload.get("AC_base"), ac_breakdown.get("AC_base") if ac_breakdown else None, 10
+        sheet_payload.get("AC_base"),
+        ac_breakdown.get("AC_base") if ac_breakdown else None,
+        10,
     )
     if ac_base is not None:
         sheet_payload["AC_base"] = ac_base
     for ca_key in ("AC_tot", "CA_touch", "CA_ff"):
         derived = _first_non_placeholder(
-            sheet_payload.get(ca_key), ac_breakdown.get(ca_key) if ac_breakdown else None
+            sheet_payload.get(ca_key),
+            ac_breakdown.get(ca_key) if ac_breakdown else None,
         )
         if derived is not None:
             sheet_payload[ca_key] = derived
@@ -989,9 +1051,22 @@ def _enrich_sheet_payload(
             sheet_payload.get(ac_key, 0) for ac_key in ac_defaults
         )
     if "CA_touch" not in sheet_payload:
-        sheet_payload["CA_touch"] = ac_base + sheet_payload.get("AC_des", 0) + sheet_payload.get("AC_defl", 0) + sheet_payload.get("AC_dodge", 0) + sheet_payload.get("AC_misc", 0)
+        sheet_payload["CA_touch"] = (
+            ac_base
+            + sheet_payload.get("AC_des", 0)
+            + sheet_payload.get("AC_defl", 0)
+            + sheet_payload.get("AC_dodge", 0)
+            + sheet_payload.get("AC_misc", 0)
+        )
     if "CA_ff" not in sheet_payload:
-        sheet_payload["CA_ff"] = ac_base + sheet_payload.get("AC_arm", 0) + sheet_payload.get("AC_scudo", 0) + sheet_payload.get("AC_nat", 0) + sheet_payload.get("AC_defl", 0) + sheet_payload.get("AC_misc", 0)
+        sheet_payload["CA_ff"] = (
+            ac_base
+            + sheet_payload.get("AC_arm", 0)
+            + sheet_payload.get("AC_scudo", 0)
+            + sheet_payload.get("AC_nat", 0)
+            + sheet_payload.get("AC_defl", 0)
+            + sheet_payload.get("AC_misc", 0)
+        )
 
     initiative = _first_non_placeholder(
         sheet_payload.get("iniziativa"),
@@ -1043,7 +1118,11 @@ def _enrich_sheet_payload(
         sheet_payload.get("talenti"),
         export_ctx.get("talenti"),
         (payload.get("build_state") or {}).get("feats"),
-        [p.get("talento") for p in sheet_payload.get("progressione", []) if isinstance(p, Mapping) and p.get("talento")],
+        [
+            p.get("talento")
+            for p in sheet_payload.get("progressione", [])
+            if isinstance(p, Mapping) and p.get("talento")
+        ],
     )
     if feats:
         sheet_payload["talenti"] = feats
@@ -1080,9 +1159,11 @@ def _enrich_sheet_payload(
     equip_list = _merge_unique_list(
         sheet_payload.get("equipaggiamento"),
         export_ctx.get("equipaggiamento"),
-        (payload.get("ledger") or {}).get("equipaggiamento")
-        if isinstance(payload.get("ledger"), Mapping)
-        else None,
+        (
+            (payload.get("ledger") or {}).get("equipaggiamento")
+            if isinstance(payload.get("ledger"), Mapping)
+            else None
+        ),
     )
     if equip_list:
         sheet_payload["equipaggiamento"] = equip_list
@@ -1091,9 +1172,11 @@ def _enrich_sheet_payload(
         {},
         _as_mapping(sheet_payload.get("equipment_summary")) or {},
         _as_mapping(export_ctx.get("equipment_summary")) or {},
-        _as_mapping((payload.get("ledger") or {}).get("equipment_summary"))
-        if isinstance(payload.get("ledger"), Mapping)
-        else {},
+        (
+            _as_mapping((payload.get("ledger") or {}).get("equipment_summary"))
+            if isinstance(payload.get("ledger"), Mapping)
+            else {}
+        ),
     )
     if equipment_summary:
         sheet_payload["equipment_summary"] = equipment_summary
@@ -1101,9 +1184,11 @@ def _enrich_sheet_payload(
     inventory = _merge_unique_list(
         sheet_payload.get("inventario"),
         export_ctx.get("inventario"),
-        (payload.get("ledger") or {}).get("inventario")
-        if isinstance(payload.get("ledger"), Mapping)
-        else None,
+        (
+            (payload.get("ledger") or {}).get("inventario")
+            if isinstance(payload.get("ledger"), Mapping)
+            else None
+        ),
     )
     if inventory:
         sheet_payload["inventario"] = inventory
@@ -1135,8 +1220,7 @@ def _enrich_sheet_payload(
         {},
         _as_mapping(magic_map.get("spells_prepared")) or {},
         _as_mapping(export_ctx.get("spells_prepared")) or {},
-        _as_mapping((payload.get("build_state") or {}).get("spells_prepared"))
-        or {},
+        _as_mapping((payload.get("build_state") or {}).get("spells_prepared")) or {},
     )
     if spells_prepared:
         magic_map["spells_prepared"] = spells_prepared
@@ -1196,7 +1280,9 @@ def _enrich_sheet_payload(
     if module_payloads:
         sheet_payload["modules"] = module_payloads
 
-    sources = _merge_unique_list(sheet_payload.get("fonti"), [source_url] if source_url else [])
+    sources = _merge_unique_list(
+        sheet_payload.get("fonti"), [source_url] if source_url else []
+    )
     if sources:
         sheet_payload["fonti"] = sources
 
@@ -1257,7 +1343,9 @@ async def fetch_build(
     try:
         payload = response.json()
     except json.JSONDecodeError as exc:  # pragma: no cover - network dependent
-        raise BuildFetchError(f"Risposta non JSON per {request.class_name}: {exc}") from exc
+        raise BuildFetchError(
+            f"Risposta non JSON per {request.class_name}: {exc}"
+        ) from exc
 
     for required in ("build_state", "benchmark", "export"):
         if required not in payload:
@@ -1266,7 +1354,12 @@ async def fetch_build(
             )
 
     sheet = None
-    for candidate in ("sheet", "sheet_markup", "sheet_markdown", "sheet_markdown_template"):
+    for candidate in (
+        "sheet",
+        "sheet_markup",
+        "sheet_markdown",
+        "sheet_markdown_template",
+    ):
         if candidate in payload:
             sheet = payload[candidate]
             break
@@ -1278,7 +1371,9 @@ async def fetch_build(
     normalized_mode = normalize_mode(request.mode)
     expected_step_total = expected_step_total_for_mode(normalized_mode)
     observed_step_total = build_state.get("step_total")
-    step_labels = build_state.get("step_labels") if isinstance(build_state, Mapping) else None
+    step_labels = (
+        build_state.get("step_labels") if isinstance(build_state, Mapping) else None
+    )
     step_labels_count = len(step_labels) if isinstance(step_labels, Mapping) else None
     has_extended_steps = bool(step_labels_count and step_labels_count >= 16)
     if observed_step_total is None:
@@ -1312,7 +1407,11 @@ async def fetch_build(
         request.background = str(request.body_params.get("background_hooks"))
 
     composite = {
-        "build": {"build_state": payload.get("build_state"), "benchmark": payload.get("benchmark"), "export": payload.get("export")},
+        "build": {
+            "build_state": payload.get("build_state"),
+            "benchmark": payload.get("benchmark"),
+            "export": payload.get("export"),
+        },
     }
     if narrative is not None:
         composite["narrative"] = narrative
@@ -1322,13 +1421,18 @@ async def fetch_build(
         composite["ledger"] = ledger
 
     completeness_errors: list[str] = []
-    statistics = (build_state or {}).get("statistics") or (payload.get("benchmark") or {}).get("statistics")
-    if not statistics or (isinstance(statistics, Mapping) and not any(statistics.values())):
+    statistics = (build_state or {}).get("statistics") or (
+        payload.get("benchmark") or {}
+    ).get("statistics")
+    if not statistics or (
+        isinstance(statistics, Mapping) and not any(statistics.values())
+    ):
         completeness_errors.append("Statistiche mancanti o vuote")
 
     if not narrative:
         completeness_errors.append("Narrativa assente")
     else:
+
         def _contains_stub(value: object) -> bool:
             if isinstance(value, str):
                 return "stub" in value.lower()
@@ -1354,7 +1458,9 @@ async def fetch_build(
         if not any(_has_content(value) for value in values):
             completeness_errors.append(label)
 
-    _require_block("PF mancanti o vuoti", sheet_payload.get("pf_totali"), sheet_payload.get("hp"))
+    _require_block(
+        "PF mancanti o vuoti", sheet_payload.get("pf_totali"), sheet_payload.get("hp")
+    )
     _require_block("Salvezze mancanti o vuote", sheet_payload.get("salvezze"))
     _require_block(
         "Skill assenti o vuote",
@@ -1385,29 +1491,31 @@ async def fetch_build(
         sheet_payload.get("velocita"),
     )
 
-    payload.update({
-        "class": request.class_name,
-        "mode": request.mode,
-        "source_url": source_url,
-        "fetched_at": now_iso_utc(),
-        "request": request.metadata(),
-        "composite": composite,
-        "query_params": params,
-        "body_params": request.body_params,
-        "mode_normalized": normalized_mode,
-        "step_audit": {
-            "normalized_mode": normalized_mode,
-            "expected_step_total": expected_step_total,
-            "observed_step_total": observed_step_total,
-            "step_total_ok": observed_step_total == expected_step_total,
-            "step_labels_count": step_labels_count,
-            "has_extended_steps": has_extended_steps,
-        },
-        "completeness": {
-            "errors": completeness_errors,
-            "require_complete": require_complete,
-        },
-    })
+    payload.update(
+        {
+            "class": request.class_name,
+            "mode": request.mode,
+            "source_url": source_url,
+            "fetched_at": now_iso_utc(),
+            "request": request.metadata(),
+            "composite": composite,
+            "query_params": params,
+            "body_params": request.body_params,
+            "mode_normalized": normalized_mode,
+            "step_audit": {
+                "normalized_mode": normalized_mode,
+                "expected_step_total": expected_step_total,
+                "observed_step_total": observed_step_total,
+                "step_total_ok": observed_step_total == expected_step_total,
+                "step_labels_count": step_labels_count,
+                "has_extended_steps": has_extended_steps,
+            },
+            "completeness": {
+                "errors": completeness_errors,
+                "require_complete": require_complete,
+            },
+        }
+    )
 
     if require_complete and completeness_errors:
         joined_errors = "; ".join(completeness_errors)
@@ -1563,7 +1671,11 @@ async def run_harvest(
     builds_index: dict[str, object] = {
         "generated_at": now_iso_utc(),
         "api_url": api_url,
-        "mode": requests[0].mode if requests and len({req.mode for req in requests}) == 1 else "mixed",
+        "mode": (
+            requests[0].mode
+            if requests and len({req.mode for req in requests}) == 1
+            else "mixed"
+        ),
         "spec_file": str(spec_path) if spec_path else None,
         "entries": [],
     }
@@ -1582,7 +1694,11 @@ async def run_harvest(
                 if name:
                     existing_module_entries[str(name)] = entry
         except Exception as exc:  # pragma: no cover - defensive logging only
-            logging.warning("Impossibile caricare module_index esistente %s: %s", module_index_path, exc)
+            logging.warning(
+                "Impossibile caricare module_index esistente %s: %s",
+                module_index_path,
+                exc,
+            )
 
     include_filters = include_filters or []
     exclude_filters = exclude_filters or []
@@ -1590,14 +1706,18 @@ async def run_harvest(
 
     semaphore = asyncio.Semaphore(max(1, concurrency))
 
-    async with httpx.AsyncClient(base_url=api_url.rstrip("/"), follow_redirects=True) as client:
+    async with httpx.AsyncClient(
+        base_url=api_url.rstrip("/"), follow_redirects=True
+    ) as client:
         if skip_health_check:
             logging.warning("Salto il controllo di health check richiesto dall'utente")
         else:
             await assert_api_reachable(client, api_key)
         if discover:
             discovered = await discover_modules(client, api_key, max_retries)
-            filtered_discovered = apply_glob_filters(discovered, include_filters, exclude_filters)
+            filtered_discovered = apply_glob_filters(
+                discovered, include_filters, exclude_filters
+            )
             discovery_info = {
                 "performed_at": now_iso_utc(),
                 "include_filters": list(include_filters),
@@ -1623,7 +1743,9 @@ async def run_harvest(
         for build_request in requests:
             output_file = output_dir / f"{build_request.output_name()}.json"
 
-            async def process_class(request: BuildRequest, destination: Path) -> tuple[str, Mapping]:
+            async def process_class(
+                request: BuildRequest, destination: Path
+            ) -> tuple[str, Mapping]:
                 async with semaphore:
                     method = request.http_method()
                     logging.info(
@@ -1668,10 +1790,9 @@ async def run_harvest(
                             f"build {request.output_name()}",
                             strict=strict,
                         )
-                        sheet_context = (
-                            payload.get("export", {}).get("sheet_payload")
-                            or payload.get("sheet_payload")
-                        )
+                        sheet_context = payload.get("export", {}).get(
+                            "sheet_payload"
+                        ) or payload.get("sheet_payload")
                         sheet_validation = None
                         if sheet_context is not None:
                             sheet_validation = validate_with_schema(
@@ -1736,31 +1857,55 @@ async def run_harvest(
                             None,
                             "error",
                             str(exc),
-                            payload.get("step_audit") if "payload" in locals() else None,
-                            completeness_errors if "completeness_errors" in locals() else None,
+                            (
+                                payload.get("step_audit")
+                                if "payload" in locals()
+                                else None
+                            ),
+                            (
+                                completeness_errors
+                                if "completeness_errors" in locals()
+                                else None
+                            ),
                         )
                     except Exception as exc:  # pragma: no cover - network dependent
-                        logging.exception("Errore durante la fetch di %s", request.class_name)
+                        logging.exception(
+                            "Errore durante la fetch di %s", request.class_name
+                        )
                         return request.output_name(), build_index_entry(
                             request,
                             None,
                             "error",
                             str(exc),
-                            payload.get("step_audit") if "payload" in locals() else None,
-                            completeness_errors if "completeness_errors" in locals() else None,
+                            (
+                                payload.get("step_audit")
+                                if "payload" in locals()
+                                else None
+                            ),
+                            (
+                                completeness_errors
+                                if "completeness_errors" in locals()
+                                else None
+                            ),
                         )
 
-            build_tasks.append(asyncio.create_task(process_class(build_request, output_file)))
+            build_tasks.append(
+                asyncio.create_task(process_class(build_request, output_file))
+            )
 
         module_tasks = []
         for module_name in module_plan:
             module_path = modules_output_dir / module_name
 
-            async def process_module(name: str, destination: Path) -> tuple[str, Mapping]:
+            async def process_module(
+                name: str, destination: Path
+            ) -> tuple[str, Mapping]:
                 async with semaphore:
                     logging.info("Scarico modulo raw %s", name)
                     try:
-                        content, meta = await fetch_module(client, api_key, name, max_retries)
+                        content, meta = await fetch_module(
+                            client, api_key, name, max_retries
+                        )
                         validation_error = validate_with_schema(
                             MODULE_SCHEMA,
                             meta,
@@ -1786,14 +1931,20 @@ async def run_harvest(
                         raise
                     except Exception as exc:  # pragma: no cover - network dependent
                         logging.exception("Errore durante il download di %s", name)
-                        return name, module_index_entry(name, None, "error", error=str(exc))
+                        return name, module_index_entry(
+                            name, None, "error", error=str(exc)
+                        )
 
-            module_tasks.append(asyncio.create_task(process_module(module_name, module_path)))
+            module_tasks.append(
+                asyncio.create_task(process_module(module_name, module_path))
+            )
 
         build_results = await asyncio.gather(*build_tasks)
         module_results = await asyncio.gather(*module_tasks)
 
-    builds_index["entries"].extend(entry for _, entry in sorted(build_results, key=lambda item: item[0]))
+    builds_index["entries"].extend(
+        entry for _, entry in sorted(build_results, key=lambda item: item[0])
+    )
     new_module_entries = {name: entry for name, entry in module_results}
     merged_module_entries = []
     for name in sorted(set(new_module_entries) | set(existing_module_entries)):
