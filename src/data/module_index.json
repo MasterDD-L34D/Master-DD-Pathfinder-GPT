@@ -1,7 +1,27 @@
 {
-  "generated_at": "2025-12-08T02:13:29Z",
+  "generated_at": "2025-12-08T02:37:11Z",
   "api_url": "http://localhost:8000",
   "entries": [
+    {
+      "module": "Taverna_NPC.txt",
+      "file": "src/data/modules/Taverna_NPC.txt",
+      "status": "ok",
+      "meta": {
+        "name": "Taverna_NPC.txt",
+        "size_bytes": 112131,
+        "suffix": ".txt"
+      }
+    },
+    {
+      "module": "adventurer_ledger.txt",
+      "file": "src/data/modules/adventurer_ledger.txt",
+      "status": "ok",
+      "meta": {
+        "name": "adventurer_ledger.txt",
+        "size_bytes": 78578,
+        "suffix": ".txt"
+      }
+    },
     {
       "module": "base_profile.txt",
       "file": "src/data/modules/base_profile.txt",
@@ -10,6 +30,26 @@
         "name": "base_profile.txt",
         "size_bytes": 36093,
         "suffix": ".txt"
+      }
+    },
+    {
+      "module": "narrative_flow.txt",
+      "file": "src/data/modules/narrative_flow.txt",
+      "status": "ok",
+      "meta": {
+        "name": "narrative_flow.txt",
+        "size_bytes": 24288,
+        "suffix": ".txt"
+      }
+    },
+    {
+      "module": "scheda_pg_markdown_template.md",
+      "file": "src/data/modules/scheda_pg_markdown_template.md",
+      "status": "ok",
+      "meta": {
+        "name": "scheda_pg_markdown_template.md",
+        "size_bytes": 19747,
+        "suffix": ".md"
       }
     }
   ]
