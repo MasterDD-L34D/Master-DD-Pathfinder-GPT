@@ -23,6 +23,7 @@ pathfinder_master_dd_repo/
 │  └─ openapi.json          # Spec Actions per collegare l'API
 └─ docs/
    ├─ architecture.md       # Spiegazione architettura Kernel + moduli
+   ├─ api_usage.md          # Endpoint API, parametri, esempi
    └─ module_index.md       # Indice rapido dei file in src/modules
 ```
 
@@ -40,6 +41,8 @@ export API_KEY="la-tua-chiave-segreta"
 Se vuoi abilitare esplicitamente l'accesso anonimo, imposta `ALLOW_ANONYMOUS=true`. In
 assenza di `API_KEY` e senza questo flag, l'API risponderà con `401 Unauthorized` alle
 richieste prive di chiave.
+
+Consulta `docs/api_usage.md` per panoramica rapida di endpoint, parametri (`mode`, `stub`, header `x-api-key`) e messaggi d'errore standard.
 
 Per i moduli, il dump completo è **attivo di default**. Se vuoi evitare che
 `/modules/{name}` restituisca contenuti troppo lunghi, imposta
