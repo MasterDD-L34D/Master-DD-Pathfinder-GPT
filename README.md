@@ -137,6 +137,48 @@ Il comportamento di validazione è configurabile:
 - Usa `--strict` per interrompere subito alla prima anomalia di validazione.
 - Con `--keep-invalid` puoi chiedere allo script di scrivere comunque i file che non superano la validazione; in assenza del flag gli output non validi vengono scartati.
 
+Per la scheda Markdown (`scheda_pg_markdown_template.md`) il payload viene validato contro `schemas/scheda_pg.schema.json`, che copre:
+
+- Flag di rendering opzionali (`print_mode`, `show_minmax`, `show_vtt`, `show_qa`, `show_explain`, `show_ledger`, `decimal_comma`).
+- Blocchi numerici e riepiloghi (`statistiche`, `statistiche_chiave`, `salvezze`, bonus CA/attacco/danni, slot incantesimi, CD scuola). Questi campi accettano anche numeri in formato stringa per compatibilità con l'API.
+- Metadati di build e benchmark (`classi`, `benchmarks`, `benchmark_comparison`, etichetta `benchmark_reference_label`).
+- Sezioni testuali di supporto (`rules_status_text`, `ap_warning`, `uncertainty_flags`, `glossario_golarion`, `fonti`, `fonti_meta`, `spoiler_mode`).
+- Ledger opzionale (`ledger_invested_gp`, `ledger_encumbrance_hint`, movimenti/parcel/crafting PFS, valute `currency`).
+
+Esempio di payload valido per la scheda (estratto da una risposta del builder, con campi opzionali popolati):
+
+```json
+{
+  "class": "Fighter",
+  "export": {
+    "sheet_payload": {
+      "print_mode": false,
+      "show_minmax": true,
+      "show_vtt": true,
+      "decimal_comma": true,
+      "classi": [{"nome": "Fighter", "livelli": 7, "archetipi": ["Lore Warden"]}],
+      "statistiche": {"Forza": 18, "Destrezza": 16, "Costituzione": 14, "Intelligenza": 14, "Saggezza": 10, "Carisma": 8},
+      "statistiche_chiave": {"PF": 67, "CA": 24, "DPR_Base": 21.5, "meta_tier": "T3"},
+      "salvezze": {"Tempra": 9, "Riflessi": 7, "Volontà": 3},
+      "benchmarks": {"meta_tier": "T3", "DPR_late_status": "ok", "risk_top3": {"feats": [], "spells": []}},
+      "attack_bonus": {"melee": "+13/+8", "ranged": "+11/+6"},
+      "damage": {"melee": "2d6+9", "special": "Power Attack attivo"},
+      "fonti": ["CRB", "APG"],
+      "fonti_meta": [{"badge": "PFS", "tipo": "boon", "link": "https://example.test/boon"}],
+      "rules_status_text": "PFS-legal con boons annotati",
+      "ledger_invested_gp": 5300,
+      "ledger_movimenti": [
+        {"data": "4712-08-01", "tipo": "acquisto", "oggetto": "Full Plate", "qty": 1, "tot": 1500, "pfs": true}
+      ],
+      "ledger_parcels": [{"nome": "Diamante", "val_gp": 500, "assegnatario": "party"}],
+      "currency": {"gp": 245, "sp": 12}
+    }
+  }
+}
+```
+
+Con la modalità *warn-only* i fallimenti di validazione della scheda o del payload build non interrompono il download: l'entry corrispondente negli indici viene marcata `status: "invalid"` con un campo `error` descrittivo, ma il resto delle richieste continua. In `--strict` l'errore viene propagato e l'esecuzione termina alla prima violazione; con `--keep-invalid` il file JSON o il modulo raw vengono comunque salvati accanto all'indice, utile per ispezionare manualmente i dati difettosi.
+
 ### Endpoints principali
 
 - `GET /health` — ping rapido
