@@ -55,6 +55,23 @@ uvicorn src.app:app --reload --port 8000
 
 L'endpoint di base sarà ad esempio: `http://localhost:8000`
 
+### Generare il database di build (e i dump dei moduli)
+
+Uno script di utilità (`tools/generate_build_db.py`) raccoglie automaticamente le build PF1e per tutte le classi target interrogando l'endpoint del **MinMax Builder** e, in parallelo, scarica i moduli grezzi indispensabili per ricostruire schede complete (base profile, taverna/narrativa, template scheda):
+
+```bash
+# Assicurati di avere l'API in esecuzione e una chiave valida
+export API_KEY="la-tua-chiave-segreta"
+python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended
+
+# È possibile limitare le classi passandole come argomenti finali
+python tools/generate_build_db.py Alchemist Wizard Paladin
+```
+
+Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`.
+
+I file generati sono consumabili come database locale per esport, benchmark e stato di build: ogni JSON contiene i campi `build_state`, `benchmark` ed `export` prodotti dal builder, più metadati di fetch (`class`, `mode`, `source_url`). I moduli scaricati (es. `base_profile.txt`, `Taverna_NPC.txt`, `narrative_flow.txt`, `scheda_pg_markdown_template.md`, `adventurer_ledger.txt`) rimangono grezzi e coerenti con l'API così da poter combinare build, scheda e narrativa mantenendo varianti di classe/razza/archetipo definite dai moduli stessi.
+
 ### Endpoints principali
 
 - `GET /health` — ping rapido
