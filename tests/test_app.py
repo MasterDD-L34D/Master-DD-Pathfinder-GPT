@@ -137,9 +137,8 @@ def test_allow_anonymous_access(client):
 
 def test_modules_directory_missing_returns_error(auth_headers, monkeypatch, tmp_path):
     missing_dir = tmp_path / "missing_modules"
-    monkeypatch.setattr(app_module, "MODULES_DIR", missing_dir)
-
     with TestClient(app) as local_client:
+        monkeypatch.setattr(app_module, "MODULES_DIR", missing_dir)
         response = local_client.get("/modules", headers=auth_headers)
 
     assert response.status_code == 503
@@ -148,10 +147,22 @@ def test_modules_directory_missing_returns_error(auth_headers, monkeypatch, tmp_
 
 def test_data_directory_missing_returns_error(auth_headers, monkeypatch, tmp_path):
     missing_dir = tmp_path / "missing_data"
-    monkeypatch.setattr(app_module, "DATA_DIR", missing_dir)
-
     with TestClient(app) as local_client:
+        monkeypatch.setattr(app_module, "DATA_DIR", missing_dir)
         response = local_client.get("/knowledge", headers=auth_headers)
 
     assert response.status_code == 503
     assert str(missing_dir) in response.json()["detail"]
+
+
+def test_health_reports_missing_directories(monkeypatch, tmp_path):
+    missing_dir = tmp_path / "missing_anything"
+
+    with TestClient(app) as local_client:
+        monkeypatch.setattr(app_module, "MODULES_DIR", missing_dir)
+        monkeypatch.setattr(app_module, "DATA_DIR", missing_dir)
+
+        response = local_client.get("/health")
+
+    assert response.status_code == 503
+    assert "mancante" in response.json()["detail"]
