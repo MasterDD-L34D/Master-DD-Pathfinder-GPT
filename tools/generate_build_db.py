@@ -417,9 +417,26 @@ async def request_with_retry(
 ) -> httpx.Response:
     attempt = 0
     while True:
-        response = await client.request(
-            method, url, headers=headers, params=params, json=json_body, timeout=timeout
-        )
+        try:
+            response = await client.request(
+                method, url, headers=headers, params=params, json=json_body, timeout=timeout
+            )
+        except httpx.RequestError as exc:
+            if attempt >= max_retries:
+                raise
+
+            delay = backoff_factor * 2**attempt
+            attempt += 1
+            logging.warning(
+                "Tentativo fallito per %s %s (%s). Retry in %.1fs...",
+                method,
+                url,
+                exc.__class__.__name__,
+                delay,
+            )
+            await asyncio.sleep(delay)
+            continue
+
         if response.status_code not in {429} and response.status_code < 500:
             response.raise_for_status()
             return response
