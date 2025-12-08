@@ -8,10 +8,10 @@ import logging
 import os
 from fnmatch import fnmatchcase
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import datetime, timezone
 from itertools import product
 from pathlib import Path
-from typing import Iterable, List, Mapping, MutableMapping, Sequence
+from typing import Any, Iterable, List, Mapping, MutableMapping, Sequence
 
 import yaml
 
@@ -84,6 +84,10 @@ DEFAULT_MODULE_TARGETS: Sequence[str] = (
     "scheda_pg_markdown_template.md",
     "adventurer_ledger.txt",
 )
+
+
+def now_iso_utc() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
 
 @dataclass(slots=True)
@@ -325,6 +329,156 @@ def validate_with_schema(
     return message
 
 
+def _empty_review_section() -> dict[str, Any]:
+    return {"total": 0, "valid": 0, "invalid": 0, "errors": 0, "missing": 0, "entries": []}
+
+
+def _bump_review(section: MutableMapping[str, Any], status: str) -> None:
+    section["total"] += 1
+    if status == "ok":
+        section["valid"] += 1
+    elif status == "invalid":
+        section["invalid"] += 1
+    elif status == "missing":
+        section["missing"] += 1
+    else:
+        section["errors"] += 1
+
+
+def review_local_database(
+    build_dir: Path,
+    module_dir: Path,
+    *,
+    build_index_path: Path | None = None,
+    module_index_path: Path | None = None,
+    strict: bool = False,
+    output_path: Path | None = None,
+) -> Mapping[str, Any]:
+    """Valida i JSON già presenti nel database locale e produce un report riassuntivo."""
+
+    builds_section = _empty_review_section()
+    modules_section = _empty_review_section()
+
+    if build_dir.is_dir():
+        for path in sorted(build_dir.glob("*.json")):
+            entry: dict[str, Any] = {"file": str(path)}
+            try:
+                payload = json.loads(path.read_text(encoding="utf-8"))
+                entry.update(
+                    {
+                        "class": payload.get("class")
+                        or (payload.get("build_state") or {}).get("class"),
+                        "mode": payload.get("mode"),
+                    }
+                )
+                validation_error = validate_with_schema(
+                    schema_for_mode(payload.get("mode", DEFAULT_MODE)),
+                    payload,
+                    f"build {path.name}",
+                    strict=strict,
+                )
+                sheet_payload = payload.get("export", {}).get("sheet_payload") or payload.get(
+                    "sheet_payload"
+                )
+                sheet_error = None
+                if sheet_payload is not None:
+                    sheet_error = validate_with_schema(
+                        "scheda_pg.schema.json",
+                        sheet_payload,
+                        f"sheet payload {path.name}",
+                        strict=strict,
+                    )
+                if validation_error and sheet_error:
+                    validation_error = f"{validation_error}; {sheet_error}"
+                elif validation_error is None:
+                    validation_error = sheet_error
+
+                status = "ok" if validation_error is None else "invalid"
+                if validation_error:
+                    entry["error"] = validation_error
+            except ValidationError:
+                raise
+            except Exception as exc:
+                status = "error"
+                entry["error"] = str(exc)
+
+            entry["status"] = status
+            _bump_review(builds_section, status)
+            builds_section["entries"].append(entry)
+
+    module_entries: Sequence[Mapping[str, Any]] = []
+    if module_index_path and module_index_path.is_file():
+        try:
+            module_index_payload = json.loads(module_index_path.read_text(encoding="utf-8"))
+            module_entries = module_index_payload.get("entries", []) or []
+        except Exception as exc:
+            modules_section["entries"].append(
+                {"file": str(module_index_path), "status": "error", "error": str(exc)}
+            )
+            _bump_review(modules_section, "error")
+            module_entries = []
+    elif module_dir.is_dir():
+        module_entries = [
+            {
+                "module": path.name,
+                "file": str(path),
+                "meta": {"name": path.name, "size_bytes": path.stat().st_size, "suffix": path.suffix},
+            }
+            for path in sorted(module_dir.iterdir())
+            if path.is_file()
+        ]
+
+    for module_entry in module_entries:
+        module_name = str(module_entry.get("module") or "")
+        resolved_path = Path(module_entry.get("file") or module_dir / module_name)
+        entry: dict[str, Any] = {"module": module_name or resolved_path.name, "file": str(resolved_path)}
+
+        if not resolved_path.exists():
+            entry["status"] = "missing"
+            entry["error"] = "File mancante"
+            _bump_review(modules_section, "missing")
+            modules_section["entries"].append(entry)
+            continue
+
+        try:
+            validation_error = validate_with_schema(
+                MODULE_SCHEMA,
+                module_entry.get("meta", {}),
+                f"module meta {entry['module']}",
+                strict=strict,
+            )
+            status = "ok" if validation_error is None else "invalid"
+            if validation_error:
+                entry["error"] = validation_error
+        except ValidationError:
+            raise
+        except Exception as exc:
+            status = "error"
+            entry["error"] = str(exc)
+
+        entry["status"] = status
+        entry["size_bytes"] = module_entry.get("meta", {}).get("size_bytes") or resolved_path.stat().st_size
+        _bump_review(modules_section, status)
+        modules_section["entries"].append(entry)
+
+    report = {
+        "generated_at": now_iso_utc(),
+        "builds": builds_section,
+        "modules": modules_section,
+    }
+
+    if build_index_path:
+        report["build_index"] = str(build_index_path)
+    if module_index_path:
+        report["module_index"] = str(module_index_path)
+
+    if output_path:
+        write_json(output_path, report)
+        logging.info("Report di review scritto in %s", output_path)
+
+    return report
+
+
 def apply_glob_filters(entries: Sequence[str], include: Sequence[str], exclude: Sequence[str]) -> list[str]:
     def matches(patterns: Sequence[str], candidate: str) -> bool:
         return any(fnmatchcase(candidate, pattern) for pattern in patterns)
@@ -468,6 +622,17 @@ def parse_args() -> argparse.Namespace:
         "--skip-health-check",
         action="store_true",
         help="Salta il controllo di raggiungibilità dell'API (fallback per ambienti in cui /health non è disponibile)",
+    )
+    parser.add_argument(
+        "--validate-db",
+        action="store_true",
+        help="Valida il database locale (build e moduli) senza effettuare chiamate all'API",
+    )
+    parser.add_argument(
+        "--review-output",
+        type=Path,
+        default=Path("src/data/build_review.json"),
+        help="Percorso del report di review quando --validate-db è attivo (default: %(default)s)",
     )
     parser.add_argument(
         "--discover-modules",
@@ -1212,7 +1377,7 @@ async def fetch_build(
         "class": request.class_name,
         "mode": request.mode,
         "source_url": source_url,
-        "fetched_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+        "fetched_at": now_iso_utc(),
         "request": request.metadata(),
         "composite": composite,
         "query_params": params,
@@ -1384,14 +1549,14 @@ async def run_harvest(
     ensure_output_dirs(output_dir)
     ensure_output_dirs(modules_output_dir)
     builds_index: dict[str, object] = {
-        "generated_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+        "generated_at": now_iso_utc(),
         "api_url": api_url,
         "mode": requests[0].mode if requests and len({req.mode for req in requests}) == 1 else "mixed",
         "spec_file": str(spec_path) if spec_path else None,
         "entries": [],
     }
     modules_index: dict[str, object] = {
-        "generated_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+        "generated_at": now_iso_utc(),
         "api_url": api_url,
         "entries": [],
     }
@@ -1422,7 +1587,7 @@ async def run_harvest(
             discovered = await discover_modules(client, api_key, max_retries)
             filtered_discovered = apply_glob_filters(discovered, include_filters, exclude_filters)
             discovery_info = {
-                "performed_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+                "performed_at": now_iso_utc(),
                 "include_filters": list(include_filters),
                 "exclude_filters": list(exclude_filters),
                 "raw_count": len(discovered),
@@ -1639,6 +1804,18 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
     requests = build_requests_from_args(args)
     strict_mode = args.strict and not args.warn_only
+
+    if args.validate_db:
+        review_local_database(
+            args.output_dir,
+            args.modules_output_dir,
+            build_index_path=args.index_path,
+            module_index_path=args.module_index_path,
+            strict=strict_mode,
+            output_path=args.review_output,
+        )
+        return
+
     asyncio.run(
         run_harvest(
             requests,

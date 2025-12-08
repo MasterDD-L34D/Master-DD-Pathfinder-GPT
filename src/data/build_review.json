@@ -1,0 +1,377 @@
+{
+  "generated_at": "2025-12-08T21:05:28Z",
+  "builds": {
+    "total": 45,
+    "valid": 45,
+    "invalid": 0,
+    "errors": 0,
+    "missing": 0,
+    "entries": [
+      {
+        "file": "src/data/builds/alchemist.json",
+        "class": "Alchemist",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/arcanist.json",
+        "class": "Arcanist",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/barbarian.json",
+        "class": "Barbarian",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/bard.json",
+        "class": "Bard",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/bloodrager.json",
+        "class": "Bloodrager",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/brawler.json",
+        "class": "Brawler",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/cavalier.json",
+        "class": "Cavalier",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/cleric.json",
+        "class": "Cleric",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/cleric_human_warpriest.json",
+        "class": "Cleric",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/druid.json",
+        "class": "Druid",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/druid_half_orc_feral.json",
+        "class": "Druid",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/fighter.json",
+        "class": "Fighter",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/fighter_dwarf_shielded.json",
+        "class": "Fighter",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/fighter_weapon_master_human.json",
+        "class": "Fighter",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/gunslinger.json",
+        "class": "Gunslinger",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/hunter.json",
+        "class": "Hunter",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/inquisitor.json",
+        "class": "Inquisitor",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/investigator.json",
+        "class": "Investigator",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/kineticist.json",
+        "class": "Kineticist",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/magus.json",
+        "class": "Magus",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/medium.json",
+        "class": "Medium",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/mesmerist.json",
+        "class": "Mesmerist",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/monk.json",
+        "class": "Monk",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/ninja.json",
+        "class": "Ninja",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/occultist.json",
+        "class": "Occultist",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/oracle.json",
+        "class": "Oracle",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/paladin.json",
+        "class": "Paladin",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/psychic.json",
+        "class": "Psychic",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/ranger.json",
+        "class": "Ranger",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/ranger_halfelf_skirmisher.json",
+        "class": "Ranger",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/rogue.json",
+        "class": "Rogue",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/rogue_halfling_cutpurse.json",
+        "class": "Rogue",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/samurai.json",
+        "class": "Samurai",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/shaman.json",
+        "class": "Shaman",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/skald.json",
+        "class": "Skald",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/slayer.json",
+        "class": "Slayer",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/sorcerer.json",
+        "class": "Sorcerer",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/spiritualist.json",
+        "class": "Spiritualist",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/summoner.json",
+        "class": "Summoner",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/swashbuckler.json",
+        "class": "Swashbuckler",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/warpriest.json",
+        "class": "Warpriest",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/witch.json",
+        "class": "Witch",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/wizard.json",
+        "class": "Wizard",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/wizard_elf_universalist.json",
+        "class": "Wizard",
+        "mode": "extended",
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/wizard_human_evoker.json",
+        "class": "Wizard",
+        "mode": "extended",
+        "status": "ok"
+      }
+    ]
+  },
+  "modules": {
+    "total": 14,
+    "valid": 14,
+    "invalid": 0,
+    "errors": 0,
+    "missing": 0,
+    "entries": [
+      {
+        "module": "Encounter_Designer.txt",
+        "file": "src/data/modules/Encounter_Designer.txt",
+        "status": "ok",
+        "size_bytes": 34933
+      },
+      {
+        "module": "Taverna_NPC.txt",
+        "file": "src/data/modules/Taverna_NPC.txt",
+        "status": "ok",
+        "size_bytes": 118875
+      },
+      {
+        "module": "adventurer_ledger.txt",
+        "file": "src/data/modules/adventurer_ledger.txt",
+        "status": "ok",
+        "size_bytes": 78578
+      },
+      {
+        "module": "archivist.txt",
+        "file": "src/data/modules/archivist.txt",
+        "status": "ok",
+        "size_bytes": 31533
+      },
+      {
+        "module": "base_profile.txt",
+        "file": "src/data/modules/base_profile.txt",
+        "status": "ok",
+        "size_bytes": 36093
+      },
+      {
+        "module": "explain_methods.txt",
+        "file": "src/data/modules/explain_methods.txt",
+        "status": "ok",
+        "size_bytes": 13842
+      },
+      {
+        "module": "knowledge_pack.md",
+        "file": "src/data/modules/knowledge_pack.md",
+        "status": "ok",
+        "size_bytes": 12306
+      },
+      {
+        "module": "meta_doc.txt",
+        "file": "src/data/modules/meta_doc.txt",
+        "status": "ok",
+        "size_bytes": 31380
+      },
+      {
+        "module": "minmax_builder.txt",
+        "file": "src/data/modules/minmax_builder.txt",
+        "status": "ok",
+        "size_bytes": 82907
+      },
+      {
+        "module": "narrative_flow.txt",
+        "file": "src/data/modules/narrative_flow.txt",
+        "status": "ok",
+        "size_bytes": 24288
+      },
+      {
+        "module": "ruling_expert.txt",
+        "file": "src/data/modules/ruling_expert.txt",
+        "status": "ok",
+        "size_bytes": 23658
+      },
+      {
+        "module": "scheda_pg_markdown_template.md",
+        "file": "src/data/modules/scheda_pg_markdown_template.md",
+        "status": "ok",
+        "size_bytes": 20002
+      },
+      {
+        "module": "sigilli_runner_module.txt",
+        "file": "src/data/modules/sigilli_runner_module.txt",
+        "status": "ok",
+        "size_bytes": 5431
+      },
+      {
+        "module": "tavern_hub.json",
+        "file": "src/data/modules/tavern_hub.json",
+        "status": "ok",
+        "size_bytes": 740
+      }
+    ]
+  },
+  "build_index": "src/data/build_index.json",
+  "module_index": "src/data/module_index.json"
+}
