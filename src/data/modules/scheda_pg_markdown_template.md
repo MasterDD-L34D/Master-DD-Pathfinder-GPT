@@ -243,13 +243,13 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 ---
 
 ## Psicologia & Roleplay
-- **Sinergie**: ideale in party con {{ruolo o classe}}
-- **Teoria dominante**: {{jung/ocean/enneagramma}}
-- **Comportamento prevalente**: {{es. introverso, impulsivo, empatico}}
-- **Stile decisionale**: {{es. segue l’istinto, valuta i rischi, ecc.}}
-- **Motto/Frase tipica/Modi di dire/Accento**: {{es. parla in Bergamasco e spesso con verbi riflessivi, usa Pota! come intercalare e imprecazione}}
-- **Spunti per interpretazione**: {{es. parla per enigmi, ama raccontare storie}}
-- **Background Narrativo**: {{breve backstory coerente con razza, classe e tratti}}
+- **Sinergie**: {{ j(sinergie, ', ') or d(roleplay_sinergie) }}
+- **Teoria dominante**: {{ d(teoria_dominante, 'Jung/OCEAN/Enneagramma') }}
+- **Comportamento prevalente**: {{ d(comportamento_prevalente, 'es. introverso, impulsivo, empatico') }}
+- **Stile decisionale**: {{ d(stile_decisionale, 'es. segue l’istinto, valuta i rischi, ecc.') }}
+- **Motto/Frase tipica/Modi di dire/Accento**: {{ d(motto_o_frase, 'es. accento locale, intercalare ricorrente') }}
+- **Spunti per interpretazione**: {{ d(spunti_interpretativi, 'es. parla per enigmi, ama raccontare storie') }}
+- **Background Narrativo**: {{ d(background_narrativo, 'breve backstory coerente con razza, classe e tratti') }}
 
 ---
 
