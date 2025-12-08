@@ -42,6 +42,14 @@ Se vuoi abilitare esplicitamente l'accesso anonimo, imposta `ALLOW_ANONYMOUS=tru
 assenza di `API_KEY` e senza questo flag, l'API risponderà con `401 Unauthorized` alle
 richieste prive di chiave.
 
+Per mitigare tentativi ripetuti con chiavi errate, puoi regolare il backoff sugli
+header `x-api-key` tramite due variabili d'ambiente:
+
+- `AUTH_BACKOFF_THRESHOLD` (default: `5`): numero di richieste fallite prima di attivare
+  il blocco temporaneo.
+- `AUTH_BACKOFF_SECONDS` (default: `60`): durata del blocco (`429 Too Many Requests` con
+  header `Retry-After`) applicato all'IP che ha superato la soglia.
+
 Consulta `docs/api_usage.md` per panoramica rapida di endpoint, parametri (`mode`, `stub`, header `x-api-key`) e messaggi d'errore standard.
 
 Per i moduli, il dump completo è **attivo di default**. Se vuoi evitare che

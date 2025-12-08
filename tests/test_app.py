@@ -70,6 +70,13 @@ def allow_missing_directories(monkeypatch):
 
 
 @pytest.fixture(autouse=True)
+def reset_backoff_state():
+    app_module._reset_failed_attempts()
+    yield
+    app_module._reset_failed_attempts()
+
+
+@pytest.fixture(autouse=True)
 def setup_api_key():
     original = settings.api_key
     original_allow_anonymous = settings.allow_anonymous
@@ -78,6 +85,17 @@ def setup_api_key():
     yield
     settings.api_key = original
     settings.allow_anonymous = original_allow_anonymous
+
+
+@pytest.fixture
+def short_backoff(monkeypatch):
+    original_threshold = settings.auth_backoff_threshold
+    original_seconds = settings.auth_backoff_seconds
+    settings.auth_backoff_threshold = 2
+    settings.auth_backoff_seconds = 30
+    yield
+    settings.auth_backoff_threshold = original_threshold
+    settings.auth_backoff_seconds = original_seconds
 
 
 @pytest.fixture
@@ -253,6 +271,21 @@ def test_wrong_api_key_returns_unauthorized(client, auth_headers):
     response = client.get("/modules", headers={"x-api-key": "wrong"})
     assert response.status_code == 401
     assert response.json()["detail"] == "Invalid or missing API key"
+
+
+def test_repeated_wrong_api_key_triggers_backoff(client, short_backoff):
+    first_response = client.get("/modules", headers={"x-api-key": "wrong"})
+    assert first_response.status_code == 401
+
+    blocked_response = client.get("/modules", headers={"x-api-key": "wrong"})
+    assert blocked_response.status_code == 429
+    assert "Troppi tentativi" in blocked_response.json()["detail"]
+    assert blocked_response.headers.get("Retry-After") == str(
+        settings.auth_backoff_seconds
+    )
+
+    still_blocked = client.get("/modules", headers={"x-api-key": "wrong"})
+    assert still_blocked.status_code == 429
 
 
 def test_correct_api_key_allows_access(client, auth_headers):
