@@ -1111,6 +1111,16 @@ commands:
     validators:
       - { type: file_exists, target: "src/modules/tavern_hub.json", on_fail: E-NOT-FOUND }
     rate_limit: { max_ops_per_minute: 8, on_violation: E-RATE-LIMIT }
+    notes:
+      - "Valida ogni file caricato con hub_storage.validation.schema_min: se fallisce logga WARN con nome file e passa al successivo."
+      - "Se l'errore è bloccante, sposta il file in {{ hub_storage.validation.on_error.quarantine_dir }} e continua con gli altri salvataggi."
+
+  /storage_clean:
+    when: feature_flags.hub_board=='on'
+    description: "Ripulisce o rigenera i file storage invalidi secondo lo schema minimo."
+    notes:
+      - "Usa hub_storage.validation.schema_min per individuare anomalie e ricrea stub minimi quando mancano i campi obbligatori."
+      - "I file marcati invalid vengono archiviati in {{ hub_storage.validation.on_error.quarantine_dir }} prima della rigenerazione."
 
   /reset_hub:
     when: feature_flags.hub_board=='on'
@@ -1912,6 +1922,32 @@ hub_storage:
   persist_on: ["quest_board","bounty_board","factions","shop_setup","events"]
   max_snapshots: 50
   snapshot_naming: "hub-YYYYMMDD-HHMM.json"
+  validation:
+    schema_min:
+      required: [meta, router, characters, builds, encounters, ledger, id_counter, notes]
+      types:
+        meta: object
+        router: object
+        characters: list
+        builds: list
+        encounters: list
+        ledger: object
+        id_counter: object
+        notes: list
+      minimal_stub:
+        meta: { version: "1.0" }
+        router: { last_mode: null }
+        characters: []
+        builds: []
+        encounters: []
+        ledger: { currency: { pp: 0, gp: 0, sp: 0, cp: 0 }, inventory: [], policies: {}, wbl_target_level: null, audit: [] }
+        id_counter: { character: 1, build: 1, encounter: 1, ledger_tx: 1 }
+        notes: []
+    on_error:
+      mode: warn_and_skip
+      quarantine_dir: "src/modules/quarantine/"
+      move_to_quarantine: true
+      log_prefix: "[storage.validation]"
 
 visual_mapping:
   enabled: true
