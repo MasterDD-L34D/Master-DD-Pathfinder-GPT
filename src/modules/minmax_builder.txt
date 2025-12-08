@@ -36,7 +36,7 @@ router_hint:
     - "Creo un **action plan** round‑by‑round?"
     - "Confronto con una **build alternativa**?"
 
-welcome_message: "\U0001F9F0 Benvenuto nel **MinMax Builder v5.0** — Assistente professionale per Pathfinder 1E.\nℹ Recupera questo modulo tramite `GET /modules/minmax_builder.txt` con `x-api-key`, poi riformula con parole tue.\n• Passo 1: dimmi ruolo/classe target oppure esegui i comandi qui sotto.\n• Mini-demo:\n  1) Avvio: `/start_build`\n  2) Stile giocatore: `/set_player_style Spike`\n  3) Attiva PFS (se Organized Play): `/toggle_pfs on`\n  4) Preview veloce: `/bench -q`\n  5) Vai allo step successivo: `/next_step`\nSuggerimento: scrivi **/next_step** in qualunque momento per avanzare.\n"
+welcome_message: "\U0001F9F0 Benvenuto nel **MinMax Builder v5.0** — Assistente professionale per Pathfinder 1E.\nℹ Recupera questo modulo tramite `GET /modules/minmax_builder.txt` con `x-api-key`, poi riformula con parole tue.\n• Passo 1: dimmi ruolo/classe target oppure esegui i comandi qui sotto.\n• Modalità di flow: scegli `/set_mode core|extended` oppure avvia con `/start_build mode=core` (default `extended`).\n  - **flow_core** (mode=core): 8 step, termina a QA & Export.\n  - **flow_extended** (mode=extended): 16 step, include varianti/companion/report.\n  L'avanzamento è sempre calcolato come `[step/step_total]` in base alla modalità attiva.\n• Mini-demo:\n  1) Avvio: `/start_build mode=core`\n  2) Stile giocatore: `/set_player_style Spike`\n  3) Attiva PFS (se Organized Play): `/toggle_pfs on`\n  4) Preview veloce: `/bench -q`\n  5) Vai allo step successivo: `/next_step`\nSuggerimento: scrivi **/next_step** in qualunque momento per avanzare.\n"
 
 principles:
   - Paizo PF1e è la base per RAW/RAI; i ruling si verificano in "Ruling Expert".
@@ -261,6 +261,7 @@ data_structures:
       pfs_ok: false
       hr_flagged: false
     decision_log: []
+    mode: extended
     step: 1
     step_total: 16
     step_labels:
@@ -656,6 +657,42 @@ helpers:
         "level_total": level_total
       }
       return json.dumps(core, ensure_ascii=False)
+  normalize_flow_mode:
+    params:
+      - mode
+    logic: |-
+      m = str(mode or "extended").strip().lower()
+      return "core" if m.startswith("core") else "extended"
+  flow_step_total:
+    params:
+      - mode
+    logic: |-
+      return 8 if normalize_flow_mode(mode) == "core" else 16
+  flow_step_labels:
+    params:
+      - mode
+    logic: |-
+      core_labels = {
+        '1': 'Profilo Base',
+        '2': 'Razza & Classe',
+        '3': 'Archetipi & Multiclasse',
+        '4': 'Feats & Talenti',
+        '5': 'Spell & Power Set',
+        '6': 'Equip & Risorse',
+        '7': 'Benchmark & Simulazioni',
+        '8': 'QA & Export'
+      }
+      extended_labels = core_labels | {
+        '9': 'Dummies Sheet',
+        '10': 'Esportazione',
+        '11': 'Fork/Varianti',
+        '12': 'Comparativa',
+        '13': 'Meta Rating',
+        '14': 'Companion',
+        '15': 'Report',
+        '16': 'Chiusura'
+      }
+      return core_labels if normalize_flow_mode(mode) == "core" else extended_labels
 input_parser:
   next_step_triggers:
     - sì
@@ -670,10 +707,15 @@ input_parser:
 commands:
   /start_build:
     description: Inizia una nuova build con setup base
+    params:
+      - mode
     action:
+      - set: local.mode
+        value: '{{ normalize_flow_mode(mode) }}'
       - output: '{{welcome_message}}'
       - set: build_state
         value:
+          mode: '{{local.mode}}'
           nome: ''
           ruolo: ''
           livello: 1
@@ -815,25 +857,12 @@ commands:
             ttl_minutes: 30
           decision_log: []
           step: 1
-          step_total: 16
-          step_labels:
-            '1': Profilo Base
-            '2': Razza & Classe
-            '3': Archetipi & Multiclasse
-            '4': Feats & Talenti
-            '5': Spell & Power Set
-            '6': Equip & Risorse
-            '7': Benchmark & Simulazioni
-            '8': QA & Export
-            '9': Dummies Sheet
-            '10': Esportazione
-            '11': Fork/Varianti
-            '12': Comparativa
-            '13': Meta Rating
-            '14': Companion
-            '15': Report
-            '16': Chiusura
-      - output: "\U0001F9F0 Builder avviato — Step 1: Profilo Base. Dimmi ruolo/classe target o usa /next_step."
+          step_total: '{{ flow_step_total(local.mode) }}'
+          step_labels: '{{ flow_step_labels(local.mode) }}'
+      - output: >-
+          \U0001F9F0 Builder avviato — Modalità {{local.mode.upper()}} —
+          Step 1/{{build_state.step_total}}: {{build_state.step_labels['1']}}.
+          Dimmi ruolo/classe target o usa /next_step.
   /next_step:
     description: Avanza allo step successivo del builder
     action:
@@ -849,6 +878,26 @@ commands:
       - output: >-
           Passo [{{build_state.step}}/{{build_state.step_total}}] —
           {{build_state.step_labels[build_state.step]}}
+  /set_mode:
+    description: Imposta la modalità di flow (core|extended)
+    params:
+      - mode
+    action:
+      - set: build_state.mode
+        value: '{{ normalize_flow_mode(mode) }}'
+      - set: build_state.step_total
+        value: '{{ flow_step_total(build_state.mode) }}'
+      - set: build_state.step_labels
+        value: '{{ flow_step_labels(build_state.mode) }}'
+      - if: '{{build_state.step > build_state.step_total}}'
+        then:
+          - set: build_state.step
+            value: '{{build_state.step_total}}'
+      - output: >-
+          🔀 Modalità impostata su {{build_state.mode.upper()}} —
+          flow_{{build_state.mode}} da {{build_state.step_total}} step.
+          Avanzamento: [{{build_state.step}}/{{build_state.step_total}}]
+          {{build_state.step_labels[build_state.step]}}. Usa /next_step per proseguire.
   /set_player_style:
     description: Imposta stile giocatore (Timmy/Johnny/Spike)
     params:
@@ -885,8 +934,8 @@ commands:
     description: Info modulo e versioning
     action:
       - output: >-
-          ℹ️ **MinMax Builder v5.0** Pathfinder 1E. Flow 8 step, cache META,
-          export PDF/Excel/VTT.
+          ℹ️ **MinMax Builder v5.0** Pathfinder 1E. Flow core (8 step) o
+          extended (16 step), cache META, export PDF/Excel/VTT.
   /toggle_rules:
     description: Toggle rapidi per PFS/ABP/EitR
     params:
@@ -1075,7 +1124,7 @@ commands:
           value: '{{forked_build}}'
       - output: "\U0001F500 Fork creato: '{{variant_id}}' — usa /load_build {{variant_id}} per modificarlo."
   /rollback_phase:
-    description: Riporta la build a uno step precedente (1–16)
+    description: Riporta la build a uno step precedente (1–N in base alla modalità)
     params:
       - step_number
     action:
