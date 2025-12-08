@@ -44,12 +44,26 @@ def missing_data_dir(monkeypatch, tmp_path):
 @pytest.fixture
 def allow_missing_directories(monkeypatch):
     def fake_validate(raise_on_error: bool = False):
+        directories = {}
         errors = []
         for label, path in ("modules", app_module.MODULES_DIR), ("data", app_module.DATA_DIR):
-            if not path.exists() or not path.is_dir():
-                errors.append(f"Directory {label} mancante o non accessibile: {path}")
+            is_valid = path.exists() and path.is_dir()
+            message = None
+            if not is_valid:
+                message = f"Directory {label} mancante o non accessibile: {path}"
+                errors.append(message)
+            directories[label] = {
+                "status": "ok" if is_valid else "error",
+                "path": str(path),
+                "message": message,
+            }
+
+        diagnostic = {"status": "ok" if not errors else "error", "directories": directories}
+        if errors:
+            diagnostic["errors"] = errors
+
         app_module._dir_validation_error = "; ".join(errors) if errors else None
-        return app_module._dir_validation_error
+        return diagnostic
 
     monkeypatch.setattr(app_module, "_validate_directories", fake_validate)
     return fake_validate
@@ -304,5 +318,31 @@ def test_health_reports_missing_directories(monkeypatch, tmp_path):
 
         response = local_client.get("/health")
 
+    payload = response.json()
     assert response.status_code == 503
-    assert "mancante" in response.json()["detail"]
+    assert payload["status"] == "error"
+    assert payload["directories"]["modules"]["status"] == "error"
+    assert payload["directories"]["data"]["status"] == "error"
+    assert any("mancante" in msg for msg in payload["errors"])
+
+
+def test_health_reports_valid_directories(client):
+    response = client.get("/health")
+
+    payload = response.json()
+    assert response.status_code == 200
+    assert payload == {
+        "status": "ok",
+        "directories": {
+            "modules": {
+                "status": "ok",
+                "path": str(MODULES_DIR),
+                "message": None,
+            },
+            "data": {
+                "status": "ok",
+                "path": str(DATA_DIR),
+                "message": None,
+            },
+        },
+    }

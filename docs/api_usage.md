@@ -12,7 +12,19 @@ Questa guida riassume come usare l'API FastAPI esposta dal progetto, con esempi 
 ## Endpoint principali
 
 ### `GET /health`
-Verifica lo stato dell'API. Risposta: `{ "status": "ok" }` o `503` se mancano directory di configurazione.
+Verifica lo stato dell'API e delle directory configurate. Risposta di esempio:
+
+```json
+{
+  "status": "ok",
+  "directories": {
+    "modules": { "status": "ok", "path": "src/modules", "message": null },
+    "data": { "status": "ok", "path": "src/data", "message": null }
+  }
+}
+```
+
+In caso di problemi, lo stesso payload include `status: "error"`, campi `message` valorizzati e un array `errors`; l'endpoint risponde con `503 Service Unavailable`.
 
 ### `GET /modules`
 Elenca i moduli disponibili in `src/modules`.
