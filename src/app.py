@@ -4,8 +4,9 @@ from pathlib import Path
 from time import monotonic
 from typing import Dict, List
 
-from fastapi import Body, Depends, FastAPI, Header, HTTPException, Query, Request
+from fastapi import Body, Depends, FastAPI, Header, HTTPException, Query, Request, Response
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from prometheus_client import CONTENT_TYPE_LATEST, Counter, Gauge, generate_latest
 from jsonschema.exceptions import ValidationError
 
 from .config import MODULES_DIR, DATA_DIR, settings
@@ -28,6 +29,27 @@ app = FastAPI(
 
 
 _failed_attempts: Dict[str, Dict[str, float | int]] = {}
+
+
+REQUEST_COUNT = Counter(
+    "app_requests_total",
+    "Totale richieste per endpoint, metodo e classe di status.",
+    labelnames=["endpoint", "method", "status_class"],
+)
+ERROR_COUNT = Counter(
+    "app_error_responses_total",
+    "Totale risposte di errore (4xx/5xx) per endpoint, metodo e classe di status.",
+    labelnames=["endpoint", "method", "status_class"],
+)
+AUTH_BACKOFF_TRIGGER = Counter(
+    "auth_backoff_trigger_total",
+    "Numero di volte in cui è stato attivato il backoff sull'autenticazione.",
+)
+DIRECTORY_STATUS = Gauge(
+    "app_directory_status",
+    "Stato delle directory configurate: 1 ok, 0 errore.",
+    labelnames=["directory"],
+)
 
 
 def _reset_failed_attempts() -> None:
@@ -105,6 +127,7 @@ async def require_api_key(
                     "retry_after": settings.auth_backoff_seconds,
                 },
             )
+            AUTH_BACKOFF_TRIGGER.inc()
             _failed_attempts[client_id] = {
                 "count": updated_count,
                 "blocked_until": blocked_until,
@@ -122,6 +145,31 @@ async def require_api_key(
         raise HTTPException(status_code=401, detail="Invalid or missing API key")
 
     _failed_attempts.pop(client_id, None)
+
+
+def _is_metrics_ip_allowed(request: Request) -> bool:
+    if not settings.metrics_ip_allowlist:
+        return False
+    if request.client and request.client.host in settings.metrics_ip_allowlist:
+        return True
+    forwarded_for = request.headers.get("x-forwarded-for")
+    if forwarded_for and forwarded_for.split(",", 1)[0].strip() in settings.metrics_ip_allowlist:
+        return True
+    return False
+
+
+async def require_metrics_access(
+    request: Request, x_api_key: str | None = Header(default=None, alias="x-api-key")
+) -> None:
+    """Restrict access to the metrics endpoint via API key or IP allowlist."""
+
+    provided_key = x_api_key or ""
+    accepted_keys = {k for k in (settings.metrics_api_key, settings.api_key) if k}
+    if accepted_keys and provided_key in accepted_keys:
+        return
+    if _is_metrics_ip_allowed(request):
+        return
+    raise HTTPException(status_code=403, detail="Accesso alle metriche non autorizzato")
 
 
 def _list_files(base: Path) -> List[Dict]:
@@ -189,6 +237,7 @@ def _validate_directories(raise_on_error: bool = False) -> Dict[str, Dict]:
             "path": str(path),
             "message": message,
         }
+        DIRECTORY_STATUS.labels(directory=label).set(1 if is_valid else 0)
 
     diagnostic = {
         "status": "ok" if not errors else "error",
@@ -204,6 +253,29 @@ def _validate_directories(raise_on_error: bool = False) -> Dict[str, Dict]:
         _dir_validation_error = None
 
     return diagnostic
+
+
+@app.middleware("http")
+async def metrics_middleware(request: Request, call_next):
+    status_code = 500
+    try:
+        response = await call_next(request)
+        status_code = response.status_code
+        return response
+    except HTTPException as exc:
+        status_code = exc.status_code
+        raise
+    except Exception:
+        status_code = 500
+        raise
+    finally:
+        endpoint = getattr(request.scope.get("route"), "path", request.url.path)
+        status_class = f"{int(status_code) // 100}xx" if status_code else "unknown"
+        REQUEST_COUNT.labels(endpoint=endpoint, method=request.method, status_class=status_class).inc()
+        if status_code >= 400:
+            ERROR_COUNT.labels(
+                endpoint=endpoint, method=request.method, status_class=status_class
+            ).inc()
 
 
 @app.get("/modules", response_model=List[Dict])
@@ -449,3 +521,10 @@ async def get_knowledge_meta(name: str, _: None = Depends(require_api_key)) -> D
         "size_bytes": path.stat().st_size,
         "suffix": path.suffix,
     }
+
+
+@app.get("/metrics")
+async def metrics(_: None = Depends(require_metrics_access)) -> Response:
+    """Espone le metriche Prometheus protette da API key o allowlist IP."""
+
+    return Response(generate_latest(), media_type=CONTENT_TYPE_LATEST)

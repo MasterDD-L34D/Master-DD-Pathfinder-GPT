@@ -28,6 +28,12 @@ class Settings:
         self.auth_backoff_seconds: int = int(
             os.getenv("AUTH_BACKOFF_SECONDS", "60")
         )  # finestra di backoff in secondi
+        self.metrics_api_key: str | None = os.getenv("METRICS_API_KEY")
+        self.metrics_ip_allowlist: list[str] = [
+            ip.strip()
+            for ip in os.getenv("METRICS_IP_ALLOWLIST", "").split(",")
+            if ip.strip()
+        ]
 
 
 settings = Settings()
