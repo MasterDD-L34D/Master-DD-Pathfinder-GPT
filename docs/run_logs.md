@@ -18,3 +18,9 @@
 - **Comando base:** `API_URL=$API_URL API_KEY=$API_KEY python tools/generate_build_db.py --mode core --classes Alchemist Barbarian --output-dir src/data/builds --modules-output-dir src/data/modules --index-path src/data/build_index.json --module-index-path src/data/module_index.json --max-retries 2`.
 - **Salto health check:** aggiungere `--skip-health-check` quando l'endpoint `/health` non è esposto (la richiesta prosegue direttamente verso `/modules/minmax_builder.txt`; eventuali errori di connessione generano `httpx.ConnectError` con contesto esplicito sull'URL usato).
 - **Archiviazione locale:** dopo l'esecuzione si possono comprimere gli output con `tar -czf build_db_core.tar.gz src/data/builds src/data/build_index.json src/data/module_index.json` per il caricamento come artefatto CI.
+
+## generate-build-db-core (GitHub Actions)
+- **Nome job:** `generate-build-db-core / Build DB core e archiviazione` (workflow `generate-build-db-core.yml`).
+- **Cosa fa:** usa `API_URL`/`API_KEY` da secret GitHub per eseguire `python tools/generate_build_db.py --mode core --strict --max-retries 3` archiviando log e output (builds, moduli, indici) nella cartella `build_artifacts/`.
+- **Trigger:** schedulato ogni lunedì alle 03:00 UTC e avviabile manualmente via **Run workflow**.
+- **Recupero log e artefatti:** al termine del job scaricare l'artefatto `generate-build-db-core-artifacts`, che contiene `generate_build_db_core.log`, i dump in `builds/` e `modules/` e i file indice `build_index.json` e `module_index.json`.
