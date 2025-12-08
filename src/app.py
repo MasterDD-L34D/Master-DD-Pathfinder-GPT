@@ -52,20 +52,47 @@ def _list_files(base: Path) -> List[Dict]:
 @app.get("/health")
 async def health() -> Dict[str, str]:
     """Simple healthcheck for Actions."""
+    error = _validate_directories()
+    if error:
+        raise HTTPException(status_code=503, detail=error)
+
     return {"status": "ok"}
 
 
-def _validate_directories() -> None:
-    """Ensure configured module/data directories exist and log issues."""
+_dir_validation_error: str | None = None
 
+
+def _validate_directories(raise_on_error: bool = False) -> str | None:
+    """Ensure configured module/data directories exist and log issues.
+
+    Parameters
+    ----------
+    raise_on_error: bool
+        If True, a RuntimeError is raised when validation fails.
+    """
+
+    global _dir_validation_error
+
+    errors: list[str] = []
     for label, path in ("modules", MODULES_DIR), ("data", DATA_DIR):
         if not path.exists() or not path.is_dir():
-            logging.error("Directory %s mancante o non accessibile: %s", label, path)
+            message = f"Directory {label} mancante o non accessibile: {path}"
+            logging.error(message)
+            errors.append(message)
+
+    if errors:
+        _dir_validation_error = "; ".join(errors)
+        if raise_on_error:
+            raise RuntimeError(_dir_validation_error)
+    else:
+        _dir_validation_error = None
+
+    return _dir_validation_error
 
 
 @app.on_event("startup")
 async def on_startup() -> None:
-    _validate_directories()
+    _validate_directories(raise_on_error=True)
 
 
 @app.get("/modules", response_model=List[Dict])
