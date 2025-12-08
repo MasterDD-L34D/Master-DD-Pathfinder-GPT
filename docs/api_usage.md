@@ -8,6 +8,11 @@ Questa guida riassume come usare l'API FastAPI esposta dal progetto, con esempi 
 - **Troncamento contenuti** (`ALLOW_MODULE_DUMP`):
   - `true` (default): i file vengono restituiti per intero, inclusi PDF/asset non testuali.
   - `false`: i file non testuali generano `403 Module download not allowed`; i `.txt`/`.md` sono limitati ai primi 4000 caratteri con suffisso `[contenuto troncato]`.
+- **Metriche Prometheus** (`METRICS_API_KEY` o `METRICS_IP_ALLOWLIST`):
+  - `/metrics` è protetto da API key dedicata (`METRICS_API_KEY`) o dalla stessa `API_KEY`.
+  - In alternativa è possibile autorizzare un allowlist IP con `METRICS_IP_ALLOWLIST="1.2.3.4,10.0.0.0"` (liste separate da virgole).
+  - Se nessuna chiave è configurata, solo gli IP nella allowlist possono leggere le metriche.
+  - Le metriche includono conteggio richieste per endpoint/metodo/status, errori 4xx/5xx, trigger di backoff, stato delle directory.
 
 ## Endpoint principali
 
@@ -98,3 +103,13 @@ Metadati per un singolo asset in `src/data`.
 - `400 Invalid module/knowledge path`: path con traversal o formato non supportato.
 - `503 Service Unavailable`: directory `modules` o `data` non raggiungibili; anche `/health` riporta `503` in questo caso.
 - `500 Stub payload non valido`: solo per `/modules/minmax_builder.txt` se la generazione dello stub fallisce.
+
+## Metriche (`GET /metrics`)
+
+- Protezione: richiede `x-api-key` uguale a `METRICS_API_KEY` (o `API_KEY`) **oppure** che l'IP del client sia presente in `METRICS_IP_ALLOWLIST`.
+- Output: formato testuale Prometheus con contatori per richieste totali per endpoint/metodo/status, errori 4xx/5xx, attivazioni del backoff di autenticazione e gauge sullo stato delle directory di configurazione.
+- Esempio di invocazione:
+  ```http
+  GET /metrics
+  x-api-key: ${METRICS_API_KEY}
+  ```
