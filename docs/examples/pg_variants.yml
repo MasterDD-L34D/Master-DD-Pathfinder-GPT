@@ -1,0 +1,75 @@
+# Varianti predefinite per coprire razze e archetipi comuni nel builder PF1e
+mode: extended
+requests:
+  - id: fighter_weapon_master_human
+    class: Fighter
+    race: Human
+    archetype: Weapon Master
+    background_hooks: "Veterano delle Crociate che testa nuove combinazioni di armi."
+    output_prefix: fighter_weapon_master_human
+    query:
+      race: Human
+      archetype: Weapon Master
+  - id: fighter_dwarf_shielded
+    class: Fighter
+    race: Dwarf
+    archetype: Shielded Fighter
+    background_hooks: "Guardia cittadina temprata, specializzata in difesa di scudi pesanti."
+    output_prefix: fighter_dwarf_shielded
+    query:
+      race: Dwarf
+      archetype: Shielded Fighter
+  - id: wizard_elf_universalist
+    class: Wizard
+    race: Elf
+    archetype: Universalist
+    background_hooks: "Studiosa elfica ossessionata dalla versatilità dei grimori."
+    output_prefix: wizard_elf_universalist
+    query:
+      race: Elf
+      archetype: Universalist
+  - id: wizard_human_evoker
+    class: Wizard
+    race: Human
+    archetype: Evoker
+    background_hooks: "Piromane accademico in cerca di antiche pergamene elementali."
+    output_prefix: wizard_human_evoker
+    query:
+      race: Human
+      archetype: Evoker
+  - id: cleric_human_warpriest
+    class: Cleric
+    race: Human
+    archetype: Warpriest
+    background_hooks: "Seguace zelota che bilancia liturgia e combattimento sacro."
+    output_prefix: cleric_human_warpriest
+    query:
+      race: Human
+      archetype: Warpriest
+  - id: rogue_halfling_cutpurse
+    class: Rogue
+    race: Halfling
+    archetype: Cutpurse
+    background_hooks: "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla."
+    output_prefix: rogue_halfling_cutpurse
+    query:
+      race: Halfling
+      archetype: Cutpurse
+  - id: ranger_halfelf_skirmisher
+    class: Ranger
+    race: Half-Elf
+    archetype: Skirmisher
+    background_hooks: "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera."
+    output_prefix: ranger_halfelf_skirmisher
+    query:
+      race: Half-Elf
+      archetype: Skirmisher
+  - id: druid_half_orc_feral
+    class: Druid
+    race: Half-Orc
+    archetype: Feral Shifter
+    background_hooks: "Guardiano selvaggio delle foreste, incline a forme ferine aggressive."
+    output_prefix: druid_half_orc_feral
+    query:
+      race: Half-Orc
+      archetype: Feral Shifter
