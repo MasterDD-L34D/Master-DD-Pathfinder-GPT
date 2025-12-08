@@ -26,3 +26,8 @@ Formato: contesto → decisione → conseguenze.
 - **Contesto**: probe falliti (`/health`), rate-limit (`429`) e chiavi assenti (`401`) possono interrompere la pipeline di build.
 - **Decisione**: seguire i passaggi di avvio API del README (esportare `API_KEY`, opzionale `ALLOW_ANONYMOUS`) e regolare il backoff tramite `AUTH_BACKOFF_*`; permettere `--skip-health-check` quando l'endpoint non espone `/health` ma è raggiungibile.
 - **Conseguenze**: riduce falsi negativi nei probe e blocchi temporanei durante `generate_build_db`; gli script devono documentare le variabili d'ambiente e i fallback nei log, collegandosi ai workflow di avvio API e probe.
+
+## ADR 006 — Handoff post-build esteso
+- **Contesto**: l'ultimo ciclo `generate_build_db` extended è andato a buon fine con discovery moduli e validazione strict; servono follow-up rapidi prima di un nuovo run.
+- **Decisione**: organizzare un handoff operativo con ruoli espliciti: Tech Lead riallinea priorità e merge, Backend/API rivede flag di discovery/validazione e endpoint (`/health`, `/metrics`, `/modules`), Data/Validation analizza `build_index.json`/`module_index.json` per errori o payload borderline, Docs aggiorna note operative/README e canali di comunicazione.
+- **Conseguenze**: garantisce checklist condivisa e correzioni mirate prima del prossimo ciclo di build, evitando regressioni su autenticazione, filtri e schemi; le note risultanti devono essere riportate in `docs/run_logs.md` e nella roadmap.

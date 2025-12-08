@@ -11,6 +11,14 @@
 - **Validazione progressiva**: adottare i flag `--strict` e `--keep-invalid` per gestire errori di schema durante la generazione DB, preservando payload non conformi per analisi successive come indicato nella sezione troubleshooting.
 - **Health/metrics hardening**: estendere probe di `/health` e raccolta delle metriche per allinearsi ai workflow di avvio API e backoff descritti nel README, riducendo blocchi dovuti a `401/429` e time-out su endpoint remoti.
 
+## Stato ultimo ciclo build
+- **Esecuzione**: `generate_build_db` completato in modalità `extended` con discovery dei moduli e validazione strict (indici aggiornati in `src/data/build_index.json` e `src/data/module_index.json`).
+- **Follow-up rapido (handoff):**
+  - **Tech Lead:** ribadire priorità per il prossimo run (eventuali retry su classi che dovessero cambiare) e sbloccare merge dei fix.
+  - **Backend/API:** controllare flag di autenticazione/backoff, endpoint `/health` e `/metrics`, e opzioni di discovery prima di riavviare workflow schedulati.
+  - **Data/Validation:** rivedere gli indici per segnalare errori o payload borderline e proporre aggiustamenti a schemi o filtri.
+  - **Docs & Prompt:** aggiornare note operative (README/runbook) con nuove opzioni o deroghe emerse dall'analisi.
+
 ## Owner / Responsabili
 - **Tech Lead**: supervisione roadmap, priorità e merge decisioni.
 - **Backend/API**: implementazione script `generate_build_db`, autenticazione (`AUTH_BACKOFF_*`), metriche/health.

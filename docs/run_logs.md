@@ -1,5 +1,14 @@
 # Command run log
 
+## Handoff operativo post-build
+- **Contesto:** ultimo ciclo `generate_build_db` in modalità extended completato con discovery moduli e validazione strict.
+- **Azioni:**
+  - **Tech Lead:** conferma priorità di follow-up prima del prossimo run (eventuali retry su classi/moduli mancanti).
+  - **Backend/API:** verifica flag di discovery/validazione e endpoint (`/health`, `/metrics`, `/modules`) prima di riattivare i workflow schedulati.
+  - **Data/Validation:** analizza `src/data/build_index.json` e `src/data/module_index.json` per individuare errori o payload borderline, proponendo fix su schemi/filtri.
+  - **Docs:** aggiorna note operative e README con eventuali nuove opzioni/deroghe emerse dall'analisi.
+- **Esito atteso:** checklist condivisa nel canale di handoff prima del prossimo ciclo di build.
+
 ## generate_build_db connectivity check (initial)
 - **Command:** `python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --discover-modules --max-retries 3 --strict`
 - **Result:** Failed with `httpx.ConnectError: All connection attempts failed` while calling `/modules` during module discovery. The tool issued schema-related deprecation warnings before the network failure.
