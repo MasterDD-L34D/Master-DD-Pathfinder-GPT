@@ -7,6 +7,7 @@ import asyncio
 import json
 import logging
 import os
+import shutil
 from fnmatch import fnmatchcase
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -675,6 +676,21 @@ def parse_args() -> argparse.Namespace:
         "--skip-health-check",
         action="store_true",
         help="Salta il controllo di raggiungibilità dell'API (fallback per ambienti in cui /health non è disponibile)",
+    )
+    parser.add_argument(
+        "--dual-pass",
+        action="store_true",
+        help="Esegue prima un passaggio fail-fast (--strict) e poi uno tollerante con --keep-invalid",
+    )
+    parser.add_argument(
+        "--dual-pass-report",
+        type=Path,
+        help="Percorso del report riepilogativo dei due passaggi (--dual-pass)",
+    )
+    parser.add_argument(
+        "--invalid-archive-dir",
+        type=Path,
+        help="Cartella in cui copiare i payload non conformi individuati negli indici",
     )
     parser.add_argument(
         "--validate-db",
@@ -1595,6 +1611,100 @@ def write_json(path: Path, data: Mapping) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
+def path_with_suffix(path: Path, suffix: str) -> Path:
+    return path.with_name(f"{path.stem}.{suffix}{path.suffix}")
+
+
+def analyze_indices(
+    build_index_path: Path,
+    module_index_path: Path,
+    *,
+    archive_dir: Path | None = None,
+) -> Mapping[str, Any]:
+    def _load_index(path: Path) -> Mapping[str, Any]:
+        if path.is_file():
+            try:
+                return json.loads(path.read_text(encoding="utf-8"))
+            except Exception as exc:  # pragma: no cover - defensive logging
+                logging.warning("Impossibile leggere l'indice %s: %s", path, exc)
+        return {"entries": []}
+
+    def _archive_payload(source: Path, destination_dir: Path, archived: list[str]) -> None:
+        destination_dir.mkdir(parents=True, exist_ok=True)
+        destination = destination_dir / source.name
+        if destination.exists():
+            destination = destination_dir / f"{source.stem}_copy{destination.suffix}"
+        shutil.copy2(source, destination)
+        archived.append(str(destination))
+
+    build_index_payload = _load_index(build_index_path)
+    module_index_payload = _load_index(module_index_path)
+
+    build_entries: Sequence[Mapping[str, object]] = (
+        build_index_payload.get("entries") or []
+    )
+    module_entries: Sequence[Mapping[str, object]] = (
+        module_index_payload.get("entries") or []
+    )
+
+    build_stats = {"total": 0, "ok": 0, "invalid": 0, "errors": 0}
+    module_stats = {"total": 0, "ok": 0, "invalid": 0, "errors": 0}
+    invalid_builds: list[Mapping[str, object]] = []
+    invalid_modules: list[Mapping[str, object]] = []
+    archived_files: list[str] = []
+
+    for entry in build_entries:
+        status = str(entry.get("status") or "error")
+        build_stats["total"] += 1
+        if status == "ok":
+            build_stats["ok"] += 1
+            continue
+        if status == "invalid":
+            build_stats["invalid"] += 1
+        else:
+            build_stats["errors"] += 1
+        invalid_builds.append(entry)
+        file_path = entry.get("file")
+        if archive_dir and file_path:
+            source = Path(str(file_path))
+            if source.exists():
+                _archive_payload(source, archive_dir / "builds", archived_files)
+
+    for entry in module_entries:
+        status = str(entry.get("status") or "error")
+        module_stats["total"] += 1
+        if status == "ok":
+            module_stats["ok"] += 1
+            continue
+        if status == "invalid":
+            module_stats["invalid"] += 1
+        else:
+            module_stats["errors"] += 1
+        invalid_modules.append(entry)
+        file_path = entry.get("file")
+        if archive_dir and file_path:
+            source = Path(str(file_path))
+            if source.exists():
+                _archive_payload(source, archive_dir / "modules", archived_files)
+
+    report = {
+        "generated_at": now_iso_utc(),
+        "build_index": str(build_index_path),
+        "module_index": str(module_index_path),
+        "builds": {
+            **build_stats,
+            "invalid_entries": invalid_builds,
+        },
+        "modules": {
+            **module_stats,
+            "invalid_entries": invalid_modules,
+        },
+        "archived_files": archived_files,
+    }
+
+    return report
+
+
 def build_index_entry(
     request: BuildRequest,
     output_file: Path | None,
@@ -1965,9 +2075,109 @@ async def run_harvest(
     logging.info("Indici aggiornati: %s e %s", index_path, module_index_path)
 
 
+def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
+    requests = build_requests_from_args(args)
+    strict_output_dir = args.output_dir / "strict"
+    strict_modules_dir = args.modules_output_dir / "strict"
+    strict_build_index = path_with_suffix(args.index_path, "strict")
+    strict_module_index = path_with_suffix(args.module_index_path, "strict")
+
+    report: dict[str, Any] = {
+        "strict": {
+            "output_dir": str(strict_output_dir),
+            "modules_output_dir": str(strict_modules_dir),
+            "build_index": str(strict_build_index),
+            "module_index": str(strict_module_index),
+        },
+        "tolerant": {
+            "output_dir": str(args.output_dir),
+            "modules_output_dir": str(args.modules_output_dir),
+            "build_index": str(args.index_path),
+            "module_index": str(args.module_index_path),
+            "keep_invalid": True,
+        },
+    }
+
+    try:
+        asyncio.run(
+            run_harvest(
+                requests,
+                args.api_url,
+                args.api_key,
+                strict_output_dir,
+                strict_build_index,
+                args.modules,
+                strict_modules_dir,
+                strict_module_index,
+                args.concurrency,
+                args.max_retries,
+                args.spec_file,
+                args.discover_modules,
+                args.include,
+                args.exclude,
+                strict=True,
+                keep_invalid=False,
+                require_complete=args.require_complete,
+                skip_health_check=args.skip_health_check,
+            )
+        )
+        report["strict"]["status"] = "ok"
+    except Exception as exc:
+        logging.warning("Passaggio strict fallito, procedo con il run tollerante: %s", exc)
+        report["strict"].update({"status": "failed", "error": str(exc)})
+
+    try:
+        asyncio.run(
+            run_harvest(
+                requests,
+                args.api_url,
+                args.api_key,
+                args.output_dir,
+                args.index_path,
+                args.modules,
+                args.modules_output_dir,
+                args.module_index_path,
+                args.concurrency,
+                args.max_retries,
+                args.spec_file,
+                args.discover_modules,
+                args.include,
+                args.exclude,
+                strict=False,
+                keep_invalid=True,
+                require_complete=args.require_complete,
+                skip_health_check=args.skip_health_check,
+            )
+        )
+        report["tolerant"]["status"] = "ok"
+        if args.invalid_archive_dir:
+            analysis = analyze_indices(
+                args.index_path, args.module_index_path, archive_dir=args.invalid_archive_dir
+            )
+        else:
+            analysis = analyze_indices(args.index_path, args.module_index_path)
+        report["analysis"] = analysis
+    except Exception as exc:
+        logging.error("Passaggio tollerante fallito: %s", exc)
+        report["tolerant"].update({"status": "failed", "error": str(exc)})
+
+    if args.dual_pass_report:
+        write_json(args.dual_pass_report, report)
+        logging.info("Report dual-pass salvato in %s", args.dual_pass_report)
+
+    return report
+
+
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
+    if args.dual_pass and args.validate_db:
+        raise ValueError("--dual-pass non è compatibile con --validate-db")
+
+    if args.dual_pass:
+        run_dual_pass_harvest(args)
+        return
+
     requests = build_requests_from_args(args)
     strict_mode = args.strict and not args.warn_only
 

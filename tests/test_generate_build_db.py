@@ -9,7 +9,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))
 
-from tools.generate_build_db import BuildRequest, review_local_database, run_harvest
+from tools.generate_build_db import (
+    BuildRequest,
+    analyze_indices,
+    review_local_database,
+    run_harvest,
+)
 
 
 def test_review_local_database_reports_status(tmp_path):
@@ -159,3 +164,65 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
     index = json.loads(index_path.read_text(encoding="utf-8"))
     assert index["entries"], "L'indice delle build non è stato popolato"
     assert index["entries"][0]["status"] == "ok"
+
+
+def test_analyze_indices_archives_invalid_payloads(tmp_path):
+    build_dir = tmp_path / "builds"
+    module_dir = tmp_path / "modules"
+    build_dir.mkdir()
+    module_dir.mkdir()
+
+    valid_build = build_dir / "valid.json"
+    invalid_build = build_dir / "invalid.json"
+    valid_build.write_text("{}", encoding="utf-8")
+    invalid_build.write_text("{""bad"": true}", encoding="utf-8")
+
+    module_file = module_dir / "bad_module.txt"
+    module_file.write_text("content", encoding="utf-8")
+
+    build_index_path = tmp_path / "build_index.json"
+    build_index_path.write_text(
+        json.dumps(
+            {
+                "entries": [
+                    {"status": "ok", "file": str(valid_build)},
+                    {
+                        "status": "invalid",
+                        "file": str(invalid_build),
+                        "error": "schema",
+                    },
+                    {"status": "error", "file": str(build_dir / "missing.json")},
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    module_index_path = tmp_path / "module_index.json"
+    module_index_path.write_text(
+        json.dumps(
+            {
+                "entries": [
+                    {
+                        "module": "bad_module.txt",
+                        "status": "invalid",
+                        "file": str(module_file),
+                        "error": "meta",
+                    },
+                    {"module": "missing.txt", "status": "error", "file": "missing"},
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    archive_dir = tmp_path / "archive"
+    report = analyze_indices(build_index_path, module_index_path, archive_dir=archive_dir)
+
+    assert report["builds"]["invalid"] == 1
+    assert report["builds"]["errors"] == 1
+    assert report["modules"]["invalid"] == 1
+    assert report["modules"]["errors"] == 1
+    assert len(report["archived_files"]) == 2
+    assert (archive_dir / "builds" / invalid_build.name).is_file()
+    assert (archive_dir / "modules" / module_file.name).is_file()

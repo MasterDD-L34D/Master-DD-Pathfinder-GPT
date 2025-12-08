@@ -130,6 +130,7 @@ Per impostazione predefinita usa la modalità `extended` (16 step completi) e sa
 
 - Endpoint senza `/health`: aggiungi `--skip-health-check` per saltare il probe iniziale quando l'API è accessibile ma non espone l'handler di health (o usa l'ambiente `API_URL` per puntare a un host remoto se non è `localhost`).
 - Validazione schema fallita: usa `--strict` per far fallire lo script al primo JSON non conforme; con `--keep-invalid` salvi comunque le risposte difettose per ispezionarle. In `build_index.json` troverai gli esiti dei singoli step (`status`, `errors`, `step_total`) e puoi capire quale build/race/archetipo ha rotto lo schema; `module_index.json` riporta eventuali moduli scartati o corrotti con `validation_errors`.
+- Copertura vs resilienza: con `--dual-pass` lo script esegue prima un round fail-fast (`--strict`) e poi uno tollerante che forza `--keep-invalid`, così puoi confrontare copertura e errori. Aggiungi `--dual-pass-report reports/dual_pass.json` per salvare un riepilogo e `--invalid-archive-dir artifacts/invalid_payloads` per copiare automaticamente i payload non conformi segnalati dagli indici.
 - Host remoto non raggiungibile su `localhost`: esporta `API_URL` o passa `--api-url https://builder.example.com` per indirizzare lo script verso l'endpoint corretto, anche dietro tunnel/port-forward.
 
 Esempi rapidi:
