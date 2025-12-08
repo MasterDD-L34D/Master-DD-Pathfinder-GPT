@@ -126,6 +126,16 @@
     "AC_tot": {"type": ["integer", "number", "null"]},
     "CA_touch": {"type": ["integer", "number", "null"]},
     "CA_ff": {"type": ["integer", "number", "null"]},
+    "ac_breakdown": {
+      "type": "object",
+      "description": "Dettaglio della Classe Armatura con contributi per fonte.",
+      "additionalProperties": {"type": ["integer", "number", "string", "null"]}
+    },
+    "pf_totali": {"type": ["integer", "number", "string", "null"]},
+    "pf_per_livello": {"type": ["integer", "number", "string", "array", "null"]},
+    "hp": {"type": "object", "additionalProperties": {"type": ["integer", "number", "string", "array", "null"]}},
+    "iniziativa": {"type": ["integer", "number", "string", "null"]},
+    "velocita": {"type": ["integer", "number", "string", "null"]},
     "spell_levels": {
       "type": "array",
       "description": "Tabella incantesimi conosciuti/preparati/slot/CD per livello.",
@@ -152,6 +162,7 @@
         "additionalProperties": true
       }
     },
+    "skill_points": {"type": ["integer", "number", "null"]},
     "nome": {"type": ["string", "null"]},
     "razza": {"type": ["string", "null"]},
     "allineamento": {"type": ["string", "null"]},
@@ -211,6 +222,8 @@
         "additionalProperties": true
       }
     },
+    "talenti": {"type": "array", "items": {"type": ["string", "object"]}},
+    "capacita_classe": {"type": "array", "items": {"type": ["string", "object"]}},
     "progressione": {
       "type": "array",
       "description": "Progressione talenti o abilità, usata per estrarre i talenti.",
@@ -280,6 +293,7 @@
     "next_wbl_gp": {"type": ["integer", "number", "null"]},
     "buylist_priority": {"type": ["string", "null"]},
     "equipaggiamento": {"type": "array", "items": {"type": "string"}},
+    "inventario": {"type": "array", "items": {"type": ["string", "object"]}},
     "equip_base": {"type": ["string", "null"]},
     "peso_totale": {"type": ["string", "number", "null"]},
     "carico_leggero": {"type": ["string", "number", "null"]},

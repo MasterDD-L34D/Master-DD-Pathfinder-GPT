@@ -231,6 +231,22 @@ def _merge_unique_list(
     return merged
 
 
+def _has_content(value: object) -> bool:
+    if value is None:
+        return False
+    if _is_placeholder(value):
+        return False
+    if isinstance(value, (int, float)):
+        return value != 0
+    if isinstance(value, str):
+        return bool(value.strip())
+    if isinstance(value, Mapping):
+        return any(_has_content(v) for v in value.values())
+    if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+        return any(_has_content(v) for v in value)
+    return True
+
+
 def _load_local_modules(module_names: Sequence[str]) -> Mapping[str, str]:
     candidates = [
         Path("src/data/modules"),
@@ -1023,11 +1039,52 @@ async def fetch_build(
 
     if not ledger or (isinstance(ledger, Mapping) and not any(ledger.values())):
         completeness_errors.append("Ledger assente o senza contenuti")
+    source_url = str(response.url)
+    export_ctx = payload.setdefault("export", {})
+    sheet_payload = _enrich_sheet_payload(
+        payload, ledger if isinstance(ledger, Mapping) else None, source_url
+    )
+    export_ctx["sheet_payload"] = sheet_payload
+
+    def _require_block(label: str, *values: object) -> None:
+        if not any(_has_content(value) for value in values):
+            completeness_errors.append(label)
+
+    _require_block("PF mancanti o vuoti", sheet_payload.get("pf_totali"), sheet_payload.get("hp"))
+    _require_block("Salvezze mancanti o vuote", sheet_payload.get("salvezze"))
+    _require_block(
+        "Skill assenti o vuote",
+        sheet_payload.get("skills_map"),
+        sheet_payload.get("skills"),
+        sheet_payload.get("skill_points"),
+    )
+    _require_block(
+        "Talenti/capacità mancanti o vuote",
+        sheet_payload.get("talenti"),
+        sheet_payload.get("capacita_classe"),
+    )
+    _require_block(
+        "Equipaggiamento/inventario mancante o vuoto",
+        sheet_payload.get("equipaggiamento"),
+        sheet_payload.get("inventario"),
+    )
+    _require_block(
+        "Sezione incantesimi mancante o vuota",
+        sheet_payload.get("spell_levels"),
+        sheet_payload.get("magia"),
+        sheet_payload.get("slot_incantesimi"),
+    )
+    _require_block("CA dettagliata mancante o vuota", sheet_payload.get("ac_breakdown"))
+    _require_block(
+        "Iniziativa o velocità mancanti",
+        sheet_payload.get("iniziativa"),
+        sheet_payload.get("velocita"),
+    )
 
     payload.update({
         "class": request.class_name,
         "mode": request.mode,
-        "source_url": str(response.url),
+        "source_url": source_url,
         "fetched_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
         "request": request.metadata(),
         "composite": composite,
@@ -1048,12 +1105,6 @@ async def fetch_build(
         },
     })
 
-    source_url = payload.get("source_url")
-    export_ctx = payload.setdefault("export", {})
-    sheet_payload = _enrich_sheet_payload(
-        payload, ledger if isinstance(ledger, Mapping) else None, source_url
-    )
-    export_ctx["sheet_payload"] = sheet_payload
     if require_complete and completeness_errors:
         joined_errors = "; ".join(completeness_errors)
         raise BuildFetchError(
@@ -1138,6 +1189,7 @@ def build_index_entry(
     status: str,
     error: str | None = None,
     step_audit: Mapping[str, object] | None = None,
+    completeness_errors: Sequence[str] | None = None,
 ) -> Mapping:
     entry: dict[str, object] = {
         "file": str(output_file) if output_file else None,
@@ -1147,6 +1199,8 @@ def build_index_entry(
     }
     if error:
         entry["error"] = error
+    if completeness_errors:
+        entry["completeness_errors"] = list(completeness_errors)
     if step_audit:
         entry.update(
             {
@@ -1359,6 +1413,7 @@ async def run_harvest(
                             status,
                             validation_error,
                             payload.get("step_audit"),
+                            completeness_errors,
                         )
                     except ValidationError:
                         raise
@@ -1374,6 +1429,7 @@ async def run_harvest(
                             "error",
                             str(exc),
                             payload.get("step_audit") if "payload" in locals() else None,
+                            completeness_errors if "completeness_errors" in locals() else None,
                         )
                     except Exception as exc:  # pragma: no cover - network dependent
                         logging.exception("Errore durante la fetch di %s", request.class_name)
@@ -1383,6 +1439,7 @@ async def run_harvest(
                             "error",
                             str(exc),
                             payload.get("step_audit") if "payload" in locals() else None,
+                            completeness_errors if "completeness_errors" in locals() else None,
                         )
 
             build_tasks.append(asyncio.create_task(process_class(build_request, output_file)))
