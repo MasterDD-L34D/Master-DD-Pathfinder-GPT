@@ -19,6 +19,42 @@ def client():
         yield test_client
 
 
+@pytest.fixture
+def disable_module_dump():
+    original = settings.allow_module_dump
+    settings.allow_module_dump = False
+    yield
+    settings.allow_module_dump = original
+
+
+@pytest.fixture
+def missing_modules_dir(monkeypatch, tmp_path):
+    missing_dir = tmp_path / "missing_modules"
+    monkeypatch.setattr(app_module, "MODULES_DIR", missing_dir)
+    return missing_dir
+
+
+@pytest.fixture
+def missing_data_dir(monkeypatch, tmp_path):
+    missing_dir = tmp_path / "missing_data"
+    monkeypatch.setattr(app_module, "DATA_DIR", missing_dir)
+    return missing_dir
+
+
+@pytest.fixture
+def allow_missing_directories(monkeypatch):
+    def fake_validate(raise_on_error: bool = False):
+        errors = []
+        for label, path in ("modules", app_module.MODULES_DIR), ("data", app_module.DATA_DIR):
+            if not path.exists() or not path.is_dir():
+                errors.append(f"Directory {label} mancante o non accessibile: {path}")
+        app_module._dir_validation_error = "; ".join(errors) if errors else None
+        return app_module._dir_validation_error
+
+    monkeypatch.setattr(app_module, "_validate_directories", fake_validate)
+    return fake_validate
+
+
 @pytest.fixture(autouse=True)
 def setup_api_key():
     original = settings.api_key
@@ -62,6 +98,28 @@ def test_minmax_builder_stub_is_opt_in(client, auth_headers):
     payload = response.json()
     assert payload["build_state"]["mode"] in {"core", "extended"}
     assert payload["sheet"]["classi"][0]["nome"] == "Unknown"
+
+
+def test_minmax_builder_stub_contains_full_payload(client, auth_headers):
+    response = client.get("/modules/minmax_builder.txt?mode=stub", headers=auth_headers)
+    assert response.status_code == 200
+    payload = response.json()
+
+    expected_keys = {
+        "build_state",
+        "benchmark",
+        "export",
+        "narrative",
+        "sheet",
+        "ledger",
+        "class",
+        "mode",
+        "composite",
+    }
+    assert set(payload.keys()) == expected_keys
+    assert "sheet_payload" in payload["export"]
+    assert payload["ledger"]["currency"]["oro"] >= 0
+    assert payload["composite"]["build"]["export"]["sheet_payload"]
 
 
 def test_minmax_builder_stub_payload_matches_schema(client, auth_headers):
@@ -110,16 +168,28 @@ def test_get_module_content_binary_streamed_without_text_property(
 def test_get_module_content_binary_blocked_when_dump_disabled(client, auth_headers):
     binary_path = MODULES_DIR / "binary_blocked.bin"
     binary_path.write_bytes(b"binary-content")
-    original = settings.allow_module_dump
-    settings.allow_module_dump = False
 
     try:
+        settings.allow_module_dump = False
         response = client.get("/modules/binary_blocked.bin", headers=auth_headers)
         assert response.status_code == 403
         assert response.json()["detail"] == "Module download not allowed"
     finally:
-        settings.allow_module_dump = original
         binary_path.unlink(missing_ok=True)
+
+
+def test_text_module_truncated_when_dump_disabled(client, auth_headers, disable_module_dump):
+    large_module = MODULES_DIR / "large_module.txt"
+    large_module.write_text("A" * 5001)
+
+    try:
+        response = client.get("/modules/large_module.txt", headers=auth_headers)
+        assert response.status_code == 200
+        assert response.headers["content-type"].startswith("text/plain")
+        assert response.text.endswith("[contenuto troncato]")
+        assert "A" * 10 in response.text
+    finally:
+        large_module.unlink(missing_ok=True)
 
 
 def test_get_module_meta_valid_file(client, auth_headers):
@@ -205,24 +275,24 @@ def test_allow_anonymous_access(client):
     assert response.status_code == 200
 
 
-def test_modules_directory_missing_returns_error(auth_headers, monkeypatch, tmp_path):
-    missing_dir = tmp_path / "missing_modules"
+def test_modules_directory_missing_returns_error(
+    auth_headers, missing_modules_dir, allow_missing_directories
+):
     with TestClient(app) as local_client:
-        monkeypatch.setattr(app_module, "MODULES_DIR", missing_dir)
         response = local_client.get("/modules", headers=auth_headers)
 
     assert response.status_code == 503
-    assert str(missing_dir) in response.json()["detail"]
+    assert str(missing_modules_dir) in response.json()["detail"]
 
 
-def test_data_directory_missing_returns_error(auth_headers, monkeypatch, tmp_path):
-    missing_dir = tmp_path / "missing_data"
+def test_data_directory_missing_returns_error(
+    auth_headers, missing_data_dir, allow_missing_directories
+):
     with TestClient(app) as local_client:
-        monkeypatch.setattr(app_module, "DATA_DIR", missing_dir)
         response = local_client.get("/knowledge", headers=auth_headers)
 
     assert response.status_code == 503
-    assert str(missing_dir) in response.json()["detail"]
+    assert str(missing_data_dir) in response.json()["detail"]
 
 
 def test_health_reports_missing_directories(monkeypatch, tmp_path):
