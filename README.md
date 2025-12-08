@@ -119,6 +119,22 @@ python tools/generate_build_db.py Alchemist Wizard Paladin
 
 Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`. Ogni chiamata include il parametro `mode=core|extended` e l'indice registra lo `step_total` osservato, così puoi verificare che i 16 step appaiano solo quando richiedi `extended`.
 
+#### Troubleshooting
+
+- Endpoint senza `/health`: aggiungi `--skip-health-check` per saltare il probe iniziale quando l'API è accessibile ma non espone l'handler di health (o usa l'ambiente `API_URL` per puntare a un host remoto se non è `localhost`).
+- Validazione schema fallita: usa `--strict` per far fallire lo script al primo JSON non conforme; con `--keep-invalid` salvi comunque le risposte difettose per ispezionarle. In `build_index.json` troverai gli esiti dei singoli step (`status`, `errors`, `step_total`) e puoi capire quale build/race/archetipo ha rotto lo schema; `module_index.json` riporta eventuali moduli scartati o corrotti con `validation_errors`.
+- Host remoto non raggiungibile su `localhost`: esporta `API_URL` o passa `--api-url https://builder.example.com` per indirizzare lo script verso l'endpoint corretto, anche dietro tunnel/port-forward.
+
+Esempi rapidi:
+
+```bash
+# Forza la validazione rigorosa e interrompe al primo errore
+python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --strict
+
+# Mantiene i payload non validi per analisi successive
+python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --keep-invalid
+```
+
 #### Selezione moduli: statici o via discovery
 
 - Con `--modules` puoi continuare a pinnare manualmente i file da scaricare (default: i 5 moduli critici per scheda/narrativa).
