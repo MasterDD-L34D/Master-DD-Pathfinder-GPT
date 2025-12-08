@@ -264,7 +264,7 @@
     }
   },
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&race=Dwarf&archetype=Shielded+Fighter",
-  "fetched_at": "2025-12-08T17:49:06Z",
+  "fetched_at": "2025-12-08T18:06:13Z",
   "request": {
     "class": "Fighter",
     "race": "Dwarf",
