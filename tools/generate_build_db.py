@@ -6,6 +6,7 @@ import asyncio
 import json
 import logging
 import os
+from fnmatch import fnmatchcase
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -61,6 +62,7 @@ DEFAULT_BASE_URL = "http://localhost:8000"
 MODULE_ENDPOINT = "/modules/minmax_builder.txt"
 MODULE_DUMP_ENDPOINT = "/modules/{name}"
 MODULE_META_ENDPOINT = "/modules/{name}/meta"
+MODULE_LIST_ENDPOINT = "/modules"
 
 # Moduli "grezzi" utili per generare schede e flussi completi
 DEFAULT_MODULE_TARGETS: Sequence[str] = (
@@ -118,6 +120,20 @@ def ensure_output_dirs(output_dir: Path) -> None:
 
 def _normalize_mapping(data: Mapping | None) -> Mapping[str, object]:
     return {str(key): value for key, value in (data or {}).items() if value is not None}
+
+
+def apply_glob_filters(entries: Sequence[str], include: Sequence[str], exclude: Sequence[str]) -> list[str]:
+    def matches(patterns: Sequence[str], candidate: str) -> bool:
+        return any(fnmatchcase(candidate, pattern) for pattern in patterns)
+
+    filtered: list[str] = []
+    for name in entries:
+        if include and not matches(include, name):
+            continue
+        if exclude and matches(exclude, name):
+            continue
+        filtered.append(name)
+    return filtered
 
 
 def load_spec_requests(spec_path: Path, default_mode: str) -> list[BuildRequest]:
@@ -224,6 +240,25 @@ def parse_args() -> argparse.Namespace:
         nargs="*",
         default=list(DEFAULT_MODULE_TARGETS),
         help="Elenco moduli da scaricare in parallelo alle build",
+    )
+    parser.add_argument(
+        "--discover-modules",
+        action="store_true",
+        help="Recupera automaticamente la lista di moduli disponibili da /modules",
+    )
+    parser.add_argument(
+        "--include",
+        nargs="*",
+        default=[],
+        metavar="GLOB",
+        help="Filtri di inclusione (glob) applicati ai moduli scoperti via /modules",
+    )
+    parser.add_argument(
+        "--exclude",
+        nargs="*",
+        default=[],
+        metavar="GLOB",
+        help="Filtri di esclusione (glob) applicati ai moduli scoperti via /modules",
     )
     parser.add_argument(
         "--spec-file",
@@ -368,6 +403,44 @@ async def fetch_module(
     return content_resp.text, meta_resp.json()
 
 
+async def discover_modules(
+    client: httpx.AsyncClient, api_key: str | None, max_retries: int
+) -> list[str]:
+    headers = {"x-api-key": api_key} if api_key else {}
+    response = await request_with_retry(
+        client,
+        "GET",
+        MODULE_LIST_ENDPOINT,
+        headers=headers,
+        timeout=30,
+        max_retries=max_retries,
+        backoff_factor=0.5,
+    )
+
+    try:
+        payload = response.json()
+    except json.JSONDecodeError as exc:  # pragma: no cover - network dependent
+        raise ValueError("Risposta /modules non valida (JSON)") from exc
+
+    if isinstance(payload, Mapping) and "modules" in payload:
+        payload = payload.get("modules")
+
+    if not isinstance(payload, Sequence) or isinstance(payload, (str, bytes)):
+        raise ValueError(f"Formato /modules inatteso: {payload!r}")
+
+    names: list[str] = []
+    for item in payload:
+        if isinstance(item, Mapping):
+            name = item.get("name")
+        else:
+            name = item
+        if not name:
+            continue
+        names.append(str(name))
+
+    return names
+
+
 def write_json(path: Path, data: Mapping) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -410,6 +483,9 @@ async def run_harvest(
     concurrency: int,
     max_retries: int,
     spec_path: Path | None = None,
+    discover: bool = False,
+    include_filters: Sequence[str] | None = None,
+    exclude_filters: Sequence[str] | None = None,
 ) -> None:
     requests = list(requests)
     ensure_output_dirs(output_dir)
@@ -427,9 +503,37 @@ async def run_harvest(
         "entries": [],
     }
 
+    include_filters = include_filters or []
+    exclude_filters = exclude_filters or []
+    discovery_info: Mapping[str, object] | None = None
+
     semaphore = asyncio.Semaphore(max(1, concurrency))
 
     async with httpx.AsyncClient(base_url=api_url.rstrip("/"), follow_redirects=True) as client:
+        if discover:
+            discovered = await discover_modules(client, api_key, max_retries)
+            filtered_discovered = apply_glob_filters(discovered, include_filters, exclude_filters)
+            discovery_info = {
+                "performed_at": datetime.utcnow().isoformat(timespec="seconds") + "Z",
+                "include_filters": list(include_filters),
+                "exclude_filters": list(exclude_filters),
+                "raw_count": len(discovered),
+                "selected": sorted(filtered_discovered),
+            }
+        else:
+            filtered_discovered = []
+
+        module_plan: list[str] = []
+        seen: set[str] = set()
+        for name in modules:
+            if name not in seen:
+                module_plan.append(name)
+                seen.add(name)
+        for name in sorted(filtered_discovered):
+            if name not in seen:
+                module_plan.append(name)
+                seen.add(name)
+
         build_tasks = []
         for build_request in requests:
             output_file = output_dir / f"{build_request.output_name()}.json"
@@ -454,7 +558,7 @@ async def run_harvest(
             build_tasks.append(asyncio.create_task(process_class(build_request, output_file)))
 
         module_tasks = []
-        for module_name in modules:
+        for module_name in module_plan:
             module_path = modules_output_dir / module_name
 
             async def process_module(name: str, destination: Path) -> tuple[str, Mapping]:
@@ -476,6 +580,8 @@ async def run_harvest(
 
     builds_index["entries"].extend(entry for _, entry in sorted(build_results, key=lambda item: item[0]))
     modules_index["entries"].extend(entry for _, entry in sorted(module_results, key=lambda item: item[0]))
+    if discovery_info:
+        modules_index["discovery"] = discovery_info
 
     write_json(index_path, builds_index)
     write_json(module_index_path, modules_index)
@@ -499,6 +605,9 @@ def main() -> None:
             args.concurrency,
             args.max_retries,
             args.spec_file,
+            args.discover_modules,
+            args.include,
+            args.exclude,
         )
     )
 

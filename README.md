@@ -70,6 +70,25 @@ python tools/generate_build_db.py Alchemist Wizard Paladin
 
 Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`.
 
+#### Selezione moduli: statici o via discovery
+
+- Con `--modules` puoi continuare a pinnare manualmente i file da scaricare (default: i 5 moduli critici per scheda/narrativa).
+- Con `--discover-modules` lo script interroga `GET /modules` e unisce i risultati ai moduli espliciti, così non perdi nuovi asset pubblicati sull'API.
+- Puoi applicare filtri glob solo ai moduli scoperti: `--include '*.txt' modules/*` limita i download ai pattern indicati, mentre `--exclude 'beta_*'` rimuove i match specificati. L'indice `module_index.json` annota timestamp e filtri usati nella discovery per riprodurre esattamente la lista.
+
+Esempi:
+
+```bash
+# Scarica i moduli statici + tutto ciò che è visibile via /modules
+python tools/generate_build_db.py --discover-modules
+
+# Scarica solo i moduli .txt scoperti e mantiene un modulo extra pinnato
+python tools/generate_build_db.py --discover-modules --include '*.txt' --modules base_profile.txt meta_doc.txt
+
+# Escludi gli asset di test ma lascia i moduli espliciti
+python tools/generate_build_db.py --discover-modules --exclude 'test_*' --modules base_profile.txt scheda_pg_markdown_template.md
+```
+
 I file generati sono consumabili come database locale per esport, benchmark e stato di build: ogni JSON contiene i campi `build_state`, `benchmark` ed `export` prodotti dal builder, più metadati di fetch (`class`, `mode`, `source_url`). I moduli scaricati (es. `base_profile.txt`, `Taverna_NPC.txt`, `narrative_flow.txt`, `scheda_pg_markdown_template.md`, `adventurer_ledger.txt`) rimangono grezzi e coerenti con l'API così da poter combinare build, scheda e narrativa mantenendo varianti di classe/razza/archetipo definite dai moduli stessi.
 
 Per orchestrare richieste più articolate (classe + razza/archetipo/modello + hook di background) puoi usare `--spec-file` con un file YAML/JSON che descrive ogni PG. Ogni voce definisce la classe, eventuali parametri addizionali da passare come query/body e il prefisso del file di output. Il JSON di risposta includerà anche le sezioni extra restituite dall'API (es. narrativa, markup scheda, ledger) in `composite.{narrative|sheet|ledger}`, mentre l'indice `build_index.json` annoterà le varianti (`class`, `race`, `archetype`, `mode`, `spec_id`).
