@@ -426,6 +426,38 @@ def test_metrics_rejects_invalid_api_key(client, metrics_security_settings):
     assert response.json()["detail"] == "Accesso alle metriche non autorizzato"
 
 
+def test_metrics_rejects_unauthorized_client(client, metrics_security_settings, monkeypatch):
+    monkeypatch.setattr(settings, "metrics_api_key", None)
+    monkeypatch.setattr(settings, "metrics_ip_allowlist", ["203.0.113.5"])
+    monkeypatch.setattr(client._transport, "client", ("198.51.100.1", 50000))
+
+    response = client.get("/metrics")
+
+    assert response.status_code == 403
+    assert response.json()["detail"] == "Accesso alle metriche non autorizzato"
+
+
+def test_metrics_allows_metrics_api_key(client, metrics_security_settings, monkeypatch):
+    monkeypatch.setattr(settings, "metrics_api_key", "metrics-secret")
+    monkeypatch.setattr(settings, "metrics_ip_allowlist", [])
+
+    response = client.get("/metrics", headers={"x-api-key": "metrics-secret"})
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == CONTENT_TYPE_LATEST
+
+
+def test_metrics_allows_allowlisted_client_host(client, metrics_security_settings, monkeypatch):
+    monkeypatch.setattr(settings, "metrics_api_key", None)
+    monkeypatch.setattr(settings, "metrics_ip_allowlist", ["203.0.113.5"])
+    monkeypatch.setattr(client._transport, "client", ("203.0.113.5", 50000))
+
+    response = client.get("/metrics")
+
+    assert response.status_code == 200
+    assert response.headers["content-type"] == CONTENT_TYPE_LATEST
+
+
 @pytest.mark.anyio
 async def test_metrics_allowlisted_client_host(
     metrics_security_settings, allowlisted_http_client
