@@ -80,11 +80,6 @@
         "meta_tier": "T3"
       },
       "hooks": null,
-      "salvezze": {
-        "tempra": "+4",
-        "riflessi": "+4",
-        "volonta": "+2"
-      },
       "ledger": {
         "movimenti": [
           {
@@ -103,7 +98,7 @@
         }
       },
       "fonti": [
-        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&race=Human"
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&race=Human&archetype=Warpriest"
       ],
       "print_mode": false,
       "show_minmax": true,
@@ -111,7 +106,8 @@
       "show_qa": true,
       "show_explain": true,
       "show_ledger": true,
-      "decimal_comma": true
+      "decimal_comma": true,
+      "salvezze": {}
     }
   },
   "narrative": "Human Warpriest pronta/o per il campo, specializzata/o in tattiche da Cleric.",
@@ -244,7 +240,35 @@
           "benchmarks": {
             "meta_tier": "T3"
           },
-          "hooks": null
+          "hooks": null,
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -150
+              },
+              {
+                "voce": "Ricompensa missione",
+                "importo": 250
+              }
+            ],
+            "currency": {
+              "oro": 100,
+              "argento": 25,
+              "rame": 40
+            }
+          },
+          "fonti": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&race=Human&archetype=Warpriest"
+          ],
+          "print_mode": false,
+          "show_minmax": true,
+          "show_vtt": true,
+          "show_qa": true,
+          "show_explain": true,
+          "show_ledger": true,
+          "decimal_comma": true,
+          "salvezze": {}
         }
       }
     },
@@ -296,7 +320,7 @@
     }
   },
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&race=Human&archetype=Warpriest",
-  "fetched_at": "2025-12-08T18:09:59Z",
+  "fetched_at": "2025-12-08T18:33:25Z",
   "request": {
     "class": "Cleric",
     "race": "Human",
@@ -326,6 +350,6 @@
   },
   "completeness": {
     "errors": [],
-    "require_complete": false
+    "require_complete": true
   }
 }

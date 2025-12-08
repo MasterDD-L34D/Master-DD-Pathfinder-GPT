@@ -712,6 +712,32 @@ async def fetch_build(
             "require_complete": require_complete,
         },
     })
+
+    export_ctx = payload.setdefault("export", {})
+    sheet_payload = export_ctx.get("sheet_payload") or {}
+    if not isinstance(sheet_payload, Mapping):
+        sheet_payload = {}
+
+    if ledger and "ledger" not in sheet_payload:
+        sheet_payload["ledger"] = ledger
+
+    sources = list(sheet_payload.get("fonti") or [])
+    source_url = payload.get("source_url")
+    if source_url and source_url not in sources:
+        sources.append(source_url)
+    if sources:
+        sheet_payload["fonti"] = sources
+
+    sheet_payload.setdefault("print_mode", False)
+    sheet_payload.setdefault("show_minmax", True)
+    sheet_payload.setdefault("show_vtt", True)
+    sheet_payload.setdefault("show_qa", True)
+    sheet_payload.setdefault("show_explain", True)
+    sheet_payload.setdefault("show_ledger", True)
+    sheet_payload.setdefault("decimal_comma", True)
+    sheet_payload.setdefault("salvezze", {})
+
+    export_ctx["sheet_payload"] = sheet_payload
     if require_complete and completeness_errors:
         joined_errors = "; ".join(completeness_errors)
         raise BuildFetchError(
