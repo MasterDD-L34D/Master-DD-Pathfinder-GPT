@@ -147,8 +147,8 @@
       "currency": {}
     }
   },
-  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Mesmerist",
-  "fetched_at": "2025-12-08T03:32:06Z",
+  "source_url": "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Mesmerist",
+  "fetched_at": "2025-12-08T03:45:33Z",
   "request": {
     "class": "Mesmerist",
     "race": "Human",
