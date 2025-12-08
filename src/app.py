@@ -1,15 +1,26 @@
 import logging
+from contextlib import asynccontextmanager
+from pathlib import Path
+from typing import Dict, List
+
 from fastapi import Body, Depends, FastAPI, Header, HTTPException, Query
 from fastapi.responses import JSONResponse, PlainTextResponse
-from typing import List, Dict
-from pathlib import Path
 
 from .config import MODULES_DIR, DATA_DIR, settings
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    """Perform startup checks using FastAPI lifespan API."""
+
+    _validate_directories(raise_on_error=True)
+    yield
+
 
 app = FastAPI(
     title="Pathfinder 1E Master DD Core API",
     version="1.0.0",
     description="API minimale per esporre i moduli del kernel Master DD a un GPT tramite Actions.",
+    lifespan=lifespan,
 )
 
 
@@ -88,11 +99,6 @@ def _validate_directories(raise_on_error: bool = False) -> str | None:
         _dir_validation_error = None
 
     return _dir_validation_error
-
-
-@app.on_event("startup")
-async def on_startup() -> None:
-    _validate_directories(raise_on_error=True)
 
 
 @app.get("/modules", response_model=List[Dict])
