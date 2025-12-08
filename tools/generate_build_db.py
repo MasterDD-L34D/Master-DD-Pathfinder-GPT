@@ -713,6 +713,17 @@ async def run_harvest(
         "entries": [],
     }
 
+    existing_module_entries: dict[str, Mapping] = {}
+    if module_index_path.is_file():
+        try:
+            cached = json.loads(module_index_path.read_text(encoding="utf-8"))
+            for entry in cached.get("entries", []):
+                name = entry.get("module")
+                if name:
+                    existing_module_entries[str(name)] = entry
+        except Exception as exc:  # pragma: no cover - defensive logging only
+            logging.warning("Impossibile caricare module_index esistente %s: %s", module_index_path, exc)
+
     include_filters = include_filters or []
     exclude_filters = exclude_filters or []
     discovery_info: Mapping[str, object] | None = None
@@ -854,7 +865,15 @@ async def run_harvest(
         module_results = await asyncio.gather(*module_tasks)
 
     builds_index["entries"].extend(entry for _, entry in sorted(build_results, key=lambda item: item[0]))
-    modules_index["entries"].extend(entry for _, entry in sorted(module_results, key=lambda item: item[0]))
+    new_module_entries = {name: entry for name, entry in module_results}
+    merged_module_entries = []
+    for name in sorted(set(new_module_entries) | set(existing_module_entries)):
+        if name in new_module_entries:
+            merged_module_entries.append(new_module_entries[name])
+        else:
+            merged_module_entries.append(existing_module_entries[name])
+
+    modules_index["entries"] = merged_module_entries
     if discovery_info:
         modules_index["discovery"] = discovery_info
 

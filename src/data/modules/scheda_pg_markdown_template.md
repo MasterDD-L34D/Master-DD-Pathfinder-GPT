@@ -140,6 +140,7 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% for s in (skills or []) -%}
 | {{ d(s.nome) }} | {{ s.gradi|default(0) }} | {{ signed(s.mod_car|default(0)) }} | {{ signed(s.var|default(0)) }} | {{ '✓' if s.classe else '' }} | {{ s.totale|default(s.gradi|default(0) + s.mod_car|default(0) + s.var|default(0) + (3 if s.classe else 0)) }} |
 {%- endfor %}
+{% if (skills or [])|length == 0 %}_Nessuna abilità strutturata._{% endif %}
 
 ---
 
@@ -166,6 +167,7 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% for lvl in (magia or {}).keys() | map('int') | list | sort %}
 - **{{ lvl }}°:** {{ (magia[lvl] or []) | join(', ') }}
 {% endfor %}
+{% if (magia or {})|length == 0 %}_Nessun incantesimo conosciuto o preparato specificato._{% endif %}
 
 {% if has_spell_table %}
 | Liv | Conosciuti | Preparati | Slot/giorno | CD |
@@ -173,6 +175,8 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% for sl in spell_levels -%}
 | {{ sl.liv }} | {{ d(sl.known) }} | {{ d(sl.prepared) }} | {{ d(sl.per_day) }} | {{ d(sl.dc) }} |
 {%- endfor %}
+{% else %}
+_Nessuna tabella incantesimi disponibile._
 {% endif %}
 
 ### Incantatore (tecnico)
@@ -383,12 +387,11 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 
 {% if not PRINT_MODE and SHOW_QA %}
 ---
-## QA
-- **Validazione dati:** tabelle armi/skill/incantesimi non vuote o placeholder indicato; badge/lingua coerenti.
-- **Valute normalizzate:** {{ d(coin_str(pp, gp, sp, cp), '—') }} (usa fmt_gp per export).
-- **Economia (Δ WBL):** {{ (wbl_delta_gp ~ ' gp') if wbl_delta_gp is not none else '—' }}; vendite/acquisti loggati nel ledger.
-- **Spoiler/AP warning:** spoiler_mode={{ d(spoiler_mode, 'light') }} | AP warning={{ d(ap_warning, '—') }}.
-- **Confidence:** {{ d(confidence_score, '—') }} | **Uncertainty flags:** {{ d(uncertainty_flags, '—') }}.
+## QA rapido
+- **Tabelle popolate?:** armi/skill/incantesimi non vuote o placeholder indicato.
+- **Valute normalizzate:** {{ coin_str(pp, gp, sp, cp) }} (usa fmt_gp per export).
+- **Coerenza WBL:** Δ vs target {{ d(wbl_delta_gp) }} gp; vendite/acquisti loggati nel ledger.
+- **Badge/Lingua:** tag PFS/RAW se noti; lingua coerente con prompt.
 {% endif %}
 
 ---
@@ -439,7 +442,12 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 - **Thread aperti / milestone:** {{ d(thread_aperti) }}
 {% if not PRINT_MODE and SHOW_QA %}
 ---
-{%- if glossario_golarion %}
+## QA & Spoiler
+- **spoiler_mode:** {{ d(spoiler_mode, 'light') }}  
+- **AP warning:** {{ d(ap_warning) }}  
+- **Confidence:** {{ d(confidence_score) }} | **Uncertainty flags:** {{ d(uncertainty_flags) }}
+
+{% if glossario_golarion %}
 ---
 ## Glossario Golarion (rapido)
 {% for g in glossario_golarion.termini or [] -%}

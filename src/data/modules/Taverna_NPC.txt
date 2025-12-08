@@ -63,11 +63,126 @@ dependencies:
   explain_methods_profile: "src/modules/explain_methods.txt"
   base_profile: "src/modules/base_profile.txt"
 
+health_checks:
+  on_start:
+    policy: "PASS se tutti i file esistono; WARN per asset opzionali (PDF); FAIL per profili/schemi mancanti. Disabilita automaticamente feature collegate."
+    checks:
+      - name: "Gear Guide (PDF)"
+        path: "${assets.gear_guide_pdf}"
+        scope: asset
+        on_missing:
+          outcome: WARN
+          disable:
+            feature_flags: [knowledge_packs, pdf_exports]
+            knowledge_packs: [gear]
+          guidance: "Copia 'The Gear Guide.pdf' in src/data (vedi README provisioning opzionale)."
+      - name: "Crafter Guide (PDF)"
+        path: "${assets.crafter_guide_pdf}"
+        scope: asset
+        on_missing:
+          outcome: WARN
+          disable:
+            feature_flags: [knowledge_packs, pdf_exports]
+            knowledge_packs: [crafting]
+          guidance: "Aggiungi 'Ultimate Crafter Guide.pdf' in src/data per riattivare i pacchetti crafting."
+      - name: "Items Master List (PDF)"
+        path: "${assets.items_master_list_pdf}"
+        scope: asset
+        on_missing:
+          outcome: WARN
+          disable:
+            feature_flags: [knowledge_packs, pdf_exports]
+            knowledge_packs: [items]
+          guidance: "Inserisci 'Items Master List.pdf' in src/data per sbloccare i lookup rapidi."
+      - name: "Pregens PFS (ZIP)"
+        path: "${assets.pfs_pregens_zip}"
+        scope: asset
+        on_missing:
+          outcome: WARN
+          disable:
+            feature_flags: [pfs_pregens_import]
+          guidance: "Aggiungi 'pfs_pregens.zip' in src/data per importare i pregens PFS."
+      - name: "Record Sheets CUP (ZIP)"
+        path: "${assets.record_sheets_zip}"
+        scope: asset
+        on_missing:
+          outcome: WARN
+          disable:
+            feature_flags: [cup_record_export]
+          guidance: "Copia 'record_sheets.zip' in src/data per riattivare l'export CUP." 
+      - name: "Homebrewery Formatting (PDF)"
+        path: "${assets.homebrewery_formatting_pdf}"
+        scope: asset
+        on_missing:
+          outcome: WARN
+          disable:
+            feature_flags: [pdf_exports]
+            knowledge_packs: [formatting]
+          guidance: "Copia 'Homebrewery Formatting Guide (V3) - The Homebrewery.pdf' in src/data per avere i consigli di impaginazione."
+      - name: "Schema scheda PG"
+        path: "${dependencies.character_sheet_template}"
+        scope: dependency
+        on_missing:
+          outcome: FAIL
+          disable:
+            feature_flags: [save_load, qa_guard]
+          guidance: "Ripristina src/modules/scheda_pg_markdown_template.md dal repository principale."
+      - name: "MinMax Builder Playbook"
+        path: "${dependencies.minmax_builder_playbook}"
+        scope: dependency
+        on_missing:
+          outcome: FAIL
+          disable:
+            feature_flags: [minmax_builder]
+          guidance: "Reinserisci src/modules/minmax_builder.txt per riattivare l'hand-off."
+      - name: "Adventurer Ledger schema"
+        path: "${dependencies.adventurer_ledger_schema}"
+        scope: dependency
+        on_missing:
+          outcome: FAIL
+          disable:
+            feature_flags: [adventurer_ledger]
+          guidance: "Ripristina src/modules/adventurer_ledger.txt per riattivare il registro economico."
+      - name: "Archivist profile"
+        path: "${dependencies.archivist_profile}"
+        scope: dependency
+        on_missing:
+          outcome: FAIL
+          disable:
+            feature_flags: [archivist]
+          guidance: "Aggiungi src/modules/archivist.txt per abilitare handoff storico-lore."
+      - name: "Ruling Expert profile"
+        path: "${dependencies.ruling_expert_profile}"
+        scope: dependency
+        on_missing:
+          outcome: FAIL
+          disable:
+            feature_flags: [ruling_expert, qa_guard]
+          guidance: "Reinserisci src/modules/ruling_expert.txt per controlli RAW/RAI."
+      - name: "Explain Methods profile"
+        path: "${dependencies.explain_methods_profile}"
+        scope: dependency
+        on_missing:
+          outcome: FAIL
+          disable:
+            feature_flags: [explain_methods]
+          guidance: "Copia src/modules/explain_methods.txt se vuoi la modalità didattica."
+      - name: "Profilo base"
+        path: "${dependencies.base_profile}"
+        scope: dependency
+        on_missing:
+          outcome: FAIL
+          disable:
+            feature_flags: [hub_board, extractor, save_load, qa_guard, core_profile]
+          guidance: "Scarica src/modules/base_profile.txt (profilo condiviso) per riattivare le funzioni core."
+
 assets:
   gear_guide_pdf: "src/data/The Gear Guide.pdf"
   crafter_guide_pdf: "src/data/Ultimate Crafter Guide.pdf"
   items_master_list_pdf: "src/data/Items Master List.pdf"
   homebrewery_formatting_pdf: "src/data/Homebrewery Formatting Guide (V3) - The Homebrewery.pdf"
+  pfs_pregens_zip: "src/data/pfs_pregens.zip"
+  record_sheets_zip: "src/data/record_sheets.zip"
 
 knowledge_packs:
   gear: "${assets.gear_guide_pdf}"
@@ -82,8 +197,12 @@ export_notes:
     - "${assets.gear_guide_pdf}"
     - "${assets.crafter_guide_pdf}"
   disabled_features: >
-    Import pregens PFS ed export Record Sheet CUP sono disattivati: richiedono pacchetti zip
-    non inclusi nel repository. Vedi README per il provisioning opzionale (pfs_pregens.zip e
+    Import pregens PFS ed export Record Sheet CUP sono disattivati se mancano i pacchetti zip in
+    src/data: i check di avvio impostano WARN e spengono pfs_pregens_import e cup_record_export con
+    messaggi guida per il reperimento. I check disattivano automaticamente knowledge_packs e
+    pdf_exports se mancano i PDF in assets/knowledge_packs; disattivano minmax_builder,
+    adventurer_ledger, archivist, ruling_expert, explain_methods e core_profile se non trovano i
+    profili/schemi in dependencies. Vedi README per il provisioning opzionale (pfs_pregens.zip e
     record_sheets.zip in src/data) e per riattivare i flag/azioni se necessario.
 
 feature_flags:
@@ -101,6 +220,11 @@ feature_flags:
   abp: "${runtime.abp_mode or 'off'}"
   eit_r: "${runtime.eitr_mode or 'off'}"
   qa_guard: on
+  pdf_exports: on
+  knowledge_packs: on
+  core_profile: on
+  pfs_pregens_import: on
+  cup_record_export: on
 
 art_settings:
   default_style: realistico
