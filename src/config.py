@@ -5,6 +5,7 @@ BASE_DIR = Path(__file__).resolve().parent
 MODULES_DIR = BASE_DIR / "modules"
 DATA_DIR = BASE_DIR / "data"
 
+
 class Settings:
     """Configurazione base caricata da variabili d'ambiente."""
 
@@ -16,7 +17,9 @@ class Settings:
             "yes",
             "y",
         )
-        self.allow_module_dump: bool = os.getenv("ALLOW_MODULE_DUMP", "true").lower() in (
+        self.allow_module_dump: bool = os.getenv(
+            "ALLOW_MODULE_DUMP", "true"
+        ).lower() in (
             "1",
             "true",
             "yes",

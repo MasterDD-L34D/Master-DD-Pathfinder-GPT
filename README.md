@@ -52,6 +52,21 @@ header `x-api-key` tramite due variabili d'ambiente:
 
 Consulta `docs/api_usage.md` per panoramica rapida di endpoint, parametri (`mode`, `stub`, header `x-api-key`) e messaggi d'errore standard.
 
+### Analisi statica
+
+Prima di aprire una PR esegui un controllo veloce di formattazione e sintassi:
+
+```bash
+tools/run_static_analysis.sh
+```
+
+Lo script lancia `black --check` sui file Python e compila i moduli con
+`python -m compileall` per rilevare errori di sintassi.
+
+Su push e pull request, il workflow GitHub Actions **Static Analysis** esegue
+lo stesso script per garantire che il codice resti formattato e privo di errori
+di sintassi prima del merge.
+
 Per i moduli, il dump completo è **attivo di default**. Se vuoi evitare che
 `/modules/{name}` restituisca contenuti troppo lunghi, imposta
 `ALLOW_MODULE_DUMP=false`: il testo verrà troncato a 4000 caratteri con un marcatore

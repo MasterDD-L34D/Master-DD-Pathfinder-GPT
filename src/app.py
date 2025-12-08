@@ -4,13 +4,23 @@ from pathlib import Path
 from time import monotonic
 from typing import Dict, List
 
-from fastapi import Body, Depends, FastAPI, Header, HTTPException, Query, Request, Response
+from fastapi import (
+    Body,
+    Depends,
+    FastAPI,
+    Header,
+    HTTPException,
+    Query,
+    Request,
+    Response,
+)
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from prometheus_client import CONTENT_TYPE_LATEST, Counter, Gauge, generate_latest
 from jsonschema.exceptions import ValidationError
 
 from .config import MODULES_DIR, DATA_DIR, settings
 from tools.generate_build_db import schema_for_mode, validate_with_schema
+
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
@@ -153,7 +163,10 @@ def _is_metrics_ip_allowed(request: Request) -> bool:
     if request.client and request.client.host in settings.metrics_ip_allowlist:
         return True
     forwarded_for = request.headers.get("x-forwarded-for")
-    if forwarded_for and forwarded_for.split(",", 1)[0].strip() in settings.metrics_ip_allowlist:
+    if (
+        forwarded_for
+        and forwarded_for.split(",", 1)[0].strip() in settings.metrics_ip_allowlist
+    ):
         return True
     return False
 
@@ -271,7 +284,9 @@ async def metrics_middleware(request: Request, call_next):
     finally:
         endpoint = getattr(request.scope.get("route"), "path", request.url.path)
         status_class = f"{int(status_code) // 100}xx" if status_code else "unknown"
-        REQUEST_COUNT.labels(endpoint=endpoint, method=request.method, status_class=status_class).inc()
+        REQUEST_COUNT.labels(
+            endpoint=endpoint, method=request.method, status_class=status_class
+        ).inc()
         if status_code >= 400:
             ERROR_COUNT.labels(
                 endpoint=endpoint, method=request.method, status_class=status_class
@@ -319,7 +334,9 @@ async def get_module_content(
     class_name: str | None = Query(default=None, alias="class"),
     race: str | None = Query(default=None),
     archetype: str | None = Query(default=None),
-    stub: bool = Query(default=False, description="Return stub payload for minmax builder"),
+    stub: bool = Query(
+        default=False, description="Return stub payload for minmax builder"
+    ),
     body: Dict | None = Body(default=None),
     _: None = Depends(require_api_key),
 ):
@@ -332,7 +349,11 @@ async def get_module_content(
     """
     name_path = Path(name)
 
-    stub_requested = stub or str(mode or "").lower() == "stub" or str((body or {}).get("mode", "")).lower() == "stub"
+    stub_requested = (
+        stub
+        or str(mode or "").lower() == "stub"
+        or str((body or {}).get("mode", "")).lower() == "stub"
+    )
 
     # Special-case the builder endpoint only when an explicit stub is requested
     if name_path.name == "minmax_builder.txt" and stub_requested:
@@ -344,8 +365,12 @@ async def get_module_content(
             or "Base"
         )
 
-        builder_mode = (body or {}).get("builder_mode") or (body or {}).get("mode") or mode
-        normalized_mode = "core" if str(builder_mode or "").lower().startswith("core") else "extended"
+        builder_mode = (
+            (body or {}).get("builder_mode") or (body or {}).get("mode") or mode
+        )
+        normalized_mode = (
+            "core" if str(builder_mode or "").lower().startswith("core") else "extended"
+        )
         step_total = 8 if normalized_mode == "core" else 16
         step_labels = {
             "1": "Profilo Base",
