@@ -1,7 +1,15 @@
+import asyncio
 import json
 from pathlib import Path
+import sys
 
-from tools.generate_build_db import review_local_database
+import httpx
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.append(str(ROOT))
+
+from tools.generate_build_db import BuildRequest, review_local_database, run_harvest
 
 
 def test_review_local_database_reports_status(tmp_path):
@@ -52,3 +60,94 @@ def test_review_local_database_reports_status(tmp_path):
     assert report["builds"]["invalid"] == 1
     assert report["modules"]["valid"] == 1
     assert report["modules"]["invalid"] == 0
+
+
+async def _run_core_harvest(tmp_path, monkeypatch):
+    sheet_payload = {
+        "pf_totali": 10,
+        "salvezze": {"tempra": 1, "riflessi": 1, "volonta": 1},
+        "skills": [{"name": "Perception", "value": 5}],
+        "skills_map": {"Perception": 5},
+        "skill_points": 1,
+        "talenti": ["Alertness"],
+        "capacita_classe": ["Bombs"],
+        "equipaggiamento": ["Starter kit"],
+        "inventario": {"items": ["Potion"]},
+        "spell_levels": {"0": [{"name": "Light"}]},
+        "magia": {"spells_known": 1},
+        "slot_incantesimi": {"1": 2},
+        "ac_breakdown": {"totale": 12},
+        "iniziativa": 2,
+        "velocita": 9,
+    }
+
+    sample_payload = {
+        "build_state": {
+            "class": "Alchemist",
+            "race": "Human",
+            "archetype": "Base",
+            "step_total": 8,
+            "step_labels": {f"step_{i}": {} for i in range(8)},
+            "statistics": {"forza": 12, "destrezza": 12},
+        },
+        "benchmark": {"statistics": {"forza": 12}},
+        "export": {"sheet_payload": sheet_payload},
+        "narrative": {"backstory": "Test narrative"},
+        "ledger": {"entries": [{"label": "gold", "value": 10}]},
+    }
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/health":
+            return httpx.Response(200, json={"status": "ok"})
+        if request.url.path == "/modules/minmax_builder.txt":
+            return httpx.Response(200, json=sample_payload)
+        return httpx.Response(404)
+
+    transport = httpx.MockTransport(handler)
+    real_async_client = httpx.AsyncClient
+
+    def client_factory(*args, **kwargs):
+        kwargs.setdefault("transport", transport)
+        return real_async_client(*args, **kwargs)
+
+    monkeypatch.setattr("tools.generate_build_db.httpx.AsyncClient", client_factory)
+    monkeypatch.setattr("tools.generate_build_db.validate_with_schema", lambda *args, **kwargs: None)
+
+    output_dir = tmp_path / "builds"
+    modules_dir = tmp_path / "modules"
+    index_path = tmp_path / "build_index.json"
+    module_index_path = tmp_path / "module_index.json"
+
+    await run_harvest(
+        [BuildRequest(class_name="Alchemist", mode="core")],
+        api_url="http://mock.api",
+        api_key="mock-key",
+        output_dir=output_dir,
+        index_path=index_path,
+        modules=[],
+        modules_output_dir=modules_dir,
+        module_index_path=module_index_path,
+        concurrency=1,
+        max_retries=1,
+        spec_path=None,
+        discover=False,
+        include_filters=[],
+        exclude_filters=[],
+        strict=False,
+        keep_invalid=True,
+        require_complete=False,
+        skip_health_check=False,
+    )
+
+    return output_dir, index_path
+
+
+def test_run_harvest_smoke(tmp_path, monkeypatch):
+    output_dir, index_path = asyncio.run(_run_core_harvest(tmp_path, monkeypatch))
+
+    saved_build = json.loads((output_dir / "alchemist.json").read_text(encoding="utf-8"))
+    assert saved_build["build_state"]["class"] == "Alchemist"
+
+    index = json.loads(index_path.read_text(encoding="utf-8"))
+    assert index["entries"], "L'indice delle build non è stato popolato"
+    assert index["entries"][0]["status"] == "ok"
