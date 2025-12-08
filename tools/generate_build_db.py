@@ -1722,6 +1722,7 @@ async def run_harvest(
                 "performed_at": now_iso_utc(),
                 "include_filters": list(include_filters),
                 "exclude_filters": list(exclude_filters),
+                "raw": sorted(discovered),
                 "raw_count": len(discovered),
                 "selected": sorted(filtered_discovered),
             }
@@ -1738,6 +1739,8 @@ async def run_harvest(
             if name not in seen:
                 module_plan.append(name)
                 seen.add(name)
+
+        modules_index["module_plan"] = module_plan
 
         build_tasks = []
         for build_request in requests:
