@@ -192,6 +192,14 @@ Esempio di payload valido per la scheda (estratto da una risposta del builder, c
 
 Con la modalità *warn-only* i fallimenti di validazione della scheda o del payload build non interrompono il download: l'entry corrispondente negli indici viene marcata `status: "invalid"` con un campo `error` descrittivo, ma il resto delle richieste continua. In `--strict` l'errore viene propagato e l'esecuzione termina alla prima violazione; con `--keep-invalid` il file JSON o il modulo raw vengono comunque salvati accanto all'indice, utile per ispezionare manualmente i dati difettosi.
 
+Se hai già generato il database e vuoi avviare una review offline, usa la nuova modalità di sola validazione: non effettua chiamate di rete e produce un report riassuntivo (per default `src/data/build_review.json`).
+
+```bash
+python tools/generate_build_db.py --validate-db --review-output src/data/build_review.json
+```
+
+Il report include conteggi di build e moduli validi/invalidi, file mancanti e relativi errori di schema così da facilitare la revisione manuale.
+
 ### Endpoints principali
 
 - `GET /health` — ping rapido
