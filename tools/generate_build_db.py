@@ -9,6 +9,7 @@ import os
 from fnmatch import fnmatchcase
 from dataclasses import dataclass, field
 from datetime import datetime
+from itertools import product
 from pathlib import Path
 from typing import Iterable, List, Mapping, MutableMapping, Sequence
 
@@ -61,6 +62,7 @@ PF1E_CLASSES: List[str] = [
 
 DEFAULT_MODE = "extended"
 DEFAULT_BASE_URL = "http://localhost:8000"
+DEFAULT_SPEC_FILE = Path(__file__).resolve().parent.parent / "docs/examples/pg_variants.yml"
 MODULE_ENDPOINT = "/modules/minmax_builder.txt"
 MODULE_DUMP_ENDPOINT = "/modules/{name}"
 MODULE_META_ENDPOINT = "/modules/{name}/meta"
@@ -131,13 +133,21 @@ class BuildRequest:
             or self.body_params.get("background_hooks")
         )
 
+        resolved_spec_id = self.spec_id or slugify(
+            "_".join(
+                str(part)
+                for part in (self.class_name, resolved_race, resolved_archetype, resolved_background)
+                if part
+            )
+        )
+
         return {
             "class": self.class_name,
             "race": resolved_race,
             "archetype": resolved_archetype,
             "mode": self.mode,
             "mode_normalized": normalize_mode(self.mode),
-            "spec_id": self.spec_id,
+            "spec_id": resolved_spec_id,
             "model": self.model,
             "background": resolved_background,
         }
@@ -393,6 +403,24 @@ def parse_args() -> argparse.Namespace:
         help="File YAML/JSON con le richieste da processare (override di --mode/--classes)",
     )
     parser.add_argument(
+        "--races",
+        nargs="*",
+        default=[],
+        help="Elenco di razze da combinare con le classi target (prodotto cartesiano)",
+    )
+    parser.add_argument(
+        "--archetypes",
+        nargs="*",
+        default=[],
+        help="Elenco di archetipi/modelli da combinare con le classi target",
+    )
+    parser.add_argument(
+        "--background-hooks",
+        nargs="*",
+        default=[],
+        help="Hook di background da includere nel prodotto cartesiano",
+    )
+    parser.add_argument(
         "classes",
         nargs="*",
         default=PF1E_CLASSES,
@@ -401,9 +429,64 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def build_variant_matrix_requests(
+    classes: Sequence[str],
+    mode: str,
+    races: Sequence[str],
+    archetypes: Sequence[str],
+    background_hooks: Sequence[str],
+) -> list[BuildRequest]:
+    race_options = list(races) or [None]
+    archetype_options = list(archetypes) or [None]
+    background_options = list(background_hooks) or [None]
+
+    requests: list[BuildRequest] = []
+    for class_name, race, archetype, background in product(
+        classes, race_options, archetype_options, background_options
+    ):
+        spec_fragments = [class_name, race or "Human", archetype or "Base"]
+        background_slug = slugify(background) if background else None
+        if background_slug:
+            spec_fragments.append(background_slug)
+
+        spec_id = "::".join(spec_fragments)
+        output_prefix = slugify("-".join(spec_fragments))
+        query_params = _normalize_mapping({"race": race, "archetype": archetype})
+        body_params = _normalize_mapping({"background_hooks": background})
+
+        requests.append(
+            BuildRequest(
+                class_name=class_name,
+                mode=mode,
+                filename_prefix=output_prefix,
+                spec_id=spec_id,
+                race=race,
+                archetype=archetype,
+                background=background,
+                query_params=query_params,
+                body_params=body_params,
+            )
+        )
+
+    return requests
+
+
 def build_requests_from_args(args: argparse.Namespace) -> list[BuildRequest]:
     if args.spec_file:
         return load_spec_requests(args.spec_file, args.mode)
+
+    if args.races or args.archetypes or args.background_hooks:
+        return build_variant_matrix_requests(
+            args.classes,
+            args.mode,
+            args.races,
+            args.archetypes,
+            args.background_hooks,
+        )
+
+    if DEFAULT_SPEC_FILE.is_file():
+        logging.info("Uso il file spec predefinito %s", DEFAULT_SPEC_FILE)
+        return load_spec_requests(DEFAULT_SPEC_FILE, args.mode)
 
     return [BuildRequest(class_name=class_name, mode=args.mode) for class_name in args.classes]
 
