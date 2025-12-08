@@ -1,9 +1,10 @@
 import logging
 from contextlib import asynccontextmanager
 from pathlib import Path
+from time import monotonic
 from typing import Dict, List
 
-from fastapi import Body, Depends, FastAPI, Header, HTTPException, Query
+from fastapi import Body, Depends, FastAPI, Header, HTTPException, Query, Request
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from jsonschema.exceptions import ValidationError
 
@@ -26,10 +27,51 @@ app = FastAPI(
 )
 
 
-async def require_api_key(x_api_key: str | None = Header(default=None, alias="x-api-key")) -> None:
-    """Validate the provided API key header against settings."""
+_failed_attempts: Dict[str, Dict[str, float | int]] = {}
+
+
+def _reset_failed_attempts() -> None:
+    """Utility to clear the in-memory tracker (mainly for tests)."""
+
+    _failed_attempts.clear()
+
+
+def _client_identifier(request: Request) -> str:
+    forwarded_for = request.headers.get("x-forwarded-for")
+    if forwarded_for:
+        return forwarded_for.split(",", 1)[0].strip()
+    if request.client and request.client.host:
+        return request.client.host
+    return "unknown"
+
+
+async def require_api_key(
+    request: Request, x_api_key: str | None = Header(default=None, alias="x-api-key")
+) -> None:
+    """Validate the provided API key header against settings and apply backoff."""
+
+    client_id = _client_identifier(request)
+    now = monotonic()
+    attempt_state = _failed_attempts.get(client_id, {"count": 0, "blocked_until": 0.0})
+
+    if now < attempt_state.get("blocked_until", 0.0):
+        retry_after = int(attempt_state["blocked_until"] - now)
+        logging.warning(
+            "Authentication backoff active",
+            extra={
+                "event": "auth_backoff_active",
+                "client_ip": client_id,
+                "retry_after": retry_after,
+            },
+        )
+        raise HTTPException(
+            status_code=429,
+            detail="Troppi tentativi non autorizzati, riprova più tardi",
+            headers={"Retry-After": str(max(retry_after, 0))},
+        )
 
     if settings.allow_anonymous:
+        _failed_attempts.pop(client_id, None)
         return
 
     if settings.api_key is None:
@@ -39,8 +81,47 @@ async def require_api_key(x_api_key: str | None = Header(default=None, alias="x-
                 "API key non configurata. Imposta API_KEY oppure abilita ALLOW_ANONYMOUS=true"
             ),
         )
+
     if x_api_key != settings.api_key:
+        updated_count = int(attempt_state.get("count", 0)) + 1
+        logging.warning(
+            "Authentication failed",
+            extra={
+                "event": "auth_failed",
+                "client_ip": client_id,
+                "fail_count": updated_count,
+                "headers": dict(request.headers),
+            },
+        )
+        blocked_until = attempt_state.get("blocked_until", 0.0)
+        if updated_count >= settings.auth_backoff_threshold:
+            blocked_until = now + settings.auth_backoff_seconds
+            logging.warning(
+                "Authentication backoff triggered",
+                extra={
+                    "event": "auth_backoff_triggered",
+                    "client_ip": client_id,
+                    "fail_count": updated_count,
+                    "retry_after": settings.auth_backoff_seconds,
+                },
+            )
+            _failed_attempts[client_id] = {
+                "count": updated_count,
+                "blocked_until": blocked_until,
+            }
+            raise HTTPException(
+                status_code=429,
+                detail="Troppi tentativi non autorizzati, riprova più tardi",
+                headers={"Retry-After": str(settings.auth_backoff_seconds)},
+            )
+
+        _failed_attempts[client_id] = {
+            "count": updated_count,
+            "blocked_until": blocked_until,
+        }
         raise HTTPException(status_code=401, detail="Invalid or missing API key")
+
+    _failed_attempts.pop(client_id, None)
 
 
 def _list_files(base: Path) -> List[Dict]:

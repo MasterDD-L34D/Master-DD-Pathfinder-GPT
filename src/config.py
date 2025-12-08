@@ -22,6 +22,12 @@ class Settings:
             "yes",
             "y",
         )  # se False, il testo dei moduli viene troncato
+        self.auth_backoff_threshold: int = int(
+            os.getenv("AUTH_BACKOFF_THRESHOLD", "5")
+        )  # tentativi invalidi prima del backoff
+        self.auth_backoff_seconds: int = int(
+            os.getenv("AUTH_BACKOFF_SECONDS", "60")
+        )  # finestra di backoff in secondi
 
 
 settings = Settings()
