@@ -18,3 +18,11 @@ requests:
         - "Servire l'Ordine e affrontare minacce extraplanari"
         - "Cerca una via di redenzione per un peccato passato"
       sheet_locale: it-IT
+  - id: mm-cleric-core
+    class: Cleric
+    mode: core
+    race: Human
+    archetype: Base
+    output_prefix: cleric_core_stub
+    query:
+      theme: "support core"
