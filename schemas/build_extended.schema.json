@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathfinder-master-dd/schemas/build_extended.schema.json",
+  "title": "Master DD build payload (extended)",
+  "allOf": [
+    {
+      "$ref": "build_core.schema.json"
+    },
+    {
+      "anyOf": [
+        {
+          "required": [
+            "narrative"
+          ]
+        },
+        {
+          "required": [
+            "sheet"
+          ]
+        },
+        {
+          "required": [
+            "ledger"
+          ]
+        },
+        {
+          "required": [
+            "composite"
+          ]
+        }
+      ],
+      "description": "Gli snapshot extended portano almeno una sezione aggiuntiva oltre ai dati core."
+    }
+  ]
+}

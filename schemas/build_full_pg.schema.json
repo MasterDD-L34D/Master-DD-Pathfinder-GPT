@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathfinder-master-dd/schemas/build_full_pg.schema.json",
+  "title": "Master DD build payload (full-PG)",
+  "type": "object",
+  "required": [
+    "build_state",
+    "benchmark",
+    "export",
+    "composite"
+  ],
+  "properties": {
+    "build_state": {
+      "$ref": "build_core.schema.json#/$defs/build_state"
+    },
+    "benchmark": {
+      "$ref": "build_core.schema.json#/$defs/benchmark"
+    },
+    "export": {
+      "$ref": "build_core.schema.json#/$defs/export"
+    },
+    "narrative": {
+      "$ref": "build_core.schema.json#/$defs/textual_block"
+    },
+    "sheet": {
+      "$ref": "build_core.schema.json#/$defs/textual_block"
+    },
+    "ledger": {
+      "$ref": "build_core.schema.json#/$defs/textual_block"
+    },
+    "composite": {
+      "type": "object",
+      "required": [
+        "build"
+      ],
+      "properties": {
+        "build": {
+          "type": "object",
+          "required": [
+            "build_state",
+            "benchmark",
+            "export"
+          ],
+          "properties": {
+            "build_state": {
+              "$ref": "build_core.schema.json#/$defs/build_state"
+            },
+            "benchmark": {
+              "$ref": "build_core.schema.json#/$defs/benchmark"
+            },
+            "export": {
+              "$ref": "build_core.schema.json#/$defs/export"
+            }
+          },
+          "additionalProperties": true
+        },
+        "narrative": {
+          "$ref": "build_core.schema.json#/$defs/textual_block"
+        },
+        "sheet": {
+          "$ref": "build_core.schema.json#/$defs/textual_block"
+        },
+        "ledger": {
+          "$ref": "build_core.schema.json#/$defs/textual_block"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "narrative"
+          ]
+        },
+        {
+          "required": [
+            "sheet"
+          ]
+        },
+        {
+          "required": [
+            "ledger"
+          ]
+        }
+      ],
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

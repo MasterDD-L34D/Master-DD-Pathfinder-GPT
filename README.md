@@ -124,6 +124,19 @@ Invocazione con spec (genera build + narrativa + markup scheda + ledger se resti
 python tools/generate_build_db.py --api-url http://localhost:8000 --spec-file docs/examples/pg_spec.yml --modules base_profile.txt narrative_flow.txt scheda_pg_markdown_template.md adventurer_ledger.txt
 ```
 
+Ogni payload recuperato viene validato rispetto agli schemi JSON disponibili in `schemas/`:
+
+- `build_core.schema.json` verifica le risposte minime (solo `build_state`, `benchmark`, `export`).
+- `build_extended.schema.json` richiede almeno una sezione addizionale (narrativa, scheda o ledger).
+- `build_full_pg.schema.json` si aspetta il blocco composito completo con sezioni aggiuntive del PG.
+- `module_metadata.schema.json` valida i metadati restituiti da `/modules/{name}/meta` prima di salvare i file.
+
+Il comportamento di validazione è configurabile:
+
+- Di default l'esecuzione è *warn-only*: gli errori di schema vengono loggati e annotati negli indici (`build_index.json`, `module_index.json`) ma l'esecuzione prosegue.
+- Usa `--strict` per interrompere subito alla prima anomalia di validazione.
+- Con `--keep-invalid` puoi chiedere allo script di scrivere comunque i file che non superano la validazione; in assenza del flag gli output non validi vengono scartati.
+
 ### Endpoints principali
 
 - `GET /health` — ping rapido
