@@ -670,6 +670,32 @@ def _enrich_sheet_payload(
     def _as_mapping(value: object) -> Mapping | None:
         return value if isinstance(value, Mapping) else None
 
+    def _normalize_save_entry(
+        raw: object, breakdown: Mapping | None, fallback_total: int | float = 0
+    ) -> Mapping[str, object]:
+        entry: dict[str, object] = {}
+        as_mapping = _as_mapping(raw) or {}
+        total = _first_non_placeholder(
+            as_mapping.get("totale"),
+            as_mapping.get("total"),
+            as_mapping.get("value"),
+            raw if isinstance(raw, (int, float)) else None,
+        )
+        entry["totale"] = total if total is not None else fallback_total
+        entry["base"] = _first_non_placeholder(
+            as_mapping.get("base"), as_mapping.get("bab"), 0
+        )
+        entry["modificatore"] = _first_non_placeholder(
+            as_mapping.get("mod"),
+            as_mapping.get("abilita"),
+            as_mapping.get("ability_mod"),
+            0,
+        )
+        entry["misc"] = _first_non_placeholder(as_mapping.get("misc"), 0)
+        if breakdown:
+            entry["breakdown"] = breakdown
+        return entry
+
     sheet_payload: MutableMapping[str, object] = {}
     for candidate in (
         _as_mapping(export_ctx.get("sheet_payload")),
@@ -682,14 +708,34 @@ def _enrich_sheet_payload(
     if ledger and "ledger" not in sheet_payload:
         sheet_payload["ledger"] = ledger
 
-    salvezze = _merge_prefer_existing(
+    salvezze_raw = _merge_prefer_existing(
         {},
         _as_mapping(sheet_payload.get("salvezze")) or {},
         _as_mapping(export_ctx.get("salvezze")) or {},
         _as_mapping((payload.get("build_state") or {}).get("saves")) or {},
         _as_mapping((payload.get("benchmark") or {}).get("saves")) or {},
     )
-    sheet_payload["salvezze"] = salvezze
+    saves_breakdown = _merge_prefer_existing(
+        {},
+        _as_mapping(export_ctx.get("salvezze_breakdown")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("saves_breakdown"))
+        or {},
+    )
+    normalized_saves: dict[str, object] = {}
+    for name in ("Tempra", "Riflessi", "Volontà"):
+        normalized_saves[name] = _normalize_save_entry(
+            salvezze_raw.get(name),
+            _as_mapping(saves_breakdown.get(name))
+            or _as_mapping(saves_breakdown.get(name.lower())),
+            0,
+        )
+    for extra_key, value in salvezze_raw.items():
+        if extra_key in normalized_saves:
+            continue
+        normalized_saves[extra_key] = _normalize_save_entry(
+            value, _as_mapping(saves_breakdown.get(extra_key))
+        )
+    sheet_payload["salvezze"] = normalized_saves
 
     hp_block = _merge_prefer_existing(
         {},
@@ -719,11 +765,17 @@ def _enrich_sheet_payload(
     if pf_progression is not None:
         sheet_payload["pf_per_livello"] = pf_progression
 
+    derived_core = _as_mapping(export_ctx.get("derived")) or _as_mapping(
+        (payload.get("build_state") or {}).get("derived")
+    )
+    derived_core = derived_core or _as_mapping((derived_core or {}).get("core")) or {}
+
     ac_breakdown = _merge_prefer_existing(
         {},
         _as_mapping(sheet_payload.get("ac_breakdown")) or {},
         _as_mapping(export_ctx.get("ac_breakdown")) or {},
         _as_mapping((payload.get("build_state") or {}).get("ac")) or {},
+        _as_mapping((derived_core or {}).get("ac")) or {},
     )
     if ac_breakdown:
         sheet_payload["ac_breakdown"] = ac_breakdown
@@ -743,6 +795,11 @@ def _enrich_sheet_payload(
         if value is None:
             value = default
         sheet_payload[ac_key] = value
+    ac_base = _first_non_placeholder(
+        sheet_payload.get("AC_base"), ac_breakdown.get("AC_base") if ac_breakdown else None, 10
+    )
+    if ac_base is not None:
+        sheet_payload["AC_base"] = ac_base
     for ca_key in ("AC_tot", "CA_touch", "CA_ff"):
         derived = _first_non_placeholder(
             sheet_payload.get(ca_key), ac_breakdown.get(ca_key) if ac_breakdown else None
@@ -750,11 +807,21 @@ def _enrich_sheet_payload(
         if derived is not None:
             sheet_payload[ca_key] = derived
 
+    if "AC_tot" not in sheet_payload:
+        sheet_payload["AC_tot"] = ac_base + sum(
+            sheet_payload.get(ac_key, 0) for ac_key in ac_defaults
+        )
+    if "CA_touch" not in sheet_payload:
+        sheet_payload["CA_touch"] = ac_base + sheet_payload.get("AC_des", 0) + sheet_payload.get("AC_defl", 0) + sheet_payload.get("AC_dodge", 0) + sheet_payload.get("AC_misc", 0)
+    if "CA_ff" not in sheet_payload:
+        sheet_payload["CA_ff"] = ac_base + sheet_payload.get("AC_arm", 0) + sheet_payload.get("AC_scudo", 0) + sheet_payload.get("AC_nat", 0) + sheet_payload.get("AC_defl", 0) + sheet_payload.get("AC_misc", 0)
+
     initiative = _first_non_placeholder(
         sheet_payload.get("iniziativa"),
         export_ctx.get("iniziativa"),
         (payload.get("build_state") or {}).get("initiative"),
         (payload.get("benchmark") or {}).get("initiative"),
+        (derived_core or {}).get("initiative_mod"),
     )
     if initiative is not None:
         sheet_payload["iniziativa"] = initiative
@@ -763,6 +830,8 @@ def _enrich_sheet_payload(
         sheet_payload.get("velocita"),
         export_ctx.get("velocita") or export_ctx.get("speed"),
         (payload.get("build_state") or {}).get("speed"),
+        (derived_core or {}).get("speed_total"),
+        (derived_core or {}).get("speed_base"),
     )
     if speed is not None:
         sheet_payload["velocita"] = speed
@@ -780,6 +849,7 @@ def _enrich_sheet_payload(
         _as_mapping(sheet_payload.get("skills_map")) or {},
         _as_mapping(export_ctx.get("skills_map")) or {},
         _as_mapping((payload.get("build_state") or {}).get("skills_map")) or {},
+        _as_mapping((derived_core or {}).get("skills_by_name")) or {},
     )
     if skills_map:
         sheet_payload["skills_map"] = skills_map
@@ -796,6 +866,7 @@ def _enrich_sheet_payload(
         sheet_payload.get("talenti"),
         export_ctx.get("talenti"),
         (payload.get("build_state") or {}).get("feats"),
+        [p.get("talento") for p in sheet_payload.get("progressione", []) if isinstance(p, Mapping) and p.get("talento")],
     )
     if feats:
         sheet_payload["talenti"] = feats
@@ -804,6 +875,18 @@ def _enrich_sheet_payload(
         sheet_payload.get("capacita_classe"),
         export_ctx.get("capacita_classe"),
         (payload.get("build_state") or {}).get("class_features"),
+        [
+            priv
+            for entry in sheet_payload.get("progressione", [])
+            if isinstance(entry, Mapping)
+            for priv in (
+                entry.get("privilegi")
+                if isinstance(entry.get("privilegi"), Sequence)
+                and not isinstance(entry.get("privilegi"), (str, bytes))
+                else [entry.get("privilegi")]
+            )
+            if priv
+        ],
     )
     if class_features:
         sheet_payload["capacita_classe"] = class_features
@@ -827,6 +910,17 @@ def _enrich_sheet_payload(
     if equip_list:
         sheet_payload["equipaggiamento"] = equip_list
 
+    equipment_summary = _merge_prefer_existing(
+        {},
+        _as_mapping(sheet_payload.get("equipment_summary")) or {},
+        _as_mapping(export_ctx.get("equipment_summary")) or {},
+        _as_mapping((payload.get("ledger") or {}).get("equipment_summary"))
+        if isinstance(payload.get("ledger"), Mapping)
+        else {},
+    )
+    if equipment_summary:
+        sheet_payload["equipment_summary"] = equipment_summary
+
     inventory = _merge_unique_list(
         sheet_payload.get("inventario"),
         export_ctx.get("inventario"),
@@ -848,7 +942,40 @@ def _enrich_sheet_payload(
         {},
         _as_mapping(sheet_payload.get("magia")) or {},
         _as_mapping(export_ctx.get("magia")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("magia")) or {},
     )
+
+    spell_list = _merge_prefer_existing(
+        {},
+        _as_mapping(magic_map.get("spell_list")) or {},
+        _as_mapping(export_ctx.get("spell_list")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("spell_list")) or {},
+    )
+    if spell_list:
+        magic_map["spell_list"] = spell_list
+
+    spells_prepared = _merge_prefer_existing(
+        {},
+        _as_mapping(magic_map.get("spells_prepared")) or {},
+        _as_mapping(export_ctx.get("spells_prepared")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("spells_prepared"))
+        or {},
+    )
+    if spells_prepared:
+        magic_map["spells_prepared"] = spells_prepared
+
+    slots_per_day = _merge_prefer_existing(
+        {},
+        _as_mapping(magic_map.get("slots_per_day")) or {},
+        _as_mapping(export_ctx.get("slots_per_day")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("slots_per_day")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("spell_slots")) or {},
+    )
+    if not slots_per_day and spell_levels:
+        slots_per_day = {str(level): 0 for level in spell_levels}
+    if slots_per_day:
+        magic_map["slots_per_day"] = slots_per_day
+
     if magic_map:
         sheet_payload["magia"] = magic_map
 
