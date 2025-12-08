@@ -1,6 +1,6 @@
 {
   "build_state": {
-    "class": "Barbarian",
+    "class": "Medium",
     "mode": "extended",
     "race": "Human",
     "archetype": "Base",
@@ -33,7 +33,7 @@
     "sheet_payload": {
       "classi": [
         {
-          "nome": "Barbarian",
+          "nome": "Medium",
           "livelli": 1,
           "archetipi": [
             "Base"
@@ -48,11 +48,11 @@
       "hooks": null
     }
   },
-  "narrative": "Bozza narrativa per Barbarian (stub locale).",
+  "narrative": "Bozza narrativa per Medium (stub locale).",
   "sheet": {
     "classi": [
       {
-        "nome": "Barbarian",
+        "nome": "Medium",
         "livelli": 1,
         "archetipi": [
           "Base"
@@ -70,12 +70,12 @@
     "movimenti": [],
     "currency": {}
   },
-  "class": "Barbarian",
+  "class": "Medium",
   "mode": "extended",
   "composite": {
     "build": {
       "build_state": {
-        "class": "Barbarian",
+        "class": "Medium",
         "mode": "extended",
         "race": "Human",
         "archetype": "Base",
@@ -108,7 +108,7 @@
         "sheet_payload": {
           "classi": [
             {
-              "nome": "Barbarian",
+              "nome": "Medium",
               "livelli": 1,
               "archetipi": [
                 "Base"
@@ -124,11 +124,11 @@
         }
       }
     },
-    "narrative": "Bozza narrativa per Barbarian (stub locale).",
+    "narrative": "Bozza narrativa per Medium (stub locale).",
     "sheet": {
       "classi": [
         {
-          "nome": "Barbarian",
+          "nome": "Medium",
           "livelli": 1,
           "archetipi": [
             "Base"
@@ -147,10 +147,10 @@
       "currency": {}
     }
   },
-  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Barbarian",
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium",
   "fetched_at": "2025-12-08T03:32:06Z",
   "request": {
-    "class": "Barbarian",
+    "class": "Medium",
     "race": "Human",
     "archetype": "Base",
     "mode": "extended",
@@ -161,7 +161,7 @@
   },
   "query_params": {
     "mode": "extended",
-    "class": "Barbarian"
+    "class": "Medium"
   },
   "body_params": {},
   "mode_normalized": "extended",
