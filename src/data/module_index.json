@@ -1,6 +1,6 @@
 {
-  "generated_at": "2025-12-08T12:30:18Z",
-  "api_url": "http://127.0.0.1:8000",
+  "generated_at": "2025-12-08T16:28:11Z",
+  "api_url": "http://localhost:8000",
   "entries": [
     {
       "module": "Encounter_Designer.txt",
@@ -18,7 +18,7 @@
       "status": "ok",
       "meta": {
         "name": "Taverna_NPC.txt",
-        "size_bytes": 112131,
+        "size_bytes": 118875,
         "suffix": ".txt"
       }
     },
@@ -118,7 +118,7 @@
       "status": "ok",
       "meta": {
         "name": "scheda_pg_markdown_template.md",
-        "size_bytes": 19747,
+        "size_bytes": 20002,
         "suffix": ".md"
       }
     },
@@ -142,27 +142,5 @@
         "suffix": ".json"
       }
     }
-  ],
-  "discovery": {
-    "performed_at": "2025-12-08T12:30:18Z",
-    "include_filters": [],
-    "exclude_filters": [],
-    "raw_count": 14,
-    "selected": [
-      "Encounter_Designer.txt",
-      "Taverna_NPC.txt",
-      "adventurer_ledger.txt",
-      "archivist.txt",
-      "base_profile.txt",
-      "explain_methods.txt",
-      "knowledge_pack.md",
-      "meta_doc.txt",
-      "minmax_builder.txt",
-      "narrative_flow.txt",
-      "ruling_expert.txt",
-      "scheda_pg_markdown_template.md",
-      "sigilli_runner_module.txt",
-      "tavern_hub.json"
-    ]
-  }
+  ]
 }
