@@ -97,6 +97,9 @@ class BuildRequest:
     query_params: Mapping[str, object] = field(default_factory=dict)
     body_params: Mapping[str, object] = field(default_factory=dict)
 
+    def http_method(self) -> str:
+        return "POST" if self.body_params else "GET"
+
     def output_name(self) -> str:
         if self.filename_prefix:
             return self.filename_prefix
@@ -441,9 +444,10 @@ async def fetch_build(
     params: MutableMapping[str, object] = {"mode": request.mode, "class": request.class_name}
     params.update(request.query_params)
     headers = {"x-api-key": api_key} if api_key else {}
+    method = request.http_method()
     response = await request_with_retry(
         client,
-        "GET",
+        method,
         MODULE_ENDPOINT,
         params=params,
         headers=headers,
@@ -729,12 +733,14 @@ async def run_harvest(
 
             async def process_class(request: BuildRequest, destination: Path) -> tuple[str, Mapping]:
                 async with semaphore:
+                    method = request.http_method()
                     logging.info(
-                        "Recupero build per %s (mode=%s, race=%s, archetype=%s)",
+                        "Recupero build per %s (mode=%s, race=%s, archetype=%s) via %s",
                         request.class_name,
                         request.mode,
                         request.race,
                         request.archetype,
+                        method,
                     )
                     try:
                         payload = await fetch_build(client, api_key, request, max_retries)
