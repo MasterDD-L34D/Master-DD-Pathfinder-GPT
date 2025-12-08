@@ -308,6 +308,10 @@ _Nessuna tabella incantesimi disponibile._
 {% if not PRINT_MODE and SHOW_VTT %}
 ---
 ## Hook VTT / Export
+- **Map ID:** {{ d(map_id) }} | **Bundle asset:** {{ d(vtt_bundle_path) }}
+- **Preset luci:** {{ d(vtt_light, 'day') }} | **Token scale:** {{ d(token_scale_hint, 'M') }}
+- **Grid consigliata:** {{ d(recommended_grid_size) }} | **Safe/Bleed:** {{ d(safe_area_pct, 5) }}% / {{ d(bleed_pct, 2) }}%
+- **Note GM:** {{ d(vtt_gm_notes) }}  <!-- 2–3 POI, percorsi, consigli Foundry/Roll20 -->
 - **Formati supportati:** Markdown strutturato, JSON ledger/vtt_json, blocchi compatibili con VTT.
 - **Note localizzazione numerica:** separatore {{ ',' if DECIMAL_COMMA else '.' }}, unità in gp.
 - **CTA export:** /export_pg_sheet • /export_pg_sheet_json
@@ -432,20 +436,10 @@ _Nessuna tabella incantesimi disponibile._
 
 ---
 ## Collegamenti di Campagna
-- **SX00 (dashboard):** {{ d(sx00_link) }}  
-- **AV corrente:** {{ d(av_code) }} | **SX correlate:** {{ d(sx_codes) }}  
-- **Fazioni (NC) collegate:** {{ d(fazioni_collegate) }}  
+- **SX00 (dashboard):** {{ d(sx00_link) }}
+- **AV corrente:** {{ d(av_code) }} | **SX correlate:** {{ d(sx_codes) }}
+- **Fazioni (NC) collegate:** {{ d(fazioni_collegate) }}
 - **Thread aperti / milestone:** {{ d(thread_aperti) }}
-
-{% if not PRINT_MODE and SHOW_VTT %}
----
-## Hook VTT (top-down gridless)
-- **Map ID:** {{ d(map_id) }} | **Bundle asset:** {{ d(vtt_bundle_path) }}  
-- **Preset luci:** {{ d(vtt_light, 'day') }} | **Token scale:** {{ d(token_scale_hint, 'M') }}  
-- **Grid consigliata:** {{ d(recommended_grid_size) }} | **Safe/Bleed:** {{ d(safe_area_pct, 5) }}% / {{ d(bleed_pct, 2) }}%  
-- **Note GM:** {{ d(vtt_gm_notes) }}  <!-- 2–3 POI, percorsi, consigli Foundry/Roll20 -->
-{% endif %}
-
 {% if not PRINT_MODE and SHOW_QA %}
 ---
 ## QA & Spoiler
