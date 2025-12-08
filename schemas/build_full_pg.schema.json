@@ -25,6 +25,10 @@
     "sheet": {
       "$ref": "build_core.schema.json#/$defs/textual_block"
     },
+    "sheet_payload": {
+      "$ref": "scheda_pg.schema.json",
+      "description": "Contesto opzionale per il template scheda_pg_markdown_template.md"
+    },
     "ledger": {
       "$ref": "build_core.schema.json#/$defs/textual_block"
     },
@@ -59,6 +63,10 @@
         },
         "sheet": {
           "$ref": "build_core.schema.json#/$defs/textual_block"
+        },
+        "sheet_payload": {
+          "$ref": "scheda_pg.schema.json",
+          "description": "Contesto opzionale per il template scheda_pg_markdown_template.md"
         },
         "ledger": {
           "$ref": "build_core.schema.json#/$defs/textual_block"

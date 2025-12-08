@@ -1,0 +1,468 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathfinder-master-dd/schemas/scheda_pg.schema.json",
+  "title": "Contesto di rendering per scheda PG Markdown",
+  "type": "object",
+  "description": "Mappa delle variabili usate da scheda_pg_markdown_template.md.",
+  "additionalProperties": true,
+  "properties": {
+    "print_mode": {
+      "type": "boolean",
+      "default": false,
+      "description": "Se true rimuove i blocchi opzionali (ledger/VTT/explain/minmax/QA)."
+    },
+    "show_minmax": {
+      "type": "boolean",
+      "default": true,
+      "description": "Abilita la sezione Analisi MinMax."
+    },
+    "show_vtt": {
+      "type": "boolean",
+      "default": true,
+      "description": "Abilita i blocchi Hook VTT / Export."
+    },
+    "show_qa": {
+      "type": "boolean",
+      "default": true,
+      "description": "Abilita i blocchi QA rapido e QA & Spoiler."
+    },
+    "show_explain": {
+      "type": "boolean",
+      "default": true,
+      "description": "Abilita la sezione Explain didattica."
+    },
+    "show_ledger": {
+      "type": "boolean",
+      "default": true,
+      "description": "Abilita il Libro Mastro dell’avventuriero."
+    },
+    "decimal_comma": {
+      "type": "boolean",
+      "default": true,
+      "description": "Usa la virgola come separatore decimale."
+    },
+    "statistiche": {
+      "type": "object",
+      "description": "Valori base di For/Des/Cos/Int/Sag/Car.",
+      "properties": {
+        "Forza": {"type": ["integer", "number"]},
+        "Destrezza": {"type": ["integer", "number"]},
+        "Costituzione": {"type": ["integer", "number"]},
+        "Intelligenza": {"type": ["integer", "number"]},
+        "Saggezza": {"type": ["integer", "number"]},
+        "Carisma": {"type": ["integer", "number"]}
+      },
+      "additionalProperties": true
+    },
+    "statistiche_chiave": {
+      "type": "object",
+      "description": "Valori riassuntivi (PF, CA, DPR, meta_tier).",
+      "properties": {
+        "PF": {"type": ["integer", "number"]},
+        "CA": {"type": ["integer", "number"]},
+        "DPR_Base": {"type": ["integer", "number"]},
+        "DPR_Nova": {"type": ["integer", "number"]},
+        "meta_tier": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "salvezze": {
+      "type": "object",
+      "description": "Tiri salvezza Tempra/Riflessi/Volontà.",
+      "properties": {
+        "Tempra": {"type": ["integer", "number"]},
+        "Riflessi": {"type": ["integer", "number"]},
+        "Volontà": {"type": ["integer", "number"]}
+      },
+      "additionalProperties": true
+    },
+    "benchmarks": {
+      "type": "object",
+      "description": "Benchmark MinMax e heatmap rischi.",
+      "properties": {
+        "meta_tier": {"type": ["string", "null"]},
+        "DPR_early_status": {"type": ["string", "null"]},
+        "DPR_early_delta": {"type": ["integer", "number", "null"]},
+        "DPR_late_status": {"type": ["string", "null"]},
+        "DPR_late_delta": {"type": ["integer", "number", "null"]},
+        "Defense_status": {"type": ["string", "null"]},
+        "Defense_delta": {"type": ["integer", "number", "null"]},
+        "Buff_status": {"type": ["string", "null"]},
+        "Actions_status": {"type": ["string", "null"]},
+        "Scaling_status": {"type": ["string", "null"]},
+        "risk_top3": {
+          "type": "object",
+          "properties": {
+            "feats": {"type": "array", "items": {"type": "string"}},
+            "spells": {"type": "array", "items": {"type": "string"}}
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "classi": {
+      "type": "array",
+      "description": "Lista di classi e archetipi del personaggio.",
+      "items": {
+        "type": "object",
+        "required": ["nome"],
+        "properties": {
+          "nome": {"type": "string"},
+          "livelli": {"type": ["integer", "number"]},
+          "archetipi": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "AC_arm": {"type": ["integer", "number"], "default": 0},
+    "AC_scudo": {"type": ["integer", "number"], "default": 0},
+    "AC_des": {"type": ["integer", "number"], "default": 0},
+    "AC_defl": {"type": ["integer", "number"], "default": 0},
+    "AC_nat": {"type": ["integer", "number"], "default": 0},
+    "AC_dodge": {"type": ["integer", "number"], "default": 0},
+    "AC_misc": {"type": ["integer", "number"], "default": 0},
+    "AC_altro": {"type": ["integer", "number", "null"]},
+    "AC_tot": {"type": ["integer", "number", "null"]},
+    "CA_touch": {"type": ["integer", "number", "null"]},
+    "CA_ff": {"type": ["integer", "number", "null"]},
+    "spell_levels": {
+      "type": "array",
+      "description": "Tabella incantesimi conosciuti/preparati/slot/CD per livello.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "liv": {"type": ["integer", "number"]},
+          "known": {"type": ["integer", "number", "string", "null"]},
+          "prepared": {"type": ["integer", "number", "string", "null"]},
+          "per_day": {"type": ["integer", "number", "string", "null"]},
+          "dc": {"type": ["integer", "number", "string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "skills_map": {
+      "type": "object",
+      "description": "Mappa rapida abilità → breakdown (es. Percezione.totale).",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "totale": {"type": ["integer", "number", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "nome": {"type": ["string", "null"]},
+    "razza": {"type": ["string", "null"]},
+    "allineamento": {"type": ["string", "null"]},
+    "divinita": {"type": ["string", "null"]},
+    "taglia": {"type": ["string", "null"]},
+    "eta": {"type": ["string", "number", "null"]},
+    "sesso": {"type": ["string", "null"]},
+    "altezza": {"type": ["string", "number", "null"]},
+    "peso": {"type": ["string", "number", "null"]},
+    "ruolo": {"type": ["string", "null"]},
+    "player_style": {"type": ["string", "null"]},
+    "background": {"type": ["string", "null"]},
+    "armi": {
+      "type": "array",
+      "description": "Armi e attacchi strutturati.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nome": {"type": ["string", "null"]},
+          "tipo": {"type": ["string", "null"]},
+          "attacco": {"type": ["string", "number", "null"]},
+          "danni": {"type": ["string", "null"]},
+          "critico": {"type": ["string", "null"]},
+          "portata": {"type": ["string", "null"]},
+          "note": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "attacchi_naturali": {"type": ["string", "null"]},
+    "capacita_speciali": {"type": ["string", "null"]},
+    "capitolo_capacita": {"type": ["string", "null"]},
+    "cmb_disarm": {"type": ["integer", "number", "string", "null"]},
+    "cmb_trip": {"type": ["integer", "number", "string", "null"]},
+    "cmb_grapple": {"type": ["integer", "number", "string", "null"]},
+    "cmb_bull_rush": {"type": ["integer", "number", "string", "null"]},
+    "cmb_sunder": {"type": ["integer", "number", "string", "null"]},
+    "aoo_per_round": {"type": ["integer", "number", "string", "null"]},
+    "swift_used": {"type": ["string", "boolean", "null"]},
+    "immediate_ready": {"type": ["string", "boolean", "null"]},
+    "acp": {"type": ["integer", "number", "string", "null"]},
+    "max_dex": {"type": ["integer", "number", "string", "null"]},
+    "asf_pct": {"type": ["integer", "number", "string", "null"]},
+    "speed_armor_penalty": {"type": ["integer", "number", "string", "null"]},
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nome": {"type": ["string", "null"]},
+          "gradi": {"type": ["integer", "number", "null"]},
+          "mod_car": {"type": ["integer", "number", "null"]},
+          "var": {"type": ["integer", "number", "null"]},
+          "classe": {"type": ["boolean", "null"]},
+          "totale": {"type": ["integer", "number", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "progressione": {
+      "type": "array",
+      "description": "Progressione talenti o abilità, usata per estrarre i talenti.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "talento": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "tratti": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nome": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "difetti": {"type": ["string", "null"]},
+    "poteri_classe": {"type": ["string", "null"]},
+    "usi_giorno_chiave": {"type": ["string", "number", "null"]},
+    "classe_incantatore": {"type": ["string", "null"]},
+    "spell_dc_base": {"type": ["integer", "number", "string", "null"]},
+    "livello_incantatore": {"type": ["integer", "number", "string", "null"]},
+    "slot_incantesimi": {"type": ["string", "null"]},
+    "magia": {
+      "type": "object",
+      "description": "Mappa livello → elenco incantesimi conosciuti/preparati.",
+      "additionalProperties": {
+        "type": "array",
+        "items": {"type": ["string", "null"]}
+      }
+    },
+    "concentration_bonus": {"type": ["integer", "number", "string", "null"]},
+    "spell_penetration_bonus": {"type": ["integer", "number", "string", "null"]},
+    "dc_per_school": {"type": ["string", "object", "null"]},
+    "buffs_open": {"type": ["string", "null"]},
+    "movement_plan": {"type": ["string", "null"]},
+    "attack_plan": {"type": ["string", "null"]},
+    "reactions_list": {"type": ["string", "null"]},
+    "risorse_giornaliere": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nome": {"type": ["string", "null"]},
+          "max": {"type": ["integer", "number", "null"]},
+          "usate": {"type": ["integer", "number", "null"]},
+          "reset": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "res_max": {"type": ["integer", "number", "null"]},
+    "res_used": {"type": ["integer", "number", "null"]},
+    "res_reset": {"type": ["string", "null"]},
+    "consum_potions": {"type": ["string", "null"]},
+    "consum_scrolls": {"type": ["string", "null"]},
+    "consum_wands": {"type": ["string", "null"]},
+    "gp": {"type": ["integer", "number", "null"]},
+    "pp": {"type": ["integer", "number", "null"]},
+    "sp": {"type": ["integer", "number", "null"]},
+    "cp": {"type": ["integer", "number", "null"]},
+    "next_wbl_gp": {"type": ["integer", "number", "null"]},
+    "buylist_priority": {"type": ["string", "null"]},
+    "equipaggiamento": {"type": "array", "items": {"type": "string"}},
+    "equip_base": {"type": ["string", "null"]},
+    "peso_totale": {"type": ["string", "number", "null"]},
+    "carico_leggero": {"type": ["string", "number", "null"]},
+    "carico_medio": {"type": ["string", "number", "null"]},
+    "carico_pesante": {"type": ["string", "number", "null"]},
+    "lingue": {"type": "array", "items": {"type": "string"}},
+    "hero_points": {"type": ["string", "integer", "number", "null"]},
+    "note_varie": {"type": ["string", "null"]},
+    "companion": {"type": ["string", "object", "null"]},
+    "spunti_interpretativi": {"type": ["string", "null"]},
+    "modello_psico": {"type": ["string", "null"]},
+    "stile_decisionale": {"type": ["string", "null"]},
+    "storia_personale": {"type": ["string", "null"]},
+    "relazioni_legami": {"type": ["string", "null"]},
+    "ganci_campagna": {"type": ["string", "null"]},
+    "flavor_rp": {"type": ["string", "null"]},
+    "fonti_primarie": {"type": ["string", "null"]},
+    "fonti_secondarie": {"type": ["string", "null"]},
+    "pfs_varianti": {"type": ["string", "null"]},
+    "dev_insight": {"type": ["string", "null"]},
+    "house_lore_note": {"type": ["string", "null"]},
+    "citazioni_brevi": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "estratto": {"type": ["string", "null"]},
+          "fonte": {"type": ["string", "null"]},
+          "pagina_opz": {"type": ["string", "number", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "sx00_link": {"type": ["string", "null"]},
+    "av_code": {"type": ["string", "null"]},
+    "sx_codes": {"type": ["string", "array", "null"], "items": {"type": "string"}},
+    "fazioni_collegate": {"type": ["string", "null"]},
+    "thread_aperti": {"type": ["string", "null"]},
+    "map_id": {"type": ["string", "null"]},
+    "vtt_bundle_path": {"type": ["string", "null"]},
+    "vtt_light": {"type": ["string", "null"], "default": "day"},
+    "token_scale_hint": {"type": ["string", "null"], "default": "M"},
+    "recommended_grid_size": {"type": ["integer", "number", "string", "null"]},
+    "safe_area_pct": {"type": ["integer", "number", "string", "null"], "default": 5},
+    "bleed_pct": {"type": ["integer", "number", "string", "null"], "default": 2},
+    "vtt_gm_notes": {"type": ["string", "null"]},
+    "explain": {
+      "type": "object",
+      "description": "Blocchi testuali per la sezione Explain.",
+      "properties": {
+        "tldr": {"type": ["string", "null"]},
+        "context": {"type": ["string", "null"]},
+        "step_by_step": {"type": ["string", "null"]},
+        "algorithmic": {"type": ["string", "null"]},
+        "analogy": {"type": ["string", "null"]},
+        "common_mistakes": {"type": ["string", "null"]},
+        "raw_vs_rai": {"type": ["string", "null"]},
+        "numeric_example": {"type": ["string", "null"]},
+        "quick_quiz": {"type": ["string", "null"]},
+        "checklist": {"type": ["string", "null"]},
+        "sources": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "benchmark_reference_label": {"type": ["string", "null"]},
+    "benchmark_comparison": {
+      "type": "object",
+      "properties": {
+        "reference_label": {"type": ["string", "null"]},
+        "auto": {"type": ["boolean", "null"]},
+        "timestamp": {"type": ["string", "null"]},
+        "comparison": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "status": {"type": ["string", "null"]},
+              "diff": {"type": ["integer", "number", "string", "null"]}
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "glossario_golarion": {
+      "type": "object",
+      "properties": {
+        "termini": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "termine": {"type": ["string", "null"]},
+              "def": {"type": ["string", "null"]}
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "fonti": {"type": "array", "items": {"type": "string"}},
+    "fonti_meta": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "badge": {"type": ["string", "null"]},
+          "tipo": {"type": ["string", "null"]},
+          "link": {"type": ["string", "null"], "format": "uri"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "rules_status_text": {"type": ["string", "null"]},
+    "validate_core_ok": {"type": ["boolean", "null"]},
+    "validate_feats_ok": {"type": ["boolean", "null"]},
+    "simulate_ok": {"type": ["boolean", "null"]},
+    "spoiler_mode": {"type": ["string", "null"], "default": "light"},
+    "ap_warning": {"type": ["string", "null"]},
+    "confidence_score": {"type": ["integer", "number", "null"]},
+    "uncertainty_flags": {"type": ["string", "array", "null"], "items": {"type": "string"}},
+    "ledger_invested_gp": {"type": ["integer", "number", "null"]},
+    "ledger_encumbrance_hint": {"type": ["string", "null"]},
+    "ledger_movimenti": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "data": {"type": ["string", "null"]},
+          "tipo": {"type": ["string", "null"]},
+          "oggetto": {"type": ["string", "null"]},
+          "qty": {"type": ["integer", "number", "null"]},
+          "vu": {"type": ["string", "number", "null"]},
+          "tot": {"type": ["string", "number", "null"]},
+          "delta_gp": {"type": ["string", "number", "null"]},
+          "source": {"type": ["string", "null"]},
+          "pfs": {"type": ["boolean", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "ledger_parcels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "nome": {"type": ["string", "null"]},
+          "val_gp": {"type": ["string", "number", "null"]},
+          "assegnatario": {"type": ["string", "null"]},
+          "note": {"type": ["string", "null"]}
+        },
+        "additionalProperties": true
+      }
+    },
+    "ledger_crafting": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "item": {"type": ["string", "null"]},
+          "dc": {"type": ["integer", "number", "string", "null"]},
+          "days": {"type": ["integer", "number", "string", "null"]},
+          "cost": {"type": ["integer", "number", "string", "null"]},
+          "saving": {"type": ["integer", "number", "string", "null"]},
+          "status": {"type": ["string", "null"], "default": "open"}
+        },
+        "additionalProperties": true
+      }
+    },
+    "ledger_pfs_flags": {"type": ["string", "null"]},
+    "ledger_audit_notes": {"type": ["string", "null"]},
+    "currency": {
+      "type": "object",
+      "description": "Valute usate nel ledger (pp/gp/sp/cp).",
+      "properties": {
+        "pp": {"type": ["integer", "number", "null"]},
+        "gp": {"type": ["integer", "number", "null"]},
+        "sp": {"type": ["integer", "number", "null"]},
+        "cp": {"type": ["integer", "number", "null"]}
+      },
+      "additionalProperties": true
+    }
+  }
+}

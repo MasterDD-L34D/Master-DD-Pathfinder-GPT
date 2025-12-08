@@ -632,6 +632,22 @@ async def run_harvest(
                             f"build {request.output_name()}",
                             strict=strict,
                         )
+                        sheet_context = (
+                            payload.get("export", {}).get("sheet_payload")
+                            or payload.get("sheet_payload")
+                        )
+                        sheet_validation = None
+                        if sheet_context is not None:
+                            sheet_validation = validate_with_schema(
+                                "scheda_pg.schema.json",
+                                sheet_context,
+                                f"sheet payload {request.output_name()}",
+                                strict=strict,
+                            )
+                        if validation_error and sheet_validation:
+                            validation_error = f"{validation_error}; {sheet_validation}"
+                        elif validation_error is None:
+                            validation_error = sheet_validation
                         status = "ok" if validation_error is None else "invalid"
                         if status == "ok" or keep_invalid:
                             write_json(destination, payload)
