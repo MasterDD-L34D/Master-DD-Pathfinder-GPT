@@ -11,6 +11,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 import src.app as app_module
 from src.app import app
 from src.config import MODULES_DIR, DATA_DIR, settings
+from tools.generate_build_db import schema_for_mode, validate_with_schema
 
 @pytest.fixture
 def client():
@@ -61,6 +62,20 @@ def test_minmax_builder_stub_is_opt_in(client, auth_headers):
     payload = response.json()
     assert payload["build_state"]["mode"] in {"core", "extended"}
     assert payload["sheet"]["classi"][0]["nome"] == "Unknown"
+
+
+def test_minmax_builder_stub_payload_matches_schema(client, auth_headers):
+    response = client.get("/modules/minmax_builder.txt?mode=stub", headers=auth_headers)
+    assert response.status_code == 200
+    payload = response.json()
+
+    schema_filename = schema_for_mode(payload.get("mode", ""))
+    validate_with_schema(
+        schema_filename,
+        payload,
+        "test_minmax_builder_stub",
+        strict=True,
+    )
 
 
 def test_get_module_content_path_traversal(client, auth_headers):
