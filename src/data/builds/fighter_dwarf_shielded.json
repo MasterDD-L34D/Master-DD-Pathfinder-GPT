@@ -79,7 +79,39 @@
       "benchmarks": {
         "meta_tier": "T3"
       },
-      "hooks": null
+      "hooks": null,
+      "salvezze": {
+        "tempra": "+4",
+        "riflessi": "+4",
+        "volonta": "+2"
+      },
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 250
+          }
+        ],
+        "currency": {
+          "oro": 100,
+          "argento": 25,
+          "rame": 40
+        }
+      },
+      "fonti": [
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&race=Dwarf"
+      ],
+      "print_mode": false,
+      "show_minmax": true,
+      "show_vtt": true,
+      "show_qa": true,
+      "show_explain": true,
+      "show_ledger": true,
+      "decimal_comma": true
     }
   },
   "narrative": "Dwarf Shielded Fighter pronta/o per il campo, specializzata/o in tattiche da Fighter.",

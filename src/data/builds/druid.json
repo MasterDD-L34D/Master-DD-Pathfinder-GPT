@@ -104,7 +104,14 @@
           "argento": 25,
           "rame": 40
         }
-      }
+      },
+      "print_mode": false,
+      "show_minmax": true,
+      "show_vtt": true,
+      "show_qa": true,
+      "show_explain": true,
+      "show_ledger": true,
+      "decimal_comma": true
     }
   },
   "narrative": "Human Base pronta/o per il campo, specializzata/o in tattiche da Druid.",
