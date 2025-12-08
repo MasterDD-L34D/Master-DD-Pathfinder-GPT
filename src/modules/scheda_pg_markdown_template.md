@@ -140,6 +140,7 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% for s in (skills or []) -%}
 | {{ d(s.nome) }} | {{ s.gradi|default(0) }} | {{ signed(s.mod_car|default(0)) }} | {{ signed(s.var|default(0)) }} | {{ '✓' if s.classe else '' }} | {{ s.totale|default(s.gradi|default(0) + s.mod_car|default(0) + s.var|default(0) + (3 if s.classe else 0)) }} |
 {%- endfor %}
+{% if (skills or [])|length == 0 %}_Nessuna abilità strutturata._{% endif %}
 
 ---
 
@@ -166,6 +167,7 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% for lvl in (magia or {}).keys() | map('int') | list | sort %}
 - **{{ lvl }}°:** {{ (magia[lvl] or []) | join(', ') }}
 {% endfor %}
+{% if (magia or {})|length == 0 %}_Nessun incantesimo conosciuto o preparato specificato._{% endif %}
 
 {% if has_spell_table %}
 | Liv | Conosciuti | Preparati | Slot/giorno | CD |
@@ -173,6 +175,8 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% for sl in spell_levels -%}
 | {{ sl.liv }} | {{ d(sl.known) }} | {{ d(sl.prepared) }} | {{ d(sl.per_day) }} | {{ d(sl.dc) }} |
 {%- endfor %}
+{% else %}
+_Nessuna tabella incantesimi disponibile._
 {% endif %}
 
 ### Incantatore (tecnico)
