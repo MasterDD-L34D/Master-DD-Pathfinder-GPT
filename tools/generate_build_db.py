@@ -1507,12 +1507,16 @@ async def run_harvest(
                             validation_error = f"{validation_error}; {sheet_validation}"
                         elif validation_error is None:
                             validation_error = sheet_validation
-                        completeness_errors = (
-                            payload.get("completeness", {}).get("errors")
+                        completeness_ctx = (
+                            payload.get("completeness")
                             if isinstance(payload.get("completeness"), Mapping)
-                            else None
+                            else {}
                         )
-                        if completeness_errors:
+                        completeness_errors = completeness_ctx.get("errors")
+                        require_complete_flag = bool(
+                            completeness_ctx.get("require_complete")
+                        )
+                        if require_complete_flag and completeness_errors:
                             completeness_text = "; ".join(
                                 str(error) for error in completeness_errors
                             )
