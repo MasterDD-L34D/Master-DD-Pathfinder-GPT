@@ -179,6 +179,76 @@ def _normalize_mapping(data: Mapping | None) -> Mapping[str, object]:
     return {str(key): value for key, value in (data or {}).items() if value is not None}
 
 
+def _is_placeholder(value: object) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str):
+        lowered = value.strip().lower()
+        return not lowered or "stub" in lowered or lowered in {"todo", "tbd"}
+    if isinstance(value, Mapping):
+        return all(_is_placeholder(v) for v in value.values())
+    if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+        return all(_is_placeholder(v) for v in value)
+    return False
+
+
+def _merge_prefer_existing(target: MutableMapping[str, object], *sources: Mapping) -> MutableMapping[str, object]:
+    for source in sources:
+        if not isinstance(source, Mapping):
+            continue
+        for key, value in source.items():
+            if _is_placeholder(value):
+                continue
+            existing = target.get(key)
+            if isinstance(existing, Mapping) and isinstance(value, Mapping):
+                target[key] = _merge_prefer_existing(dict(existing), value)
+            elif _is_placeholder(existing):
+                target[key] = value
+            elif key not in target:
+                target[key] = value
+    return target
+
+
+def _first_non_placeholder(*values: object) -> object | None:
+    for value in values:
+        if not _is_placeholder(value):
+            return value
+    return None
+
+
+def _merge_unique_list(
+    existing: Sequence | None, *sources: Sequence | None
+) -> list[object]:
+    merged: list[object] = []
+    if isinstance(existing, Sequence) and not isinstance(existing, (str, bytes)):
+        merged.extend(existing)
+    for source in sources:
+        if not isinstance(source, Sequence) or isinstance(source, (str, bytes)):
+            continue
+        for item in source:
+            if item not in merged:
+                merged.append(item)
+    return merged
+
+
+def _load_local_modules(module_names: Sequence[str]) -> Mapping[str, str]:
+    candidates = [
+        Path("src/data/modules"),
+        Path("src/modules"),
+        Path("modules"),
+    ]
+    loaded: dict[str, str] = {}
+    for name in module_names:
+        if name in loaded:
+            continue
+        for base_path in candidates:
+            path = base_path / name
+            if path.is_file():
+                loaded[name] = path.read_text(encoding="utf-8")
+                break
+    return loaded
+
+
 _validator_cache: dict[str, Draft202012Validator] = {}
 _schema_store: dict[str, Mapping] = {}
 
@@ -573,6 +643,271 @@ async def assert_api_reachable(
         )
 
 
+def _enrich_sheet_payload(
+    payload: Mapping[str, object],
+    ledger: Mapping | None,
+    source_url: str | None,
+) -> MutableMapping[str, object]:
+    export_ctx = payload.get("export") if isinstance(payload, Mapping) else {}
+    export_ctx = export_ctx or {}
+
+    def _as_mapping(value: object) -> Mapping | None:
+        return value if isinstance(value, Mapping) else None
+
+    sheet_payload: MutableMapping[str, object] = {}
+    for candidate in (
+        _as_mapping(export_ctx.get("sheet_payload")),
+        _as_mapping(payload.get("sheet_payload")) if isinstance(payload, Mapping) else None,
+        _as_mapping(payload.get("sheet")) if isinstance(payload, Mapping) else None,
+    ):
+        if candidate:
+            _merge_prefer_existing(sheet_payload, candidate)
+
+    if ledger and "ledger" not in sheet_payload:
+        sheet_payload["ledger"] = ledger
+
+    salvezze = _merge_prefer_existing(
+        {},
+        _as_mapping(sheet_payload.get("salvezze")) or {},
+        _as_mapping(export_ctx.get("salvezze")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("saves")) or {},
+        _as_mapping((payload.get("benchmark") or {}).get("saves")) or {},
+    )
+    sheet_payload["salvezze"] = salvezze
+
+    hp_block = _merge_prefer_existing(
+        {},
+        _as_mapping(export_ctx.get("hp")) or {},
+        _as_mapping(payload.get("hp")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("hp")) or {},
+    )
+    if hp_block:
+        sheet_payload["hp"] = hp_block
+    pf_total = _first_non_placeholder(
+        sheet_payload.get("pf_totali"),
+        hp_block.get("totale") if hp_block else None,
+        hp_block.get("total") if hp_block else None,
+        hp_block.get("hp_total") if hp_block else None,
+        (sheet_payload.get("statistiche_chiave") or {}).get("PF")
+        if isinstance(sheet_payload.get("statistiche_chiave"), Mapping)
+        else None,
+    )
+    if pf_total is not None:
+        sheet_payload["pf_totali"] = pf_total
+    pf_progression = _first_non_placeholder(
+        sheet_payload.get("pf_per_livello"),
+        hp_block.get("per_livello") if hp_block else None,
+        hp_block.get("per_level") if hp_block else None,
+        hp_block.get("progressione") if hp_block else None,
+    )
+    if pf_progression is not None:
+        sheet_payload["pf_per_livello"] = pf_progression
+
+    ac_breakdown = _merge_prefer_existing(
+        {},
+        _as_mapping(sheet_payload.get("ac_breakdown")) or {},
+        _as_mapping(export_ctx.get("ac_breakdown")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("ac")) or {},
+    )
+    if ac_breakdown:
+        sheet_payload["ac_breakdown"] = ac_breakdown
+    ac_defaults = {
+        "AC_arm": 0,
+        "AC_scudo": 0,
+        "AC_des": 0,
+        "AC_defl": 0,
+        "AC_nat": 0,
+        "AC_dodge": 0,
+        "AC_misc": 0,
+    }
+    for ac_key, default in ac_defaults.items():
+        value = _first_non_placeholder(
+            sheet_payload.get(ac_key), ac_breakdown.get(ac_key) if ac_breakdown else None
+        )
+        if value is None:
+            value = default
+        sheet_payload[ac_key] = value
+    for ca_key in ("AC_tot", "CA_touch", "CA_ff"):
+        derived = _first_non_placeholder(
+            sheet_payload.get(ca_key), ac_breakdown.get(ca_key) if ac_breakdown else None
+        )
+        if derived is not None:
+            sheet_payload[ca_key] = derived
+
+    initiative = _first_non_placeholder(
+        sheet_payload.get("iniziativa"),
+        export_ctx.get("iniziativa"),
+        (payload.get("build_state") or {}).get("initiative"),
+        (payload.get("benchmark") or {}).get("initiative"),
+    )
+    if initiative is not None:
+        sheet_payload["iniziativa"] = initiative
+
+    speed = _first_non_placeholder(
+        sheet_payload.get("velocita"),
+        export_ctx.get("velocita") or export_ctx.get("speed"),
+        (payload.get("build_state") or {}).get("speed"),
+    )
+    if speed is not None:
+        sheet_payload["velocita"] = speed
+
+    skill_points = _first_non_placeholder(
+        sheet_payload.get("skill_points"),
+        (payload.get("build_state") or {}).get("skill_points"),
+        (payload.get("benchmark") or {}).get("skill_points"),
+    )
+    if skill_points is not None:
+        sheet_payload["skill_points"] = skill_points
+
+    skills_map = _merge_prefer_existing(
+        {},
+        _as_mapping(sheet_payload.get("skills_map")) or {},
+        _as_mapping(export_ctx.get("skills_map")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("skills_map")) or {},
+    )
+    if skills_map:
+        sheet_payload["skills_map"] = skills_map
+
+    skills_list = _merge_unique_list(
+        sheet_payload.get("skills"),
+        export_ctx.get("skills"),
+        (payload.get("build_state") or {}).get("skills"),
+    )
+    if skills_list:
+        sheet_payload["skills"] = skills_list
+
+    feats = _merge_unique_list(
+        sheet_payload.get("talenti"),
+        export_ctx.get("talenti"),
+        (payload.get("build_state") or {}).get("feats"),
+    )
+    if feats:
+        sheet_payload["talenti"] = feats
+
+    class_features = _merge_unique_list(
+        sheet_payload.get("capacita_classe"),
+        export_ctx.get("capacita_classe"),
+        (payload.get("build_state") or {}).get("class_features"),
+    )
+    if class_features:
+        sheet_payload["capacita_classe"] = class_features
+
+    progression = _merge_unique_list(
+        sheet_payload.get("progressione"),
+        export_ctx.get("progressione") or export_ctx.get("progression"),
+        payload.get("progressione") if isinstance(payload, Mapping) else None,
+        (payload.get("build_state") or {}).get("progression"),
+    )
+    if progression:
+        sheet_payload["progressione"] = progression
+
+    equip_list = _merge_unique_list(
+        sheet_payload.get("equipaggiamento"),
+        export_ctx.get("equipaggiamento"),
+        (payload.get("ledger") or {}).get("equipaggiamento")
+        if isinstance(payload.get("ledger"), Mapping)
+        else None,
+    )
+    if equip_list:
+        sheet_payload["equipaggiamento"] = equip_list
+
+    inventory = _merge_unique_list(
+        sheet_payload.get("inventario"),
+        export_ctx.get("inventario"),
+        (payload.get("ledger") or {}).get("inventario")
+        if isinstance(payload.get("ledger"), Mapping)
+        else None,
+    )
+    if inventory:
+        sheet_payload["inventario"] = inventory
+
+    spell_levels = _merge_unique_list(
+        sheet_payload.get("spell_levels"),
+        export_ctx.get("spell_levels"),
+    )
+    if spell_levels:
+        sheet_payload["spell_levels"] = spell_levels
+
+    magic_map = _merge_prefer_existing(
+        {},
+        _as_mapping(sheet_payload.get("magia")) or {},
+        _as_mapping(export_ctx.get("magia")) or {},
+    )
+    if magic_map:
+        sheet_payload["magia"] = magic_map
+
+    slot_text = _first_non_placeholder(
+        sheet_payload.get("slot_incantesimi"), export_ctx.get("slot_incantesimi")
+    )
+    if slot_text is not None:
+        sheet_payload["slot_incantesimi"] = slot_text
+
+    languages = _merge_unique_list(
+        sheet_payload.get("lingue"),
+        export_ctx.get("lingue"),
+        (payload.get("build_state") or {}).get("languages"),
+    )
+    if languages:
+        sheet_payload["lingue"] = languages
+
+    senses = _merge_unique_list(
+        sheet_payload.get("sensi"),
+        export_ctx.get("sensi"),
+        (payload.get("build_state") or {}).get("senses"),
+    )
+    if senses:
+        sheet_payload["sensi"] = senses
+
+    conditions = _merge_unique_list(
+        sheet_payload.get("condizioni"),
+        export_ctx.get("condizioni"),
+        (payload.get("build_state") or {}).get("conditions"),
+    )
+    if conditions:
+        sheet_payload["condizioni"] = conditions
+
+    module_payloads = _merge_prefer_existing(
+        {},
+        _as_mapping(sheet_payload.get("modules")) or {},
+        _as_mapping(export_ctx.get("modules")) or {},
+        _as_mapping(payload.get("modules")) or {},
+        _load_local_modules(DEFAULT_MODULE_TARGETS),
+    )
+    if module_payloads:
+        sheet_payload["modules"] = module_payloads
+
+    sources = _merge_unique_list(sheet_payload.get("fonti"), [source_url] if source_url else [])
+    if sources:
+        sheet_payload["fonti"] = sources
+
+    sheet_payload.setdefault("print_mode", False)
+    sheet_payload.setdefault("show_minmax", True)
+    sheet_payload.setdefault("show_vtt", True)
+    sheet_payload.setdefault("show_qa", True)
+    sheet_payload.setdefault("show_explain", True)
+    sheet_payload.setdefault("show_ledger", True)
+    sheet_payload.setdefault("decimal_comma", True)
+    sheet_payload.setdefault("salvezze", {})
+    sheet_payload.setdefault("skills_map", {})
+    sheet_payload.setdefault("skills", [])
+    sheet_payload.setdefault("spell_levels", [])
+    sheet_payload.setdefault("magia", {})
+    sheet_payload.setdefault("lingue", [])
+    sheet_payload.setdefault("sensi", [])
+    sheet_payload.setdefault("condizioni", [])
+    sheet_payload.setdefault("equipaggiamento", [])
+    sheet_payload.setdefault("inventario", [])
+    sheet_payload.setdefault("talenti", [])
+    sheet_payload.setdefault("capacita_classe", [])
+    sheet_payload.setdefault("progressione", [])
+    sheet_payload.setdefault("velocita", 0)
+    sheet_payload.setdefault("iniziativa", 0)
+    sheet_payload.setdefault("pf_totali", 0)
+    sheet_payload.setdefault("skill_points", 0)
+
+    return sheet_payload
+
+
 async def fetch_build(
     client: httpx.AsyncClient,
     api_key: str | None,
@@ -713,30 +1048,11 @@ async def fetch_build(
         },
     })
 
-    export_ctx = payload.setdefault("export", {})
-    sheet_payload = export_ctx.get("sheet_payload") or {}
-    if not isinstance(sheet_payload, Mapping):
-        sheet_payload = {}
-
-    if ledger and "ledger" not in sheet_payload:
-        sheet_payload["ledger"] = ledger
-
-    sources = list(sheet_payload.get("fonti") or [])
     source_url = payload.get("source_url")
-    if source_url and source_url not in sources:
-        sources.append(source_url)
-    if sources:
-        sheet_payload["fonti"] = sources
-
-    sheet_payload.setdefault("print_mode", False)
-    sheet_payload.setdefault("show_minmax", True)
-    sheet_payload.setdefault("show_vtt", True)
-    sheet_payload.setdefault("show_qa", True)
-    sheet_payload.setdefault("show_explain", True)
-    sheet_payload.setdefault("show_ledger", True)
-    sheet_payload.setdefault("decimal_comma", True)
-    sheet_payload.setdefault("salvezze", {})
-
+    export_ctx = payload.setdefault("export", {})
+    sheet_payload = _enrich_sheet_payload(
+        payload, ledger if isinstance(ledger, Mapping) else None, source_url
+    )
     export_ctx["sheet_payload"] = sheet_payload
     if require_complete and completeness_errors:
         joined_errors = "; ".join(completeness_errors)
