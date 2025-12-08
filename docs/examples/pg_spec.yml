@@ -1,0 +1,20 @@
+# Mode di default per le richieste senza override
+mode: extended
+requests:
+  - id: mm-hellknight-elf
+    class: Fighter
+    race: Elf
+    archetype: Hellknight Armiger
+    model: "Armiger (Hellknight)"
+    background_hooks: "Giurata dell'Ordine del Pyre, addestrata alla disciplina inflessibile."
+    output_prefix: fighter_hellknight_elf
+    query:
+      race: Elf
+      archetype: Hellknight Armiger
+      theme: "hellknight armiger"
+      homebrewery_ready: true
+    body:
+      hooks:
+        - "Servire l'Ordine e affrontare minacce extraplanari"
+        - "Cerca una via di redenzione per un peccato passato"
+      sheet_locale: it-IT

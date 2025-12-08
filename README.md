@@ -72,6 +72,39 @@ Per impostazione predefinita usa la modalità `extended` (16 step completi) e sa
 
 I file generati sono consumabili come database locale per esport, benchmark e stato di build: ogni JSON contiene i campi `build_state`, `benchmark` ed `export` prodotti dal builder, più metadati di fetch (`class`, `mode`, `source_url`). I moduli scaricati (es. `base_profile.txt`, `Taverna_NPC.txt`, `narrative_flow.txt`, `scheda_pg_markdown_template.md`, `adventurer_ledger.txt`) rimangono grezzi e coerenti con l'API così da poter combinare build, scheda e narrativa mantenendo varianti di classe/razza/archetipo definite dai moduli stessi.
 
+Per orchestrare richieste più articolate (classe + razza/archetipo/modello + hook di background) puoi usare `--spec-file` con un file YAML/JSON che descrive ogni PG. Ogni voce definisce la classe, eventuali parametri addizionali da passare come query/body e il prefisso del file di output. Il JSON di risposta includerà anche le sezioni extra restituite dall'API (es. narrativa, markup scheda, ledger) in `composite.{narrative|sheet|ledger}`, mentre l'indice `build_index.json` annoterà le varianti (`class`, `race`, `archetype`, `mode`, `spec_id`).
+
+Esempio di spec (`docs/examples/pg_spec.yml`):
+
+```yaml
+# Mode di default per le richieste senza override
+mode: extended
+requests:
+  - id: mm-hellknight-elf
+    class: Fighter
+    race: Elf
+    archetype: Hellknight Armiger
+    model: "Armiger (Hellknight)"
+    background_hooks: "Giurata dell'Ordine del Pyre, addestrata alla disciplina inflessibile."
+    output_prefix: fighter_hellknight_elf
+    query:
+      race: Elf
+      archetype: Hellknight Armiger
+      theme: "hellknight armiger"
+      homebrewery_ready: true
+    body:
+      hooks:
+        - "Servire l'Ordine e affrontare minacce extraplanari"
+        - "Cerca una via di redenzione per un peccato passato"
+      sheet_locale: it-IT
+```
+
+Invocazione con spec (genera build + narrativa + markup scheda + ledger se restituiti dal builder):
+
+```bash
+python tools/generate_build_db.py --api-url http://localhost:8000 --spec-file docs/examples/pg_spec.yml --modules base_profile.txt narrative_flow.txt scheda_pg_markdown_template.md adventurer_ledger.txt
+```
+
 ### Endpoints principali
 
 - `GET /health` — ping rapido
