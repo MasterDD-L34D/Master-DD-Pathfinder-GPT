@@ -263,8 +263,8 @@
       }
     }
   },
-  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Druid&race=Half-Orc&archetype=Feral+Shifter",
-  "fetched_at": "2025-12-08T16:41:05Z",
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&race=Half-Orc&archetype=Feral+Shifter",
+  "fetched_at": "2025-12-08T17:10:13Z",
   "request": {
     "class": "Druid",
     "race": "Half-Orc",
@@ -278,6 +278,7 @@
   "query_params": {
     "mode": "extended",
     "class": "Druid",
+    "stub": true,
     "race": "Half-Orc",
     "archetype": "Feral Shifter"
   },

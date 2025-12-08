@@ -130,6 +130,7 @@ async def get_module_content(
     class_name: str | None = Query(default=None, alias="class"),
     race: str | None = Query(default=None),
     archetype: str | None = Query(default=None),
+    stub: bool = Query(default=False, description="Return stub payload for minmax builder"),
     body: Dict | None = Body(default=None),
     _: None = Depends(require_api_key),
 ):
@@ -142,8 +143,10 @@ async def get_module_content(
     """
     name_path = Path(name)
 
-    # Special-case the builder endpoint so local runs return valid JSON
-    if name_path.name == "minmax_builder.txt":
+    stub_requested = stub or str(mode or "").lower() == "stub" or str((body or {}).get("mode", "")).lower() == "stub"
+
+    # Special-case the builder endpoint only when an explicit stub is requested
+    if name_path.name == "minmax_builder.txt" and stub_requested:
         resolved_race = race or (body or {}).get("race") or "Human"
         resolved_archetype = (
             archetype
@@ -152,7 +155,8 @@ async def get_module_content(
             or "Base"
         )
 
-        normalized_mode = "core" if str(mode or "").lower().startswith("core") else "extended"
+        builder_mode = (body or {}).get("builder_mode") or (body or {}).get("mode") or mode
+        normalized_mode = "core" if str(builder_mode or "").lower().startswith("core") else "extended"
         step_total = 8 if normalized_mode == "core" else 16
         step_labels = {
             "1": "Profilo Base",
@@ -247,7 +251,7 @@ async def get_module_content(
             "sheet": sheet_payload,
             "ledger": ledger,
             "class": class_name,
-            "mode": mode,
+            "mode": normalized_mode,
         }
 
         payload["composite"] = {
