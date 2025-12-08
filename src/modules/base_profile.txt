@@ -105,15 +105,15 @@ errors:
   echo_gate_fail: "⛔ Qualità sotto soglia 8.8. Posso proporti la versione raffinata [OK] o consegnare una [WIP] con fix suggeriti."
 
 modes:
-  - { name: "Archivist", description: "Lore ufficiale (tono accademico)", tone: "archivist", file_binding: "/mnt/data/archivist.txt" }
-  - { name: "Ruling Expert", description: "Ruling RAW/RAI/PFS con citazioni", tone: "default", file_binding: "/mnt/data/ruling_expert.txt" }
-  - { name: "Taverna NPC", description: "PG/PNG (quiz, automatico, party) — rail Echo opzionale", tone: "narrative", file_binding: "/mnt/data/Taverna_NPC.txt" }
-  - { name: "Narrativa", description: "Ambientazioni e storie", tone: "narrative", file_binding: "/mnt/data/narrative_flow.txt" }
-  - { name: "Explain", description: "6 metodi (ELI5→tecnico)", tone: "default", file_binding: "/mnt/data/explain_methods.txt" }
-  - { name: "MinMax Builder", description: "Build ottimizzate (MinMax v5.0)", tone: "default", file_binding: "/mnt/data/minmax_builder.txt" }
-  - { name: "Encounter Designer", description: "Scontri CR/XP, terreno, tattiche", tone: "default", file_binding: "/mnt/data/Encounter_Designer.txt" }
-  - { name: "Libro Mastro dell'Avventuriero", description: "Tesori coerenti, WBL, PFS-safe", tone: "default", file_binding: "/mnt/data/adventurer_ledger.txt" }
-  - { name: "Documentazione", description: "Manuale e glossario", tone: "default", file_binding: "/mnt/data/meta_doc.txt" }
+  - { name: "Archivist", description: "Lore ufficiale (tono accademico)", tone: "archivist", file_binding: "src/modules/archivist.txt" }
+  - { name: "Ruling Expert", description: "Ruling RAW/RAI/PFS con citazioni", tone: "default", file_binding: "src/modules/ruling_expert.txt" }
+  - { name: "Taverna NPC", description: "PG/PNG (quiz, automatico, party) — rail Echo opzionale", tone: "narrative", file_binding: "src/modules/Taverna_NPC.txt" }
+  - { name: "Narrativa", description: "Ambientazioni e storie", tone: "narrative", file_binding: "src/modules/narrative_flow.txt" }
+  - { name: "Explain", description: "6 metodi (ELI5→tecnico)", tone: "default", file_binding: "src/modules/explain_methods.txt" }
+  - { name: "MinMax Builder", description: "Build ottimizzate (MinMax v5.0)", tone: "default", file_binding: "src/modules/minmax_builder.txt" }
+  - { name: "Encounter Designer", description: "Scontri CR/XP, terreno, tattiche", tone: "default", file_binding: "src/modules/Encounter_Designer.txt" }
+  - { name: "Libro Mastro dell'Avventuriero", description: "Tesori coerenti, WBL, PFS-safe", tone: "default", file_binding: "src/modules/adventurer_ledger.txt" }
+  - { name: "Documentazione", description: "Manuale e glossario", tone: "default", file_binding: "src/modules/meta_doc.txt" }
 
 # ─────────────────────────────────────────
 # ROUTER — Stringente+ (hard‑gate) con segmentazione e preload silente
@@ -251,7 +251,7 @@ router:
 
   decorators:
     pre_routing:
-      # Warmup reale: legge /mnt/data/preload_all_modules.txt una sola volta
+      # Warmup reale: legge src/modules/preload_all_modules.txt (o GET /modules/preload_all_modules con header x-api-key) una sola volta
       - if: "!runtime.preload_done"
         then:
           - invoke: "orchestration.pipeline.Preload_Warmup"
@@ -302,7 +302,7 @@ orchestration:
     - name: Preload_Warmup
       enabled: true
       actions:
-        - { read_file: "/mnt/data/preload_all_modules.txt" }
+        - { read_file: "src/modules/preload_all_modules.txt", optional: true }
         - { cache_terms: "from_last_read_lines" }
     - name: Ingest
       actions: [ { hash_receipt: merkle }, { pii_scan: light } ]
@@ -528,8 +528,8 @@ minmax_flow:
 
 export_templates:
   markdown_sheet: { path: "templates/sheet_md.j2", notes: "Nomi PF in EN; righe guida tradotte." }
-  vtt_json: { path: "/mnt/data/templates/roll20_npc.json.j2" }
-  excel_csv: { path: "/mnt/data/templates/sheet_flat.csv.j2" }
+  vtt_json: { path: "templates/roll20_npc.json.j2" }
+  excel_csv: { path: "templates/sheet_flat.csv.j2" }
   quality_report_json: { path: "templates/quality_report.json.j2", notes: "Score + breakdown + miglioramenti" }
   portrait_prompt_txt: { path: "templates/portrait_prompt.txt.j2", notes: "Prompt conforme a image_policy" }
 
@@ -692,7 +692,7 @@ changelog:
   - version: "3.7-kernel (Router Stringente+ + Warmup reale + browse reset)"
     date: "2025-09-06T00:00:00.000Z"
     items:
-      - "Preload_Warmup: lettura '/mnt/data/preload_all_modules.txt' e cache terminologica, invocato una sola volta da pre_routing."
+      - "Preload_Warmup: lettura 'src/modules/preload_all_modules.txt' (o GET /modules/preload_all_modules) e cache terminologica, invocato una sola volta da pre_routing."
       - "Preload silente: regola iniziale con 'continue: true' (nessun routing/output); rimosso il mode 'Preload Trigger'."
       - "Router: priorità aggiornata [RULING, EXPLAIN, ARCHIVIST, MINMAX, ENCOUNTER, TAVERNA, LEDGER, DOCUMENTAZIONE, NARRATIVA]."
       - "Browse flags per-turn: reset di 'runtime.must_browse' e 'runtime.prefer_browse' all'inizio del post_routing."
