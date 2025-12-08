@@ -1,6 +1,6 @@
 import logging
-from fastapi import Depends, FastAPI, Header, HTTPException
-from fastapi.responses import PlainTextResponse
+from fastapi import Body, Depends, FastAPI, Header, HTTPException, Query
+from fastapi.responses import JSONResponse, PlainTextResponse
 from typing import List, Dict
 from pathlib import Path
 
@@ -117,9 +117,17 @@ async def get_module_meta(name: str, _: None = Depends(require_api_key)) -> Dict
     }
 
 
-@app.get("/modules/{name:path}", response_class=PlainTextResponse)
-async def get_module_content(name: str, _: None = Depends(require_api_key)) -> str:
-    """Return the raw text content of a module file.
+@app.api_route("/modules/{name:path}", methods=["GET", "POST"], response_class=PlainTextResponse)
+async def get_module_content(
+    name: str,
+    mode: str = Query(default="extended"),
+    class_name: str | None = Query(default=None, alias="class"),
+    race: str | None = Query(default=None),
+    archetype: str | None = Query(default=None),
+    body: Dict | None = Body(default=None),
+    _: None = Depends(require_api_key),
+):
+    """Return the raw text content of a module file or a stubbed builder payload.
 
     Example names:
     - base_profile.txt
@@ -127,6 +135,74 @@ async def get_module_content(name: str, _: None = Depends(require_api_key)) -> s
     - minmax_builder.txt
     """
     name_path = Path(name)
+
+    # Special-case the builder endpoint so local runs return valid JSON
+    if name_path.name == "minmax_builder.txt":
+        resolved_race = race or (body or {}).get("race") or "Human"
+        resolved_archetype = (
+            archetype
+            or (body or {}).get("archetype")
+            or (body or {}).get("model")
+            or "Base"
+        )
+
+        base_build_state = {
+            "class": class_name or "Unknown",
+            "mode": mode,
+            "race": resolved_race,
+            "archetype": resolved_archetype,
+            "step": 1,
+            "step_total": 1,
+        }
+
+        benchmark = {
+            "meta_tier": "T3",
+            "ruling_badge": "stub",
+        }
+
+        export_block = {
+            "sheet_payload": {
+                "classi": [
+                    {
+                        "nome": class_name or "Unknown",
+                        "livelli": 1,
+                        "archetipi": [resolved_archetype] if resolved_archetype else [],
+                    }
+                ],
+                "statistiche": {},
+                "statistiche_chiave": {},
+                "benchmarks": {"meta_tier": "T3"},
+                "hooks": (body or {}).get("hooks"),
+            }
+        }
+
+        narrative = f"Bozza narrativa per {class_name or 'PG'} (stub locale)."
+        ledger = {"movimenti": [], "currency": {}}
+
+        payload: Dict = {
+            "build_state": base_build_state,
+            "benchmark": benchmark,
+            "export": export_block,
+            "narrative": narrative,
+            "sheet": export_block.get("sheet_payload"),
+            "ledger": ledger,
+            "class": class_name,
+            "mode": mode,
+        }
+
+        payload["composite"] = {
+            "build": {
+                "build_state": payload["build_state"],
+                "benchmark": payload["benchmark"],
+                "export": payload["export"],
+            },
+            "narrative": narrative,
+            "sheet": payload["sheet"],
+            "ledger": ledger,
+        }
+
+        return JSONResponse(payload)
+
     path = (MODULES_DIR / name_path).resolve()
     if not path.is_relative_to(MODULES_DIR):
         raise HTTPException(status_code=400, detail="Invalid module path")

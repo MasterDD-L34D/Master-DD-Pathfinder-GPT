@@ -1,0 +1,130 @@
+{
+  "build_state": {
+    "class": "Barbarian",
+    "mode": "extended",
+    "race": "Human",
+    "archetype": "Base",
+    "step": 1,
+    "step_total": 1
+  },
+  "benchmark": {
+    "meta_tier": "T3",
+    "ruling_badge": "stub"
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Barbarian",
+          "livelli": 1,
+          "archetipi": [
+            "Base"
+          ]
+        }
+      ],
+      "statistiche": {},
+      "statistiche_chiave": {},
+      "benchmarks": {
+        "meta_tier": "T3"
+      },
+      "hooks": null
+    }
+  },
+  "narrative": "Bozza narrativa per Barbarian (stub locale).",
+  "sheet": {
+    "classi": [
+      {
+        "nome": "Barbarian",
+        "livelli": 1,
+        "archetipi": [
+          "Base"
+        ]
+      }
+    ],
+    "statistiche": {},
+    "statistiche_chiave": {},
+    "benchmarks": {
+      "meta_tier": "T3"
+    },
+    "hooks": null
+  },
+  "ledger": {
+    "movimenti": [],
+    "currency": {}
+  },
+  "class": "Barbarian",
+  "mode": "extended",
+  "composite": {
+    "build": {
+      "build_state": {
+        "class": "Barbarian",
+        "mode": "extended",
+        "race": "Human",
+        "archetype": "Base",
+        "step": 1,
+        "step_total": 1
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "stub"
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Barbarian",
+              "livelli": 1,
+              "archetipi": [
+                "Base"
+              ]
+            }
+          ],
+          "statistiche": {},
+          "statistiche_chiave": {},
+          "benchmarks": {
+            "meta_tier": "T3"
+          },
+          "hooks": null
+        }
+      }
+    },
+    "narrative": "Bozza narrativa per Barbarian (stub locale).",
+    "sheet": {
+      "classi": [
+        {
+          "nome": "Barbarian",
+          "livelli": 1,
+          "archetipi": [
+            "Base"
+          ]
+        }
+      ],
+      "statistiche": {},
+      "statistiche_chiave": {},
+      "benchmarks": {
+        "meta_tier": "T3"
+      },
+      "hooks": null
+    },
+    "ledger": {
+      "movimenti": [],
+      "currency": {}
+    }
+  },
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Barbarian",
+  "fetched_at": "2025-12-08T02:37:11Z",
+  "request": {
+    "class": "Barbarian",
+    "race": "Human",
+    "archetype": "Base",
+    "mode": "extended",
+    "spec_id": null,
+    "model": null,
+    "background": null
+  },
+  "query_params": {
+    "mode": "extended",
+    "class": "Barbarian"
+  },
+  "body_params": {}
+}

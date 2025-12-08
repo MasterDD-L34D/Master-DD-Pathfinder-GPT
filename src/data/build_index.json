@@ -1,21 +1,20 @@
 {
-  "generated_at": "2025-12-08T02:13:29Z",
+  "generated_at": "2025-12-08T02:37:11Z",
   "api_url": "http://localhost:8000",
   "mode": "extended",
   "spec_file": null,
   "entries": [
     {
-      "file": null,
-      "status": "error",
+      "file": "src/data/builds/barbarian.json",
+      "status": "ok",
       "output_prefix": "barbarian",
       "class": "Barbarian",
-      "race": null,
-      "archetype": null,
+      "race": "Human",
+      "archetype": "Base",
       "mode": "extended",
       "spec_id": null,
       "model": null,
-      "background": null,
-      "error": "Risposta non JSON per Barbarian: Expecting value: line 1 column 1 (char 0)"
+      "background": null
     }
   ]
 }

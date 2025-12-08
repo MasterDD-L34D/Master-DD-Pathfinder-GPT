@@ -105,14 +105,37 @@ class BuildRequest:
         return slugify(self.class_name)
 
     def metadata(self) -> Mapping[str, object | None]:
+        resolved_race = (
+            self.race
+            or self.query_params.get("race")
+            or self.body_params.get("race")
+            or "Human"
+        )
+
+        resolved_archetype = (
+            self.archetype
+            or self.query_params.get("archetype")
+            or self.query_params.get("model")
+            or self.body_params.get("archetype")
+            or self.body_params.get("model")
+            or self.model
+            or "Base"
+        )
+
+        resolved_background = (
+            self.background
+            or self.body_params.get("background")
+            or self.body_params.get("background_hooks")
+        )
+
         return {
             "class": self.class_name,
-            "race": self.race,
-            "archetype": self.archetype,
+            "race": resolved_race,
+            "archetype": resolved_archetype,
             "mode": self.mode,
             "spec_id": self.spec_id,
             "model": self.model,
-            "background": self.background,
+            "background": resolved_background,
         }
 
 
@@ -136,7 +159,23 @@ _validator_cache: dict[str, Draft202012Validator] = {}
 _schema_store: dict[str, Mapping] = {}
 
 
+def _bootstrap_schema_store() -> None:
+    """Preload every local schema so $id references resolve offline."""
+
+    if _schema_store.get("__bootstrapped__"):
+        return
+
+    for path in SCHEMAS_DIR.glob("*.schema.json"):
+        schema = json.loads(path.read_text(encoding="utf-8"))
+        _schema_store[path.name] = schema
+        if "$id" in schema:
+            _schema_store[schema["$id"]] = schema
+
+    _schema_store["__bootstrapped__"] = {"loaded": True}
+
+
 def _load_validator(schema_filename: str) -> Draft202012Validator:
+    _bootstrap_schema_store()
     path = SCHEMAS_DIR / schema_filename
     if not path.is_file():
         raise FileNotFoundError(f"Schema non trovato: {path}")
@@ -421,6 +460,15 @@ async def fetch_build(
 
     narrative = payload.get("narrative")
     ledger = payload.get("ledger") or payload.get("adventurer_ledger")
+
+    build_state = payload.get("build_state") or {}
+
+    if request.race is None and build_state.get("race"):
+        request.race = build_state.get("race")
+    if request.archetype is None and build_state.get("archetype"):
+        request.archetype = build_state.get("archetype")
+    if request.background is None and request.body_params.get("background_hooks"):
+        request.background = str(request.body_params.get("background_hooks"))
 
     composite = {
         "build": {"build_state": payload.get("build_state"), "benchmark": payload.get("benchmark"), "export": payload.get("export")},
