@@ -63,19 +63,18 @@ def _list_files(base: Path) -> List[Dict]:
 
 
 @app.get("/health")
-async def health() -> Dict[str, str]:
+async def health() -> Dict[str, Dict]:
     """Simple healthcheck for Actions."""
-    error = _validate_directories()
-    if error:
-        raise HTTPException(status_code=503, detail=error)
+    diagnostic = _validate_directories()
+    status_code = 200 if diagnostic["status"] == "ok" else 503
 
-    return {"status": "ok"}
+    return JSONResponse(status_code=status_code, content=diagnostic)
 
 
 _dir_validation_error: str | None = None
 
 
-def _validate_directories(raise_on_error: bool = False) -> str | None:
+def _validate_directories(raise_on_error: bool = False) -> Dict[str, Dict]:
     """Ensure configured module/data directories exist and log issues.
 
     Parameters
@@ -86,21 +85,44 @@ def _validate_directories(raise_on_error: bool = False) -> str | None:
 
     global _dir_validation_error
 
+    directories: Dict[str, Dict[str, str | None]] = {}
     errors: list[str] = []
     for label, path in ("modules", MODULES_DIR), ("data", DATA_DIR):
-        if not path.exists() or not path.is_dir():
+        is_valid = path.exists() and path.is_dir()
+        message = None
+        if not is_valid:
             message = f"Directory {label} mancante o non accessibile: {path}"
-            logging.error(message)
+            logging.error(
+                "Directory validation failed",
+                extra={
+                    "event": "directory_validation_failed",
+                    "directory": label,
+                    "path": str(path),
+                    "detail": message,
+                },
+            )
             errors.append(message)
+
+        directories[label] = {
+            "status": "ok" if is_valid else "error",
+            "path": str(path),
+            "message": message,
+        }
+
+    diagnostic = {
+        "status": "ok" if not errors else "error",
+        "directories": directories,
+    }
 
     if errors:
         _dir_validation_error = "; ".join(errors)
+        diagnostic["errors"] = errors
         if raise_on_error:
             raise RuntimeError(_dir_validation_error)
     else:
         _dir_validation_error = None
 
-    return _dir_validation_error
+    return diagnostic
 
 
 @app.get("/modules", response_model=List[Dict])

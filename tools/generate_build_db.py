@@ -323,7 +323,19 @@ def validate_with_schema(
 
     message = "; ".join(error.message for error in errors)
     log_fn = logging.error if strict else logging.warning
-    log_fn("Payload %s non valido (%s): %s", context, schema_filename, message)
+    log_fn(
+        "Payload %s non valido (%s): %s",
+        context,
+        schema_filename,
+        message,
+        extra={
+            "event": "schema_validation_failed",
+            "context": context,
+            "schema": schema_filename,
+            "errors": [error.message for error in errors],
+            "paths": ["/".join(str(segment) for segment in error.path) for error in errors],
+        },
+    )
     if strict:
         raise ValidationError(message)
     return message
