@@ -364,6 +364,11 @@ def parse_args() -> argparse.Namespace:
         help="Scrive comunque i payload non validi invece di scartarli",
     )
     parser.add_argument(
+        "--require-complete",
+        action="store_true",
+        help="Considera incompleti i payload privi di statistiche/narrativa/ledger e riprova automaticamente",
+    )
+    parser.add_argument(
         "--discover-modules",
         action="store_true",
         help="Recupera automaticamente la lista di moduli disponibili da /modules",
@@ -457,6 +462,7 @@ async def fetch_build(
     api_key: str | None,
     request: BuildRequest,
     max_retries: int,
+    require_complete: bool = False,
 ) -> MutableMapping:
     params: MutableMapping[str, object] = {"mode": request.mode, "class": request.class_name}
     params.update(request.query_params)
@@ -540,6 +546,29 @@ async def fetch_build(
     if ledger is not None:
         composite["ledger"] = ledger
 
+    completeness_errors: list[str] = []
+    statistics = (build_state or {}).get("statistics") or (payload.get("benchmark") or {}).get("statistics")
+    if not statistics or (isinstance(statistics, Mapping) and not any(statistics.values())):
+        completeness_errors.append("Statistiche mancanti o vuote")
+
+    if not narrative:
+        completeness_errors.append("Narrativa assente")
+    else:
+        def _contains_stub(value: object) -> bool:
+            if isinstance(value, str):
+                return "stub" in value.lower()
+            if isinstance(value, Mapping):
+                return any(_contains_stub(v) for v in value.values())
+            if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+                return any(_contains_stub(v) for v in value)
+            return False
+
+        if _contains_stub(narrative):
+            completeness_errors.append("Narrativa contiene placeholder 'stub'")
+
+    if not ledger or (isinstance(ledger, Mapping) and not any(ledger.values())):
+        completeness_errors.append("Ledger assente o senza contenuti")
+
     payload.update({
         "class": request.class_name,
         "mode": request.mode,
@@ -558,7 +587,16 @@ async def fetch_build(
             "step_labels_count": step_labels_count,
             "has_extended_steps": has_extended_steps,
         },
+        "completeness": {
+            "errors": completeness_errors,
+            "require_complete": require_complete,
+        },
     })
+    if require_complete and completeness_errors:
+        joined_errors = "; ".join(completeness_errors)
+        raise BuildFetchError(
+            f"Build incompleta per {request.class_name}: {joined_errors}"
+        )
     return payload
 
 
@@ -696,6 +734,7 @@ async def run_harvest(
     exclude_filters: Sequence[str] | None = None,
     strict: bool = False,
     keep_invalid: bool = False,
+    require_complete: bool = False,
 ) -> None:
     requests = list(requests)
     ensure_output_dirs(output_dir)
@@ -771,7 +810,33 @@ async def run_harvest(
                         method,
                     )
                     try:
-                        payload = await fetch_build(client, api_key, request, max_retries)
+                        payload: MutableMapping | None = None
+                        for attempt in range(max_retries + 1):
+                            try:
+                                payload = await fetch_build(
+                                    client,
+                                    api_key,
+                                    request,
+                                    max_retries,
+                                    require_complete=require_complete,
+                                )
+                                break
+                            except BuildFetchError as exc:
+                                if attempt >= max_retries:
+                                    raise
+                                delay = 1 + attempt
+                                logging.warning(
+                                    "Payload incompleto per %s (%s). Retry in %ss...",
+                                    request.class_name,
+                                    exc,
+                                    delay,
+                                )
+                                await asyncio.sleep(delay)
+
+                        if payload is None:
+                            raise BuildFetchError(
+                                f"Impossibile recuperare payload per {request.class_name}"
+                            )
                         validation_error = validate_with_schema(
                             schema_for_mode(request.mode),
                             payload,
@@ -794,6 +859,20 @@ async def run_harvest(
                             validation_error = f"{validation_error}; {sheet_validation}"
                         elif validation_error is None:
                             validation_error = sheet_validation
+                        completeness_errors = (
+                            payload.get("completeness", {}).get("errors")
+                            if isinstance(payload.get("completeness"), Mapping)
+                            else None
+                        )
+                        if completeness_errors:
+                            completeness_text = "; ".join(
+                                str(error) for error in completeness_errors
+                            )
+                            validation_error = (
+                                completeness_text
+                                if validation_error is None
+                                else f"{validation_error}; {completeness_text}"
+                            )
                         status = "ok" if validation_error is None else "invalid"
                         if status == "ok" or keep_invalid:
                             write_json(destination, payload)
@@ -801,6 +880,11 @@ async def run_harvest(
                         else:
                             if destination.exists():
                                 destination.unlink()
+                            logging.warning(
+                                "Payload per %s scartato per incompletezza/invalidazione: %s",
+                                request.output_name(),
+                                validation_error,
+                            )
                             output_path = None
                         return request.output_name(), build_index_entry(
                             request,
@@ -811,6 +895,19 @@ async def run_harvest(
                         )
                     except ValidationError:
                         raise
+                    except BuildFetchError as exc:
+                        logging.error(
+                            "Build %s marcata come errore per incompletezza: %s",
+                            request.class_name,
+                            exc,
+                        )
+                        return request.output_name(), build_index_entry(
+                            request,
+                            None,
+                            "error",
+                            str(exc),
+                            payload.get("step_audit") if "payload" in locals() else None,
+                        )
                     except Exception as exc:  # pragma: no cover - network dependent
                         logging.exception("Errore durante la fetch di %s", request.class_name)
                         return request.output_name(), build_index_entry(
@@ -905,6 +1002,7 @@ def main() -> None:
             args.exclude,
             strict_mode,
             args.keep_invalid,
+            args.require_complete,
         )
     )
 
