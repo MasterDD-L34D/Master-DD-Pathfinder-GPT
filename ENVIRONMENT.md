@@ -1,0 +1,35 @@
+# Environment Details
+
+- Python interpreter: 3.12.12
+- Virtual environment: .venv (created via `python -m venv .venv`)
+
+## Installed Packages (pip freeze)
+```
+annotated-doc==0.0.4
+annotated-types==0.7.0
+anyio==4.12.0
+attrs==25.4.0
+certifi==2025.11.12
+click==8.3.1
+fastapi==0.124.0
+h11==0.16.0
+httpcore==1.0.9
+httptools==0.7.1
+httpx==0.28.1
+idna==3.11
+jsonschema==4.25.1
+jsonschema-specifications==2025.9.1
+pydantic==2.12.5
+pydantic_core==2.41.5
+python-dotenv==1.2.1
+PyYAML==6.0.3
+referencing==0.37.0
+rpds-py==0.30.0
+starlette==0.50.0
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+uvicorn==0.38.0
+uvloop==0.22.1
+watchfiles==1.1.1
+websockets==15.0.1
+```
