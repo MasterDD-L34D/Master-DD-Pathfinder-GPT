@@ -5,8 +5,10 @@ from typing import Dict, List
 
 from fastapi import Body, Depends, FastAPI, Header, HTTPException, Query
 from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from jsonschema.exceptions import ValidationError
 
 from .config import MODULES_DIR, DATA_DIR, settings
+from tools.generate_build_db import schema_for_mode, validate_with_schema
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
@@ -276,6 +278,20 @@ async def get_module_content(
             "sheet": payload["sheet"],
             "ledger": ledger,
         }
+
+        schema_filename = schema_for_mode(normalized_mode)
+        try:
+            validate_with_schema(
+                schema_filename,
+                payload,
+                "minmax_builder_stub",
+                strict=True,
+            )
+        except ValidationError as exc:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Stub payload non valido per {schema_filename}: {exc}",
+            ) from exc
 
         return JSONResponse(payload)
 
