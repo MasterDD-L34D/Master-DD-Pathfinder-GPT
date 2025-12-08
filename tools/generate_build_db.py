@@ -547,7 +547,11 @@ async def fetch_build(
     max_retries: int,
     require_complete: bool = False,
 ) -> MutableMapping:
-    params: MutableMapping[str, object] = {"mode": request.mode, "class": request.class_name}
+    params: MutableMapping[str, object] = {
+        "mode": request.mode,
+        "class": request.class_name,
+        "stub": True,
+    }
     params.update(request.query_params)
     headers = {"x-api-key": api_key} if api_key else {}
     method = request.http_method()

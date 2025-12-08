@@ -40,6 +40,23 @@ def test_get_module_content_valid_file(client, auth_headers):
     assert "base" in response.text.lower()
 
 
+def test_minmax_builder_returns_file_content_by_default(client, auth_headers):
+    response = client.get("/modules/minmax_builder.txt", headers=auth_headers)
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/plain")
+    assert "MinMax Builder" in response.text
+    assert response.text.lstrip().startswith("module_name")
+
+
+def test_minmax_builder_stub_is_opt_in(client, auth_headers):
+    response = client.get("/modules/minmax_builder.txt?mode=stub", headers=auth_headers)
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("application/json")
+    payload = response.json()
+    assert payload["build_state"]["mode"] in {"core", "extended"}
+    assert payload["sheet"]["classi"][0]["nome"] == "Unknown"
+
+
 def test_get_module_content_path_traversal(client, auth_headers):
     response = client.get(f"/modules/{quote('../config.py', safe='')}" , headers=auth_headers)
     assert response.status_code == 400
