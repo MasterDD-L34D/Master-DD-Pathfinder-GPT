@@ -1831,6 +1831,165 @@ steps:
         - when_unmet: 'true'
           text: Crea variante finale
           command: /fork_build variante_finale
+  - id: 9
+    step_badge: "\U0001F4D1"
+    name: Dummies Sheet
+    progress_pct: 105
+    goal: Generare bersagli/alleati dummy per prove veloci.
+    functions:
+      - Snapshot build e layout dummy
+      - Mini-simulazioni su dummy con bench rapido
+    commands:
+      - /bench -q
+      - /simulate_build
+      - /next_step
+    exit_conditions:
+      must_pass: []
+    cta:
+      primary:
+        text: Vai allo Step 10 (Esportazione avanzata)
+        command: /next_step
+  - id: 10
+    step_badge: "\U0001F5CE"
+    name: Esportazione
+    progress_pct: 110
+    goal: Export finale con guardie QA attive.
+    functions:
+      - Export PDF/VTT/Excel
+      - Gate QA @export_requires
+    commands:
+      - /qa_check
+      - /export_build pdf
+      - /export_vtt
+      - /export_build excel
+      - /next_step
+    exit_conditions:
+      must_pass:
+        - qa_templates.gates.export_requires
+    cta:
+      primary:
+        text: Esporta e passa alle varianti
+        command: /export_build pdf
+      alternatives:
+        - when_unmet: '!qa_templates.gates.export_requires'
+          text: Risolvi QA bloccanti
+          command: /qa_check
+  - id: 11
+    step_badge: "\U0001F4DA"
+    name: Fork/Varianti
+    progress_pct: 115
+    goal: Creare o ripristinare varianti post-export.
+    functions:
+      - Fork/Rollback controllati
+      - Annotazione differenze tra varianti
+    commands:
+      - /fork_build variante_label
+      - /rollback_phase 8
+      - /next_step
+    exit_conditions:
+      must_pass: []
+    cta:
+      primary:
+        text: Genera una variante e continua
+        command: /fork_build variante_label
+      alternatives:
+        - when_unmet: 'true'
+          text: Nessuna variante? Prosegui
+          command: /next_step
+  - id: 12
+    step_badge: "\U0001F4CF"
+    name: Comparativa
+    progress_pct: 120
+    goal: Confrontare build/varianti con benchmark dedicati.
+    functions:
+      - Benchmark compare RAW-safe
+      - Gate QA @export_requires prima della comparativa
+    commands:
+      - '/benchmark_compare "Ref" {...}'
+      - /run_benchmark
+      - /next_step
+    exit_conditions:
+      must_pass:
+        - qa_templates.gates.export_requires
+    cta:
+      primary:
+        text: Esegui comparativa
+        command: '/benchmark_compare "Ref" {...}'
+      alternatives:
+        - when_unmet: '!qa_templates.gates.export_requires'
+          text: Completa QA prima della comparativa
+          command: /qa_check
+  - id: 13
+    step_badge: "\U0001F575"
+    name: Meta Rating
+    progress_pct: 125
+    goal: Validare la build con MDA e rating meta.
+    functions:
+      - MDA pass multipli
+      - Consolidamento Risk/Meta Tier
+    commands:
+      - /run_mda MinMax
+      - /risk_heatmap
+      - /next_step
+    exit_conditions:
+      must_pass: []
+    cta:
+      primary:
+        text: Registra il Meta Rating
+        command: /run_mda MinMax
+  - id: 14
+    step_badge: "\U0001F9D1\U0001F3FB\U200D\U0001F4BB"
+    name: Companion
+    progress_pct: 130
+    goal: Configurare companion/famiglio collegato alla build.
+    functions:
+      - Creazione companion e link statistiche PG
+      - QA companion cross-reference
+    commands:
+      - /set_companion
+      - /update_build {...}
+      - /next_step
+    exit_conditions:
+      must_pass: []
+    cta:
+      primary:
+        text: Imposta il companion e continua
+        command: /set_companion
+  - id: 15
+    step_badge: "\U0001F4C8"
+    name: Report
+    progress_pct: 135
+    goal: Preparare summary esecutivo e log finale.
+    functions:
+      - Report summary + delta varianti
+      - Export riepilogo in PDF/Markdown
+    commands:
+      - /report_summary
+      - /export_build pdf
+      - /next_step
+    exit_conditions:
+      must_pass: []
+    cta:
+      primary:
+        text: Genera il report
+        command: /report_summary
+  - id: 16
+    step_badge: "\U0001F389"
+    name: Chiusura
+    progress_pct: 140
+    goal: Chiudere la sessione con salvataggio e CTA finali.
+    functions:
+      - Salvataggio stato/varianti
+      - CTA follow-up (nuova build o feedback)
+    commands:
+      - /save_build
+      - /next_step
+    exit_conditions:
+      must_pass: []
+    cta:
+      primary:
+        text: Chiudi e archivia
+        command: /save_build
 qa_templates:
   errors:
     invalid_class: Classe non valida. Scegli una classe ufficiale PF1e (RAW).
@@ -1867,8 +2026,13 @@ extensions:
     examples:
       - input: '/show_visual_map Flow:Build'
         output: >
-          /start_build → [Setup] → [Core] → [Ottimizzazione] → [Benchmark] →
-          [Meta] → [Dummies] → [Export]
+          mode=core → /start_build → [Setup] → [Core] → [Ottimizzazione] →
+          [Benchmark] → [QA/Export]
+
+          mode=extended → /start_build → [Setup] → [Core] → [Ottimizzazione]
+          → [Benchmark] → [QA/Export] → [Dummies] → [Export avanzata]
+          → [Fork/Varianti] → [Comparativa] → [Meta Rating] → [Companion]
+          → [Report] → [Chiusura]
 
           Legend: ▢ step | ⇄ rollback | ⚠ check
       - input: '/show_visual_map Module:MinMax'
