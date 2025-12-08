@@ -219,6 +219,15 @@ def test_get_module_content_path_traversal(client, auth_headers):
     assert response.json()["detail"] == "Invalid module path"
 
 
+def test_get_module_content_path_traversal_double_back(client, auth_headers):
+    traversal = quote("nested/../../secret.txt", safe="")
+
+    response = client.get(f"/modules/{traversal}", headers=auth_headers)
+
+    assert response.status_code == 400
+    assert response.json()["detail"] == "Invalid module path"
+
+
 def test_get_module_content_not_found(client, auth_headers):
     response = client.get("/modules/missing_module.txt", headers=auth_headers)
     assert response.status_code == 404
@@ -340,6 +349,23 @@ def test_get_module_meta_path_traversal(client, auth_headers):
     )
     assert response.status_code == 400
     assert response.json()["detail"] == "Invalid module path"
+
+
+def test_get_module_rejects_symlink_outside_modules(
+    client, auth_headers, tmp_path
+):
+    external_file = tmp_path / "outside.txt"
+    external_file.write_text("top-secret")
+
+    symlink_path = MODULES_DIR / "outside_link.txt"
+    symlink_path.symlink_to(external_file)
+
+    try:
+        response = client.get("/modules/outside_link.txt", headers=auth_headers)
+        assert response.status_code == 400
+        assert response.json()["detail"] == "Invalid module path"
+    finally:
+        symlink_path.unlink(missing_ok=True)
 
 
 def test_get_knowledge_meta_valid_file(client, auth_headers):
