@@ -50,6 +50,9 @@ solo se ti serve il dump completo.
 ### Avvio API locale
 
 ```bash
+export API_KEY="la-tua-chiave"
+# opzionale: sblocca l'accesso senza chiave
+# export ALLOW_ANONYMOUS=true
 uvicorn src.app:app --reload --port 8000
 ```
 
