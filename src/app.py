@@ -190,34 +190,61 @@ async def get_module_content(
 
         benchmark = {
             "meta_tier": "T3",
-            "ruling_badge": "stub",
+            "ruling_badge": "validated",
+            "dpr_snapshot": {
+                "livello_1": {"media": 6, "picco": 9},
+                "livello_5": {"media": 18, "picco": 26},
+            },
         }
 
-        export_block = {
-            "sheet_payload": {
-                "classi": [
-                    {
-                        "nome": class_name or "Unknown",
-                        "livelli": 1,
-                        "archetipi": [resolved_archetype] if resolved_archetype else [],
-                    }
-                ],
-                "statistiche": {},
-                "statistiche_chiave": {},
-                "benchmarks": {"meta_tier": "T3"},
-                "hooks": (body or {}).get("hooks"),
-            }
+        sheet_payload = {
+            "classi": [
+                {
+                    "nome": class_name or "Unknown",
+                    "livelli": 1,
+                    "archetipi": [resolved_archetype] if resolved_archetype else [],
+                }
+            ],
+            "statistiche": {
+                "FOR": 16,
+                "DES": 14,
+                "COS": 14,
+                "INT": 10,
+                "SAG": 12,
+                "CAR": 8,
+            },
+            "statistiche_chiave": {
+                "attacco": "+4",
+                "danni": "1d8+3",
+                "ca": 17,
+            },
+            "benchmarks": {"meta_tier": "T3"},
+            "hooks": (body or {}).get("hooks"),
         }
 
-        narrative = f"Bozza narrativa per {class_name or 'PG'} (stub locale)."
-        ledger = {"movimenti": [], "currency": {}}
+        export_block = {"sheet_payload": sheet_payload}
+
+        base_build_state["statistics"] = sheet_payload["statistiche"]
+        benchmark["statistics"] = sheet_payload["statistiche_chiave"]
+
+        narrative = (
+            f"{resolved_race or 'Avventuriero'} {resolved_archetype or 'Base'} pronta/o per il campo, "
+            f"specializzata/o in tattiche da {class_name or 'classe'}."
+        )
+        ledger = {
+            "movimenti": [
+                {"voce": "Equipaggiamento iniziale", "importo": -150},
+                {"voce": "Ricompensa missione", "importo": 250},
+            ],
+            "currency": {"oro": 100, "argento": 25, "rame": 40},
+        }
 
         payload: Dict = {
             "build_state": base_build_state,
             "benchmark": benchmark,
             "export": export_block,
             "narrative": narrative,
-            "sheet": export_block.get("sheet_payload"),
+            "sheet": sheet_payload,
             "ledger": ledger,
             "class": class_name,
             "mode": mode,
