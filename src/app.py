@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Dict, List
 
 from fastapi import Body, Depends, FastAPI, Header, HTTPException, Query
-from fastapi.responses import JSONResponse, PlainTextResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 
 from .config import MODULES_DIR, DATA_DIR, settings
 
@@ -123,7 +123,19 @@ async def get_module_meta(name: str, _: None = Depends(require_api_key)) -> Dict
     }
 
 
-@app.api_route("/modules/{name:path}", methods=["GET", "POST"], response_class=PlainTextResponse)
+TEXT_SUFFIXES = {".txt", ".md"}
+
+
+def _media_type_for_path(path: Path) -> str:
+    suffix = path.suffix.lower()
+    if suffix == ".txt":
+        return "text/plain"
+    if suffix == ".md":
+        return "text/markdown"
+    return "text/plain"
+
+
+@app.api_route("/modules/{name:path}", methods=["GET", "POST"])
 async def get_module_content(
     name: str,
     mode: str = Query(default="extended"),
@@ -272,12 +284,30 @@ async def get_module_content(
         raise HTTPException(status_code=400, detail="Invalid module path")
     if not path.is_file():
         raise HTTPException(status_code=404, detail="Module not found")
-    text = path.read_text(encoding="utf-8", errors="ignore")
-    if not settings.allow_module_dump:
-        max_chars = 4000
-        if len(text) > max_chars:
-            text = text[:max_chars] + "\n\n[contenuto troncato]"
-    return text
+    media_type = _media_type_for_path(path)
+    is_text = path.suffix.lower() in TEXT_SUFFIXES
+
+    if not is_text and not settings.allow_module_dump:
+        raise HTTPException(status_code=403, detail="Module download not allowed")
+
+    if not is_text and settings.allow_module_dump:
+        return FileResponse(path, media_type=media_type, filename=path.name)
+
+    if settings.allow_module_dump:
+        return FileResponse(path, media_type=media_type, filename=path.name)
+
+    max_chars = 4000
+
+    def _truncated_text():
+        with path.open("r", encoding="utf-8", errors="ignore") as source:
+            chunk = source.read(max_chars + 1)
+        if len(chunk) > max_chars:
+            yield chunk[:max_chars]
+            yield "\n\n[contenuto troncato]"
+        else:
+            yield chunk
+
+    return StreamingResponse(_truncated_text(), media_type=media_type)
 
 
 @app.get("/knowledge", response_model=List[Dict])

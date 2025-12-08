@@ -40,6 +40,12 @@ def test_get_module_content_valid_file(client, auth_headers):
     assert "base" in response.text.lower()
 
 
+def test_get_module_content_sets_text_content_type(client, auth_headers):
+    response = client.get("/modules/base_profile.txt", headers=auth_headers)
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/plain")
+
+
 def test_minmax_builder_returns_file_content_by_default(client, auth_headers):
     response = client.get("/modules/minmax_builder.txt", headers=auth_headers)
     assert response.status_code == 200
@@ -67,6 +73,38 @@ def test_get_module_content_not_found(client, auth_headers):
     response = client.get("/modules/missing_module.txt", headers=auth_headers)
     assert response.status_code == 404
     assert response.json()["detail"] == "Module not found"
+
+
+def test_get_module_content_binary_streamed_without_text_property(
+    client, auth_headers
+):
+    binary_path = MODULES_DIR / "binary_test.bin"
+    binary_path.write_bytes(b"\x00\x01" * 2048)
+
+    try:
+        with client.stream(
+            "GET", "/modules/binary_test.bin", headers=auth_headers
+        ) as response:
+            assert response.status_code == 200
+            assert response.headers["content-type"].startswith("text/plain")
+            assert response.is_stream_consumed is False
+    finally:
+        binary_path.unlink(missing_ok=True)
+
+
+def test_get_module_content_binary_blocked_when_dump_disabled(client, auth_headers):
+    binary_path = MODULES_DIR / "binary_blocked.bin"
+    binary_path.write_bytes(b"binary-content")
+    original = settings.allow_module_dump
+    settings.allow_module_dump = False
+
+    try:
+        response = client.get("/modules/binary_blocked.bin", headers=auth_headers)
+        assert response.status_code == 403
+        assert response.json()["detail"] == "Module download not allowed"
+    finally:
+        settings.allow_module_dump = original
+        binary_path.unlink(missing_ok=True)
 
 
 def test_get_module_meta_valid_file(client, auth_headers):
