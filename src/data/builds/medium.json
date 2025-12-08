@@ -23,11 +23,34 @@
       "14": "Companion",
       "15": "Report",
       "16": "Chiusura"
+    },
+    "statistics": {
+      "FOR": 16,
+      "DES": 14,
+      "COS": 14,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 8
     }
   },
   "benchmark": {
     "meta_tier": "T3",
-    "ruling_badge": "stub"
+    "ruling_badge": "validated",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 6,
+        "picco": 9
+      },
+      "livello_5": {
+        "media": 18,
+        "picco": 26
+      }
+    },
+    "statistics": {
+      "attacco": "+4",
+      "danni": "1d8+3",
+      "ca": 17
+    }
   },
   "export": {
     "sheet_payload": {
@@ -40,15 +63,51 @@
           ]
         }
       ],
-      "statistiche": {},
-      "statistiche_chiave": {},
+      "statistiche": {
+        "FOR": 16,
+        "DES": 14,
+        "COS": 14,
+        "INT": 10,
+        "SAG": 12,
+        "CAR": 8
+      },
+      "statistiche_chiave": {
+        "attacco": "+4",
+        "danni": "1d8+3",
+        "ca": 17
+      },
       "benchmarks": {
         "meta_tier": "T3"
       },
-      "hooks": null
+      "hooks": null,
+      "salvezze": {
+        "tempra": "+4",
+        "riflessi": "+4",
+        "volonta": "+2"
+      },
+      "fonti": [
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&race=Human"
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 250
+          }
+        ],
+        "currency": {
+          "oro": 100,
+          "argento": 25,
+          "rame": 40
+        }
+      }
     }
   },
-  "narrative": "Bozza narrativa per Medium (stub locale).",
+  "narrative": "Human Base pronta/o per il campo, specializzata/o in tattiche da Medium.",
   "sheet": {
     "classi": [
       {
@@ -59,16 +118,40 @@
         ]
       }
     ],
-    "statistiche": {},
-    "statistiche_chiave": {},
+    "statistiche": {
+      "FOR": 16,
+      "DES": 14,
+      "COS": 14,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 8
+    },
+    "statistiche_chiave": {
+      "attacco": "+4",
+      "danni": "1d8+3",
+      "ca": 17
+    },
     "benchmarks": {
       "meta_tier": "T3"
     },
     "hooks": null
   },
   "ledger": {
-    "movimenti": [],
-    "currency": {}
+    "movimenti": [
+      {
+        "voce": "Equipaggiamento iniziale",
+        "importo": -150
+      },
+      {
+        "voce": "Ricompensa missione",
+        "importo": 250
+      }
+    ],
+    "currency": {
+      "oro": 100,
+      "argento": 25,
+      "rame": 40
+    }
   },
   "class": "Medium",
   "mode": "extended",
@@ -98,11 +181,34 @@
           "14": "Companion",
           "15": "Report",
           "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 16,
+          "DES": 14,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8
         }
       },
       "benchmark": {
         "meta_tier": "T3",
-        "ruling_badge": "stub"
+        "ruling_badge": "validated",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 6,
+            "picco": 9
+          },
+          "livello_5": {
+            "media": 18,
+            "picco": 26
+          }
+        },
+        "statistics": {
+          "attacco": "+4",
+          "danni": "1d8+3",
+          "ca": 17
+        }
       },
       "export": {
         "sheet_payload": {
@@ -115,8 +221,19 @@
               ]
             }
           ],
-          "statistiche": {},
-          "statistiche_chiave": {},
+          "statistiche": {
+            "FOR": 16,
+            "DES": 14,
+            "COS": 14,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 8
+          },
+          "statistiche_chiave": {
+            "attacco": "+4",
+            "danni": "1d8+3",
+            "ca": 17
+          },
           "benchmarks": {
             "meta_tier": "T3"
           },
@@ -124,7 +241,7 @@
         }
       }
     },
-    "narrative": "Bozza narrativa per Medium (stub locale).",
+    "narrative": "Human Base pronta/o per il campo, specializzata/o in tattiche da Medium.",
     "sheet": {
       "classi": [
         {
@@ -135,33 +252,59 @@
           ]
         }
       ],
-      "statistiche": {},
-      "statistiche_chiave": {},
+      "statistiche": {
+        "FOR": 16,
+        "DES": 14,
+        "COS": 14,
+        "INT": 10,
+        "SAG": 12,
+        "CAR": 8
+      },
+      "statistiche_chiave": {
+        "attacco": "+4",
+        "danni": "1d8+3",
+        "ca": 17
+      },
       "benchmarks": {
         "meta_tier": "T3"
       },
       "hooks": null
     },
     "ledger": {
-      "movimenti": [],
-      "currency": {}
+      "movimenti": [
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 250
+        }
+      ],
+      "currency": {
+        "oro": 100,
+        "argento": 25,
+        "rame": 40
+      }
     }
   },
-  "source_url": "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Medium",
-  "fetched_at": "2025-12-08T15:29:38Z",
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&race=Human",
+  "fetched_at": "2025-12-08T17:15:42Z",
   "request": {
     "class": "Medium",
     "race": "Human",
     "archetype": "Base",
     "mode": "extended",
     "mode_normalized": "extended",
-    "spec_id": null,
+    "spec_id": "Medium::Human::Base",
     "model": null,
     "background": null
   },
   "query_params": {
     "mode": "extended",
-    "class": "Medium"
+    "class": "Medium",
+    "stub": true,
+    "race": "Human"
   },
   "body_params": {},
   "mode_normalized": "extended",
@@ -172,5 +315,9 @@
     "step_total_ok": true,
     "step_labels_count": 16,
     "has_extended_steps": true
+  },
+  "completeness": {
+    "errors": [],
+    "require_complete": false
   }
 }
