@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathfinder-master-dd/schemas/module_metadata.schema.json",
+  "title": "Master DD module metadata",
+  "type": "object",
+  "required": [
+    "name",
+    "size_bytes",
+    "suffix"
+  ],
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "size_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "suffix": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

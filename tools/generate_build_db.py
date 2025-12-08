@@ -15,6 +15,8 @@ from typing import Iterable, List, Mapping, MutableMapping, Sequence
 import yaml
 
 import httpx
+from jsonschema import Draft202012Validator, RefResolver
+from jsonschema.exceptions import ValidationError
 
 # Lista di classi PF1e target supportate dal builder
 PF1E_CLASSES: List[str] = [
@@ -63,6 +65,14 @@ MODULE_ENDPOINT = "/modules/minmax_builder.txt"
 MODULE_DUMP_ENDPOINT = "/modules/{name}"
 MODULE_META_ENDPOINT = "/modules/{name}/meta"
 MODULE_LIST_ENDPOINT = "/modules"
+
+SCHEMAS_DIR = Path(__file__).resolve().parent.parent / "schemas"
+BUILD_SCHEMA_MAP = {
+    "core": "build_core.schema.json",
+    "extended": "build_extended.schema.json",
+    "full-pg": "build_full_pg.schema.json",
+}
+MODULE_SCHEMA = "module_metadata.schema.json"
 
 # Moduli "grezzi" utili per generare schede e flussi completi
 DEFAULT_MODULE_TARGETS: Sequence[str] = (
@@ -120,6 +130,50 @@ def ensure_output_dirs(output_dir: Path) -> None:
 
 def _normalize_mapping(data: Mapping | None) -> Mapping[str, object]:
     return {str(key): value for key, value in (data or {}).items() if value is not None}
+
+
+_validator_cache: dict[str, Draft202012Validator] = {}
+_schema_store: dict[str, Mapping] = {}
+
+
+def _load_validator(schema_filename: str) -> Draft202012Validator:
+    path = SCHEMAS_DIR / schema_filename
+    if not path.is_file():
+        raise FileNotFoundError(f"Schema non trovato: {path}")
+
+    schema = json.loads(path.read_text(encoding="utf-8"))
+    _schema_store[schema_filename] = schema
+    if "$id" in schema:
+        _schema_store[schema["$id"]] = schema
+    resolver = RefResolver(base_uri=path.resolve().as_uri(), referrer=schema, store=_schema_store)
+    return Draft202012Validator(schema, resolver=resolver)
+
+
+def get_validator(schema_filename: str) -> Draft202012Validator:
+    if schema_filename not in _validator_cache:
+        _validator_cache[schema_filename] = _load_validator(schema_filename)
+    return _validator_cache[schema_filename]
+
+
+def schema_for_mode(mode: str) -> str:
+    normalized = mode.lower()
+    return BUILD_SCHEMA_MAP.get(normalized, BUILD_SCHEMA_MAP[DEFAULT_MODE])
+
+
+def validate_with_schema(
+    schema_filename: str, payload: Mapping, context: str, *, strict: bool
+) -> str | None:
+    validator = get_validator(schema_filename)
+    errors = sorted(validator.iter_errors(payload), key=lambda err: err.path)
+    if not errors:
+        return None
+
+    message = "; ".join(error.message for error in errors)
+    log_fn = logging.error if strict else logging.warning
+    log_fn("Payload %s non valido (%s): %s", context, schema_filename, message)
+    if strict:
+        raise ValidationError(message)
+    return message
 
 
 def apply_glob_filters(entries: Sequence[str], include: Sequence[str], exclude: Sequence[str]) -> list[str]:
@@ -196,7 +250,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--mode",
         default=DEFAULT_MODE,
-        choices=["core", "extended"],
+        choices=["core", "extended", "full-pg"],
         help="Modalità di flow da richiedere al builder (default: %(default)s)",
     )
     parser.add_argument(
@@ -240,6 +294,21 @@ def parse_args() -> argparse.Namespace:
         nargs="*",
         default=list(DEFAULT_MODULE_TARGETS),
         help="Elenco moduli da scaricare in parallelo alle build",
+    )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help="Interrompe l'esecuzione al primo errore di validazione",
+    )
+    parser.add_argument(
+        "--warn-only",
+        action="store_true",
+        help="Continua l'esecuzione loggando gli errori di validazione (default)",
+    )
+    parser.add_argument(
+        "--keep-invalid",
+        action="store_true",
+        help="Scrive comunque i payload non validi invece di scartarli",
     )
     parser.add_argument(
         "--discover-modules",
@@ -446,7 +515,7 @@ def write_json(path: Path, data: Mapping) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def build_index_entry(request: BuildRequest, output_file: Path, status: str, error: str | None = None) -> Mapping:
+def build_index_entry(request: BuildRequest, output_file: Path | None, status: str, error: str | None = None) -> Mapping:
     entry: dict[str, object] = {
         "file": str(output_file) if output_file else None,
         "status": status,
@@ -458,7 +527,13 @@ def build_index_entry(request: BuildRequest, output_file: Path, status: str, err
     return entry
 
 
-def module_index_entry(name: str, output_file: Path, status: str, meta: Mapping | None = None, error: str | None = None) -> Mapping:
+def module_index_entry(
+    name: str,
+    output_file: Path | None,
+    status: str,
+    meta: Mapping | None = None,
+    error: str | None = None,
+) -> Mapping:
     entry: dict[str, object] = {
         "module": name,
         "file": str(output_file) if output_file else None,
@@ -486,6 +561,8 @@ async def run_harvest(
     discover: bool = False,
     include_filters: Sequence[str] | None = None,
     exclude_filters: Sequence[str] | None = None,
+    strict: bool = False,
+    keep_invalid: bool = False,
 ) -> None:
     requests = list(requests)
     ensure_output_dirs(output_dir)
@@ -549,8 +626,25 @@ async def run_harvest(
                     )
                     try:
                         payload = await fetch_build(client, api_key, request, max_retries)
-                        write_json(destination, payload)
-                        return request.output_name(), build_index_entry(request, destination, "ok")
+                        validation_error = validate_with_schema(
+                            schema_for_mode(request.mode),
+                            payload,
+                            f"build {request.output_name()}",
+                            strict=strict,
+                        )
+                        status = "ok" if validation_error is None else "invalid"
+                        if status == "ok" or keep_invalid:
+                            write_json(destination, payload)
+                            output_path: Path | None = destination
+                        else:
+                            if destination.exists():
+                                destination.unlink()
+                            output_path = None
+                        return request.output_name(), build_index_entry(
+                            request, output_path, status, validation_error
+                        )
+                    except ValidationError:
+                        raise
                     except Exception as exc:  # pragma: no cover - network dependent
                         logging.exception("Errore durante la fetch di %s", request.class_name)
                         return request.output_name(), build_index_entry(request, None, "error", str(exc))
@@ -566,9 +660,29 @@ async def run_harvest(
                     logging.info("Scarico modulo raw %s", name)
                     try:
                         content, meta = await fetch_module(client, api_key, name, max_retries)
-                        destination.parent.mkdir(parents=True, exist_ok=True)
-                        destination.write_text(content, encoding="utf-8")
-                        return name, module_index_entry(name, destination, "ok", meta)
+                        validation_error = validate_with_schema(
+                            MODULE_SCHEMA,
+                            meta,
+                            f"module meta {name}",
+                            strict=strict,
+                        )
+                        status = "ok" if validation_error is None else "invalid"
+                        destination_path: Path | None = None
+                        if status == "ok" or keep_invalid:
+                            destination.parent.mkdir(parents=True, exist_ok=True)
+                            destination.write_text(content, encoding="utf-8")
+                            destination_path = destination
+                        elif destination.exists():
+                            destination.unlink()
+                        return name, module_index_entry(
+                            name,
+                            destination_path,
+                            status,
+                            meta if validation_error is None else None,
+                            validation_error,
+                        )
+                    except ValidationError:
+                        raise
                     except Exception as exc:  # pragma: no cover - network dependent
                         logging.exception("Errore durante il download di %s", name)
                         return name, module_index_entry(name, None, "error", error=str(exc))
@@ -592,6 +706,7 @@ def main() -> None:
     args = parse_args()
     logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
     requests = build_requests_from_args(args)
+    strict_mode = args.strict and not args.warn_only
     asyncio.run(
         run_harvest(
             requests,
@@ -608,6 +723,8 @@ def main() -> None:
             args.discover_modules,
             args.include,
             args.exclude,
+            strict_mode,
+            args.keep_invalid,
         )
     )
 

@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathfinder-master-dd/schemas/build_core.schema.json",
+  "title": "Master DD build payload (core)",
+  "type": "object",
+  "required": [
+    "build_state",
+    "benchmark",
+    "export"
+  ],
+  "properties": {
+    "build_state": {
+      "$ref": "#/$defs/build_state"
+    },
+    "benchmark": {
+      "$ref": "#/$defs/benchmark"
+    },
+    "export": {
+      "$ref": "#/$defs/export"
+    },
+    "narrative": {
+      "$ref": "#/$defs/textual_block"
+    },
+    "sheet": {
+      "$ref": "#/$defs/textual_block"
+    },
+    "ledger": {
+      "$ref": "#/$defs/textual_block"
+    },
+    "class": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Nome della classe richiesta"
+    },
+    "mode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Mode richiesto (core/extended/full-pg)"
+    },
+    "source_url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "uri"
+    },
+    "fetched_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "request": {
+      "type": "object",
+      "properties": {
+        "class": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mode": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "race": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "archetype": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "spec_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "background": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "query_params": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "body_params": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "composite": {
+      "$ref": "#/$defs/composite"
+    }
+  },
+  "$defs": {
+    "build_state": {
+      "type": "object"
+    },
+    "benchmark": {
+      "type": "object"
+    },
+    "export": {
+      "type": "object"
+    },
+    "textual_block": {
+      "type": [
+        "string",
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "composite": {
+      "type": "object",
+      "required": [
+        "build"
+      ],
+      "properties": {
+        "build": {
+          "type": "object",
+          "required": [
+            "build_state",
+            "benchmark",
+            "export"
+          ],
+          "properties": {
+            "build_state": {
+              "$ref": "#/$defs/build_state"
+            },
+            "benchmark": {
+              "$ref": "#/$defs/benchmark"
+            },
+            "export": {
+              "$ref": "#/$defs/export"
+            }
+          },
+          "additionalProperties": true
+        },
+        "narrative": {
+          "$ref": "#/$defs/textual_block"
+        },
+        "sheet": {
+          "$ref": "#/$defs/textual_block"
+        },
+        "ledger": {
+          "$ref": "#/$defs/textual_block"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
