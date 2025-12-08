@@ -64,12 +64,27 @@ dependencies:
   base_profile: "src/modules/base_profile.txt"
 
 assets:
-  record_sheets_zip: "Community Use Package (scarica da Paizo, non incluso nel repo)"
-  pfs_pregens_zip: "Pregenerated Characters PFS (scarica dal sito ufficiale, non incluso)"
+  gear_guide_pdf: "src/data/The Gear Guide.pdf"
+  crafter_guide_pdf: "src/data/Ultimate Crafter Guide.pdf"
+  items_master_list_pdf: "src/data/Items Master List.pdf"
+  homebrewery_formatting_pdf: "src/data/Homebrewery Formatting Guide (V3) - The Homebrewery.pdf"
 
 knowledge_packs:
-  gear: "src/data/The Gear Guide.pdf"
-  crafting: "src/data/Ultimate Crafter Guide.pdf"
+  gear: "${assets.gear_guide_pdf}"
+  crafting: "${assets.crafter_guide_pdf}"
+  items: "${assets.items_master_list_pdf}"
+  formatting: "${assets.homebrewery_formatting_pdf}"
+
+export_notes:
+  available_docs:
+    - "${assets.homebrewery_formatting_pdf}"
+    - "${assets.items_master_list_pdf}"
+    - "${assets.gear_guide_pdf}"
+    - "${assets.crafter_guide_pdf}"
+  disabled_features: >
+    Import pregens PFS ed export Record Sheet CUP sono disattivati: richiedono pacchetti zip
+    non inclusi nel repository. Vedi README per il provisioning opzionale (pfs_pregens.zip e
+    record_sheets.zip in src/data) e per riattivare i flag/azioni se necessario.
 
 feature_flags:
   hub_board: on
@@ -83,8 +98,6 @@ feature_flags:
   archivist: on
   ruling_expert: on
   explain_methods: on
-  import_pregen_pfs: on
-  export_record_sheet: on
   abp: "${runtime.abp_mode or 'off'}"
   eit_r: "${runtime.eitr_mode or 'off'}"
   qa_guard: on
@@ -1182,22 +1195,6 @@ commands:
       - { call: Ledger.compute_kpis, with: { ledger: "{{tavern_state.ledger}}" }, return_as: KPIS }
       - { output: "Ledger: GP={{KPIS.sum_gp}}, XP={{KPIS.sum_xp}}, REP={{KPIS.sum_rep}}. Export avviato." }
 
-  # --- Community Use features (se attive) ---
-  /import_pregen_pfs <nome_file_o_label>:
-    when: "feature_flags.import_pregen_pfs==on"
-    description: "Importa un PG pre-generato PFS dal pacchetto CUP (zip)."
-    action:
-      - { call: Pregens.import, with: { zip_path: "${assets.pfs_pregens_zip}", name: "{{nome_file_o_label}}" }, return_as: P }
-      - { set: current_npc, value: "{{P.npc}}" }
-      - { output: "Pre-gen importato: {{P.name}} (livello {{P.level}}). Rivedi con /npc_review e poi /npc_to_minmax." }
-
-  /export_record_sheet [sheet=Character]:
-    when: "feature_flags.export_record_sheet==on"
-    description: "Esporta la scheda NPC su un modello Record Sheet (CUP)."
-    action:
-      - { call: RecordSheets.export, with: { zip_path: "${assets.record_sheets_zip}", sheet: "{{sheet|default('Character')}}", npc: "{{current_npc}}" }, return_as: RS }
-      - { output: "Record Sheet generato: {{RS.output_name}}." }
-
   # ---- MinMax glue ----
   /bench [-q]:
     when: feature_flags.minmax_builder==on
@@ -1521,17 +1518,17 @@ contextual_help:
 # 11) Knowledge files / Content policy / Sheet hooks / UI
 # ---------------------------------
 knowledge_files:
-  - { file: "Campaign Setting.pdf",                  tag: "PF1e_core_lore",        type: "lore" }
-  - { file: "Strategy Guide.pdf",                    tag: "PF1e_strategy",          type: "guide" }
-  - { file: "Ultimate Campaign.pdf",                 tag: "PF1e_ultimate_campaign", type: "systems" }
-  - { file: "GameMastery Guide (2nd printing).pdf",  tag: "PF1e_gamemastery",       type: "gm_tools" }
+  - { file: "Homebrewery Formatting Guide (V3) - The Homebrewery.pdf", tag: "PF1e_homebrewery", type: "formatting" }
+  - { file: "Items Master List.pdf",                                    tag: "PF1e_items",       type: "items" }
+  - { file: "The Gear Guide.pdf",                                       tag: "PF1e_gear",        type: "equipment" }
+  - { file: "Ultimate Crafter Guide.pdf",                               tag: "PF1e_crafting",    type: "crafting" }
 
 content_policy:
   ogc_only_rules_text: true
   product_identity_lore_names:
     allow_reference_disallow_verbatim: true
-  auto_citation_sources: ["PF1e_strategy","PF1e_ultimate_campaign","PF1e_core_lore","PF1e_gamemastery"]
-  notes: "OGL/PI conforme a GameMastery Guide (2nd printing), Open Game Content vs Product Identity."
+  auto_citation_sources: ["PF1e_homebrewery","PF1e_items","PF1e_gear","PF1e_crafting"]
+  notes: "OGL/PI conforme alle guide PDF incluse nel repository (gear, crafting, items, formatting)."
 
 sheet_hooks:
   template_name: "scheda_pg_markdown_template"

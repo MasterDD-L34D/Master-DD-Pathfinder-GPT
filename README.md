@@ -71,3 +71,22 @@ per aprirlo è necessario impostare `ALLOW_ANONYMOUS=true`.
 > Nel builder GPT userai il file `gpt/openapi.json` come **Actions Spec** e il testo
 > di `gpt/system_prompt_core.md` come **istruzioni**. Così il GPT non deve più contenere
 > l'intero `base_profile.txt`, ma può chiedere all'API i moduli quando servono.
+
+## Asset di knowledge pack inclusi
+
+Sono già presenti quattro PDF in `src/data` utilizzati dai moduli/knowledge pack:
+
+- `Homebrewery Formatting Guide (V3) - The Homebrewery.pdf`
+- `Items Master List.pdf`
+- `The Gear Guide.pdf`
+- `Ultimate Crafter Guide.pdf`
+
+## Asset opzionali (non inclusi)
+
+Le azioni per importare pregens PFS o generare Record Sheet CUP non sono abilitate perché
+richiedono pacchetti zip non distribuiti. Se vuoi attivarle:
+
+1. Scarica i pacchetti ufficiali e rinominali come `pfs_pregens.zip` e `record_sheets.zip`.
+2. Copiali in `src/data/`.
+3. Aggiorna `src/modules/Taverna_NPC.txt` per puntare ai nuovi asset (sezione `assets`) e
+   riabilitare i flag/azioni corrispondenti.
