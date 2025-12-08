@@ -106,10 +106,10 @@ data_structures:
   # libreria sorgenti META (a livello data_structures)
   sources:
     META:
-      - { title: "The Gear Guide", file: "/mnt/data/The Gear Guide.pdf", kind: "META" }
-      - { title: "Items Master List", file: "/mnt/data/Items Master List.pdf", kind: "META" }
-      - { title: "Useful Items V1.1", file: "/mnt/data/Pathfinder Useful Items List V1.1.pdf", kind: "META" }
-      - { title: "Ultimate Crafter Guide", file: "/mnt/data/Ultimate Crafter Guide.pdf", kind: "META" }
+      - { title: "The Gear Guide", file: "src/data/The Gear Guide.pdf", kind: "META" }
+      - { title: "Items Master List", file: "src/data/Items Master List.pdf", kind: "META" }
+      - { title: "Useful Items V1.1", file: "src/data/Pathfinder Useful Items List V1.1.pdf", kind: "META" }
+      - { title: "Ultimate Crafter Guide", file: "src/data/Ultimate Crafter Guide.pdf", kind: "META" }
 
 # --- HELPERS ---------------------------------------------------------------
 helpers:
@@ -662,8 +662,8 @@ data_sources:
 sources_policy:
   community_use_assets:
     files:
-      - "/mnt/data/CommunityUsePackagePathfinderRoleplayingGameRecordSheets.zip"
-      - "/mnt/data/CommunityUsePackagePathfinderSocietyPregeneratedCharacters.zip"
+      - "Community Use Package Record Sheets (download Paizo, non incluso)"
+      - "PFS Pregenerated Characters (download Paizo, non incluso)"
     use: "Esempi/modulistica per Taverna/MinMax/Export; NON fonti RAW per Archivist."
     cite_as: "META"
     never_cite_as_raw: true

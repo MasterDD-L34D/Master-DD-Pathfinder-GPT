@@ -54,22 +54,22 @@ constraints:
 # 2) Dependencies / Feature Flags / Art & Image
 # ---------------------------------
 dependencies:
-  character_sheet_template: "/mnt/data/scheda_pg_markdown_template.md"
+  character_sheet_template: "src/modules/scheda_pg_markdown_template.md"
   can_hand_off_to_minmax: true
-  minmax_builder_playbook: "/mnt/data/minmax_builder.txt"
-  adventurer_ledger_schema: "/mnt/data/adventurer_ledger.txt"
-  archivist_profile: "/mnt/data/archivist.txt"
-  ruling_expert_profile: "/mnt/data/ruling_expert.txt"
-  explain_methods_profile: "/mnt/data/explain_methods.txt"
-  base_profile: "/mnt/data/base_profile.txt"
+  minmax_builder_playbook: "src/modules/minmax_builder.txt"
+  adventurer_ledger_schema: "src/modules/adventurer_ledger.txt"
+  archivist_profile: "src/modules/archivist.txt"
+  ruling_expert_profile: "src/modules/ruling_expert.txt"
+  explain_methods_profile: "src/modules/explain_methods.txt"
+  base_profile: "src/modules/base_profile.txt"
 
 assets:
-  record_sheets_zip: "/mnt/data/CommunityUsePackagePathfinderRoleplayingGameRecordSheets.zip"
-  pfs_pregens_zip: "/mnt/data/CommunityUsePackagePathfinderSocietyPregeneratedCharacters.zip"
+  record_sheets_zip: "Community Use Package (scarica da Paizo, non incluso nel repo)"
+  pfs_pregens_zip: "Pregenerated Characters PFS (scarica dal sito ufficiale, non incluso)"
 
 knowledge_packs:
-  gear: "/mnt/data/The Gear Guide.pdf"
-  crafting: "/mnt/data/Ultimate Crafter Guide.pdf"
+  gear: "src/data/The Gear Guide.pdf"
+  crafting: "src/data/Ultimate Crafter Guide.pdf"
 
 feature_flags:
   hub_board: on
@@ -225,7 +225,7 @@ tavern_state:
       suggested: {}
 
 storage:
-  path: "/mnt/data/taverna_saves/"
+  path: "src/modules/taverna_saves/"
   ensure_dir: true
   file_naming: "{name}.json"
   schema_minimum:
@@ -243,8 +243,8 @@ storage:
     on_overflow: "delete_oldest"
 
 ledger_storage:
-  path: "/mnt/data/tavern_hub.json"
-  schema_ref: "/mnt/data/adventurer_ledger.txt"
+  path: "src/modules/tavern_hub.json"
+  schema_ref: "src/modules/adventurer_ledger.txt"
   rate_limit: { max_ops_per_minute: 8, on_violation: E-RATE-LIMIT }
 
 # ---------------------------------
@@ -1089,14 +1089,14 @@ commands:
     when: feature_flags.hub_board=='on'
     description: "Salva lo stato dell’Hub."
     validators:
-      - { type: path_exists, target: "/mnt/data/", on_fail: E-SAVE-IO }
+      - { type: path_exists, target: "src/modules/taverna_saves/", on_fail: E-SAVE-IO }
     rate_limit: { max_ops_per_minute: 8, on_violation: E-RATE-LIMIT }
 
   /load_hub:
     when: feature_flags.hub_board=='on'
     description: "Carica stato Hub da disco."
     validators:
-      - { type: file_exists, target: "/mnt/data/tavern_hub.json", on_fail: E-NOT-FOUND }
+      - { type: file_exists, target: "src/modules/tavern_hub.json", on_fail: E-NOT-FOUND }
     rate_limit: { max_ops_per_minute: 8, on_violation: E-RATE-LIMIT }
 
   /reset_hub:
@@ -1177,7 +1177,7 @@ commands:
     when: feature_flags.adventurer_ledger==on
     description: "Esporta il Ledger di campagna."
     validators:
-      - { type: path_exists, target: "/mnt/data/", on_fail: E-LEDGER-IO }
+      - { type: path_exists, target: "src/modules/taverna_saves/", on_fail: E-LEDGER-IO }
     action:
       - { call: Ledger.compute_kpis, with: { ledger: "{{tavern_state.ledger}}" }, return_as: KPIS }
       - { output: "Ledger: GP={{KPIS.sum_gp}}, XP={{KPIS.sum_xp}}, REP={{KPIS.sum_rep}}. Export avviato." }
@@ -1429,7 +1429,7 @@ synthesis_rules:
 # 9) Export (sheet + canvas)
 # ---------------------------------
 export:
-  default_template: "/mnt/data/scheda_pg_markdown_template.md"
+  default_template: "src/modules/scheda_pg_markdown_template.md"
   outputs: [vtt, txt, md, pdf, canvas]
   fields_minimum:
     - "nome, razza, classe/livelli, allineamento"
@@ -1910,7 +1910,7 @@ encounter_presets:
     suggest: "/encounter_new apl={{APL}} env=nave style=assalto"
 
 hub_storage:
-  path: "/mnt/data/tavern_hub.json"
+  path: "src/modules/tavern_hub.json"
   ensure_file_if_missing: "[]"
   persist_on: ["quest_board","bounty_board","factions","shop_setup","events"]
   max_snapshots: 50

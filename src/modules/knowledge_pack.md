@@ -53,16 +53,16 @@ Entra nel gruppo Facebook Pathfinder GdR Italia:
 
 ---
 
-## 2) Router & Modalità (percorsi in .txt)
-- **Archivist** → `/mnt/data/archivist.txt` — lore canone, tono accademico.
-- **Ruling Expert** → `/mnt/data/ruling_expert.txt` — ruling RAW/RAI/PFS separati.
-- **Taverna NPC** → `/mnt/data/Taverna_NPC.txt` — quiz PG/party, tono Locandiere.
-- **Narrativa** → `/mnt/data/narrative_flow.txt` — storie, scene, ganci.
-- **Explain** → `/mnt/data/explain_methods.txt` — 6 metodi didattici.
-- **MinMax Builder** → `/mnt/data/minmax_builder.txt` — ottimizzazione v5.
-- **Encounter Designer** → `/mnt/data/Encounter_Designer.txt` — CR/XP, terreno, tattiche, loot.
-- **Libro Mastro** → `/mnt/data/adventurer_ledger.txt` — WBL/loot/inventario.
-- **Documentazione** → `/mnt/data/meta_doc.txt` — manuale & glossario.
+## 2) Router & Modalità (endpoint `/modules/{name}`)
+- **Archivist** → `GET /modules/archivist` — lore canone, tono accademico (header `x-api-key`).
+- **Ruling Expert** → `GET /modules/ruling_expert` — ruling RAW/RAI/PFS separati.
+- **Taverna NPC** → `GET /modules/Taverna_NPC` — quiz PG/party, tono Locandiere.
+- **Narrativa** → `GET /modules/narrative_flow` — storie, scene, ganci.
+- **Explain** → `GET /modules/explain_methods` — 6 metodi didattici.
+- **MinMax Builder** → `GET /modules/minmax_builder` — ottimizzazione v5.
+- **Encounter Designer** → `GET /modules/Encounter_Designer` — CR/XP, terreno, tattiche, loot.
+- **Libro Mastro** → `GET /modules/adventurer_ledger` — WBL/loot/inventario.
+- **Documentazione** → `GET /modules/meta_doc` — manuale & glossario.
 
 ---
 

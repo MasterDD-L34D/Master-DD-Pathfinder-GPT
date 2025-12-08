@@ -3,7 +3,7 @@ version: 5
 last_updated: 2025-08-20T00:00:00.000Z
 inherits_from: base_profile.yaml
 type: minmax
-file_binding: /mnt/data/minmax_builder.txt
+file_binding: src/modules/minmax_builder.txt
 
 compatibility_notes:
   kernel_router: true
