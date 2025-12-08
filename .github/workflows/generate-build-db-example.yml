@@ -1,0 +1,67 @@
+name: generate-build-db-example
+
+on:
+  workflow_dispatch:
+    inputs:
+      api_url:
+        description: "Endpoint base dell'API MinMax Builder"
+        default: "http://localhost:8000"
+        required: false
+      classes:
+        description: "Lista di classi PF1e (separate da spazio)"
+        default: "Alchemist"
+        required: false
+      mode:
+        description: "Modalità di generazione"
+        default: "core"
+        required: false
+
+jobs:
+  build-db-core:
+    name: Build DB (core) e archiviazione
+    runs-on: ubuntu-latest
+    env:
+      API_URL: ${{ inputs.api_url || secrets.BUILDER_API_URL || 'http://localhost:8000' }}
+      API_KEY: ${{ secrets.BUILDER_API_KEY || '' }}
+      CLASSES: ${{ inputs.classes || 'Alchemist' }}
+      MODE: ${{ inputs.mode || 'core' }}
+      OUTPUT_DIR: build_artifacts/builds
+      MODULES_DIR: build_artifacts/modules
+      INDEX_PATH: build_artifacts/build_index.json
+      MODULE_INDEX_PATH: build_artifacts/module_index.json
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Esegui generate_build_db (core)
+        env:
+          API_URL: ${{ env.API_URL }}
+          API_KEY: ${{ env.API_KEY }}
+        run: |
+          mkdir -p "$OUTPUT_DIR" "$MODULES_DIR"
+          python tools/generate_build_db.py \
+            --api-url "$API_URL" \
+            --api-key "$API_KEY" \
+            --mode "$MODE" \
+            --classes $CLASSES \
+            --output-dir "$OUTPUT_DIR" \
+            --modules-output-dir "$MODULES_DIR" \
+            --index-path "$INDEX_PATH" \
+            --module-index-path "$MODULE_INDEX_PATH" \
+            --keep-invalid \
+            --skip-health-check
+
+      - name: Archivia output build_db
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-db-core
+          path: build_artifacts

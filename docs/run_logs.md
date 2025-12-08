@@ -12,3 +12,9 @@
 - **Result:** Success. Discovery hit `/modules`, downloaded 14 module assets, and fetched extended builds for all PF1e classes. Strict validation passed; only deprecation warnings from `jsonschema.RefResolver` and `datetime.utcnow()` were reported. Index files were written to `src/data/build_index.json` and `src/data/module_index.json` alongside per-class JSON in `src/data/builds/` and module dumps in `src/data/modules/`.
 - **Notes:** No spec file was used. Module fetches included metadata calls (e.g., `/modules/<name>/meta`) and validated step totals at 16 for extended mode. Keep `ALLOW_ANONYMOUS=true` or set `API_KEY` before reruns.
 - **Timestamp:** 2025-12-08T03:32:06Z
+
+## generate_build_db comandi di riferimento (core)
+- **Variabili:** impostare `API_URL` verso l'endpoint MinMax Builder e `API_KEY` quando richiesto dal gateway; esempio `API_URL=https://builder.example.org API_KEY=token-supersegret`.
+- **Comando base:** `API_URL=$API_URL API_KEY=$API_KEY python tools/generate_build_db.py --mode core --classes Alchemist Barbarian --output-dir src/data/builds --modules-output-dir src/data/modules --index-path src/data/build_index.json --module-index-path src/data/module_index.json --max-retries 2`.
+- **Salto health check:** aggiungere `--skip-health-check` quando l'endpoint `/health` non è esposto (la richiesta prosegue direttamente verso `/modules/minmax_builder.txt`; eventuali errori di connessione generano `httpx.ConnectError` con contesto esplicito sull'URL usato).
+- **Archiviazione locale:** dopo l'esecuzione si possono comprimere gli output con `tar -czf build_db_core.tar.gz src/data/builds src/data/build_index.json src/data/module_index.json` per il caricamento come artefatto CI.
