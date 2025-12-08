@@ -16,7 +16,7 @@
 ## generate_build_db comandi di riferimento (core)
 - **Variabili:** impostare `API_URL` verso l'endpoint MinMax Builder e `API_KEY` quando richiesto dal gateway; esempio `API_URL=https://builder.example.org API_KEY=token-supersegret`.
 - **Comando base:** `API_URL=$API_URL API_KEY=$API_KEY python tools/generate_build_db.py --mode core --classes Alchemist Barbarian --output-dir src/data/builds --modules-output-dir src/data/modules --index-path src/data/build_index.json --module-index-path src/data/module_index.json --max-retries 2`.
-- **Salto health check:** aggiungere `--skip-health-check` quando l'endpoint `/health` non è esposto (la richiesta prosegue direttamente verso `/modules/minmax_builder.txt`; eventuali errori di connessione generano `httpx.ConnectError` con contesto esplicito sull'URL usato).
+- **Probe iniziali:** prima di lanciare lo script verificare `/health` e `/metrics` passando l'header `x-api-key` corretto (preferibilmente `METRICS_API_KEY` per le metriche); in pipeline il log deve riportare quando viene abilitato `--skip-health-check` per endpoint remoti senza probe.
 - **Archiviazione locale:** dopo l'esecuzione si possono comprimere gli output con `tar -czf build_db_core.tar.gz src/data/builds src/data/build_index.json src/data/module_index.json` per il caricamento come artefatto CI.
 
 ## generate-build-db-core (GitHub Actions)

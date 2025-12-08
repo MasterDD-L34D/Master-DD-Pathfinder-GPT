@@ -111,7 +111,9 @@ Uno script di utilità (`tools/generate_build_db.py`) raccoglie automaticamente 
 
 ```bash
 # Assicurati di avere l'API in esecuzione e una chiave valida
-# Nota: se l'API non gira in locale, passa un endpoint raggiungibile oppure usa
+# Nota: valida sempre /health e /metrics con l'API key corretta prima dei run;
+# se ricevi 401/429 regola AUTH_BACKOFF_THRESHOLD/SECONDS per aumentare il margine.
+# Se l'API non gira in locale, passa un endpoint raggiungibile oppure usa
 # la variabile API_URL per evitare errori di connessione su http://localhost:8000
 export API_KEY="la-tua-chiave-segreta"
 # Esempio con endpoint locale
