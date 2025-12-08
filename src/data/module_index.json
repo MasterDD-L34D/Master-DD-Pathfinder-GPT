@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-08T23:23:17Z",
+  "generated_at": "2025-01-01T00:00:00Z",
   "api_url": "http://localhost:8001",
   "entries": [
     {
@@ -142,5 +142,59 @@
         "suffix": ".json"
       }
     }
-  ]
+  ],
+  "module_plan": [
+    "Encounter_Designer.txt",
+    "Taverna_NPC.txt",
+    "adventurer_ledger.txt",
+    "archivist.txt",
+    "base_profile.txt",
+    "explain_methods.txt",
+    "knowledge_pack.md",
+    "meta_doc.txt",
+    "minmax_builder.txt",
+    "narrative_flow.txt",
+    "ruling_expert.txt",
+    "scheda_pg_markdown_template.md",
+    "sigilli_runner_module.txt",
+    "tavern_hub.json"
+  ],
+  "discovery": {
+    "performed_at": "2025-01-01T00:00:00Z",
+    "include_filters": [],
+    "exclude_filters": [],
+    "raw": [
+      "Encounter_Designer.txt",
+      "Taverna_NPC.txt",
+      "adventurer_ledger.txt",
+      "archivist.txt",
+      "base_profile.txt",
+      "explain_methods.txt",
+      "knowledge_pack.md",
+      "meta_doc.txt",
+      "minmax_builder.txt",
+      "narrative_flow.txt",
+      "ruling_expert.txt",
+      "scheda_pg_markdown_template.md",
+      "sigilli_runner_module.txt",
+      "tavern_hub.json"
+    ],
+    "raw_count": 14,
+    "selected": [
+      "Encounter_Designer.txt",
+      "Taverna_NPC.txt",
+      "adventurer_ledger.txt",
+      "archivist.txt",
+      "base_profile.txt",
+      "explain_methods.txt",
+      "knowledge_pack.md",
+      "meta_doc.txt",
+      "minmax_builder.txt",
+      "narrative_flow.txt",
+      "ruling_expert.txt",
+      "scheda_pg_markdown_template.md",
+      "sigilli_runner_module.txt",
+      "tavern_hub.json"
+    ]
+  }
 }
