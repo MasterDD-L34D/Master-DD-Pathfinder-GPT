@@ -133,6 +133,7 @@ class BuildRequest:
             "race": resolved_race,
             "archetype": resolved_archetype,
             "mode": self.mode,
+            "mode_normalized": normalize_mode(self.mode),
             "spec_id": self.spec_id,
             "model": self.model,
             "background": resolved_background,
@@ -145,6 +146,16 @@ class BuildFetchError(Exception):
 
 def slugify(name: str) -> str:
     return name.strip().lower().replace(" ", "_")
+
+
+def normalize_mode(mode: str) -> str:
+    candidate = str(mode or DEFAULT_MODE).strip().lower()
+    return "core" if candidate.startswith("core") else "extended"
+
+
+def expected_step_total_for_mode(mode: str) -> int:
+    normalized = normalize_mode(mode)
+    return 8 if normalized == "core" else 16
 
 
 def ensure_output_dirs(output_dir: Path) -> None:
@@ -462,6 +473,34 @@ async def fetch_build(
     ledger = payload.get("ledger") or payload.get("adventurer_ledger")
 
     build_state = payload.get("build_state") or {}
+    normalized_mode = normalize_mode(request.mode)
+    expected_step_total = expected_step_total_for_mode(normalized_mode)
+    observed_step_total = build_state.get("step_total")
+    step_labels = build_state.get("step_labels") if isinstance(build_state, Mapping) else None
+    step_labels_count = len(step_labels) if isinstance(step_labels, Mapping) else None
+    has_extended_steps = bool(step_labels_count and step_labels_count >= 16)
+    if observed_step_total is None:
+        logging.warning(
+            "Risposta per %s (mode=%s) priva di step_total: impossibile verificare il flow",
+            request.class_name,
+            normalized_mode,
+        )
+    elif observed_step_total != expected_step_total:
+        logging.warning(
+            "Step total inatteso per %s (mode=%s): visto %s, atteso %s",
+            request.class_name,
+            normalized_mode,
+            observed_step_total,
+            expected_step_total,
+        )
+    else:
+        logging.info(
+            "Modalità %s confermata per %s: step_total=%s (%s step disponibili)",
+            normalized_mode,
+            request.class_name,
+            observed_step_total,
+            "16" if normalized_mode == "extended" else "8",
+        )
 
     if request.race is None and build_state.get("race"):
         request.race = build_state.get("race")
@@ -489,6 +528,15 @@ async def fetch_build(
         "composite": composite,
         "query_params": params,
         "body_params": request.body_params,
+        "mode_normalized": normalized_mode,
+        "step_audit": {
+            "normalized_mode": normalized_mode,
+            "expected_step_total": expected_step_total,
+            "observed_step_total": observed_step_total,
+            "step_total_ok": observed_step_total == expected_step_total,
+            "step_labels_count": step_labels_count,
+            "has_extended_steps": has_extended_steps,
+        },
     })
     return payload
 
@@ -563,7 +611,13 @@ def write_json(path: Path, data: Mapping) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def build_index_entry(request: BuildRequest, output_file: Path | None, status: str, error: str | None = None) -> Mapping:
+def build_index_entry(
+    request: BuildRequest,
+    output_file: Path | None,
+    status: str,
+    error: str | None = None,
+    step_audit: Mapping[str, object] | None = None,
+) -> Mapping:
     entry: dict[str, object] = {
         "file": str(output_file) if output_file else None,
         "status": status,
@@ -572,6 +626,16 @@ def build_index_entry(request: BuildRequest, output_file: Path | None, status: s
     }
     if error:
         entry["error"] = error
+    if step_audit:
+        entry.update(
+            {
+                "step_total": step_audit.get("observed_step_total"),
+                "expected_step_total": step_audit.get("expected_step_total"),
+                "mode_normalized": step_audit.get("normalized_mode"),
+                "extended_steps_available": step_audit.get("has_extended_steps"),
+                "step_total_ok": step_audit.get("step_total_ok"),
+            }
+        )
     return entry
 
 
@@ -705,13 +769,23 @@ async def run_harvest(
                                 destination.unlink()
                             output_path = None
                         return request.output_name(), build_index_entry(
-                            request, output_path, status, validation_error
+                            request,
+                            output_path,
+                            status,
+                            validation_error,
+                            payload.get("step_audit"),
                         )
                     except ValidationError:
                         raise
                     except Exception as exc:  # pragma: no cover - network dependent
                         logging.exception("Errore durante la fetch di %s", request.class_name)
-                        return request.output_name(), build_index_entry(request, None, "error", str(exc))
+                        return request.output_name(), build_index_entry(
+                            request,
+                            None,
+                            "error",
+                            str(exc),
+                            payload.get("step_audit") if "payload" in locals() else None,
+                        )
 
             build_tasks.append(asyncio.create_task(process_class(build_request, output_file)))
 

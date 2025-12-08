@@ -146,13 +146,40 @@ async def get_module_content(
             or "Base"
         )
 
+        normalized_mode = "core" if str(mode or "").lower().startswith("core") else "extended"
+        step_total = 8 if normalized_mode == "core" else 16
+        step_labels = {
+            "1": "Profilo Base",
+            "2": "Razza & Classe",
+            "3": "Archetipi & Multiclasse",
+            "4": "Feats & Talenti",
+            "5": "Spell & Power Set",
+            "6": "Equip & Risorse",
+            "7": "Benchmark & Simulazioni",
+            "8": "QA & Export",
+        }
+        if normalized_mode == "extended":
+            step_labels.update(
+                {
+                    "9": "Dummies Sheet",
+                    "10": "Esportazione",
+                    "11": "Fork/Varianti",
+                    "12": "Comparativa",
+                    "13": "Meta Rating",
+                    "14": "Companion",
+                    "15": "Report",
+                    "16": "Chiusura",
+                }
+            )
+
         base_build_state = {
             "class": class_name or "Unknown",
-            "mode": mode,
+            "mode": normalized_mode,
             "race": resolved_race,
             "archetype": resolved_archetype,
             "step": 1,
-            "step_total": 1,
+            "step_total": step_total,
+            "step_labels": step_labels,
         }
 
         benchmark = {

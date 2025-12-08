@@ -75,7 +75,7 @@ def test_get_module_meta_path_traversal(client, auth_headers):
 
 
 def test_get_knowledge_meta_valid_file(client, auth_headers):
-    sample_file = next(DATA_DIR.iterdir())
+    sample_file = next(p for p in DATA_DIR.iterdir() if p.is_file())
     response = client.get(f"/knowledge/{quote(sample_file.name)}/meta", headers=auth_headers)
     assert response.status_code == 200
     payload = response.json()

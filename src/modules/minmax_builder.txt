@@ -1651,7 +1651,9 @@ steps:
           command: /toggle_pfs on
     guidance: >
       Avvia → `/start_build`, imposta stile → `/set_player_style Spike`, attiva
-      PFS se serve → `/toggle_pfs on`, quindi `/next_step`.
+      PFS se serve → `/toggle_pfs on`, quindi forza modalità con
+      `/set_mode core` oppure `/set_mode extended` e verifica che
+      `[step/step_total]` mostri 8 o 16 step coerenti prima di `/next_step`.
   - id: 2
     step_badge: "\U0001F6E1️"
     name: Razza & Classe

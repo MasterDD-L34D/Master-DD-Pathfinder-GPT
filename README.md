@@ -55,6 +55,8 @@ uvicorn src.app:app --reload --port 8000
 
 L'endpoint di base sarà ad esempio: `http://localhost:8000`
 
+Durante il setup nel GPT, forza sempre la modalità esplicita (`/set_mode core` oppure `/set_mode extended`) e verifica che l'avanzamento riporti `[step/step_total]` coerente: 8 step per `core`, 16 per `extended`.
+
 ### Generare il database di build (e i dump dei moduli)
 
 Uno script di utilità (`tools/generate_build_db.py`) raccoglie automaticamente le build PF1e per tutte le classi target interrogando l'endpoint del **MinMax Builder** e, in parallelo, scarica i moduli grezzi indispensabili per ricostruire schede complete (base profile, taverna/narrativa, template scheda):
@@ -68,7 +70,7 @@ python tools/generate_build_db.py --api-url http://localhost:8000 --mode extende
 python tools/generate_build_db.py Alchemist Wizard Paladin
 ```
 
-Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`.
+Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`. Ogni chiamata include il parametro `mode=core|extended` e l'indice registra lo `step_total` osservato, così puoi verificare che i 16 step appaiano solo quando richiedi `extended`.
 
 #### Selezione moduli: statici o via discovery
 
