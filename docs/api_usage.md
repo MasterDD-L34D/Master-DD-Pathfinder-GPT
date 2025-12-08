@@ -1,0 +1,88 @@
+# API Usage — Pathfinder 1E Master DD
+
+Questa guida riassume come usare l'API FastAPI esposta dal progetto, con esempi di richieste e note sui limiti.
+
+## Autenticazione e flag runtime
+
+- **Header obbligatorio**: `x-api-key: <API_KEY>` a meno che non sia impostato `ALLOW_ANONYMOUS=true`.
+- **Troncamento contenuti** (`ALLOW_MODULE_DUMP`):
+  - `true` (default): i file vengono restituiti per intero, inclusi PDF/asset non testuali.
+  - `false`: i file non testuali generano `403 Module download not allowed`; i `.txt`/`.md` sono limitati ai primi 4000 caratteri con suffisso `[contenuto troncato]`.
+
+## Endpoint principali
+
+### `GET /health`
+Verifica lo stato dell'API. Risposta: `{ "status": "ok" }` o `503` se mancano directory di configurazione.
+
+### `GET /modules`
+Elenca i moduli disponibili in `src/modules`.
+
+**Esempio**
+```http
+GET /modules
+x-api-key: ${API_KEY}
+```
+
+**Risposta**
+```json
+[
+  { "name": "base_profile.txt", "size_bytes": 12345, "suffix": ".txt" },
+  { "name": "minmax_builder.txt", "size_bytes": 6789, "suffix": ".txt" }
+]
+```
+
+### `GET /modules/{name}/meta`
+Restituisce metadati (nome, dimensioni, estensione) senza il contenuto del file.
+
+### `GET|POST /modules/{name}`
+Restituisce il contenuto del modulo o, per `minmax_builder.txt`, uno **stub** di risposta del builder.
+
+Parametri principali:
+- `mode` (query/body): `core` o `extended` per il builder; `stub` per forzare la risposta di esempio.
+- `stub` (query): boolean per ottenere lo stub del builder.
+- `class`, `race`, `archetype` (query): usati nello stub per popolare la build fittizia.
+- `body` (POST): opzionale, accetta campi `mode`, `builder_mode`, `race`, `archetype`, `hooks`, ecc.
+
+**Esempio — modulo testuale**
+```http
+GET /modules/base_profile.txt?mode=extended
+x-api-key: ${API_KEY}
+```
+Risposta: contenuto `.txt` (troncato se `ALLOW_MODULE_DUMP=false`).
+
+**Esempio — stub builder**
+```http
+POST /modules/minmax_builder.txt?stub=true&class=Fighter&race=Elf&archetype="Lore Warden"
+x-api-key: ${API_KEY}
+Content-Type: application/json
+
+{ "mode": "extended", "hooks": ["serve l'Ordine"], "sheet_locale": "it-IT" }
+```
+
+Risposta JSON semplificata:
+```json
+{
+  "class": "Fighter",
+  "mode": "extended",
+  "build_state": { "class": "Fighter", "mode": "extended", "race": "Elf", "archetype": "Lore Warden", "step": 1, "step_total": 16, "step_labels": { "1": "Profilo Base", "2": "Razza & Classe", "8": "QA & Export", "16": "Chiusura" } },
+  "benchmark": { "meta_tier": "T3", "ruling_badge": "validated", "dpr_snapshot": { "livello_1": { "media": 6, "picco": 9 } } },
+  "export": { "sheet_payload": { "classi": [{ "nome": "Fighter", "livelli": 1, "archetipi": ["Lore Warden"] }], "statistiche": { "FOR": 16, "DES": 14 }, "hooks": ["serve l'Ordine"] } },
+  "narrative": "Elf Lore Warden pronta/o per il campo, specializzata/o in tattiche da Fighter.",
+  "ledger": { "movimenti": [{ "voce": "Equipaggiamento iniziale", "importo": -150 }] },
+  "composite": { "build": { "build_state": { "class": "Fighter", "mode": "extended", "race": "Elf", "archetype": "Lore Warden", "step": 1, "step_total": 16, "step_labels": { "1": "Profilo Base" } }, "benchmark": { "meta_tier": "T3" }, "export": { "sheet_payload": { "statistiche": { "FOR": 16, "DES": 14 } } } }, "narrative": "...", "sheet": { "statistiche": { "FOR": 16, "DES": 14 } }, "ledger": { "movimenti": [] } }
+}
+```
+
+### `GET /knowledge`
+Elenca i file in `src/data` (PDF, markdown di supporto). Non restituisce il contenuto dei manuali Paizo protetti.
+
+### `GET /knowledge/{name}/meta`
+Metadati per un singolo asset in `src/data`.
+
+## Errori standard
+- `401 Unauthorized`: chiave mancante/non valida quando `ALLOW_ANONYMOUS` è disabilitato o `API_KEY` non è configurata.
+- `403 Module download not allowed`: download di asset non testuali bloccato quando `ALLOW_MODULE_DUMP=false`.
+- `404 Module not found` / `Knowledge file not found`: path valido ma file assente.
+- `400 Invalid module/knowledge path`: path con traversal o formato non supportato.
+- `503 Service Unavailable`: directory `modules` o `data` non raggiungibili; anche `/health` riporta `503` in questo caso.
+- `500 Stub payload non valido`: solo per `/modules/minmax_builder.txt` se la generazione dello stub fallisce.
