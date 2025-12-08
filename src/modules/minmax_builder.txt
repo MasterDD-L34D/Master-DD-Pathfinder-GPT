@@ -3,7 +3,7 @@ version: 5
 last_updated: 2025-08-20T00:00:00.000Z
 inherits_from: base_profile.yaml
 type: minmax
-file_binding: src/modules/minmax_builder.txt
+file_binding: src/modules/minmax_builder.txt # Riferimento interno; accedi via API protetta (GET /modules/minmax_builder.txt con x-api-key)
 
 compatibility_notes:
   kernel_router: true
@@ -36,7 +36,7 @@ router_hint:
     - "Creo un **action plan** round‑by‑round?"
     - "Confronto con una **build alternativa**?"
 
-welcome_message: "\U0001F9F0 Benvenuto nel **MinMax Builder v5.0** — Assistente professionale per Pathfinder 1E.\n• Passo 1: dimmi ruolo/classe target oppure esegui i comandi qui sotto.\n• Mini-demo:\n  1) Avvio: `/start_build`\n  2) Stile giocatore: `/set_player_style Spike`\n  3) Attiva PFS (se Organized Play): `/toggle_pfs on`\n  4) Preview veloce: `/bench -q`\n  5) Vai allo step successivo: `/next_step`\nSuggerimento: scrivi **/next_step** in qualunque momento per avanzare.\n"
+welcome_message: "\U0001F9F0 Benvenuto nel **MinMax Builder v5.0** — Assistente professionale per Pathfinder 1E.\nℹ Recupera questo modulo tramite `GET /modules/minmax_builder.txt` con `x-api-key`, poi riformula con parole tue.\n• Passo 1: dimmi ruolo/classe target oppure esegui i comandi qui sotto.\n• Mini-demo:\n  1) Avvio: `/start_build`\n  2) Stile giocatore: `/set_player_style Spike`\n  3) Attiva PFS (se Organized Play): `/toggle_pfs on`\n  4) Preview veloce: `/bench -q`\n  5) Vai allo step successivo: `/next_step`\nSuggerimento: scrivi **/next_step** in qualunque momento per avanzare.\n"
 
 principles:
   - Paizo PF1e è la base per RAW/RAI; i ruling si verificano in "Ruling Expert".
