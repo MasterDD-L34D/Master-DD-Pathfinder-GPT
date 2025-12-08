@@ -66,8 +66,14 @@ Uno script di utilità (`tools/generate_build_db.py`) raccoglie automaticamente 
 
 ```bash
 # Assicurati di avere l'API in esecuzione e una chiave valida
+# Nota: se l'API non gira in locale, passa un endpoint raggiungibile oppure usa
+# la variabile API_URL per evitare errori di connessione su http://localhost:8000
 export API_KEY="la-tua-chiave-segreta"
+# Esempio con endpoint locale
 python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended
+# Esempio con endpoint remoto/containerizzato
+# API_URL="https://builder.example.com" python tools/generate_build_db.py --mode extended
+# Se l'endpoint non espone /health ma sai che è raggiungibile, aggiungi --skip-health-check
 
 # È possibile limitare le classi passandole come argomenti finali
 python tools/generate_build_db.py Alchemist Wizard Paladin

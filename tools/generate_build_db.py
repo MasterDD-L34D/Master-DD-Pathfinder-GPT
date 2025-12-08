@@ -379,6 +379,11 @@ def parse_args() -> argparse.Namespace:
         help="Considera incompleti i payload privi di statistiche/narrativa/ledger e riprova automaticamente",
     )
     parser.add_argument(
+        "--skip-health-check",
+        action="store_true",
+        help="Salta il controllo di raggiungibilità dell'API (fallback per ambienti in cui /health non è disponibile)",
+    )
+    parser.add_argument(
         "--discover-modules",
         action="store_true",
         help="Recupera automaticamente la lista di moduli disponibili da /modules",
@@ -538,6 +543,34 @@ async def request_with_retry(
             "Tentativo fallito per %s %s (status %s). Retry in %.1fs...", method, url, response.status_code, delay
         )
         await asyncio.sleep(delay)
+
+
+async def assert_api_reachable(
+    client: httpx.AsyncClient, api_key: str | None, health_path: str = "/health"
+) -> None:
+    """Fail fast with a clear message if the API endpoint is unreachable."""
+
+    headers = {"x-api-key": api_key} if api_key else {}
+    try:
+        response = await client.get(health_path, headers=headers, timeout=5)
+    except httpx.RequestError as exc:  # pragma: no cover - network dependent
+        raise RuntimeError(
+            f"API non raggiungibile su {client.base_url}: {exc}. "
+            "Avvia il servizio localmente oppure passa --api-url verso un endpoint accessibile."
+        ) from exc
+
+    if response.status_code == 404:
+        logging.info(
+            "L'endpoint %s non esiste su %s ma l'host risponde: proseguo...",
+            health_path,
+            client.base_url,
+        )
+    elif response.status_code >= 500:
+        logging.warning(
+            "Health check %s ha risposto %s: il servizio potrebbe non essere pronto",
+            client.base_url,
+            response.status_code,
+        )
 
 
 async def fetch_build(
@@ -822,6 +855,7 @@ async def run_harvest(
     strict: bool = False,
     keep_invalid: bool = False,
     require_complete: bool = False,
+    skip_health_check: bool = False,
 ) -> None:
     requests = list(requests)
     ensure_output_dirs(output_dir)
@@ -857,6 +891,10 @@ async def run_harvest(
     semaphore = asyncio.Semaphore(max(1, concurrency))
 
     async with httpx.AsyncClient(base_url=api_url.rstrip("/"), follow_redirects=True) as client:
+        if skip_health_check:
+            logging.warning("Salto il controllo di health check richiesto dall'utente")
+        else:
+            await assert_api_reachable(client, api_key)
         if discover:
             discovered = await discover_modules(client, api_key, max_retries)
             filtered_discovered = apply_glob_filters(discovered, include_filters, exclude_filters)
@@ -1090,6 +1128,7 @@ def main() -> None:
             strict_mode,
             args.keep_invalid,
             args.require_complete,
+            args.skip_health_check,
         )
     )
 
