@@ -425,6 +425,32 @@ def test_health_reports_missing_directories(monkeypatch, tmp_path):
     assert any("mancante" in msg for msg in payload["errors"])
 
 
+def test_health_reports_missing_required_module_files(monkeypatch, tmp_path):
+    modules_dir = tmp_path / "modules"
+    data_dir = tmp_path / "data"
+    modules_dir.mkdir()
+    data_dir.mkdir()
+
+    required_files = app_module.REQUIRED_MODULE_FILES
+    missing_file = required_files[0]
+
+    for name in required_files[1:]:
+        (modules_dir / name).write_text("placeholder")
+
+    with TestClient(app) as local_client:
+        monkeypatch.setattr(app_module, "MODULES_DIR", modules_dir)
+        monkeypatch.setattr(app_module, "DATA_DIR", data_dir)
+
+        response = local_client.get("/health")
+
+    payload = response.json()
+
+    assert response.status_code == 503
+    assert payload["status"] == "error"
+    assert payload["required_module_files"]["status"] == "error"
+    assert missing_file in payload["required_module_files"]["missing"]
+
+
 def test_health_reports_valid_directories(client):
     response = client.get("/health")
 
@@ -443,5 +469,10 @@ def test_health_reports_valid_directories(client):
                 "path": str(DATA_DIR),
                 "message": None,
             },
+        },
+        "required_module_files": {
+            "status": "ok",
+            "missing": [],
+            "path": str(MODULES_DIR),
         },
     }
