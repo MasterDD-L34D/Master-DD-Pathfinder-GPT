@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import asyncio
 import json
 import logging
 import os
@@ -123,6 +124,18 @@ def parse_args() -> argparse.Namespace:
         help="Percorso del file indice per i moduli scaricati",
     )
     parser.add_argument(
+        "--concurrency",
+        type=int,
+        default=5,
+        help="Numero massimo di richieste concorrenti (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--max-retries",
+        type=int,
+        default=3,
+        help="Numero massimo di tentativi per ogni richiesta (default: %(default)s)",
+    )
+    parser.add_argument(
         "--modules",
         nargs="*",
         default=list(DEFAULT_MODULE_TARGETS),
@@ -137,14 +150,53 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def fetch_build(
-    client: httpx.Client, base_url: str, api_key: str | None, class_name: str, mode: str
+async def request_with_retry(
+    client: httpx.AsyncClient,
+    method: str,
+    url: str,
+    *,
+    headers: Mapping[str, str] | None = None,
+    params: Mapping[str, str] | None = None,
+    timeout: int | float | None = None,
+    max_retries: int,
+    backoff_factor: float = 1.0,
+) -> httpx.Response:
+    attempt = 0
+    while True:
+        response = await client.request(method, url, headers=headers, params=params, timeout=timeout)
+        if response.status_code not in {429} and response.status_code < 500:
+            response.raise_for_status()
+            return response
+
+        if attempt >= max_retries:
+            response.raise_for_status()
+
+        delay = backoff_factor * 2**attempt
+        attempt += 1
+        logging.warning(
+            "Tentativo fallito per %s %s (status %s). Retry in %.1fs...", method, url, response.status_code, delay
+        )
+        await asyncio.sleep(delay)
+
+
+async def fetch_build(
+    client: httpx.AsyncClient,
+    api_key: str | None,
+    class_name: str,
+    mode: str,
+    max_retries: int,
 ) -> MutableMapping:
     params = {"mode": mode, "class": class_name}
     headers = {"x-api-key": api_key} if api_key else {}
-    url = base_url.rstrip("/") + MODULE_ENDPOINT
-    response = client.get(url, params=params, headers=headers, timeout=60)
-    response.raise_for_status()
+    response = await request_with_retry(
+        client,
+        "GET",
+        MODULE_ENDPOINT,
+        params=params,
+        headers=headers,
+        timeout=60,
+        max_retries=max_retries,
+    )
 
     try:
         payload = response.json()
@@ -166,24 +218,29 @@ def fetch_build(
     return payload
 
 
-def fetch_module(client: httpx.Client, base_url: str, api_key: str | None, module_name: str) -> tuple[str, Mapping]:
+async def fetch_module(
+    client: httpx.AsyncClient, api_key: str | None, module_name: str, max_retries: int
+) -> tuple[str, Mapping]:
     headers = {"x-api-key": api_key} if api_key else {}
-    base = base_url.rstrip("/")
-    content_resp = client.get(
+    content_resp = await request_with_retry(
+        client,
+        "GET",
         MODULE_DUMP_ENDPOINT.format(name=module_name),
         headers=headers,
-        base_url=base,
         timeout=60,
+        max_retries=max_retries,
+        backoff_factor=0.5,
     )
-    content_resp.raise_for_status()
 
-    meta_resp = client.get(
+    meta_resp = await request_with_retry(
+        client,
+        "GET",
         MODULE_META_ENDPOINT.format(name=module_name),
         headers=headers,
-        base_url=base,
         timeout=30,
+        max_retries=max_retries,
+        backoff_factor=0.5,
     )
-    meta_resp.raise_for_status()
 
     return content_resp.text, meta_resp.json()
 
@@ -217,7 +274,7 @@ def module_index_entry(name: str, output_file: Path, status: str, meta: Mapping 
     return entry
 
 
-def run_harvest(
+async def run_harvest(
     classes: Iterable[str],
     api_url: str,
     api_key: str | None,
@@ -227,6 +284,8 @@ def run_harvest(
     modules: Sequence[str],
     modules_output_dir: Path,
     module_index_path: Path,
+    concurrency: int,
+    max_retries: int,
 ) -> None:
     ensure_output_dirs(output_dir)
     ensure_output_dirs(modules_output_dir)
@@ -242,30 +301,50 @@ def run_harvest(
         "entries": [],
     }
 
-    with httpx.Client(follow_redirects=True) as client:
+    semaphore = asyncio.Semaphore(max(1, concurrency))
+
+    async with httpx.AsyncClient(base_url=api_url.rstrip("/"), follow_redirects=True) as client:
+        build_tasks = []
         for class_name in classes:
             slug = slugify(class_name)
             output_file = output_dir / f"{slug}.json"
-            logging.info("Recupero build per %s in modalità %s", class_name, mode)
-            try:
-                payload = fetch_build(client, api_url, api_key, class_name, mode)
-                write_json(output_file, payload)
-                builds_index["entries"].append(build_index_entry(class_name, output_file, "ok"))
-            except Exception as exc:  # pragma: no cover - network dependent
-                logging.exception("Errore durante la fetch di %s", class_name)
-                builds_index["entries"].append(build_index_entry(class_name, None, "error", str(exc)))
 
+            async def process_class(name: str, destination: Path) -> tuple[str, Mapping]:
+                async with semaphore:
+                    logging.info("Recupero build per %s in modalità %s", name, mode)
+                    try:
+                        payload = await fetch_build(client, api_key, name, mode, max_retries)
+                        write_json(destination, payload)
+                        return name, build_index_entry(name, destination, "ok")
+                    except Exception as exc:  # pragma: no cover - network dependent
+                        logging.exception("Errore durante la fetch di %s", name)
+                        return name, build_index_entry(name, None, "error", str(exc))
+
+            build_tasks.append(asyncio.create_task(process_class(class_name, output_file)))
+
+        module_tasks = []
         for module_name in modules:
             module_path = modules_output_dir / module_name
-            logging.info("Scarico modulo raw %s", module_name)
-            try:
-                content, meta = fetch_module(client, api_url, api_key, module_name)
-                module_path.parent.mkdir(parents=True, exist_ok=True)
-                module_path.write_text(content, encoding="utf-8")
-                modules_index["entries"].append(module_index_entry(module_name, module_path, "ok", meta))
-            except Exception as exc:  # pragma: no cover - network dependent
-                logging.exception("Errore durante il download di %s", module_name)
-                modules_index["entries"].append(module_index_entry(module_name, None, "error", error=str(exc)))
+
+            async def process_module(name: str, destination: Path) -> tuple[str, Mapping]:
+                async with semaphore:
+                    logging.info("Scarico modulo raw %s", name)
+                    try:
+                        content, meta = await fetch_module(client, api_key, name, max_retries)
+                        destination.parent.mkdir(parents=True, exist_ok=True)
+                        destination.write_text(content, encoding="utf-8")
+                        return name, module_index_entry(name, destination, "ok", meta)
+                    except Exception as exc:  # pragma: no cover - network dependent
+                        logging.exception("Errore durante il download di %s", name)
+                        return name, module_index_entry(name, None, "error", error=str(exc))
+
+            module_tasks.append(asyncio.create_task(process_module(module_name, module_path)))
+
+        build_results = await asyncio.gather(*build_tasks)
+        module_results = await asyncio.gather(*module_tasks)
+
+    builds_index["entries"].extend(entry for _, entry in sorted(build_results, key=lambda item: item[0]))
+    modules_index["entries"].extend(entry for _, entry in sorted(module_results, key=lambda item: item[0]))
 
     write_json(index_path, builds_index)
     write_json(module_index_path, modules_index)
@@ -275,16 +354,20 @@ def run_harvest(
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
-    run_harvest(
-        args.classes,
-        args.api_url,
-        args.api_key,
-        args.mode,
-        args.output_dir,
-        args.index_path,
-        args.modules,
-        args.modules_output_dir,
-        args.module_index_path,
+    asyncio.run(
+        run_harvest(
+            args.classes,
+            args.api_url,
+            args.api_key,
+            args.mode,
+            args.output_dir,
+            args.index_path,
+            args.modules,
+            args.modules_output_dir,
+            args.module_index_path,
+            args.concurrency,
+            args.max_retries,
+        )
     )
 
 
