@@ -256,6 +256,20 @@ def test_get_module_content_binary_blocked_when_dump_disabled(
         binary_path.unlink(missing_ok=True)
 
 
+def test_get_module_content_pdf_blocked_when_dump_disabled(
+    client, auth_headers, disable_module_dump
+):
+    pdf_path = MODULES_DIR / "blocked_module.pdf"
+    pdf_path.write_bytes(b"%PDF-1.4 dummy content")
+
+    try:
+        response = client.get("/modules/blocked_module.pdf", headers=auth_headers)
+        assert response.status_code == 403
+        assert response.json()["detail"] == "Module download not allowed"
+    finally:
+        pdf_path.unlink(missing_ok=True)
+
+
 def test_text_module_truncated_when_dump_disabled(
     client, auth_headers, disable_module_dump
 ):
