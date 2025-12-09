@@ -398,7 +398,8 @@ def _render_sheet_template(template_text: str, context: Mapping[str, object]) ->
             for stat_key, stat_val in stats_key.items()
         }
 
-    return template.render(**render_ctx)
+    rendered = template.render(**render_ctx)
+    return rendered.strip()
 
 
 _validator_cache: dict[str, Draft202012Validator] = {}
