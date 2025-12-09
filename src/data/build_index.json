@@ -6,7 +6,7 @@
   "entries": [
     {
       "file": "src/data/builds/cleric_human_warpriest.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "cleric_human_warpriest",
       "class": "Cleric",
       "race": "Human",
@@ -15,26 +15,11 @@
       "mode_normalized": "extended",
       "spec_id": "cleric_human_warpriest",
       "model": null,
-      "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
-      "error": "{'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'",
-      "completeness_errors": [
-        "PF mancanti o vuoti",
-        "Salvezze mancanti o vuote",
-        "Skill assenti o vuote",
-        "Talenti/capacità mancanti o vuote",
-        "Equipaggiamento/inventario mancante o vuoto",
-        "Sezione incantesimi mancante o vuota",
-        "CA dettagliata mancante o vuota",
-        "Iniziativa o velocità mancanti"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "background": "Seguace zelota che bilancia liturgia e combattimento sacro."
     },
     {
       "file": "src/data/builds/druid_half_orc_feral.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "druid_half_orc_feral",
       "class": "Druid",
       "race": "Half-Orc",
@@ -43,26 +28,11 @@
       "mode_normalized": "extended",
       "spec_id": "druid_half_orc_feral",
       "model": null,
-      "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
-      "error": "{'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'",
-      "completeness_errors": [
-        "PF mancanti o vuoti",
-        "Salvezze mancanti o vuote",
-        "Skill assenti o vuote",
-        "Talenti/capacità mancanti o vuote",
-        "Equipaggiamento/inventario mancante o vuoto",
-        "Sezione incantesimi mancante o vuota",
-        "CA dettagliata mancante o vuota",
-        "Iniziativa o velocità mancanti"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive."
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "fighter_dwarf_shielded",
       "class": "Fighter",
       "race": "Dwarf",
@@ -71,26 +41,11 @@
       "mode_normalized": "extended",
       "spec_id": "fighter_dwarf_shielded",
       "model": null,
-      "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
-      "error": "{'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'",
-      "completeness_errors": [
-        "PF mancanti o vuoti",
-        "Salvezze mancanti o vuote",
-        "Skill assenti o vuote",
-        "Talenti/capacità mancanti o vuote",
-        "Equipaggiamento/inventario mancante o vuoto",
-        "Sezione incantesimi mancante o vuota",
-        "CA dettagliata mancante o vuota",
-        "Iniziativa o velocità mancanti"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti."
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "fighter_weapon_master_human",
       "class": "Fighter",
       "race": "Human",
@@ -99,26 +54,11 @@
       "mode_normalized": "extended",
       "spec_id": "fighter_weapon_master_human",
       "model": null,
-      "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
-      "error": "{'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'",
-      "completeness_errors": [
-        "PF mancanti o vuoti",
-        "Salvezze mancanti o vuote",
-        "Skill assenti o vuote",
-        "Talenti/capacità mancanti o vuote",
-        "Equipaggiamento/inventario mancante o vuoto",
-        "Sezione incantesimi mancante o vuota",
-        "CA dettagliata mancante o vuota",
-        "Iniziativa o velocità mancanti"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "background": "Veterano delle Crociate che testa nuove combinazioni di armi."
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "ranger_halfelf_skirmisher",
       "class": "Ranger",
       "race": "Half-Elf",
@@ -127,26 +67,11 @@
       "mode_normalized": "extended",
       "spec_id": "ranger_halfelf_skirmisher",
       "model": null,
-      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
-      "error": "{'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'",
-      "completeness_errors": [
-        "PF mancanti o vuoti",
-        "Salvezze mancanti o vuote",
-        "Skill assenti o vuote",
-        "Talenti/capacità mancanti o vuote",
-        "Equipaggiamento/inventario mancante o vuoto",
-        "Sezione incantesimi mancante o vuota",
-        "CA dettagliata mancante o vuota",
-        "Iniziativa o velocità mancanti"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera."
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "rogue_halfling_cutpurse",
       "class": "Rogue",
       "race": "Halfling",
@@ -155,26 +80,11 @@
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
       "model": null,
-      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
-      "error": "{'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'",
-      "completeness_errors": [
-        "PF mancanti o vuoti",
-        "Salvezze mancanti o vuote",
-        "Skill assenti o vuote",
-        "Talenti/capacità mancanti o vuote",
-        "Equipaggiamento/inventario mancante o vuoto",
-        "Sezione incantesimi mancante o vuota",
-        "CA dettagliata mancante o vuota",
-        "Iniziativa o velocità mancanti"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla."
     },
     {
       "file": "src/data/builds/wizard_elf_universalist.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "wizard_elf_universalist",
       "class": "Wizard",
       "race": "Elf",
@@ -183,26 +93,11 @@
       "mode_normalized": "extended",
       "spec_id": "wizard_elf_universalist",
       "model": null,
-      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
-      "error": "{'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'",
-      "completeness_errors": [
-        "PF mancanti o vuoti",
-        "Salvezze mancanti o vuote",
-        "Skill assenti o vuote",
-        "Talenti/capacità mancanti o vuote",
-        "Equipaggiamento/inventario mancante o vuoto",
-        "Sezione incantesimi mancante o vuota",
-        "CA dettagliata mancante o vuota",
-        "Iniziativa o velocità mancanti"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori."
     },
     {
       "file": "src/data/builds/wizard_human_evoker.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "wizard_human_evoker",
       "class": "Wizard",
       "race": "Human",
@@ -211,22 +106,7 @@
       "mode_normalized": "extended",
       "spec_id": "wizard_human_evoker",
       "model": null,
-      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
-      "error": "{'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'; {'totale': 0, 'base': 0, 'modificatore': 0, 'misc': 0} is not of type 'integer', 'number'",
-      "completeness_errors": [
-        "PF mancanti o vuoti",
-        "Salvezze mancanti o vuote",
-        "Skill assenti o vuote",
-        "Talenti/capacità mancanti o vuote",
-        "Equipaggiamento/inventario mancante o vuoto",
-        "Sezione incantesimi mancante o vuota",
-        "CA dettagliata mancante o vuota",
-        "Iniziativa o velocità mancanti"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "background": "Piromane accademico in cerca di antiche pergamene elementali."
     }
   ]
 }
