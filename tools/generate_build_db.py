@@ -1652,7 +1652,7 @@ async def fetch_build(
     )
     export_ctx["sheet_payload"] = sheet_payload
     sheet_markdown = sheet_payload.get("sheet_markdown")
-    if sheet_markdown:
+    if isinstance(sheet_markdown, str):
         payload["sheet"] = sheet_markdown
         composite["sheet"] = sheet_markdown
     elif sheet is not None:
