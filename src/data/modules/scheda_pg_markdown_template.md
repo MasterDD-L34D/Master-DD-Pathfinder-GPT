@@ -77,6 +77,13 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
   {% set percezione_tot = skills_map.Percezione.totale %}
 {% endif %}
 
+{# Ledger / equipaggiamento helpers #}
+{% set LEDGER = ledger or {} %}
+{% set ledger_currency = currency or LEDGER.currency or {} %}
+{% set ledger_movimenti = ledger_movimenti or LEDGER.movimenti or [] %}
+{% set ledger_parcels = ledger_parcels or LEDGER.parcels or [] %}
+{% set ledger_crafting = ledger_crafting or LEDGER.crafting or [] %}
+
 # {{ nome | default('—') }} — Liv. {{ get_total_level(CL)|default('—') }} ({{ razza | default('—') }} · {% for c in CL %}{{ c.nome }} ({{ c.livelli }}){% if c.archetipi %} — {{ c.archetipi | join(', ') }}{% endif %}{% if not loop.last %} / {% endif %}{% endfor %})
 
 **Allineamento:** {{ d(allineamento) }}  
@@ -205,12 +212,16 @@ _Nessun breakdown CA dettagliato nel payload._
 ---
 
 ## Abilità (Skills)
+{% set SKILLS = skills or [] %}
+{% if SKILLS %}
 | Abilità | Gradi | Mod Car | Var | Classe? | Totale |
 |---|---:|---:|---:|:--:|---:|
-{% for s in (skills or []) -%}
+{% for s in SKILLS -%}
 | {{ d(s.nome) }} | {{ s.gradi|default(0) }} | {{ signed(s.mod_car|default(0)) }} | {{ signed(s.var|default(0)) }} | {{ '✓' if s.classe else '' }} | {{ s.totale|default(s.gradi|default(0) + s.mod_car|default(0) + s.var|default(0) + (3 if s.classe else 0)) }} |
 {%- endfor %}
-{% if (skills or [])|length == 0 %}_Nessuna abilità strutturata._{% endif %}
+{% else %}
+_Nessuna abilità strutturata: nascondi la tabella o aggiungi almeno Percezione/Acrobazia._
+{% endif %}
 
 ---
 
@@ -296,11 +307,26 @@ _Nessuna tabella incantesimi disponibile._
 ---
 
 ## Equipaggiamento
-- {{ (equipaggiamento or []) | join(', ') if equipaggiamento else '—' }}
-- **Armi/Armature/Oggetti:** {{ d(equip_base) }}  
-- **Peso totale trasportato:** {{ d(peso_totale) }}  
-- **Capacità di trasporto:** L {{ d(carico_leggero) }} / M {{ d(carico_medio) }} / P {{ d(carico_pesante) }}  
-- **Valute:** Rame {{ cp|default(0) }} • Argento {{ sp|default(0) }} • Oro {{ gp|default(0) }} • Platino {{ pp|default(0) }}
+{% set EQUIP = equipaggiamento or [] %}
+{% set EQUIP_SUM = equipment_summary or {} %}
+{% if EQUIP %}
+| Oggetto | Note |
+|---|---|
+{% for item in EQUIP -%}
+| {{ item }} | {{ EQUIP_SUM.get(item) or EQUIP_SUM.get('note', '') }} |
+{%- endfor %}
+{% else %}
+_Nessun equipaggiamento strutturato: aggiungi 2–3 voci o usa l’inventario sintetico._
+{% endif %}
+
+- **Armi/Armature/Oggetti:** {{ d(equip_base) }}
+- **Peso totale trasportato:** {{ d(peso_totale, EQUIP_SUM.get('peso_totale')) }}
+- **Capacità di trasporto:** L {{ d(carico_leggero) }} / M {{ d(carico_medio) }} / P {{ d(carico_pesante) }}
+- **Valute:**
+  - **PP:** {{ ledger_currency.pp | default(pp | default(0)) }}
+  - **GP:** {{ ledger_currency.gp | default(gp | default(0)) }}
+  - **SP:** {{ ledger_currency.sp | default(sp | default(0)) }}
+  - **CP:** {{ ledger_currency.cp | default(cp | default(0)) }}
 
 ---
 
@@ -336,28 +362,37 @@ _Nessuna tabella incantesimi disponibile._
 - **Encumbrance hint:** {{ d(ledger_encumbrance_hint, 'ok') }}
 
 ### Movimenti (ultimi / sessione)
+{% if ledger_movimenti %}
 | Data | Tipo | Oggetto/Voce | Q.tà | Val. unit | Totale | Δ GP | Fonte (AP/SX) | PFS |
 |---|---|---|---:|---:|---:|---:|---|:--:|
-{% for m in (ledger_movimenti or []) -%}
-| {{ d(m.data) }} | {{ d(m.tipo) }} | {{ d(m.oggetto) }} | {{ d(m.qty,1) }} | {{ d(m.vu) }} | {{ d(m.tot) }} | {{ d(m.delta_gp) }} | {{ d(m.source) }} | {{ '✓' if m.pfs else '' }} |
+{% for m in ledger_movimenti -%}
+| {{ d(m.data) }} | {{ d(m.tipo) }} | {{ d(m.oggetto) }} | {{ d(m.qty,1) }} | {{ d(m.vu, m.val_unit) }} | {{ d(m.tot, m.importo) }} | {{ d(m.delta_gp, m.importo) }} | {{ d(m.source) }} | {{ '✓' if m.pfs else '' }} |
 {%- endfor %}
-{% if (ledger_movimenti or [])|length == 0 %}_Nessun movimento registrato._{% endif %}
+{% else %}
+_Nessun movimento registrato: ometti la tabella se il ledger è vuoto._
+{% endif %}
 
 ### Loot Parcels (non ancora liquidati)
+{% if ledger_parcels %}
 | Parcella | Stima gp | Assegnatario | Note |
 |---|---:|---|---|
-{% for p in (ledger_parcels or []) -%}
+{% for p in ledger_parcels -%}
 | {{ d(p.nome) }} | {{ d(p.val_gp) }} | {{ d(p.assegnatario) }} | {{ d(p.note) }} |
 {%- endfor %}
-{% if (ledger_parcels or [])|length == 0 %}_Nessun loot in attesa._{% endif %}
+{% else %}
+_Nessun loot in attesa._
+{% endif %}
 
 ### Coda Crafting
+{% if ledger_crafting %}
 | Item | DC | Giorni | Costo materie | Risparmio | Stato |
 |---|---:|---:|---:|---:|---|
-{% for c in (ledger_crafting or []) -%}
+{% for c in ledger_crafting -%}
 | {{ d(c.item) }} | {{ d(c.dc) }} | {{ d(c.days) }} | {{ d(c.cost) }} | {{ d(c.saving) }} | {{ d(c.status,'open') }} |
 {%- endfor %}
-{% if (ledger_crafting or [])|length == 0 %}_Nessun crafting pianificato._{% endif %}
+{% else %}
+_Nessun crafting pianificato._
+{% endif %}
 
 ### Audit & PFS
 - **Flag non PFS-legal:** {{ d(ledger_pfs_flags, '—') }}
