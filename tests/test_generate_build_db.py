@@ -26,6 +26,11 @@ def test_review_local_database_reports_status(tmp_path):
         Path("src/data/builds/alchemist.json").read_text(encoding="utf-8")
     )
     (build_dir / "valid.json").write_text(json.dumps(valid_payload), encoding="utf-8")
+    completeness_payload = dict(valid_payload)
+    completeness_payload["completeness"] = {"errors": ["Statistiche mancanti"]}
+    (build_dir / "incomplete.json").write_text(
+        json.dumps(completeness_payload), encoding="utf-8"
+    )
     (build_dir / "invalid.json").write_text(
         json.dumps({"build_state": {}}), encoding="utf-8"
     )
@@ -65,9 +70,9 @@ def test_review_local_database_reports_status(tmp_path):
     )
 
     assert output_report.is_file()
-    assert report["builds"]["total"] == 2
+    assert report["builds"]["total"] == 3
     assert report["builds"]["valid"] == 1
-    assert report["builds"]["invalid"] == 1
+    assert report["builds"]["invalid"] == 2
     assert report["modules"]["valid"] == 1
     assert report["modules"]["invalid"] == 0
 
