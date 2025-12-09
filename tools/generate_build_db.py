@@ -1593,7 +1593,9 @@ def _enrich_sheet_payload(
             )
 
     if rendered_sheet:
-        sheet_payload["sheet_markdown"] = rendered_sheet
+        rendered_sheet = rendered_sheet.strip()
+        if rendered_sheet:
+            sheet_payload["sheet_markdown"] = rendered_sheet
 
     sources = _merge_unique_list(
         sheet_payload.get("fonti"), [source_url] if source_url else []
