@@ -10,6 +10,7 @@
 {% set SHOW_EXPLAIN  = show_explain  | default(true)  %}
 {% set SHOW_LEDGER   = show_ledger   | default(true)  %}  {# <-- nuovo: Libro Mastro #}
 {% set DECIMAL_COMMA = decimal_comma | default(true)  %}
+{% set DESC_FALLBACK = 'n/d' %}
 
 {% macro d(val, fallback='—') -%}{{ (val if (val is not none and val != '') else fallback) }}{%- endmacro %}
 {% macro mod(x) -%}{{ (((x|default(10))|int) - 10) // 2 }}{%- endmacro %}
@@ -39,8 +40,19 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% set ST_SAG = ST.SAG | default(ST.Saggezza) | default(ST.saggezza) | default(10) %}
 {% set ST_CAR = ST.CAR | default(ST.Carisma) | default(ST.carisma) | default(10) %}
 
-{% set CL = classi or [] %}
-{% set FIRST_CLASS = (CL[0].nome if CL and CL|length>0 else '—') %}
+{%- set CL = classi or [] -%}
+{%- set FIRST_CLASS = (CL[0].nome if CL and CL|length>0 else '—') -%}
+{%- set has_alignment = allineamento is not none and (allineamento|string|trim) != '' -%}
+{%- set has_deity = divinita is not none and (divinita|string|trim) != '' -%}
+{%- set has_size = taglia is not none and (taglia|string|trim) != '' -%}
+{%- set has_age = eta is not none and (eta|string|trim) != '' -%}
+{%- set has_sex = sesso is not none and (sesso|string|trim) != '' -%}
+{%- set has_height = altezza is not none and (altezza|string|trim) != '' -%}
+{%- set has_weight = peso is not none and (peso|string|trim) != '' -%}
+{%- set has_role = ruolo is not none and (ruolo|string|trim) != '' -%}
+{%- set has_player_style = player_style is not none and (player_style|string|trim) != '' -%}
+{%- set has_background = background is not none and (background|string|trim) != '' -%}
+{%- set has_style_hint = style_hint(player_style) is not none and (style_hint(player_style)|string|trim) != '' -%}
 
 {% set cur_pp = (currency.pp if currency is defined else pp) | default(0) %}
 {% set cur_gp = (currency.gp if currency is defined else gp) | default(0) %}
@@ -77,14 +89,23 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
   {% set percezione_tot = skills_map.Percezione.totale %}
 {% endif %}
 
-# {{ nome | default('—') }} — Liv. {{ get_total_level(CL)|default('—') }} ({{ razza | default('—') }} · {% for c in CL %}{{ c.nome }} ({{ c.livelli }}){% if c.archetipi %} — {{ c.archetipi | join(', ') }}{% endif %}{% if not loop.last %} / {% endif %}{% endfor %})
+# {{ d(nome, FIRST_CLASS) }} — Liv. {{ get_total_level(CL)|default('—') }} ({{ d(razza, DESC_FALLBACK) }} · {% for c in CL %}{{ c.nome }} ({{ c.livelli }}){% if c.archetipi %} — {{ c.archetipi | join(', ') }}{% endif %}{% if not loop.last %} / {% endif %}{% endfor %})
 
-**Allineamento:** {{ d(allineamento) }}  
-**Divinità:** {{ d(divinita) }}  
-**Taglia:** {{ d(taglia) }} | **Età:** {{ d(eta) }} | **Sesso:** {{ d(sesso) }} | **Altezza/Peso:** {{ d(altezza) }} / {{ d(peso) }}  
-**Ruolo consigliato:** {{ d(ruolo) }}  
-**Stile interpretativo:** {{ d(player_style) }} — {{ d(style_hint(player_style)) }}
-**Background breve (5–10 righe):** {{ d(background) }}
+{% if has_alignment or has_deity -%}
+**Allineamento:** {{ d(allineamento, DESC_FALLBACK) }}{% if has_deity %} | **Divinità:** {{ d(divinita, DESC_FALLBACK) }}{% endif %}
+{% endif -%}
+{% if has_size or has_age or has_sex or has_height or has_weight -%}
+**Taglia:** {{ d(taglia, DESC_FALLBACK) }} | **Età:** {{ d(eta, DESC_FALLBACK) }} | **Sesso:** {{ d(sesso, DESC_FALLBACK) }} | **Altezza/Peso:** {{ d(altezza, DESC_FALLBACK) }} / {{ d(peso, DESC_FALLBACK) }}
+{% endif -%}
+{% if has_role -%}
+**Ruolo consigliato:** {{ d(ruolo, DESC_FALLBACK) }}
+{% endif -%}
+{% if has_player_style or has_style_hint -%}
+**Stile interpretativo:** {{ d(player_style, DESC_FALLBACK) }}{% if has_style_hint %} — {{ d(style_hint(player_style), DESC_FALLBACK) }}{% endif %}
+{% endif -%}
+{% if has_background -%}
+**Background breve (5–10 righe):** {{ d(background, DESC_FALLBACK) }}
+{% endif %}
 
 {% if not PRINT_MODE %}
 ---
