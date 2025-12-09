@@ -180,7 +180,7 @@ async def _run_core_harvest(tmp_path, monkeypatch):
         exclude_filters=[],
         strict=False,
         keep_invalid=True,
-        require_complete=False,
+        require_complete=True,
         skip_health_check=False,
     )
 
@@ -212,6 +212,82 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
         value = rendered_stats[key]
         expected_mod = (int(value) - 10) // 2
         assert f"**{label}** {value} (mod {expected_mod})" in rendered_sheet
+
+
+async def _run_incomplete_harvest(tmp_path, monkeypatch):
+    incomplete_payload = {
+        "build_state": {
+            "class": "Fighter",
+            "race": "Human",
+            "archetype": "Base",
+            "step_total": 8,
+            "statistics": {},
+        },
+        "benchmark": {},
+        "export": {"sheet_payload": {"nome": "Incomplete"}},
+        "narrative": None,
+        "ledger": {},
+    }
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/health":
+            return httpx.Response(200, json={"status": "ok"})
+        if request.url.path == "/modules/minmax_builder.txt":
+            return httpx.Response(200, json=incomplete_payload)
+        return httpx.Response(404)
+
+    transport = httpx.MockTransport(handler)
+    real_async_client = httpx.AsyncClient
+
+    def client_factory(*args, **kwargs):
+        kwargs.setdefault("transport", transport)
+        return real_async_client(*args, **kwargs)
+
+    monkeypatch.setattr("tools.generate_build_db.httpx.AsyncClient", client_factory)
+    monkeypatch.setattr(
+        "tools.generate_build_db.validate_with_schema", lambda *args, **kwargs: None
+    )
+
+    output_dir = tmp_path / "builds"
+    modules_dir = tmp_path / "modules"
+    index_path = tmp_path / "build_index.json"
+    module_index_path = tmp_path / "module_index.json"
+
+    await run_harvest(
+        [BuildRequest(class_name="Fighter", mode="core")],
+        api_url="http://mock.api",
+        api_key="mock-key",
+        output_dir=output_dir,
+        index_path=index_path,
+        modules=[],
+        modules_output_dir=modules_dir,
+        module_index_path=module_index_path,
+        concurrency=1,
+        max_retries=0,
+        spec_path=None,
+        discover=False,
+        include_filters=[],
+        exclude_filters=[],
+        strict=False,
+        keep_invalid=True,
+        require_complete=False,
+        skip_health_check=False,
+    )
+
+    return output_dir, index_path
+
+
+def test_run_harvest_skips_incomplete_payload(tmp_path, monkeypatch):
+    output_dir, index_path = asyncio.run(
+        _run_incomplete_harvest(tmp_path, monkeypatch)
+    )
+
+    assert not (output_dir / "fighter.json").exists()
+    index_payload = json.loads(index_path.read_text(encoding="utf-8"))
+    entry = index_payload["entries"][0]
+    assert entry["status"] == "invalid"
+    assert entry.get("completeness_errors")
+    assert "Narrativa assente" in entry["error"]
 
 
 def test_enrich_sheet_payload_trims_markdown_whitespace():

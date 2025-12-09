@@ -561,7 +561,7 @@
     }
   },
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&race=Human&archetype=Warpriest",
-  "fetched_at": "2025-12-08T23:46:17Z",
+  "fetched_at": "2025-12-09T16:37:18Z",
   "request": {
     "class": "Cleric",
     "race": "Human",
@@ -590,16 +590,7 @@
     "has_extended_steps": true
   },
   "completeness": {
-    "errors": [
-      "PF mancanti o vuoti",
-      "Salvezze mancanti o vuote",
-      "Skill assenti o vuote",
-      "Talenti/capacità mancanti o vuote",
-      "Equipaggiamento/inventario mancante o vuoto",
-      "Sezione incantesimi mancante o vuota",
-      "CA dettagliata mancante o vuota",
-      "Iniziativa o velocità mancanti"
-    ],
-    "require_complete": false
+    "errors": [],
+    "require_complete": true
   }
 }
