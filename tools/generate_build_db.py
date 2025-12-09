@@ -332,7 +332,11 @@ def _coerce_number(value: object, default: object | None = None) -> object:
 
 
 _sheet_template_env = NativeEnvironment(
-    loader=BaseLoader(), autoescape=False, undefined=ChainableUndefined
+    loader=BaseLoader(),
+    autoescape=False,
+    undefined=ChainableUndefined,
+    trim_blocks=True,
+    lstrip_blocks=True,
 )
 _sheet_template_env.globals.update(
     style_hint=_style_hint,
@@ -1100,6 +1104,47 @@ def _enrich_sheet_payload(
         lowered = key.lower()
         return alias_map.get(lowered, key)
 
+    def _populate_profile_metadata(target: MutableMapping[str, object]) -> None:
+        profile_sources: list[Mapping[str, object]] = []
+        for candidate in (
+            _as_mapping(target.get("profilo_base")),
+            _as_mapping(target.get("base_profile")),
+            _as_mapping(export_ctx.get("profilo_base")),
+            _as_mapping(export_ctx.get("base_profile")),
+            _as_mapping(payload.get("profilo_base")),
+            _as_mapping(payload.get("base_profile")),
+            _as_mapping(payload.get("build_state")),
+            _as_mapping(payload.get("request")),
+        ):
+            if candidate:
+                profile_sources.append(candidate)
+
+        profile_keys: dict[str, tuple[str, ...]] = {
+            "nome": ("nome", "name", "character_name"),
+            "razza": ("razza", "race"),
+            "allineamento": ("allineamento", "alignment"),
+            "divinita": ("divinita", "deity"),
+            "taglia": ("taglia", "size"),
+            "eta": ("eta", "age"),
+            "sesso": ("sesso", "sex", "gender"),
+            "altezza": ("altezza", "height"),
+            "peso": ("peso", "weight"),
+            "ruolo": ("ruolo", "role", "role_hint"),
+            "player_style": ("player_style",),
+            "background": ("background", "background_hooks"),
+        }
+
+        for target_key, aliases in profile_keys.items():
+            if not _is_placeholder(target.get(target_key)):
+                continue
+            values: list[object | None] = []
+            for source in profile_sources:
+                for alias in aliases:
+                    values.append(source.get(alias))
+            resolved = _first_non_placeholder(*values)
+            if resolved is not None:
+                target[target_key] = resolved
+
     def _normalize_statistics_block(*sources: Mapping | None) -> dict[str, object]:
         normalized: dict[str, object] = {}
         for source in sources:
@@ -1154,6 +1199,8 @@ def _enrich_sheet_payload(
     )
     if stats_block:
         sheet_payload["statistiche"] = stats_block
+
+    _populate_profile_metadata(sheet_payload)
 
     salvezze_raw = _merge_prefer_existing(
         {},
