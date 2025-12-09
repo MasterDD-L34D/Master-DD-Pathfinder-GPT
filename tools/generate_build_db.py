@@ -606,6 +606,23 @@ def _worst_status(*statuses: str | None) -> str:
     return max(statuses, key=lambda status: priority.get(status, 0)) or "ok"
 
 
+def _requested_level(payload: Mapping[str, object] | None) -> int | None:
+    if not isinstance(payload, Mapping):
+        return None
+
+    request_ctx = payload.get("request") if isinstance(payload.get("request"), Mapping) else {}
+    level = request_ctx.get("level") if isinstance(request_ctx, Mapping) else None
+    if level is None and isinstance(payload.get("build_state"), Mapping):
+        level = payload.get("build_state", {}).get("level")
+
+    try:
+        coerced = int(level)
+    except (TypeError, ValueError):
+        return None
+
+    return coerced if coerced > 0 else None
+
+
 def review_local_database(
     build_dir: Path,
     module_dir: Path,
@@ -696,6 +713,11 @@ def review_local_database(
                 else {}
             )
             completeness_errors = list(completeness_ctx.get("errors") or [])
+            target_level = _requested_level(payload)
+            progression_errors = _progression_level_errors(sheet_payload, target_level)
+            for error in progression_errors:
+                if error not in completeness_errors:
+                    completeness_errors.append(error)
             completeness_text: str | None = None
             if completeness_errors:
                 completeness_text = "; ".join(str(error) for error in completeness_errors)
@@ -1917,6 +1939,66 @@ def _apply_level_checkpoint(
             sheet_payload[key] = truncated
 
 
+def _progression_level_errors(
+    sheet_payload: Mapping[str, object] | None, target_level: int | None
+) -> list[str]:
+    if not target_level or target_level < 1:
+        return []
+
+    if not isinstance(sheet_payload, Mapping):
+        return []
+
+    progression = sheet_payload.get("progressione")
+    progression_entries: Sequence | None = None
+    if isinstance(progression, Sequence) and not isinstance(progression, (str, bytes)):
+        progression_entries = progression
+
+    def _entry_for_level(level: int) -> Mapping | None:
+        if progression_entries is None:
+            return None
+
+        for candidate in progression_entries:
+            if isinstance(candidate, Mapping) and candidate.get("livello") == level:
+                return candidate
+
+        if 0 <= level - 1 < len(progression_entries):
+            candidate = progression_entries[level - 1]
+            if isinstance(candidate, Mapping):
+                return candidate
+        return None
+
+    errors: list[str] = []
+    for level in range(1, target_level + 1):
+        progression_entry = _entry_for_level(level)
+        privileges = None
+        feats = None
+        if isinstance(progression_entry, Mapping):
+            privileges = progression_entry.get("privilegi")
+            feats = progression_entry.get("talenti") or progression_entry.get("talento")
+
+        has_progression = _has_content(privileges) or _has_content(feats)
+        has_core_blocks = all(
+            _has_content(value)
+            for value in (
+                sheet_payload.get("pf_totali") or sheet_payload.get("hp"),
+                sheet_payload.get("salvezze"),
+                sheet_payload.get("skills_map") or sheet_payload.get("skills"),
+                sheet_payload.get("skill_points"),
+                sheet_payload.get("equipaggiamento") or sheet_payload.get("inventario"),
+                sheet_payload.get("spell_levels")
+                or sheet_payload.get("magia")
+                or sheet_payload.get("slot_incantesimi"),
+                sheet_payload.get("ac_breakdown"),
+                sheet_payload.get("iniziativa") or sheet_payload.get("velocita"),
+            )
+        )
+
+        if not (has_progression and has_core_blocks):
+            errors.append(f"Progressione assente al livello {level}")
+
+    return errors
+
+
 async def fetch_build(
     client: httpx.AsyncClient,
     api_key: str | None,
@@ -2102,6 +2184,11 @@ async def fetch_build(
         sheet_payload.get("iniziativa"),
         sheet_payload.get("velocita"),
     )
+
+    progression_errors = _progression_level_errors(sheet_payload, target_level)
+    for error in progression_errors:
+        if error not in completeness_errors:
+            completeness_errors.append(error)
 
     payload.update(
         {
@@ -2597,11 +2684,9 @@ async def run_harvest(
                             None,
                             status,
                             str(exc),
-                            (
-                                payload.get("step_audit")
-                                if "payload" in locals()
-                                else None,
-                            ),
+                            payload.get("step_audit")
+                            if isinstance(payload, Mapping)
+                            else None,
                             completeness_errors,
                         )
                     except Exception as exc:  # pragma: no cover - network dependent
@@ -2613,11 +2698,9 @@ async def run_harvest(
                             None,
                             "error",
                             str(exc),
-                            (
-                                payload.get("step_audit")
-                                if "payload" in locals()
-                                else None,
-                            ),
+                            payload.get("step_audit")
+                            if isinstance(payload, Mapping)
+                            else None,
                             (
                                 completeness_errors
                                 if "completeness_errors" in locals()
