@@ -582,6 +582,6 @@
   },
   "completeness": {
     "errors": [],
-    "require_complete": false
+    "require_complete": true
   }
 }
