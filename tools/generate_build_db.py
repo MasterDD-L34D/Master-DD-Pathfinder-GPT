@@ -1106,6 +1106,25 @@ def parse_args() -> argparse.Namespace:
         help="Hook di background da includere nel prodotto cartesiano",
     )
     parser.add_argument(
+        "--classes",
+        dest="filter_classes",
+        nargs="*",
+        help=(
+            "Filtra le richieste generate a un sottoinsieme di classi PF1e (case-insensitive); "
+            "applicato dopo spec/CLI"
+        ),
+    )
+    parser.add_argument(
+        "--levels",
+        dest="filter_levels",
+        nargs="*",
+        type=int,
+        help=(
+            "Filtra i checkpoint di livello per ogni richiesta (es. --levels 1 5). "
+            "Se una richiesta prevede un livello singolo non presente qui viene scartata"
+        ),
+    )
+    parser.add_argument(
         "classes",
         nargs="*",
         default=PF1E_CLASSES,
@@ -1177,6 +1196,50 @@ def build_requests_from_args(args: argparse.Namespace) -> list[BuildRequest]:
         BuildRequest(class_name=class_name, mode=args.mode)
         for class_name in args.classes
     ]
+
+
+def filter_requests(
+    requests: Sequence[BuildRequest],
+    class_filters: Sequence[str] | None,
+    level_filters: Sequence[int] | None,
+) -> list[BuildRequest]:
+    class_set = (
+        {slugify(name).lower() for name in class_filters if name}
+        if class_filters
+        else None
+    )
+    level_set = {int(level) for level in level_filters} if level_filters else None
+
+    filtered_requests: list[BuildRequest] = []
+    for request in requests:
+        if class_set and slugify(request.class_name).lower() not in class_set:
+            continue
+
+        updated_request = request
+        if level_set is not None:
+            request_level = None
+            try:
+                request_level = int(request.level) if request.level is not None else None
+            except (TypeError, ValueError):
+                request_level = None
+
+            if request_level is not None and request_level not in level_set:
+                continue
+
+            filtered_levels = [
+                coerced
+                for coerced in (
+                    int(lvl)
+                    for lvl in request.level_checkpoints
+                    if lvl is not None
+                )
+                if coerced in level_set
+            ]
+            updated_request = replace(request, level_checkpoints=filtered_levels)
+
+        filtered_requests.append(updated_request)
+
+    return filtered_requests
 
 
 async def request_with_retry(
@@ -2459,6 +2522,7 @@ async def run_harvest(
     keep_invalid: bool = False,
     require_complete: bool = True,
     skip_health_check: bool = False,
+    level_filters: Sequence[int] | None = None,
 ) -> None:
     requests = list(requests)
     ensure_output_dirs(output_dir)
@@ -2537,19 +2601,32 @@ async def run_harvest(
 
         modules_index["module_plan"] = module_plan
 
+        level_filter_set = {int(level) for level in level_filters} if level_filters else None
+
         build_tasks = []
         for build_request in requests:
             seen_levels: set[int] = set()
             level_plan: list[int] = []
-            for level in [1, *build_request.level_checkpoints]:
+            levels_to_process = [1, *build_request.level_checkpoints]
+
+            for level in levels_to_process:
                 try:
                     coerced = int(level)
                 except (TypeError, ValueError):
+                    continue
+                if level_filter_set is not None and coerced not in level_filter_set:
                     continue
                 if coerced <= 0 or coerced in seen_levels:
                     continue
                 seen_levels.add(coerced)
                 level_plan.append(coerced)
+
+            if not level_plan:
+                logging.info(
+                    "Nessun livello selezionato per %s, salto la richiesta",
+                    build_request.output_name(),
+                )
+                continue
 
             base_level = level_plan[0] if level_plan else 1
 
@@ -2790,7 +2867,9 @@ async def run_harvest(
 
 
 def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
-    requests = build_requests_from_args(args)
+    requests = filter_requests(
+        build_requests_from_args(args), args.filter_classes, args.filter_levels
+    )
     strict_output_dir = args.output_dir / "strict"
     strict_modules_dir = args.modules_output_dir / "strict"
     strict_build_index = path_with_suffix(args.index_path, "strict")
@@ -2833,6 +2912,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 keep_invalid=False,
                 require_complete=args.require_complete,
                 skip_health_check=args.skip_health_check,
+                level_filters=args.filter_levels,
             )
         )
         report["strict"]["status"] = "ok"
@@ -2861,6 +2941,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 keep_invalid=True,
                 require_complete=args.require_complete,
                 skip_health_check=args.skip_health_check,
+                level_filters=args.filter_levels,
             )
         )
         report["tolerant"]["status"] = "ok"
@@ -2892,7 +2973,9 @@ def main() -> None:
         run_dual_pass_harvest(args)
         return
 
-    requests = build_requests_from_args(args)
+    requests = filter_requests(
+        build_requests_from_args(args), args.filter_classes, args.filter_levels
+    )
     strict_mode = args.strict and not args.warn_only
 
     if args.validate_db:
@@ -2926,6 +3009,7 @@ def main() -> None:
             args.keep_invalid,
             args.require_complete,
             args.skip_health_check,
+            args.filter_levels,
         )
     )
 
