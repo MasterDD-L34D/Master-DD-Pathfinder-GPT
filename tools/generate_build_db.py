@@ -8,6 +8,7 @@ import json
 import logging
 import os
 import shutil
+import textwrap
 from fnmatch import fnmatchcase
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
@@ -1593,7 +1594,7 @@ def _enrich_sheet_payload(
             sheet_payload["sheet_render_error"] = error_message
 
     if rendered_sheet:
-        rendered_sheet = rendered_sheet.strip()
+        rendered_sheet = textwrap.dedent(rendered_sheet).strip()
         if rendered_sheet:
             sheet_payload["sheet_markdown"] = rendered_sheet
 
