@@ -32,6 +32,12 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% set SAL = salvezze or {} %}
 {% set BM  = benchmarks or {} %}
 {% set HP  = hp or {} %}
+{% set ST_FOR = ST.FOR | default(ST.Forza) | default(ST.forza) | default(10) %}
+{% set ST_DES = ST.DES | default(ST.Destrezza) | default(ST.destrezza) | default(10) %}
+{% set ST_COS = ST.COS | default(ST.Costituzione) | default(ST.costituzione) | default(10) %}
+{% set ST_INT = ST.INT | default(ST.Intelligenza) | default(ST.intelligenza) | default(10) %}
+{% set ST_SAG = ST.SAG | default(ST.Saggezza) | default(ST.saggezza) | default(10) %}
+{% set ST_CAR = ST.CAR | default(ST.Carisma) | default(ST.carisma) | default(10) %}
 
 {% set CL = classi or [] %}
 {% set FIRST_CLASS = (CL[0].nome if CL and CL|length>0 else '—') %}
@@ -112,22 +118,22 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 ---
 
 ## Statistiche fondamentali
-- **For** {{ ST.Forza|default(10) }} (mod {{ mod(ST.Forza) }})
-- **Des** {{ ST.Destrezza|default(10) }} (mod {{ mod(ST.Destrezza) }})
-- **Cos** {{ ST.Costituzione|default(10) }} (mod {{ mod(ST.Costituzione) }})
-- **Int** {{ ST.Intelligenza|default(10) }} (mod {{ mod(ST.Intelligenza) }})
-- **Sag** {{ ST.Saggezza|default(10) }} (mod {{ mod(ST.Saggezza) }})
-- **Car** {{ ST.Carisma|default(10) }} (mod {{ mod(ST.Carisma) }})
+- **For** {{ ST_FOR }} (mod {{ mod(ST_FOR) }})
+- **Des** {{ ST_DES }} (mod {{ mod(ST_DES) }})
+- **Cos** {{ ST_COS }} (mod {{ mod(ST_COS) }})
+- **Int** {{ ST_INT }} (mod {{ mod(ST_INT) }})
+- **Sag** {{ ST_SAG }} (mod {{ mod(ST_SAG) }})
+- **Car** {{ ST_CAR }} (mod {{ mod(ST_CAR) }})
 
 - **PF (HP):** {{ d(STK.PF) }} | **CA:** {{ d(STK.CA, AC_tot) }}  
 - **CA (breakdown):** {{ AC_tot }} = 10 + Arm {{ AC_arm }} + Scudo {{ AC_scudo }} + Des {{ AC_des }} + Defl {{ AC_defl }} + Nat {{ AC_nat }} + Dodge {{ AC_dodge }} + Altro {{ AC_misc }}  
 - **CA Var.:** Contatto {{ CA_touch }} · Colto alla sprovvista {{ CA_ff }}  
 - **Tiri Salvezza:** Temp {{ d(SAL.Tempra) }} / Riflessi {{ d(SAL.Riflessi) }} / Volontà {{ d(SAL.Volontà) }}  
-- **BAB:** {{ d(BAB) }} | **Iniziativa:** {{ d(init) }} | **Velocità:** {{ d(speed) }}  
-- **CMB/CMD:** {{ d(CMB) }} / {{ d(CMD) }}  
+- **BAB:** {{ d(BAB) }} | **Iniziativa:** {{ d(init) }} | **Velocità:** {{ d(speed) }}
+- **CMB/CMD:** {{ d(CMB) }} / {{ d(CMD) }}
 
-{% set CMD_base = 10 + (BAB|default(0)) + (mod(ST.Forza) if use_str_for_cmd|default(true) else mod(ST.Destrezza)) + mod(ST.Destrezza) + size_mod_cmd|default(0) + cmd_altro|default(0) %}
-- **CMD (dettaglio):** {{ CMD|default(CMD_base) }} = 10 + BAB {{ BAB|default(0) }} + For/Des {{ (mod(ST.Forza) if use_str_for_cmd|default(true) else mod(ST.Destrezza)) }} + Des {{ mod(ST.Destrezza) }} + Taglia {{ size_mod_cmd|default(0) }} + Altro {{ cmd_altro|default(0) }}
+{% set CMD_base = 10 + (BAB|default(0)) + (mod(ST_FOR) if use_str_for_cmd|default(true) else mod(ST_DES)) + mod(ST_DES) + size_mod_cmd|default(0) + cmd_altro|default(0) %}
+- **CMD (dettaglio):** {{ CMD|default(CMD_base) }} = 10 + BAB {{ BAB|default(0) }} + For/Des {{ (mod(ST_FOR) if use_str_for_cmd|default(true) else mod(ST_DES)) }} + Des {{ mod(ST_DES) }} + Taglia {{ size_mod_cmd|default(0) }} + Altro {{ cmd_altro|default(0) }}
 
 - **PE (XP):** {{ d(xp_correnti) }} / {{ d(xp_prossimo_livello) }}
 
@@ -455,9 +461,8 @@ _Nessuna tabella incantesimi disponibile._
 - Header con toggle attivi (MINMAX/VTT/QA/EXPLAIN/LEDGER) e lingua.
 - Fonti/tag: RAW/PFS/HR/META e richiami al Ledger/Explain/MinMax usati.
 - Struttura minima: sommario PG, blocchi statistici, economia (ledger/WBL), eventuale sezione Explain/MinMax.
-- Dati numerici formattati con {{ ',' if DECIMAL_COMMA else '.' }} come separatore decimale e unità gp/%. 
+- Dati numerici formattati con {{ ',' if DECIMAL_COMMA else '.' }} come separatore decimale e unità gp/%.
 - Sezioni vuote: sostituire con placeholder espliciti per evitare header orfani.
-{% endif %}
 
 {% if not PRINT_MODE %}
 ---

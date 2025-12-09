@@ -77,12 +77,12 @@ async def _run_core_harvest(tmp_path, monkeypatch):
         "razza": "Human",
         "classi": [{"nome": "Alchemist", "livelli": 1, "archetipi": []}],
         "statistiche": {
-            "Forza": 12,
-            "Destrezza": 14,
-            "Costituzione": 13,
-            "Intelligenza": 16,
-            "Saggezza": 10,
-            "Carisma": 8,
+            "FOR": 12,
+            "DES": 14,
+            "COS": 13,
+            "INT": 16,
+            "SAG": 10,
+            "CAR": 8,
         },
         "statistiche_chiave": {"PF": 10, "CA": 12},
         "pf_totali": 10,
@@ -186,6 +186,18 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
     assert "Velocità" in rendered_sheet
     assert "Tiri Salvezza:** Temp 5 / Riflessi 2 / Volontà 1" in rendered_sheet
     assert "**BAB:** 3 | **Iniziativa:** 4 | **Velocità:** 9" in rendered_sheet
+    rendered_stats = saved_build["export"]["sheet_payload"].get("statistiche", {})
+    for label, key in {
+        "For": "FOR",
+        "Des": "DES",
+        "Cos": "COS",
+        "Int": "INT",
+        "Sag": "SAG",
+        "Car": "CAR",
+    }.items():
+        value = rendered_stats[key]
+        expected_mod = (int(value) - 10) // 2
+        assert f"**{label}** {value} (mod {expected_mod})" in rendered_sheet
 
     saved_sheet = saved_build.get("sheet")
     assert isinstance(saved_sheet, str)
