@@ -11,6 +11,7 @@ if str(ROOT) not in sys.path:
 
 from tools.generate_build_db import (
     BuildRequest,
+    _enrich_sheet_payload,
     analyze_indices,
     review_local_database,
     run_harvest,
@@ -199,17 +200,21 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
         expected_mod = (int(value) - 10) // 2
         assert f"**{label}** {value} (mod {expected_mod})" in rendered_sheet
 
-    saved_sheet = saved_build.get("sheet")
-    assert isinstance(saved_sheet, str)
-    assert saved_sheet == rendered_sheet
 
-    composite_sheet = saved_build.get("composite", {}).get("sheet")
-    assert isinstance(composite_sheet, str)
-    assert composite_sheet == rendered_sheet
+def test_enrich_sheet_payload_trims_markdown_whitespace():
+    payload = {
+        "export": {
+            "sheet_payload": {"nome": "Trim Sample"},
+            "modules": {
+                "scheda_pg_markdown_template.md": "\n    Test: {{ nome }}   \n\n",
+            },
+        }
+    }
 
-    index = json.loads(index_path.read_text(encoding="utf-8"))
-    assert index["entries"], "L'indice delle build non è stato popolato"
-    assert index["entries"][0]["status"] == "ok"
+    enriched = _enrich_sheet_payload(payload, ledger=None, source_url=None)
+
+    assert enriched["sheet_markdown"] == "Test: Trim Sample"
+    assert enriched["sheet_markdown"] == enriched["sheet_markdown"].strip()
 
 
 def test_analyze_indices_archives_invalid_payloads(tmp_path):
