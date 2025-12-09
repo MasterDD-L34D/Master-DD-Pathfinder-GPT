@@ -15,6 +15,20 @@
 - **Notes:** No spec file was provided; defaults targeted `src/data/builds` and `src/data/modules`. Strict validation remained enabled; switching to `--warn-only` or `--keep-invalid` was not tested because the run stopped before any payloads were retrieved.
 - **Timestamp:** 2025-12-08T03:27:49Z
 
+## generate_build_db strict run with discovery (localhost, anonymous enabled)
+- **Prep:** Avviato `uvicorn src.app:app --port 8000 --reload` con `ALLOW_ANONYMOUS=true` per permettere l'accesso senza API key.
+- **Command:** `python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --discover-modules --strict --index-path src/data/build_index.json --module-index-path src/data/module_index.json --output-dir src/data/builds --modules-output-dir src/data/modules`
+- **Include/Exclude:** nessun filtro applicato (`--include`/`--exclude` non specificati) durante la discovery dei moduli.
+- **Result:** Fallito su validazione scheda (`scheda_pg.schema.json`) per i payload delle classi (es. Fighter, Wizard, Cleric, Ranger, Druid, Rogue) a causa di campi numerici riportati come oggetti. La validazione strict ha chiuso il client interrompendo anche i download dei moduli.
+- **Timestamp:** 2025-12-08T23:44:28Z
+
+## generate_build_db keep-invalid rerun (localhost, anonymous enabled)
+- **Prep:** Server già in esecuzione con `ALLOW_ANONYMOUS=true` su `http://localhost:8000`.
+- **Command:** `python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --discover-modules --keep-invalid --index-path src/data/build_index.json --module-index-path src/data/module_index.json --output-dir src/data/builds --modules-output-dir src/data/modules`
+- **Include/Exclude:** nessun filtro applicato (`--include`/`--exclude` non specificati) durante la discovery dei moduli.
+- **Result:** Completato con warning di schema; le build extended (Fighter, Wizard, Cleric, Rogue, Ranger, Druid) sono state salvate con `status="invalid"` ma mantenute grazie a `--keep-invalid`. Discovery moduli scaricata integralmente con esito `ok` per tutti i file richiesti e indici aggiornati in `src/data/build_index.json` e `src/data/module_index.json`.
+- **Timestamp:** 2025-12-08T23:46:17Z
+
 ## generate_build_db rerun with local API up
 - **Prep:** Started `uvicorn src.app:app --reload --port 8000` with `ALLOW_ANONYMOUS=true` to bypass the missing API key that blocked the previous attempt.
 - **Command:** `python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --discover-modules --max-retries 3 --strict`

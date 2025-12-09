@@ -5,3 +5,4 @@ httpx
 pyyaml
 jsonschema
 prometheus_client
+Jinja2

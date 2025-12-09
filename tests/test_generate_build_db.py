@@ -73,6 +73,18 @@ def test_review_local_database_reports_status(tmp_path):
 
 async def _run_core_harvest(tmp_path, monkeypatch):
     sheet_payload = {
+        "nome": "Alchemist Sample",
+        "razza": "Human",
+        "classi": [{"nome": "Alchemist", "livelli": 1, "archetipi": []}],
+        "statistiche": {
+            "Forza": 12,
+            "Destrezza": 14,
+            "Costituzione": 13,
+            "Intelligenza": 16,
+            "Saggezza": 10,
+            "Carisma": 8,
+        },
+        "statistiche_chiave": {"PF": 10, "CA": 12},
         "pf_totali": 10,
         "salvezze": {"tempra": 1, "riflessi": 1, "volonta": 1},
         "skills": [{"name": "Perception", "value": 5}],
@@ -86,6 +98,9 @@ async def _run_core_harvest(tmp_path, monkeypatch):
         "magia": {"spells_known": 1},
         "slot_incantesimi": {"1": 2},
         "ac_breakdown": {"totale": 12},
+        "BAB": 1,
+        "init": 2,
+        "speed": 9,
         "iniziativa": 2,
         "velocita": 9,
     }
@@ -160,6 +175,10 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
         (output_dir / "alchemist.json").read_text(encoding="utf-8")
     )
     assert saved_build["build_state"]["class"] == "Alchemist"
+    rendered_sheet = saved_build["export"]["sheet_payload"].get("sheet_markdown")
+    assert rendered_sheet
+    assert "Alchemist Sample" in rendered_sheet
+    assert "Velocità" in rendered_sheet
 
     index = json.loads(index_path.read_text(encoding="utf-8"))
     assert index["entries"], "L'indice delle build non è stato popolato"
