@@ -506,6 +506,36 @@ def _bump_review(section: MutableMapping[str, Any], status: str) -> None:
         section["errors"] += 1
 
 
+def _load_build_index_entries(
+    build_index_path: Path | None,
+) -> dict[Path, Mapping[str, object]]:
+    if not build_index_path or not build_index_path.is_file():
+        return {}
+
+    try:
+        build_index_payload = json.loads(build_index_path.read_text(encoding="utf-8"))
+        raw_entries: Sequence[Mapping[str, object]] = (
+            build_index_payload.get("entries") or []
+        )
+    except Exception as exc:  # pragma: no cover - defensive logging
+        logging.warning("Impossibile leggere l'indice build %s: %s", build_index_path, exc)
+        return {}
+
+    entries: dict[Path, Mapping[str, object]] = {}
+    for entry in raw_entries:
+        file_path = entry.get("file")
+        if not file_path:
+            continue
+        resolved = Path(str(file_path)).resolve()
+        entries[resolved] = entry
+    return entries
+
+
+def _worst_status(*statuses: str | None) -> str:
+    priority = {"error": 4, "missing": 3, "invalid": 2, "ok": 1, None: 0}
+    return max(statuses, key=lambda status: priority.get(status, 0)) or "ok"
+
+
 def review_local_database(
     build_dir: Path,
     module_dir: Path,
@@ -520,52 +550,74 @@ def review_local_database(
     builds_section = _empty_review_section()
     modules_section = _empty_review_section()
 
+    build_index_entries = _load_build_index_entries(build_index_path)
+    build_files: dict[Path, str] = {}
     if build_dir.is_dir():
-        for path in sorted(build_dir.glob("*.json")):
-            entry: dict[str, Any] = {"file": str(path)}
-            try:
-                payload = json.loads(path.read_text(encoding="utf-8"))
-                entry.update(
-                    {
-                        "class": payload.get("class")
-                        or (payload.get("build_state") or {}).get("class"),
-                        "mode": payload.get("mode"),
-                    }
-                )
-                validation_error = validate_with_schema(
-                    schema_for_mode(payload.get("mode", DEFAULT_MODE)),
-                    payload,
-                    f"build {path.name}",
-                    strict=strict,
-                )
-                sheet_payload = payload.get("export", {}).get(
-                    "sheet_payload"
-                ) or payload.get("sheet_payload")
-                sheet_error = None
-                if sheet_payload is not None:
-                    sheet_error = validate_with_schema(
-                        "scheda_pg.schema.json",
-                        sheet_payload,
-                        f"sheet payload {path.name}",
-                        strict=strict,
-                    )
-                if validation_error and sheet_error:
-                    validation_error = f"{validation_error}; {sheet_error}"
-                elif validation_error is None:
-                    validation_error = sheet_error
+        for path in build_dir.glob("*.json"):
+            build_files[path.resolve()] = str(path)
+    for resolved_path in build_index_entries:
+        build_files.setdefault(resolved_path, str(build_index_entries[resolved_path].get("file") or resolved_path))
 
-                status = "ok" if validation_error is None else "invalid"
-                if validation_error:
-                    entry["error"] = validation_error
-            except ValidationError:
-                raise
-            except Exception as exc:
-                status = "error"
-                entry["error"] = str(exc)
+    for path, display_path in sorted(build_files.items(), key=lambda item: item[1]):
+        entry: dict[str, Any] = {"file": display_path}
+        index_entry = build_index_entries.get(path)
+        if index_entry:
+            entry.update({k: v for k, v in index_entry.items() if k not in {"file", "status"}})
 
+        if not path.exists():
+            status = _worst_status("missing", str(index_entry.get("status")) if index_entry else None)
             entry["status"] = status
+            entry["error"] = "File mancante"
             _bump_review(builds_section, status)
             builds_section["entries"].append(entry)
+            continue
+
+        try:
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            entry.update(
+                {
+                    "class": payload.get("class")
+                    or (payload.get("build_state") or {}).get("class"),
+                    "mode": payload.get("mode"),
+                }
+            )
+            validation_error = validate_with_schema(
+                schema_for_mode(payload.get("mode", DEFAULT_MODE)),
+                payload,
+                f"build {path.name}",
+                strict=strict,
+            )
+            sheet_payload = payload.get("export", {}).get("sheet_payload") or payload.get(
+                "sheet_payload"
+            )
+            sheet_error = None
+            if sheet_payload is not None:
+                sheet_error = validate_with_schema(
+                    "scheda_pg.schema.json",
+                    sheet_payload,
+                    f"sheet payload {path.name}",
+                    strict=strict,
+                )
+            if validation_error and sheet_error:
+                validation_error = f"{validation_error}; {sheet_error}"
+            elif validation_error is None:
+                validation_error = sheet_error
+
+            status = "ok" if validation_error is None else "invalid"
+            if validation_error:
+                entry["error"] = validation_error
+        except ValidationError:
+            raise
+        except Exception as exc:
+            status = "error"
+            entry["error"] = str(exc)
+
+        status = _worst_status(status, str(index_entry.get("status")) if index_entry else None)
+        if "error" not in entry and index_entry and index_entry.get("error"):
+            entry["error"] = index_entry["error"]
+        entry["status"] = status
+        _bump_review(builds_section, status)
+        builds_section["entries"].append(entry)
 
     module_entries: Sequence[Mapping[str, Any]] = []
     if module_index_path and module_index_path.is_file():
