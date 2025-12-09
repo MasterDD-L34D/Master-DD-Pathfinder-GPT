@@ -187,6 +187,14 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
     assert "Tiri Salvezza:** Temp 5 / Riflessi 2 / Volontà 1" in rendered_sheet
     assert "**BAB:** 3 | **Iniziativa:** 4 | **Velocità:** 9" in rendered_sheet
 
+    saved_sheet = saved_build.get("sheet")
+    assert isinstance(saved_sheet, str)
+    assert saved_sheet == rendered_sheet
+
+    composite_sheet = saved_build.get("composite", {}).get("sheet")
+    assert isinstance(composite_sheet, str)
+    assert composite_sheet == rendered_sheet
+
     index = json.loads(index_path.read_text(encoding="utf-8"))
     assert index["entries"], "L'indice delle build non è stato popolato"
     assert index["entries"][0]["status"] == "ok"
