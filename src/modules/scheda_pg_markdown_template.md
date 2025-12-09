@@ -15,6 +15,7 @@
 {% macro mod(x) -%}{{ (((x|default(10))|int) - 10) // 2 }}{%- endmacro %}
 {% macro j(list, sep=', ') -%}{{ (list or []) | select('string') | list | join(sep) }}{%- endmacro %}
 {% macro signed(x) -%}{% if x is not none %}{{ "+" if x>=0 else "" }}{{ x }}{% else %}—{% endif %}{%- endmacro %}
+{% macro toggle_badge(enabled, label) -%}{{ '🟢' if enabled else '⚪' }} {{ label }}{%- endmacro %}
 
 {# --- Monete / Valorizzazioni (per Adventurer Ledger) --- #}
 {% macro to_gp(pp=0,gp=0,sp=0,cp=0) -%}{{ (pp|float)*10 + (gp|float) + (sp|float)/10 + (cp|float)/100 }}{%- endmacro %}
@@ -30,9 +31,20 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% set STK = statistiche_chiave or {} %}
 {% set SAL = salvezze or {} %}
 {% set BM  = benchmarks or {} %}
+{% set HP  = hp or {} %}
 
 {% set CL = classi or [] %}
 {% set FIRST_CLASS = (CL[0].nome if CL and CL|length>0 else '—') %}
+
+{% set cur_pp = (currency.pp if currency is defined else pp) | default(0) %}
+{% set cur_gp = (currency.gp if currency is defined else gp) | default(0) %}
+{% set cur_sp = (currency.sp if currency is defined else sp) | default(0) %}
+{% set cur_cp = (currency.cp if currency is defined else cp) | default(0) %}
+{% set gp_liquidi = to_gp(cur_pp,cur_gp,cur_sp,cur_cp) %}
+{% set gp_investiti = ledger_invested_gp | default(0) %}
+{% set gp_totali = gp_liquidi + gp_investiti %}
+{% set wbl_target_gp = wbl_target_gp | default(next_wbl_gp | default(0)) %}
+{% set wbl_delta_gp = (gp_totali - (wbl_target_gp|float)) %}
 
 {# ----- CA: dodge separato + ricostruzione ----- #}
 {% set AC_arm   = AC_arm   | default(0) %}
@@ -65,8 +77,37 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 **Divinità:** {{ d(divinita) }}  
 **Taglia:** {{ d(taglia) }} | **Età:** {{ d(eta) }} | **Sesso:** {{ d(sesso) }} | **Altezza/Peso:** {{ d(altezza) }} / {{ d(peso) }}  
 **Ruolo consigliato:** {{ d(ruolo) }}  
-**Stile interpretativo:** {{ d(player_style) }} — {{ d(style_hint(player_style)) }}  
+**Stile interpretativo:** {{ d(player_style) }} — {{ d(style_hint(player_style)) }}
 **Background breve (5–10 righe):** {{ d(background) }}
+
+{% if not PRINT_MODE %}
+---
+## Toggle & riepilogo rapido
+- {{ toggle_badge(SHOW_MINMAX, 'MINMAX') }} | {{ toggle_badge(SHOW_VTT, 'VTT') }} | {{ toggle_badge(SHOW_QA, 'QA') }} | {{ toggle_badge(SHOW_EXPLAIN, 'EXPLAIN') }} | {{ toggle_badge(SHOW_LEDGER, 'LEDGER') }}
+{% if SHOW_MINMAX %}
+- **Meta tier / DPR:** {{ d(BM.meta_tier, STK.meta_tier) }} · {{ d(STK.DPR_Base, '—') }}/{{ d(STK.DPR_Nova, '—') }} DPR
+- **CA ricostruita:** {{ AC_tot }} (touch {{ CA_touch }}, ff {{ CA_ff }})
+{% if ac_breakdown %}
+| Fonte | Bonus |
+|---|---:|
+{% for fonte,bonus in ac_breakdown.items() -%}
+| {{ fonte }} | {{ bonus }} |
+{% endfor %}
+{% endif %}
+{% endif %}
+{% if SHOW_LEDGER %}
+- **Ledger flash:** {{ coin_str(cur_pp,cur_gp,cur_sp,cur_cp) }} ⇒ {{ fmt_gp(gp_liquidi) }} liquidi · Investiti {{ fmt_gp(gp_investiti) }} · Δ WBL {{ signed((wbl_delta_gp)|round(1)) }} gp
+{% endif %}
+{% if SHOW_VTT %}
+- **VTT hook:** Map {{ d(map_id) }} · Token {{ d(token_scale_hint, 'M') }} · Grid {{ d(recommended_grid_size) }}
+{% endif %}
+{% if SHOW_QA %}
+- **QA ready:** valuta tabelle popolate e coerenza valute ({{ coin_str(pp, gp, sp, cp) }})
+{% endif %}
+{% if SHOW_EXPLAIN %}
+- **Explain (tldr):** {{ d(explain.tldr, 'aggiungi regola o procedura chiave') }}
+{% endif %}
+{% endif %}
 
 ---
 
@@ -89,6 +130,29 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 - **CMD (dettaglio):** {{ CMD|default(CMD_base) }} = 10 + BAB {{ BAB|default(0) }} + For/Des {{ (mod(ST.Forza) if use_str_for_cmd|default(true) else mod(ST.Destrezza)) }} + Des {{ mod(ST.Destrezza) }} + Taglia {{ size_mod_cmd|default(0) }} + Altro {{ cmd_altro|default(0) }}
 
 - **PE (XP):** {{ d(xp_correnti) }} / {{ d(xp_prossimo_livello) }}
+
+---
+
+{% if SHOW_MINMAX %}
+## Breakdown avanzato (PF/CA)
+- **PF totali:** {{ d(pf_totali, STK.PF) }} | **PF per livello:** {{ d(pf_per_livello) }}
+{% if HP %}
+| Fonte PF | Valore |
+|---|---:|
+{% for k,v in HP.items() -%}
+| {{ k }} | {{ v }} |
+{% endfor %}
+{% endif %}
+{% if ac_breakdown %}
+| Fonte CA | Bonus |
+|---|---:|
+{% for fonte,bonus in ac_breakdown.items() -%}
+| {{ fonte }} | {{ bonus }} |
+{% endfor %}
+{% else %}
+_Nessun breakdown CA dettagliato nel payload._
+{% endif %}
+{% endif %}
 
 ---
 
@@ -260,19 +324,9 @@ _Nessuna tabella incantesimi disponibile._
 {# ========== LIBRO MASTRO DELL’AVVENTURIERO (LEDGER) ========== #}
 {% if SHOW_LEDGER %}
 ## 💰 Adventurer Ledger — KPI & Movimenti
-{% set cur_pp = (currency.pp if currency is defined else pp) | default(0) %}
-{% set cur_gp = (currency.gp if currency is defined else gp) | default(0) %}
-{% set cur_sp = (currency.sp if currency is defined else sp) | default(0) %}
-{% set cur_cp = (currency.cp if currency is defined else cp) | default(0) %}
-{% set gp_liquidi = to_gp(cur_pp,cur_gp,cur_sp,cur_cp) %}
-{% set gp_investiti = ledger_invested_gp | default(0) %}
-{% set gp_totali = gp_liquidi + gp_investiti %}
-{% set wbl_target_gp = wbl_target_gp | default(next_wbl_gp | default(0)) %}
-{% set wbl_delta_gp = (gp_totali - (wbl_target_gp|float)) %}
-
-- **Cassa (liquidi):** {{ coin_str(cur_pp,cur_gp,cur_sp,cur_cp) }} = **{{ fmt_gp(gp_liquidi) }}**  
-- **Valore investito (gear):** **{{ fmt_gp(gp_investiti) }}** · **Wealth totale:** **{{ fmt_gp(gp_totali) }}**  
-- **WBL target (liv {{ get_total_level(CL)|default(1) }}):** {{ fmt_gp(wbl_target_gp) }} · **Δ vs WBL:** {{ signed((wbl_delta_gp)|round(1)) }} gp  
+- **Cassa (liquidi):** {{ coin_str(cur_pp,cur_gp,cur_sp,cur_cp) }} = **{{ fmt_gp(gp_liquidi) }}**
+- **Valore investito (gear):** **{{ fmt_gp(gp_investiti) }}** · **Wealth totale:** **{{ fmt_gp(gp_totali) }}**
+- **WBL target (liv {{ get_total_level(CL)|default(1) }}):** {{ fmt_gp(wbl_target_gp) }} · **Δ vs WBL:** {{ signed((wbl_delta_gp)|round(1)) }} gp
 - **Encumbrance hint:** {{ d(ledger_encumbrance_hint, 'ok') }}
 
 ### Movimenti (ultimi / sessione)
@@ -383,6 +437,8 @@ _Nessuna tabella incantesimi disponibile._
 {% for k,v in benchmark_comparison.comparison.items() -%}
 | {{ k }} | {{ v.status }} | {{ v.diff }} |
 {%- endfor %}
+{% endif %}
+
 {% endif %}
 
 {% if not PRINT_MODE and SHOW_QA %}
