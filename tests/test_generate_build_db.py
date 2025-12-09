@@ -77,6 +77,54 @@ def test_review_local_database_reports_status(tmp_path):
     assert report["modules"]["invalid"] == 0
 
 
+def test_review_local_database_flags_missing_progression(monkeypatch, tmp_path):
+    monkeypatch.setattr(
+        "tools.generate_build_db.validate_with_schema", lambda *args, **kwargs: None
+    )
+
+    build_dir = tmp_path / "builds"
+    module_dir = tmp_path / "modules"
+    build_dir.mkdir()
+    module_dir.mkdir()
+
+    sheet_payload = {
+        "nome": "Rogue Snapshot",
+        "pf_totali": 25,
+        "salvezze": {"Tempra": 4},
+        "skills_map": {"Percezione": 10},
+        "skills": [{"nome": "Percezione", "mod": 10}],
+        "equipaggiamento": ["Dagger"],
+        "spell_levels": [{"livello": 0, "incantesimi": ["Light"]}],
+        "ac_breakdown": {"totale": 17},
+        "iniziativa": 3,
+        "velocita": 9,
+        "skill_points": 0,
+        "progressione": [],
+    }
+
+    payload = {
+        "class": "Rogue",
+        "mode": "core",
+        "build_state": {"class": "Rogue"},
+        "export": {"sheet_payload": sheet_payload},
+        "completeness": {"errors": []},
+        "request": BuildRequest(class_name="Rogue", level=5).metadata(),
+    }
+
+    (build_dir / "rogue_lvl05.json").write_text(
+        json.dumps(payload), encoding="utf-8"
+    )
+
+    report = review_local_database(build_dir, module_dir, strict=False)
+
+    entry = report["builds"]["entries"][0]
+    assert entry["status"] == "invalid"
+    assert any(
+        "Progressione assente al livello 5" in error
+        for error in entry.get("completeness_errors", [])
+    )
+
+
 def test_enrich_sheet_payload_template_error_indicator():
     payload = {
         "modules": {"scheda_pg_markdown_template.md": "{{ invalid {{ syntax"},
@@ -142,6 +190,10 @@ async def _run_core_harvest(tmp_path, monkeypatch):
         "export": {"sheet_payload": sheet_payload},
         "narrative": {"backstory": "Test narrative"},
         "ledger": {"entries": [{"label": "gold", "value": 10}]},
+        "progressione": [
+            {"livello": level, "privilegi": [f"Feature {level}"]}
+            for level in range(1, 11)
+        ],
     }
 
     def handler(request: httpx.Request) -> httpx.Response:
