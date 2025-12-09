@@ -177,6 +177,14 @@ class BuildRequest:
 class BuildFetchError(Exception):
     """Raised when the build API does not return usable data."""
 
+    def __init__(
+        self, message: str, *, completeness_errors: Sequence[str] | None = None
+    ) -> None:
+        super().__init__(message)
+        self.completeness_errors = (
+            list(completeness_errors) if completeness_errors is not None else None
+        )
+
 
 def slugify(name: str) -> str:
     return name.strip().lower().replace(" ", "_")
@@ -846,7 +854,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--require-complete",
-        action="store_true",
+        action=argparse.BooleanOptionalAction,
+        default=True,
         help="Considera incompleti i payload privi di statistiche/narrativa/ledger e riprova automaticamente",
     )
     parser.add_argument(
@@ -1729,7 +1738,7 @@ async def fetch_build(
     api_key: str | None,
     request: BuildRequest,
     max_retries: int,
-    require_complete: bool = False,
+    require_complete: bool = True,
 ) -> MutableMapping:
     params: MutableMapping[str, object] = {
         "mode": request.mode,
@@ -1936,7 +1945,8 @@ async def fetch_build(
     if require_complete and completeness_errors:
         joined_errors = "; ".join(completeness_errors)
         raise BuildFetchError(
-            f"Build incompleta per {request.class_name}: {joined_errors}"
+            f"Build incompleta per {request.class_name}: {joined_errors}",
+            completeness_errors=completeness_errors,
         )
     return payload
 
@@ -2172,7 +2182,7 @@ async def run_harvest(
     exclude_filters: Sequence[str] | None = None,
     strict: bool = False,
     keep_invalid: bool = False,
-    require_complete: bool = False,
+    require_complete: bool = True,
     skip_health_check: bool = False,
 ) -> None:
     requests = list(requests)
@@ -2318,31 +2328,42 @@ async def run_harvest(
                             validation_error = f"{validation_error}; {sheet_validation}"
                         elif validation_error is None:
                             validation_error = sheet_validation
-            completeness_ctx = (
-                payload.get("completeness")
-                if isinstance(payload.get("completeness"), Mapping)
-                else {}
-            )
-            completeness_errors = list(completeness_ctx.get("errors") or [])
-            if completeness_errors:
-                entry["completeness_errors"] = completeness_errors
-                completeness_text = "; ".join(
-                    str(error) for error in completeness_errors
-                )
-                validation_error = (
-                    completeness_text
-                    if validation_error is None
-                    else f"{validation_error}; {completeness_text}"
-                )
-            status = "ok" if validation_error is None else "invalid"
-                        if status == "ok" or keep_invalid:
+                        completeness_ctx = (
+                            payload.get("completeness")
+                            if isinstance(payload.get("completeness"), Mapping)
+                            else {}
+                        )
+                        completeness_errors = list(completeness_ctx.get("errors") or [])
+                        completeness_text: str | None = None
+                        if completeness_errors:
+                            completeness_text = "; ".join(
+                                str(error) for error in completeness_errors
+                            )
+                            validation_error = (
+                                completeness_text
+                                if validation_error is None
+                                else f"{validation_error}; {completeness_text}"
+                            )
+                        incomplete_payload = bool(completeness_errors)
+                        status = "ok" if validation_error is None else "invalid"
+                        if incomplete_payload:
+                            status = "invalid"
+                            logging.warning(
+                                "Payload per %s scartato per incompletezza: %s",
+                                request.output_name(),
+                                completeness_text or "dati mancanti",
+                            )
+                            if destination.exists():
+                                destination.unlink()
+                            output_path: Path | None = None
+                        elif status == "ok" or keep_invalid:
                             write_json(destination, payload)
-                            output_path: Path | None = destination
+                            output_path = destination
                         else:
                             if destination.exists():
                                 destination.unlink()
                             logging.warning(
-                                "Payload per %s scartato per incompletezza/invalidazione: %s",
+                                "Payload per %s scartato per invalidazione: %s",
                                 request.output_name(),
                                 validation_error,
                             )
@@ -2358,26 +2379,27 @@ async def run_harvest(
                     except ValidationError:
                         raise
                     except BuildFetchError as exc:
+                        completeness_errors = getattr(exc, "completeness_errors", None)
                         logging.error(
-                            "Build %s marcata come errore per incompletezza: %s",
+                            "Build %s marcata come %s: %s",
                             request.class_name,
+                            "incompleta" if completeness_errors else "errore",
                             exc,
                         )
+                        if destination.exists():
+                            destination.unlink()
+                        status = "invalid" if completeness_errors else "error"
                         return request.output_name(), build_index_entry(
                             request,
                             None,
-                            "error",
+                            status,
                             str(exc),
                             (
                                 payload.get("step_audit")
                                 if "payload" in locals()
-                                else None
+                                else None,
                             ),
-                            (
-                                completeness_errors
-                                if "completeness_errors" in locals()
-                                else None
-                            ),
+                            completeness_errors,
                         )
                     except Exception as exc:  # pragma: no cover - network dependent
                         logging.exception(
@@ -2391,12 +2413,12 @@ async def run_harvest(
                             (
                                 payload.get("step_audit")
                                 if "payload" in locals()
-                                else None
+                                else None,
                             ),
                             (
                                 completeness_errors
                                 if "completeness_errors" in locals()
-                                else None
+                                else None,
                             ),
                         )
 
