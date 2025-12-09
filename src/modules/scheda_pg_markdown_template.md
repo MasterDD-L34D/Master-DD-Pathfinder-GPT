@@ -12,7 +12,10 @@
 {% set DECIMAL_COMMA = decimal_comma | default(true)  %}
 {% set DESC_FALLBACK = 'n/d' %}
 
-{% macro d(val, fallback='—') -%}{{ (val if (val is not none and val != '') else fallback) }}{%- endmacro %}
+{% macro d(val, fallback='—') -%}
+{%- set trimmed = (val|string|trim) -%}
+{{ fallback if (val is none or trimmed == '') else (trimmed if (val is string) else val) }}
+{%- endmacro %}
 {% macro mod(x) -%}{{ (((x|default(10))|int) - 10) // 2 }}{%- endmacro %}
 {% macro j(list, sep=', ') -%}{{ (list or []) | select('string') | list | join(sep) }}{%- endmacro %}
 {% macro signed(x) -%}{% if x is not none %}{{ "+" if x>=0 else "" }}{{ x }}{% else %}—{% endif %}{%- endmacro %}
@@ -42,17 +45,17 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 
 {%- set CL = classi or [] -%}
 {%- set FIRST_CLASS = (CL[0].nome if CL and CL|length>0 else '—') -%}
-{%- set has_alignment = allineamento is not none and (allineamento|string|trim) != '' -%}
-{%- set has_deity = divinita is not none and (divinita|string|trim) != '' -%}
-{%- set has_size = taglia is not none and (taglia|string|trim) != '' -%}
-{%- set has_age = eta is not none and (eta|string|trim) != '' -%}
-{%- set has_sex = sesso is not none and (sesso|string|trim) != '' -%}
-{%- set has_height = altezza is not none and (altezza|string|trim) != '' -%}
-{%- set has_weight = peso is not none and (peso|string|trim) != '' -%}
-{%- set has_role = ruolo is not none and (ruolo|string|trim) != '' -%}
-{%- set has_player_style = player_style is not none and (player_style|string|trim) != '' -%}
-{%- set has_background = background is not none and (background|string|trim) != '' -%}
-{%- set has_style_hint = style_hint(player_style) is not none and (style_hint(player_style)|string|trim) != '' -%}
+{%- set has_alignment = (allineamento | default('') | trim) != '' -%}
+{%- set has_deity = (divinita | default('') | trim) != '' -%}
+{%- set has_size = (taglia | default('') | trim) != '' -%}
+{%- set has_age = (eta | default('') | trim) != '' -%}
+{%- set has_sex = (sesso | default('') | trim) != '' -%}
+{%- set has_height = (altezza | default('') | trim) != '' -%}
+{%- set has_weight = (peso | default('') | trim) != '' -%}
+{%- set has_role = (ruolo | default('') | trim) != '' -%}
+{%- set has_player_style = (player_style | default('') | trim) != '' -%}
+{%- set has_background = (background | default('') | trim) != '' -%}
+{%- set has_style_hint = (style_hint(player_style) | default('') | trim) != '' -%}
 
 {% set cur_pp = (currency.pp if currency is defined else pp) | default(0) %}
 {% set cur_gp = (currency.gp if currency is defined else gp) | default(0) %}
