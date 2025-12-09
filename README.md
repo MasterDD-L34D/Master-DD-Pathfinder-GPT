@@ -124,6 +124,13 @@ python tools/generate_build_db.py --api-url http://localhost:8000 --mode extende
 
 # È possibile limitare le classi passandole come argomenti finali
 python tools/generate_build_db.py Alchemist Wizard Paladin
+
+# Oppure filtrare a monte le richieste provenienti dalla spec con le flag dedicate
+# (utile per rigenerare blocchi di 5 classi per volta)
+python tools/generate_build_db.py --spec-file docs/examples/pg_variants.yml --classes Alchemist Barbarian Bard Cavalier Cleric
+
+# Puoi anche limitare i checkpoint di livello a un sottoinsieme preciso
+python tools/generate_build_db.py --spec-file docs/examples/pg_variants.yml --levels 1 5
 ```
 
 Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`. Ogni chiamata include il parametro `mode=core|extended` e l'indice registra lo `step_total` osservato, così puoi verificare che i 16 step appaiano solo quando richiedi `extended`.
