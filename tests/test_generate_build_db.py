@@ -198,6 +198,8 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
     saved_build = json.loads(
         (output_dir / "alchemist.json").read_text(encoding="utf-8")
     )
+    assert (output_dir / "alchemist_lvl05.json").is_file()
+    assert (output_dir / "alchemist_lvl10.json").is_file()
     assert saved_build["build_state"]["class"] == "Alchemist"
     rendered_sheet = saved_build["export"]["sheet_payload"].get("sheet_markdown")
     assert rendered_sheet
@@ -217,6 +219,17 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
         value = rendered_stats[key]
         expected_mod = (int(value) - 10) // 2
         assert f"**{label}** {value} (mod {expected_mod})" in rendered_sheet
+
+    index_payload = json.loads(index_path.read_text(encoding="utf-8"))
+    assert {entry["level"] for entry in index_payload["entries"]} == {1, 5, 10}
+    assert any(
+        entry["file"].endswith("alchemist_lvl05.json")
+        for entry in index_payload["entries"]
+    )
+    assert any(
+        entry["file"].endswith("alchemist_lvl10.json")
+        for entry in index_payload["entries"]
+    )
 
 
 async def _run_incomplete_harvest(tmp_path, monkeypatch):
@@ -288,11 +301,14 @@ def test_run_harvest_skips_incomplete_payload(tmp_path, monkeypatch):
     )
 
     assert not (output_dir / "fighter.json").exists()
+    assert not (output_dir / "fighter_lvl05.json").exists()
+    assert not (output_dir / "fighter_lvl10.json").exists()
     index_payload = json.loads(index_path.read_text(encoding="utf-8"))
-    entry = index_payload["entries"][0]
-    assert entry["status"] == "invalid"
-    assert entry.get("completeness_errors")
-    assert "Narrativa assente" in entry["error"]
+    assert len(index_payload["entries"]) == 3
+    for entry in index_payload["entries"]:
+        assert entry["status"] == "invalid"
+        assert entry.get("completeness_errors")
+        assert "Narrativa assente" in entry["error"]
 
 
 def test_enrich_sheet_payload_trims_markdown_whitespace():
