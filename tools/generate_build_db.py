@@ -1070,6 +1070,66 @@ def _enrich_sheet_payload(
             entry["totale"] = total
         return entry
 
+    def _normalize_stat_key(raw_key: object) -> str | None:
+        if raw_key is None:
+            return None
+        key = str(raw_key).strip()
+        if not key:
+            return None
+
+        alias_map = {
+            "for": "FOR",
+            "forza": "FOR",
+            "str": "FOR",
+            "des": "DES",
+            "destrezza": "DES",
+            "dex": "DES",
+            "cos": "COS",
+            "costituzione": "COS",
+            "con": "COS",
+            "int": "INT",
+            "intelligenza": "INT",
+            "sag": "SAG",
+            "saggezza": "SAG",
+            "wis": "SAG",
+            "car": "CAR",
+            "carisma": "CAR",
+            "cha": "CAR",
+        }
+
+        lowered = key.lower()
+        return alias_map.get(lowered, key)
+
+    def _normalize_statistics_block(*sources: Mapping | None) -> dict[str, object]:
+        normalized: dict[str, object] = {}
+        for source in sources:
+            if not isinstance(source, Mapping):
+                continue
+            for raw_key, value in source.items():
+                key = _normalize_stat_key(raw_key)
+                if key is None or _is_placeholder(value):
+                    continue
+                existing = normalized.get(key)
+                if _is_placeholder(existing) or key not in normalized:
+                    normalized[key] = value
+
+        long_form_aliases = {
+            "FOR": ["Forza", "forza"],
+            "DES": ["Destrezza", "destrezza"],
+            "COS": ["Costituzione", "costituzione"],
+            "INT": ["Intelligenza", "intelligenza"],
+            "SAG": ["Saggezza", "saggezza"],
+            "CAR": ["Carisma", "carisma"],
+        }
+        for short, aliases in long_form_aliases.items():
+            if short not in normalized:
+                continue
+            for alias in aliases:
+                if alias not in normalized or _is_placeholder(normalized.get(alias)):
+                    normalized[alias] = normalized[short]
+
+        return normalized
+
     sheet_payload: MutableMapping[str, object] = {}
     for candidate in (
         _as_mapping(export_ctx.get("sheet_payload")),
@@ -1085,6 +1145,15 @@ def _enrich_sheet_payload(
 
     if ledger and "ledger" not in sheet_payload:
         sheet_payload["ledger"] = ledger
+
+    stats_block = _normalize_statistics_block(
+        _as_mapping(sheet_payload.get("statistiche")),
+        _as_mapping(export_ctx.get("statistiche")),
+        _as_mapping((payload.get("build_state") or {}).get("statistics")),
+        _as_mapping((payload.get("benchmark") or {}).get("statistics")),
+    )
+    if stats_block:
+        sheet_payload["statistiche"] = stats_block
 
     salvezze_raw = _merge_prefer_existing(
         {},
