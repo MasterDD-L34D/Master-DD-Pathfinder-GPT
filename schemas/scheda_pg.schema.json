@@ -59,7 +59,7 @@
       "description": "Valori riassuntivi (PF, CA, DPR, meta_tier).",
       "properties": {
         "PF": {"type": ["integer", "number"]},
-        "CA": {"type": ["integer", "number"]},
+        "CA": {"type": ["integer", "number", "string"]},
         "DPR_Base": {"type": ["integer", "number"]},
         "DPR_Nova": {"type": ["integer", "number"]},
         "meta_tier": {"type": ["string", "null"]}
@@ -70,9 +70,9 @@
       "type": "object",
       "description": "Tiri salvezza Tempra/Riflessi/Volontà.",
       "properties": {
-        "Tempra": {"type": ["integer", "number"]},
-        "Riflessi": {"type": ["integer", "number"]},
-        "Volontà": {"type": ["integer", "number"]}
+        "Tempra": {"type": ["integer", "number", "string"]},
+        "Riflessi": {"type": ["integer", "number", "string"]},
+        "Volontà": {"type": ["integer", "number", "string"]}
       },
       "additionalProperties": true
     },
@@ -123,9 +123,9 @@
     "AC_dodge": {"type": ["integer", "number"], "default": 0},
     "AC_misc": {"type": ["integer", "number"], "default": 0},
     "AC_altro": {"type": ["integer", "number", "null"]},
-    "AC_tot": {"type": ["integer", "number", "null"]},
-    "CA_touch": {"type": ["integer", "number", "null"]},
-    "CA_ff": {"type": ["integer", "number", "null"]},
+    "AC_tot": {"type": ["integer", "number", "string", "null"]},
+    "CA_touch": {"type": ["integer", "number", "string", "null"]},
+    "CA_ff": {"type": ["integer", "number", "string", "null"]},
     "ac_breakdown": {
       "type": "object",
       "description": "Dettaglio della Classe Armatura con contributi per fonte.",
