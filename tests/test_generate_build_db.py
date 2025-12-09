@@ -72,6 +72,19 @@ def test_review_local_database_reports_status(tmp_path):
     assert report["modules"]["invalid"] == 0
 
 
+def test_enrich_sheet_payload_template_error_indicator():
+    payload = {
+        "modules": {"scheda_pg_markdown_template.md": "{{ invalid {{ syntax"},
+        "export": {},
+    }
+
+    enriched = _enrich_sheet_payload(payload, ledger=None, source_url="http://source")
+
+    assert enriched.get("sheet_render_error")
+    assert "scheda_pg_markdown_template.md" in enriched["sheet_render_error"]
+    assert not enriched.get("sheet_markdown")
+
+
 async def _run_core_harvest(tmp_path, monkeypatch):
     sheet_payload = {
         "nome": "Alchemist Sample",

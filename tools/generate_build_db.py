@@ -1588,9 +1588,9 @@ def _enrich_sheet_payload(
         try:
             rendered_sheet = _render_sheet_template(template_source, sheet_payload)
         except Exception as exc:  # pragma: no cover - defensive
-            logging.warning(
-                "Rendering scheda_pg_markdown_template.md fallita: %s", exc
-            )
+            error_message = f"Rendering scheda_pg_markdown_template.md fallita: {exc}"
+            logging.warning(error_message)
+            sheet_payload["sheet_render_error"] = error_message
 
     if rendered_sheet:
         rendered_sheet = rendered_sheet.strip()
