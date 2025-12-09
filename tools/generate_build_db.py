@@ -611,7 +611,24 @@ def review_local_database(
             elif validation_error is None:
                 validation_error = sheet_error
 
-            status = "ok" if validation_error is None else "invalid"
+            completeness_ctx = (
+                payload.get("completeness")
+                if isinstance(payload.get("completeness"), Mapping)
+                else {}
+            )
+            completeness_errors = list(completeness_ctx.get("errors") or [])
+            completeness_text: str | None = None
+            if completeness_errors:
+                completeness_text = "; ".join(str(error) for error in completeness_errors)
+                validation_error = (
+                    completeness_text
+                    if validation_error is None
+                    else f"{validation_error}; {completeness_text}"
+                )
+
+            validation_status = "ok" if validation_error is None else "invalid"
+            completeness_status = "invalid" if completeness_errors else "ok"
+            status = _worst_status(validation_status, completeness_status)
             if validation_error:
                 entry["error"] = validation_error
         except ValidationError:
