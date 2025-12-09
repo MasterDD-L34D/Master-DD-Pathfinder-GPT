@@ -576,6 +576,56 @@ def _bump_review(section: MutableMapping[str, Any], status: str) -> None:
         section["errors"] += 1
 
 
+def _bump_checkpoint(
+    checkpoints: MutableMapping[str, MutableMapping[str, int]],
+    level: int | str | None,
+    status: str,
+    *,
+    schema_error: bool = False,
+    completeness_error: bool = False,
+) -> None:
+    if level is None:
+        return
+
+    try:
+        level_key = f"{int(level)}"
+    except (TypeError, ValueError):
+        return
+
+    bucket = checkpoints.setdefault(
+        level_key,
+        {
+            "total": 0,
+            "invalid": 0,
+            "schema_errors": 0,
+            "completeness_errors": 0,
+        },
+    )
+    bucket["total"] += 1
+    if status != "ok":
+        bucket["invalid"] += 1
+    if schema_error:
+        bucket["schema_errors"] += 1
+    if completeness_error:
+        bucket["completeness_errors"] += 1
+
+
+def _checkpoint_summary_from_entries(
+    entries: Sequence[Mapping[str, object]],
+) -> dict[str, dict[str, int]]:
+    checkpoints: dict[str, dict[str, int]] = {}
+    for entry in entries:
+        _bump_checkpoint(
+            checkpoints,
+            entry.get("level"),
+            str(entry.get("status") or "ok"),
+            schema_error=bool(entry.get("error")),
+            completeness_error=bool(entry.get("completeness_errors")),
+        )
+
+    return {key: checkpoints[key] for key in sorted(checkpoints, key=lambda item: int(item))}
+
+
 def _load_build_index_entries(
     build_index_path: Path | None,
 ) -> dict[Path, Mapping[str, object]]:
@@ -636,6 +686,7 @@ def review_local_database(
 
     builds_section = _empty_review_section()
     modules_section = _empty_review_section()
+    checkpoints: dict[str, dict[str, int]] = {}
 
     build_index_meta: dict[str, object] = {}
     if build_index_path and build_index_path.is_file():
@@ -665,6 +716,9 @@ def review_local_database(
         entry: dict[str, Any] = {"file": display_path}
         payload: Mapping[str, Any] | None = None
         index_entry = build_index_entries.get(path)
+        target_level = index_entry.get("level") if index_entry else None
+        validation_error: str | None = None
+        completeness_errors: list[str] = []
         if index_entry:
             entry.update({k: v for k, v in index_entry.items() if k not in {"file", "status"}})
 
@@ -673,6 +727,7 @@ def review_local_database(
             entry["status"] = status
             entry["error"] = "File mancante"
             _bump_review(builds_section, status)
+            _bump_checkpoint(checkpoints, target_level, status)
             builds_section["entries"].append(entry)
             continue
 
@@ -713,7 +768,7 @@ def review_local_database(
                 else {}
             )
             completeness_errors = list(completeness_ctx.get("errors") or [])
-            target_level = _requested_level(payload)
+            target_level = _requested_level(payload) or target_level
             progression_errors = _progression_level_errors(sheet_payload, target_level)
             for error in progression_errors:
                 if error not in completeness_errors:
@@ -744,7 +799,16 @@ def review_local_database(
         if "error" not in entry and index_entry and index_entry.get("error"):
             entry["error"] = index_entry["error"]
         entry["status"] = status
+        if target_level:
+            entry["level"] = target_level
         _bump_review(builds_section, status)
+        _bump_checkpoint(
+            checkpoints,
+            target_level,
+            status,
+            schema_error=bool(validation_error),
+            completeness_error=bool(completeness_errors),
+        )
         builds_section["entries"].append(entry)
 
         class_name = entry.get("class") or (payload or {}).get("class") or (
@@ -780,6 +844,8 @@ def review_local_database(
             "spec_id": spec_id,
             "background": background,
         }
+        if target_level:
+            index_entry["level"] = target_level
         if validation_error:
             index_entry["error"] = validation_error
         if completeness_errors:
@@ -853,6 +919,11 @@ def review_local_database(
         _bump_review(modules_section, status)
         modules_section["entries"].append(entry)
 
+    if checkpoints:
+        builds_section["checkpoints"] = {
+            key: checkpoints[key] for key in sorted(checkpoints, key=lambda item: int(item))
+        }
+
     report = {
         "generated_at": now_iso_utc(),
         "builds": builds_section,
@@ -870,6 +941,7 @@ def review_local_database(
             **build_index_meta,
             "entries": sorted(index_entries, key=lambda entry: str(entry.get("file") or "")),
         }
+        index_payload["checkpoints"] = _checkpoint_summary_from_entries(index_entries)
         write_json(build_index_path, index_payload)
 
     if output_path:
@@ -1055,13 +1127,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--validate-db",
         action="store_true",
-        help="Valida il database locale (build e moduli) senza effettuare chiamate all'API",
+        help="Valida il database locale (build e moduli) senza effettuare chiamate all'API, producendo un report per livello",
     )
     parser.add_argument(
         "--review-output",
         type=Path,
         default=Path("src/data/build_review.json"),
-        help="Percorso del report di review quando --validate-db è attivo (default: %(default)s)",
+        help="Percorso del report di review (con riepilogo per checkpoint di livello) quando --validate-db è attivo (default: %(default)s)",
     )
     parser.add_argument(
         "--discover-modules",
@@ -2771,6 +2843,9 @@ async def run_harvest(
 
     builds_index["entries"].extend(
         entry for _, entry in sorted(build_results, key=lambda item: item[0])
+    )
+    builds_index["checkpoints"] = _checkpoint_summary_from_entries(
+        builds_index["entries"]
     )
     new_module_entries = {name: entry for name, entry in module_results}
     merged_module_entries = []
