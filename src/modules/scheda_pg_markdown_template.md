@@ -231,10 +231,11 @@ _Nessun breakdown CA dettagliato nel payload._
 ## Abilità (Skills)
 | Abilità | Gradi | Mod Car | Var | Classe? | Totale |
 |---|---:|---:|---:|:--:|---:|
-{% for s in (skills or []) -%}
+{% for s in (skills or []) %}
 | {{ d(s.nome) }} | {{ s.gradi|default(0) }} | {{ signed(s.mod_car|default(0)) }} | {{ signed(s.var|default(0)) }} | {{ '✓' if s.classe else '' }} | {{ s.totale|default(s.gradi|default(0) + s.mod_car|default(0) + s.var|default(0) + (3 if s.classe else 0)) }} |
-{%- endfor %}
-{% if (skills or [])|length == 0 %}_Nessuna abilità strutturata._{% endif %}
+{% else %}
+_Nessuna abilità strutturata._
+{% endfor %}
 
 ---
 

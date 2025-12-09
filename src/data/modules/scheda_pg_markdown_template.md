@@ -216,9 +216,9 @@ _Nessun breakdown CA dettagliato nel payload._
 {% if SKILLS %}
 | Abilità | Gradi | Mod Car | Var | Classe? | Totale |
 |---|---:|---:|---:|:--:|---:|
-{% for s in SKILLS -%}
+{% for s in SKILLS %}
 | {{ d(s.nome) }} | {{ s.gradi|default(0) }} | {{ signed(s.mod_car|default(0)) }} | {{ signed(s.var|default(0)) }} | {{ '✓' if s.classe else '' }} | {{ s.totale|default(s.gradi|default(0) + s.mod_car|default(0) + s.var|default(0) + (3 if s.classe else 0)) }} |
-{%- endfor %}
+{% endfor %}
 {% else %}
 _Nessuna abilità strutturata: nascondi la tabella o aggiungi almeno Percezione/Acrobazia._
 {% endif %}
