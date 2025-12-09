@@ -16,6 +16,8 @@ from pathlib import Path
 from typing import Any, Iterable, List, Mapping, MutableMapping, Sequence
 
 import yaml
+from jinja2 import BaseLoader, ChainableUndefined
+from jinja2.nativetypes import NativeEnvironment
 
 import httpx
 from jsonschema import Draft202012Validator, RefResolver
@@ -88,6 +90,9 @@ DEFAULT_MODULE_TARGETS: Sequence[str] = (
     "scheda_pg_markdown_template.md",
     "adventurer_ledger.txt",
 )
+
+# Moduli che vanno inclusi nel payload della scheda (solo il template da compilare)
+SHEET_MODULE_TARGETS: Sequence[str] = ("scheda_pg_markdown_template.md",)
 
 
 def now_iso_utc() -> str:
@@ -280,6 +285,120 @@ def _load_local_modules(module_names: Sequence[str]) -> Mapping[str, str]:
                 loaded[name] = path.read_text(encoding="utf-8")
                 break
     return loaded
+
+
+def _style_hint(label: object) -> str | None:
+    return None if label is None else str(label)
+
+
+def _get_total_level(classes: Sequence | None) -> int | None:
+    total = 0
+    for cls in classes or []:
+        if isinstance(cls, Mapping):
+            level = cls.get("livelli") or cls.get("levels") or cls.get("level")
+        else:
+            level = cls
+        if level is None:
+            continue
+        try:
+            total += int(level)
+        except (TypeError, ValueError):
+            continue
+    return total if total > 0 else None
+
+
+def _lookup_meta_badges(*_: object, **__: object) -> str | None:
+    return None
+
+
+def _rules_status_text(*_: object, **__: object) -> str | None:
+    return None
+
+
+def _source_mix_summary(*_: object, **__: object) -> str | None:
+    return None
+
+
+def _coerce_number(value: object, default: object | None = None) -> object:
+    if isinstance(value, (int, float)):
+        return value
+    try:
+        return int(value)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        try:
+            return float(value)  # type: ignore[arg-type]
+        except (TypeError, ValueError):
+            return default
+
+
+_sheet_template_env = NativeEnvironment(
+    loader=BaseLoader(), autoescape=False, undefined=ChainableUndefined
+)
+_sheet_template_env.globals.update(
+    style_hint=_style_hint,
+    get_total_level=_get_total_level,
+    lookup_meta_badges=_lookup_meta_badges,
+    rules_status_text=_rules_status_text,
+    source_mix_summary=_source_mix_summary,
+)
+
+
+def _render_sheet_template(template_text: str, context: Mapping[str, object]) -> str:
+    template = _sheet_template_env.from_string(template_text)
+    render_ctx: dict[str, object] = dict(context)
+    numeric_keys = {
+        "AC_arm",
+        "AC_scudo",
+        "AC_des",
+        "AC_defl",
+        "AC_nat",
+        "AC_dodge",
+        "AC_misc",
+        "AC_base",
+        "AC_tot",
+        "CA_touch",
+        "CA_ff",
+        "BAB",
+        "pf_totali",
+        "pf_per_livello",
+        "speed",
+        "velocita",
+        "init",
+        "iniziativa",
+        "CMB",
+        "CMD",
+        "CMD_base",
+        "size_mod_cmd",
+        "cmd_altro",
+        "gp_totali",
+        "gp_investiti",
+        "gp_liquidi",
+        "gp",
+        "pp",
+        "sp",
+        "cp",
+        "wbl_target_gp",
+        "wbl_delta_gp",
+        "next_wbl_gp",
+    }
+    for key in numeric_keys:
+        render_ctx[key] = _coerce_number(render_ctx.get(key), 0)
+
+    stats = render_ctx.get("statistiche")
+    if isinstance(stats, Mapping):
+        render_ctx["statistiche"] = {
+            stat_key: _coerce_number(stat_val, stat_val)
+            for stat_key, stat_val in stats.items()
+        }
+
+    stats_key = render_ctx.get("statistiche_chiave")
+    if isinstance(stats_key, Mapping):
+        render_ctx["statistiche_chiave"] = {
+            stat_key: _coerce_number(stat_val, stat_val)
+            for stat_key, stat_val in stats_key.items()
+        }
+
+    return template.render(**render_ctx)
 
 
 _validator_cache: dict[str, Draft202012Validator] = {}
@@ -971,20 +1090,26 @@ def _enrich_sheet_payload(
         _as_mapping((payload.get("build_state") or {}).get("saves_breakdown")) or {},
     )
     normalized_saves: dict[str, object] = {}
+    saves_totals: dict[str, object] = {}
     for name in ("Tempra", "Riflessi", "Volontà"):
-        normalized_saves[name] = _normalize_save_entry(
+        normalized_entry = _normalize_save_entry(
             salvezze_raw.get(name),
             _as_mapping(saves_breakdown.get(name))
             or _as_mapping(saves_breakdown.get(name.lower())),
             0,
         )
+        normalized_saves[name] = normalized_entry
+        saves_totals[name] = normalized_entry.get("totale")
     for extra_key, value in salvezze_raw.items():
         if extra_key in normalized_saves:
             continue
-        normalized_saves[extra_key] = _normalize_save_entry(
+        normalized_entry = _normalize_save_entry(
             value, _as_mapping(saves_breakdown.get(extra_key))
         )
-    sheet_payload["salvezze"] = normalized_saves
+        normalized_saves[extra_key] = normalized_entry
+        saves_totals[extra_key] = normalized_entry.get("totale")
+    sheet_payload["salvezze_breakdown"] = normalized_saves
+    sheet_payload["salvezze"] = saves_totals
 
     hp_block = _merge_prefer_existing(
         {},
@@ -1291,10 +1416,27 @@ def _enrich_sheet_payload(
         _as_mapping(sheet_payload.get("modules")) or {},
         _as_mapping(export_ctx.get("modules")) or {},
         _as_mapping(payload.get("modules")) or {},
-        _load_local_modules(DEFAULT_MODULE_TARGETS),
+        _load_local_modules(SHEET_MODULE_TARGETS),
     )
-    if module_payloads:
-        sheet_payload["modules"] = module_payloads
+
+    allowed_sheet_modules = {name: module_payloads.get(name) for name in SHEET_MODULE_TARGETS}
+    filtered_modules = {k: v for k, v in allowed_sheet_modules.items() if v}
+
+    if filtered_modules:
+        sheet_payload["modules"] = filtered_modules
+
+    rendered_sheet = None
+    template_source = allowed_sheet_modules.get("scheda_pg_markdown_template.md")
+    if template_source:
+        try:
+            rendered_sheet = _render_sheet_template(template_source, sheet_payload)
+        except Exception as exc:  # pragma: no cover - defensive
+            logging.warning(
+                "Rendering scheda_pg_markdown_template.md fallita: %s", exc
+            )
+
+    if rendered_sheet:
+        sheet_payload["sheet_markdown"] = rendered_sheet
 
     sources = _merge_unique_list(
         sheet_payload.get("fonti"), [source_url] if source_url else []
@@ -1469,6 +1611,8 @@ async def fetch_build(
         payload, ledger if isinstance(ledger, Mapping) else None, source_url
     )
     export_ctx["sheet_payload"] = sheet_payload
+    if sheet_payload.get("sheet_markdown"):
+        composite["sheet"] = sheet_payload["sheet_markdown"]
 
     def _require_block(label: str, *values: object) -> None:
         if not any(_has_content(value) for value in values):
