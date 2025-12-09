@@ -2318,25 +2318,23 @@ async def run_harvest(
                             validation_error = f"{validation_error}; {sheet_validation}"
                         elif validation_error is None:
                             validation_error = sheet_validation
-                        completeness_ctx = (
-                            payload.get("completeness")
-                            if isinstance(payload.get("completeness"), Mapping)
-                            else {}
-                        )
-                        completeness_errors = completeness_ctx.get("errors")
-                        require_complete_flag = bool(
-                            completeness_ctx.get("require_complete")
-                        )
-                        if require_complete_flag and completeness_errors:
-                            completeness_text = "; ".join(
-                                str(error) for error in completeness_errors
-                            )
-                            validation_error = (
-                                completeness_text
-                                if validation_error is None
-                                else f"{validation_error}; {completeness_text}"
-                            )
-                        status = "ok" if validation_error is None else "invalid"
+            completeness_ctx = (
+                payload.get("completeness")
+                if isinstance(payload.get("completeness"), Mapping)
+                else {}
+            )
+            completeness_errors = list(completeness_ctx.get("errors") or [])
+            if completeness_errors:
+                entry["completeness_errors"] = completeness_errors
+                completeness_text = "; ".join(
+                    str(error) for error in completeness_errors
+                )
+                validation_error = (
+                    completeness_text
+                    if validation_error is None
+                    else f"{validation_error}; {completeness_text}"
+                )
+            status = "ok" if validation_error is None else "invalid"
                         if status == "ok" or keep_invalid:
                             write_json(destination, payload)
                             output_path: Path | None = destination
