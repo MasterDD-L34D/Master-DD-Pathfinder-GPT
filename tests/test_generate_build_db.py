@@ -86,7 +86,7 @@ async def _run_core_harvest(tmp_path, monkeypatch):
         },
         "statistiche_chiave": {"PF": 10, "CA": 12},
         "pf_totali": 10,
-        "salvezze": {"tempra": 1, "riflessi": 1, "volonta": 1},
+        "salvezze": {},
         "skills": [{"name": "Perception", "value": 5}],
         "skills_map": {"Perception": 5},
         "skill_points": 1,
@@ -97,12 +97,7 @@ async def _run_core_harvest(tmp_path, monkeypatch):
         "spell_levels": {"0": [{"name": "Light"}]},
         "magia": {"spells_known": 1},
         "slot_incantesimi": {"1": 2},
-        "ac_breakdown": {"totale": 12},
-        "BAB": 1,
-        "init": 2,
-        "speed": 9,
-        "iniziativa": 2,
-        "velocita": 9,
+        "ac_breakdown": {},
     }
 
     sample_payload = {
@@ -113,6 +108,16 @@ async def _run_core_harvest(tmp_path, monkeypatch):
             "step_total": 8,
             "step_labels": {f"step_{i}": {} for i in range(8)},
             "statistics": {"forza": 12, "destrezza": 12},
+            "bab": 3,
+            "initiative": 4,
+            "speed": 9,
+            "ac": {
+                "AC_base": 10,
+                "AC_arm": 4,
+                "AC_des": 2,
+                "AC_tot": 17,
+            },
+            "saves": {"Tempra": 5, "Riflessi": 2, "Volontà": 1},
         },
         "benchmark": {"statistics": {"forza": 12}},
         "export": {"sheet_payload": sheet_payload},
@@ -179,6 +184,8 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
     assert rendered_sheet
     assert "Alchemist Sample" in rendered_sheet
     assert "Velocità" in rendered_sheet
+    assert "Tiri Salvezza:** Temp 5 / Riflessi 2 / Volontà 1" in rendered_sheet
+    assert "**BAB:** 3 | **Iniziativa:** 4 | **Velocità:** 9" in rendered_sheet
 
     index = json.loads(index_path.read_text(encoding="utf-8"))
     assert index["entries"], "L'indice delle build non è stato popolato"

@@ -1036,7 +1036,7 @@ def _enrich_sheet_payload(
         return value if isinstance(value, Mapping) else None
 
     def _normalize_save_entry(
-        raw: object, breakdown: Mapping | None, fallback_total: int | float = 0
+        raw: object, breakdown: Mapping | None, fallback_total: int | float | None = 0
     ) -> Mapping[str, object]:
         entry: dict[str, object] = {}
         as_mapping = _as_mapping(raw) or {}
@@ -1059,6 +1059,14 @@ def _enrich_sheet_payload(
         entry["misc"] = _first_non_placeholder(as_mapping.get("misc"), 0)
         if breakdown:
             entry["breakdown"] = breakdown
+        if total is None and fallback_total is not None:
+            if all(
+                _is_placeholder(entry.get(key))
+                for key in ("base", "modificatore", "misc")
+            ):
+                total = fallback_total
+        if total is not None:
+            entry["totale"] = total
         return entry
 
     sheet_payload: MutableMapping[str, object] = {}
@@ -1155,6 +1163,7 @@ def _enrich_sheet_payload(
     )
     if ac_breakdown:
         sheet_payload["ac_breakdown"] = ac_breakdown
+    stat_key_block = _as_mapping(sheet_payload.get("statistiche_chiave")) or {}
     ac_defaults = {
         "AC_arm": 0,
         "AC_scudo": 0,
@@ -1181,10 +1190,20 @@ def _enrich_sheet_payload(
         sheet_payload["AC_base"] = ac_base
     for ca_key in ("AC_tot", "CA_touch", "CA_ff"):
         derived = _first_non_placeholder(
-            sheet_payload.get(ca_key),
             ac_breakdown.get(ca_key) if ac_breakdown else None,
+            stat_key_block.get(ca_key.lower())
+            if isinstance(stat_key_block.get(ca_key.lower()), (int, float))
+            else None,
+            stat_key_block.get(ca_key),
+            stat_key_block.get("ca") if ca_key == "AC_tot" else None,
+            sheet_payload.get(ca_key),
         )
-        if derived is not None:
+        existing_value = sheet_payload.get(ca_key)
+        if derived is not None and (
+            ca_key not in sheet_payload
+            or _is_placeholder(existing_value)
+            or ((not ac_breakdown) and existing_value in {0, 10})
+        ):
             sheet_payload[ca_key] = derived
 
     if "AC_tot" not in sheet_payload:
@@ -1209,25 +1228,46 @@ def _enrich_sheet_payload(
             + sheet_payload.get("AC_misc", 0)
         )
 
+    bab = _first_non_placeholder(
+        sheet_payload.get("BAB"),
+        export_ctx.get("BAB") or export_ctx.get("bab"),
+        (payload.get("build_state") or {}).get("bab"),
+        (payload.get("benchmark") or {}).get("bab"),
+        (derived_core or {}).get("bab_total"),
+        (derived_core or {}).get("bab_base"),
+    )
+    if bab is None:
+        bab = 0
+    sheet_payload["BAB"] = bab
+
     initiative = _first_non_placeholder(
         sheet_payload.get("iniziativa"),
         export_ctx.get("iniziativa"),
+        stat_key_block.get("iniziativa"),
+        stat_key_block.get("init"),
         (payload.get("build_state") or {}).get("initiative"),
         (payload.get("benchmark") or {}).get("initiative"),
         (derived_core or {}).get("initiative_mod"),
+        (derived_core or {}).get("initiative_total"),
     )
     if initiative is not None:
         sheet_payload["iniziativa"] = initiative
+        if _is_placeholder(sheet_payload.get("init")):
+            sheet_payload["init"] = initiative
 
     speed = _first_non_placeholder(
         sheet_payload.get("velocita"),
         export_ctx.get("velocita") or export_ctx.get("speed"),
+        stat_key_block.get("velocita"),
+        stat_key_block.get("speed"),
         (payload.get("build_state") or {}).get("speed"),
         (derived_core or {}).get("speed_total"),
         (derived_core or {}).get("speed_base"),
     )
     if speed is not None:
         sheet_payload["velocita"] = speed
+        if _is_placeholder(sheet_payload.get("speed")):
+            sheet_payload["speed"] = speed
 
     skill_points = _first_non_placeholder(
         sheet_payload.get("skill_points"),
