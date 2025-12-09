@@ -558,8 +558,23 @@ def review_local_database(
     builds_section = _empty_review_section()
     modules_section = _empty_review_section()
 
+    build_index_meta: dict[str, object] = {}
+    if build_index_path and build_index_path.is_file():
+        try:
+            existing_index = json.loads(build_index_path.read_text(encoding="utf-8"))
+            build_index_meta.update(
+                {
+                    "api_url": existing_index.get("api_url"),
+                    "mode": existing_index.get("mode"),
+                    "spec_file": existing_index.get("spec_file"),
+                }
+            )
+        except Exception:
+            pass
+
     build_index_entries = _load_build_index_entries(build_index_path)
     build_files: dict[Path, str] = {}
+    index_entries: list[dict[str, object]] = []
     if build_dir.is_dir():
         for path in build_dir.rglob("*.json"):
             if path.is_file():
@@ -569,6 +584,7 @@ def review_local_database(
 
     for path, display_path in sorted(build_files.items(), key=lambda item: item[1]):
         entry: dict[str, Any] = {"file": display_path}
+        payload: Mapping[str, Any] | None = None
         index_entry = build_index_entries.get(path)
         if index_entry:
             entry.update({k: v for k, v in index_entry.items() if k not in {"file", "status"}})
@@ -647,6 +663,45 @@ def review_local_database(
         _bump_review(builds_section, status)
         builds_section["entries"].append(entry)
 
+        class_name = entry.get("class") or (payload or {}).get("class") or (
+            (payload or {}).get("build_state") or {}
+        ).get("class")
+        race = (payload or {}).get("race") or ((payload or {}).get("build_state") or {}).get(
+            "race"
+        )
+        archetype = (
+            (payload or {}).get("archetype")
+            or ((payload or {}).get("build_state") or {}).get("archetype")
+            or ((payload or {}).get("build_state") or {}).get("model")
+        )
+        background = (payload or {}).get("background")
+        mode = (payload or {}).get("mode") or ((payload or {}).get("build_state") or {}).get(
+            "mode"
+        )
+        spec_parts = [class_name, race, archetype, background]
+        spec_id = (
+            slugify("_".join(str(part) for part in spec_parts if part))
+            if any(spec_parts)
+            else None
+        )
+
+        index_entry = {
+            "file": display_path,
+            "status": status,
+            "class": class_name,
+            "race": race,
+            "archetype": archetype,
+            "mode": mode,
+            "mode_normalized": normalize_mode(mode or DEFAULT_MODE),
+            "spec_id": spec_id,
+            "background": background,
+        }
+        if validation_error:
+            index_entry["error"] = validation_error
+        if completeness_errors:
+            index_entry["completeness_errors"] = completeness_errors
+        index_entries.append(index_entry)
+
     module_entries: Sequence[Mapping[str, Any]] = []
     if module_index_path and module_index_path.is_file():
         try:
@@ -724,6 +779,14 @@ def review_local_database(
         report["build_index"] = str(build_index_path)
     if module_index_path:
         report["module_index"] = str(module_index_path)
+
+    if build_index_path:
+        index_payload: dict[str, object] = {
+            "generated_at": now_iso_utc(),
+            **build_index_meta,
+            "entries": sorted(index_entries, key=lambda entry: str(entry.get("file") or "")),
+        }
+        write_json(build_index_path, index_payload)
 
     if output_path:
         write_json(output_path, report)
