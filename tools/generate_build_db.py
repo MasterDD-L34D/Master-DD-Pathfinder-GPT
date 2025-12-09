@@ -1041,8 +1041,14 @@ def _enrich_sheet_payload(
     def _as_mapping(value: object) -> Mapping | None:
         return value if isinstance(value, Mapping) else None
 
+    def _fallback_stat(label: str) -> str:
+        return f"n/d ({label} non fornito)"
+
     def _normalize_save_entry(
-        raw: object, breakdown: Mapping | None, fallback_total: int | float | None = 0
+        raw: object,
+        breakdown: Mapping | None,
+        fallback_total: int | float | None = None,
+        label: str | None = None,
     ) -> Mapping[str, object]:
         entry: dict[str, object] = {}
         as_mapping = _as_mapping(raw) or {}
@@ -1052,17 +1058,16 @@ def _enrich_sheet_payload(
             as_mapping.get("value"),
             raw if isinstance(raw, (int, float)) else None,
         )
-        entry["totale"] = total if total is not None else fallback_total
         entry["base"] = _first_non_placeholder(
-            as_mapping.get("base"), as_mapping.get("bab"), 0
+            as_mapping.get("base"), as_mapping.get("bab"), None
         )
         entry["modificatore"] = _first_non_placeholder(
             as_mapping.get("mod"),
             as_mapping.get("abilita"),
             as_mapping.get("ability_mod"),
-            0,
+            None,
         )
-        entry["misc"] = _first_non_placeholder(as_mapping.get("misc"), 0)
+        entry["misc"] = _first_non_placeholder(as_mapping.get("misc"), None)
         if breakdown:
             entry["breakdown"] = breakdown
         if total is None and fallback_total is not None:
@@ -1071,6 +1076,18 @@ def _enrich_sheet_payload(
                 for key in ("base", "modificatore", "misc")
             ):
                 total = fallback_total
+        if total is None and not all(
+            _is_placeholder(entry.get(key)) for key in ("base", "modificatore", "misc")
+        ):
+            numeric_parts = [
+                part
+                for part in (entry.get("base"), entry.get("modificatore"), entry.get("misc"))
+                if isinstance(part, (int, float))
+            ]
+            if numeric_parts:
+                total = sum(numeric_parts)
+        if total is None and label:
+            total = _fallback_stat(label)
         if total is not None:
             entry["totale"] = total
         return entry
@@ -1222,7 +1239,7 @@ def _enrich_sheet_payload(
             salvezze_raw.get(name),
             _as_mapping(saves_breakdown.get(name))
             or _as_mapping(saves_breakdown.get(name.lower())),
-            0,
+            label=f"TS {name}",
         )
         normalized_saves[name] = normalized_entry
         saves_totals[name] = normalized_entry.get("totale")
@@ -1235,6 +1252,15 @@ def _enrich_sheet_payload(
         normalized_saves[extra_key] = normalized_entry
         saves_totals[extra_key] = normalized_entry.get("totale")
     sheet_payload["salvezze_breakdown"] = normalized_saves
+    if not any(
+        isinstance(value, (int, float)) and value != 0 for value in saves_totals.values()
+    ):
+        for key, value in list(saves_totals.items()):
+            if value in {None, 0} or _is_placeholder(value):
+                placeholder_label = f"TS {key}"
+                saves_totals[key] = _fallback_stat(placeholder_label)
+                if key in normalized_saves:
+                    normalized_saves[key]["totale"] = saves_totals[key]
     sheet_payload["salvezze"] = saves_totals
 
     hp_block = _merge_prefer_existing(
@@ -1256,8 +1282,14 @@ def _enrich_sheet_payload(
             else None
         ),
     )
+    if isinstance(pf_total, (int, float)) and pf_total == 0:
+        pf_total = None
     if pf_total is not None:
         sheet_payload["pf_totali"] = pf_total
+    elif hp_block:
+        sheet_payload["pf_totali"] = hp_block.get("totale") or _fallback_stat("PF totali")
+    else:
+        sheet_payload["pf_totali"] = _fallback_stat("PF totali")
     pf_progression = _first_non_placeholder(
         sheet_payload.get("pf_per_livello"),
         hp_block.get("per_livello") if hp_block else None,
@@ -1266,6 +1298,11 @@ def _enrich_sheet_payload(
     )
     if pf_progression is not None:
         sheet_payload["pf_per_livello"] = pf_progression
+    elif sheet_payload.get("pf_totali"):
+        sheet_payload.setdefault(
+            "pf_per_livello",
+            _fallback_stat("PF per livello"),
+        )
 
     derived_core = _as_mapping(export_ctx.get("derived")) or _as_mapping(
         (payload.get("build_state") or {}).get("derived")
@@ -1328,6 +1365,8 @@ def _enrich_sheet_payload(
         sheet_payload["AC_tot"] = ac_base + sum(
             sheet_payload.get(ac_key, 0) for ac_key in ac_defaults
         )
+    if sheet_payload.get("AC_tot") in {None, 0}:
+        sheet_payload["AC_tot"] = _fallback_stat("CA totale")
     if "CA_touch" not in sheet_payload:
         sheet_payload["CA_touch"] = (
             ac_base
@@ -1355,8 +1394,9 @@ def _enrich_sheet_payload(
         (derived_core or {}).get("bab_base"),
     )
     if bab is None:
-        bab = 0
-    sheet_payload["BAB"] = bab
+        sheet_payload["BAB"] = _fallback_stat("BAB")
+    else:
+        sheet_payload["BAB"] = bab
 
     initiative = _first_non_placeholder(
         sheet_payload.get("iniziativa"),
