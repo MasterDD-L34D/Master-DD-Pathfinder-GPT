@@ -561,8 +561,9 @@ def review_local_database(
     build_index_entries = _load_build_index_entries(build_index_path)
     build_files: dict[Path, str] = {}
     if build_dir.is_dir():
-        for path in build_dir.glob("*.json"):
-            build_files[path.resolve()] = str(path)
+        for path in build_dir.rglob("*.json"):
+            if path.is_file():
+                build_files[path.resolve()] = str(path)
     for resolved_path in build_index_entries:
         build_files.setdefault(resolved_path, str(build_index_entries[resolved_path].get("file") or resolved_path))
 
@@ -629,6 +630,8 @@ def review_local_database(
             validation_status = "ok" if validation_error is None else "invalid"
             completeness_status = "invalid" if completeness_errors else "ok"
             status = _worst_status(validation_status, completeness_status)
+            if completeness_errors:
+                entry["completeness_errors"] = completeness_errors
             if validation_error:
                 entry["error"] = validation_error
         except ValidationError:
