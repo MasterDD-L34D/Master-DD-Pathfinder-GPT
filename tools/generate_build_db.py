@@ -10,7 +10,7 @@ import os
 import shutil
 import textwrap
 from fnmatch import fnmatchcase
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 from itertools import product
 from pathlib import Path
@@ -106,6 +106,7 @@ def now_iso_utc() -> str:
 class BuildRequest:
     class_name: str
     mode: str = DEFAULT_MODE
+    level: int | None = None
     filename_prefix: str | None = None
     spec_id: str | None = None
     race: str | None = None
@@ -114,6 +115,7 @@ class BuildRequest:
     background: str | None = None
     query_params: Mapping[str, object] = field(default_factory=dict)
     body_params: Mapping[str, object] = field(default_factory=dict)
+    level_checkpoints: Sequence[int] = field(default_factory=lambda: (1, 5, 10))
 
     def http_method(self) -> str:
         return "POST" if self.body_params else "GET"
@@ -171,6 +173,8 @@ class BuildRequest:
             "spec_id": resolved_spec_id,
             "model": self.model,
             "background": resolved_background,
+            "level": self.level,
+            "level_checkpoints": list(self.level_checkpoints),
         }
 
 
@@ -206,6 +210,21 @@ def ensure_output_dirs(output_dir: Path) -> None:
 
 def _normalize_mapping(data: Mapping | None) -> Mapping[str, object]:
     return {str(key): value for key, value in (data or {}).items() if value is not None}
+
+
+def _normalize_levels(
+    levels: Sequence[int] | None, fallback: Sequence[int]
+) -> list[int]:
+    normalized: list[int] = []
+    for level in levels or []:
+        try:
+            coerced = int(level)
+        except (TypeError, ValueError):
+            continue
+        if coerced <= 0 or coerced in normalized:
+            continue
+        normalized.append(coerced)
+    return normalized or list(fallback)
 
 
 def _is_placeholder(value: object) -> bool:
@@ -338,6 +357,49 @@ def _coerce_number(value: object, default: object | None = None) -> object:
             return float(value)  # type: ignore[arg-type]
         except (TypeError, ValueError):
             return default
+
+
+def _truncate_sequence_by_level(
+    entries: Sequence | None, target_level: int | None
+) -> list[object] | None:
+    if target_level is None:
+        return None
+    if not isinstance(entries, Sequence) or isinstance(entries, (str, bytes)):
+        return None
+
+    kept: list[object] = []
+    current_level = 0
+
+    for entry in entries:
+        level_increment: int | None = None
+        if isinstance(entry, Mapping):
+            for classes_key in ("classi", "classes"):
+                if classes_key in entry:
+                    level_increment = _get_total_level(entry.get(classes_key))
+                    break
+            if level_increment is None:
+                level_increment = _coerce_number(
+                    entry.get("livello") or entry.get("level")
+                )
+
+        try:
+            increment = int(level_increment) if level_increment is not None else 1
+        except (TypeError, ValueError):
+            increment = 1
+
+        if increment <= 0:
+            increment = 1
+
+        if current_level + increment > target_level:
+            break
+
+        kept.append(entry)
+        current_level += increment
+
+        if current_level >= target_level:
+            break
+
+    return kept
 
 
 _sheet_template_env = NativeEnvironment(
@@ -820,8 +882,12 @@ def load_spec_requests(spec_path: Path, default_mode: str) -> list[BuildRequest]
 
     if isinstance(raw_data, Mapping):
         default_mode = str(raw_data.get("mode", default_mode))
+        default_levels = _normalize_levels(
+            raw_data.get("level_checkpoints"), (1, 5, 10)
+        )
         entries = raw_data.get("requests")
     else:
+        default_levels = _normalize_levels(None, (1, 5, 10))
         entries = raw_data
 
     if not isinstance(entries, Sequence) or isinstance(entries, (str, bytes)):
@@ -850,6 +916,9 @@ def load_spec_requests(spec_path: Path, default_mode: str) -> list[BuildRequest]
             ),
             body_params=_normalize_mapping(
                 entry.get("body") or entry.get("body_params") or entry.get("json")
+            ),
+            level_checkpoints=_normalize_levels(
+                entry.get("level_checkpoints") or entry.get("levels"), default_levels
             ),
         )
 
@@ -1816,18 +1885,53 @@ def _enrich_sheet_payload(
     return sheet_payload
 
 
+def _apply_level_checkpoint(
+    payload: MutableMapping[str, object], target_level: int | None
+) -> None:
+    if target_level is None:
+        return
+
+    export_ctx = payload.get("export") if isinstance(payload, Mapping) else None
+    sheet_payload = None
+    if isinstance(export_ctx, Mapping):
+        sheet_payload = export_ctx.get("sheet_payload")
+    if sheet_payload is None and isinstance(payload.get("sheet_payload"), Mapping):
+        sheet_payload = payload.get("sheet_payload")
+
+    if not isinstance(sheet_payload, MutableMapping):
+        return
+
+    truncated_progression = _truncate_sequence_by_level(
+        sheet_payload.get("progressione"), target_level
+    )
+    if truncated_progression is not None:
+        sheet_payload["progressione"] = truncated_progression
+
+        notes = sheet_payload.get("note_progressione")
+        if isinstance(notes, Sequence) and not isinstance(notes, (str, bytes)):
+            sheet_payload["note_progressione"] = list(notes)[: len(truncated_progression)]
+
+    for key in ("magia", "equipaggiamento"):
+        truncated = _truncate_sequence_by_level(sheet_payload.get(key), target_level)
+        if truncated is not None:
+            sheet_payload[key] = truncated
+
+
 async def fetch_build(
     client: httpx.AsyncClient,
     api_key: str | None,
     request: BuildRequest,
     max_retries: int,
     require_complete: bool = True,
+    target_level: int | None = None,
 ) -> MutableMapping:
     params: MutableMapping[str, object] = {
         "mode": request.mode,
         "class": request.class_name,
         "stub": True,
     }
+    if target_level is not None:
+        params["level"] = target_level
     params.update(request.query_params)
     headers = {"x-api-key": api_key} if api_key else {}
     method = request.http_method()
@@ -2210,6 +2314,7 @@ def build_index_entry(
         "file": str(output_file) if output_file else None,
         "status": status,
         "output_prefix": request.output_name(),
+        "level": request.level,
         **request.metadata(),
     }
     if error:
@@ -2347,7 +2452,19 @@ async def run_harvest(
 
         build_tasks = []
         for build_request in requests:
-            output_file = output_dir / f"{build_request.output_name()}.json"
+            seen_levels: set[int] = set()
+            level_plan: list[int] = []
+            for level in [1, *build_request.level_checkpoints]:
+                try:
+                    coerced = int(level)
+                except (TypeError, ValueError):
+                    continue
+                if coerced <= 0 or coerced in seen_levels:
+                    continue
+                seen_levels.add(coerced)
+                level_plan.append(coerced)
+
+            base_level = level_plan[0] if level_plan else 1
 
             async def process_class(
                 request: BuildRequest, destination: Path
@@ -2355,11 +2472,12 @@ async def run_harvest(
                 async with semaphore:
                     method = request.http_method()
                     logging.info(
-                        "Recupero build per %s (mode=%s, race=%s, archetype=%s) via %s",
+                        "Recupero build per %s (mode=%s, race=%s, archetype=%s, level=%s) via %s",
                         request.class_name,
                         request.mode,
                         request.race,
                         request.archetype,
+                        request.level or base_level,
                         method,
                     )
                     try:
@@ -2372,6 +2490,7 @@ async def run_harvest(
                                     request,
                                     max_retries,
                                     require_complete=require_complete,
+                                    target_level=request.level,
                                 )
                                 break
                             except BuildFetchError as exc:
@@ -2390,6 +2509,7 @@ async def run_harvest(
                             raise BuildFetchError(
                                 f"Impossibile recuperare payload per {request.class_name}"
                             )
+                        _apply_level_checkpoint(payload, request.level)
                         validation_error = validate_with_schema(
                             schema_for_mode(request.mode),
                             payload,
@@ -2451,7 +2571,7 @@ async def run_harvest(
                                 validation_error,
                             )
                             output_path = None
-                        return request.output_name(), build_index_entry(
+                        return destination.name, build_index_entry(
                             request,
                             output_path,
                             status,
@@ -2472,7 +2592,7 @@ async def run_harvest(
                         if destination.exists():
                             destination.unlink()
                         status = "invalid" if completeness_errors else "error"
-                        return request.output_name(), build_index_entry(
+                        return destination.name, build_index_entry(
                             request,
                             None,
                             status,
@@ -2488,7 +2608,7 @@ async def run_harvest(
                         logging.exception(
                             "Errore durante la fetch di %s", request.class_name
                         )
-                        return request.output_name(), build_index_entry(
+                        return destination.name, build_index_entry(
                             request,
                             None,
                             "error",
@@ -2504,10 +2624,18 @@ async def run_harvest(
                                 else None,
                             ),
                         )
+            for level in level_plan:
+                task_request = replace(
+                    build_request,
+                    level=level,
+                    level_checkpoints=tuple(level_plan),
+                )
+                suffix = "" if level == base_level else f"_lvl{level:02d}"
+                output_file = output_dir / f"{task_request.output_name()}{suffix}.json"
 
-            build_tasks.append(
-                asyncio.create_task(process_class(build_request, output_file))
-            )
+                build_tasks.append(
+                    asyncio.create_task(process_class(task_request, output_file))
+                )
 
         module_tasks = []
         for module_name in module_plan:
