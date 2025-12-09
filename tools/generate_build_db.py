@@ -1651,8 +1651,12 @@ async def fetch_build(
         payload, ledger if isinstance(ledger, Mapping) else None, source_url
     )
     export_ctx["sheet_payload"] = sheet_payload
-    if sheet_payload.get("sheet_markdown"):
-        composite["sheet"] = sheet_payload["sheet_markdown"]
+    sheet_markdown = sheet_payload.get("sheet_markdown")
+    if sheet_markdown:
+        payload["sheet"] = sheet_markdown
+        composite["sheet"] = sheet_markdown
+    elif sheet is not None:
+        composite.setdefault("sheet", sheet)
 
     def _require_block(label: str, *values: object) -> None:
         if not any(_has_content(value) for value in values):
