@@ -304,6 +304,7 @@ policies:
   exposure_guard:
     no_internal_dump: true
     allowed_outputs: ["parafrasi con citazione","estratti brevi","tabelle riassuntive"]
+    dump_policy: "Server default ALLOW_MODULE_DUMP=false: le risposte API forniscono solo estratti (4k + marker) e bloccano asset non testuali; abilita ALLOW_MODULE_DUMP=true solo per export controllati."
 
 # ---------------------------------
 # 2.c Hooks & Handoff (Archivist ↔ Taverna)

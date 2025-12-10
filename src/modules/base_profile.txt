@@ -359,7 +359,7 @@ orchestration:
     data_retention: "no_user_data"
     api_access:
       authentication: "Richiede x-api-key per endpoint moduli/knowledge; ALLOW_ANONYMOUS solo se esplicitamente attivato."
-      module_dump_control: "Quando ALLOW_MODULE_DUMP=false, servire solo estratti dei moduli per allinearsi al profilo Documentazione."
+      module_dump_control: "Default server: ALLOW_MODULE_DUMP=false → solo estratti (4k + marker) e blocco asset binari; abilita ALLOW_MODULE_DUMP=true solo per QA/export controllati."
     audit:
       receipts: "merkle"
       export_on_demand: true

@@ -7,6 +7,7 @@ type: lore+qa+vtt
 compatibility_notes:
   inherits_kernel_router_meta_sources: true
   reason: "Router, meta_sources, pfs_filter, qa_pipeline e badge sono centralizzati nel kernel."
+  dump_policy: "Default server ALLOW_MODULE_DUMP=false: esponi solo estratti con marker; abilita ALLOW_MODULE_DUMP=true solo per audit controllati."
 
 provides: ["lore PF1e con citazioni", "QA citazioni & spoiler guard", "VTT map forge (gridless)", "export AV/NC/SX/SX00"]
 requires: ["base_profile.txt"]

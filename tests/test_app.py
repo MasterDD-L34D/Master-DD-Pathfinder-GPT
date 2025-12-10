@@ -31,6 +31,14 @@ def disable_module_dump():
 
 
 @pytest.fixture
+def enable_module_dump():
+    original = settings.allow_module_dump
+    settings.allow_module_dump = True
+    yield
+    settings.allow_module_dump = original
+
+
+@pytest.fixture
 def missing_modules_dir(monkeypatch, tmp_path):
     missing_dir = tmp_path / "missing_modules"
     monkeypatch.setattr(app_module, "MODULES_DIR", missing_dir)
@@ -234,7 +242,9 @@ def test_get_module_content_not_found(client, auth_headers):
     assert response.json()["detail"] == "Module not found"
 
 
-def test_get_module_content_binary_streamed_without_text_property(client, auth_headers):
+def test_get_module_content_binary_streamed_without_text_property(
+    client, auth_headers, enable_module_dump
+):
     binary_path = MODULES_DIR / "binary_test.bin"
     binary_path.write_bytes(b"\x00\x01" * 2048)
 
@@ -247,6 +257,10 @@ def test_get_module_content_binary_streamed_without_text_property(client, auth_h
             assert response.is_stream_consumed is False
     finally:
         binary_path.unlink(missing_ok=True)
+
+
+def test_allow_module_dump_disabled_by_default():
+    assert settings.allow_module_dump is False
 
 
 def test_get_module_content_binary_blocked_when_dump_disabled(

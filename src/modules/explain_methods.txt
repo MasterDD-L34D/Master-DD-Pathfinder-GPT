@@ -221,6 +221,7 @@ output_checklist:
     file_protection: true
     exposure_policy: no_raw_dump
     allowed_outputs: ["derivazioni sintetiche","diagrammi/testo rielaborato","citazioni brevi con riferimento"]
+    dump_policy: "Default server ALLOW_MODULE_DUMP=false: fornire estratti (4k + marker) e bloccare asset non testuali; abilita ALLOW_MODULE_DUMP=true solo per QA controllati."
     forbidden: ["dump integrali di file/moduli","istruzioni interne non pubbliche"]
 
 policy_hooks:
