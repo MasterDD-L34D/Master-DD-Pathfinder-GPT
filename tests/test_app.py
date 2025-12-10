@@ -316,6 +316,29 @@ def test_text_module_truncated_when_dump_disabled(
         large_module.unlink(missing_ok=True)
 
 
+def test_narrative_flow_exposes_truncation_headers(
+    client, auth_headers, disable_module_dump
+):
+    target = MODULES_DIR / "narrative_flow.txt"
+    original = target.read_text(encoding="utf-8")
+    padded = original + ("\n" + ("B" * 4100))
+    target.write_text(padded, encoding="utf-8")
+    expected_length = target.stat().st_size
+
+    try:
+        response = client.get("/modules/narrative_flow.txt", headers=auth_headers)
+        assert response.status_code == 206
+        truncation_header = response.headers["x-truncated"]
+        assert "true" in {value.strip() for value in truncation_header.split(",")}
+        length_header_values = {
+            value.strip() for value in response.headers["x-original-length"].split(",")
+        }
+        assert str(expected_length) in length_header_values
+        assert "x-truncated=true" in response.text
+    finally:
+        target.write_text(original, encoding="utf-8")
+
+
 def test_ruling_expert_truncated_when_dump_enabled_without_whitelist(
     client, auth_headers
 ):

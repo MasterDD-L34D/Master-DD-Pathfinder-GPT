@@ -117,7 +117,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Lo stub builder è validato contro schema `build_core`/`build_extended`; in caso di errore restituisce `500 Stub payload non valido ...` (testato in commit precedente, logica stabile).【F:src/app.py†L556-L570】
-- [Osservazione] Il troncamento con `ALLOW_MODULE_DUMP=false` applica `[contenuto troncato]` ai moduli testuali, coerente con handler streaming; utile per review di sicurezza senza esporre l’intero asset.【02412a†L1-L1】【430a71†L3-L3】【F:src/app.py†L589-L600】
+- [Osservazione] Il troncamento con `ALLOW_MODULE_DUMP=false` applica `[contenuto troncato]` ai moduli testuali, coerente con handler streaming; utile per review di sicurezza senza esporre l’intero asset.【02412a†L1-L1】【430a71†L3-L3】【F:src/app.py†L1420-L1492】
 - [Errore] Nessun errore bloccante emerso nei test API e negli stub di build.【1cc753†L6-L7】
 
 ## narrative_flow
@@ -126,7 +126,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ### Task (priorità e scope)
 - [P1] Nessuno aperto: `/qa_story` usa validator concreti e blocca export finché arc/tema/thread/pacing/stile non sono tutti OK, includendo preview troncato e CTA dedicate.【F:src/modules/narrative_flow.txt†L320-L404】
-- [P2] **Troncamento vs policy**: l’API tronca i file testuali a 4000 caratteri quando `ALLOW_MODULE_DUMP=false`, ma il comportamento non distingue dimensione residua né segnala header aggiuntivi; valutare esposizione di lunghezza originaria o header `x-truncated`.【F:src/app.py†L581-L601】【F:tests/test_app.py†L268-L295】
+- ✅ [P2] **Troncamento vs policy**: l’endpoint espone header `x-truncated=true` e `x-original-length=<byte>` quando `ALLOW_MODULE_DUMP=false`, chiarendo dimensione originaria e limite applicato nei dump troncati.【F:tests/test_app.py†L319-L343】【F:src/app.py†L1420-L1492】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flow narrativo in 11 step guida genere, tono, protagonisti, conflitto e arc/tema con retry e cache, integrando template per scene/outline/bible e interfacce con Taverna, Encounter e Ledger tramite seed condivisi; il QA ora fornisce checklist dettagliata, flag export e CTA su arc/tema/hook/pacing/stile.【F:src/modules/narrative_flow.txt†L465-L658】【F:src/modules/narrative_flow.txt†L320-L404】
@@ -234,7 +234,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | knowledge_pack | 0 | — | 1 | 1 | Pronto per sviluppo |
 | meta_doc | 0 | — | 1 | 1 | Pronto per sviluppo |
 | minmax_builder | 0 | — | 2 | 1 | Pronto per sviluppo |
-| narrative_flow | 1 | P2 | 1 | 1 | Pronto per sviluppo |
+| narrative_flow | 0 | — | 1 | 1 | Pronto per sviluppo |
 | ruling_expert | 2 | P2 | 1 | 1 | Pronto per sviluppo |
 | scheda_pg_markdown_template | 1 | P2 | 2 | 1 | Pronto per sviluppo |
 | sigilli_runner_module | 0 | — | 3 | 4 | Pronto per sviluppo |

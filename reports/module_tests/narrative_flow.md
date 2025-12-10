@@ -10,7 +10,7 @@
 2. **`GET /modules`** — `503` se la directory moduli è assente; altrimenti elenco disponibile (coperto dai fixture health).【F:tests/test_app.py†L529-L536】
 3. **`GET /modules/narrative_flow.txt/meta`** — `200 OK`, payload `name/size_bytes/suffix` coerente con il file su disco.【F:tests/test_app.py†L298-L307】
 4. **`GET /modules/narrative_flow.txt`** — con dump abilitato: `200 OK`, `content-type: text/plain`, nessun troncamento.【F:src/app.py†L573-L601】
-5. **Dump disabilitato (`ALLOW_MODULE_DUMP=false`)** — file testuali restano accessibili ma troncati a 4000 caratteri con marker finale `[contenuto troncato]`; asset binari/PDF restituiscono `403 Module download not allowed`.【F:tests/test_app.py†L252-L295】【F:src/app.py†L581-L601】
+5. **Dump disabilitato (`ALLOW_MODULE_DUMP=false`)** — file testuali restano accessibili ma troncati a 4000 caratteri con marker finale `[contenuto troncato]` e header aggiuntivi `x-truncated=true` / `x-original-length=<byte>` che riportano dimensione originaria e limite di troncamento; asset binari/PDF restituiscono `403 Module download not allowed`.【F:tests/test_app.py†L252-L295】【F:tests/test_app.py†L319-L343】【F:src/app.py†L1420-L1492】
 6. **Errori standard** — path traversal → `400 Invalid module path`; nome errato → `404 Module not found`; knowledge traversal → `404 Knowledge file not found`.【F:tests/test_app.py†L214-L340】
 
 ## Metadati, scopo e integrazioni
@@ -47,7 +47,7 @@
 - Nessun errore bloccante rilevato dopo l’attivazione dei validator reali in `/qa_story`.
 
 ## Miglioramenti suggeriti
-- **Troncamento vs policy**: l’API tronca i file testuali a 4000 caratteri quando `ALLOW_MODULE_DUMP=false`, ma il comportamento non distingue dimensione residua né segnala header aggiuntivi; valutare esposizione di lunghezza originaria o header `x-truncated`.【F:src/app.py†L581-L601】【F:tests/test_app.py†L268-L295】
+- Nessuno aperto: l’API fornisce ora header `x-truncated` e `x-original-length` per i dump troncati, chiarendo dimensione originaria e limite applicato.【F:tests/test_app.py†L319-L343】【F:src/app.py†L1420-L1492】
 
 ## Fix necessari
 - Nessuno aperto: `/qa_story` usa validator concreti e blocca export finché arc/tema/thread/pacing/stile non sono tutti OK, includendo preview troncato e CTA dedicate.【F:src/modules/narrative_flow.txt†L320-L404】

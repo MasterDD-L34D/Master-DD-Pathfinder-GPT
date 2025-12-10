@@ -23,7 +23,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
   - ✅ **Dump limitati documentati:** l’indice `/modules` esplicita che, con `ALLOW_MODULE_DUMP=false`, le dimensioni possono risultare ridotte e i file portare suffix `-partial` (≈4k + marker troncato).【F:src/modules/meta_doc.txt†L1-L18】
   - ✅ **Snippet Homebrewery ampliati:** `/render_brew_example` offre esempi HR/Primary combinati e una CTA di export V3 pronta all’uso, allineata alla checklist Homebrewery.【F:src/modules/meta_doc.txt†L504-L562】【F:src/modules/meta_doc.txt†L614-L640】
 - **narrative_flow**
-  - **Troncamento vs policy**: valutare esposizione di lunghezza originaria o header `x-truncated` quando `ALLOW_MODULE_DUMP=false`, per chiarezza della dimensione residua.【F:src/app.py†L581-L601】【F:tests/test_app.py†L268-L295】
+  - ✅ **Troncamento vs policy**: l’endpoint espone ora header `x-truncated=true` e `x-original-length=<byte>` quando `ALLOW_MODULE_DUMP=false`, chiarendo dimensione originaria e limite applicato nei dump troncati.【F:tests/test_app.py†L319-L343】【F:src/app.py†L1420-L1492】
 - **ruling_expert**
   - **Documentare payload stub builder**: chiarire nel modulo come i campi `build_state`/`sheet`/`benchmark`/`ledger`/`export`/`composite` si mappano su rulings/QA per agevolare l’integrazione con il builder.【F:src/app.py†L366-L572】
   - **Rafforzare CTA per PFS**: aggiungere un prompt CTA per confermare la stagione PFS nel `status_example`, riducendo ambiguità di giurisdizione.【F:src/modules/ruling_expert.txt†L300-L317】【F:src/modules/ruling_expert.txt†L417-L424】
@@ -50,7 +50,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | explain_methods | 0 | — | Pronto per sviluppo |
 | knowledge_pack | 0 | — | Pronto per sviluppo |
 | meta_doc | 0 | — | Pronto per sviluppo |
-| narrative_flow | 1 | P2 | Pronto per sviluppo |
+| narrative_flow | 0 | — | Pronto per sviluppo |
 | ruling_expert | 2 | P2 | Pronto per sviluppo |
 | scheda_pg_markdown_template | 1 | P2 | Pronto per sviluppo |
 | sigilli_runner_module | 0 | — | Pronto per sviluppo |
