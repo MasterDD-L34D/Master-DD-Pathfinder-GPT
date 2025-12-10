@@ -49,5 +49,5 @@
 - **Allineamento estensioni:** il modulo ricorda la migrazione a `.txt` per tutti i percorsi; conviene verificare che eventuali client non referenzino più `.yaml`.【F:src/modules/knowledge_pack.md†L3-L4】
 - **Miglioria potenziale:** includere nelle API di metadata un campo `version`/`compatibility` già presente nel testo per evitare parsing dal corpo del modulo.【F:src/modules/knowledge_pack.md†L1-L6】
 
-## Fix necessari
-- Esportare `version`/`compatibility` direttamente nell’endpoint `/modules/{name}/meta` per coerenza con quanto documentato nel modulo e per evitare parsing testuale lato client.【F:src/modules/knowledge_pack.md†L1-L6】
+## Note di verifica
+- ✅ L’endpoint `/modules/{name}/meta` ora espone `version` e `compatibility` estratti dall’header del modulo, allineandosi con la documentazione e senza richiedere parsing manuale lato client.【F:src/app.py†L392-L458】【F:src/modules/knowledge_pack.md†L1-L6】

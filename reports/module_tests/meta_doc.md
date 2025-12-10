@@ -60,8 +60,7 @@
 
 ## Miglioramenti suggeriti
 - ⚠️ L’endpoint `/modules` non è stato rieseguito con `ALLOW_MODULE_DUMP=false`, ma la lista non dovrebbe cambiare; verificare se si vuole documentare eventuali differenze di suffix/size in ambienti futuri.
-- 🔧 Potrebbe essere utile aggiungere esempi di `export_doc` fallito per mancanza di fonti/outline per coprire i gate QA definiti nel modulo.【F:src/modules/meta_doc.txt†L820-L829】
 - 🔧 Per chiarezza Homebrewery, si può espandere `/render_brew_example` con snippet visivi aggiuntivi (es. box HR/Primary) seguendo il pattern attuale.【F:src/modules/meta_doc.txt†L488-L539】
 
-## Fix necessari
-- Aggiungere esempi di errore per `export_doc` e per le checklists Homebrewery (incluso `/render_brew_example`) in modo da coprire i gate QA e rendere più chiari i fallimenti attesi quando mancano fonti o outline.【F:src/modules/meta_doc.txt†L488-L539】【F:src/modules/meta_doc.txt†L820-L829】
+## Note di verifica
+- ✅ Il modulo include ora esempi di errore per `export_doc` (outline mancante, assenza fonti RAW/PFS) e checklist Homebrewery (`/brew_lint`/`/render_brew_example`), coprendo i gate QA previsti: nessun fix aperto su questo fronte.【F:src/modules/meta_doc.txt†L440-L520】【F:src/modules/meta_doc.txt†L820-L829】
