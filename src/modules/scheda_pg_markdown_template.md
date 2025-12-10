@@ -8,10 +8,38 @@ compatibility:
 
 > **Meta payload (header):**
 > ```yaml
+> module: scheda_pg_markdown_template.md
 > version: "1.1"
 > compatibility:
 >   core_min: "3.3"
 >   integrates_with: ["MinMax Builder", "Adventurer Ledger", "Explain Methods", "Ruling Expert", "Hook VTT"]
+> triggers:
+>   ledger: "Attivalo quando il payload include valute (pp/gp/sp/cp), wbl_target_gp o ledger_invested_gp per log e KPI."
+>   minmax: "On se benchmarks/statistiche_chiave/benchmark_comparison sono valorizzati o si vuole QA sui DPR/CA."
+>   vtt: "Usa SHOW_VTT quando map_id, vtt_bundle_path o token_scale_hint sono presenti o serve export Foundry/Roll20."
+>   qa: "SHOW_QA per checklist su tabelle popolate, Δ WBL e normalizzazione valute (fmt_gp)."
+>   explain: "SHOW_EXPLAIN per allegare regole/procedure didattiche (campi explain.*)."
+> defaults:
+>   show_minmax: true
+>   show_vtt: true
+>   show_qa: true
+>   show_explain: true
+>   show_ledger: true
+> ```
+
+> **Uso rapido:** includi sempre `module`, `version` e `compatibility` nel meta; abilita i toggle rilevanti in base ai trigger sopra per evitare report QA incompleti.
+>
+> **Esempio di payload (stub):**
+> ```yaml
+> module: scheda_pg_markdown_template.md
+> version: "1.1"
+> compatibility:
+>   core_min: "3.3"
+>   integrates_with: ["MinMax Builder", "Adventurer Ledger"]
+> print_mode: false
+> show_ledger: true   # attiva Ledger per gp/wbl
+> show_minmax: false  # disattivo se mancano benchmark
+> show_vtt: true      # attivo per export Foundry/Roll20
 > ```
 
 ---
@@ -128,6 +156,7 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 ---
 ## Toggle & riepilogo rapido
 - {{ toggle_badge(SHOW_MINMAX, 'MINMAX') }} | {{ toggle_badge(SHOW_VTT, 'VTT') }} | {{ toggle_badge(SHOW_QA, 'QA') }} | {{ toggle_badge(SHOW_EXPLAIN, 'EXPLAIN') }} | {{ toggle_badge(SHOW_LEDGER, 'LEDGER') }}
+_Policy operative_: attiva **MINMAX** se presenti `statistiche_chiave`/`benchmarks` o richiesto DPR/CA; **LEDGER** quando hai valute, `ledger_invested_gp` o target WBL; **VTT** con `map_id`, bundle o token hint; **QA** per checklist finale/export; **EXPLAIN** se fornisci campi `explain.*` o training rules.
 {% if SHOW_MINMAX %}
 - **Meta tier / DPR:** {{ d(BM.meta_tier, STK.meta_tier) }} · {{ d(STK.DPR_Base, '—') }}/{{ d(STK.DPR_Nova, '—') }} DPR
 - **CA ricostruita:** {{ AC_tot }} (touch {{ CA_touch }}, ff {{ CA_ff }})
