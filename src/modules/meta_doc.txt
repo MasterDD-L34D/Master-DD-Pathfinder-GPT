@@ -221,7 +221,7 @@ commands:
           /export_doc <md|pdf|canvas|zip> — esporta
           /export_doc_brew — esporta Homebrewery V3
           /brew_lint — conformità V3 (headers/spazi/footers/immagini)
-          /render_brew_example <kind> — snippet cover/toc/box/image
+          /render_brew_example <kind> — snippet cover/toc/box/image/hr-primary
           /generate_briefing {...} — crea Briefing Modulo da template
           /doc_pack — crea pacchetto finale (ZIP)
 
@@ -547,6 +547,20 @@ commands:
               - output: |
                   >note
                   🏛️ Primary Source: riferimento ufficiale
+          - when: 'box_hr_primary'
+            do:
+              - output: |
+                  >warning
+                  **[HR]** Variante di tavolo: sostituisci il tiro conoscenze con Percezione.
+                  >note
+                  🏛️ Primary Source — Regola base: richiedi Ricordare Conoscenze con CD adeguata.
+          - when: 'box_primary_reference'
+            do:
+              - output: |
+                  >note
+                  🏛️ Primary Source — Citazione completa
+                  *Libro:* GMG p.123  
+                  *Testo:* "Il tiro di Recall Knowledge usa la CD di difficoltà moderata per il livello della creatura."
           - when: 'wrap_left'
             do:
               - output: |
@@ -576,9 +590,9 @@ commands:
           - when: 'cta'
             do:
               - output: |
-                  {{text-align:center,margin-left:60px,margin-right:60px,margin-bottom:16px Apri `/render_brew_example cover|toc|box_raw|box_pfs|box_meta|box_hr|box_primary|wrap_left|watercolor_corner|center_note|checklist` e chiudi con `/brew_lint`}}
+                  {{text-align:center,margin-left:60px,margin-right:60px,margin-bottom:16px Apri `/render_brew_example cover|toc|box_raw|box_pfs|box_meta|box_hr|box_primary|box_hr_primary|box_primary_reference|wrap_left|watercolor_corner|center_note|checklist` e chiudi con `/brew_lint`}}
           - default:
-              - output: "⚠ Tipo di esempio non riconosciuto. Usa cover/toc/box_raw/box_pfs/box_meta/box_hr/box_primary/wrap_left/watercolor_corner/center_note/checklist/cta."
+              - output: "⚠ Tipo di esempio non riconosciuto. Usa cover/toc/box_raw/box_pfs/box_meta/box_hr/box_primary/box_hr_primary/box_primary_reference/wrap_left/watercolor_corner/center_note/checklist/cta."
 
   /generate_briefing:
     description: Genera un briefing usando lo standard_briefing_template
