@@ -435,6 +435,7 @@ async def get_taverna_saves_quota(
 
 
 TEXT_SUFFIXES = {".txt", ".md"}
+PROTECTED_DUMP_MODULES = {"ruling_expert.txt"}
 
 
 def _media_type_for_path(path: Path) -> str:
@@ -1003,13 +1004,18 @@ async def get_module_content(
     media_type = _media_type_for_path(path)
     is_text = path.suffix.lower() in TEXT_SUFFIXES
 
-    if not is_text and not settings.allow_module_dump:
+    allow_full_dump = settings.allow_module_dump and (
+        path.name not in PROTECTED_DUMP_MODULES
+        or path.name in settings.module_dump_whitelist
+    )
+
+    if not is_text and not allow_full_dump:
         raise HTTPException(status_code=403, detail="Module download not allowed")
 
-    if not is_text and settings.allow_module_dump:
+    if not is_text and allow_full_dump:
         return FileResponse(path, media_type=media_type, filename=path.name)
 
-    if settings.allow_module_dump:
+    if allow_full_dump:
         return FileResponse(path, media_type=media_type, filename=path.name)
 
     max_chars = 4000

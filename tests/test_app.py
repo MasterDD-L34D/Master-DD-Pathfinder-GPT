@@ -310,6 +310,40 @@ def test_text_module_truncated_when_dump_disabled(
         large_module.unlink(missing_ok=True)
 
 
+def test_ruling_expert_truncated_when_dump_enabled_without_whitelist(
+    client, auth_headers
+):
+    original_allow = settings.allow_module_dump
+    original_whitelist = settings.module_dump_whitelist
+    settings.allow_module_dump = True
+    settings.module_dump_whitelist = set()
+
+    try:
+        response = client.get("/modules/ruling_expert.txt", headers=auth_headers)
+        assert response.status_code == 206
+        assert response.headers["X-Content-Partial"] == "true"
+        assert response.text.endswith("[contenuto troncato]")
+    finally:
+        settings.allow_module_dump = original_allow
+        settings.module_dump_whitelist = original_whitelist
+
+
+def test_ruling_expert_full_dump_requires_whitelist(client, auth_headers):
+    original_allow = settings.allow_module_dump
+    original_whitelist = settings.module_dump_whitelist
+    settings.allow_module_dump = True
+    settings.module_dump_whitelist = {"ruling_expert.txt"}
+
+    try:
+        expected = (MODULES_DIR / "ruling_expert.txt").read_text(encoding="utf-8")
+        response = client.get("/modules/ruling_expert.txt", headers=auth_headers)
+        assert response.status_code == 200
+        assert response.text == expected
+    finally:
+        settings.allow_module_dump = original_allow
+        settings.module_dump_whitelist = original_whitelist
+
+
 def test_get_module_meta_valid_file(client, auth_headers):
     sample_file = next(p for p in MODULES_DIR.iterdir() if p.is_file())
     response = client.get(

@@ -25,6 +25,11 @@ class Settings:
             "yes",
             "y",
         )  # se False, il testo dei moduli viene troncato
+        self.module_dump_whitelist: set[str] = {
+            name.strip()
+            for name in os.getenv("MODULE_DUMP_WHITELIST", "").split(",")
+            if name.strip()
+        }
         self.auth_backoff_threshold: int = int(
             os.getenv("AUTH_BACKOFF_THRESHOLD", "5")
         )  # tentativi invalidi prima del backoff
