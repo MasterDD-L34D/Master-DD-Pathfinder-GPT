@@ -39,7 +39,15 @@
 - Strumenti QA/diagnostica con output di esempio per self-check, mappe di flusso, audit fonti, stato offline/cache, probe di ambiguità e test arithmetic_guard.【F:src/modules/ruling_expert.txt†L366-L410】
 - Output format e citazione: `citation_format` definisce inline/list e `min_required: 1`, ribadendo l’aspettativa di fonti; utile per export JSON/filename consistenti.【F:src/modules/ruling_expert.txt†L337-L356】
 
-## Osservazioni, errori e miglioramenti proposti
-- **Allineare policy di esposizione**: il modulo dichiara `exposure_policy: no_raw_dump`, ma l’API di default (`ALLOW_MODULE_DUMP=true`) serve il file completo; solo con `ALLOW_MODULE_DUMP=false` avviene il troncamento. Suggerito impostare `ALLOW_MODULE_DUMP=false` in ambienti pubblici o applicare whitelist per coerenza con la policy del modulo.【F:src/modules/ruling_expert.txt†L80-L85】【c08648†L20-L28】【88122c†L1-L74】
-- **Documentare payload stub builder**: l’endpoint `/modules/minmax_builder.txt` in modalità `stub` costruisce state compositi con `build_state`, `sheet`, `benchmark`, `ledger`, `export` e `composite` coerenti con lo schema del builder.【F:src/app.py†L366-L572】 Chiarire nel modulo come questi campi si mappano su rulings/QA potrebbe agevolare l’integrazione.
+## Osservazioni
+- Il flow guidato RAW→FAQ→PFS applica guardrail anti-injection, disambiguazione con soglia 0.65 e CTA post-risposta, offrendo template UI per sezioni RAW/RAI/PFS/HR e strumenti di diagnostica per cache/offline e arithmetic_guard.【F:src/modules/ruling_expert.txt†L284-L356】【F:src/modules/ruling_expert.txt†L331-L410】
+
+## Errori
+- **Allineare policy di esposizione**: il modulo dichiara `exposure_policy: no_raw_dump`, ma l’API di default (`ALLOW_MODULE_DUMP=true`) serve il file completo; solo con `ALLOW_MODULE_DUMP=false` avviene il troncamento.【F:src/modules/ruling_expert.txt†L80-L85】【c08648†L20-L28】【88122c†L1-L74】
+
+## Miglioramenti suggeriti
+- **Documentare payload stub builder**: l’endpoint `/modules/minmax_builder.txt` in modalità `stub` costruisce state compositi con `build_state`, `sheet`, `benchmark`, `ledger`, `export` e `composite` coerenti con lo schema del builder; chiarire nel modulo come questi campi si mappano su rulings/QA potrebbe agevolare l’integrazione.【F:src/app.py†L366-L572】
 - **Rafforzare CTA per PFS**: il flow indica season awareness e priorità PFS ma il `status_example` non mostra esplicitamente il badge/season derivato; aggiungere un prompt CTA per confermare la stagione PFS potrebbe ridurre ambiguità di giurisdizione.【F:src/modules/ruling_expert.txt†L300-L317】【F:src/modules/ruling_expert.txt†L417-L424】
+
+## Fix necessari
+- Applicare la policy `no_raw_dump` anche lato server (configurando `ALLOW_MODULE_DUMP=false` by default o introducendo whitelist) così che il comportamento runtime sia coerente con quanto dichiarato nel modulo.【F:src/modules/ruling_expert.txt†L80-L85】【c08648†L20-L28】【88122c†L1-L74】

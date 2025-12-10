@@ -45,7 +45,16 @@
 - **Helpers**: `build_reply_meta` arricchisce risposte con badge/policy/sigilli, `build_quality_receipt` genera receipt SHA256, `attach_sigilli` applica post-processor condizionale.【F:src/modules/base_profile.txt†L576-L614】
 - **Export QA**: template `quality_report_json` e `audit_report` (Echo) più log QA allegato su diagnostic/export.【F:src/modules/base_profile.txt†L520-L529】【F:src/modules/base_profile.txt†L596-L602】
 
-## Osservazioni, errori, miglioramenti
+## Osservazioni
+- Il router centralizza CTA e preset per le modalità specializzate (MinMax, Encounter, Taverna, Narrativa) guidando l’utente con flow e quiz sequenziali e welcome dedicato.【F:src/modules/base_profile.txt†L95-L176】【F:src/modules/base_profile.txt†L452-L560】
+- La pipeline QA integra badge/citazioni/sigilli e ricevute SHA256, collegando i log Echo e gli export di qualità per garantire trasparenza e auditabilità.【F:src/modules/base_profile.txt†L430-L447】【F:src/modules/base_profile.txt†L576-L614】
+
+## Errori
+- Nessun errore bloccante riscontrato durante i test di health check, listing e download dei moduli.
+
+## Miglioramenti suggeriti
 - **Coverage API incompleto**: il report precedente non menzionava `/health` né l’errore 404 su modulo inesistente; ora coperti dai test 503/404 con path e status.【F:tests/test_app.py†L304-L314】【F:tests/test_app.py†L547-L591】
 - **Chiarezza dump/troncamento**: esplicitata distinzione testo troncato vs blocco binari con ALLOW_MODULE_DUMP=false per allineare alla policy Documentazione.【F:tests/test_app.py†L282-L302】
-- **Suggerimento**: documentare nel codice l’elenco comandi principali anche in un endpoint `/doc` o README per facilitarne la discovery (riferimento sezione `commands` del modulo).【F:src/modules/base_profile.txt†L452-L472】
+
+## Fix necessari
+- Documentare nel codice l’elenco comandi principali anche in un endpoint `/doc` o README per facilitarne la discovery (riferimento sezione `commands` del modulo).【F:src/modules/base_profile.txt†L452-L472】

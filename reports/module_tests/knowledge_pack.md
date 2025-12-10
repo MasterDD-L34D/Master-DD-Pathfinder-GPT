@@ -39,7 +39,15 @@
 - Checklist generale e per modulo con gate espliciti su badge, fonti, struttura RAW/RAI/PFS, coerenza PFS, benchmark MinMax, tattiche e loot Encounter, audit WBL Ledger, completezza metodi Explain.【F:src/modules/knowledge_pack.md†L241-L279】
 - Troubleshooting include correzioni rapide su nomi file, template scheda, toggle PFS e sigilli, evidenziando cause comuni di output errato.【F:src/modules/knowledge_pack.md†L117-L123】
 
-## Osservazioni, errori e miglioramenti suggeriti
-- **Troncamento chiaro:** con `ALLOW_MODULE_DUMP=false` il suffisso `[contenuto troncato]` rende evidente la risposta parziale; comportamento corretto e segnalato.【7645d7†L1-L8】
+## Osservazioni
+- Il quick start orchestra i moduli principali (quiz PG → MinMax → Encounter → Ledger) e fornisce prompt “copia/incolla” parametrizzati per Taverna, Ruling, Archivist, Narrativa, Explain, semplificando CTA e integrazione UI.【F:src/modules/knowledge_pack.md†L45-L92】【F:src/modules/knowledge_pack.md†L126-L237】
+
+## Errori
+- Nessun errore rilevato sulle chiamate API; il troncamento con `ALLOW_MODULE_DUMP=false` è correttamente marcato con `[contenuto troncato]`.【7645d7†L1-L8】
+
+## Miglioramenti suggeriti
 - **Allineamento estensioni:** il modulo ricorda la migrazione a `.txt` per tutti i percorsi; conviene verificare che eventuali client non referenzino più `.yaml`.【F:src/modules/knowledge_pack.md†L3-L4】
 - **Miglioria potenziale:** includere nelle API di metadata un campo `version`/`compatibility` già presente nel testo per evitare parsing dal corpo del modulo.【F:src/modules/knowledge_pack.md†L1-L6】
+
+## Fix necessari
+- Esportare `version`/`compatibility` direttamente nell’endpoint `/modules/{name}/meta` per coerenza con quanto documentato nel modulo e per evitare parsing testuale lato client.【F:src/modules/knowledge_pack.md†L1-L6】

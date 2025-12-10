@@ -40,7 +40,15 @@
 ## QA templates, helper e formule
 - Gates/checklist descritti sopra; helper `now` per seed/time; estensioni `mda` con checklist tecnica/operativa e visual mapping ASCII. Export supporta MD/CSV/PDF, con naming implicito dai comandi `/export_*`.【F:src/modules/narrative_flow.txt†L659-L732】【F:src/modules/narrative_flow.txt†L717-L724】
 
-## Osservazioni, errori e miglioramenti
+## Osservazioni
+- Il flow narrativo in 11 step guida genere, tono, protagonisti, conflitto e arc/tema con retry e cache, integrando template per scene/outline/bible e interfacce con Taverna, Encounter e Ledger tramite seed condivisi.【F:src/modules/narrative_flow.txt†L465-L658】【F:src/modules/narrative_flow.txt†L397-L463】
+
+## Errori
 - **Validator stub**: tutte le funzioni `validate_*` ritornano `True`, quindi `/qa_story` non segnala mai errori; implementare logica reale per coerenza con checklist QA.【F:src/modules/narrative_flow.txt†L320-L346】【F:src/modules/narrative_flow.txt†L690-L715】
+
+## Miglioramenti suggeriti
 - **Troncamento vs policy**: l’API tronca i file testuali a 4000 caratteri quando `ALLOW_MODULE_DUMP=false`, ma il comportamento non distingue dimensione residua né segnala header aggiuntivi; valutare esposizione di lunghezza originaria o header `x-truncated`.【F:src/app.py†L581-L601】【F:tests/test_app.py†L268-L295】
 - **CTA export**: i comandi `/export_*` non specificano filename; definire convenzioni (es. `story_<titolo>.md/pdf`, `beats.csv`) per allineamento con altri moduli di export e con le checklist MDA.【F:src/modules/narrative_flow.txt†L330-L386】【F:src/modules/narrative_flow.txt†L659-L688】
+
+## Fix necessari
+- Implementare validator effettivi in `/qa_story` (arc/theme/thread/pacing/style) sostituendo gli stub che restituiscono sempre `True`, così da far emergere errori e coerenze mancanti nelle storie generate.【F:src/modules/narrative_flow.txt†L320-L346】【F:src/modules/narrative_flow.txt†L690-L715】

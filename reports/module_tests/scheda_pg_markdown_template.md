@@ -45,9 +45,12 @@
 - Il troncamento mantiene il titolo e il marker finale, utile per audit in ambienti con dump limitato; la lunghezza compatta (4k) preserva contesto iniziale.【300994†L1-L4】
 - Mancano metadati espliciti su versione/compatibilità o policy di trigger; potrebbero essere esposti nel blocco meta iniziale insieme ai toggle per facilitare QA automatizzato.【F:src/modules/scheda_pg_markdown_template.md†L5-L23】
 
-## Errori rilevati
+## Errori
 - Nessun errore funzionale nelle API; 404 atteso su file mancante.【bff25f†L6-L6】
 
-## Miglioramenti suggeriti / Fix necessari
+## Miglioramenti suggeriti
 - Aggiungere un campo “versione” e “compatibilità sistema” nel riepilogo iniziale o nel payload meta per allinearsi ad altri moduli e supportare QA catalogo.【F:src/modules/scheda_pg_markdown_template.md†L5-L23】
 - Documentare nell'header i trigger/policy operative (es. quando abilitare Ledger/MinMax) per chiarezza d'uso nelle pipeline automatiche.【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
+
+## Fix necessari
+- Esporre i nuovi campi di versione/compatibilità direttamente nell’header e nei metadati in modo coerente con gli altri moduli, così da abilitare un QA automatico uniforme.【F:src/modules/scheda_pg_markdown_template.md†L5-L23】

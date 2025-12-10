@@ -47,8 +47,16 @@
 - Export filename/JSON: Hub e NPC salvano in `src/modules/taverna_saves/` con naming automatico; ledger export fa riferimento a `tavern_hub.json` e `adventurer_ledger.txt` per schema.【F:src/modules/Taverna_NPC.txt†L365-L386】【F:src/modules/taverna_saves/README.md†L1-L3】
 - Tagging MDA/MDA gates: QA digest riporta `MDA=PASS`/`CHECK` come parte del monitoraggio Hub/Canvas/MinMax/Leaderboard.【F:src/modules/Taverna_NPC.txt†L789-L802】
 
-## Osservazioni, errori e miglioramenti
+## Osservazioni
+- L’Hub aggrega quest/rumor/bounty/eventi con flow GameMode, CTA di salvataggio e export, mantenendo storage con rate limit/quarantena e integrazioni con Encounter/Ledger per outline e inventari WBL.【F:src/modules/Taverna_NPC.txt†L1133-L1256】【F:src/modules/Taverna_NPC.txt†L365-L386】【F:src/modules/Taverna_NPC.txt†L789-L802】
+
+## Errori
 - **Nessun troncamento con `ALLOW_MODULE_DUMP=false`:** la policy blocca correttamente gli asset non testuali via `403` ma non fornisce versione redatta/troncata; valutare se serve un messaggio più guida o un body minificato per QA automatico.【3bedc0†L1-L8】
+
+## Miglioramenti suggeriti
 - **CTA export dipendenti da QA:** i gate QA sono descritti come bloccanti ma alcune rotte stub (`/export_tavern`, `/adventure_outline`) non verificano esplicitamente lo stato prima dell’output; utile allineare implementazione con la policy “Export bloccato se QA FAIL”.【F:src/modules/Taverna_NPC.txt†L1158-L1162】【F:src/modules/Taverna_NPC.txt†L1221-L1231】【F:src/modules/Taverna_NPC.txt†L789-L802】
 - **Storage hub/ledger condiviso:** `ledger_storage` punta a `tavern_hub.json` ma la validazione `hub_storage.validation.schema_min` non è inclusa nello stato; aggiungere schema o riferimenti per ridurre rischi di corruption fra moduli Hub/ledger.【F:src/modules/Taverna_NPC.txt†L382-L386】
 - **Pattern CTA di salvataggio:** `/check_conversation` segnala salvataggi/export pendenti ma non forza snapshot pre-export come raccomandato dal Knowledge Pack; potrebbe auto-invocare `/save_hub`/`/snapshot` quando `handoff_log` è non vuoto.【F:src/modules/Taverna_NPC.txt†L1257-L1259】【F:src/modules/knowledge_pack.md†L111-L113】
+
+## Fix necessari
+- Allineare le rotte Hub con i gate QA dichiarati, includendo controlli espliciti prima di `/export_tavern`/`/adventure_outline` e aggiungendo messaggio/header di troncamento per asset bloccati, così da mantenere la coerenza con la policy e con il comportamento osservato su altri moduli.【F:src/modules/Taverna_NPC.txt†L1158-L1162】【F:src/modules/Taverna_NPC.txt†L1221-L1231】【3bedc0†L1-L8】

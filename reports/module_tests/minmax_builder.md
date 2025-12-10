@@ -42,6 +42,12 @@
 - Lo stub builder è validato contro schema `build_core`/`build_extended`; in caso di errore restituisce `500 Stub payload non valido ...` (testato in commit precedente, logica stabile).【F:src/app.py†L556-L570】
 - Il troncamento con `ALLOW_MODULE_DUMP=false` applica `[contenuto troncato]` ai moduli testuali, coerente con handler streaming; utile per review di sicurezza senza esporre l’intero asset.【02412a†L1-L1】【430a71†L3-L3】【F:src/app.py†L589-L600】
 
-## Miglioramenti suggeriti / Fix necessari
-- Integrare l’help rapido con un rimando esplicito ai gate QA (export_requires) per ridurre tentativi di export falliti; oggi l’help elenca i comandi ma non indica prerequisiti PFS/fonti.【F:src/modules/minmax_builder.txt†L930-L959】【F:src/modules/minmax_builder.txt†L1995-L2017】
+## Errori
+- Nessun errore bloccante emerso nei test API e negli stub di build.【1cc753†L6-L7】
+
+## Miglioramenti suggeriti
+- Integrare l’help rapido con un rimando esplicito ai gate QA (`export_requires`) per ridurre tentativi di export falliti; oggi l’help elenca i comandi ma non indica prerequisiti PFS/fonti.【F:src/modules/minmax_builder.txt†L930-L959】【F:src/modules/minmax_builder.txt†L1995-L2017】
 - Considerare di esporre nell’export o nelle CTA finali il nome file di output/format (es. `MinMax_<nome>.pdf/json`) per allineare le aspettative su `export_build`/`export_vtt`.【F:src/modules/minmax_builder.txt†L1040-L1087】【F:src/modules/minmax_builder.txt†L2214-L2245】
+
+## Fix necessari
+- Aggiornare l’help e le CTA finali con i prerequisiti QA e con il naming atteso dei file (`export_build`/`export_vtt`) per evitare export falliti o output inattesi.【F:src/modules/minmax_builder.txt†L930-L959】【F:src/modules/minmax_builder.txt†L1995-L2017】【F:src/modules/minmax_builder.txt†L2214-L2245】

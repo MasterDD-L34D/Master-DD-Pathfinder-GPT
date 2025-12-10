@@ -48,8 +48,15 @@
 - Helper chiave: `round_gp` per arrotondamenti (nearest/floor), `vendor_cap_for_settlement` per cap da insediamento, `lookup_treasure_profile` e generatori coins/goods/mundane/magic per ondate loot, `enrich_badges`/`enrich_collection_badges` per tagging legale, `craft_estimator`/`craft_estimator_bulk` per formule costi/tempi e requisiti feat.【F:src/modules/adventurer_ledger.txt†L192-L236】【F:src/modules/adventurer_ledger.txt†L213-L218】【F:src/modules/adventurer_ledger.txt†L214-L236】【F:src/modules/adventurer_ledger.txt†L440-L470】
 - Export filename/JSON: `/export_pg_sheet_json` e `/export_vtt` serializzano currency/inventory/ledger/WBL; binding PG condiviso con `minmax_builder` e `pg_binding` export dichiarato.【F:src/modules/adventurer_ledger.txt†L1219-L1246】【F:src/modules/adventurer_ledger.txt†L11-L14】【F:src/modules/adventurer_ledger.txt†L1754-L1759】
 
-## Osservazioni, errori, miglioramenti
+## Osservazioni
+- Il welcome e il flow guidato coprono cinque passi (policy, stile giocatore, profilo WBL, roll loot, export) con CTA e template Markdown/VTT per ledger, buylist e scheda PG pronti all’uso.【F:src/modules/adventurer_ledger.txt†L29-L45】【F:src/modules/adventurer_ledger.txt†L686-L750】【F:src/modules/adventurer_ledger.txt†L1760-L1772】
+
+## Errori
+- **Download con ALLOW_MODULE_DUMP=false:** asset JSON viene bloccato come previsto, ma i moduli `.txt` restano scaricabili; confermare se la policy deve valere solo per non testuali o se occorre estenderla ai moduli testuali (oggi non coperti).【0e8b5a†L1-L7】【fd69a0†L1-L41】
+
+## Miglioramenti suggeriti
 - **CTA auto-invocazioni:** il flow `cta_guard` richiede CTA post-azione, ma alcuni output (es. `/qa_suite`) forniscono più CTA in coda; verificare coerenza con policy “1 CTA utile” ed eventualmente limitarla a una singola raccomandazione.【F:src/modules/adventurer_ledger.txt†L1672-L1733】【F:src/modules/adventurer_ledger.txt†L1769-L1772】
 - **Vendor cap default:** `set_policies` accetta `vendor_cap_gp` ma il welcome suggerisce 2000 senza forzarlo; considerare default esplicito o messaggio che ricorda l’assenza di cap per evitare falsi PASS nel QA suite.【F:src/modules/adventurer_ledger.txt†L33-L35】【F:src/modules/adventurer_ledger.txt†L823-L863】【F:src/modules/adventurer_ledger.txt†L1682-L1693】
-- **Download con ALLOW_MODULE_DUMP=false:** asset JSON viene bloccato come previsto, ma i moduli `.txt` restano scaricabili; confermare se la policy deve valere solo per non testuali o se occorre estenderla ai moduli testuali (oggi non coperti).【0e8b5a†L1-L7】【fd69a0†L1-L41】
+
+## Fix necessari
 - **Coerenza PFS in craft/buy:** `craft_estimator` invalida `craft_can_make` su item illegali con PFS attivo ma `/buy` forza `pfs_legal` `true` di default; valutare se ereditare il flag per rispettare audit PFS sui nuovi acquisti.【F:src/modules/adventurer_ledger.txt†L430-L441】【F:src/modules/adventurer_ledger.txt†L1340-L1365】

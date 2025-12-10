@@ -48,7 +48,7 @@
 - ALLOW_MODULE_DUMP=false blocca asset non testuali (`tavern_hub.json`) ma non tronca né blocca i moduli `.txt`: `archivist.txt` viene restituito integralmente, in conflitto con la documentazione che indica troncamento a 4000 caratteri quando il flag è disattivato.【1411c6†L1-L67】【f75b9a†L1-L7】【2130a0†L10-L14】
 - L’endpoint `/modules` rifiuta richieste senza API key con dettaglio chiaro; idem per `/modules/archivist.txt/meta` (401), fornendo copertura ai casi di autenticazione mancata.【d95840†L1-L7】
 
-## Errori riscontrati
+## Errori
 - ⚠️ Mancato troncamento di `archivist.txt` con `ALLOW_MODULE_DUMP=false`: risposta `200` con contenuto completo invece di 403/troncamento.【1411c6†L1-L67】
 
 ## Miglioramenti suggeriti

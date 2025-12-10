@@ -51,7 +51,12 @@
 - Modulo inesistente: `/modules/bogus.txt` → `404 Module not found`.【5c31d3†L9-L10】
 - Dump disabilitato: `ALLOW_MODULE_DUMP=false` restituisce header troncato, utile per evitare leak completi.【5c31d3†L11-L18】
 
-## Miglioramenti suggeriti / Fix necessari
-1) Integrare `code_ok` in `compute_seals` (es. bonus token o sigillo dedicato) oppure rimuoverlo per coerenza.【F:src/modules/sigilli_runner_module.txt†L108-L118】
-2) Esporre motivazioni esplicite per il raro (indice corrente, cooldown residuo) nell’output, seguendo la checklist di trasparenza.【F:src/modules/sigilli_runner_module.txt†L116-L148】【F:src/modules/sigilli_runner_module.txt†L155-L159】
-3) Aggiungere tagging MDA/CTA in `output_checklist` o nei seals per allineare il modulo alle convenzioni degli altri report/export.【F:src/modules/sigilli_runner_module.txt†L28-L34】【F:src/modules/sigilli_runner_module.txt†L155-L159】
+## Errori
+- L’euristica `code_ok` è calcolata ma non influenza l’assegnazione dei sigilli, indicando una logica incompleta nel decoratore.【F:src/modules/sigilli_runner_module.txt†L108-L118】
+
+## Miglioramenti suggeriti
+- Esporre motivazioni esplicite per il raro (indice corrente, cooldown residuo) nell’output, seguendo la checklist di trasparenza.【F:src/modules/sigilli_runner_module.txt†L116-L148】【F:src/modules/sigilli_runner_module.txt†L155-L159】
+- Aggiungere tagging MDA/CTA in `output_checklist` o nei seals per allineare il modulo alle convenzioni degli altri report/export.【F:src/modules/sigilli_runner_module.txt†L28-L34】【F:src/modules/sigilli_runner_module.txt†L155-L159】
+
+## Fix necessari
+- Integrare `code_ok` in `compute_seals` (es. bonus token o sigillo dedicato) oppure rimuoverlo per coerenza con il resto della pipeline di assegnazione sigilli.【F:src/modules/sigilli_runner_module.txt†L108-L118】
