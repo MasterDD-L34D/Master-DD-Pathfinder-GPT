@@ -54,10 +54,18 @@
 - Tagging MDA/Badge trasparenza: badge RAW/RAI/PFS/HR richiesti. 【F:src/modules/Taverna_NPC.txt†L40-L45】
 - Export/knowledge packs: disabilitazioni automatiche se asset mancanti; guidance per riattivare. 【F:src/modules/Taverna_NPC.txt†L66-L206】
 
-## Osservazioni, errori, miglioramenti suggeriti
+## Osservazioni
+- Il flusso guidato accompagna l’utente da onboarding lingua/universo/ritratto alle fasi di quiz e generazione PNG, con CTA e template UI dedicati per ogni step.【F:src/modules/Taverna_NPC.txt†L282-L518】【F:src/modules/Taverna_NPC.txt†L838-L974】
+
+## Errori
 - ✅ API core rispondono correttamente; `taverna_saves` non esposto (atteso per sicurezza). 【e01c22†L1-L8】
-- ⚠️ Con `ALLOW_MODULE_DUMP=false` il contenuto viene troncato senza indicare dimensione residua; suggerito aggiungere header/note che l'output è parziale. 【f250d4†L1-L76】
 - ⚠️ `curl | head` con dump abilitato ritorna errore di write locale, ma il server fornisce `content-length`; nessuna azione necessaria lato server. 【b21fe7†L3-L16】
-- 🔧 Miglioria proposta: esporre endpoint dedicato ai metadati di storage (quota residua, max_files) basato su configurazione `storage.auto_name_policy` e `max_files` per monitorare saturazione. 【F:src/modules/Taverna_NPC.txt†L364-L380】
+
+## Miglioramenti suggeriti
+- ⚠️ Con `ALLOW_MODULE_DUMP=false` il contenuto viene troncato senza indicare dimensione residua; suggerito aggiungere header/note che l'output è parziale. 【f250d4†L1-L76】
+- 🔧 Miglioria proposta: esporre endpoint dedicato ai metadati di storage (quota residua, `max_files`) basato su configurazione `storage.auto_name_policy` per monitorare saturazione. 【F:src/modules/Taverna_NPC.txt†L364-L380】
 - 🔧 Valutare messaggio di guida quando Echo gate blocca (<8.5) o quando `qa_guard` disattivato da check falliti, per chiarezza UX. 【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
+
+## Fix necessari
+- Esporre nella risposta con `ALLOW_MODULE_DUMP=false` un’indicazione chiara che il contenuto è parziale (es. header dimensione residua o nota esplicita) per evitare confusione lato client. 【f250d4†L1-L76】
 

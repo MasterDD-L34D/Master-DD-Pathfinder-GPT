@@ -25,7 +25,7 @@ import datetime as dt
 import re
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 GUIDE_PATH = REPO_ROOT / "planning" / "module_review_guide.md"
@@ -65,6 +65,7 @@ class ModuleSummary:
     report_path: Optional[Path]
     tasks: List[Tuple[int, str]]
     errors: List[str]
+    observations: List[str]
 
     @property
     def status(self) -> str:
@@ -112,19 +113,29 @@ def find_report(module_label: str, existing: Dict[str, Path]) -> Optional[Path]:
     return existing.get(stem)
 
 
-def extract_section(lines: List[str], heading: str) -> List[str]:
-    target = f"## {heading}".lower()
-    start = False
-    collected: List[str] = []
+def parse_sections(lines: List[str]) -> List[Tuple[str, List[str]]]:
+    """Return a list of (heading, content_lines) pairs for level-2 sections."""
+
+    sections: List[Tuple[str, List[str]]] = []
+    heading_re = re.compile(r"^##\s+(.*)$")
+    current_heading: Optional[str] = None
+    buffer: List[str] = []
+
     for line in lines:
-        if line.strip().lower() == target:
-            start = True
+        match = heading_re.match(line.strip())
+        if match:
+            if current_heading is not None:
+                sections.append((current_heading, buffer))
+            current_heading = match.group(1).strip()
+            buffer = []
             continue
-        if start and line.startswith("## "):
-            break
-        if start:
-            collected.append(line.rstrip())
-    return collected
+        if current_heading is not None:
+            buffer.append(line.rstrip())
+
+    if current_heading is not None:
+        sections.append((current_heading, buffer))
+
+    return sections
 
 
 def parse_bullets(lines: Iterable[str]) -> List[str]:
@@ -158,28 +169,52 @@ def parse_prioritised_tasks(
     return tasks
 
 
-def extract_first_available(lines: List[str], headings: List[str]) -> List[str]:
-    for heading in headings:
-        section = extract_section(lines, heading)
-        if section:
-            return section
+def collect_section_lines(
+    sections: Sequence[Tuple[str, List[str]]], patterns: Sequence[re.Pattern[str]]
+) -> List[str]:
+    """
+    Return the content lines for the first section whose heading matches any
+    of the provided patterns (case-insensitive, supports combined headings and emoji).
+    """
+
+    for heading, content in sections:
+        for pattern in patterns:
+            if pattern.search(heading):
+                return content
     return []
 
 
 def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSummary:
     if not report_path or not report_path.exists():
-        return ModuleSummary(module_label, report_path, [], [])
+        return ModuleSummary(module_label, report_path, [], [], [])
 
     lines = report_path.read_text(encoding="utf-8").splitlines()
-    fixes = parse_prioritised_tasks(extract_section(lines, "Fix necessari"), default_priority=1)
+    sections = parse_sections(lines)
+
+    error_patterns = [re.compile(r"errori", re.IGNORECASE)]
+    improvement_patterns = [
+        re.compile(r"migliorament", re.IGNORECASE),
+        re.compile(r"note\s+e\s+miglioramenti", re.IGNORECASE),
+    ]
+    observation_patterns = [
+        re.compile(r"osservazion", re.IGNORECASE),
+        re.compile(r"note\s+e\s+osservazioni", re.IGNORECASE),
+    ]
+    fix_patterns = [re.compile(r"fix\s+necessari", re.IGNORECASE)]
+
+    fixes = parse_prioritised_tasks(
+        collect_section_lines(sections, fix_patterns),
+        default_priority=1,
+    )
     improvements = parse_prioritised_tasks(
-        extract_first_available(lines, ["Miglioramenti suggeriti", "Miglioramenti"]),
+        collect_section_lines(sections, improvement_patterns),
         default_priority=2,
     )
-    errors = parse_bullets(extract_section(lines, "Errori"))
+    errors = parse_bullets(collect_section_lines(sections, error_patterns))
+    observations = parse_bullets(collect_section_lines(sections, observation_patterns))
 
     tasks: List[Tuple[int, str]] = fixes + improvements
-    return ModuleSummary(module_label, report_path, tasks, errors)
+    return ModuleSummary(module_label, report_path, tasks, errors, observations)
 
 
 def format_module_block(summary: ModuleSummary) -> str:
@@ -200,9 +235,10 @@ def format_module_block(summary: ModuleSummary) -> str:
     else:
         parts.append("- Nessun task rilevato")
 
-    parts.extend(["", "### Note (Errori)"])
-    if summary.errors:
-        parts.extend([f"- {item}" for item in summary.errors])
+    parts.extend(["", "### Note (Osservazioni/Errori)"])
+    if summary.observations or summary.errors:
+        parts.extend([f"- [Osservazione] {item}" for item in summary.observations])
+        parts.extend([f"- [Errore] {item}" for item in summary.errors])
     else:
         parts.append("- Nessuna nota aggiuntiva")
 

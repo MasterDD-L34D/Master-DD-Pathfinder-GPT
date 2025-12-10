@@ -59,9 +59,17 @@
 - Formule chiave: rate limit ledger 8 ops/min (`E-RATE-LIMIT`), cap 200 file su `taverna_saves`, pattern naming e sanitize per export JSON; badge RAW/RAI/PFS/HR richiesti nei risultati.【F:src/modules/Taverna_NPC.txt†L364-L380】【F:src/modules/Taverna_NPC.txt†L382-L386】【F:src/modules/Taverna_NPC.txt†L40-L45】
 - Export filename/JSON: `taverna_saves` per NPC/quest/rumor/ledger con naming automatico; ledger export fa riferimento a `tavern_hub.json` e schema `adventurer_ledger.txt`.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/taverna_saves/README.md†L1-L3】
 
-## Osservazioni, errori e miglioramenti
+## Osservazioni
+- Le directory di servizio aggregano i template e i workflow Taverna (onboarding, quiz MaxDiff/Pairwise/SJT, export `taverna_saves`) garantendo naming coerente, guardrail Echo e CTA guidate per generazione e salvataggio PNG/quest/rumor.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L428-L965】
+
+## Errori
 - ✅ API core rispondono correttamente; `taverna_saves` non esposto (scelta di sicurezza).【F:reports/module_tests/Taverna_NPC.md†L7-L13】
-- ⚠️ Con `ALLOW_MODULE_DUMP=false` il contenuto è troncato senza indicare dimensione residua; suggerito header/note che l'output è parziale.【F:reports/module_tests/Taverna_NPC.md†L11-L15】
 - ⚠️ `curl | head` con dump abilitato può fallire in locale per errore di scrittura ma il server fornisce `content-length`; nessuna azione lato server.【F:reports/module_tests/Taverna_NPC.md†L11-L13】
+
+## Miglioramenti suggeriti
+- ⚠️ Con `ALLOW_MODULE_DUMP=false` il contenuto è troncato senza indicare dimensione residua; suggerito header/note che l'output è parziale.【F:reports/module_tests/Taverna_NPC.md†L11-L15】
 - 🔧 Esporre endpoint sui metadati di storage (quota residua, `max_files`) basato su `storage.auto_name_policy` aiuterebbe il monitoraggio della saturazione.【F:src/modules/Taverna_NPC.txt†L364-L380】
 - 🔧 Aggiungere messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" per chiarire i passi di remediation.【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
+
+## Fix necessari
+- Esporre nella risposta con `ALLOW_MODULE_DUMP=false` un’indicazione chiara che il contenuto è parziale e integrare un endpoint di quota/metadati per `taverna_saves`, così da ridurre confusione e monitorare l’uso disco delle directory di servizio.【F:reports/module_tests/Taverna_NPC.md†L11-L15】【F:src/modules/Taverna_NPC.txt†L364-L380】

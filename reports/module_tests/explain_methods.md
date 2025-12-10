@@ -38,8 +38,15 @@
 - QA/MDA pipeline con passi Technical/Operational/DataModel/FlowLogic/DoubleReview; diagnostica `/explain_self_check` mostra esito QA/MDA; testing include router quick tests con attese metodo/delega.【F:src/modules/explain_methods.txt†L231-L248】【F:src/modules/explain_methods.txt†L249-L260】【F:src/modules/explain_methods.txt†L312-L317】
 - Formula/metriche note: max_words per metodo/output, tracking preferenze, esempi CR/XP non presenti; badge PFS citato in benchmark builder non applicabile a questo modulo.
 
-## Osservazioni, errori, miglioramenti
-- **Deleghe/quiz**: il modulo documenta deleghe ma ne delega enforcement al kernel; quiz teach-back e auto-suggest follow-up già descritti e coerenti con UI hints.【F:src/modules/explain_methods.txt†L30-L48】【F:src/modules/explain_methods.txt†L94-L117】
+## Osservazioni
+- Il flusso guidato con header/CTA seleziona metodo, profondità e speed, propone follow-up/quiz e fornisce template dedicati (ELI5, First Principles, Storytelling, Visualization, Analogies, Technical) con supporto ASCII per la resa visuale.【F:src/modules/explain_methods.txt†L42-L200】【F:src/modules/explain_methods.txt†L149-L171】【F:src/modules/explain_methods.txt†L231-L248】
+
+## Errori
 - **Protezione dump**: `exposure_guard` vieta dump integrali, ma con `ALLOW_MODULE_DUMP=true` l'API serve il file completo; con `ALLOW_MODULE_DUMP=false` il troncamento a 4000 char funziona ma non menziona header MIME nel corpo — comportamento conforme all'handler generico.【F:src/app.py†L543-L563】【F:src/modules/explain_methods.txt†L216-L225】【981c3b†L1-L6】
+
+## Miglioramenti suggeriti
+- **Deleghe/quiz**: il modulo documenta deleghe ma ne delega enforcement al kernel; quiz teach-back e auto-suggest follow-up già descritti e coerenti con UI hints.【F:src/modules/explain_methods.txt†L30-L48】【F:src/modules/explain_methods.txt†L94-L117】
 - **Miglioramento suggerito**: aggiungere export filename/JSON e tag MDA nel blocco logging/export per allineare ai requisiti di QA templati (attualmente assenti).【F:src/modules/explain_methods.txt†L193-L205】【F:src/modules/explain_methods.txt†L271-L277】
-- **Fix necessario**: changelog segnala versione 3.3-hybrid-kernel ma header del file riporta 3.2-hybrid; allineare versioning per evitare mismatch in status/reporting.【F:src/modules/explain_methods.txt†L1-L4】【F:src/modules/explain_methods.txt†L318-L325】
+
+## Fix necessari
+- Allineare la versione dichiarata nell’header (oggi 3.2-hybrid) con quella indicata nel changelog 3.3-hybrid-kernel per evitare mismatch in status/reporting e nei tool di monitoraggio versioni.【F:src/modules/explain_methods.txt†L1-L4】【F:src/modules/explain_methods.txt†L318-L325】
