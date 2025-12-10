@@ -1,0 +1,73 @@
+# Verifica API e analisi modulo `Encounter_Designer.txt`
+
+## Ambiente di test
+- Server avviato con `uvicorn src.app:app --port 8000 --reload`.
+- `ALLOW_ANONYMOUS=true` per le chiamate senza header.
+- `ALLOW_MODULE_DUMP=true` (default) per scaricare il contenuto completo; riavvio con `ALLOW_MODULE_DUMP=false` per verificare il troncamento.
+
+## Esiti API
+1. **`GET /health`** — `200 OK`; stato `ok` e percorsi `modules`/`data` validi.
+2. **`GET /modules`** — `200 OK`; elenco include `Encounter_Designer.txt`.
+3. **`GET /modules/Encounter_Designer.txt/meta`** — `200 OK`; metadati `{ name: Encounter_Designer.txt, size_bytes: 34933, suffix: .txt }`.
+4. **`GET /modules/Encounter_Designer.txt`** con `ALLOW_MODULE_DUMP=true` — `200 OK`; restituito il file completo.
+5. **`GET /modules/DoesNotExist.txt`** — `404 Not Found` con body `{ "detail": "Module not found" }`.
+6. **`GET /modules/Encounter_Designer.txt`** con `ALLOW_MODULE_DUMP=false` — `200 OK`; risposta troncata con marcatore finale `[contenuto troncato]`.
+
+## Metadati e scopo del modulo
+- `module_name`: **Encounter Designer**, versione **1.0**, ultimo aggiornamento **2025-08-21**, eredita da `base_profile.txt`. Descrive un designer di incontri PF1e con benchmark MinMax, export VTT e gating QA.【F:src/modules/Encounter_Designer.txt†L1-L60】
+- Trigger supportati: `encounter`, `genera_incontro`, `bilancia_incontro`, `encounter designer`, `crea_nemici`. Messaggio di benvenuto dedicato con identità “Maestro di Guerra e Stratega Narrativo” e doppio tono tecnico/narrativo, attivabile via `/narrativo {on|off}`.【F:src/modules/Encounter_Designer.txt†L12-L29】
+- Principi e policy: materiale Paizo PF1e, distinzione RAW/RAI/PFS/HR, ogni incontro deve fornire CR/XP/ruoli/terrains/loot; ruling prioritizza RAW→RAI→PFS→HR con gate PFS ed esclusione offline.【F:src/modules/Encounter_Designer.txt†L30-L39】
+- Modalità operative (Encounter Builder, Auto Balance, Narrative Hook, Loot Generator, VTT Export, QA Ruling) e vincoli (export bloccato senza QA, gating PFS, difficoltà astratte).【F:src/modules/Encounter_Designer.txt†L40-L52】
+- Integrazioni: MinMax builder, template scheda PG markdown, Ruling Expert, Explain Methods, Archivist per lore.【F:src/modules/Encounter_Designer.txt†L53-L60】
+
+## Modello dati `encounter_state`
+- Party: livello medio, taglia, hint di composizione e toggles di regola (PFS/ABP/EitR).【F:src/modules/Encounter_Designer.txt†L67-L75】
+- Difficoltà e ambiente: target (Easy/Moderate/Challenging/Deadly), CR target, budget XP, biome/terrain/light/weather/space/hazard.【F:src/modules/Encounter_Designer.txt†L76-L86】
+- Obiettivi: tipo, secondari, condizioni di vittoria/fallimento, timer in round.【F:src/modules/Encounter_Designer.txt†L87-L91】
+- Nemici: ruolo, CR, quantità, allineamento, tipo, tag e riassunto statistico sintetico con tattiche, policy loot, badge ruling.【F:src/modules/Encounter_Designer.txt†L92-L116】
+- Pacing e bilanciamento: waves, escalation, rest pressure, snapshot con xp_budget_est, cr_effective_est, etichette, heatmap rischi, DPR party/enemy e gap difensivi/mda tags.【F:src/modules/Encounter_Designer.txt†L117-L133】
+- Loot/export/audit: hint GP, items, percorso bundle VTT, map hint, note GM, timestamps e decision log.【F:src/modules/Encounter_Designer.txt†L134-L145】
+
+## Comandi principali
+- **Setup e parametri**: `/start_encounter`, `/random_encounter`, `/set_party`, `/set_difficulty`, `/narrativo`, `/set_environment`, `/set_objectives` gestiscono identificativo, titolo, livello/taglia party, difficoltà, ambiente, obiettivi e toggle narrativo.【F:src/modules/Encounter_Designer.txt†L146-L247】
+- **Nemici e bilanciamento**: `/add_enemy` aggiunge blocchi sintetici con badge normalizzati; `/auto_pick_enemies` genera nemici coerenti con bioma; `/auto_balance` calcola XP/CR e label; `/simulate_encounter` stima DPR/CA/DC e heatmap rischi; `/risk_heatmap_encounter` visualizza i rischi.【F:src/modules/Encounter_Designer.txt†L248-L356】
+- **Economia/pacing/QA/export**: `/set_loot_policy`, `/set_pacing` gestiscono loot e ondate; `/validate_encounter` applica QA gates (badge, PFS gate, CR stimato); `/export_encounter` produce JSON/MD/PDF solo se QA OK.【F:src/modules/Encounter_Designer.txt†L357-L419】
+- **Narrazione e lifecycle**: `/flavor_encounter`, `/add_wave`, `/save_encounter`, `/load_encounter`, `/fork_encounter` per flavor, ondate aggiuntive e persistenza; `/explain_rule` e `/ruling_check` delegano a explain/ruling modules.【F:src/modules/Encounter_Designer.txt†L420-L485】
+
+## Dettaglio operativo dei comandi e CTA
+- **Setup e toggles**: `/start_encounter` inizializza `encounter_state` con ID, titolo, livello/taglia, difficoltà e timestamp; `/set_party` e `/set_difficulty` aggiornano livello medio, size, toggles PFS/ABP/EitR e CR target; `/narrativo` aggiunge un flag alle note; `/random_encounter` imposta biome/difficoltà e auto-invoca `/auto_pick_enemies`, `/auto_balance`, `/simulate_encounter` prima dell’output riassuntivo.【F:src/modules/Encounter_Designer.txt†L146-L213】【F:src/modules/Encounter_Designer.txt†L165-L176】
+- **Ambiente e obiettivi**: `/set_environment` scrive biome, luce, meteo, spazio, feature e hazard nell’oggetto `environment`; `/set_objectives` copre tipo/secondari, condizioni di vittoria/fallimento e timer, restituendo un riepilogo sintetico con emoji target.【F:src/modules/Encounter_Designer.txt†L214-L247】
+- **Nemici e generazione**: `/add_enemy` appende blocchi con ruolo, CR, quantità, tipo/tag, stat placeholder e badge normalizzato; `/auto_pick_enemies` genera una lista coerente con biome/difficoltà rispettando il gate PFS, la inserisce in `enemies` e notifica quanti elementi sono stati creati.【F:src/modules/Encounter_Designer.txt†L248-L299】
+- **Bilanciamento e simulazione**: `/auto_balance` calcola XP target da livello/size/difficoltà, stima il CR effettivo dagli enemy e classifica le label, salvando tutto in `balance_snapshot` e annunciando XP/CR/etichette; `/simulate_encounter` ricava benchmark party/nemici (o da profilo MinMax), popola DPR, gap difensive, heatmap rischi e mda tags, e logga i rischi nel messaggio; `/risk_heatmap_encounter` mostra rapidamente le label di rischio correnti.【F:src/modules/Encounter_Designer.txt†L300-L356】
+- **Pacing e loot**: `/set_loot_policy` registra budget GP e lista item; `/set_pacing` definisce ondate/escalation/pressione riposo con output sul conteggio waves; `/add_wave` permette aggiunte puntuali per round, appending nel pacing con conferma testuale.【F:src/modules/Encounter_Designer.txt†L357-L379】【F:src/modules/Encounter_Designer.txt†L420-L439】
+- **QA e export**: `/validate_encounter` lancia `/auto_balance` se manca `cr_effective_est`, assegna badge/PFS gate, esegue `run_qagates` e marca `qa_ok`, restituendo checklist e stato QA; `/export_encounter` blocca se `qa_ok` è falso, altrimenti assegna filename, esporta JSON via `vtt_export_json` o card estesa (MD/PDF) e conferma il path bundle.【F:src/modules/Encounter_Designer.txt†L380-L419】
+- **Persistenza e supporto**: `/flavor_encounter` richiama il template narrativo “locandiere”; `/save_encounter`, `/load_encounter`, `/fork_encounter` gestiscono storage in sessione, fallback “non trovato” e branch varianti; `/explain_rule` e `/ruling_check` emettono CTA per i moduli Explain/Ruling tramite template stub dedicati.【F:src/modules/Encounter_Designer.txt†L400-L485】
+- **CTA e flow guidato**: i 6 step del flow (Setup→Ambiente/Obiettivi→Nemici→Bilanciamento→Pacing/Loot→QA/Export) includono CTA primarie e alternative (`/set_party`, `/set_environment`, `/auto_pick_enemies`, `/simulate_encounter`, `/set_pacing`, `/set_loot_policy`, `/export_encounter`) e auto-invocazioni su bilanciamento e QA al cambio step.【F:src/modules/Encounter_Designer.txt†L486-L523】
+
+## Flow guidato e template UI
+- Flow in 6 step (setup party, ambiente/obiettivi, aggiunta nemici, bilanciamento, pacing/loot, QA/export) con CTA predefinite e auto-invocazioni su bilanciamento/QA.【F:src/modules/Encounter_Designer.txt†L486-L523】
+- Template: `explain_stub` e `ruling_stub` come placeholder; `encounter_card_compact` e `encounter_card_extended` forniscono formati brevi ed estesi con sezioni party, difficoltà, obiettivi, nemici, pacing, bilanciamento, loot ed export.【F:src/modules/Encounter_Designer.txt†L524-L589】
+- Narrazione: `flavor_locandiere` offre intro, tattiche e gancio “nova” in stile locandiere; `vtt_export_json` esporta snapshot strutturato per VTT/JSON.【F:src/modules/Encounter_Designer.txt†L590-L618】
+
+## QA templates e helper
+- **QA templates**: i gate coprono esistenza nemici, stima CR, tagging fonti e blocco PFS (`enemies_exist`, `cr_estimated`, `sources_tagged`, `pfs_gate_ok`); in caso di fallback mancante vengono emessi errori specifici (`no_enemies`, `no_cr`, `no_sources`, `pfs_block`) con tip per ribilanciare quantità/CR o adattare difficoltà/ondate, mentre la checklist finale richiede almeno badge e PFS gate soddisfatti.【F:src/modules/Encounter_Designer.txt†L620-L637】
+- **Badge, PFS e stato regole**: `rules_status_text` restituisce “PFS/ABP/EitR ON|OFF” concatenati; `normalize_ruling_badge` forza badge in un set chiuso e, con PFS attivo, rimpiazza ogni HR (`❗`) in `🧭 PFS` per non bloccare i gate; `enemies_badge_ok` verifica che ogni nemico esponga un badge, mentre `pfs_hr_gate` respinge qualsiasi nemico HR quando PFS è attivo.【F:src/modules/Encounter_Designer.txt†L651-L688】
+- **Stime XP/CR e label**: `compute_xp_budget_estimate` calcola XP con formula `100 * livello * size * mult` dove `mult` varia per difficoltà (Easy 0.8, Moderate 1.0, Challenging 1.25, Deadly 1.6); la prima `compute_effective_cr_from_enemies` pesa CR×(1+0.5·duplicati) e media per nemico, mentre `classify_balance_label` mappa CR_eff in Too Easy/Moderate/Challenging/Deadly o `unrated` se nullo.【F:src/modules/Encounter_Designer.txt†L690-L721】
+- **Simulazione e rischi**: `estimate_party_benchmarks` produce DPR/CA/saves da profilo MinMax o livello medio (DPR 12/16 + 2×lvl, CA 16+lvl, saves 4+lvl//2); `estimate_enemy_benchmarks` deduce DPR/Atk/DC medi dal CR e quantità; `detect_risks` etichetta rischi se atk supera CA di ≥6, DPR t1-3 eccede di ≥10 o il gap saves vs DC è ≤-4 (alpha-strike, high-accuracy, save-or-suck).【F:src/modules/Encounter_Designer.txt†L723-L756】
+- **Export, ondate e MDA**: `export_filename` sanifica il titolo (regex non alfanumerici → `_`, max 40 char) e aggiunge livello medio e timestamp UTC; `materialize_wave` clona nemici base secondo le addizioni per ondate; `map_mda_tags` trasforma hint di composizione in etichette Timmy/Johnny/Spike senza duplicati.【F:src/modules/Encounter_Designer.txt†L758-L810】
+- **Duplice helper CR**: il modulo definisce due versioni di `compute_effective_cr_from_enemies` (una senza clamp, una che richiama `_clampf` su quantità/CR: qty ∈[1,64], CR ∈[0,40]); la seconda sovrascrive la prima e introduce i limiti prima della media finale, generando potenziale divergenza con il calcolo invocato da `/auto_balance`.【F:src/modules/Encounter_Designer.txt†L698-L800】
+
+## Osservazioni
+- Il modello dati evita riferimenti a testi protetti: stat e DC sono placeholder numerici astratti, mentre badge e gate PFS delimitano eventuali HR.【F:src/modules/Encounter_Designer.txt†L92-L140】【F:src/modules/Encounter_Designer.txt†L357-L419】
+- Il flusso incorporato consente pipeline completa: setup → generazione/auto-bilanciamento → QA → export VTT/MD/PDF, con CTA che richiamano i comandi chiave e auto-validate prima dell’export.【F:src/modules/Encounter_Designer.txt†L486-L523】【F:src/modules/Encounter_Designer.txt†L400-L419】
+
+## Errori
+- Doppia definizione di `compute_effective_cr_from_enemies`: la prima variante calcola una media non clampata ed è richiamata da `/auto_balance`, mentre la seconda (con `_clampf`) sovrascrive la precedente, creando ambiguità su quale logica adottare e su quando applicare i limiti di quantità/CR.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L698-L709】【F:src/modules/Encounter_Designer.txt†L780-L800】
+
+## Miglioramenti suggeriti
+- Estendere i gate QA per coprire pacing/loot/export: oggi la checklist richiede solo nemici, CR stimato e badge/PFS, per cui export può passare anche con ondate vuote o loot mancante. Aggiungere controlli su `pacing`/`loot` eviterebbe snapshot incompleti.【F:src/modules/Encounter_Designer.txt†L620-L637】【F:src/modules/Encounter_Designer.txt†L357-L378】【F:src/modules/Encounter_Designer.txt†L379-L398】
+- Allineare la validazione a `/simulate_encounter`: integrare un gate che verifichi la presenza di `balance_snapshot` (simulazione o auto-balance) garantirebbe export coerenti con i rischi stimati e ridurrebbe QA manuale.【F:src/modules/Encounter_Designer.txt†L316-L350】【F:src/modules/Encounter_Designer.txt†L379-L398】
+
+## Fix necessari
+- Consolidare `compute_effective_cr_from_enemies` in una sola implementazione (mantenendo la versione clampata) e aggiornare `/auto_balance` per usare esplicitamente l’helper definitivo, così da rimuovere ambiguità di risultato e manutenzione duplicata.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L780-L800】
+- Ampliare `run_qagates` con gate aggiuntivi per pacing/loot e per la presenza di `balance_snapshot`, bloccando l’export se mancano ondate, loot o la simulazione di rischio/bilanciamento; aggiorna anche i messaggi di QA per guidare l’utente ai comandi `/set_pacing`, `/set_loot_policy`, `/auto_balance` o `/simulate_encounter`.【F:src/modules/Encounter_Designer.txt†L620-L637】【F:src/modules/Encounter_Designer.txt†L357-L398】
