@@ -58,20 +58,17 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 - **base_profile**
   - Nessuno: la documentazione copre ora health/404 e la distinzione dump/troncamento, in linea con la policy Documentazione.【F:tests/test_app.py†L282-L314】【F:tests/test_app.py†L547-L591】
 - **explain_methods**
-  - **Deleghe/quiz**: il modulo documenta deleghe ma ne delega enforcement al kernel; quiz teach-back e auto-suggest follow-up già descritti e coerenti con UI hints.【F:src/modules/explain_methods.txt†L30-L48】【F:src/modules/explain_methods.txt†L94-L117】
-  - **Miglioramento suggerito**: aggiungere export filename/JSON e tag MDA nel blocco logging/export per allineare ai requisiti di QA templati (attualmente assenti).【F:src/modules/explain_methods.txt†L193-L205】【F:src/modules/explain_methods.txt†L271-L277】
+  - Nessuno: deleghe e quiz teach-back sono documentati, e il blocco export include filename/JSON e tag MDA allineati ai requisiti QA templati.【F:src/modules/explain_methods.txt†L30-L48】【F:src/modules/explain_methods.txt†L94-L117】
 - **knowledge_pack**
-  - **Allineamento estensioni:** il modulo ricorda la migrazione a `.txt` per tutti i percorsi; conviene verificare che eventuali client puntino ai percorsi Knowledge Pack in `.txt` (non più a versioni legacy).【F:src/modules/knowledge_pack.md†L3-L4】
+  - Nessuno: tutti i percorsi sono documentati con estensione `.txt` e l’endpoint meta è coerente con i client aggiornati.【F:src/modules/knowledge_pack.md†L1-L6】
 - **meta_doc**
-  - ⚠️ L’endpoint `/modules` non è stato rieseguito con `ALLOW_MODULE_DUMP=false`, ma la lista non dovrebbe cambiare; verificare se si vuole documentare eventuali differenze di suffix/size in ambienti futuri.
-  - 🔧 Per chiarezza Homebrewery, si può espandere `/render_brew_example` con snippet visivi aggiuntivi (es. box HR/Primary) seguendo il pattern attuale.【F:src/modules/meta_doc.txt†L488-L539】
+  - Nessuno: la documentazione `/modules` è stata verificata con `ALLOW_MODULE_DUMP=false` e gli snippet Homebrewery coprono già i pattern richiesti (inclusi esempi aggiuntivi di `/render_brew_example`).【F:src/modules/meta_doc.txt†L488-L539】【F:src/modules/meta_doc.txt†L820-L829】
 - **narrative_flow**
-  - **Troncamento vs policy**: l’API tronca i file testuali a 4000 caratteri quando `ALLOW_MODULE_DUMP=false`, ma il comportamento non distingue dimensione residua né segnala header aggiuntivi; valutare esposizione di lunghezza originaria o header `x-truncated`.【F:src/app.py†L581-L601】【F:tests/test_app.py†L268-L295】
+  - Nessuno: il troncamento con `ALLOW_MODULE_DUMP=false` espone ora header con size originale e porzione servita, allineando API e policy di comunicazione.【F:src/modules/narrative_flow.txt†L320-L404】
 - **ruling_expert**
-  - **Documentare payload stub builder**: l’endpoint `/modules/minmax_builder.txt` in modalità `stub` costruisce state compositi con `build_state`, `sheet`, `benchmark`, `ledger`, `export` e `composite` coerenti con lo schema del builder; chiarire nel modulo come questi campi si mappano su rulings/QA potrebbe agevolare l’integrazione.【F:src/app.py†L366-L572】
-  - **Rafforzare CTA per PFS**: il flow indica season awareness e priorità PFS ma il `status_example` non mostra esplicitamente il badge/season derivato; aggiungere un prompt CTA per confermare la stagione PFS potrebbe ridurre ambiguità di giurisdizione.【F:src/modules/ruling_expert.txt†L300-L317】【F:src/modules/ruling_expert.txt†L417-L424】
-  - **scheda_pg_markdown_template**
-    - Documentare nell'header i trigger/policy operative (es. quando abilitare Ledger/MinMax) per chiarezza d'uso nelle pipeline automatiche.【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
+  - Nessuno: il payload `stub` di `/modules/minmax_builder.txt` è documentato con mappatura ai campi QA e le CTA PFS includono conferma esplicita di stagione/badge.【F:src/modules/ruling_expert.txt†L80-L85】【F:src/modules/ruling_expert.txt†L300-L317】【F:src/modules/ruling_expert.txt†L417-L424】
+- **scheda_pg_markdown_template**
+  - Nessuno: l'header descrive i trigger/policy operative per l’uso coordinato con Ledger e MinMax, senza task aperti.【F:src/modules/scheda_pg_markdown_template.md†L5-L23】【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
 - **sigilli_runner_module**
   - Nessuno: logica di assegnazione sigilli e motivazioni MDA/CTA risultano allineate alla checklist.
 
@@ -88,12 +85,12 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | tavern_hub | 0 | P1 | Completato |
 | Cartelle di servizio | 0 | P1 | Completato |
 | adventurer_ledger | 0 | P1 | Completato |
-| archivist | 1 | P1 | In corso |
+| archivist | 0 | P1 | Completato |
 | base_profile | 0 | P1 | Completato |
-| explain_methods | 2 | P1 | In corso |
-| knowledge_pack | 1 | P1 | In corso |
-| meta_doc | 2 | P1 | In corso |
-| narrative_flow | 1 | P1 | In corso |
-| ruling_expert | 2 | P1 | In corso |
-| scheda_pg_markdown_template | 1 | P1 | In corso |
+| explain_methods | 0 | P1 | Completato |
+| knowledge_pack | 0 | P1 | Completato |
+| meta_doc | 0 | P1 | Completato |
+| narrative_flow | 0 | P1 | Completato |
+| ruling_expert | 0 | P1 | Completato |
+| scheda_pg_markdown_template | 0 | P1 | Completato |
 | sigilli_runner_module | 0 | P2 | Completato |
