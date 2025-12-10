@@ -11,7 +11,7 @@ compatibility_notes:
     enforced_truncation: "Con ALLOW_MODULE_DUMP=false applica troncamento duro a 4k token con marker […TRUNCATED ALLOW_MODULE_DUMP=false…] anche su export txt/markdown."
     marker: "[…TRUNCATED ALLOW_MODULE_DUMP=false…]"
     standard_response: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
-    guidance: "Export plain sempre marcati e ridotti; whitelista ALLOW_MODULE_DUMP=true solo per audit tracciati."
+    guidance: "Export plain sempre marcati e ridotti; aggiungi header/campo JSON con lunghezza originale, size servita, size residua e % servita/residua quando ALLOW_MODULE_DUMP=false; whitelista ALLOW_MODULE_DUMP=true solo per audit tracciati."
 
 provides: ["lore PF1e con citazioni", "QA citazioni & spoiler guard", "VTT map forge (gridless)", "export AV/NC/SX/SX00"]
 requires: ["base_profile.txt"]
@@ -137,7 +137,7 @@ policies:
       enforced_truncation: "Con ALLOW_MODULE_DUMP=false applica troncamento duro a 4k token con marker […TRUNCATED ALLOW_MODULE_DUMP=false…] anche su export txt/markdown."
       marker: "[…TRUNCATED ALLOW_MODULE_DUMP=false…]"
       standard_response: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
-      guidance: "Export plain sempre marcati e ripuliti; includi header/campo strutturato con lunghezza originale, % servita e size residua quando ALLOW_MODULE_DUMP=false; consentire dump completi solo su richieste autorizzate."
+      guidance: "Export plain sempre marcati e ripuliti; includi header/campo strutturato con lunghezza originale, size servita, size residua e % servita/residua quando ALLOW_MODULE_DUMP=false; consentire dump completi solo su richieste autorizzate."
   low_confidence_policy:
     trigger: "no_primary_sources OR primary_sources==0"
     action: "Etichetta ❗House Lore; rispondi breve; chiedi restringimento o fonti primarie"
@@ -326,7 +326,7 @@ ui_texts:
     - "Preferisci un **confronto 🧭 PFS-Lore** vs canone?"
     - "Creo un **aggancio PNG** coerente?"
     - "Generiamo un **modulo AV** o aggiorniamo la **dashboard SX00**?"
-    - "Serve un **export controllato** (md/pdf/json) con header X-Original-Length / X-Served-Length / X-Served-Pct e campo JSON di troncamento?"
+    - "Serve un **export controllato** (md/pdf/json) con header X-Original-Length / X-Served-Length / X-Remaining-Length / X-Served-Pct / X-Remaining-Pct e campo JSON di troncamento?"
 
 # ───────────────────────────────── COMANDI (interni)
 commands:
@@ -383,9 +383,9 @@ export_guardrails:
   on_disabled_flag:
     response: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
     marker: "{{ policies.exposure_guard.dump_policy.marker }}"
-    truncation_header: "X-Original-Length: {original_length}; X-Served-Length: {served_length}; X-Served-Pct: {served_pct}%"
-    truncation_json_field: "{\"truncation\":{\"original_length\":{original_length},\"served_length\":{served_length},\"served_pct\":{served_pct}}}"
-    action: "Se format in plain_formats → tronca a 4k token, ripulisci campi sensibili, appendi marker + header/campo strutturato (lunghezza originale, size servita, % servita) e payload JSON; blocca dump integrali."
+    truncation_header: "X-Original-Length: {original_length}; X-Served-Length: {served_length}; X-Remaining-Length: {remaining_length}; X-Served-Pct: {served_pct}%; X-Remaining-Pct: {remaining_pct}%"
+    truncation_json_field: "{\"truncation\":{\"original_length\":{original_length},\"served_length\":{served_length},\"remaining_length\":{remaining_length},\"served_pct\":{served_pct},\"remaining_pct\":{remaining_pct}}}"
+    action: "Se format in plain_formats → tronca a 4k token, ripulisci campi sensibili, appendi marker + header/campo strutturato (lunghezza originale, size servita, size residua e % servita/residua) e payload JSON; blocca dump integrali."
 
 # ───────────────────────────────── FLOW (routing tutto interno)
 flow:
@@ -602,8 +602,8 @@ examples:
   - user: "/export AV01 md — ALLOW_MODULE_DUMP=false"
     gpt: |
       ⚠️ Export parziale (ALLOW_MODULE_DUMP=false).
-      Header: X-Original-Length: 12000; X-Served-Length: 4000; X-Served-Pct: 33%.
-      Campo JSON di troncamento: {"truncation":{"original_length":12000,"served_length":4000,"served_pct":33}}.
+      Header: X-Original-Length: 12000; X-Served-Length: 4000; X-Remaining-Length: 8000; X-Served-Pct: 33%; X-Remaining-Pct: 67%.
+      Campo JSON di troncamento: {"truncation":{"original_length":12000,"served_length":4000,"remaining_length":8000,"served_pct":33,"remaining_pct":67}}.
       Contenuto md servito (troncato a 4k token) + marker: […TRUNCATED ALLOW_MODULE_DUMP=false…].
   - user: "/sx10_balance_check campagna"
     gpt: |
