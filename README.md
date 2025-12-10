@@ -293,7 +293,7 @@ Il report include conteggi di build e moduli validi/invalidi, file mancanti e re
 - `GET /health` — ping rapido
 - `GET /modules` — lista dei file modulo disponibili
 - `GET /modules/{name}` — contenuto testuale di un modulo (es. `base_profile.txt`)
-- `GET /modules/{name}/meta` — info sintetiche sul modulo (dimensione, tipo)
+- `GET /modules/{name}/meta` — info sintetiche sul modulo (dimensione, tipo) + versioning/compatibilità se presenti nell'header
 - `GET /knowledge` — lista risorse PDF/MD disponibili
 - `GET /knowledge/{name}/meta` — metadata su una risorsa
 

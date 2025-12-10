@@ -50,8 +50,30 @@ x-api-key: ${API_KEY}
 
 ### `GET /modules/{name}/meta`
 Restituisce metadati (nome, dimensioni, estensione) senza il contenuto del file.
-Per i moduli che includono versioning nel contenuto (ad es. `knowledge_pack.md`) espone
-anche `version` e `compatibility`.
+Se il modulo dichiara un header strutturato (es. `version`, `compatibility`) questi
+campi vengono esposti insieme a eventuali note di compatibilità in formato stringa
+o dizionario.
+
+Esempio di risposta:
+
+```json
+{
+  "name": "ruling_expert.txt",
+  "size_bytes": 12345,
+  "suffix": ".txt",
+  "version": "3.1-hybrid",
+  "compatibility": {
+    "core_min": "2.6.7",
+    "integrates_with": [
+      "MinMax Builder",
+      "Documentazione",
+      "Taverna NPC",
+      "Explain",
+      "Archivist"
+    ]
+  }
+}
+```
 
 ### `GET /modules/taverna_saves/meta`
 Restituisce quota e metadati della cartella di servizio `taverna_saves`, inclusi path, `max_files`, slot residui, spazio disco libero e policy di naming/overflow.

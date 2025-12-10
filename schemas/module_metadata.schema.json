@@ -18,6 +18,16 @@
     },
     "suffix": {
       "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "compatibility": {
+      "oneOf": [
+        { "type": "string" },
+        { "type": "object" },
+        { "type": "array" }
+      ]
     }
   },
   "additionalProperties": true
