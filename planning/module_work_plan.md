@@ -240,6 +240,15 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Builder/Bilanciamento (Encounter_Designer, minmax_builder): usare i task sopra per valutare epic condivise su export/QA o flow di bilanciamento; ordinare i fix P1 prima dei miglioramenti.
 - Hub/Persistenza (Taverna_NPC, tavern_hub, Cartelle di servizio): verificare coerenza delle policy di salvataggio/quarantena e annotare eventuali blocchi prima di procedere con altri moduli dipendenti.
 
+## Piano di lavoro esecutivo (aggiornare stato/task/note a fine attività)
+| Modulo/Area | Attività pianificata | Stato | Prossimi step / Note operative |
+| --- | --- | --- | --- |
+| Cartelle di servizio / Taverna_NPC | Definire endpoint metadati storage (quota, max_files) e messaggio di troncamento chiaro con ALLOW_MODULE_DUMP=false. | TODO | Mappare configurazione `storage.auto_name_policy` e aggiungere header/note su output parziali prima di implementare API. |
+| tavern_hub | Allineare gate QA e blocco export (`/export_tavern`, `/adventure_outline`) ai check dichiarati. | TODO | Introdurre verifica QA esplicita e, se fallisce, rimandare a `/save_hub`/`/check_conversation` con CTA univoca. |
+| sigilli_runner_module | Integrare `code_ok` in `compute_seals` o rimuovere l’euristica; aggiungere motivazioni e tagging MDA/CTA nei sigilli. | TODO | Valutare impatto su assegnazione token/sigilli e aggiornare `output_checklist` con motivazioni e badge. |
+| adventurer_ledger | Allineare flag PFS tra craft/buy e definire default esplicito per `vendor_cap_gp` per evitare PASS fuorvianti. | TODO | Decidere se ereditarietà `pfs_legal` o nuovo prompt; documentare default nel welcome e nei QA. |
+| base_profile | Documentare i comandi principali in endpoint `/doc` o README dedicato per migliorare discovery. | TODO | Redigere elenco comandi e riferimenti ai flow specializzati, assicurando coerenza con router centrale. |
+
 ## Chiusura
 - Compila il sommario sprint con numero task, priorità massima e blocchi per modulo usando la tabella seguente.
 
