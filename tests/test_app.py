@@ -305,6 +305,8 @@ def test_text_module_truncated_when_dump_disabled(
         response = client.get("/modules/large_module.txt", headers=auth_headers)
         assert response.status_code == 206
         assert response.headers["content-type"].startswith("text/plain")
+        assert response.headers["X-Content-Truncated"] == "true"
+        assert response.headers["X-Content-Original-Length"] == "5001"
         assert "[contenuto troncato" in response.text
         assert "A" * 10 in response.text
     finally:
@@ -323,6 +325,7 @@ def test_ruling_expert_truncated_when_dump_enabled_without_whitelist(
         response = client.get("/modules/ruling_expert.txt", headers=auth_headers)
         assert response.status_code == 206
         assert response.headers["X-Content-Partial"] == "true"
+        assert response.headers["X-Content-Truncated"] == "true"
         assert "[contenuto troncato" in response.text
     finally:
         settings.allow_module_dump = original_allow
