@@ -31,6 +31,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 GUIDE_PATH = REPO_ROOT / "planning" / "module_review_guide.md"
 REPORT_DIR = REPO_ROOT / "reports" / "module_tests"
 DEFAULT_OUTPUT = REPO_ROOT / "planning" / "module_work_plan.md"
+DEFAULT_EXECUTIVE_OUTPUT = REPO_ROOT / "planning" / "executive_work_plan.md"
 
 # Mapping for guide labels that do not match report stems
 ALIASES: Dict[str, str] = {
@@ -251,7 +252,99 @@ def format_module_block(summary: ModuleSummary) -> str:
     return "\n".join(parts)
 
 
-def build_plan(output_path: Path) -> None:
+def _sequence_index_map(sequence: Sequence[str]) -> Dict[str, int]:
+    return {label: idx for idx, label in enumerate(sequence)}
+
+
+def _module_sort_key(
+    module_label: str, *, sequence_index: Dict[str, int]
+) -> Tuple[int, int, str]:
+    stem = normalise_name(module_label)
+    cluster_rank = (
+        0
+        if stem in BUILDER_CLUSTER
+        else 1
+        if stem in HUB_CLUSTER
+        else 2
+    )
+    return (cluster_rank, sequence_index.get(module_label, 999), stem)
+
+
+def build_executive_plan(
+    summaries: Sequence[ModuleSummary],
+    *,
+    sequence: Sequence[str],
+    executive_output: Path,
+) -> None:
+    sequence_index = _sequence_index_map(sequence)
+
+    tasks_by_priority: Dict[int, List[Tuple[str, str]]] = {1: [], 2: [], 3: []}
+    for summary in summaries:
+        for priority, text in summary.tasks:
+            tasks_by_priority.setdefault(priority, []).append((summary.label, text))
+
+    def format_phase(
+        title: str, items: List[Tuple[str, str]],
+    ) -> List[str]:
+        lines: List[str] = [f"## {title}", ""]
+        if not items:
+            lines.append("- Nessun task aperto")
+            lines.append("")
+            return lines
+
+        grouped: Dict[str, List[str]] = {}
+        for module, task in items:
+            grouped.setdefault(module, []).append(task)
+
+        for module in sorted(grouped, key=lambda m: _module_sort_key(m, sequence_index=sequence_index)):
+            lines.append(f"- **{module}**")
+            for task in grouped[module]:
+                lines.append(f"  - {task}")
+        lines.append("")
+        return lines
+
+    now = dt.datetime.now(dt.timezone.utc)
+    header = [
+        "# Piano di lavoro esecutivo",
+        "",
+        f"Generato il {now.isoformat(timespec='seconds').replace('+00:00', 'Z')} da `tools/generate_module_plan.py`",
+        "Fonte task: `planning/module_work_plan.md` (priorità P1→P3) e sequenza `planning/module_review_guide.md`.",
+        "Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, con fasi sequenziali e dipendenze esplicite.",
+        "",
+        "### Regole di ordinamento",
+        "- Prima i cluster critici: builder/bilanciamento (Encounter_Designer, minmax_builder) e hub/persistenza (Taverna_NPC, tavern_hub, Cartelle di servizio).",
+        "- All'interno del cluster, ordine di lettura della guida; poi priorità (P1→P3).",
+        "",
+    ]
+
+    phase1 = format_phase("Fase 1 (attuale) · P1 critici e cross-cutting", tasks_by_priority.get(1, []))
+    phase2 = format_phase(
+        "Seconda fase · P1 residui e P2 cooperativi",
+        tasks_by_priority.get(2, []),
+    )
+    phase3 = format_phase(
+        "Terza fase · Rifiniture P3, doc e chiusura backlog",
+        tasks_by_priority.get(3, []),
+    )
+
+    tracking = [
+        "### Tracciamento avanzamento",
+        "| Modulo | Task aperti | Priorità massima | Stato |",
+        "| --- | --- | --- | --- |",
+    ]
+    for summary in sorted(summaries, key=lambda s: _module_sort_key(s.label, sequence_index=sequence_index)):
+        tracking.append(
+            "| "
+            f"{summary.label} | {len(summary.tasks)} | {summary.highest_priority} | {summary.status} |"
+        )
+
+    executive_output.parent.mkdir(parents=True, exist_ok=True)
+    executive_output.write_text(
+        "\n".join(header + phase1 + phase2 + phase3 + tracking), encoding="utf-8"
+    )
+
+
+def build_plan(output_path: Path, executive_output: Path) -> None:
     sequence = load_sequence_from_guide()
     report_map = map_reports()
 
@@ -321,6 +414,12 @@ def build_plan(output_path: Path) -> None:
         encoding="utf-8",
     )
 
+    build_executive_plan(
+        summaries,
+        sequence=sequence,
+        executive_output=executive_output,
+    )
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate a work plan from module reports.")
@@ -330,6 +429,13 @@ if __name__ == "__main__":
         default=DEFAULT_OUTPUT,
         help="Path to the output Markdown file (default: planning/module_work_plan.md)",
     )
+    parser.add_argument(
+        "--executive-output",
+        type=Path,
+        default=DEFAULT_EXECUTIVE_OUTPUT,
+        help="Path to the executive plan Markdown file (default: planning/executive_work_plan.md)",
+    )
     args = parser.parse_args()
-    build_plan(args.output)
+    build_plan(args.output, args.executive_output)
     print(f"Work plan written to {args.output}")
+    print(f"Executive plan written to {args.executive_output}")
