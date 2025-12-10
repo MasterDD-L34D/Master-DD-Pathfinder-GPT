@@ -1,6 +1,6 @@
 # Piano operativo generato dai report
 
-Generato il 2025-12-10T11:31:13Z
+Generato il 2025-12-10T14:19:05Z
 Fonte sequenza: `planning/module_review_guide.md`
 
 ## Checklist seguita (dal documento di guida)
@@ -15,20 +15,20 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1][Completato] `compute_effective_cr_from_enemies` unificato sulla versione clampata (qty ∈[1,64], CR ∈[0,40]) e `/auto_balance` puntato esplicitamente allo stesso helper per evitare ambiguità di calcolo.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L777-L788】
-- [P1][Completato] `run_qagates` esteso con gate su pacing/loot e presenza di `balance_snapshot`, con CTA esplicite verso `/auto_balance`/`/simulate_encounter` e `/set_pacing`/`/set_loot_policy`; export bloccato se i gate falliscono.【F:src/modules/Encounter_Designer.txt†L380-L404】
+- [P1] Nessuno: i gate QA coprono ora pacing, loot e snapshot di bilanciamento e bloccano l’export con CTA esplicite verso `/auto_balance`, `/simulate_encounter`, `/set_pacing` e `/set_loot_policy`.【F:src/modules/Encounter_Designer.txt†L380-L404】
+- [P2] Nessun miglioramento aperto dopo l’estensione dei gate QA (pacing/loot/balance_snapshot) e dei messaggi di correzione verso i comandi di setup/bilanciamento.【F:src/modules/Encounter_Designer.txt†L380-L404】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il modello dati evita riferimenti a testi protetti: stat e DC sono placeholder numerici astratti, mentre badge e gate PFS delimitano eventuali HR.【F:src/modules/Encounter_Designer.txt†L92-L140】【F:src/modules/Encounter_Designer.txt†L357-L419】
 - [Osservazione] Il flusso incorporato consente pipeline completa: setup → generazione/auto-bilanciamento → QA → export VTT/MD/PDF, con CTA che richiamano i comandi chiave e auto-validate prima dell’export.【F:src/modules/Encounter_Designer.txt†L486-L523】【F:src/modules/Encounter_Designer.txt†L400-L419】
-- [Osservazione] CR effettivo calcolato con helper unico clampato (qty ∈[1,64], CR ∈[0,40]) richiamato da `/auto_balance`, eliminando la precedente ambiguità di doppia definizione.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L777-L788】
+- [Errore] Nessun errore bloccante sul calcolo CR/QA dopo l’allineamento al singolo helper clampato.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L777-L788】
 
 ## Taverna_NPC
 - Report: `reports/module_tests/Taverna_NPC.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1][Completato] Con `ALLOW_MODULE_DUMP=false` le risposte includono marker di troncamento/nota “⚠️ Output parziale” applicati anche a export txt/markdown, evitando ambiguità lato client.【F:src/modules/Taverna_NPC.txt†L273-L311】
+- [P1] Nessuno: con `ALLOW_MODULE_DUMP=false` ora sono presenti policy di troncamento marcate (`[…TRUNCATED ALLOW_MODULE_DUMP=false…]`) e risposta standardizzata “⚠️ Output parziale” applicata anche agli export plain/markdown.【F:src/modules/Taverna_NPC.txt†L273-L305】
 - [P2] 🔧 Miglioria proposta: esporre endpoint dedicato ai metadati di storage (quota residua, `max_files`) basato su configurazione `storage.auto_name_policy` per monitorare saturazione. 【F:src/modules/Taverna_NPC.txt†L364-L380】
 - [P2] 🔧 Valutare messaggio di guida quando Echo gate blocca (<8.5) o quando `qa_guard` disattivato da check falliti, per chiarezza UX. 【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
 
@@ -55,13 +55,13 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1][Completato] Dump policy allineata: con `ALLOW_MODULE_DUMP=false` i moduli `.txt` vengono troncati e marcati (`[…TRUNCATED ALLOW_MODULE_DUMP=false…]`), coerentemente con README e `base_profile`.【F:src/modules/archivist.txt†L118-L177】【F:src/modules/base_profile.txt†L356-L366】
+- [P1] Nessuno: la logica di troncamento/marker per `ALLOW_MODULE_DUMP=false` è ora descritta nel modulo e si applica anche ai `.txt`, coerentemente con la policy base/README.【F:src/modules/archivist.txt†L118-L177】【F:src/modules/base_profile.txt†L356-L366】
 - [P2] Considerare un header o campo JSON nei dump troncati per indicare size originale e percentuale servita, migliorando la UX rispetto all’attuale marcatore testuale.【F:src/modules/archivist.txt†L118-L177】
 
 ### Note (Osservazioni/Errori)
-- [Osservazione] ALLOW_MODULE_DUMP=false blocca asset non testuali (`tavern_hub.json`) ma non tronca né blocca i moduli `.txt`: `archivist.txt` viene restituito integralmente, in conflitto con la documentazione che indica troncamento a 4000 caratteri quando il flag è disattivato.【1411c6†L1-L67】【f75b9a†L1-L7】【2130a0†L10-L14】
+- [Osservazione] I dump seguono ora la policy `no_raw_dump`: con `ALLOW_MODULE_DUMP=false` i moduli testuali vengono troncati e marcati con `[…TRUNCATED ALLOW_MODULE_DUMP=false…]`, mentre asset non testuali restano bloccati; gli endpoint proteggono comunque l’accesso senza API key con 401 esplicito.【F:src/modules/archivist.txt†L118-L177】【F:src/modules/archivist.txt†L280-L311】【F:src/modules/archivist.txt†L312-L332】
 - [Osservazione] L’endpoint `/modules` rifiuta richieste senza API key con dettaglio chiaro; idem per `/modules/archivist.txt/meta` (401), fornendo copertura ai casi di autenticazione mancata.【d95840†L1-L7】
-- [Errore] ⚠️ Mancato troncamento di `archivist.txt` con `ALLOW_MODULE_DUMP=false`: risposta `200` con contenuto completo invece di 403/troncamento.【1411c6†L1-L67】
+- [Errore] Nessun errore bloccante rilevato dopo l’allineamento della dump policy.
 
 ## base_profile
 - Report: `reports/module_tests/base_profile.md`
@@ -136,12 +136,12 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1][Completato] `/qa_story` usa validator reali per arco/tema/thread/pacing/stile, popola `story_state.qa`/`ready_for_export` e blocca gli export quando i gate falliscono, includendo preview troncato marcato.【F:src/modules/narrative_flow.txt†L320-L404】
+- [P1] Nessuno aperto: `/qa_story` usa validator concreti e blocca export finché arc/tema/thread/pacing/stile non sono tutti OK, includendo preview troncato e CTA dedicate.【F:src/modules/narrative_flow.txt†L320-L404】
 - [P2] **Troncamento vs policy**: l’API tronca i file testuali a 4000 caratteri quando `ALLOW_MODULE_DUMP=false`, ma il comportamento non distingue dimensione residua né segnala header aggiuntivi; valutare esposizione di lunghezza originaria o header `x-truncated`.【F:src/app.py†L581-L601】【F:tests/test_app.py†L268-L295】
 
 ### Note (Osservazioni/Errori)
-- [Osservazione] Il flow narrativo in 11 step guida genere, tono, protagonisti, conflitto e arc/tema con retry e cache, integrando template per scene/outline/bible e interfacce con Taverna, Encounter e Ledger tramite seed condivisi.【F:src/modules/narrative_flow.txt†L465-L658】【F:src/modules/narrative_flow.txt†L397-L463】
-- [Errore] **Validator stub**: tutte le funzioni `validate_*` ritornano `True`, quindi `/qa_story` non segnala mai errori; implementare logica reale per coerenza con checklist QA.【F:src/modules/narrative_flow.txt†L320-L346】【F:src/modules/narrative_flow.txt†L690-L715】
+- [Osservazione] Il flow narrativo in 11 step guida genere, tono, protagonisti, conflitto e arc/tema con retry e cache, integrando template per scene/outline/bible e interfacce con Taverna, Encounter e Ledger tramite seed condivisi; il QA ora fornisce checklist dettagliata, flag export e CTA su arc/tema/hook/pacing/stile.【F:src/modules/narrative_flow.txt†L465-L658】【F:src/modules/narrative_flow.txt†L320-L404】
+- [Errore] Nessun errore bloccante rilevato dopo l’attivazione dei validator reali in `/qa_story`.
 
 ## ruling_expert
 - Report: `reports/module_tests/ruling_expert.md`
@@ -187,6 +187,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [Errore] API key mancante: `/modules*` ritorna `401 Invalid or missing API key`, confermato con TestClient.【fc8c1a†L3-L12】
 - [Errore] Modulo inesistente: `/modules/bogus.txt` → `404 Module not found`.【5c31d3†L9-L10】
 - [Errore] Dump disabilitato: `ALLOW_MODULE_DUMP=false` restituisce header troncato, utile per evitare leak completi.【5c31d3†L11-L18】
+- [Errore] L’euristica `code_ok` è calcolata ma non influenza l’assegnazione dei sigilli, indicando una logica incompleta nel decoratore.【F:src/modules/sigilli_runner_module.txt†L108-L118】
 
 ## tavern_hub
 - Report: `reports/module_tests/tavern_hub.md`
@@ -217,6 +218,24 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [Errore] ✅ API core rispondono correttamente; `taverna_saves` non esposto (scelta di sicurezza).【F:reports/module_tests/Taverna_NPC.md†L7-L13】
 - [Errore] ⚠️ `curl | head` con dump abilitato può fallire in locale per errore di scrittura ma il server fornisce `content-length`; nessuna azione lato server.【F:reports/module_tests/Taverna_NPC.md†L11-L13】
 
+## Riepilogo osservazioni ed errori
+| Modulo | Osservazioni | Errori | Totale note |
+| --- | --- | --- | --- |
+| sigilli_runner_module | 4 | 4 | 8 |
+| Encounter_Designer | 2 | 1 | 3 |
+| Taverna_NPC | 1 | 2 | 3 |
+| archivist | 2 | 1 | 3 |
+| base_profile | 2 | 1 | 3 |
+| minmax_builder | 2 | 1 | 3 |
+| scheda_pg_markdown_template | 2 | 1 | 3 |
+| Cartelle di servizio | 1 | 2 | 3 |
+| adventurer_ledger | 1 | 1 | 2 |
+| explain_methods | 1 | 1 | 2 |
+| knowledge_pack | 1 | 1 | 2 |
+| meta_doc | 1 | 1 | 2 |
+| narrative_flow | 1 | 1 | 2 |
+| ruling_expert | 1 | 1 | 2 |
+| tavern_hub | 1 | 1 | 2 |
 ## Cross-cutting e dipendenze
 - Builder/Bilanciamento (Encounter_Designer, minmax_builder): usare i task sopra per valutare epic condivise su export/QA o flow di bilanciamento; ordinare i fix P1 prima dei miglioramenti.
 - Hub/Persistenza (Taverna_NPC, tavern_hub, Cartelle di servizio): verificare coerenza delle policy di salvataggio/quarantena e annotare eventuali blocchi prima di procedere con altri moduli dipendenti.
@@ -224,20 +243,20 @@ Fonte sequenza: `planning/module_review_guide.md`
 ## Chiusura
 - Compila il sommario sprint con numero task, priorità massima e blocchi per modulo usando la tabella seguente.
 
-| Modulo | Task totali | Priorità massima | Stato |
-| --- | --- | --- | --- |
-| Encounter_Designer | 4 | P1 | Pronto per sviluppo |
-| Taverna_NPC | 4 | P1 | Pronto per sviluppo |
-| adventurer_ledger | 3 | P1 | Pronto per sviluppo |
-| archivist | 3 | P1 | Pronto per sviluppo |
-| base_profile | 3 | P1 | Pronto per sviluppo |
-| explain_methods | 3 | P1 | Pronto per sviluppo |
-| knowledge_pack | 3 | P1 | Pronto per sviluppo |
-| meta_doc | 4 | P1 | Pronto per sviluppo |
-| minmax_builder | 3 | P1 | Pronto per sviluppo |
-| narrative_flow | 3 | P1 | Pronto per sviluppo |
-| ruling_expert | 3 | P1 | Pronto per sviluppo |
-| scheda_pg_markdown_template | 3 | P1 | Pronto per sviluppo |
-| sigilli_runner_module | 3 | P1 | Pronto per sviluppo |
-| tavern_hub | 4 | P1 | Pronto per sviluppo |
-| Cartelle di servizio | 4 | P1 | Pronto per sviluppo |
+| Modulo | Task totali | Priorità massima | Osservazioni | Errori | Stato |
+| --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | 2 | P1 | 2 | 1 | Pronto per sviluppo |
+| Taverna_NPC | 3 | P1 | 1 | 2 | Pronto per sviluppo |
+| adventurer_ledger | 3 | P1 | 1 | 1 | Pronto per sviluppo |
+| archivist | 2 | P1 | 2 | 1 | Pronto per sviluppo |
+| base_profile | 3 | P1 | 2 | 1 | Pronto per sviluppo |
+| explain_methods | 3 | P1 | 1 | 1 | Pronto per sviluppo |
+| knowledge_pack | 3 | P1 | 1 | 1 | Pronto per sviluppo |
+| meta_doc | 4 | P1 | 1 | 1 | Pronto per sviluppo |
+| minmax_builder | 3 | P1 | 2 | 1 | Pronto per sviluppo |
+| narrative_flow | 2 | P1 | 1 | 1 | Pronto per sviluppo |
+| ruling_expert | 3 | P1 | 1 | 1 | Pronto per sviluppo |
+| scheda_pg_markdown_template | 3 | P1 | 2 | 1 | Pronto per sviluppo |
+| sigilli_runner_module | 3 | P1 | 4 | 4 | Pronto per sviluppo |
+| tavern_hub | 4 | P1 | 1 | 1 | Pronto per sviluppo |
+| Cartelle di servizio | 4 | P1 | 1 | 2 | Pronto per sviluppo |
