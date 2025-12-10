@@ -465,6 +465,14 @@ commands:
       input: "/export_doc md"
       prereq: "Outline presente ma doc_state.sources vuoto"
       expected: "❌ Export bloccato: servono almeno 1 RAW/PFS (Archivist/Ruling)."
+    - scenario: "Outline impostato ma nessuna fonte ancora allegata"
+      input: "/export_doc canvas"
+      prereq: "Dopo /import_template spec senza /attach_sources o /embed_from Archivist/Ruling"
+      expected: "❌ Export bloccato: servono almeno 1 RAW/PFS (Archivist/Ruling)."
+    - scenario: "Outline e fonti vuote"
+      input: "/export_doc zip"
+      prereq: "Doc nuovo appena creato (outline=[], fonti=[])"
+      expected: "❌ Export bloccato: outline assente. Usa /import_template."
 
   /doc_pack:
     description: Crea pacchetto ZIP finale secondo struttura standard
@@ -529,6 +537,16 @@ commands:
               - output: |
                   >aside
                   🧠 Nota di commento/meta.
+          - when: 'box_hr'
+            do:
+              - output: |
+                  >warning
+                  **[HR]** House Rule / variante di tavolo.
+          - when: 'box_primary'
+            do:
+              - output: |
+                  >note
+                  🏛️ Primary Source: riferimento ufficiale
           - when: 'wrap_left'
             do:
               - output: |
@@ -558,9 +576,9 @@ commands:
           - when: 'cta'
             do:
               - output: |
-                  {{text-align:center,margin-left:60px,margin-right:60px,margin-bottom:16px Apri `/render_brew_example cover|toc|box_raw|box_pfs|box_meta|wrap_left|watercolor_corner|center_note|checklist` e chiudi con `/brew_lint`}}
+                  {{text-align:center,margin-left:60px,margin-right:60px,margin-bottom:16px Apri `/render_brew_example cover|toc|box_raw|box_pfs|box_meta|box_hr|box_primary|wrap_left|watercolor_corner|center_note|checklist` e chiudi con `/brew_lint`}}
           - default:
-              - output: "⚠ Tipo di esempio non riconosciuto. Usa cover/toc/box_raw/box_pfs/box_meta/wrap_left/watercolor_corner/center_note/checklist/cta."
+              - output: "⚠ Tipo di esempio non riconosciuto. Usa cover/toc/box_raw/box_pfs/box_meta/box_hr/box_primary/wrap_left/watercolor_corner/center_note/checklist/cta."
 
   /generate_briefing:
     description: Genera un briefing usando lo standard_briefing_template
