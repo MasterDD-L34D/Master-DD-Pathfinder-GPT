@@ -17,8 +17,8 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 - **minmax_builder**
   - Nessun task aperto: le CTA di export mostrano il naming condiviso `MinMax_<nome>.pdf/.xlsx/.json` in linea con Encounter_Designer, chiarendo l’output previsto.【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1070-L1088】
 - **knowledge_pack**
-  - **Allineamento estensioni:** verificare che i client puntino ai percorsi Knowledge Pack in `.txt`, sostituendo riferimenti legacy.【F:src/modules/knowledge_pack.md†L3-L4】
-  - **Miglioria potenziale:** includere nelle API di metadata un campo `version`/`compatibility` già presente nel testo per evitare parsing dal corpo del modulo.【F:src/modules/knowledge_pack.md†L1-L6】
+  - ✅ **Allineamento estensioni:** i client/documentazione indirizzano ora i percorsi Knowledge Pack in `.txt`, eliminando i riferimenti legacy `.yaml`.【F:docs/api_usage.md†L20-L27】【F:src/modules/knowledge_pack.md†L3-L4】
+  - ✅ **Metadati API:** l’endpoint `/modules/{name}/meta` espone `version` e `compatibility` ricavati dal modulo, senza parsing manuale lato client.【F:src/app.py†L392-L458】
 - **meta_doc**
   - ⚠️ Valutare se rieseguire `/modules` con `ALLOW_MODULE_DUMP=false` per documentare eventuali differenze di suffix/size in ambienti futuri.
   - 🔧 Espandere `/render_brew_example` con snippet visivi aggiuntivi (es. box HR/Primary) seguendo il pattern attuale.【F:src/modules/meta_doc.txt†L488-L539】
@@ -48,7 +48,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | archivist | 0 | — | Pronto per sviluppo |
 | base_profile | 0 | — | Pronto per sviluppo |
 | explain_methods | 0 | — | Pronto per sviluppo |
-| knowledge_pack | 2 | P2 | Pronto per sviluppo |
+| knowledge_pack | 0 | — | Pronto per sviluppo |
 | meta_doc | 2 | P2 | Pronto per sviluppo |
 | narrative_flow | 1 | P2 | Pronto per sviluppo |
 | ruling_expert | 2 | P2 | Pronto per sviluppo |
