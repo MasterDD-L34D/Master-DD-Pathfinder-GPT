@@ -1,6 +1,171 @@
 {
-  "generated_at": "2025-12-10T20:24:39Z",
+  "generated_at": "2025-12-10T21:32:34Z",
+  "api_url": null,
+  "mode": "mixed",
+  "spec_file": null,
   "entries": [
+    {
+      "file": "src/data/builds/alchemist-goblin-vivisectionist.json",
+      "status": "ok",
+      "output_prefix": "alchemist-goblin-vivisectionist",
+      "level": 1,
+      "class": "Alchemist",
+      "race": "Goblin",
+      "archetype": "Vivisectionist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "Alchemist::Goblin::Vivisectionist",
+      "model": null,
+      "background": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "ruling_badge": "full",
+      "ruling_sources": [
+        "mock_ruling_expert"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl05.json",
+      "status": "ok",
+      "output_prefix": "alchemist-goblin-vivisectionist",
+      "level": 5,
+      "class": "Alchemist",
+      "race": "Goblin",
+      "archetype": "Vivisectionist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "Alchemist::Goblin::Vivisectionist",
+      "model": null,
+      "background": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "ruling_badge": "full",
+      "ruling_sources": [
+        "mock_ruling_expert"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl10.json",
+      "status": "ok",
+      "output_prefix": "alchemist-goblin-vivisectionist",
+      "level": 10,
+      "class": "Alchemist",
+      "race": "Goblin",
+      "archetype": "Vivisectionist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "Alchemist::Goblin::Vivisectionist",
+      "model": null,
+      "background": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "ruling_badge": "full",
+      "ruling_sources": [
+        "mock_ruling_expert"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/alchemist-human-base.json",
+      "status": "ok",
+      "output_prefix": "alchemist-human-base",
+      "level": 1,
+      "class": "Alchemist",
+      "race": "Human",
+      "archetype": "Base",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "Alchemist::Human::Base",
+      "model": null,
+      "background": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "ruling_badge": "full",
+      "ruling_sources": [
+        "mock_ruling_expert"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/alchemist-human-base_lvl05.json",
+      "status": "ok",
+      "output_prefix": "alchemist-human-base",
+      "level": 5,
+      "class": "Alchemist",
+      "race": "Human",
+      "archetype": "Base",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "Alchemist::Human::Base",
+      "model": null,
+      "background": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "ruling_badge": "full",
+      "ruling_sources": [
+        "mock_ruling_expert"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/alchemist-human-base_lvl10.json",
+      "status": "ok",
+      "output_prefix": "alchemist-human-base",
+      "level": 10,
+      "class": "Alchemist",
+      "race": "Human",
+      "archetype": "Base",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "Alchemist::Human::Base",
+      "model": null,
+      "background": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "ruling_badge": "full",
+      "ruling_sources": [
+        "mock_ruling_expert"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
     {
       "file": "src/data/builds/alchemist.json",
       "status": "ok",
@@ -1163,22 +1328,22 @@
   ],
   "checkpoints": {
     "1": {
-      "total": 40,
-      "invalid": 0,
-      "schema_errors": 0,
-      "completeness_errors": 0
+      "total": 42,
+      "invalid": 1,
+      "schema_errors": 1,
+      "completeness_errors": 1
     },
     "5": {
-      "total": 13,
-      "invalid": 0,
-      "schema_errors": 0,
-      "completeness_errors": 0
+      "total": 15,
+      "invalid": 1,
+      "schema_errors": 1,
+      "completeness_errors": 1
     },
     "10": {
-      "total": 8,
-      "invalid": 0,
-      "schema_errors": 0,
-      "completeness_errors": 0
+      "total": 10,
+      "invalid": 1,
+      "schema_errors": 1,
+      "completeness_errors": 1
     }
   }
 }
