@@ -852,23 +852,58 @@ def review_local_database(
             else None
         )
 
+        preserved_metadata = {
+            k: v
+            for k, v in (index_entry or {}).items()
+            if k
+            not in {
+                "file",
+                "status",
+                "error",
+                "completeness_errors",
+            }
+        }
+        level_checkpoints = _normalize_levels(
+            preserved_metadata.get("level_checkpoints")
+            or preserved_metadata.get("levels"),
+            (1, 5, 10),
+        )
+        output_prefix = preserved_metadata.get("output_prefix") or spec_id
+        if not output_prefix and display_path:
+            output_prefix = Path(display_path).stem
+
         index_entry = {
             "file": display_path,
             "status": status,
+            "output_prefix": output_prefix,
             "class": class_name,
             "race": race,
             "archetype": archetype,
             "mode": mode,
             "mode_normalized": normalize_mode(mode or DEFAULT_MODE),
             "spec_id": spec_id,
-            "background": background,
+            "background": background or preserved_metadata.get("background"),
+            "model": preserved_metadata.get("model"),
+            "level_checkpoints": level_checkpoints,
         }
         if target_level:
             index_entry["level"] = target_level
+        for field in (
+            "step_total",
+            "expected_step_total",
+            "extended_steps_available",
+            "step_total_ok",
+        ):
+            if preserved_metadata.get(field) is not None:
+                index_entry[field] = preserved_metadata[field]
         if validation_error:
             index_entry["error"] = validation_error
         if completeness_errors:
             index_entry["completeness_errors"] = completeness_errors
+        entry.setdefault("output_prefix", index_entry.get("output_prefix"))
+        entry.setdefault("level_checkpoints", index_entry.get("level_checkpoints"))
+        entry.setdefault("spec_id", index_entry.get("spec_id"))
+        entry.setdefault("mode_normalized", index_entry.get("mode_normalized"))
         index_entries.append(index_entry)
 
     module_entries: Sequence[Mapping[str, Any]] = []
