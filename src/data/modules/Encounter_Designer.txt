@@ -298,7 +298,7 @@ commands:
           party_size: '{{encounter_state.party.size}}'
           difficulty: '{{encounter_state.difficulty.target}}'
           as: xp_target
-      - compute_effective_cr_from_enemies:
+      - compute_effective_cr_from_enemies:  # helper clampato qty[1,64], CR[0,40]
           enemies: '{{encounter_state.enemies}}'
           as: cr_eff
       - set: encounter_state.balance_snapshot.xp_budget_est
@@ -695,19 +695,6 @@ helpers:
       mult = {'Easy':0.8,'Moderate':1.0,'Challenging':1.25,'Deadly':1.6}.get((difficulty or 'Moderate'),1.0)
       return int(100 * lvl * size * mult)
 
-  compute_effective_cr_from_enemies:
-    params: [enemies]
-    logic: |
-      # Stima CR_eff astratta basata su somma CR ponderata
-      es = enemies or []
-      total = 0.0
-      for e in es:
-        qty = int(e.get('quantity',1) or 1)
-        crv = float(e.get('CR') or 0)
-        total += crv * (1 + (qty-1)*0.5)  # minore contributo per duplicati
-      # normalizzazione per dimensione party
-      return round(total / max(1, len(es)) , 2) if es else None
-
   classify_balance_label:
     params: [xp_target, cr_eff]
     logic: |
@@ -793,6 +780,7 @@ helpers:
       es = enemies or []
       if not es: return None
       total = 0.0
+      # Clamp quantity and CR to guardrail ranges before weighting duplicates
       for e in es:
         qty = int(_clampf(e.get('quantity',1), 1, 64, 1))
         crv = _clampf(e.get('CR',0), 0, 40, 0)

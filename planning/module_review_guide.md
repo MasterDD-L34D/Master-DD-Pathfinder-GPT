@@ -6,7 +6,7 @@ Procedi nell’ordine dell’indice moduli: Encounter_Designer → Taverna_NPC �
 ## Metodo di analisi per ogni report
 Apri il report corrispondente in `reports/module_tests/<nome>.md`. Usa la struttura standard (Ambiente di test → Esiti API → Metadati → Comandi/Flow → QA → Errori → Miglioramenti → Fix necessari) come checklist; l’esempio di Encounter_Designer mostra tutte le sezioni attese.
 
-Nel blocco Errori e Fix necessari, estrai ogni issue e converti immediatamente in uno o più task con scope e file precisi (seguendo il modello già usato per Encounter_Designer, che segnala la doppia compute_effective_cr_from_enemies e l’estensione dei gate QA).
+Nel blocco Errori e Fix necessari, estrai ogni issue e converti immediatamente in uno o più task con scope e file precisi (seguendo il modello già usato per Encounter_Designer, che ora documenta l’helper CR unico clampato e l’estensione dei gate QA).
 
 Se il report elenca Miglioramenti non bloccanti, valuta priorità: etichetta “P1” per bug/ambiguità funzionali, “P2” per QA/completezza, “P3” per UX/copy. Documenta la priorità accanto al task.
 
