@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-10T18:55:47Z",
+  "generated_at": "2025-12-10T21:32:34Z",
   "api_url": "http://localhost:8000",
   "entries": [
     {
@@ -18,8 +18,9 @@
       "status": "ok",
       "meta": {
         "name": "Taverna_NPC.txt",
-        "size_bytes": 118875,
-        "suffix": ".txt"
+        "size_bytes": 130023,
+        "suffix": ".txt",
+        "version": "3.5"
       }
     },
     {
@@ -28,8 +29,9 @@
       "status": "ok",
       "meta": {
         "name": "adventurer_ledger.txt",
-        "size_bytes": 78578,
-        "suffix": ".txt"
+        "size_bytes": 78592,
+        "suffix": ".txt",
+        "version": "1.5"
       }
     },
     {
@@ -48,8 +50,9 @@
       "status": "ok",
       "meta": {
         "name": "base_profile.txt",
-        "size_bytes": 36093,
-        "suffix": ".txt"
+        "size_bytes": 36129,
+        "suffix": ".txt",
+        "version": "3.7-kernel"
       }
     },
     {
@@ -98,8 +101,10 @@
       "status": "ok",
       "meta": {
         "name": "narrative_flow.txt",
-        "size_bytes": 24288,
-        "suffix": ".txt"
+        "size_bytes": 37950,
+        "suffix": ".txt",
+        "version": "2.3",
+        "compatibility": "Compatibile con MinMax, Taverna NPC, Encounter Designer, Ledger, Explain e Ruling Expert."
       }
     },
     {
@@ -118,8 +123,19 @@
       "status": "ok",
       "meta": {
         "name": "scheda_pg_markdown_template.md",
-        "size_bytes": 23497,
-        "suffix": ".md"
+        "size_bytes": 26242,
+        "suffix": ".md",
+        "version": "1.1",
+        "compatibility": {
+          "core_min": "3.3",
+          "integrates_with": [
+            "MinMax Builder",
+            "Adventurer Ledger",
+            "Explain Methods",
+            "Ruling Expert",
+            "Hook VTT"
+          ]
+        }
       }
     },
     {
