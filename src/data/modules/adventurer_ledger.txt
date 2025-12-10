@@ -59,7 +59,7 @@ triggers: [loot, tesoro, treasure, WBL, wealth, gp budget, buylist, inventory, l
 policies:
   pfs_active: false
   sell_rate: 0.5
-  vendor_cap_gp: null
+  vendor_cap_gp: 2000
   wbl_tolerance_pct: 20
   show_rolls: false
   rounding: nearest_0_1
@@ -1680,7 +1680,7 @@ commands:
       - append: local.r
         value: "WBL gate: {{ 'PASS' if abs((_wbl1.delta_pct or 0)) <= (policies.wbl_tolerance_pct or 20) else 'FAIL' }}"
       - append: local.r
-        value: "Vendor cap: {{ 'PASS' if (policies.vendor_cap_gp is none or policies.vendor_cap_gp >= 0) else 'FAIL' }}"
+        value: "Vendor cap: {{ 'WARN' if (policies.vendor_cap_gp is none) else ('PASS' if policies.vendor_cap_gp >= 0 else 'FAIL') }}"
       - call: normalize_currency
         with: { currency: '{{loot_state.currency}}' }
         return_as: _norm
