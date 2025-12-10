@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-10T14:16:11Z",
+  "generated_at": "2025-12-10T14:39:37Z",
   "api_url": "http://localhost:8000",
   "mode": "extended",
   "spec_file": null,
@@ -1143,20 +1143,27 @@
       "file": "src/data/builds/wizard_elf_universalist.json",
       "status": "ok",
       "output_prefix": "wizard_elf_universalist",
+      "level": 5,
       "class": "Wizard",
       "race": "Elf",
       "archetype": "Universalist",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_elf_universalist",
-      "background": null,
       "model": null,
+      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
       "level_checkpoints": [
-        1,
         5,
         10
       ],
-      "level": 1
+      "ruling_badge": "validated",
+      "ruling_sources": [
+        "stub"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
@@ -1181,23 +1188,56 @@
       "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
       "status": "ok",
       "output_prefix": "wizard_elf_universalist",
+      "level": 10,
       "class": "Wizard",
       "race": "Elf",
       "archetype": "Universalist",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_elf_universalist",
-      "background": null,
       "model": null,
+      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
       "level_checkpoints": [
-        1,
         5,
         10
       ],
-      "level": 10
+      "ruling_badge": "validated",
+      "ruling_sources": [
+        "stub"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/wizard_human_evoker.json",
+      "status": "ok",
+      "output_prefix": "wizard_human_evoker",
+      "level": 5,
+      "class": "Wizard",
+      "race": "Human",
+      "archetype": "Evoker",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "wizard_human_evoker",
+      "model": null,
+      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
+      "level_checkpoints": [
+        5,
+        10
+      ],
+      "ruling_badge": "validated",
+      "ruling_sources": [
+        "stub"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/wizard_human_evoker_lvl05.json",
       "status": "ok",
       "output_prefix": "wizard_human_evoker",
       "class": "Wizard",
@@ -1209,64 +1249,36 @@
       "background": null,
       "model": null,
       "level_checkpoints": [
-        1,
         5,
         10
       ],
-      "level": 1
-    },
-    {
-      "file": "src/data/builds/wizard_human_evoker_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "wizard_human_evoker",
-      "class": "Wizard",
-      "race": "Human",
-      "archetype": "Evoker",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "wizard_human_evoker",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/wizard_human_evoker_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "wizard_human_evoker",
+      "level": 10,
       "class": "Wizard",
       "race": "Human",
       "archetype": "Evoker",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_human_evoker",
-      "background": null,
       "model": null,
+      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
       "level_checkpoints": [
-        1,
         5,
         10
       ],
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ]
+      "ruling_badge": "validated",
+      "ruling_sources": [
+        "stub"
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     }
   ],
   "checkpoints": {

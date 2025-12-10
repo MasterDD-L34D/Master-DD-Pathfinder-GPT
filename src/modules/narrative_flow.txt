@@ -899,6 +899,19 @@ helpers:
       import time
       return int(time.time())
 
+# ── Seed: Progressione wizard evoker (livello 3-10)
+wizard_evoker_seed:
+  purpose: "Appoggio narrativo per descrivere evoluzioni di build (evoker) con numeri coerenti."
+  checkpoints:
+    - { livello: 3, slot: "1°:6 / 2°:4 / 3°:2", pf: 28, ca: 16, talenti: "Incantesimi focalizzati (Invocazione)", equip: "Bacchetta di dardo incantato (CL3)", ts: "+3/+4/+6" }
+    - { livello: 4, slot: "1°:6 / 2°:5 / 3°:4", pf: 36, ca: 16, talenti: "Magia focalizzata superiore", equip: "Veste da mago rinforzata", ts: "+4/+5/+7" }
+    - { livello: 5, slot: "1°:7 / 2°:6 / 3°:5 / 4°:3", pf: 44, ca: 17, talenti: "Incantesimi massimizzati", equip: "Perla di potere I, anello di protezione +1", ts: "+4/+5/+8" }
+    - { livello: 6, slot: "1°:7 / 2°:6 / 3°:6 / 4°:4", pf: 52, ca: 17, talenti: "Talento bonus — Incantesimi rapidi", equip: "Bacchetta di palla di fuoco (CL6)", ts: "+5/+6/+9" }
+    - { livello: 7, slot: "1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3", pf: 60, ca: 18, talenti: "Incantesimi focalizzati superiori", equip: "Cintura della destrezza +2", ts: "+5/+6/+10" }
+    - { livello: 8, slot: "1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4", pf: 68, ca: 18, talenti: "Penetrare resistenza magica", equip: "Pergamena di muro di forza", ts: "+6/+7/+11" }
+    - { livello: 9, slot: "1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5", pf: 76, ca: 19, talenti: "Incantesimi rapidi migliorati", equip: "Bacchetta di fulmine (CL9)", ts: "+6/+7/+12" }
+    - { livello: 10, slot: "1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6", pf: 84, ca: 20, talenti: "Incantesimi potenziati + Penetrare RM migliorato", equip: "Perla di potere IV, focus runici", ts: "+7/+8/+13" }
+
 # ── Note
 compatibility: "Compatibile con MinMax, Taverna NPC, Encounter Designer, Ledger, Explain e Ruling Expert."
 notes:

@@ -2248,3 +2248,72 @@ ui_templates:
 auto_append:
   mode: MinMax Builder
   append_template: build_card_compact
+
+# Wizard Evoker — Progressione di riferimento (livelli 3-10)
+wizard_evoker_progressione:
+  descrizione: "Linea guida pronta all'uso per compilare la progressione del mago umano Evoker, completa di slot, PF/TS/skill, CA e note equipaggiamento."
+  livelli:
+    - livello: 3
+      slot_incantesimi: "1°:6 / 2°:4 / 3°:2"
+      pf: 28
+      salvezze: {Tempra: 3, Riflessi: 4, Volontà: 6}
+      skill_hint: "Conoscenze (arcana) 9, Sapienza Magica 9, Percezione 6"
+      ca: 16
+      talento: "Incantesimi focalizzati (Invocazione)"
+      equip: ["Bacchetta di dardo incantato (CL3)"]
+    - livello: 4
+      slot_incantesimi: "1°:6 / 2°:5 / 3°:4"
+      pf: 36
+      salvezze: {Tempra: 4, Riflessi: 5, Volontà: 7}
+      skill_hint: "Conoscenze (arcana) 10, Sapienza Magica 10, Percezione 7"
+      ca: 16
+      talento: "Magia focalizzata superiore (Invocazione)"
+      equip: ["Veste da mago rinforzata"]
+    - livello: 5
+      slot_incantesimi: "1°:7 / 2°:6 / 3°:5 / 4°:3"
+      pf: 44
+      salvezze: {Tempra: 4, Riflessi: 5, Volontà: 8}
+      skill_hint: "Conoscenze (arcana) 12, Sapienza Magica 12, Percezione 8"
+      ca: 17
+      talento: "Incantesimi massimizzati"
+      equip: ["Perla di potere I", "Anello di protezione +1"]
+    - livello: 6
+      slot_incantesimi: "1°:7 / 2°:6 / 3°:6 / 4°:4"
+      pf: 52
+      salvezze: {Tempra: 5, Riflessi: 6, Volontà: 9}
+      skill_hint: "Conoscenze (arcana) 13, Sapienza Magica 13, Percezione 9"
+      ca: 17
+      talento: "Talento bonus (Mago) — Incantesimi rapidi"
+      equip: ["Bacchetta di palla di fuoco (CL6)"]
+    - livello: 7
+      slot_incantesimi: "1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3"
+      pf: 60
+      salvezze: {Tempra: 5, Riflessi: 6, Volontà: 10}
+      skill_hint: "Conoscenze (arcana) 14, Sapienza Magica 14, Percezione 9"
+      ca: 18
+      talento: "Incantesimi focalizzati superiori (Invocazione)"
+      equip: ["Cintura della destrezza +2"]
+    - livello: 8
+      slot_incantesimi: "1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4"
+      pf: 68
+      salvezze: {Tempra: 6, Riflessi: 7, Volontà: 11}
+      skill_hint: "Conoscenze (arcana) 15, Sapienza Magica 15, Percezione 10"
+      ca: 18
+      talento: "Penetrare resistenza magica"
+      equip: ["Pergamena di muro di forza"]
+    - livello: 9
+      slot_incantesimi: "1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5"
+      pf: 76
+      salvezze: {Tempra: 6, Riflessi: 7, Volontà: 12}
+      skill_hint: "Conoscenze (arcana) 17, Sapienza Magica 17, Percezione 10"
+      ca: 19
+      talento: "Incantesimi rapidi migliorati"
+      equip: ["Bacchetta di fulmine (CL9)"]
+    - livello: 10
+      slot_incantesimi: "1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6"
+      pf: 84
+      salvezze: {Tempra: 7, Riflessi: 8, Volontà: 13}
+      skill_hint: "Conoscenze (arcana) 18, Sapienza Magica 18, Percezione 11"
+      ca: 20
+      talento: "Incantesimi potenziati + Penetrare resistenza magica migliorato"
+      equip: ["Perla di potere IV", "Focus runici"]
