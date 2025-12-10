@@ -15,7 +15,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Consolidare `compute_effective_cr_from_enemies` in una sola implementazione (mantenendo la versione clampata) e aggiornare `/auto_balance` per usare esplicitamente l’helper definitivo, così da rimuovere ambiguità di risultato e manutenzione duplicata.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L780-L800】
+- [P1][Completato] `compute_effective_cr_from_enemies` unificato sulla versione clampata (qty ∈[1,64], CR ∈[0,40]) e `/auto_balance` puntato esplicitamente allo stesso helper per evitare ambiguità di calcolo.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L777-L788】
 - [P1] Ampliare `run_qagates` con gate aggiuntivi per pacing/loot e per la presenza di `balance_snapshot`, bloccando l’export se mancano ondate, loot o la simulazione di rischio/bilanciamento; aggiorna anche i messaggi di QA per guidare l’utente ai comandi `/set_pacing`, `/set_loot_policy`, `/auto_balance` o `/simulate_encounter`.【F:src/modules/Encounter_Designer.txt†L620-L637】【F:src/modules/Encounter_Designer.txt†L357-L398】
 - [P2] Estendere i gate QA per coprire pacing/loot/export: oggi la checklist richiede solo nemici, CR stimato e badge/PFS, per cui export può passare anche con ondate vuote o loot mancante. Aggiungere controlli su `pacing`/`loot` eviterebbe snapshot incompleti.【F:src/modules/Encounter_Designer.txt†L620-L637】【F:src/modules/Encounter_Designer.txt†L357-L378】【F:src/modules/Encounter_Designer.txt†L379-L398】
 - [P2] Allineare la validazione a `/simulate_encounter`: integrare un gate che verifichi la presenza di `balance_snapshot` (simulazione o auto-balance) garantirebbe export coerenti con i rischi stimati e ridurrebbe QA manuale.【F:src/modules/Encounter_Designer.txt†L316-L350】【F:src/modules/Encounter_Designer.txt†L379-L398】
@@ -23,7 +23,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il modello dati evita riferimenti a testi protetti: stat e DC sono placeholder numerici astratti, mentre badge e gate PFS delimitano eventuali HR.【F:src/modules/Encounter_Designer.txt†L92-L140】【F:src/modules/Encounter_Designer.txt†L357-L419】
 - [Osservazione] Il flusso incorporato consente pipeline completa: setup → generazione/auto-bilanciamento → QA → export VTT/MD/PDF, con CTA che richiamano i comandi chiave e auto-validate prima dell’export.【F:src/modules/Encounter_Designer.txt†L486-L523】【F:src/modules/Encounter_Designer.txt†L400-L419】
-- [Errore] Doppia definizione di `compute_effective_cr_from_enemies`: la prima variante calcola una media non clampata ed è richiamata da `/auto_balance`, mentre la seconda (con `_clampf`) sovrascrive la precedente, creando ambiguità su quale logica adottare e su quando applicare i limiti di quantità/CR.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L698-L709】【F:src/modules/Encounter_Designer.txt†L780-L800】
+- [Osservazione] CR effettivo calcolato con helper unico clampato (qty ∈[1,64], CR ∈[0,40]) richiamato da `/auto_balance`, eliminando la precedente ambiguità di doppia definizione.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L777-L788】
 
 ## Taverna_NPC
 - Report: `reports/module_tests/Taverna_NPC.md`
