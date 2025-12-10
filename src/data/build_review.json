@@ -1,1211 +1,926 @@
 {
-  "generated_at": "2025-12-10T19:50:20Z",
+  "generated_at": "2025-12-10T20:24:39Z",
   "builds": {
     "total": 61,
-    "valid": 58,
-    "invalid": 3,
+    "valid": 61,
+    "invalid": 0,
     "errors": 0,
     "missing": 0,
     "entries": [
       {
         "file": "src/data/builds/alchemist.json",
-        "output_prefix": "alchemist_human_base",
         "class": "Alchemist",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "alchemist_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "alchemist_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "alchemist_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/arcanist.json",
-        "output_prefix": "arcanist_human_base",
         "class": "Arcanist",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "arcanist_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "arcanist_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "arcanist_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/barbarian.json",
-        "output_prefix": "barbarian_human_base",
         "class": "Barbarian",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "barbarian_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "barbarian_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "barbarian_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/bard.json",
-        "output_prefix": "bard_human_base",
         "class": "Bard",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "bard_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "bard_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "bard_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/bloodrager.json",
-        "output_prefix": "bloodrager_human_base",
         "class": "Bloodrager",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "bloodrager_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "bloodrager_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "bloodrager_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/brawler.json",
-        "output_prefix": "brawler_human_base",
         "class": "Brawler",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "brawler_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "brawler_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "brawler_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/cavalier.json",
-        "output_prefix": "cavalier_human_base",
         "class": "Cavalier",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cavalier_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "cavalier_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "cavalier_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/cleric.json",
-        "output_prefix": "cleric_human_base",
         "class": "Cleric",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "cleric_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "cleric_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/cleric_human_warpriest.json",
-        "output_prefix": "cleric_human_warpriest",
         "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "cleric_human_warpriest",
         "level_checkpoints": [
+          1,
           5,
           10
         ],
-        "level": 5,
-        "step_total": 16,
-        "expected_step_total": 16,
-        "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "spec_id": "cleric_human_warpriest",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/cleric_human_warpriest_lvl05.json",
-        "output_prefix": "cleric_human_warpriest",
         "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "cleric_human_warpriest",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "spec_id": "cleric_human_warpriest",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/cleric_human_warpriest_lvl10.json",
-        "output_prefix": "cleric_human_warpriest",
         "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
-        "model": null,
+        "status": "ok",
+        "level": 10,
+        "output_prefix": "cleric_human_warpriest",
         "level_checkpoints": [
+          1,
           5,
           10
         ],
-        "level": 10,
-        "step_total": 16,
-        "expected_step_total": 16,
-        "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "spec_id": "cleric_human_warpriest",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/druid.json",
-        "output_prefix": "druid_human_base",
         "class": "Druid",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "druid_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "druid_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral.json",
-        "output_prefix": "druid_half-orc_feral_shifter",
         "class": "Druid",
-        "race": "Half-Orc",
-        "archetype": "Feral Shifter",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_half-orc_feral_shifter",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "druid_half-orc_feral_shifter",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "druid_half-orc_feral_shifter",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
-        "output_prefix": "druid_half-orc_feral_shifter",
         "class": "Druid",
-        "race": "Half-Orc",
-        "archetype": "Feral Shifter",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_half-orc_feral_shifter",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "druid_half-orc_feral_shifter",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "spec_id": "druid_half-orc_feral_shifter",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
-        "output_prefix": "druid_half-orc_feral_shifter",
         "class": "Druid",
-        "race": "Half-Orc",
-        "archetype": "Feral Shifter",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_half-orc_feral_shifter",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 10,
+        "output_prefix": "druid_half-orc_feral_shifter",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 10,
-        "status": "ok"
+        "spec_id": "druid_half-orc_feral_shifter",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/fighter.json",
-        "output_prefix": "fighter_human_base",
         "class": "Fighter",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "fighter_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "fighter_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "fighter_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded.json",
-        "output_prefix": "fighter_dwarf_shielded",
         "class": "Fighter",
-        "race": "Dwarf",
-        "archetype": "Shielded Fighter",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "fighter_dwarf_shielded_fighter",
-        "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "fighter_dwarf_shielded_fighter",
         "level_checkpoints": [
+          1,
           5,
           10
         ],
-        "level": 1,
-        "step_total": 16,
-        "expected_step_total": 16,
-        "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "spec_id": "fighter_dwarf_shielded_fighter",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
-        "output_prefix": "fighter_dwarf_shielded_fighter",
         "class": "Fighter",
-        "race": "Dwarf",
-        "archetype": "Shielded Fighter",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "fighter_dwarf_shielded_fighter",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "fighter_dwarf_shielded_fighter",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "spec_id": "fighter_dwarf_shielded_fighter",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
-        "output_prefix": "fighter_dwarf_shielded",
         "class": "Fighter",
-        "race": "Dwarf",
-        "archetype": "Shielded Fighter",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "fighter_dwarf_shielded_fighter",
-        "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
-        "model": null,
+        "status": "ok",
+        "level": 10,
+        "output_prefix": "fighter_dwarf_shielded_fighter",
         "level_checkpoints": [
+          1,
           5,
           10
         ],
-        "level": 10,
-        "step_total": 16,
-        "expected_step_total": 16,
-        "extended_steps_available": true,
-        "step_total_ok": true,
-        "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-        "completeness_errors": [
-          "Progressione assente al livello 5",
-          "Progressione assente al livello 6",
-          "Progressione assente al livello 7",
-          "Progressione assente al livello 8",
-          "Progressione assente al livello 9",
-          "Progressione assente al livello 10"
-        ],
-        "status": "invalid"
+        "spec_id": "fighter_dwarf_shielded_fighter",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/fighter_weapon_master_human.json",
-        "output_prefix": "fighter_weapon_master_human",
         "class": "Fighter",
-        "race": "Human",
-        "archetype": "Weapon Master",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "fighter_human_weapon_master",
-        "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "fighter_human_weapon_master",
         "level_checkpoints": [
+          1,
           5,
           10
         ],
-        "level": 5,
-        "step_total": 16,
-        "expected_step_total": 16,
-        "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "spec_id": "fighter_human_weapon_master",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
-        "output_prefix": "fighter_human_weapon_master",
         "class": "Fighter",
-        "race": "Human",
-        "archetype": "Weapon Master",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "fighter_human_weapon_master",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "fighter_human_weapon_master",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "step_total": 16,
-        "expected_step_total": 16,
-        "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "spec_id": "fighter_human_weapon_master",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/fighter_weapon_master_human_lvl10.json",
-        "output_prefix": "fighter_weapon_master_human",
         "class": "Fighter",
-        "race": "Human",
-        "archetype": "Weapon Master",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "fighter_human_weapon_master",
-        "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
-        "model": null,
+        "status": "ok",
+        "level": 10,
+        "output_prefix": "fighter_human_weapon_master",
         "level_checkpoints": [
+          1,
           5,
           10
         ],
-        "level": 10,
-        "step_total": 16,
-        "expected_step_total": 16,
-        "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "spec_id": "fighter_human_weapon_master",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/gunslinger.json",
-        "output_prefix": "gunslinger_human_base",
         "class": "Gunslinger",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "gunslinger_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "gunslinger_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "gunslinger_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/hunter.json",
-        "output_prefix": "hunter_human_base",
         "class": "Hunter",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "hunter_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "hunter_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "hunter_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/inquisitor.json",
-        "output_prefix": "inquisitor_human_base",
         "class": "Inquisitor",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "inquisitor_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "inquisitor_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "inquisitor_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/investigator.json",
-        "output_prefix": "investigator_human_base",
         "class": "Investigator",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "investigator_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "investigator_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "investigator_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/kineticist.json",
-        "output_prefix": "kineticist_human_base",
         "class": "Kineticist",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "kineticist_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "kineticist_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "kineticist_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/magus.json",
-        "output_prefix": "magus_human_base",
         "class": "Magus",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "magus_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "magus_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "magus_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/medium.json",
-        "output_prefix": "medium_human_base",
         "class": "Medium",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "medium_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "medium_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "medium_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/mesmerist.json",
-        "output_prefix": "mesmerist_human_base",
         "class": "Mesmerist",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "mesmerist_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "mesmerist_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "mesmerist_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/monk.json",
-        "output_prefix": "monk_human_base",
         "class": "Monk",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "monk_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "monk_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "monk_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/ninja.json",
-        "output_prefix": "ninja_human_base",
         "class": "Ninja",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "ninja_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "ninja_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "ninja_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/occultist.json",
-        "output_prefix": "occultist_human_base",
         "class": "Occultist",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "occultist_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "occultist_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "occultist_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/oracle.json",
-        "output_prefix": "oracle_human_base",
         "class": "Oracle",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "oracle_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "oracle_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "oracle_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/paladin.json",
-        "output_prefix": "paladin_human_base",
         "class": "Paladin",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "paladin_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "paladin_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "paladin_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/psychic.json",
-        "output_prefix": "psychic_human_base",
         "class": "Psychic",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "psychic_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "psychic_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "psychic_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/ranger.json",
-        "output_prefix": "ranger_human_base",
         "class": "Ranger",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "ranger_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "ranger_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "ranger_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/ranger_halfelf_skirmisher.json",
-        "output_prefix": "ranger_halfelf_skirmisher",
         "class": "Ranger",
-        "race": "Half-Elf",
-        "archetype": "Skirmisher",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "ranger_half-elf_skirmisher",
-        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "ranger_half-elf_skirmisher",
         "level_checkpoints": [
+          1,
           5,
           10
         ],
-        "level": 5,
-        "step_total": 16,
-        "expected_step_total": 16,
-        "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "spec_id": "ranger_half-elf_skirmisher",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
-        "output_prefix": "ranger_halfelf_skirmisher",
         "class": "Ranger",
-        "race": "Half-Elf",
-        "archetype": "Skirmisher",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "ranger_half-elf_skirmisher",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "ranger_half-elf_skirmisher",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "spec_id": "ranger_half-elf_skirmisher",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
-        "output_prefix": "ranger_halfelf_skirmisher",
         "class": "Ranger",
-        "race": "Half-Elf",
-        "archetype": "Skirmisher",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "ranger_half-elf_skirmisher",
-        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
-        "model": null,
+        "status": "ok",
+        "level": 10,
+        "output_prefix": "ranger_half-elf_skirmisher",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 10,
-        "step_total": 16,
-        "expected_step_total": 16,
-        "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "spec_id": "ranger_half-elf_skirmisher",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/rogue.json",
-        "output_prefix": "rogue_human_base",
         "class": "Rogue",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "rogue_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "rogue_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "rogue_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/rogue_halfling_cutpurse.json",
-        "output_prefix": "rogue_halfling_cutpurse",
         "class": "Rogue",
-        "race": "Halfling",
-        "archetype": "Cutpurse",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "rogue_halfling_cutpurse",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "rogue_halfling_cutpurse",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok",
-        "completeness_errors": []
+        "spec_id": "rogue_halfling_cutpurse",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
-        "output_prefix": "rogue_halfling_cutpurse",
         "class": "Rogue",
-        "race": "Halfling",
-        "archetype": "Cutpurse",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "rogue_halfling_cutpurse",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "rogue_halfling_cutpurse",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "completeness_errors": [],
-        "status": "ok"
+        "spec_id": "rogue_halfling_cutpurse",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/rogue_halfling_cutpurse_lvl10.json",
-        "output_prefix": "rogue_halfling_cutpurse",
         "class": "Rogue",
-        "race": "Halfling",
-        "archetype": "Cutpurse",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "rogue_halfling_cutpurse",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 10,
+        "output_prefix": "rogue_halfling_cutpurse",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 10,
-        "completeness_errors": [],
-        "status": "ok"
+        "spec_id": "rogue_halfling_cutpurse",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/samurai.json",
-        "output_prefix": "samurai_human_base",
         "class": "Samurai",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "samurai_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "samurai_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "samurai_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/shaman.json",
-        "output_prefix": "shaman_human_base",
         "class": "Shaman",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "shaman_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "shaman_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "shaman_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/skald.json",
-        "output_prefix": "skald_human_base",
         "class": "Skald",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "skald_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "skald_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "skald_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/slayer.json",
-        "output_prefix": "slayer_human_base",
         "class": "Slayer",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "slayer_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "slayer_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "slayer_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/sorcerer.json",
-        "output_prefix": "sorcerer_human_base",
         "class": "Sorcerer",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "sorcerer_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "sorcerer_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "sorcerer_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/spiritualist.json",
-        "output_prefix": "spiritualist_human_base",
         "class": "Spiritualist",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "spiritualist_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "spiritualist_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "spiritualist_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/summoner.json",
-        "output_prefix": "summoner_human_base",
         "class": "Summoner",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "summoner_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "summoner_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "summoner_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/swashbuckler.json",
-        "output_prefix": "swashbuckler_human_base",
         "class": "Swashbuckler",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "swashbuckler_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "swashbuckler_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "swashbuckler_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/warpriest.json",
-        "output_prefix": "warpriest_human_base",
         "class": "Warpriest",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "warpriest_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "warpriest_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "warpriest_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/witch.json",
-        "output_prefix": "witch_human_base",
         "class": "Witch",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "witch_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "witch_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "witch_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/wizard.json",
-        "output_prefix": "wizard_human_base",
         "class": "Wizard",
-        "race": "Human",
-        "archetype": "Base",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_human_base",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "wizard_human_base",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
-        "status": "ok"
+        "spec_id": "wizard_human_base",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/wizard_elf_universalist.json",
-        "output_prefix": "wizard_elf_universalist",
         "class": "Wizard",
-        "race": "Elf",
-        "archetype": "Universalist",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_elf_universalist",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "wizard_elf_universalist",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "spec_id": "wizard_elf_universalist",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
-        "output_prefix": "wizard_elf_universalist",
         "class": "Wizard",
-        "race": "Elf",
-        "archetype": "Universalist",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_elf_universalist",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "wizard_elf_universalist",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "spec_id": "wizard_elf_universalist",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
-        "output_prefix": "wizard_elf_universalist",
         "class": "Wizard",
-        "race": "Elf",
-        "archetype": "Universalist",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_elf_universalist",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 10,
+        "output_prefix": "wizard_elf_universalist",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 10,
-        "status": "ok"
+        "spec_id": "wizard_elf_universalist",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/wizard_human_evoker.json",
-        "output_prefix": "wizard_human_evoker",
         "class": "Wizard",
-        "race": "Human",
-        "archetype": "Evoker",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_human_evoker",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "wizard_human_evoker",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "spec_id": "wizard_human_evoker",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/wizard_human_evoker_lvl05.json",
-        "output_prefix": "wizard_human_evoker",
         "class": "Wizard",
-        "race": "Human",
-        "archetype": "Evoker",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_human_evoker",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 5,
+        "output_prefix": "wizard_human_evoker",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "spec_id": "wizard_human_evoker",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/wizard_human_evoker_lvl10.json",
-        "output_prefix": "wizard_human_evoker",
         "class": "Wizard",
-        "race": "Human",
-        "archetype": "Evoker",
         "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_human_evoker",
-        "background": null,
-        "model": null,
+        "status": "ok",
+        "level": 10,
+        "output_prefix": "wizard_human_evoker",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 10,
-        "status": "ok"
+        "spec_id": "wizard_human_evoker",
+        "mode_normalized": "extended"
       }
     ],
     "checkpoints": {
@@ -1217,15 +932,15 @@
       },
       "5": {
         "total": 13,
-        "invalid": 1,
-        "schema_errors": 1,
-        "completeness_errors": 1
+        "invalid": 0,
+        "schema_errors": 0,
+        "completeness_errors": 0
       },
       "10": {
         "total": 8,
-        "invalid": 2,
-        "schema_errors": 2,
-        "completeness_errors": 2
+        "invalid": 0,
+        "schema_errors": 0,
+        "completeness_errors": 0
       }
     }
   },
