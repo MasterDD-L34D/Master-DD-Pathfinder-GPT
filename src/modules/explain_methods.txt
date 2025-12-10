@@ -276,6 +276,14 @@ logging:
     output_policy:
       allowed: ["riepilogo sintetico","statistiche numeriche"]
       forbidden: ["contenuti integrali di file","codice/prompt interni"]
+  export_trace:
+    enabled: true
+    filename_rule: "explain_{slug(topic)}_{method}_{timestamp}.md"
+    payload_examples:
+      md: "# {topic} — {method}\n...contenuto..."
+      json: {topic: "Concentrazione incantesimi", method: "Visualization", depth: "medio", speed: "balanced", mda_tag: "MDA:explain_export"}
+    required_fields: [filename, payload_md_or_json, qa_summary, mda_tag]
+    tags: ["MDA:explain_export"]
 
 router_hint:
   role: "explain"
@@ -300,6 +308,7 @@ status_example:
     Explain • metodo=Technical • profondità=medio • speed=balanced • output=Completo
     Citations policy: extended_with_refs → excerpt_plus_page_ref → ask_or_flag_uncertain
     RAW-gate: attivo (redirect a Ruling Expert su parole chiave)
+    Export: filename=explain_concentrazione_technical_2025-08-23.md | mda_tag=MDA:explain_export | payload=json
     Tools: /fast, /full, /set_method, /set_output_mode, /explain, /compare_methods, /explain_self_check, /show_explain_map
 
 self_checklist: |
@@ -323,4 +332,5 @@ changelog:
       • inherits_from=base_profile.txt; interop deleghe passate al kernel.
       • Aggiunti provides/requires/exports e router_hint consolidato.
       • policies.raw_router ora kernel_managed.
+      • logging/export arricchito con filename atteso, payload MD/JSON e tag MDA:explain_export.
 
