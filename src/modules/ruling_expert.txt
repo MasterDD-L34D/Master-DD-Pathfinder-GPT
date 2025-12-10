@@ -291,6 +291,13 @@ minmax_builder_stub_fields:
     ledger: "Movimenti e currency (oro/argento/rame) per verifiche di costo/ricompense; supporta check di compliance PFS e export equipaggiamento."
     export: "Blocco sheet_payload già formattato per export_build/export_vtt, coerente con lo schema builder e riutilizzabile dai moduli di rendering."
     composite: "Vista aggregata: build_state+benchmark+export nella sezione build, più narrative/sheet/ledger. Pensata per client che vogliono un payload unico e per cross-check con rulings."
+  usage_in_rulings_and_qa:
+    build_state: "Legge step e classi/archetipi per capire se la domanda è legalmente valida (es. prerequisiti, archetipi incompatibili) e per applicare restrizioni PFS per livello/stagione."
+    sheet: "Alimenta esempi numerici (CA, TxC, slot) e calcoli arithmetic_guard; funge da prova di legalità per stacking e disponibilità di risorse."
+    benchmark: "Stabilisce il target di potenza atteso; i rulings segnalano deviazioni (over/under) e il QA verifica coerenza con ruling_badge/tier."
+    ledger: "Verifica spesa/ricompense e cronologia acquisti; QA controlla che le fonti di oro o item rispettino Additional Resources/Guide PFS."
+    export: "Garantisce che le risposte siano compatibili con i formati di export (build/vtt); QA confronta i campi calcolati con sheet/benchmark per coerenza."
+    composite: "Usato per QA incrociato: build_state guida le decisioni, benchmark definisce l’aspettativa, export/sheet mostrano il risultato finale; eventuali divergenze fanno scattare flag QA."
 
 flow:
   cache_enabled: true
@@ -437,7 +444,7 @@ status_example:
   output: |
     Ruling Expert • scope: RAW • PFS: auto (season: auto) • speed: balanced • output: Completo • dump: locked (ALLOW_MODULE_DUMP=false; whitelist: -)
     Last sources: AoN:[…], Book/Page:[…], FAQ:[…] | Cache: hit yes/no | Offline: disabled
-    👉 Conferma stagione PFS attiva (/set_pfs_season 10-11 o "auto") prima di applicare i ruling.
+    👉 Prima di procedere, conferma esplicitamente la stagione PFS attiva con /set_pfs_season 10-11 (o "auto").
 
 examples:
   - user: "/ruling Canny Defense"
