@@ -1413,6 +1413,7 @@ async def get_module_content(
     truncated_size = len(chunk[:max_chars].encode("utf-8", errors="ignore"))
     remaining = max(total_size - truncated_size, 0)
     is_truncated = len(chunk) > max_chars
+    original_length = total_size
 
     def _truncated_text():
         if is_truncated:
@@ -1429,6 +1430,8 @@ async def get_module_content(
         "X-Content-Remaining-Bytes": str(remaining),
         "X-Content-Truncated": str(is_truncated).lower(),
         "X-Content-Original-Length": str(total_size),
+        "X-Truncated": str(is_truncated).lower(),
+        "X-Original-Length": str(original_length),
         "Warning": '199 - "Contenuto parziale: ALLOW_MODULE_DUMP=false"',
     }
 
