@@ -1,26 +1,173 @@
 {
-  "generated_at": "2025-12-10T20:24:39Z",
+  "generated_at": "2025-12-10T22:24:11Z",
   "builds": {
-    "total": 61,
-    "valid": 61,
+    "total": 66,
+    "valid": 66,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
     "entries": [
       {
-        "file": "src/data/builds/alchemist.json",
-        "class": "Alchemist",
-        "mode": "extended",
-        "status": "ok",
+        "file": "src/data/builds/alchemist-goblin-vivisectionist.json",
+        "output_prefix": "alchemist-goblin-vivisectionist",
         "level": 1,
-        "output_prefix": "alchemist_human_base",
+        "class": "Alchemist",
+        "race": "Goblin",
+        "archetype": "Vivisectionist",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "Alchemist::Goblin::Vivisectionist",
+        "model": null,
+        "background": null,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "spec_id": "alchemist_human_base",
-        "mode_normalized": "extended"
+        "ruling_badge": "full",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl05.json",
+        "output_prefix": "alchemist-goblin-vivisectionist",
+        "level": 5,
+        "class": "Alchemist",
+        "race": "Goblin",
+        "archetype": "Vivisectionist",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "Alchemist::Goblin::Vivisectionist",
+        "model": null,
+        "background": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "full",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl10.json",
+        "output_prefix": "alchemist-goblin-vivisectionist",
+        "level": 10,
+        "class": "Alchemist",
+        "race": "Goblin",
+        "archetype": "Vivisectionist",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "Alchemist::Goblin::Vivisectionist",
+        "model": null,
+        "background": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "full",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/alchemist_goblin_bombardier.json",
+        "output_prefix": "alchemist_goblin_bombardier",
+        "level": 1,
+        "class": "Alchemist",
+        "race": "Goblin",
+        "archetype": "Bombardier",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "Alchemist::Goblin::Bombardier",
+        "model": null,
+        "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "validated",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/alchemist_goblin_bombardier_lvl05.json",
+        "output_prefix": "alchemist_goblin_bombardier",
+        "level": 5,
+        "class": "Alchemist",
+        "race": "Goblin",
+        "archetype": "Bombardier",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "Alchemist::Goblin::Bombardier",
+        "model": null,
+        "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "validated",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/alchemist_goblin_bombardier_lvl10.json",
+        "output_prefix": "alchemist_goblin_bombardier",
+        "level": 10,
+        "class": "Alchemist",
+        "race": "Goblin",
+        "archetype": "Bombardier",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "Alchemist::Goblin::Bombardier",
+        "model": null,
+        "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "validated",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
       },
       {
         "file": "src/data/builds/arcanist.json",
@@ -925,19 +1072,19 @@
     ],
     "checkpoints": {
       "1": {
-        "total": 40,
+        "total": 66,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "5": {
-        "total": 13,
+        "total": 66,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "10": {
-        "total": 8,
+        "total": 66,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
@@ -955,19 +1102,19 @@
         "module": "Encounter_Designer.txt",
         "file": "src/data/modules/Encounter_Designer.txt",
         "status": "ok",
-        "size_bytes": 34933
+        "size_bytes": 36198
       },
       {
         "module": "Taverna_NPC.txt",
         "file": "src/data/modules/Taverna_NPC.txt",
         "status": "ok",
-        "size_bytes": 118875
+        "size_bytes": 121946
       },
       {
         "module": "adventurer_ledger.txt",
         "file": "src/data/modules/adventurer_ledger.txt",
         "status": "ok",
-        "size_bytes": 78578
+        "size_bytes": 78592
       },
       {
         "module": "archivist.txt",
@@ -979,7 +1126,7 @@
         "module": "base_profile.txt",
         "file": "src/data/modules/base_profile.txt",
         "status": "ok",
-        "size_bytes": 36093
+        "size_bytes": 36078
       },
       {
         "module": "explain_methods.txt",
@@ -991,25 +1138,25 @@
         "module": "knowledge_pack.md",
         "file": "src/data/modules/knowledge_pack.md",
         "status": "ok",
-        "size_bytes": 12306
+        "size_bytes": 12360
       },
       {
         "module": "meta_doc.txt",
         "file": "src/data/modules/meta_doc.txt",
         "status": "ok",
-        "size_bytes": 31380
+        "size_bytes": 31371
       },
       {
         "module": "minmax_builder.txt",
         "file": "src/data/modules/minmax_builder.txt",
         "status": "ok",
-        "size_bytes": 82907
+        "size_bytes": 82906
       },
       {
         "module": "narrative_flow.txt",
         "file": "src/data/modules/narrative_flow.txt",
         "status": "ok",
-        "size_bytes": 24288
+        "size_bytes": 35089
       },
       {
         "module": "ruling_expert.txt",
@@ -1027,7 +1174,7 @@
         "module": "sigilli_runner_module.txt",
         "file": "src/data/modules/sigilli_runner_module.txt",
         "status": "ok",
-        "size_bytes": 5431
+        "size_bytes": 6868
       },
       {
         "module": "tavern_hub.json",

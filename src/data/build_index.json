@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-10T21:32:34Z",
+  "generated_at": "2025-12-10T22:24:11Z",
   "api_url": null,
   "mode": "mixed",
   "spec_file": null,
@@ -86,24 +86,24 @@
       "step_total_ok": true
     },
     {
-      "file": "src/data/builds/alchemist-human-base.json",
+      "file": "src/data/builds/alchemist_goblin_bombardier.json",
       "status": "ok",
-      "output_prefix": "alchemist-human-base",
+      "output_prefix": "alchemist_goblin_bombardier",
       "level": 1,
       "class": "Alchemist",
-      "race": "Human",
-      "archetype": "Base",
+      "race": "Goblin",
+      "archetype": "Bombardier",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "Alchemist::Human::Base",
+      "spec_id": "Alchemist::Goblin::Bombardier",
       "model": null,
-      "background": null,
+      "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "full",
+      "ruling_badge": "validated",
       "ruling_sources": [
         "mock_ruling_expert"
       ],
@@ -113,24 +113,24 @@
       "step_total_ok": true
     },
     {
-      "file": "src/data/builds/alchemist-human-base_lvl05.json",
+      "file": "src/data/builds/alchemist_goblin_bombardier_lvl05.json",
       "status": "ok",
-      "output_prefix": "alchemist-human-base",
+      "output_prefix": "alchemist_goblin_bombardier",
       "level": 5,
       "class": "Alchemist",
-      "race": "Human",
-      "archetype": "Base",
+      "race": "Goblin",
+      "archetype": "Bombardier",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "Alchemist::Human::Base",
+      "spec_id": "Alchemist::Goblin::Bombardier",
       "model": null,
-      "background": null,
+      "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "full",
+      "ruling_badge": "validated",
       "ruling_sources": [
         "mock_ruling_expert"
       ],
@@ -140,24 +140,24 @@
       "step_total_ok": true
     },
     {
-      "file": "src/data/builds/alchemist-human-base_lvl10.json",
+      "file": "src/data/builds/alchemist_goblin_bombardier_lvl10.json",
       "status": "ok",
-      "output_prefix": "alchemist-human-base",
+      "output_prefix": "alchemist_goblin_bombardier",
       "level": 10,
       "class": "Alchemist",
-      "race": "Human",
-      "archetype": "Base",
+      "race": "Goblin",
+      "archetype": "Bombardier",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "Alchemist::Human::Base",
+      "spec_id": "Alchemist::Goblin::Bombardier",
       "model": null,
-      "background": null,
+      "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "full",
+      "ruling_badge": "validated",
       "ruling_sources": [
         "mock_ruling_expert"
       ],
@@ -165,25 +165,6 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true
-    },
-    {
-      "file": "src/data/builds/alchemist.json",
-      "status": "ok",
-      "output_prefix": "alchemist_human_base",
-      "class": "Alchemist",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "alchemist_human_base",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1
     },
     {
       "file": "src/data/builds/arcanist.json",
@@ -1325,25 +1306,5 @@
       ],
       "level": 10
     }
-  ],
-  "checkpoints": {
-    "1": {
-      "total": 42,
-      "invalid": 1,
-      "schema_errors": 1,
-      "completeness_errors": 1
-    },
-    "5": {
-      "total": 15,
-      "invalid": 1,
-      "schema_errors": 1,
-      "completeness_errors": 1
-    },
-    "10": {
-      "total": 10,
-      "invalid": 1,
-      "schema_errors": 1,
-      "completeness_errors": 1
-    }
-  }
+  ]
 }
