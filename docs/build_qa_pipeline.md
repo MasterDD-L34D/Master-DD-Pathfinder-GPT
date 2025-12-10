@@ -3,7 +3,11 @@
 Lo script `tools/build_qa_pipeline.py` carica i payload già salvati da
 `generate_build_db` e orchestra una catena di QA multi-servizio:
 
-1. **Ruling Expert** — valida/tagga il `ruling_badge` del payload.
+1. **Ruling Expert** — valida/tagga il `ruling_badge` del payload usando il
+   contesto di build (classe, talenti chiave, flag HR/META/PFS). Se il badge è
+   mancante/non conforme o la modalità PFS include HR/META, il QA fallisce e
+   lo snapshot non viene accettato. Il report include sempre il badge finale e
+   le fonti dichiarate dal modulo.
 2. **MinMax Builder** — esegue benchmark e QA per confermare lo stato della build.
 3. **Hook narrativi opzionali** — chiama `/export_arc_to_build` e/o `/ruling_check`
    (Taverna/Narrative) per arricchire l'export e verificare coerenza.
