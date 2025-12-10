@@ -929,7 +929,7 @@ commands:
   /help:
     description: Mostra i comandi principali del Builder
     action:
-      - output: "\U0001F4D6 **MinMax Builder — Help rapido**\n/start_build — Avvia una nuova build\n/set_player_style <Timmy|Johnny|Spike> — Imposta stile\n/toggle_pfs <on|off> — Filtro legalità PFS\n/toggle_rules pfs=<on/off> abp=<on/off> eitr=<on/off> — Regole opzionali\n/update_build {...} — Aggiorna stato base\n/add_level {...} — Aggiungi livello/talento\n/add_spell <lvl> ['Inc1','Inc2'] — Aggiungi spell\n/bench [-q] — Benchmark (quick/full)\n/run_benchmark — Full benchmark\n/qa_check — QA rapido\n/export_build <pdf|excel> — Export\n/export_vtt — Export JSON VTT\n/set_profile {...} — Anagrafica/Lingue/CA/Velocità\n/set_roleplay {...} — Psico/Legami/Ganci/Flavor\n/set_spell_slots {...} — Slot/CD giornalieri\n/set_currency ... — Monete\n/set_inventory_weight ... — Peso/Carico\n/set_attacks ... /set_skills ... — Attacchi/Abilità\n"
+      - output: "\U0001F4D6 **MinMax Builder — Help rapido**\n/start_build — Avvia una nuova build\n/set_player_style <Timmy|Johnny|Spike> — Imposta stile\n/toggle_pfs <on|off> — Filtro legalità PFS\n/toggle_rules pfs=<on/off> abp=<on/off> eitr=<on/off> — Regole opzionali\n/update_build {...} — Aggiorna stato base\n/add_level {...} — Aggiungi livello/talento\n/add_spell <lvl> ['Inc1','Inc2'] — Aggiungi spell\n/bench [-q] — Benchmark (quick/full)\n/run_benchmark — Full benchmark\n/qa_check — QA rapido (fonti>0, no HR se PFS attivo)\n/export_build <pdf|excel> — Export QA-only (file: build_card_minmax_v5.pdf/.xlsx)\n/export_vtt — Export JSON QA-only (file: build_vtt_minmax.json)\n/set_profile {...} — Anagrafica/Lingue/CA/Velocità\n/set_roleplay {...} — Psico/Legami/Ganci/Flavor\n/set_spell_slots {...} — Slot/CD giornalieri\n/set_currency ... — Monete\n/set_inventory_weight ... — Peso/Carico\n/set_attacks ... /set_skills ... — Attacchi/Abilità\n"
   /about:
     description: Info modulo e versioning
     action:
@@ -1065,7 +1065,9 @@ commands:
         on_fail: '@export_blocked'
     - output_template: build_card_extended
     - export: '{{format}}'
-    - output: "📦 Export {{format}} pronto."
+    - output: >-
+        📦 Export {{format}} pronto (file: build_card_minmax_v5.{{
+        'xlsx' if format == 'excel' else format }}).
 /export_vtt:
   description: Esporta in JSON VTT (per VTT/roll20-like)
   action:
@@ -1074,7 +1076,7 @@ commands:
         on_fail: '@export_blocked'
     - output_template: vtt_export_json
     - export: json
-    - output: "\U0001F4E4 Export VTT completato."
+    - output: "📤 Export VTT completato (file: build_vtt_minmax.json)."
   /list_builds:
     description: Elenca le build salvate nella sessione
     action:
@@ -1209,7 +1211,9 @@ commands:
     description: Simula performance della build corrente
     action:
       - command: /run_benchmark
-      - output: "\U0001F9EA Simulazione completata. Usa /export_build o /export_vtt."
+      - output: >-
+          \U0001F9EA Simulazione completata. Usa /export_build (build_card_minmax_v5.pdf/.xlsx)
+          o /export_vtt (build_vtt_minmax.json).
   /run_benchmark:
     description: 'Calcola benchmark RAW + Meta Tier (quick=true usa cache, salta re-scan)'
     params:
@@ -1827,7 +1831,7 @@ steps:
         - 'Esegui /qa_check; se blocchi, suggerisci rollback/fork'
     cta:
       primary:
-        text: Esporta la build (PDF)
+        text: Esporta la build (PDF: build_card_minmax_v5.pdf — QA richiesto: fonti OK, PFS senza HR)
         command: /export_build pdf
       alternatives:
         - when_unmet: 'true'
@@ -1870,7 +1874,7 @@ steps:
         - qa_templates.gates.export_requires
     cta:
       primary:
-        text: Esporta e passa alle varianti
+        text: Esporta (build_card_minmax_v5.pdf/.xlsx, build_vtt_minmax.json) e passa alle varianti — QA: fonti OK + PFS senza HR
         command: /export_build pdf
       alternatives:
         - when_unmet: '!qa_templates.gates.export_requires'
