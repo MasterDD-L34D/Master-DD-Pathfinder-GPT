@@ -45,6 +45,8 @@ tables:
     - "🜁 Sigillo del Viandante"
     - "🜂 Sigillo della Forgia"
     - "🜃 Sigillo del Cervo"
+  code_bonus:
+    - "💻 Sigillo del Codice"
   mode_bonus:
     TAVERNA:
       - "🍺 Brindisi del Locandiere"
@@ -94,6 +96,21 @@ exports:
     params: [mode, toggles, meta, output_text, memory, constants, tables, features]
     logic: |
       seals = []
+      notes = []
+      tags  = set()
+
+      def _add(seal, reason, tag_list=None, cta=None):
+        seals.append(seal)
+        entry = {"seal": seal, "reason": reason}
+        if tag_list:
+          entry["tags"] = tag_list
+        if cta:
+          entry["cta"] = cta
+        notes.append(entry)
+        for tg in (tag_list or []):
+          tags.add(tg)
+        if cta:
+          tags.add(f"CTA:{cta}")
 
       # 0) leggi stato
       idx   = int(memory.get("sigilli_index", 0))
@@ -107,26 +124,36 @@ exports:
       length_ok = (_len(output_text) >= int(features.get("sigilli_mini_threshold", 200)))
       code_ok   = (_looks_like_code(output_text) >= int(features.get("sigilli_code_lines", 12)))
       if length_ok:
-        seals += tables.get("common", [])[:1]    # 1 sigillo comune base
+        base_seal = tables.get("common", [])[:1]
+        if base_seal:
+          _add(base_seal[0], f"Soglia lunghezza superata (≥{features.get('sigilli_mini_threshold', 200)}).", ["MDA:length_threshold"])
         toks  += int(constants.get("thresholds", {}).get("token_step", 1))
+
+      if code_ok:
+        code_seal = tables.get("code_bonus", [])[:1]
+        if code_seal:
+          _add(code_seal[0], f"Blocco codice rilevato (≥{features.get('sigilli_code_lines', 12)} linee).", ["MDA:code_block"])
+        toks += int(constants.get("thresholds", {}).get("token_step", 1))
 
       # 2) bonus per mode
       mode_key = (mode or "").upper().strip()
       mode_set = tables.get("mode_bonus", {}).get(mode_key, [])
       if mode_set:
-        seals += mode_set[:1]
+        _add(mode_set[0], f"Bonus modalità {mode_key} attivo.", ["MDA:mode_bonus"])
 
       # 3) raro (cooldown + crescita)
       cd = int(features.get("sigilli_rotation_cooldown", 3))
       if length_ok and _rarity_roll(idx, cd) and (idx - lastR) >= cd:
-        seals += tables.get("rare", [])[:1]
+        rare_set = tables.get("rare", [])[:1]
+        if rare_set:
+          _add(rare_set[0], "Raro assegnato: cooldown rispettato e roll positivo.", ["MDA:rarity_roll"])
         lastR = idx
 
       # 4) quest ricorrente (ogni N)
       every = int(constants.get("thresholds", {}).get("quest_every", 5))
       if length_ok and ((idx + 1) % every == 0):
         new_q = quest or "🔗 Nuovo incarico: torna alla Taverna per una prova speciale."
-        seals.append(new_q)
+        _add(new_q, f"Quest periodica ogni {every} risposte.", ["MDA:quest_hook"], cta="/go_to_taverna")
         lastQ = idx
 
       # 5) level up
@@ -137,7 +164,7 @@ exports:
       elif toks >= 5:  new_lvl = 5
       lvl_name = constants.get("levels", {}).get(str(new_lvl), "Novizio della Taverna")
       if new_lvl != lvl:
-        seals.append(f"🏅 Nuovo grado: {lvl_name}")
+        _add(f"🏅 Nuovo grado: {lvl_name}", "Level up raggiunto grazie ai token accumulati.", ["MDA:level_up"])
         lvl = new_lvl
 
       # 6) aggiornamenti memoria
@@ -149,12 +176,14 @@ exports:
 
       # 7) opzionale: portale promozionale
       if features.get("sigilli_show_badge", True):
-        seals.append(constants.get("sigilli_portal"))
+        promo = constants.get("sigilli_portal")
+        _add(promo, "CTA portale di uscita.", ["CTA:portal", "MDA:cta"], cta="/open_portal")
 
-      return seals
+      return {"seals": seals, "notes": notes, "tags": sorted(list(tags))}
 output_checklist:
   - "Header: mode attivo, sigilli_enabled, lingua."
   - "Mostra soglie usate (sigilli_mini_threshold, sigilli_code_lines) e se superate."
-  - "Badge assegnati + motivazione (lunghezza, code block, mode bonus, raro, quest)."
+  - "Badge assegnati + motivazione (lunghezza, code block, mode bonus, raro, quest, level up)."
+  - "Restituisci notes/tags strutturati con motivazioni e tag CTA/MDA coerenti."
   - "Memoria aggiornata: sigilli_tokens/index/level/last_rare/last_quest."
   - "Link portale aggiornato + CTA opzionali."
