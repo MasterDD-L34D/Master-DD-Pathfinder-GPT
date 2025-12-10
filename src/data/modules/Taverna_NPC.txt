@@ -1158,7 +1158,27 @@ commands:
   /adventure_outline [quest_id|seed]:
     description: "Traccia un’avventura in 5–7 scene da seed/quest selezionato; hook a Encounter/Loot."
     action:
-      - output: "🗺️ (stub) Outline avventura generato da seed/quest selezionato."
+      - set: _allow_dump, value: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
+      - set: _dump_marker, value: "{{ policies.exposure_guard.dump_policy.marker }}"
+      - set: _dump_warning, value: "{{ policies.exposure_guard.dump_policy.standard_response }}"
+      - set: _canvas_ok, value: "{{ (export.canvas_schema.npc_card.fields_map and export.canvas_schema.required_keys) and (set(export.canvas_schema.required_keys) - set(export.canvas_schema.npc_card.fields_map.keys()))|length == 0 }}"
+      - set: _ledger_ok, value: "{{ ledger_storage.path is not none }}"
+      - set: _qa_status, value: "{{ 'OK' if (_canvas_ok and _ledger_ok) else 'CHECK' }}"
+      - set: _gate_reason, value: "{{ 'QA=' ~ _qa_status ~ ' (Canvas=' ~ ('OK' if _canvas_ok else 'FAIL') ~ ', Ledger=' ~ ('OK' if _ledger_ok else 'FAIL') ~ ')' }}"
+      - set: _blocked, value: "{{ _qa_status != 'OK' }}"
+      - if: "{{ not _allow_dump }}"
+        then:
+          - set: _blocked, value: true
+          - set: _gate_reason, value: "{{ _gate_reason ~ '; Dump disabilitato (ALLOW_MODULE_DUMP=false)' }}"
+          - output: "{{ _dump_warning }}"
+          - output: "{{ _dump_marker }}"
+      - if: "{{ _blocked }}"
+        then:
+          - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
+          - output: "⛔ Export bloccato: {{ _gate_reason }}."
+          - output: "➡️ CTA: prima esegui /save_hub o /check_conversation, poi riprova."
+        else:
+          - output: "🗺️ (stub) Outline avventura generato da seed/quest selezionato."
 
   /rumor_roll n=<N> veridicita=<true|false|mixed>:
     when: feature_flags.hub_board=='on'
@@ -1221,6 +1241,29 @@ commands:
   /export_tavern <md|pdf>:
     when: feature_flags.hub_board=='on'
     description: "Report Hub (Mappa+NPC+Quest+Rumor+Taglie+Fazioni+Negozi+Eventi)."
+    action:
+      - set: _fmt, value: "{{ arg(0) or 'md' }}"
+      - set: _allow_dump, value: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
+      - set: _dump_marker, value: "{{ policies.exposure_guard.dump_policy.marker }}"
+      - set: _dump_warning, value: "{{ policies.exposure_guard.dump_policy.standard_response }}"
+      - set: _canvas_ok, value: "{{ (export.canvas_schema.npc_card.fields_map and export.canvas_schema.required_keys) and (set(export.canvas_schema.required_keys) - set(export.canvas_schema.npc_card.fields_map.keys()))|length == 0 }}"
+      - set: _ledger_ok, value: "{{ ledger_storage.path is not none }}"
+      - set: _qa_status, value: "{{ 'OK' if (_canvas_ok and _ledger_ok) else 'CHECK' }}"
+      - set: _gate_reason, value: "{{ 'QA=' ~ _qa_status ~ ' (Canvas=' ~ ('OK' if _canvas_ok else 'FAIL') ~ ', Ledger=' ~ ('OK' if _ledger_ok else 'FAIL') ~ ')' }}"
+      - set: _blocked, value: "{{ _qa_status != 'OK' }}"
+      - if: "{{ not _allow_dump }}"
+        then:
+          - set: _blocked, value: true
+          - set: _gate_reason, value: "{{ _gate_reason ~ '; Dump disabilitato (ALLOW_MODULE_DUMP=false)' }}"
+          - output: "{{ _dump_warning }}"
+          - output: "{{ _dump_marker }}"
+      - if: "{{ _blocked }}"
+        then:
+          - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
+          - output: "⛔ Export bloccato: {{ _gate_reason }}."
+          - output: "➡️ CTA: prima esegui /save_hub o /check_conversation, poi riprova."
+        else:
+          - output: "📤 (stub) Export Hub {{_fmt}} generato."
 
   /save_hub:
     when: feature_flags.hub_board=='on'
