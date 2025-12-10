@@ -53,8 +53,7 @@
 - Nessun errore bloccante riscontrato durante i test di health check, listing e download dei moduli.
 
 ## Miglioramenti suggeriti
-- **Coverage API incompleto**: il report precedente non menzionava `/health` né l’errore 404 su modulo inesistente; ora coperti dai test 503/404 con path e status.【F:tests/test_app.py†L304-L314】【F:tests/test_app.py†L547-L591】
-- **Chiarezza dump/troncamento**: esplicitata distinzione testo troncato vs blocco binari con ALLOW_MODULE_DUMP=false per allineare alla policy Documentazione.【F:tests/test_app.py†L282-L302】
+- Nessuno: la documentazione copre ora health/404 e la distinzione dump/troncamento, in linea con la policy Documentazione.【F:tests/test_app.py†L282-L314】【F:tests/test_app.py†L547-L591】
 
 ## Fix necessari
-- Documentare nel codice l’elenco comandi principali anche in un endpoint `/doc` o README per facilitarne la discovery (riferimento sezione `commands` del modulo).【F:src/modules/base_profile.txt†L452-L472】
+- Nessuno: l’endpoint di documentazione (`/doc`/`/help`/`/manuale`) è instradato nel router di base_profile e rimanda al modulo `meta_doc.txt` per l’elenco comandi principali.【F:src/modules/base_profile.txt†L140-L175】【F:src/modules/base_profile.txt†L430-L472】
