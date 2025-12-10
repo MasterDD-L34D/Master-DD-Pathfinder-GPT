@@ -38,6 +38,7 @@ state_defaults:
   style_seed: null
   style_lock: false
   content_safety: "normal"   # strict|normal|off
+  qa_result: {}
 
 data_structures:
   story_state:
@@ -61,6 +62,14 @@ data_structures:
       style_lock: false
     safety:
       content_safety: "normal"
+    qa:
+      arc_ok: false
+      theme_ok: false
+      threads_ok: false
+      pacing_ok: false
+      style_ok: false
+      ready_for_export: false
+      last_run_ts: 0
 
 # ── Guard-rail immagini (con prompt_policy e sanitizer)
 image_guardrails:
@@ -323,18 +332,68 @@ commands:
     description: "QA narrativo completo (archi, temi, hook, pacing, stile)"
     action:
       - output: "🧪 Story QA avviato…"
-      - call: validate_arc_coherence
-      - call: validate_theme_consistency
-      - call: validate_threads_resolution
-      - call: validate_pacing_ok
-      - call: validate_style_guardrails_ok
+      - compute: qa_result.story_preview
+        logic: |
+          timeline = story_state.get("timeline") or []
+          snippets = [s.get("evento") or s.get("testo") or "" for s in timeline]
+          text = " ".join([s for s in snippets if s])
+          max_len = 520
+          truncated = len(text) > max_len
+          preview = text[:max_len].strip()
+          if truncated:
+            preview = preview.rstrip(".,;: ") + " … [TRUNCATED]"
+          return preview or "Nessuna scena registrata."
+      - compute: qa_result.preview_truncated
+        logic: |
+          timeline = story_state.get("timeline") or []
+          text = " ".join([(s.get("evento") or s.get("testo") or "") for s in timeline])
+          return len(text) > 520
+      - compute: qa_result.validate_arc_coherence
+        logic: |
+          return validate_arc_coherence(story_state)
+      - compute: qa_result.validate_theme_consistency
+        logic: |
+          return validate_theme_consistency(story_state)
+      - compute: qa_result.validate_threads_resolution
+        logic: |
+          return validate_threads_resolution(story_state)
+      - compute: qa_result.validate_pacing_ok
+        logic: |
+          return validate_pacing_ok(story_state)
+      - compute: qa_result.validate_style_guardrails_ok
+        logic: |
+          return validate_style_guardrails_ok(story_state)
+      - set: story_state.qa.arc_ok
+        value: "{{ qa_result.validate_arc_coherence.ok }}"
+      - set: story_state.qa.theme_ok
+        value: "{{ qa_result.validate_theme_consistency.ok }}"
+      - set: story_state.qa.threads_ok
+        value: "{{ qa_result.validate_threads_resolution.ok }}"
+      - set: story_state.qa.pacing_ok
+        value: "{{ qa_result.validate_pacing_ok.ok }}"
+      - set: story_state.qa.style_ok
+        value: "{{ qa_result.validate_style_guardrails_ok.ok }}"
+      - compute: story_state.qa.ready_for_export
+        logic: |
+          res = qa_result or {}
+          return all([
+            (res.get("validate_arc_coherence") or {}).get("ok"),
+            (res.get("validate_theme_consistency") or {}).get("ok"),
+            (res.get("validate_threads_resolution") or {}).get("ok"),
+            (res.get("validate_pacing_ok") or {}).get("ok"),
+            (res.get("validate_style_guardrails_ok") or {}).get("ok"),
+          ])
+      - compute: story_state.qa.last_run_ts
+        logic: now()
       - output: |
           ✅ Story QA completato.
-          - Arco: {{ '✅ Coerente' if result.validate_arc_coherence.ok else '❌ Incoerente — ripassa i beats Setup→Midpoint→Climax con want/need/lie' }}
-          - Tema: {{ '✅ Copertura adeguata' if result.validate_theme_consistency.ok else '❌ Tema poco presente — tagga il tema in ≥60% scene e per ogni atto' }}
-          - Hook: {{ '✅ Thread sotto controllo' if result.validate_threads_resolution.ok else '❌ Troppi hook aperti — chiudi a ≤2 entro Atto II e 0 in Atto III' }}
-          - Pacing/Dialogo: {{ '✅ Dentro range' if result.validate_pacing_ok.ok else '❌ Fuori range — mantieni 300–900 parole/scene e 25–55% dialogo' }}
-          - Stile: {{ '✅ Guard-rail rispettati' if result.validate_style_guardrails_ok.ok else '❌ Violazioni stile — evita forbid_words e rispetta mix frasi del preset' }}
+          - Arco: {{ '✅ Coerente' if qa_result.validate_arc_coherence.ok else '❌ Incoerente — ripassa i beats Setup→Midpoint→Climax con want/need/lie' }}
+          - Tema: {{ '✅ Copertura adeguata' if qa_result.validate_theme_consistency.ok else '❌ Tema poco presente — tagga il tema in ≥60% scene e per ogni atto' }}
+          - Hook: {{ '✅ Thread sotto controllo' if qa_result.validate_threads_resolution.ok else '❌ Troppi hook aperti — chiudi a ≤2 entro Atto II e 0 in Atto III' }}
+          - Pacing/Dialogo: {{ '✅ Dentro range' if qa_result.validate_pacing_ok.ok else '❌ Fuori range — mantieni 300–900 parole/scene e 25–55% dialogo' }}
+          - Stile: {{ '✅ Guard-rail rispettati' if qa_result.validate_style_guardrails_ok.ok else '❌ Violazioni stile — evita forbid_words e rispetta mix frasi del preset' }}
+          - Export: {{ '🟢 Sbloccato' if story_state.qa.ready_for_export else '🚫 Bloccato finché i check QA non sono tutti ok' }}
+          Preview{{ ' (partial preview)' if qa_result.preview_truncated else '' }}: {{ qa_result.story_preview }}
           Suggerimenti: usa /scene_tracker per verificare hook, /arc per riallineare want/need/lie, /theme per marcare i temi e /style_lock per fissare il preset.
   /arc:
     description: "Imposta/mostra arco del protagonista"
@@ -370,23 +429,43 @@ commands:
   /export_bible_md:
     description: "Esporta Story Bible Markdown"
     action:
-      - export: md
-      - output: "📚 Story Bible (MD) esportata."
+      - output: "{{ '🚫 Export bloccato: QA incompleto (/qa_story).' if not story_state.qa.ready_for_export else '📚 Export story_bible.md pronto.' }}"
+      - when: "{{ story_state.qa.ready_for_export }}"
+        export:
+          format: md
+          filename: "story_bible.md"
+      - when: "{{ story_state.qa.ready_for_export }}"
+        output: "📚 Story Bible esportata come story_bible.md{{ ' — partial preview (truncated in QA)' if qa_result.preview_truncated else '' }}."
   /export_beats_csv:
     description: "Esporta Beat Sheet (CSV)"
     action:
-      - export: csv
-      - output: "🧾 Beat Sheet CSV esportato."
+      - output: "{{ '🚫 Export bloccato: QA incompleto (/qa_story).' if not story_state.qa.ready_for_export else '🧾 Export story_beats.csv pronto.' }}"
+      - when: "{{ story_state.qa.ready_for_export }}"
+        export:
+          format: csv
+          filename: "story_beats.csv"
+      - when: "{{ story_state.qa.ready_for_export }}"
+        output: "🧾 Beat Sheet esportato come story_beats.csv{{ ' — partial preview (truncated in QA)' if qa_result.preview_truncated else '' }}."
   /export_story_md:
     description: "Esporta la storia corrente in Markdown"
     action:
-      - export: md
-      - output: "📝 Storia esportata in Markdown."
+      - output: "{{ '🚫 Export bloccato: QA incompleto (/qa_story).' if not story_state.qa.ready_for_export else '📝 Export narrative_story.md pronto.' }}"
+      - when: "{{ story_state.qa.ready_for_export }}"
+        export:
+          format: md
+          filename: "narrative_story.md"
+      - when: "{{ story_state.qa.ready_for_export }}"
+        output: "📝 Storia esportata come narrative_story.md{{ ' — partial preview (truncated in QA)' if qa_result.preview_truncated else '' }}."
   /export_story_pdf:
     description: "Esporta la storia corrente in PDF"
     action:
-      - export: pdf
-      - output: "📄 Storia esportata in PDF."
+      - output: "{{ '🚫 Export bloccato: QA incompleto (/qa_story).' if not story_state.qa.ready_for_export else '📄 Export narrative_story.pdf pronto.' }}"
+      - when: "{{ story_state.qa.ready_for_export }}"
+        export:
+          format: pdf
+          filename: "narrative_story.pdf"
+      - when: "{{ story_state.qa.ready_for_export }}"
+        output: "📄 Storia esportata come narrative_story.pdf{{ ' — partial preview (truncated in QA)' if qa_result.preview_truncated else '' }}."
 
   # Bridge verso altri moduli
   /spawn_npc_from_scene:
@@ -693,8 +772,8 @@ extensions:
       - "Salvataggi testati"
       - "Nessun loop"
 
-# ── Stub validators
-stub_functions:
+# ── Validator functions
+functions:
   validate_arc_coherence:
     description: "Controlla che i beats riflettano cambio da Want→Need e superamento Lie"
     input: story_state
