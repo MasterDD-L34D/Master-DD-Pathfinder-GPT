@@ -14,8 +14,6 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 
 ## Seconda fase · P1 residui e P2 cooperativi
 
-- **archivist**
-  - Considerare un header o campo JSON nei dump troncati per indicare size originale e percentuale servita, migliorando la UX rispetto all’attuale marcatore testuale.【F:src/modules/archivist.txt†L118-L177】
 - **minmax_builder**
   - Considerare di esporre nell’export o nelle CTA finali il nome file di output/format (es. `MinMax_<nome>.pdf/json`) per allineare le aspettative su `export_build`/`export_vtt`. Dipendenza: coordinarsi con Encounter_Designer per la nomenclatura export condivisa.【F:src/modules/minmax_builder.txt†L1040-L1087】【F:src/modules/minmax_builder.txt†L2214-L2245】
 - **knowledge_pack**
@@ -47,7 +45,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | tavern_hub | 0 | — | Pronto per sviluppo |
 | Cartelle di servizio | 1 | P2 | Pronto per sviluppo |
 | adventurer_ledger | 0 | — | Pronto per sviluppo |
-| archivist | 1 | P2 | Pronto per sviluppo |
+| archivist | 0 | — | Pronto per sviluppo |
 | base_profile | 0 | — | Pronto per sviluppo |
 | explain_methods | 0 | — | Pronto per sviluppo |
 | knowledge_pack | 2 | P2 | Pronto per sviluppo |
