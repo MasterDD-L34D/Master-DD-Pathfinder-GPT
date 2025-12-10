@@ -131,6 +131,9 @@ python tools/generate_build_db.py --spec-file docs/examples/pg_variants.yml --cl
 
 # Puoi anche limitare i checkpoint di livello a un sottoinsieme preciso
 python tools/generate_build_db.py --spec-file docs/examples/pg_variants.yml --levels 1 5
+
+# Se devi generare batch piccoli (es. 10 file alla volta) puoi impostare un tetto
+python tools/generate_build_db.py --max-items 10 --skip-unchanged
 ```
 
 Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`. Ogni chiamata include il parametro `mode=core|extended` e l'indice registra lo `step_total` osservato, così puoi verificare che i 16 step appaiano solo quando richiedi `extended`.

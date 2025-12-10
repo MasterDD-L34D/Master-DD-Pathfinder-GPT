@@ -138,7 +138,9 @@ def test_enrich_sheet_payload_template_error_indicator():
     assert not enriched.get("sheet_markdown")
 
 
-async def _run_core_harvest(tmp_path, monkeypatch, *, skip_unchanged: bool = False):
+async def _run_core_harvest(
+    tmp_path, monkeypatch, *, skip_unchanged: bool = False, max_items: int | None = None
+):
     sheet_payload = {
         "nome": "Alchemist Sample",
         "razza": "Human",
@@ -240,6 +242,7 @@ async def _run_core_harvest(tmp_path, monkeypatch, *, skip_unchanged: bool = Fal
         require_complete=True,
         skip_health_check=False,
         skip_unchanged=skip_unchanged,
+        max_items=max_items,
     )
 
     return output_dir, index_path
@@ -283,6 +286,20 @@ def test_run_harvest_smoke(tmp_path, monkeypatch):
         entry["file"].endswith("alchemist_lvl10.json")
         for entry in index_payload["entries"]
     )
+
+
+def test_run_harvest_honors_max_items(tmp_path, monkeypatch):
+    output_dir, index_path = asyncio.run(
+        _run_core_harvest(tmp_path, monkeypatch, max_items=2)
+    )
+
+    assert (output_dir / "alchemist.json").is_file()
+    assert (output_dir / "alchemist_lvl05.json").is_file()
+    assert not (output_dir / "alchemist_lvl10.json").exists()
+
+    index_payload = json.loads(index_path.read_text(encoding="utf-8"))
+    assert len(index_payload["entries"]) == 2
+    assert {entry["level"] for entry in index_payload["entries"]} == {1, 5}
 
 
 async def _run_incomplete_harvest(tmp_path, monkeypatch):
