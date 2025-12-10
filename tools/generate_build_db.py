@@ -1775,139 +1775,8 @@ def _enrich_sheet_payload(
                 if alias not in normalized or _is_placeholder(normalized.get(alias)):
                     normalized[alias] = normalized[short]
 
-    return normalized
+        return normalized
 
-
-def _stringify_sequence(values: object, *, limit: int | None = None) -> list[str]:
-    """Converti una sequenza generica in un elenco di stringhe pulite."""
-
-    if not isinstance(values, Sequence) or isinstance(values, (str, bytes)):
-        return []
-
-    normalized: list[str] = []
-    for item in values:
-        if isinstance(item, Mapping):
-            candidate = item.get("name") or item.get("label") or item.get("id")
-            normalized.append(str(candidate)) if candidate else None
-        else:
-            normalized.append(str(item))
-
-        if limit is not None and len(normalized) >= limit:
-            break
-
-    return [value.strip() for value in normalized if value and value.strip()]
-
-
-def _normalize_badge_value(badge: object) -> str | None:
-    if isinstance(badge, str):
-        return badge.strip().lower() or None
-    if isinstance(badge, Mapping):
-        for key in ("label", "value", "badge"):
-            candidate = badge.get(key)
-            if isinstance(candidate, str):
-                return candidate.strip().lower() or None
-    return None
-
-
-def _ruling_context_from_payload(
-    payload: Mapping[str, Any], request: BuildRequest
-) -> Mapping[str, object]:
-    export = payload.get("export") if isinstance(payload, Mapping) else None
-    sheet_payload = (
-        export.get("sheet_payload") if isinstance(export, Mapping) else None
-    )
-    talents = []
-    if isinstance(sheet_payload, Mapping):
-        talents = _stringify_sequence(sheet_payload.get("talenti"), limit=5)
-
-    hr_sources: object | None = None
-    meta_sources: object | None = None
-    pfs_mode: object | None = None
-    if isinstance(sheet_payload, Mapping):
-        hr_sources = sheet_payload.get("hr_sources")
-        meta_sources = sheet_payload.get("meta_sources")
-        pfs_mode = sheet_payload.get("pfs_mode")
-
-    return {
-        "class": payload.get("class") or request.class_name,
-        "level": payload.get("request", {}).get("level") or request.level,
-        "talenti_chiave": talents,
-        "hr_sources": hr_sources,
-        "meta_sources": meta_sources,
-        "pfs_mode": pfs_mode,
-    }
-
-
-def _pfs_blocks_homebrew(context: Mapping[str, object]) -> bool:
-    pfs_mode = str(context.get("pfs_mode") or "").lower()
-    pfs_active = pfs_mode in {"true", "on", "yes", "1", "active", "pfs"}
-    hr_present = bool(context.get("hr_sources"))
-    meta_present = bool(context.get("meta_sources"))
-    return bool(pfs_active and (hr_present or meta_present))
-
-
-async def _validate_ruling_badge(
-    client: httpx.AsyncClient,
-    *,
-    url: str | None,
-    api_key: str | None,
-    payload: MutableMapping,
-    request: BuildRequest,
-    timeout: float,
-    max_retries: int,
-) -> tuple[str, object | None]:
-    if not url:
-        raise BuildFetchError("Endpoint Ruling Expert obbligatorio per il salvataggio")
-
-    context = _ruling_context_from_payload(payload, request)
-
-    if _pfs_blocks_homebrew(context):
-        raise BuildFetchError(
-            "PFS attivo: HR/META rilevati e non ammessi per lo snapshot",
-        )
-
-    headers = {"x-api-key": api_key} if api_key else {}
-    response = await request_with_retry(
-        client,
-        "POST",
-        url,
-        headers=headers,
-        json_body={"build": payload, "context": context},
-        timeout=timeout,
-        max_retries=max_retries,
-        backoff_factor=0.5,
-    )
-
-    try:
-        data = response.json()
-    except json.JSONDecodeError as exc:  # pragma: no cover - network dependent
-        raise BuildFetchError("Risposta Ruling Expert non JSON") from exc
-
-    violations = data.get("violations") if isinstance(data, Mapping) else None
-    if violations:
-        raise BuildFetchError(
-            "Violazioni Ruling Expert: " + "; ".join(map(str, violations))
-        )
-
-    badge = data.get("ruling_badge") if isinstance(data, Mapping) else None
-    badge = badge or (data.get("badge") if isinstance(data, Mapping) else None)
-    normalized_badge = _normalize_badge_value(badge)
-    if not normalized_badge:
-        raise BuildFetchError("Badge Ruling Expert mancante o non conforme")
-
-    sources = data.get("sources") if isinstance(data, Mapping) else None
-    sources = sources or (data.get("fonti") if isinstance(data, Mapping) else None)
-
-    payload["ruling_badge"] = normalized_badge
-    if sources:
-        payload["ruling_sources"] = sources
-    payload.setdefault("qa", {})["ruling_expert"] = {
-        "badge": normalized_badge,
-        "sources": sources,
-        "context": context,
-    }
-
-    return normalized_badge, sources
 
     sheet_payload: MutableMapping[str, object] = {}
     for candidate in (
@@ -2393,6 +2262,138 @@ async def _validate_ruling_badge(
     sheet_payload.setdefault("skill_points", 0)
 
     return sheet_payload
+
+def _stringify_sequence(values: object, *, limit: int | None = None) -> list[str]:
+    """Converti una sequenza generica in un elenco di stringhe pulite."""
+
+    if not isinstance(values, Sequence) or isinstance(values, (str, bytes)):
+        return []
+
+    normalized: list[str] = []
+    for item in values:
+        if isinstance(item, Mapping):
+            candidate = item.get("name") or item.get("label") or item.get("id")
+            normalized.append(str(candidate)) if candidate else None
+        else:
+            normalized.append(str(item))
+
+        if limit is not None and len(normalized) >= limit:
+            break
+
+    return [value.strip() for value in normalized if value and value.strip()]
+
+
+def _normalize_badge_value(badge: object) -> str | None:
+    if isinstance(badge, str):
+        return badge.strip().lower() or None
+    if isinstance(badge, Mapping):
+        for key in ("label", "value", "badge"):
+            candidate = badge.get(key)
+            if isinstance(candidate, str):
+                return candidate.strip().lower() or None
+    return None
+
+
+def _ruling_context_from_payload(
+    payload: Mapping[str, Any], request: BuildRequest
+) -> Mapping[str, object]:
+    export = payload.get("export") if isinstance(payload, Mapping) else None
+    sheet_payload = (
+        export.get("sheet_payload") if isinstance(export, Mapping) else None
+    )
+    talents = []
+    if isinstance(sheet_payload, Mapping):
+        talents = _stringify_sequence(sheet_payload.get("talenti"), limit=5)
+
+    hr_sources: object | None = None
+    meta_sources: object | None = None
+    pfs_mode: object | None = None
+    if isinstance(sheet_payload, Mapping):
+        hr_sources = sheet_payload.get("hr_sources")
+        meta_sources = sheet_payload.get("meta_sources")
+        pfs_mode = sheet_payload.get("pfs_mode")
+
+    return {
+        "class": payload.get("class") or request.class_name,
+        "level": payload.get("request", {}).get("level") or request.level,
+        "talenti_chiave": talents,
+        "hr_sources": hr_sources,
+        "meta_sources": meta_sources,
+        "pfs_mode": pfs_mode,
+    }
+
+
+def _pfs_blocks_homebrew(context: Mapping[str, object]) -> bool:
+    pfs_mode = str(context.get("pfs_mode") or "").lower()
+    pfs_active = pfs_mode in {"true", "on", "yes", "1", "active", "pfs"}
+    hr_present = bool(context.get("hr_sources"))
+    meta_present = bool(context.get("meta_sources"))
+    return bool(pfs_active and (hr_present or meta_present))
+
+
+async def _validate_ruling_badge(
+    client: httpx.AsyncClient,
+    *,
+    url: str | None,
+    api_key: str | None,
+    payload: MutableMapping,
+    request: BuildRequest,
+    timeout: float,
+    max_retries: int,
+) -> tuple[str, object | None]:
+    if not url:
+        raise BuildFetchError("Endpoint Ruling Expert obbligatorio per il salvataggio")
+
+    context = _ruling_context_from_payload(payload, request)
+
+    if _pfs_blocks_homebrew(context):
+        raise BuildFetchError(
+            "PFS attivo: HR/META rilevati e non ammessi per lo snapshot",
+        )
+
+    headers = {"x-api-key": api_key} if api_key else {}
+    response = await request_with_retry(
+        client,
+        "POST",
+        url,
+        headers=headers,
+        json_body={"build": payload, "context": context},
+        timeout=timeout,
+        max_retries=max_retries,
+        backoff_factor=0.5,
+    )
+
+    try:
+        data = response.json()
+    except json.JSONDecodeError as exc:  # pragma: no cover - network dependent
+        raise BuildFetchError("Risposta Ruling Expert non JSON") from exc
+
+    violations = data.get("violations") if isinstance(data, Mapping) else None
+    if violations:
+        raise BuildFetchError(
+            "Violazioni Ruling Expert: " + "; ".join(map(str, violations))
+        )
+
+    badge = data.get("ruling_badge") if isinstance(data, Mapping) else None
+    badge = badge or (data.get("badge") if isinstance(data, Mapping) else None)
+    normalized_badge = _normalize_badge_value(badge)
+    if not normalized_badge:
+        raise BuildFetchError("Badge Ruling Expert mancante o non conforme")
+
+    sources = data.get("sources") if isinstance(data, Mapping) else None
+    sources = sources or (data.get("fonti") if isinstance(data, Mapping) else None)
+
+    payload["ruling_badge"] = normalized_badge
+    if sources:
+        payload["ruling_sources"] = sources
+    payload.setdefault("qa", {})["ruling_expert"] = {
+        "badge": normalized_badge,
+        "sources": sources,
+        "context": context,
+    }
+
+    return normalized_badge, sources
+
 
 
 def _apply_level_checkpoint(
