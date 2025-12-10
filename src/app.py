@@ -878,13 +878,270 @@ async def get_module_content(
             },
         ]
 
+        is_cutpurse = (
+            str(class_name or "").lower() == "rogue"
+            and str(resolved_archetype or "").lower() == "cutpurse"
+        )
+
+        cutpurse_progression_plan: list[dict[str, object]] = [
+            {
+                "livello": 1,
+                "stats": {"FOR": 12, "DES": 18, "COS": 12, "INT": 14, "SAG": 10, "CAR": 8},
+                "talenti": ["Arma accurata"],
+                "pf": 11,
+                "attacco": "+6 (pugnale) / +5 (fionda)",
+                "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
+                "salvezze": {"Tempra": 2, "Riflessi": 4, "Volontà": 1},
+                "skills": {
+                    "Furtività": 9,
+                    "Rapidità di mano": 9,
+                    "Percezione": 6,
+                    "Acrobazia": 8,
+                    "Disattivare Congegni": 9,
+                },
+                "ca": {"totale": 18, "armatura": 3, "destrezza": 4, "misc": 1},
+                "equip": [
+                    "Armatura di cuoio borchiato",
+                    "Pugnale bilanciato",
+                    "Fionda con 20 proiettili",
+                    "Attrezzi da scasso di qualità",
+                ],
+                "privilegi": [
+                    "Attacco furtivo +1d6",
+                    "Percepire trappole +1",
+                    "Cutpurse: Mano lesta (Pickpocket)",
+                    "PF 11 | TS +2/+4/+1 | CA 18",
+                ],
+            },
+            {
+                "livello": 2,
+                "talenti": ["Schivare prodigioso"],
+                "pf": 18,
+                "attacco": "+7 (pugnale)",
+                "danni": "1d4+2 (pugnale) +1d6 furtivo",
+                "salvezze": {"Tempra": 3, "Riflessi": 5, "Volontà": 1},
+                "skills": {
+                    "Furtività": 10,
+                    "Rapidità di mano": 10,
+                    "Percezione": 7,
+                    "Acrobazia": 9,
+                    "Disattivare Congegni": 10,
+                },
+                "ca": {"totale": 19, "armatura": 3, "destrezza": 4, "misc": 2},
+                "equip": ["Cappa elfica grigia", "Mantello della resistenza +1"],
+                "privilegi": [
+                    "Talento ladresco: Furtività rapida",
+                    "Cutpurse: Afferrare oggetti (Quick Steal)",
+                    "PF 18 | TS +3/+5/+1 | CA 19",
+                ],
+            },
+            {
+                "livello": 3,
+                "talenti": ["Schivare"],
+                "pf": 26,
+                "attacco": "+8 (pugnale)",
+                "danni": "1d4+3 (pugnale) +2d6 furtivo",
+                "salvezze": {"Tempra": 3, "Riflessi": 6, "Volontà": 2},
+                "skills": {
+                    "Furtività": 11,
+                    "Rapidità di mano": 11,
+                    "Percezione": 8,
+                    "Acrobazia": 10,
+                    "Intimidire": 5,
+                },
+                "ca": {"totale": 19, "armatura": 3, "destrezza": 4, "schivare": 1, "misc": 1},
+                "equip": ["Pugnale masterwork", "Anello di protezione +1"],
+                "privilegi": [
+                    "Attacco furtivo +2d6",
+                    "Scherma agile (Finesse Training)",
+                    "PF 26 | TS +3/+6/+2 | CA 19",
+                ],
+            },
+            {
+                "livello": 4,
+                "talenti": ["Arma focalizzata (pugnale)"],
+                "pf": 34,
+                "attacco": "+10 (pugnale)",
+                "danni": "1d4+4 (pugnale) +2d6 furtivo",
+                "salvezze": {"Tempra": 4, "Riflessi": 7, "Volontà": 2},
+                "skills": {
+                    "Furtività": 12,
+                    "Rapidità di mano": 12,
+                    "Percezione": 9,
+                    "Acrobazia": 11,
+                    "Diplomazia": 5,
+                },
+                "ca": {"totale": 20, "armatura": 4, "destrezza": 4, "schivare": 1, "misc": 1},
+                "equip": ["Giaco di maglia ombreggiato", "Guanti da ladro"],
+                "privilegi": [
+                    "Talento ladresco: Arma improvvisata",
+                    "Uncanny Dodge",
+                    "PF 34 | TS +4/+7/+2 | CA 20",
+                ],
+            },
+            {
+                "livello": 5,
+                "talenti": ["Combattere con due armi"],
+                "pf": 42,
+                "attacco": "+11/+11 (pugnali)",
+                "danni": "1d4+4 (pugnale) +3d6 furtivo",
+                "salvezze": {"Tempra": 4, "Riflessi": 8, "Volontà": 3},
+                "skills": {
+                    "Furtività": 13,
+                    "Rapidità di mano": 13,
+                    "Percezione": 10,
+                    "Acrobazia": 12,
+                    "Disattivare Congegni": 13,
+                },
+                "ca": {"totale": 21, "armatura": 4, "destrezza": 4, "schivare": 1, "misc": 2},
+                "equip": ["Pugnale +1", "Cintura dell'agilità +2"],
+                "privilegi": [
+                    "Attacco furtivo +3d6",
+                    "Talento ladresco: Attacco debilitante",
+                    "PF 42 | TS +4/+8/+3 | CA 21",
+                ],
+            },
+            {
+                "livello": 6,
+                "talenti": ["Riflessi in combattimento"],
+                "pf": 50,
+                "attacco": "+13/+13 (pugnali)",
+                "danni": "1d4+5 (pugnale) +3d6 furtivo",
+                "salvezze": {"Tempra": 5, "Riflessi": 9, "Volontà": 3},
+                "skills": {
+                    "Furtività": 14,
+                    "Rapidità di mano": 14,
+                    "Percezione": 11,
+                    "Acrobazia": 13,
+                    "Raggirare": 9,
+                },
+                "ca": {"totale": 22, "armatura": 4, "destrezza": 5, "schivare": 1, "misc": 2},
+                "equip": ["Stivali dell'agilità", "Mantello della resistenza +2"],
+                "privilegi": [
+                    "Talento ladresco: Furtività leggendaria",
+                    "Evasione migliorata",
+                    "PF 50 | TS +5/+9/+3 | CA 22",
+                ],
+            },
+            {
+                "livello": 7,
+                "talenti": ["Mobilità"],
+                "pf": 58,
+                "attacco": "+15/+15 (pugnali)",
+                "danni": "1d4+6 (pugnale) +4d6 furtivo",
+                "salvezze": {"Tempra": 5, "Riflessi": 10, "Volontà": 4},
+                "skills": {
+                    "Furtività": 15,
+                    "Rapidità di mano": 15,
+                    "Percezione": 12,
+                    "Acrobazia": 14,
+                    "Disattivare Congegni": 15,
+                },
+                "ca": {"totale": 23, "armatura": 5, "destrezza": 5, "schivare": 1, "misc": 2},
+                "equip": ["Pugnale +2 bilanciato", "Bracciali dell'armatura +1"],
+                "privilegi": [
+                    "Attacco furtivo +4d6",
+                    "Cutpurse: Ruba arma (Steal Weapon)",
+                    "PF 58 | TS +5/+10/+4 | CA 23",
+                ],
+            },
+            {
+                "livello": 8,
+                "stats": {"FOR": 12, "DES": 20, "COS": 12, "INT": 14, "SAG": 10, "CAR": 8},
+                "talenti": ["Arma focalizzata superiore (pugnale)", "Talento ladresco: Opportunista"],
+                "pf": 66,
+                "attacco": "+17/+17 (pugnali)",
+                "danni": "1d4+6 (pugnale) +4d6 furtivo",
+                "salvezze": {"Tempra": 6, "Riflessi": 11, "Volontà": 4},
+                "skills": {
+                    "Furtività": 17,
+                    "Rapidità di mano": 17,
+                    "Percezione": 13,
+                    "Acrobazia": 15,
+                    "Intuizione": 11,
+                },
+                "ca": {"totale": 24, "armatura": 5, "destrezza": 6, "schivare": 1, "misc": 2},
+                "equip": ["Cintura dell'agilità +4", "Pugnale agile +2"],
+                "privilegi": [
+                    "Schivare prodigioso migliorato",
+                    "Attacco furtivo +4d6",
+                    "PF 66 | TS +6/+11/+4 | CA 24",
+                ],
+            },
+            {
+                "livello": 9,
+                "talenti": ["Arma accurata superiore"],
+                "pf": 74,
+                "attacco": "+19/+19 (pugnali)",
+                "danni": "1d4+7 (pugnale) +5d6 furtivo",
+                "salvezze": {"Tempra": 6, "Riflessi": 12, "Volontà": 5},
+                "skills": {
+                    "Furtività": 18,
+                    "Rapidità di mano": 18,
+                    "Percezione": 14,
+                    "Acrobazia": 16,
+                    "Diplomazia": 8,
+                },
+                "ca": {"totale": 25, "armatura": 5, "destrezza": 6, "schivare": 1, "misc": 3},
+                "equip": ["Pugnale velocità +2", "Anello di protezione +2"],
+                "privilegi": [
+                    "Attacco furtivo +5d6",
+                    "Talento ladresco: Debilitare difese",
+                    "PF 74 | TS +6/+12/+5 | CA 25",
+                ],
+            },
+            {
+                "livello": 10,
+                "talenti": ["Colpo senz'armi migliorato"],
+                "pf": 82,
+                "attacco": "+21/+21 (pugnali)",
+                "danni": "1d4+8 (pugnale) +5d6 furtivo",
+                "salvezze": {"Tempra": 7, "Riflessi": 13, "Volontà": 5},
+                "skills": {
+                    "Furtività": 19,
+                    "Rapidità di mano": 19,
+                    "Percezione": 15,
+                    "Acrobazia": 17,
+                    "Disattivare Congegni": 19,
+                },
+                "ca": {"totale": 26, "armatura": 6, "destrezza": 6, "schivare": 1, "misc": 3},
+                "equip": ["Giaco di maglia ombreggiato +2", "Guanti della destrezza +4"],
+                "privilegi": [
+                    "Attacco furtivo +5d6",
+                    "Talento ladresco: Bleeding Attack",
+                    "Cutpurse: Maestro borseggiatore",
+                    "PF 82 | TS +7/+13/+5 | CA 26",
+                ],
+            },
+        ]
+
         progression: list[dict[str, object]] = []
         base_hp = 12 + 5 * max(resolved_level - 1, 0)
 
+        wizard_levels = (
+            [
+                entry
+                for entry in wizard_progression_plan
+                if entry["livello"] <= resolved_level
+            ]
+            if is_wizard_evoker
+            else []
+        )
+        wizard_snapshot = wizard_levels[-1] if wizard_levels else None
+
+        cutpurse_levels = (
+            [
+                entry
+                for entry in cutpurse_progression_plan
+                if entry["livello"] <= resolved_level
+            ]
+            if is_cutpurse
+            else []
+        )
+        cutpurse_snapshot = cutpurse_levels[-1] if cutpurse_levels else None
+
         if is_wizard_evoker:
-            for entry in wizard_progression_plan:
-                if entry["livello"] > resolved_level:
-                    break
+            for entry in wizard_levels:
                 progression.append(
                     {
                         "livello": entry["livello"],
@@ -893,9 +1150,18 @@ async def get_module_content(
                     }
                 )
             if progression:
-                base_hp = wizard_progression_plan[
-                    min(resolved_level, len(wizard_progression_plan)) - 1
-                ]["pf"]
+                base_hp = wizard_snapshot.get("pf", base_hp) if wizard_snapshot else base_hp
+        elif is_cutpurse:
+            for entry in cutpurse_levels:
+                progression.append(
+                    {
+                        "livello": entry["livello"],
+                        "privilegi": entry.get("privilegi", []),
+                        "talenti": entry.get("talenti", []),
+                    }
+                )
+            if progression and cutpurse_snapshot:
+                base_hp = cutpurse_snapshot.get("pf", base_hp)
         else:
             for lvl in range(1, resolved_level + 1):
                 progression.append(
@@ -913,40 +1179,40 @@ async def get_module_content(
                     }
                 )
 
-        wizard_levels = (
-            [
-                entry
-                for entry in wizard_progression_plan
-                if entry["livello"] <= resolved_level
-            ]
-            if is_wizard_evoker
-            else []
-        )
-        wizard_snapshot = wizard_levels[-1] if wizard_levels else None
-        hp_progression = [entry.get("pf", base_hp) for entry in wizard_levels]
+        hp_progression: list[object] = []
+        if is_wizard_evoker:
+            hp_progression = [entry.get("pf", base_hp) for entry in wizard_levels]
+        elif is_cutpurse:
+            hp_progression = [entry.get("pf", base_hp) for entry in cutpurse_levels]
         if not hp_progression:
             hp_progression = [base_hp]
+
+        snapshot = wizard_snapshot or cutpurse_snapshot
         saves_block = (
-            wizard_snapshot.get("salvezze")
-            if wizard_snapshot
+            snapshot.get("salvezze")
+            if snapshot
             else {"Tempra": 4, "Riflessi": 3, "Volontà": 4}
         )
         skills_map = (
             {
                 name: {"totale": value}
-                for name, value in wizard_snapshot.get("skills", {}).items()
+                for name, value in (snapshot.get("skills") if snapshot else {}).items()
             }
-            if wizard_snapshot
+            if snapshot
             else {
                 "Percezione": {"totale": 5},
                 "Acrobazia": {"totale": 4},
                 "Conoscenze": {"totale": 3},
             }
         )
-        slot_text = wizard_snapshot.get("slot") if wizard_snapshot else "Liv1:4/Liv2:3"
+        slot_text = (
+            snapshot.get("slot")
+            if snapshot and not is_cutpurse
+            else ("Non incantatore" if is_cutpurse else "Liv1:4/Liv2:3")
+        )
         ac_block = (
-            wizard_snapshot.get("ca")
-            if wizard_snapshot
+            snapshot.get("ca")
+            if snapshot
             else {"totale": 18, "armatura": 5, "destrezza": 2, "scudo": 1}
         )
         if isinstance(ac_block, Mapping) and "scudo" not in ac_block:
@@ -955,6 +1221,9 @@ async def get_module_content(
         if wizard_levels:
             for entry in wizard_levels:
                 equip_full.extend(entry.get("equip", []))
+        elif cutpurse_levels:
+            for entry in cutpurse_levels:
+                equip_full.extend(entry.get("equip", []))
         else:
             equip_full.extend(["Arma preferita", "Armatura leggera"])
         inventory_full = ["Kit da avventuriero", "Pozione di cura x2"]
@@ -962,14 +1231,56 @@ async def get_module_content(
         if wizard_levels:
             for entry in wizard_levels:
                 talents_full.extend(entry.get("talenti", []))
+        elif cutpurse_levels:
+            for entry in cutpurse_levels:
+                talents_full.extend(entry.get("talenti", []))
         else:
             talents_full.extend(["Colpo possente", "Iniziativa migliorata"])
         class_features: list[str] = []
         if wizard_levels:
             for entry in wizard_levels:
                 class_features.extend(entry.get("privilegi", []))
+        elif cutpurse_levels:
+            for entry in cutpurse_levels:
+                class_features.extend(entry.get("privilegi", []))
         else:
             class_features.extend(["Addestramento marziale", "Specializzazione"])
+
+        base_cutpurse_stats = None
+        if is_cutpurse:
+            for entry in cutpurse_progression_plan:
+                stats_candidate = entry.get("stats")
+                if isinstance(stats_candidate, Mapping):
+                    base_cutpurse_stats = stats_candidate
+                    break
+        stats_block = (
+            snapshot.get("stats")
+            if snapshot and isinstance(snapshot.get("stats"), Mapping)
+            else base_cutpurse_stats
+            if base_cutpurse_stats is not None
+            else {
+                "FOR": 16,
+                "DES": 14,
+                "COS": 14,
+                "INT": 10,
+                "SAG": 12,
+                "CAR": 8,
+            }
+        )
+        attack_text = (
+            snapshot.get("attacco") if snapshot else "+4"
+        )
+        damage_text = snapshot.get("danni") if snapshot else "1d8+3"
+        initiative_bonus = 4 if is_cutpurse else 2
+        speed_value = 6 if is_cutpurse else 9
+        skill_points = max(5 * resolved_level, 4 * resolved_level)
+        if is_cutpurse:
+            int_mod = (
+                int((stats_block.get("INT") or 10) - 10) // 2
+                if isinstance(stats_block.get("INT"), (int, float))
+                else 0
+            )
+            skill_points = (8 + max(int_mod, 0)) * resolved_level
 
         sheet_payload = {
             "classi": [
@@ -979,17 +1290,10 @@ async def get_module_content(
                     "archetipi": [resolved_archetype] if resolved_archetype else [],
                 }
             ],
-            "statistiche": {
-                "FOR": 16,
-                "DES": 14,
-                "COS": 14,
-                "INT": 10,
-                "SAG": 12,
-                "CAR": 8,
-            },
+            "statistiche": stats_block,
             "statistiche_chiave": {
-                "attacco": "+4",
-                "danni": "1d8+3",
+                "attacco": attack_text,
+                "danni": damage_text,
                 "ca": (
                     ac_block.get("totale", 17) if isinstance(ac_block, Mapping) else 17
                 ),
@@ -998,7 +1302,7 @@ async def get_module_content(
             "hp": {"totali": base_hp, "per_livello": hp_progression},
             "salvezze": saves_block,
             "skills_map": skills_map,
-            "skill_points": max(5 * resolved_level, 4 * resolved_level),
+            "skill_points": skill_points,
             "talenti": sorted(set(talents_full)),
             "capacita_classe": sorted(set(class_features)),
             "equipaggiamento": sorted(set(equip_full)),
@@ -1010,8 +1314,8 @@ async def get_module_content(
                 if isinstance(ac_block, Mapping)
                 else {"totale": 18, "armatura": 5, "destrezza": 2, "scudo": 1}
             ),
-            "iniziativa": 2,
-            "velocita": 9,
+            "iniziativa": initiative_bonus,
+            "velocita": speed_value,
             "progressione": progression,
             "benchmarks": {"meta_tier": "T3"},
             "hooks": (body or {}).get("hooks"),
