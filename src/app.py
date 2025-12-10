@@ -1,4 +1,5 @@
 import logging
+import re
 import shutil
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -367,6 +368,27 @@ async def list_modules(_: None = Depends(require_api_key)) -> List[Dict]:
     return _list_files(MODULES_DIR)
 
 
+def _parse_module_metadata(path: Path) -> Dict[str, str]:
+    """Extract optional metadata fields from a module file."""
+
+    if path.name != "knowledge_pack.md":
+        return {}
+
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    match = re.search(
+        r"\*\*Versione:\*\*\s*(?P<version>[^•\n]+).*?\*\*Compatibilit\u00e0:\*\*\s*(?P<compatibility>[^\n<]+)",
+        text,
+    )
+
+    if not match:
+        return {}
+
+    return {
+        "version": match.group("version").strip(),
+        "compatibility": match.group("compatibility").strip(),
+    }
+
+
 @app.get("/modules/{name:path}/meta")
 async def get_module_meta(name: str, _: None = Depends(require_api_key)) -> Dict:
     """Return metadata (no content) for a module file."""
@@ -376,11 +398,16 @@ async def get_module_meta(name: str, _: None = Depends(require_api_key)) -> Dict
         raise HTTPException(status_code=400, detail="Invalid module path")
     if not path.is_file():
         raise HTTPException(status_code=404, detail="Module not found")
-    return {
+
+    metadata = {
         "name": path.name,
         "size_bytes": path.stat().st_size,
         "suffix": path.suffix,
     }
+
+    metadata.update(_parse_module_metadata(path))
+
+    return metadata
 
 
 @app.get("/modules/taverna_saves/meta")

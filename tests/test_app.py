@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 from urllib.parse import quote
 
 import pytest
@@ -319,6 +320,26 @@ def test_get_module_meta_valid_file(client, auth_headers):
     assert payload["name"] == sample_file.name
     assert payload["size_bytes"] == sample_file.stat().st_size
     assert payload["suffix"] == sample_file.suffix
+
+
+def test_get_knowledge_pack_meta_includes_version_and_compatibility(
+    client, auth_headers
+):
+    sample_file = MODULES_DIR / "knowledge_pack.md"
+    response = client.get(
+        f"/modules/{quote(sample_file.name)}/meta", headers=auth_headers
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+
+    match = re.search(
+        r"\*\*Versione:\*\*\s*(?P<version>[^•\n]+).*?\*\*Compatibilit\u00e0:\*\*\s*(?P<compatibility>[^\n<]+)",
+        sample_file.read_text(encoding="utf-8"),
+    )
+
+    assert payload["version"] == match.group("version").strip()
+    assert payload["compatibility"] == match.group("compatibility").strip()
 
 
 def test_get_module_meta_not_found(client, auth_headers):
