@@ -52,7 +52,9 @@ x-api-key: ${API_KEY}
 Restituisce metadati (nome, dimensioni, estensione) senza il contenuto del file.
 Se il modulo dichiara un header strutturato (es. `version`, `compatibility`) questi
 campi vengono esposti insieme a eventuali note di compatibilità in formato stringa
-o dizionario.
+o dizionario. Per i moduli JSON (es. `tavern_hub.json`) `version`/`compatibility`
+vengono letti dal blocco `meta` o dal root dell'oggetto JSON, senza necessità di
+front matter.
 
 Esempio di risposta:
 

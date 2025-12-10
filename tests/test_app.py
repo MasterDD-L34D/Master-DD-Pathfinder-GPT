@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 import re
 from urllib.parse import quote
 
@@ -397,6 +398,29 @@ def test_get_module_meta_includes_front_matter_fields(client, auth_headers):
 
     assert payload["version"] == expected["version"]
     assert payload["compatibility"] == expected["compatibility"]
+
+
+def test_get_module_meta_reads_json_metadata(client, auth_headers):
+    sample_file = MODULES_DIR / "tavern_hub.json"
+    parsed = json.loads(sample_file.read_text(encoding="utf-8"))
+    response = client.get(
+        f"/modules/{quote(sample_file.name)}/meta", headers=auth_headers
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+
+    meta_block = parsed.get("meta", {}) if isinstance(parsed, dict) else {}
+    expected_version = meta_block.get("version") or parsed.get("version")
+    expected_compatibility = meta_block.get("compatibility") or parsed.get(
+        "compatibility"
+    )
+
+    assert payload.get("version") == expected_version
+    if expected_compatibility is not None:
+        assert payload["compatibility"] == expected_compatibility
+    else:
+        assert "compatibility" not in payload
 
 
 def test_get_module_meta_not_found(client, auth_headers):

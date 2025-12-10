@@ -91,8 +91,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P2] **Allineamento estensioni:** il modulo ricorda la migrazione a `.txt` per tutti i percorsi; conviene verificare che eventuali client puntino ai percorsi Knowledge Pack in `.txt`, sostituendo riferimenti legacy.【F:src/modules/knowledge_pack.md†L3-L4】
-- [P2] **Miglioria potenziale:** includere nelle API di metadata un campo `version`/`compatibility` già presente nel testo per evitare parsing dal corpo del modulo.【F:src/modules/knowledge_pack.md†L1-L6】
+- [—] Nessun task aperto: i percorsi client/documentazione puntano già alle risorse `.txt` e l’API `/modules/{name}/meta` restituisce `version` e `compatibility` dal modulo senza parsing manuale.【F:docs/api_usage.md†L20-L27】【F:src/app.py†L392-L458】【F:src/modules/knowledge_pack.md†L1-L6】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il quick start orchestra i moduli principali (quiz PG → MinMax → Encounter → Ledger) e fornisce prompt “copia/incolla” parametrizzati per Taverna, Ruling, Archivist, Narrativa, Explain, semplificando CTA e integrazione UI.【F:src/modules/knowledge_pack.md†L45-L92】【F:src/modules/knowledge_pack.md†L126-L237】
@@ -233,7 +232,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | archivist | 1 | P2 | 2 | 1 | Pronto per sviluppo |
 | base_profile | 0 | — | 2 | 1 | Pronto per sviluppo |
 | explain_methods | 0 | — | 1 | 1 | Pronto per sviluppo |
-| knowledge_pack | 2 | P2 | 1 | 1 | Pronto per sviluppo |
+| knowledge_pack | 0 | — | 1 | 1 | Pronto per sviluppo |
 | meta_doc | 2 | P2 | 1 | 1 | Pronto per sviluppo |
 | minmax_builder | 0 | — | 2 | 1 | Pronto per sviluppo |
 | narrative_flow | 1 | P2 | 1 | 1 | Pronto per sviluppo |

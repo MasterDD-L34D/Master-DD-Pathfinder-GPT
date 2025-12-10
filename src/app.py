@@ -1,3 +1,4 @@
+import json
 import logging
 import re
 import shutil
@@ -216,6 +217,38 @@ def _list_files(base: Path) -> List[Dict]:
                 }
             )
     return out
+
+
+def _parse_json_module_metadata(
+    text: str, *, source: Path | None = None
+) -> Dict[str, object]:
+    try:
+        parsed = json.loads(text)
+    except json.JSONDecodeError:
+        logging.warning(
+            "Impossibile analizzare il modulo JSON", extra={"path": str(source or "<inline>")}
+        )
+        return {}
+
+    if not isinstance(parsed, Mapping):
+        return {}
+
+    metadata: Dict[str, object] = {}
+    candidates: List[Mapping] = [parsed]
+    meta_block = parsed.get("meta")
+    if isinstance(meta_block, Mapping):
+        candidates.append(meta_block)
+
+    for block in candidates:
+        version = block.get("version")
+        if version is not None and "version" not in metadata:
+            metadata["version"] = version
+
+        compatibility = block.get("compatibility")
+        if compatibility is not None and "compatibility" not in metadata:
+            metadata["compatibility"] = compatibility
+
+    return metadata
 
 
 def _taverna_saves_metrics() -> Dict[str, object]:
@@ -456,7 +489,13 @@ def _parse_module_metadata(path: Path) -> Dict[str, object]:
     """Extract optional metadata fields from a module file."""
 
     text = path.read_text(encoding="utf-8", errors="ignore")
-    metadata = _parse_front_matter_metadata(text, source=path)
+    metadata: Dict[str, object] = {}
+
+    if path.suffix.lower() == ".json":
+        metadata.update(_parse_json_module_metadata(text, source=path))
+        return metadata
+
+    metadata.update(_parse_front_matter_metadata(text, source=path))
 
     if path.name == "knowledge_pack.md":
         metadata.update(_parse_knowledge_pack_metadata(text))
