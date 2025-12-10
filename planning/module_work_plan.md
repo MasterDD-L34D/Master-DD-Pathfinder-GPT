@@ -16,9 +16,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ### Task (priorità e scope)
 - [P1][Completato] `compute_effective_cr_from_enemies` unificato sulla versione clampata (qty ∈[1,64], CR ∈[0,40]) e `/auto_balance` puntato esplicitamente allo stesso helper per evitare ambiguità di calcolo.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L777-L788】
-- [P1] Ampliare `run_qagates` con gate aggiuntivi per pacing/loot e per la presenza di `balance_snapshot`, bloccando l’export se mancano ondate, loot o la simulazione di rischio/bilanciamento; aggiorna anche i messaggi di QA per guidare l’utente ai comandi `/set_pacing`, `/set_loot_policy`, `/auto_balance` o `/simulate_encounter`.【F:src/modules/Encounter_Designer.txt†L620-L637】【F:src/modules/Encounter_Designer.txt†L357-L398】
-- [P2] Estendere i gate QA per coprire pacing/loot/export: oggi la checklist richiede solo nemici, CR stimato e badge/PFS, per cui export può passare anche con ondate vuote o loot mancante. Aggiungere controlli su `pacing`/`loot` eviterebbe snapshot incompleti.【F:src/modules/Encounter_Designer.txt†L620-L637】【F:src/modules/Encounter_Designer.txt†L357-L378】【F:src/modules/Encounter_Designer.txt†L379-L398】
-- [P2] Allineare la validazione a `/simulate_encounter`: integrare un gate che verifichi la presenza di `balance_snapshot` (simulazione o auto-balance) garantirebbe export coerenti con i rischi stimati e ridurrebbe QA manuale.【F:src/modules/Encounter_Designer.txt†L316-L350】【F:src/modules/Encounter_Designer.txt†L379-L398】
+- [P1][Completato] `run_qagates` esteso con gate su pacing/loot e presenza di `balance_snapshot`, con CTA esplicite verso `/auto_balance`/`/simulate_encounter` e `/set_pacing`/`/set_loot_policy`; export bloccato se i gate falliscono.【F:src/modules/Encounter_Designer.txt†L380-L404】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il modello dati evita riferimenti a testi protetti: stat e DC sono placeholder numerici astratti, mentre badge e gate PFS delimitano eventuali HR.【F:src/modules/Encounter_Designer.txt†L92-L140】【F:src/modules/Encounter_Designer.txt†L357-L419】
@@ -30,8 +28,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Esporre nella risposta con `ALLOW_MODULE_DUMP=false` un’indicazione chiara che il contenuto è parziale (es. header dimensione residua o nota esplicita) per evitare confusione lato client. 【f250d4†L1-L76】
-- [P2] ⚠️ Con `ALLOW_MODULE_DUMP=false` il contenuto viene troncato senza indicare dimensione residua; suggerito aggiungere header/note che l'output è parziale. 【f250d4†L1-L76】
+- [P1][Completato] Con `ALLOW_MODULE_DUMP=false` le risposte includono marker di troncamento/nota “⚠️ Output parziale” applicati anche a export txt/markdown, evitando ambiguità lato client.【F:src/modules/Taverna_NPC.txt†L273-L311】
 - [P2] 🔧 Miglioria proposta: esporre endpoint dedicato ai metadati di storage (quota residua, `max_files`) basato su configurazione `storage.auto_name_policy` per monitorare saturazione. 【F:src/modules/Taverna_NPC.txt†L364-L380】
 - [P2] 🔧 Valutare messaggio di guida quando Echo gate blocca (<8.5) o quando `qa_guard` disattivato da check falliti, per chiarezza UX. 【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
 
@@ -58,9 +55,8 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] **Endpoint download moduli**: applicare la logica di troncamento/403 anche ai moduli `.txt` quando `ALLOW_MODULE_DUMP=false`, coerentemente con README e indicazioni di `base_profile.txt`/`meta_doc`. Esempio: limitare la risposta a 4000 caratteri con suffisso `[contenuto troncato]` per `archivist.txt`.【1411c6†L1-L67】【2130a0†L10-L14】【F:src/modules/base_profile.txt†L356-L366】
-- [P2] Allineare il comportamento di `/modules/{name}` al README e ai profili (troncamento a 4000 caratteri o blocco) quando `ALLOW_MODULE_DUMP=false`, includendo un marcatore esplicito per i contenuti parziali.【1411c6†L1-L67】【2130a0†L10-L14】
-- [P2] Considerare un header o campo JSON nei dump troncati per indicare size originale e percentuale servita, migliorando la UX rispetto all’attuale mancanza di segnali (vedi anche altri report sui moduli).【1411c6†L1-L67】
+- [P1][Completato] Dump policy allineata: con `ALLOW_MODULE_DUMP=false` i moduli `.txt` vengono troncati e marcati (`[…TRUNCATED ALLOW_MODULE_DUMP=false…]`), coerentemente con README e `base_profile`.【F:src/modules/archivist.txt†L118-L177】【F:src/modules/base_profile.txt†L356-L366】
+- [P2] Considerare un header o campo JSON nei dump troncati per indicare size originale e percentuale servita, migliorando la UX rispetto all’attuale marcatore testuale.【F:src/modules/archivist.txt†L118-L177】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] ALLOW_MODULE_DUMP=false blocca asset non testuali (`tavern_hub.json`) ma non tronca né blocca i moduli `.txt`: `archivist.txt` viene restituito integralmente, in conflitto con la documentazione che indica troncamento a 4000 caratteri quando il flag è disattivato.【1411c6†L1-L67】【f75b9a†L1-L7】【2130a0†L10-L14】
@@ -140,9 +136,8 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Implementare validator effettivi in `/qa_story` (arc/theme/thread/pacing/style) sostituendo gli stub che restituiscono sempre `True`, così da far emergere errori e coerenze mancanti nelle storie generate.【F:src/modules/narrative_flow.txt†L320-L346】【F:src/modules/narrative_flow.txt†L690-L715】
+- [P1][Completato] `/qa_story` usa validator reali per arco/tema/thread/pacing/stile, popola `story_state.qa`/`ready_for_export` e blocca gli export quando i gate falliscono, includendo preview troncato marcato.【F:src/modules/narrative_flow.txt†L320-L404】
 - [P2] **Troncamento vs policy**: l’API tronca i file testuali a 4000 caratteri quando `ALLOW_MODULE_DUMP=false`, ma il comportamento non distingue dimensione residua né segnala header aggiuntivi; valutare esposizione di lunghezza originaria o header `x-truncated`.【F:src/app.py†L581-L601】【F:tests/test_app.py†L268-L295】
-- [P2] **CTA export**: i comandi `/export_*` non specificano filename; definire convenzioni (es. `story_<titolo>.md/pdf`, `beats.csv`) per allineamento con altri moduli di export e con le checklist MDA.【F:src/modules/narrative_flow.txt†L330-L386】【F:src/modules/narrative_flow.txt†L659-L688】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flow narrativo in 11 step guida genere, tono, protagonisti, conflitto e arc/tema con retry e cache, integrando template per scene/outline/bible e interfacce con Taverna, Encounter e Ledger tramite seed condivisi.【F:src/modules/narrative_flow.txt†L465-L658】【F:src/modules/narrative_flow.txt†L397-L463】

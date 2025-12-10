@@ -23,14 +23,14 @@
 - **State**: `story_state` include genere/tono/premise, Bible (protagonisti/cast/luoghi), timeline con `continuity_flags`, `open_threads`, stile e safety defaults (content_safety).【F:src/modules/narrative_flow.txt†L35-L64】
 - **Image guardrails**: blacklist (minorenni/gore/hate symbols), sanitizer con azioni reject/soften e strategy di sostituzione; policy di carry dello style seed quando lock attivo.【F:src/modules/narrative_flow.txt†L65-L87】
 - **Metriche**: `narrative_metrics` per tensione/valenza/pacing, `arc_engine` (want/need/lie/ghost/flaw/change_signal), `theme_engine` con tagging per scena, `motif_registry` con regole di richiamo Chekhov, `continuity_watch` e `style_bible` con preset HighFantasy/DashiellNoir e pacing controller per words/dialogo.【F:src/modules/narrative_flow.txt†L88-L156】
-- **QA templates**: validator enum/non-empty, gate `story_requires`, checklist `story_qa`, retry 2 tentativi; validator stub per arc/theme/thread/pacing/style (ritornano `True`).【F:src/modules/narrative_flow.txt†L158-L186】【F:src/modules/narrative_flow.txt†L690-L715】
+- **QA templates**: validator enum/non-empty, gate `story_requires`, checklist `story_qa`, retry 2 tentativi; validator operativi su arco/tema/thread/pacing/stile aggiornano `story_state.qa.*`, calcolano `ready_for_export` e includono preview troncato a 520 caratteri con marker `[TRUNCATED]` quando necessario.【F:src/modules/narrative_flow.txt†L158-L186】【F:src/modules/narrative_flow.txt†L320-L404】
 
 ## Comandi principali e impatto sullo stato
 - **Setup/Storia**: `/create_story`, `/generate_scene`, `/continue_story`+alias `/load_story`, `/save_story`, `/list_saved_stories`, `/check_conversation` — settano `genre/tone`, caricano/salvano `story_state`, serializzano sessioni con chiave `story_<titolo>`.【F:src/modules/narrative_flow.txt†L190-L262】
 - **Personaggi**: `/save_character`, `/list_saved_characters` aggiornano `protagonists`; `/visualize` produce placeholder visual con art_style/seed correnti.【F:src/modules/narrative_flow.txt†L238-L258】
 - **Stile/Sicurezza**: `/set_art_style`, `/style_lock` (autogenera seed se ON), `/content_safety` aggiornano `story_state.style` e `safety`; output conferma lock/seed e livello filtro.【F:src/modules/narrative_flow.txt†L263-L288】
 - **Outline/Bible/Tracker**: `/outline`, `/beat`, `/bible`, `/scene_tracker`, `/explain_theme` gestiscono timeline/hook e inoltri didattici (emit event).【F:src/modules/narrative_flow.txt†L290-L318】
-- **QA/Arc/Theme/Motif/Metrics/Export**: `/qa_story` auto-invoca i validator stub; `/arc`, `/theme`, `/motif_add`/`/register_chekhov`, `/plot_curve`, export MD/CSV/PDF per bible/beats/storia.【F:src/modules/narrative_flow.txt†L320-L386】
+- **QA/Arc/Theme/Motif/Metrics/Export**: `/qa_story` calcola preview e lancia i validator reali, setta flag QA e blocca gli export se non tutti `ok`; `/arc`, `/theme`, `/motif_add`/`/register_chekhov`, `/plot_curve`, export MD/CSV/PDF con filename espliciti (`story_bible.md`, `story_beats.csv`, `narrative_story.md/.pdf`) e nota “partial preview” se il QA è stato troncato.【F:src/modules/narrative_flow.txt†L320-L404】
 - **Integrazioni cross-modulo**: seed PNG → Taverna NPC, encounter seed → Encounter Designer, ledger log → Adventurer Ledger, explain/ruling requests, export arco/tema a MinMax, continuity ad Archivist (via emit_event).【F:src/modules/narrative_flow.txt†L397-L463】
 - **UI templates**: schede scena/outline/bible/arc e sparkline tensione pronti per rendering (campi e struttura).【F:src/modules/narrative_flow.txt†L465-L503】
 
@@ -41,14 +41,13 @@
 - Gates/checklist descritti sopra; helper `now` per seed/time; estensioni `mda` con checklist tecnica/operativa e visual mapping ASCII. Export supporta MD/CSV/PDF, con naming implicito dai comandi `/export_*`.【F:src/modules/narrative_flow.txt†L659-L732】【F:src/modules/narrative_flow.txt†L717-L724】
 
 ## Osservazioni
-- Il flow narrativo in 11 step guida genere, tono, protagonisti, conflitto e arc/tema con retry e cache, integrando template per scene/outline/bible e interfacce con Taverna, Encounter e Ledger tramite seed condivisi.【F:src/modules/narrative_flow.txt†L465-L658】【F:src/modules/narrative_flow.txt†L397-L463】
+- Il flow narrativo in 11 step guida genere, tono, protagonisti, conflitto e arc/tema con retry e cache, integrando template per scene/outline/bible e interfacce con Taverna, Encounter e Ledger tramite seed condivisi; il QA ora fornisce checklist dettagliata, flag export e CTA su arc/tema/hook/pacing/stile.【F:src/modules/narrative_flow.txt†L465-L658】【F:src/modules/narrative_flow.txt†L320-L404】
 
 ## Errori
-- **Validator stub**: tutte le funzioni `validate_*` ritornano `True`, quindi `/qa_story` non segnala mai errori; implementare logica reale per coerenza con checklist QA.【F:src/modules/narrative_flow.txt†L320-L346】【F:src/modules/narrative_flow.txt†L690-L715】
+- Nessun errore bloccante rilevato dopo l’attivazione dei validator reali in `/qa_story`.
 
 ## Miglioramenti suggeriti
 - **Troncamento vs policy**: l’API tronca i file testuali a 4000 caratteri quando `ALLOW_MODULE_DUMP=false`, ma il comportamento non distingue dimensione residua né segnala header aggiuntivi; valutare esposizione di lunghezza originaria o header `x-truncated`.【F:src/app.py†L581-L601】【F:tests/test_app.py†L268-L295】
-- **CTA export**: i comandi `/export_*` non specificano filename; definire convenzioni (es. `story_<titolo>.md/pdf`, `beats.csv`) per allineamento con altri moduli di export e con le checklist MDA.【F:src/modules/narrative_flow.txt†L330-L386】【F:src/modules/narrative_flow.txt†L659-L688】
 
 ## Fix necessari
-- Implementare validator effettivi in `/qa_story` (arc/theme/thread/pacing/style) sostituendo gli stub che restituiscono sempre `True`, così da far emergere errori e coerenze mancanti nelle storie generate.【F:src/modules/narrative_flow.txt†L320-L346】【F:src/modules/narrative_flow.txt†L690-L715】
+- Nessuno aperto: `/qa_story` usa validator concreti e blocca export finché arc/tema/thread/pacing/stile non sono tutti OK, includendo preview troncato e CTA dedicate.【F:src/modules/narrative_flow.txt†L320-L404】

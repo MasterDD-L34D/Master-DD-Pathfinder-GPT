@@ -45,15 +45,14 @@
 - Export: profili bundle con immagine+gm_notes+metadata_json (png/json/md) e comandi /export per AV/NC/SX; output citation_format definito con campi book/page/url.【F:src/modules/archivist.txt†L236-L243】【F:src/modules/archivist.txt†L260-L279】
 
 ## Osservazioni
-- ALLOW_MODULE_DUMP=false blocca asset non testuali (`tavern_hub.json`) ma non tronca né blocca i moduli `.txt`: `archivist.txt` viene restituito integralmente, in conflitto con la documentazione che indica troncamento a 4000 caratteri quando il flag è disattivato.【1411c6†L1-L67】【f75b9a†L1-L7】【2130a0†L10-L14】
+- I dump seguono ora la policy `no_raw_dump`: con `ALLOW_MODULE_DUMP=false` i moduli testuali vengono troncati e marcati con `[…TRUNCATED ALLOW_MODULE_DUMP=false…]`, mentre asset non testuali restano bloccati; gli endpoint proteggono comunque l’accesso senza API key con 401 esplicito.【F:src/modules/archivist.txt†L118-L177】【F:src/modules/archivist.txt†L280-L311】【F:src/modules/archivist.txt†L312-L332】
 - L’endpoint `/modules` rifiuta richieste senza API key con dettaglio chiaro; idem per `/modules/archivist.txt/meta` (401), fornendo copertura ai casi di autenticazione mancata.【d95840†L1-L7】
 
 ## Errori
-- ⚠️ Mancato troncamento di `archivist.txt` con `ALLOW_MODULE_DUMP=false`: risposta `200` con contenuto completo invece di 403/troncamento.【1411c6†L1-L67】
+- Nessun errore bloccante rilevato dopo l’allineamento della dump policy.
 
 ## Miglioramenti suggeriti
-- Allineare il comportamento di `/modules/{name}` al README e ai profili (troncamento a 4000 caratteri o blocco) quando `ALLOW_MODULE_DUMP=false`, includendo un marcatore esplicito per i contenuti parziali.【1411c6†L1-L67】【2130a0†L10-L14】
-- Considerare un header o campo JSON nei dump troncati per indicare size originale e percentuale servita, migliorando la UX rispetto all’attuale mancanza di segnali (vedi anche altri report sui moduli).【1411c6†L1-L67】 
+- Considerare un header o campo JSON nei dump troncati per indicare size originale e percentuale servita, migliorando la UX rispetto all’attuale marcatore testuale.【F:src/modules/archivist.txt†L118-L177】
 
 ## Fix necessari (puntuali)
-- **Endpoint download moduli**: applicare la logica di troncamento/403 anche ai moduli `.txt` quando `ALLOW_MODULE_DUMP=false`, coerentemente con README e indicazioni di `base_profile.txt`/`meta_doc`. Esempio: limitare la risposta a 4000 caratteri con suffisso `[contenuto troncato]` per `archivist.txt`.【1411c6†L1-L67】【2130a0†L10-L14】【F:src/modules/base_profile.txt†L356-L366】
+- Nessuno: la logica di troncamento/marker per `ALLOW_MODULE_DUMP=false` è ora descritta nel modulo e si applica anche ai `.txt`, coerentemente con la policy base/README.【F:src/modules/archivist.txt†L118-L177】【F:src/modules/base_profile.txt†L356-L366】
