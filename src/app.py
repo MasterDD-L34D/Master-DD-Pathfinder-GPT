@@ -371,6 +371,7 @@ async def get_module_content(
     class_name: str | None = Query(default=None, alias="class"),
     race: str | None = Query(default=None),
     archetype: str | None = Query(default=None),
+    level: int | None = Query(default=None),
     stub: bool = Query(
         default=False, description="Return stub payload for minmax builder"
     ),
@@ -409,6 +410,7 @@ async def get_module_content(
             "core" if str(builder_mode or "").lower().startswith("core") else "extended"
         )
         step_total = 8 if normalized_mode == "core" else 16
+        resolved_level = int((body or {}).get("level") or level or 1)
         step_labels = {
             "1": "Profilo Base",
             "2": "Razza & Classe",
@@ -452,11 +454,27 @@ async def get_module_content(
             },
         }
 
+        base_hp = 12 + 5 * max(resolved_level - 1, 0)
+        progression: list[dict[str, object]] = []
+        for lvl in range(1, resolved_level + 1):
+            progression.append(
+                {
+                    "livello": lvl,
+                    "privilegi": [
+                        f"Privilegio {lvl}",
+                        f"Tecnica distintiva {resolved_archetype}"
+                        if resolved_archetype
+                        else "Tecnica distintiva",
+                    ],
+                    "talenti": [f"Talento di livello {lvl}"],
+                }
+            )
+
         sheet_payload = {
             "classi": [
                 {
                     "nome": class_name or "Unknown",
-                    "livelli": 1,
+                    "livelli": resolved_level,
                     "archetipi": [resolved_archetype] if resolved_archetype else [],
                 }
             ],
@@ -473,6 +491,25 @@ async def get_module_content(
                 "danni": "1d8+3",
                 "ca": 17,
             },
+            "pf_totali": base_hp,
+            "hp": {"totali": base_hp, "per_livello": [base_hp]},
+            "salvezze": {"Tempra": 4, "Riflessi": 3, "Volontà": 4},
+            "skills_map": {
+                "Percezione": {"totale": 5},
+                "Acrobazia": {"totale": 4},
+                "Conoscenze": {"totale": 3},
+            },
+            "skill_points": 4 * resolved_level,
+            "talenti": ["Colpo possente", "Iniziativa migliorata"],
+            "capacita_classe": ["Addestramento marziale", "Specializzazione"],
+            "equipaggiamento": ["Arma preferita", "Armatura leggera"],
+            "inventario": ["Kit da avventuriero", "Pozione di cura x2"],
+            "spell_levels": [],
+            "slot_incantesimi": "Liv1:4/Liv2:3",
+            "ac_breakdown": {"totale": 18, "armatura": 5, "destrezza": 2, "scudo": 1},
+            "iniziativa": 2,
+            "velocita": 9,
+            "progressione": progression,
             "benchmarks": {"meta_tier": "T3"},
             "hooks": (body or {}).get("hooks"),
         }
