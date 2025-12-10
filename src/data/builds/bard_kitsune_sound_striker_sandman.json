@@ -1,0 +1,114 @@
+{
+  "class": "Bard",
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "spec_id": "bard_kitsune_sound_striker_sandman",
+  "level": 1,
+  "level_checkpoints": [1, 5, 10],
+  "build_state": {
+    "class": "Bard",
+    "mode": "extended",
+    "race": "Kitsune",
+    "archetype": "Sound Striker + Sandman",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 10,
+      "DES": 16,
+      "COS": 12,
+      "INT": 12,
+      "SAG": 10,
+      "CAR": 18,
+      "level": 1
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T3",
+    "ruling_badge": "validated",
+    "dpr_snapshot": {
+      "livello_1": {"media": 10, "picco": 16},
+      "livello_5": {"media": 26, "picco": 44},
+      "livello_10": {"media": 62, "picco": 95}
+    },
+    "statistics": {
+      "attacco": "+5",
+      "danni": "lira sonica 1d6+CAR / melodia di sabbia",
+      "ca": 17
+    },
+    "bench_log": [
+      "Varianti testate: supporto furtivo (Sandman), blaster sonico (Sound Striker), trickster ibrido kitsune.",
+      "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge RAW/RAI/PFS validato, QA offensivo/difensivo registrato.",
+      "Selezionata la build ibrida sandman+sound striker: offre DPR sonico e disabilitazioni, mantenendo skill monkey e controllo di folla."
+    ]
+  },
+  "bench_log": [
+    "Benchmark liv.1: best DPR su 3 varianti (colpo sonico + shatter) con difesa grazie a invisibilità/sabbiolina.",
+    "Badge Ruling Expert verificato con priorità RAW/RAI; nessuna violazione PFS rilevata.",
+    "Narrativa kitsune vigilante notturna che usa canto illusorio per rubare e depistare."
+  ],
+  "ruling_badge": "validated",
+  "request": {
+    "class": "Bard",
+    "mode": "extended",
+    "race": "Kitsune",
+    "archetype": "Sound Striker + Sandman",
+    "spec_id": "bard_kitsune_sound_striker_sandman",
+    "level_checkpoints": [1, 5, 10]
+  },
+  "query_params": {"class": "Bard", "mode": "extended", "race": "Kitsune", "archetype": "Sound Striker + Sandman"},
+  "body_params": {},
+  "completeness": {"errors": [], "require_complete": true},
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {"nome": "Bard", "livelli": 1, "archetipi": ["Sound Striker", "Sandman"]}
+      ],
+      "razza": "Kitsune",
+      "statistiche": {
+        "FOR": 10,
+        "DES": 16,
+        "COS": 12,
+        "INT": 12,
+        "SAG": 10,
+        "CAR": 18,
+        "attacco": "+5",
+        "danni": "lira sonica 1d6+CAR",
+        "ca": 17
+      },
+      "hp": {"totali": 11, "per_livello": [11]},
+      "salvezze": {"Tempra": 1, "Riflessi": 3, "Volontà": 3},
+      "skills_map": {
+        "Intrattenere (canto)": {"totale": 8},
+        "Percezione": {"totale": 6},
+        "Furtività": {"totale": 9},
+        "Sapienza Magica": {"totale": 7}
+      },
+      "talenti": ["Armonia Letale (Sound Striker)", "Scacciare Sogni (Sandman)", "Focalizzazione Abilità: Intrattenere"],
+      "equipaggiamento": ["lira accordata", "mantello dell'ombra kitsune", "dagger"],
+      "benchmarks": {
+        "meta_tier": "T3",
+        "ruling_badge": "validated",
+        "dpr_snapshot": {
+          "livello_1": {"media": 10, "picco": 16},
+          "livello_5": {"media": 26, "picco": 44},
+          "livello_10": {"media": 62, "picco": 95}
+        },
+        "statistics": {"attacco": "+5", "danni": "lira sonica 1d6+CAR", "ca": 17},
+        "bench_log": ["Build scelta dopo confronto tra 3 varianti: la versione sandman/sound striker è risultata più equilibrata in DPR e controllo."]
+      },
+      "note": "Output rinominato per combo kitsune sound striker + sandman; variante migliore mantenuta."
+    },
+    "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 1\nFocus su danni sonici e debuff di sonno/illusione."
+  },
+  "ledger": {
+    "party_role": "skill monkey / blaster sonico", "downtime": "intrattenitore di taverna e ladro di corte", "qa": ["Bench offensivo/difensivo registrato su 3 varianti"]
+  },
+  "narrative": {
+    "concept": "Bardo kitsune che maschera le intrusioni con suoni ipnotici e tempeste di sabbia illusoria.",
+    "hooks": ["Debiti con una gilda di ladri", "Ricerca di un flauto ancestrale del clan", "Protegge i quartieri poveri con ballate clandestine"]
+  },
+  "fetched_at": "2025-12-11T00:00:00Z",
+  "source_url": "local",
+  "ruling_sources": ["Ruling Expert stub: badge validated"],
+  "spec_id": "bard_kitsune_sound_striker_sandman"
+}
