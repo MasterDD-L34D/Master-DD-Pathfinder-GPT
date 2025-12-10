@@ -10,6 +10,10 @@ description: >
   mappa ASCII, MDA e ponti diretti con Taverna NPC, Encounter Designer,
   Adventurer Ledger ed Explain/Ruling Expert.
 
+# ── Note API / download
+# Le risposte parziali (limite 4000 caratteri) espongono header `X-Truncation-Limit-Chars`
+# e flag `x-truncated=true` nel payload, includendo la lunghezza originale.
+
 welcome_message: "✍️ Modalità Narrativa attiva! /create_story per iniziare, /load_story per continuare."
 
 # ── Triggers naturali (parafrasi d’ingresso)

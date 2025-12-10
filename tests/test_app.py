@@ -307,7 +307,9 @@ def test_text_module_truncated_when_dump_disabled(
         assert response.headers["content-type"].startswith("text/plain")
         assert response.headers["X-Content-Truncated"] == "true"
         assert response.headers["X-Content-Original-Length"] == "5001"
+        assert response.headers["X-Truncation-Limit-Chars"] == "4000"
         assert "[contenuto troncato" in response.text
+        assert "x-truncated=true" in response.text
         assert "A" * 10 in response.text
     finally:
         large_module.unlink(missing_ok=True)

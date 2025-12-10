@@ -1418,7 +1418,11 @@ async def get_module_content(
     def _truncated_text():
         if is_truncated:
             yield chunk[:max_chars]
-            yield f"\n\n[contenuto troncato — restano circa {remaining} byte su {total_size}]"
+            yield (
+                "\n\n[contenuto troncato — restano circa "
+                f"{remaining} byte su {total_size}; x-truncated=true; "
+                f"original-length={original_length}]"
+            )
         else:
             yield chunk
 
@@ -1434,6 +1438,10 @@ async def get_module_content(
         "X-Original-Length": str(original_length),
         "Warning": '199 - "Contenuto parziale: ALLOW_MODULE_DUMP=false"',
     }
+
+    if is_truncated:
+        headers["X-Truncation-Limit-Chars"] = str(max_chars)
+        headers["X-Truncated"] = "true"
 
     return StreamingResponse(
         _truncated_text(),
