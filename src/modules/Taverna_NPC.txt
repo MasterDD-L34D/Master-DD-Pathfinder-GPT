@@ -1003,7 +1003,7 @@ commands:
             then:
               - output: "🧪 Echo gate: score {{QR.score}}/10 (< {{runtime.echo_min_score}}) → applico micro-refine (card più compatta/equip/feats coerenti)."
               - # (eventuale micro-refine qui; lasciamo nota)
-              - output: "➡️ Remediation: applica i fix suggeriti da /grade o usa /refine_npc per migliorare il punteggio; se stai testando in sandbox puoi disattivare il gate con /echo off."
+              - output: "➡️ Remediation: applica i fix suggeriti da /grade, riesegui /grade finché Echo ≥ {{runtime.echo_min_score}} o usa /refine_npc; in sandbox puoi disattivare il gate con /echo off."
             else:
               - output: "✅ Echo gate: OK ({{QR.score}}/10)."
       - output_template: ui_templates.npc_card_compact
@@ -1292,7 +1292,7 @@ commands:
         then:
           - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
           - output: "⛔ Export bloccato: {{ _gate_reason }}."
-          - output: "➡️ CTA: prima esegui /save_hub o /check_conversation, poi riprova."
+          - output: "➡️ CTA: riesegui /self_check (QA CHECK/repair), completa Canvas+Ledger, poi salva con /save_hub o riallinea la chat con /check_conversation prima di riprovare."
           - goto_state: READY
         else:
           - continue
@@ -1317,6 +1317,7 @@ commands:
       - output: "📦 Storage taverna_saves → path={{_path}}, auto_name={{_pattern}} (max {{_max}}, overflow={{_overflow}}). Occupati {{_used}}/{{_max}}, residui {{ [_remaining,0] | max }}."
       - if: "{{ not _allow_dump }}"
         then:
+          - output: "ℹ️ Output parziale: ALLOW_MODULE_DUMP=false → l'API risponde con X-Content-Partial=true e X-Content-Remaining-Bytes per indicare la quota non servita."
           - output: "{{ policies.exposure_guard.dump_policy.standard_response }}"
           - output: "{{ policies.exposure_guard.dump_policy.marker }}"
 

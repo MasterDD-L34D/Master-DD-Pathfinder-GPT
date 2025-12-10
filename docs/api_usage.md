@@ -6,7 +6,7 @@ Questa guida riassume come usare l'API FastAPI esposta dal progetto, con esempi 
 
 - **Header obbligatorio**: `x-api-key: <API_KEY>` a meno che non sia impostato `ALLOW_ANONYMOUS=true`.
 - **Troncamento contenuti** (`ALLOW_MODULE_DUMP`):
-  - `false` (default): i file non testuali generano `403 Module download not allowed`; i `.txt`/`.md` sono limitati ai primi 4000 caratteri con suffisso `[contenuto troncato]`, header `X-Content-Partial: true` e status `206 Partial Content`.
+  - `false` (default): i file non testuali generano `403 Module download not allowed`; i `.txt`/`.md` sono limitati ai primi 4000 caratteri con suffisso `[contenuto troncato]`, header `X-Content-Partial: true`, `X-Content-Partial-Reason: ALLOW_MODULE_DUMP=false`, `X-Content-Served-Bytes`/`X-Content-Remaining-Bytes` e status `206 Partial Content`.
   - `true`: i file vengono restituiti per intero, inclusi PDF/asset non testuali (abilitare solo per QA/export controllati).
 - **Metriche Prometheus** (`METRICS_API_KEY` o `METRICS_IP_ALLOWLIST`):
   - `/metrics` è protetto da API key dedicata (`METRICS_API_KEY`) o dalla stessa `API_KEY`.
@@ -76,7 +76,7 @@ Esempio di risposta:
 ```
 
 ### `GET /modules/taverna_saves/meta`
-Restituisce quota e metadati della cartella di servizio `taverna_saves`, inclusi path, `max_files`, slot residui, spazio disco libero e policy di naming/overflow.
+Restituisce quota e metadati della cartella di servizio `taverna_saves`, inclusi path, `max_files`, slot residui, spazio disco libero e policy di naming/overflow. Quando `ALLOW_MODULE_DUMP=false` il payload espone anche `module_dump_allowed: false` e `partial_dump_notice` per ricordare che i dump testuali sono parziali.
 
 ### `GET /modules/taverna_saves/quota`
 Espone solo i numeri di quota/occupazione (`current_files`, `remaining_files`, spazio disco, dimensione totale dei JSON salvati).

@@ -259,6 +259,12 @@ def _taverna_saves_metadata() -> Dict[str, object]:
         {
             "remaining_bytes": metrics.get("disk_usage", {}).get("free_bytes", 0),
             "auto_name_policy": auto_name_policy,
+            "module_dump_allowed": settings.allow_module_dump,
+            "partial_dump_notice": (
+                "Output limitato: ALLOW_MODULE_DUMP=false — i dump testo sono tronchi a 4k char con header X-Content-Partial/X-Content-Remaining-Bytes"
+                if not settings.allow_module_dump
+                else None
+            ),
         }
     )
 
@@ -1113,6 +1119,8 @@ async def get_module_content(
 
     headers = {
         "X-Content-Partial": "true",
+        "X-Content-Partial-Reason": "ALLOW_MODULE_DUMP=false",
+        "X-Content-Served-Bytes": str(truncated_size),
         "X-Content-Total-Bytes": str(total_size),
         "X-Content-Remaining-Bytes": str(remaining),
         "X-Content-Truncated": str(is_truncated).lower(),
