@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-10T23:35:20Z",
+  "generated_at": "2025-12-10T23:50:14Z",
   "api_url": null,
   "mode": "mixed",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -143,6 +143,75 @@
       "step_total_ok": true
     },
     {
+      "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json",
+      "status": "ok",
+      "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
+      "class": "Arcanist",
+      "race": "Tiefling",
+      "archetype": "Hexcrafter + Blood Arcanist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "arcanist_tiefling_hexcrafter_+_blood_arcanist",
+      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 1,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl05.json",
+      "status": "ok",
+      "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
+      "class": "Arcanist",
+      "race": "Tiefling",
+      "archetype": "Hexcrafter + Blood Arcanist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "arcanist_tiefling_hexcrafter_+_blood_arcanist",
+      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 5,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl10.json",
+      "status": "ok",
+      "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
+      "class": "Arcanist",
+      "race": "Tiefling",
+      "archetype": "Hexcrafter + Blood Arcanist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "arcanist_tiefling_hexcrafter_+_blood_arcanist",
+      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 10,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
       "status": "ok",
       "output_prefix": "barbarian_fetchling_invulnerable_rager",
@@ -212,15 +281,33 @@
       "step_total_ok": true
     },
     {
-      "file": "src/data/builds/bard.json",
+      "file": "src/data/builds/bard_kitsune_sound_striker_sandman.json",
       "status": "ok",
-      "output_prefix": "bard_human_base",
+      "output_prefix": "bard_kitsune_sound_striker_+_sandman",
       "class": "Bard",
-      "race": "Human",
-      "archetype": "Base",
+      "race": "Kitsune",
+      "archetype": "Sound Striker + Sandman",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "bard_human_base",
+      "spec_id": "bard_kitsune_sound_striker_+_sandman",
+      "background": null,
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ]
+    },
+    {
+      "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl05.json",
+      "status": "ok",
+      "output_prefix": "bard_kitsune_sound_striker_+_sandman",
+      "class": "Bard",
+      "race": "Kitsune",
+      "archetype": "Sound Striker + Sandman",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "bard_kitsune_sound_striker_+_sandman",
       "background": null,
       "model": null,
       "level_checkpoints": [
@@ -228,7 +315,26 @@
         5,
         10
       ],
-      "level": 1
+      "level": 5
+    },
+    {
+      "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json",
+      "status": "ok",
+      "output_prefix": "bard_kitsune_sound_striker_+_sandman",
+      "class": "Bard",
+      "race": "Kitsune",
+      "archetype": "Sound Striker + Sandman",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "bard_kitsune_sound_striker_+_sandman",
+      "background": null,
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 10
     },
     {
       "file": "src/data/builds/bloodrager.json",
@@ -1312,108 +1418,24 @@
         10
       ],
       "level": 10
-    },
-    {
-      "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json",
-      "status": "ok",
-      "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
-      "level": 1,
-      "class": "Arcanist",
-      "race": "Tiefling",
-      "archetype": "Hexcrafter + Blood Arcanist",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
-      "model": null,
-      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true,
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "mock_ruling_expert",
-        "RAW/RAI/PFS double-check"
-      ]
-    },
-    {
-      "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl05.json",
-      "status": "ok",
-      "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
-      "level": 5,
-      "class": "Arcanist",
-      "race": "Tiefling",
-      "archetype": "Hexcrafter + Blood Arcanist",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
-      "model": null,
-      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true,
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "mock_ruling_expert",
-        "RAW/RAI/PFS double-check"
-      ]
-    },
-    {
-      "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl10.json",
-      "status": "ok",
-      "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
-      "level": 10,
-      "class": "Arcanist",
-      "race": "Tiefling",
-      "archetype": "Hexcrafter + Blood Arcanist",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
-      "model": null,
-      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true,
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "mock_ruling_expert",
-        "RAW/RAI/PFS double-check"
-      ]
     }
   ],
   "checkpoints": {
     "1": {
-      "total": 41,
-      "invalid": 1,
+      "total": 40,
+      "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "5": {
-      "total": 17,
-      "invalid": 1,
+      "total": 18,
+      "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "10": {
-      "total": 12,
-      "invalid": 1,
+      "total": 13,
+      "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     }
