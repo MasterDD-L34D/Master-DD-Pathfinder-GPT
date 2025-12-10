@@ -2977,3 +2977,14 @@ wizard_evoker_progressione:
     - { livello: 8, slot: "1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4", ca: 18, pf: 68, talenti: ["Penetrare resistenza magica"], equip: ["Pergamena di muro di forza"] }
     - { livello: 9, slot: "1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5", ca: 19, pf: 76, talenti: ["Incantesimi rapidi migliorati"], equip: ["Bacchetta di fulmine (CL9)"] }
     - { livello: 10, slot: "1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6", ca: 20, pf: 84, talenti: ["Incantesimi potenziati", "Penetrare RM migliorato"], equip: ["Perla di potere IV", "Focus runici"] }
+
+# Fighter Shielded — progressione rapida (liv. 5-10)
+fighter_shielded_progressione:
+  note: "Blocchi pronti per salire di livello con focus difensivo (PF/TS/CA/skill/equip)."
+  step:
+    - { livello: 5, pf: 52, ca: 24, salvezze: {Tempra: 7, Riflessi: 4, Volontà: 3}, privilegi: ["Shielded Stance avanzata", "Weapon Training (scudi) +1"], talenti: ["Greater Shield Focus"], skill_hint: "Percezione 8, Raggirare 5", equip: ["Scudo pesante +1 (bashing)", "Pietra della fortuna"] }
+    - { livello: 6, pf: 63, ca: 25, salvezze: {Tempra: 8, Riflessi: 4, Volontà: 3}, privilegi: ["Armor Training II"], talenti: ["Improved Bull Rush", "Bodyguard"], skill_hint: "Professione (soldato) 6", equip: ["Corazza completa +1", "Mantello della resistenza +1"] }
+    - { livello: 7, pf: 74, ca: 26, salvezze: {Tempra: 9, Riflessi: 5, Volontà: 3}, privilegi: ["Bravery +2", "Ricochet Bash"], talenti: ["Step Up and Strike"], skill_hint: "Acrobazia 8", equip: ["Scudo pesante +2 con emblema", "Cintura della forza +4"] }
+    - { livello: 8, pf: 85, ca: 27, salvezze: {Tempra: 10, Riflessi: 5, Volontà: 4}, privilegi: ["Armor Training III", "Penalità scudo 0"], talenti: ["Saving Shield"], skill_hint: "Percezione 10", equip: ["Armatura a piastre +2", "Guanti dell'arma focalizzata"] }
+    - { livello: 9, pf: 96, ca: 28, salvezze: {Tempra: 11, Riflessi: 6, Volontà: 4}, privilegi: ["Weapon Training (scudi) +2", "Interruzione con scudo"], talenti: ["Disruptive"], skill_hint: "Intimidire 11", equip: ["Scudo pesante +2 fortificato", "Anello di protezione +2"] }
+    - { livello: 10, pf: 107, ca: 29, salvezze: {Tempra: 12, Riflessi: 6, Volontà: 5}, privilegi: ["Armor Training IV", "Bastione esperto"], talenti: ["Improved Critical (scudo pesante)", "Stand Still"], skill_hint: "Percezione 12, Furtività 5", equip: ["Scudo torreggiante in mithral", "Amuleto dell'armatura naturale +2", "Pozioni di cura maggiore"] }

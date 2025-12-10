@@ -1,8 +1,5 @@
 {
-  "generated_at": "2025-12-10T20:09:52Z",
-  "api_url": "http://localhost:8000",
-  "mode": "extended",
-  "spec_file": null,
+  "generated_at": "2025-12-10T20:24:39Z",
   "entries": [
     {
       "file": "src/data/builds/alchemist.json",
@@ -166,17 +163,14 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_human_warpriest",
-      "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
+      "background": null,
       "model": null,
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "level": 5,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 5
     },
     {
       "file": "src/data/builds/cleric_human_warpriest_lvl05.json",
@@ -207,17 +201,14 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_human_warpriest",
-      "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
+      "background": null,
       "model": null,
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "level": 10,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 10
     },
     {
       "file": "src/data/builds/druid.json",
@@ -317,24 +308,21 @@
     {
       "file": "src/data/builds/fighter_dwarf_shielded.json",
       "status": "ok",
-      "output_prefix": "fighter_dwarf_shielded",
+      "output_prefix": "fighter_dwarf_shielded_fighter",
       "class": "Fighter",
       "race": "Dwarf",
       "archetype": "Shielded Fighter",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "fighter_dwarf_shielded_fighter",
-      "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
+      "background": null,
       "model": null,
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "level": 1,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 1
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
@@ -357,56 +345,41 @@
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "fighter_dwarf_shielded",
+      "status": "ok",
+      "output_prefix": "fighter_dwarf_shielded_fighter",
       "class": "Fighter",
       "race": "Dwarf",
       "archetype": "Shielded Fighter",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "fighter_dwarf_shielded_fighter",
-      "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
+      "background": null,
       "model": null,
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "level": 10,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human.json",
       "status": "ok",
-      "output_prefix": "fighter_weapon_master_human",
+      "output_prefix": "fighter_human_weapon_master",
       "class": "Fighter",
       "race": "Human",
       "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "fighter_human_weapon_master",
-      "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+      "background": null,
       "model": null,
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "level": 5,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 5
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
@@ -425,33 +398,26 @@
         5,
         10
       ],
-      "level": 5,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 5
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl10.json",
       "status": "ok",
-      "output_prefix": "fighter_weapon_master_human",
+      "output_prefix": "fighter_human_weapon_master",
       "class": "Fighter",
       "race": "Human",
       "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "fighter_human_weapon_master",
-      "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+      "background": null,
       "model": null,
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "level": 10,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 10
     },
     {
       "file": "src/data/builds/gunslinger.json",
@@ -741,29 +707,26 @@
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher.json",
       "status": "ok",
-      "output_prefix": "ranger_halfelf_skirmisher",
+      "output_prefix": "ranger_half-elf_skirmisher",
       "class": "Ranger",
       "race": "Half-Elf",
       "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "ranger_half-elf_skirmisher",
-      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
+      "background": null,
       "model": null,
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "level": 5,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 5
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
       "status": "ok",
-      "output_prefix": "ranger_halfelf_skirmisher",
+      "output_prefix": "ranger_half-elf_skirmisher",
       "class": "Ranger",
       "race": "Half-Elf",
       "archetype": "Skirmisher",
@@ -782,25 +745,21 @@
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
       "status": "ok",
-      "output_prefix": "ranger_halfelf_skirmisher",
+      "output_prefix": "ranger_half-elf_skirmisher",
       "class": "Ranger",
       "race": "Half-Elf",
       "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "ranger_half-elf_skirmisher",
-      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
+      "background": null,
       "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "level": 10,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 10
     },
     {
       "file": "src/data/builds/rogue.json",
@@ -825,82 +784,58 @@
       "file": "src/data/builds/rogue_halfling_cutpurse.json",
       "status": "ok",
       "output_prefix": "rogue_halfling_cutpurse",
-      "level": 1,
       "class": "Rogue",
       "race": "Halfling",
       "archetype": "Cutpurse",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
+      "background": null,
       "model": null,
-      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "stub"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 1
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
       "status": "ok",
       "output_prefix": "rogue_halfling_cutpurse",
-      "level": 5,
       "class": "Rogue",
       "race": "Halfling",
       "archetype": "Cutpurse",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
+      "background": null,
       "model": null,
-      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "stub"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 5
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl10.json",
       "status": "ok",
       "output_prefix": "rogue_halfling_cutpurse",
-      "level": 10,
       "class": "Rogue",
       "race": "Halfling",
       "archetype": "Cutpurse",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
+      "background": null,
       "model": null,
-      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "stub"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 10
     },
     {
       "file": "src/data/builds/samurai.json",
@@ -1234,16 +1169,16 @@
       "completeness_errors": 0
     },
     "5": {
-      "total": 14,
-      "invalid": 1,
-      "schema_errors": 1,
+      "total": 13,
+      "invalid": 0,
+      "schema_errors": 0,
       "completeness_errors": 0
     },
     "10": {
-      "total": 9,
-      "invalid": 2,
-      "schema_errors": 2,
-      "completeness_errors": 1
+      "total": 8,
+      "invalid": 0,
+      "schema_errors": 0,
+      "completeness_errors": 0
     }
   }
 }

@@ -70,9 +70,9 @@
         "INT": 10,
         "SAG": 12,
         "CAR": 8,
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 17,
+        "attacco": "+15/+10",
+        "danni": "1d8+9 (ascia da guerra nanica con addestramento allo scudo)",
+        "ca": 29,
         "Forza": 16,
         "forza": 16,
         "Destrezza": 14,
@@ -87,21 +87,30 @@
         "carisma": 8
       },
       "statistiche_chiave": {
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 17
+        "attacco": "+15/+10",
+        "danni": "1d8+9 (ascia da guerra nanica con addestramento allo scudo)",
+        "ca": 29
       },
-      "pf_totali": 57,
+      "pf_totali": 107,
       "hp": {
-        "totali": 57,
+        "totali": 107,
         "per_livello": [
-          57
+          14,
+          23,
+          32,
+          41,
+          52,
+          63,
+          74,
+          85,
+          96,
+          107
         ]
       },
       "salvezze": {
-        "Tempra": 4,
-        "Riflessi": 3,
-        "Volontà": 4
+        "Tempra": 12,
+        "Riflessi": 6,
+        "Volontà": 5
       },
       "skills_map": {
         "Percezione": {
@@ -135,8 +144,14 @@
         "Privilegio 10"
       ],
       "equipaggiamento": [
-        "Arma preferita",
-        "Armatura leggera"
+        "Ascia da guerra nanica +1",
+        "Scudo pesante in acciaio +2 (bashing)",
+        "Armatura completa in mithral +2",
+        "Cintura della forza +4",
+        "Mantello della resistenza +1",
+        "Anello di protezione +2",
+        "Amuleto dell'armatura naturale +2",
+        "Kit di manutenzione scudi"
       ],
       "inventario": [
         "Kit da avventuriero",
@@ -144,10 +159,13 @@
       ],
       "slot_incantesimi": "Liv1:4/Liv2:3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
-        "destrezza": 2,
-        "scudo": 1
+        "totale": 29,
+        "armatura": 10,
+        "scudo": 5,
+        "destrezza": 1,
+        "deflessione": 1,
+        "schivare": 1,
+        "naturale": 1
       },
       "iniziativa": 2,
       "velocita": 9,
@@ -155,41 +173,224 @@
         {
           "livello": 1,
           "privilegi": [
-            "Privilegio 1",
-            "Tecnica distintiva Shielded Fighter"
+            "Competenza in tutte le armature e scudi",
+            "Posizione di guardia dello Shielded Fighter (bonus CA quando si tiene lo scudo alzato)"
           ],
           "talenti": [
-            "Talento di livello 1"
+            "Colpo Poderoso",
+            "Colpo con scudo migliorato"
+          ],
+          "pf": 14,
+          "salvezze": {
+            "Tempra": 4,
+            "Riflessi": 2,
+            "Volontà": 1
+          },
+          "ca": 20,
+          "skill_hint": "Percezione e Intimidire addestrate; Conoscenze (nobiltà) per tattiche di guardia",
+          "equip": [
+            "Ascia da guerra nanica",
+            "Scudo pesante in acciaio",
+            "Armatura a scaglie"
           ]
         },
         {
           "livello": 2,
           "privilegi": [
-            "Privilegio 2",
-            "Tecnica distintiva Shielded Fighter"
+            "Bravery +1",
+            "Addestramento allo scudo (riduce penalità di attacco)"
           ],
           "talenti": [
-            "Talento di livello 2"
+            "Shield Focus (bonus)",
+            "Difesa nanica"
+          ],
+          "pf": 23,
+          "salvezze": {
+            "Tempra": 5,
+            "Riflessi": 2,
+            "Volontà": 2
+          },
+          "ca": 21,
+          "skill_hint": "+1 rango in Percezione e Professione (soldato)",
+          "equip": [
+            "Scudo con borchie",
+            "Pozione di cura moderata"
           ]
         },
         {
           "livello": 3,
           "privilegi": [
-            "Privilegio 3",
-            "Tecnica distintiva Shielded Fighter"
+            "Armor Training I",
+            "Copertura mobile con lo scudo"
           ],
           "talenti": [
-            "Talento di livello 3"
+            "Shield Slam"
+          ],
+          "pf": 32,
+          "salvezze": {
+            "Tempra": 5,
+            "Riflessi": 3,
+            "Volontà": 2
+          },
+          "ca": 22,
+          "skill_hint": "Acrobazia 5 per inseguimenti su terreno difficile",
+          "equip": [
+            "Corazza a bande",
+            "Cintura della forza +2"
           ]
         },
         {
           "livello": 4,
           "privilegi": [
-            "Privilegio 4",
-            "Tecnica distintiva Shielded Fighter"
+            "Addestramento arma (martiali)"
           ],
           "talenti": [
-            "Talento di livello 4"
+            "Weapon Specialization (ascia da guerra nanica)"
+          ],
+          "pf": 41,
+          "salvezze": {
+            "Tempra": 6,
+            "Riflessi": 3,
+            "Volontà": 2
+          },
+          "ca": 23,
+          "skill_hint": "Intimidire 7 per demoralizzare",
+          "equip": [
+            "Anello di protezione +1"
+          ]
+        },
+        {
+          "livello": 5,
+          "privilegi": [
+            "Shielded Stance avanzata: bonus CA +2 mentre fornisci copertura",
+            "Weapon Training (scudi) +1"
+          ],
+          "talenti": [
+            "Greater Shield Focus"
+          ],
+          "pf": 52,
+          "salvezze": {
+            "Tempra": 7,
+            "Riflessi": 4,
+            "Volontà": 3
+          },
+          "ca": 24,
+          "skill_hint": "Percezione 8, Raggirare 5 per contrasti sociali",
+          "equip": [
+            "Scudo pesante +1 (bashing)",
+            "Pietra della fortuna"
+          ]
+        },
+        {
+          "livello": 6,
+          "privilegi": [
+            "Armor Training II"
+          ],
+          "talenti": [
+            "Improved Bull Rush (bonus)",
+            "Bodyguard"
+          ],
+          "pf": 63,
+          "salvezze": {
+            "Tempra": 8,
+            "Riflessi": 4,
+            "Volontà": 3
+          },
+          "ca": 25,
+          "skill_hint": "Professione (soldato) 6, Sopravvivenza 5 per turni di ronda",
+          "equip": [
+            "Corazza completa +1",
+            "Mantello della resistenza +1"
+          ]
+        },
+        {
+          "livello": 7,
+          "privilegi": [
+            "Bravery +2",
+            "Ricochet Bash: puoi deviare proiettili con lo scudo"
+          ],
+          "talenti": [
+            "Step Up and Strike"
+          ],
+          "pf": 74,
+          "salvezze": {
+            "Tempra": 9,
+            "Riflessi": 5,
+            "Volontà": 3
+          },
+          "ca": 26,
+          "skill_hint": "Acrobatica 8 per chiudere la distanza con il nemico",
+          "equip": [
+            "Scudo pesante +2 con emblema",
+            "Cintura della forza +4"
+          ]
+        },
+        {
+          "livello": 8,
+          "privilegi": [
+            "Armor Training III",
+            "Riduzione penalità scudo a 0"
+          ],
+          "talenti": [
+            "Saving Shield (bonus)"
+          ],
+          "pf": 85,
+          "salvezze": {
+            "Tempra": 10,
+            "Riflessi": 5,
+            "Volontà": 4
+          },
+          "ca": 27,
+          "skill_hint": "Percezione 10, Artigianato (armi) 5",
+          "equip": [
+            "Armatura a piastre +2",
+            "Guanti dell'arma focalizzata"
+          ]
+        },
+        {
+          "livello": 9,
+          "privilegi": [
+            "Weapon Training (scudi) +2",
+            "Interruzione con scudo: bonus contro cariche"
+          ],
+          "talenti": [
+            "Disruptive"
+          ],
+          "pf": 96,
+          "salvezze": {
+            "Tempra": 11,
+            "Riflessi": 6,
+            "Volontà": 4
+          },
+          "ca": 28,
+          "skill_hint": "Intimidire 11 per mantenere l'aggro",
+          "equip": [
+            "Scudo pesante +2 fortificato",
+            "Anello di protezione +2"
+          ]
+        },
+        {
+          "livello": 10,
+          "privilegi": [
+            "Armor Training IV",
+            "Bastione esperto: RD 2/- mentre lo scudo è alzato"
+          ],
+          "talenti": [
+            "Improved Critical (scudo pesante)",
+            "Stand Still"
+          ],
+          "pf": 107,
+          "salvezze": {
+            "Tempra": 12,
+            "Riflessi": 6,
+            "Volontà": 5
+          },
+          "ca": 29,
+          "skill_hint": "Percezione 12, Furtività 5 per pattuglie notturne",
+          "equip": [
+            "Scudo torreggiante in mithral",
+            "Amuleto dell'armatura naturale +2",
+            "Pozioni di cura maggiore"
           ]
         }
       ],
@@ -216,36 +417,47 @@
       "razza": "Dwarf",
       "salvezze_breakdown": {
         "Tempra": {
-          "base": null,
-          "modificatore": null,
-          "misc": null,
-          "totale": 4
+          "base": 7,
+          "modificatore": 2,
+          "misc": 3,
+          "totale": 12
         },
         "Riflessi": {
-          "base": null,
-          "modificatore": null,
-          "misc": null,
-          "totale": 3
+          "base": 3,
+          "modificatore": 2,
+          "misc": 1,
+          "totale": 6
         },
         "Volontà": {
-          "base": null,
-          "modificatore": null,
-          "misc": null,
-          "totale": 4
+          "base": 3,
+          "modificatore": 1,
+          "misc": 1,
+          "totale": 5
         }
       },
-      "pf_per_livello": "n/d (PF per livello non fornito)",
-      "AC_arm": 0,
-      "AC_scudo": 0,
-      "AC_des": 0,
-      "AC_defl": 0,
-      "AC_nat": 0,
-      "AC_dodge": 0,
+      "pf_per_livello": [
+        14,
+        23,
+        32,
+        41,
+        52,
+        63,
+        74,
+        85,
+        96,
+        107
+      ],
+      "AC_arm": 10,
+      "AC_scudo": 5,
+      "AC_des": 1,
+      "AC_defl": 1,
+      "AC_nat": 1,
+      "AC_dodge": 1,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 17,
-      "CA_touch": 10,
-      "CA_ff": 10,
+      "AC_tot": 29,
+      "CA_touch": 13,
+      "CA_ff": 27,
       "BAB": "n/d (BAB non fornito)",
       "init": 2,
       "speed": 9,

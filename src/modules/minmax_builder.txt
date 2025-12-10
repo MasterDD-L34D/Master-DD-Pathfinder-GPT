@@ -2321,3 +2321,56 @@ wizard_evoker_progressione:
       ca: 20
       talento: "Incantesimi potenziati + Penetrare resistenza magica migliorato"
       equip: ["Perla di potere IV", "Focus runici"]
+
+# Fighter (Shielded Fighter) — progressione difensiva livelli 5-10
+shielded_fighter_progressione:
+  descrizione: "Checkpoint rapidi per estendere il Fighter Shielded fino al livello 10 con PF, TS, CA, skill ed equipaggiamento da tank." 
+  livelli:
+    - livello: 5
+      pf: 52
+      salvezze: {Tempra: 7, Riflessi: 4, Volontà: 3}
+      ca: 24
+      privilegi: ["Shielded Stance avanzata (+2 CA in copertura)", "Weapon Training (scudi) +1"]
+      talento: "Greater Shield Focus"
+      skill_hint: "Percezione 8, Raggirare 5 per controllare la folla"
+      equip: ["Scudo pesante +1 (bashing)", "Pietra della fortuna"]
+    - livello: 6
+      pf: 63
+      salvezze: {Tempra: 8, Riflessi: 4, Volontà: 3}
+      ca: 25
+      privilegi: ["Armor Training II"]
+      talento: "Improved Bull Rush (bonus) + Bodyguard"
+      skill_hint: "Professione (soldato) 6, Sopravvivenza 5"
+      equip: ["Corazza completa +1", "Mantello della resistenza +1"]
+    - livello: 7
+      pf: 74
+      salvezze: {Tempra: 9, Riflessi: 5, Volontà: 3}
+      ca: 26
+      privilegi: ["Bravery +2", "Ricochet Bash"]
+      talento: "Step Up and Strike"
+      skill_hint: "Acrobazia 8 per chiudere le distanze"
+      equip: ["Scudo pesante +2 con emblema", "Cintura della forza +4"]
+    - livello: 8
+      pf: 85
+      salvezze: {Tempra: 10, Riflessi: 5, Volontà: 4}
+      ca: 27
+      privilegi: ["Armor Training III", "Penalità scudo azzerata"]
+      talento: "Saving Shield (bonus)"
+      skill_hint: "Percezione 10, Artigianato (armi) 5"
+      equip: ["Armatura a piastre +2", "Guanti dell'arma focalizzata"]
+    - livello: 9
+      pf: 96
+      salvezze: {Tempra: 11, Riflessi: 6, Volontà: 4}
+      ca: 28
+      privilegi: ["Weapon Training (scudi) +2", "Interruzione con scudo contro cariche"]
+      talento: "Disruptive"
+      skill_hint: "Intimidire 11 per tenere l'aggro"
+      equip: ["Scudo pesante +2 fortificato", "Anello di protezione +2"]
+    - livello: 10
+      pf: 107
+      salvezze: {Tempra: 12, Riflessi: 6, Volontà: 5}
+      ca: 29
+      privilegi: ["Armor Training IV", "Bastione esperto (RD 2/- con scudo alzato)"]
+      talento: "Improved Critical (scudo pesante) + Stand Still"
+      skill_hint: "Percezione 12, Furtività 5 per pattuglie notturne"
+      equip: ["Scudo torreggiante in mithral", "Amuleto dell'armatura naturale +2", "Pozioni di cura maggiore"]
