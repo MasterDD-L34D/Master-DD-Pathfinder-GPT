@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-10T15:09:17Z",
+  "generated_at": "2025-12-10T15:48:52Z",
   "api_url": "http://localhost:8000",
   "mode": "extended",
   "spec_file": null,
@@ -332,21 +332,24 @@
     {
       "file": "src/data/builds/fighter_dwarf_shielded.json",
       "status": "ok",
-      "output_prefix": "fighter_dwarf_shielded_fighter",
+      "output_prefix": "fighter_dwarf_shielded",
       "class": "Fighter",
-      "race": "Dwarf",
-      "archetype": "Shielded Fighter",
+      "race": "Human",
+      "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_dwarf_shielded_fighter",
-      "background": null,
+      "spec_id": "fighter_human_weapon_master",
+      "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
       "model": null,
       "level_checkpoints": [
-        1,
         5,
         10
       ],
-      "level": 1
+      "level": 5,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
@@ -375,34 +378,50 @@
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "fighter_dwarf_shielded_fighter",
+      "status": "ok",
+      "output_prefix": "fighter_dwarf_shielded",
       "class": "Fighter",
-      "race": "Dwarf",
-      "archetype": "Shielded Fighter",
+      "race": "Human",
+      "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_dwarf_shielded_fighter",
-      "background": null,
+      "spec_id": "fighter_human_weapon_master",
+      "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
       "model": null,
       "level_checkpoints": [
-        1,
         5,
         10
       ],
       "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ]
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human.json",
+      "status": "ok",
+      "output_prefix": "fighter_weapon_master_human",
+      "class": "Fighter",
+      "race": "Human",
+      "archetype": "Weapon Master",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "fighter_human_weapon_master",
+      "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+      "model": null,
+      "level_checkpoints": [
+        5,
+        10
+      ],
+      "level": 5,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
       "status": "ok",
       "output_prefix": "fighter_human_weapon_master",
       "class": "Fighter",
@@ -418,60 +437,33 @@
         5,
         10
       ],
-      "level": 1
-    },
-    {
-      "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "fighter_human_weapon_master",
-      "class": "Fighter",
-      "race": "Human",
-      "archetype": "Weapon Master",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "fighter_human_weapon_master",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
       "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ]
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "fighter_human_weapon_master",
+      "status": "ok",
+      "output_prefix": "fighter_weapon_master_human",
       "class": "Fighter",
       "race": "Human",
       "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "fighter_human_weapon_master",
-      "background": null,
+      "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
       "model": null,
       "level_checkpoints": [
-        1,
         5,
         10
       ],
       "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ]
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/gunslinger.json",
@@ -1247,22 +1239,22 @@
   ],
   "checkpoints": {
     "1": {
-      "total": 42,
+      "total": 40,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "5": {
-      "total": 11,
-      "invalid": 5,
-      "schema_errors": 5,
-      "completeness_errors": 5
+      "total": 13,
+      "invalid": 4,
+      "schema_errors": 4,
+      "completeness_errors": 4
     },
     "10": {
       "total": 8,
-      "invalid": 5,
-      "schema_errors": 5,
-      "completeness_errors": 5
+      "invalid": 3,
+      "schema_errors": 3,
+      "completeness_errors": 3
     }
   }
 }

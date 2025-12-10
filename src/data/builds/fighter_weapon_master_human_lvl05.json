@@ -91,27 +91,31 @@
         "danni": "1d8+3",
         "ca": 17
       },
-      "pf_totali": 32,
+      "pf_totali": 44,
       "hp": {
-        "totali": 32,
+        "totali": 44,
         "per_livello": [
-          32
+          12,
+          8,
+          8,
+          8,
+          8
         ]
       },
       "salvezze": {
-        "Tempra": 4,
+        "Tempra": 6,
         "Riflessi": 3,
-        "Volontà": 4
+        "Volontà": 2
       },
       "skills_map": {
         "Percezione": {
-          "totale": 5
+          "totale": 7
         },
         "Acrobazia": {
-          "totale": 4
+          "totale": 6
         },
-        "Conoscenze": {
-          "totale": 3
+        "Intimidire": {
+          "totale": 10
         }
       },
       "skill_points": 20,
@@ -139,10 +143,10 @@
       ],
       "slot_incantesimi": "Liv1:4/Liv2:3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
+        "totale": 22,
+        "armatura": 9,
         "destrezza": 2,
-        "scudo": 1
+        "scudo": 2
       },
       "iniziativa": 2,
       "velocita": 9,
@@ -150,22 +154,164 @@
         {
           "livello": 1,
           "privilegi": [
-            "Privilegio 1",
-            "Tecnica distintiva Weapon Master"
+            "Addestramento marziale",
+            "Tecnica distintiva Weapon Master",
+            "Competenza arma preferita"
           ],
           "talenti": [
-            "Talento di livello 1"
-          ]
+            "Colpo possente",
+            "Iniziativa migliorata"
+          ],
+          "equipaggiamento": [
+            "Spada lunga bilanciata",
+            "Armatura a scaglie"
+          ],
+          "potenziamenti_offensivi": [
+            "Addestramento nelle armi da lama"
+          ],
+          "potenziamenti_difensivi": [
+            "Scudo leggero in acciaio"
+          ],
+          "pf": 12,
+          "ts": {
+            "Tempra": "+4",
+            "Riflessi": "+2",
+            "Volontà": "+1"
+          },
+          "ca": 18,
+          "skill_snapshot": {
+            "Percezione": "+5",
+            "Acrobazia": "+4",
+            "Intimidire": "+6"
+          }
         },
         {
           "livello": 2,
           "privilegi": [
-            "Privilegio 2",
+            "Bravery +1",
+            "Talento bonus da combattimento"
+          ],
+          "talenti": [
+            "Arma focalizzata (spada lunga)"
+          ],
+          "equipaggiamento": [
+            "Cotta di maglia umanizzata",
+            "Scudo leggero rinforzato"
+          ],
+          "potenziamenti_offensivi": [
+            "Affilatura superiore"
+          ],
+          "potenziamenti_difensivi": [
+            "Rivetti aggiuntivi sull'armatura"
+          ],
+          "pf": 20,
+          "ts": {
+            "Tempra": "+5",
+            "Riflessi": "+2",
+            "Volontà": "+1"
+          },
+          "ca": 19,
+          "skill_snapshot": {
+            "Percezione": "+5",
+            "Acrobazia": "+5",
+            "Intimidire": "+7"
+          }
+        },
+        {
+          "livello": 3,
+          "privilegi": [
+            "Armatura addestrata I",
             "Tecnica distintiva Weapon Master"
           ],
           "talenti": [
-            "Talento di livello 2"
-          ]
+            "Colpo vitale"
+          ],
+          "equipaggiamento": [
+            "Spada lunga con guardia personalizzata"
+          ],
+          "potenziamenti_offensivi": [
+            "Bilanciatura dell'impugnatura"
+          ],
+          "potenziamenti_difensivi": [
+            "Fodera imbottita per l'armatura"
+          ],
+          "pf": 28,
+          "ts": {
+            "Tempra": "+5",
+            "Riflessi": "+3",
+            "Volontà": "+2"
+          },
+          "ca": 20,
+          "skill_snapshot": {
+            "Percezione": "+6",
+            "Acrobazia": "+5",
+            "Intimidire": "+8"
+          }
+        },
+        {
+          "livello": 4,
+          "privilegi": [
+            "Addestramento alle armi I",
+            "Armatura addestrata II"
+          ],
+          "talenti": [
+            "Specializzazione nelle armi (spada lunga)"
+          ],
+          "equipaggiamento": [
+            "Cotta di maglia maestro",
+            "Cintura della Forza +2"
+          ],
+          "potenziamenti_offensivi": [
+            "Olio per filo a specchio"
+          ],
+          "potenziamenti_difensivi": [
+            "Imbottitura contro gli impatti"
+          ],
+          "pf": 36,
+          "ts": {
+            "Tempra": "+6",
+            "Riflessi": "+3",
+            "Volontà": "+2"
+          },
+          "ca": 21,
+          "skill_snapshot": {
+            "Percezione": "+6",
+            "Acrobazia": "+6",
+            "Intimidire": "+9"
+          }
+        },
+        {
+          "livello": 5,
+          "privilegi": [
+            "Bravery +2",
+            "Talento bonus da combattimento"
+          ],
+          "talenti": [
+            "Arma focalizzata superiore (spada lunga)",
+            "Attacco poderoso rifinito"
+          ],
+          "equipaggiamento": [
+            "Spada lunga +1",
+            "Corazza lamellare leggera"
+          ],
+          "potenziamenti_offensivi": [
+            "Cintura della Forza potenziata"
+          ],
+          "potenziamenti_difensivi": [
+            "Mantello della resistenza +1"
+          ],
+          "pf": 44,
+          "ts": {
+            "Tempra": "+6",
+            "Riflessi": "+3",
+            "Volontà": "+2"
+          },
+          "ca": 22,
+          "skill_snapshot": {
+            "Percezione": "+7",
+            "Acrobazia": "+6",
+            "Intimidire": "+10"
+          }
         }
       ],
       "benchmarks": {
@@ -194,7 +340,7 @@
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": 4
+          "totale": 6
         },
         "Riflessi": {
           "base": null,
@@ -206,10 +352,16 @@
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": 4
+          "totale": 2
         }
       },
-      "pf_per_livello": "n/d (PF per livello non fornito)",
+      "pf_per_livello": [
+        12,
+        8,
+        8,
+        8,
+        8
+      ],
       "AC_arm": 0,
       "AC_scudo": 0,
       "AC_des": 0,
