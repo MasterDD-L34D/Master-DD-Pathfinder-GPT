@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-12-10T22:24:11Z",
+  "generated_at": "2025-12-10T22:45:47Z",
   "builds": {
-    "total": 66,
-    "valid": 66,
+    "total": 68,
+    "valid": 68,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
@@ -182,21 +182,6 @@
           10
         ],
         "spec_id": "arcanist_human_base",
-        "mode_normalized": "extended"
-      },
-      {
-        "file": "src/data/builds/barbarian.json",
-        "class": "Barbarian",
-        "mode": "extended",
-        "status": "ok",
-        "level": 1,
-        "output_prefix": "barbarian_human_base",
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "spec_id": "barbarian_human_base",
         "mode_normalized": "extended"
       },
       {
@@ -1068,6 +1053,87 @@
         ],
         "spec_id": "wizard_human_evoker",
         "mode_normalized": "extended"
+      },
+      {
+        "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
+        "status": "ok",
+        "output_prefix": "barbarian_fetchling_invulnerable_rager",
+        "level": 1,
+        "class": "Barbarian",
+        "race": "Fetchling",
+        "archetype": "Invulnerable Rager",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "barbarian_fetchling_invulnerable_rager",
+        "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "validated",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true
+      },
+      {
+        "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
+        "status": "ok",
+        "output_prefix": "barbarian_fetchling_invulnerable_rager",
+        "level": 5,
+        "class": "Barbarian",
+        "race": "Fetchling",
+        "archetype": "Invulnerable Rager",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "barbarian_fetchling_invulnerable_rager",
+        "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "validated",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true
+      },
+      {
+        "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
+        "status": "ok",
+        "output_prefix": "barbarian_fetchling_invulnerable_rager",
+        "level": 10,
+        "class": "Barbarian",
+        "race": "Fetchling",
+        "archetype": "Invulnerable Rager",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "barbarian_fetchling_invulnerable_rager",
+        "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "validated",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true
       }
     ],
     "checkpoints": {

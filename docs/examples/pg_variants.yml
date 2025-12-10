@@ -73,6 +73,15 @@ requests:
     query:
       race: Half-Orc
       archetype: Feral Shifter
+  - id: barbarian_fetchling_invulnerable_rager
+    class: Barbarian
+    race: Fetchling
+    archetype: Invulnerable Rager
+    background_hooks: "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan."
+    output_prefix: barbarian_fetchling_invulnerable_rager
+    query:
+      race: Fetchling
+      archetype: Invulnerable Rager
   - id: alchemist_goblin_bombardier
     class: Alchemist
     race: Goblin
