@@ -134,7 +134,9 @@ class QaPipeline:
                 report.changes = change_log
                 return report
 
-            arc_context = arc_result.details if isinstance(arc_result.details, Mapping) else None
+            arc_context = (
+                arc_result.details if isinstance(arc_result.details, Mapping) else None
+            )
 
             export_result = self._export_arc_to_build(payload, arc_context)
             steps.append(export_result)
@@ -154,9 +156,7 @@ class QaPipeline:
                 report.changes = change_log
                 return report
 
-            ruling_check_result = self._run_narrative_ruling_check(
-                payload, arc_context
-            )
+            ruling_check_result = self._run_narrative_ruling_check(payload, arc_context)
             steps.append(ruling_check_result)
             change_log.extend(self._collect_change_log(ruling_check_result.details))
             if ruling_check_result.status == "FAIL":
@@ -246,9 +246,7 @@ class QaPipeline:
             return arc_result
 
         details = (
-            dict(arc_result.details)
-            if isinstance(arc_result.details, Mapping)
-            else {}
+            dict(arc_result.details) if isinstance(arc_result.details, Mapping) else {}
         )
         arc = self._extract_arc(details)
         themes = self._extract_themes(details)
@@ -349,9 +347,7 @@ class QaPipeline:
             return qa_result
 
         details = (
-            dict(qa_result.details)
-            if isinstance(qa_result.details, Mapping)
-            else {}
+            dict(qa_result.details) if isinstance(qa_result.details, Mapping) else {}
         )
         issue_key, issue_value = self._extract_inconsistencies(details)
         if issue_key:
@@ -458,7 +454,11 @@ class QaPipeline:
                 return key, value
 
         qa_status = details.get("qa_status")
-        if isinstance(qa_status, str) and qa_status.lower() not in {"ok", "pass", "passed"}:
+        if isinstance(qa_status, str) and qa_status.lower() not in {
+            "ok",
+            "pass",
+            "passed",
+        }:
             return "qa_status", qa_status
 
         return None, None
@@ -468,7 +468,15 @@ class QaPipeline:
             return []
 
         collected: list[str] = []
-        for key in ("changes", "modifiche", "tratti", "traits", "background", "motivazioni", "motivations"):
+        for key in (
+            "changes",
+            "modifiche",
+            "tratti",
+            "traits",
+            "background",
+            "motivazioni",
+            "motivations",
+        ):
             value = details.get(key)
             if isinstance(value, str) and value.strip():
                 collected.append(f"{key}: {value.strip()}")

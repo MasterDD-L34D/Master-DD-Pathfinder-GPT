@@ -1,4 +1,5 @@
 """Lightweight mock Ruling Expert API for local generation runs."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -17,7 +18,9 @@ async def health() -> dict[str, str]:
 async def validate_ruling(payload: dict[str, Any], path: str = "") -> dict[str, Any]:
     build = payload.get("build")
     if not isinstance(build, dict):
-        raise HTTPException(status_code=400, detail="Campo 'build' mancante o non valido")
+        raise HTTPException(
+            status_code=400, detail="Campo 'build' mancante o non valido"
+        )
 
     badge = build.get("ruling_badge") or "full"
     sources = build.get("ruling_sources")

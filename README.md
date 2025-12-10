@@ -88,8 +88,13 @@ di sintassi prima del merge.
 
 Per i moduli, il dump completo è **disattivato di default** (`ALLOW_MODULE_DUMP=false`).
 `/modules/{name}` restituisce solo estratti (4000 caratteri + marcatore finale) e blocca
-gli asset non testuali. Imposta `ALLOW_MODULE_DUMP=true` solo se ti serve il dump
-completo per QA o export.
+gli asset non testuali: la risposta include `X-Content-Partial: true` e `206 Partial Content`
+per segnalare che il contenuto è incompleto. Imposta `ALLOW_MODULE_DUMP=true` solo se
+ti serve il dump completo per QA o export.
+
+Per monitorare i salvataggi generati dal flusso Taverna, sono disponibili gli endpoint
+`GET /modules/taverna_saves/meta` (path, quota `max_files`, spazio residuo, policy di
+overflow) e `GET /modules/taverna_saves/quota` (occupazione rapida della cartella).
 
 ### Avvio API locale
 

@@ -18,4 +18,4 @@
 ## Cartelle di servizio
 
 - `src/modules/quarantine/` e `src/data/modules/quarantine/`: cartelle di quarantena per i salvataggi Hub considerati non validi secondo le regole di `hub_storage.validation`, così da isolarli dalle esecuzioni standard.
-- `src/modules/taverna_saves/`: directory in cui il modulo Taverna scrive i salvataggi JSON (NPC, quest, voci di taverna, ledger di gioco) applicando policy di naming automatico e controllo del numero massimo di file.
+- `src/modules/taverna_saves/`: directory in cui il modulo Taverna scrive i salvataggi JSON (NPC, quest, voci di taverna, ledger di gioco) applicando policy di naming automatico e controllo del numero massimo di file. La quota e i metadati (path, `max_files`, spazio libero) sono esposti dagli endpoint `GET /modules/taverna_saves/meta` e `GET /modules/taverna_saves/quota`.

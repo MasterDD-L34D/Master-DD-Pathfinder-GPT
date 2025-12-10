@@ -225,7 +225,9 @@ def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSu
 
 def format_module_block(summary: ModuleSummary) -> str:
     report_text = (
-        "**mancante**" if not summary.report_path else f"`{summary.report_path.relative_to(REPO_ROOT)}`"
+        "**mancante**"
+        if not summary.report_path
+        else f"`{summary.report_path.relative_to(REPO_ROOT)}`"
     )
     parts = [
         f"## {summary.label}",
@@ -260,13 +262,7 @@ def _module_sort_key(
     module_label: str, *, sequence_index: Dict[str, int]
 ) -> Tuple[int, int, str]:
     stem = normalise_name(module_label)
-    cluster_rank = (
-        0
-        if stem in BUILDER_CLUSTER
-        else 1
-        if stem in HUB_CLUSTER
-        else 2
-    )
+    cluster_rank = 0 if stem in BUILDER_CLUSTER else 1 if stem in HUB_CLUSTER else 2
     return (cluster_rank, sequence_index.get(module_label, 999), stem)
 
 
@@ -284,7 +280,8 @@ def build_executive_plan(
             tasks_by_priority.setdefault(priority, []).append((summary.label, text))
 
     def format_phase(
-        title: str, items: List[Tuple[str, str]],
+        title: str,
+        items: List[Tuple[str, str]],
     ) -> List[str]:
         lines: List[str] = [f"## {title}", ""]
         if not items:
@@ -296,7 +293,9 @@ def build_executive_plan(
         for module, task in items:
             grouped.setdefault(module, []).append(task)
 
-        for module in sorted(grouped, key=lambda m: _module_sort_key(m, sequence_index=sequence_index)):
+        for module in sorted(
+            grouped, key=lambda m: _module_sort_key(m, sequence_index=sequence_index)
+        ):
             lines.append(f"- **{module}**")
             for task in grouped[module]:
                 lines.append(f"  - {task}")
@@ -317,7 +316,9 @@ def build_executive_plan(
         "",
     ]
 
-    phase1 = format_phase("Fase 1 (attuale) · P1 critici e cross-cutting", tasks_by_priority.get(1, []))
+    phase1 = format_phase(
+        "Fase 1 (attuale) · P1 critici e cross-cutting", tasks_by_priority.get(1, [])
+    )
     phase2 = format_phase(
         "Seconda fase · P1 residui e P2 cooperativi",
         tasks_by_priority.get(2, []),
@@ -332,7 +333,10 @@ def build_executive_plan(
         "| Modulo | Task aperti | Priorità massima | Stato |",
         "| --- | --- | --- | --- |",
     ]
-    for summary in sorted(summaries, key=lambda s: _module_sort_key(s.label, sequence_index=sequence_index)):
+    for summary in sorted(
+        summaries,
+        key=lambda s: _module_sort_key(s.label, sequence_index=sequence_index),
+    ):
         tracking.append(
             "| "
             f"{summary.label} | {len(summary.tasks)} | {summary.highest_priority} | {summary.status} |"
@@ -422,7 +426,9 @@ def build_plan(output_path: Path, executive_output: Path) -> None:
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate a work plan from module reports.")
+    parser = argparse.ArgumentParser(
+        description="Generate a work plan from module reports."
+    )
     parser.add_argument(
         "--output",
         type=Path,
