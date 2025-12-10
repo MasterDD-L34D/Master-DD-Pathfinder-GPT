@@ -115,7 +115,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P2] Considerare di esporre nell’export o nelle CTA finali il nome file di output/format (es. `MinMax_<nome>.pdf/json`) per allineare le aspettative su `export_build`/`export_vtt`.【F:src/modules/minmax_builder.txt†L1040-L1087】【F:src/modules/minmax_builder.txt†L2214-L2245】
+- [—] Nessuno aperto: le CTA di export mostrano il naming condiviso `MinMax_<nome>.pdf/.xlsx/.json` coerente con Encounter_Designer, chiarendo l’output atteso su `export_build`/`export_vtt`.【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1070-L1088】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Lo stub builder è validato contro schema `build_core`/`build_extended`; in caso di errore restituisce `500 Stub payload non valido ...` (testato in commit precedente, logica stabile).【F:src/app.py†L556-L570】
@@ -235,7 +235,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | explain_methods | 0 | — | 1 | 1 | Pronto per sviluppo |
 | knowledge_pack | 2 | P2 | 1 | 1 | Pronto per sviluppo |
 | meta_doc | 2 | P2 | 1 | 1 | Pronto per sviluppo |
-| minmax_builder | 1 | P2 | 2 | 1 | Pronto per sviluppo |
+| minmax_builder | 0 | — | 2 | 1 | Pronto per sviluppo |
 | narrative_flow | 1 | P2 | 1 | 1 | Pronto per sviluppo |
 | ruling_expert | 2 | P2 | 1 | 1 | Pronto per sviluppo |
 | scheda_pg_markdown_template | 1 | P2 | 2 | 1 | Pronto per sviluppo |
