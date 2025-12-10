@@ -20,8 +20,8 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
   - ✅ **Allineamento estensioni:** i client/documentazione indirizzano ora i percorsi Knowledge Pack in `.txt`, eliminando i riferimenti legacy `.yaml`.【F:docs/api_usage.md†L20-L27】【F:src/modules/knowledge_pack.md†L3-L4】
   - ✅ **Metadati API:** l’endpoint `/modules/{name}/meta` espone `version` e `compatibility` ricavati dal modulo, senza parsing manuale lato client.【F:src/app.py†L392-L458】
 - **meta_doc**
-  - ⚠️ Valutare se rieseguire `/modules` con `ALLOW_MODULE_DUMP=false` per documentare eventuali differenze di suffix/size in ambienti futuri.
-  - 🔧 Espandere `/render_brew_example` con snippet visivi aggiuntivi (es. box HR/Primary) seguendo il pattern attuale.【F:src/modules/meta_doc.txt†L488-L539】
+  - ✅ **Dump limitati documentati:** l’indice `/modules` esplicita che, con `ALLOW_MODULE_DUMP=false`, le dimensioni possono risultare ridotte e i file portare suffix `-partial` (≈4k + marker troncato).【F:src/modules/meta_doc.txt†L1-L18】
+  - ✅ **Snippet Homebrewery ampliati:** `/render_brew_example` offre esempi HR/Primary combinati e una CTA di export V3 pronta all’uso, allineata alla checklist Homebrewery.【F:src/modules/meta_doc.txt†L504-L562】【F:src/modules/meta_doc.txt†L614-L640】
 - **narrative_flow**
   - **Troncamento vs policy**: valutare esposizione di lunghezza originaria o header `x-truncated` quando `ALLOW_MODULE_DUMP=false`, per chiarezza della dimensione residua.【F:src/app.py†L581-L601】【F:tests/test_app.py†L268-L295】
 - **ruling_expert**
@@ -49,7 +49,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | base_profile | 0 | — | Pronto per sviluppo |
 | explain_methods | 0 | — | Pronto per sviluppo |
 | knowledge_pack | 0 | — | Pronto per sviluppo |
-| meta_doc | 2 | P2 | Pronto per sviluppo |
+| meta_doc | 0 | — | Pronto per sviluppo |
 | narrative_flow | 1 | P2 | Pronto per sviluppo |
 | ruling_expert | 2 | P2 | Pronto per sviluppo |
 | scheda_pg_markdown_template | 1 | P2 | Pronto per sviluppo |

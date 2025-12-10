@@ -9,7 +9,7 @@ api_usage:
   flow: "Decidi la modalità → GET /modules/{name} con header x-api-key → riformula con badge RAW/RAI/PFS/HR/🧠META."
   sample_call: |
     curl -H "x-api-key: $API_KEY" http://localhost:8000/modules/meta_doc.txt
-  dump_variants: "Con ALLOW_MODULE_DUMP=false l'elenco /modules rimane disponibile ma i singoli file possono esporre size/suffix da dump parziale (≈4k + marker '[contenuto troncato]')."
+  dump_variants: "Con ALLOW_MODULE_DUMP=false l'elenco /modules rimane disponibile ma i singoli file possono esporre size ridotta e suffix '-partial' nel listing (≈4k + marker '[contenuto troncato]')."
 
 summary: >-
   Modulo per creare, mantenere e pubblicare la documentazione dei moduli Master DD
@@ -222,7 +222,7 @@ commands:
           /export_doc <md|pdf|canvas|zip> — esporta
           /export_doc_brew — esporta Homebrewery V3
           /brew_lint — conformità V3 (headers/spazi/footers/immagini)
-          /render_brew_example <kind> — snippet cover/toc/box/image/hr-primary/dual
+          /render_brew_example <kind> — snippet cover/toc/box/image/hr-primary/dual/cta
           /generate_briefing {...} — crea Briefing Modulo da template
           /doc_pack — crea pacchetto finale (ZIP)
 
@@ -555,6 +555,14 @@ commands:
                   **[HR]** Variante di tavolo: sostituisci il tiro conoscenze con Percezione.
                   >note
                   🏛️ Primary Source — Regola base: richiedi Ricordare Conoscenze con CD adeguata.
+          - when: 'box_hr_primary_banner'
+            do:
+              - output: |
+                  >warning
+                  **[HR]** House Rule — applica condizioni personalizzate per i tiri di conoscenza.
+                  ---
+                  >note
+                  🏛️ Primary Source — Mantieni le CD ufficiali e cita il manuale di riferimento.
           - when: 'box_hr_primary_split'
             do:
               - output: |
@@ -576,8 +584,15 @@ commands:
               - output: |
                   >note
                   🏛️ Primary Source — Citazione completa
-                  *Libro:* GMG p.123  
+                  *Libro:* GMG p.123
                   *Testo:* "Il tiro di Recall Knowledge usa la CD di difficoltà moderata per il livello della creatura."
+          - when: 'box_primary_stack'
+            do:
+              - output: |
+                  >note
+                  🏛️ Primary Source — Elenco rapido
+                  - Core Rulebook p.506: Ricordare Conoscenze = CD moderata
+                  - Bestiario p.6: RI-sfrutti abilità diversa per secondo tentativo
           - when: 'wrap_left'
             do:
               - output: |
@@ -607,9 +622,12 @@ commands:
           - when: 'cta'
             do:
               - output: |
-                  {{text-align:center,margin-left:60px,margin-right:60px,margin-bottom:16px Apri `/render_brew_example cover|toc|box_raw|box_pfs|box_meta|box_hr|box_primary|box_hr_primary|box_hr_primary_split|box_primary_dual|box_primary_reference|wrap_left|watercolor_corner|center_note|checklist` e chiudi con `/brew_lint`}}
+                  ### CTA — Esporta in Homebrewery {#cta-export}
+                  {{text-align:center,margin-left:60px,margin-right:60px,margin-bottom:16px Apri la renderer V3 e incolla lo snippet}}
+                  [Apri Homebrewery](https://homebrewery.naturalcrit.com){target:_blank}
+                  {{pageNumber,auto}}
           - default:
-              - output: "⚠ Tipo di esempio non riconosciuto. Usa cover/toc/box_raw/box_pfs/box_meta/box_hr/box_primary/box_hr_primary/box_hr_primary_split/box_primary_dual/box_primary_reference/wrap_left/watercolor_corner/center_note/checklist/cta."
+              - output: "⚠ Tipo di esempio non riconosciuto. Usa cover/toc/box_raw/box_pfs/box_meta/box_hr/box_primary/box_hr_primary/box_hr_primary_banner/box_hr_primary_split/box_primary_dual/box_primary_reference/box_primary_stack/wrap_left/watercolor_corner/center_note/checklist/cta."
 
   /generate_briefing:
     description: Genera un briefing usando lo standard_briefing_template
@@ -682,10 +700,11 @@ blueprints:
         # {{doc_state.title}}
         _Compendio Pathfinder_
         :::
-      Indice: |
-        ## Table of Contents
-        - [Capitolo 1](#capitolo-1)
-        - [Capitolo 2](#capitolo-2)
+        Indice: |
+          ## Table of Contents
+          - [Capitolo 1](#capitolo-1)
+          - [Capitolo 2](#capitolo-2)
+          - [CTA Export](#cta-export)
       Capitoli: ""
       Appendici: ""
 

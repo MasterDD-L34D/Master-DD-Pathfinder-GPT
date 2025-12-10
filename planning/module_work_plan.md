@@ -102,8 +102,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P2] ⚠️ L’endpoint `/modules` non è stato rieseguito con `ALLOW_MODULE_DUMP=false`, ma la lista non dovrebbe cambiare; verificare se si vuole documentare eventuali differenze di suffix/size in ambienti futuri.
-- [P2] 🔧 Per chiarezza Homebrewery, si può espandere `/render_brew_example` con snippet visivi aggiuntivi (es. box HR/Primary) seguendo il pattern attuale.【F:src/modules/meta_doc.txt†L488-L539】
+- [—] Nessun task aperto: l’indice `/modules` chiarisce ora che con `ALLOW_MODULE_DUMP=false` le dimensioni possono risultare ridotte e comparire suffix `-partial`, mentre `/render_brew_example` fornisce snippet HR/Primary combinati e una CTA di export Homebrewery pronta all’uso.【F:src/modules/meta_doc.txt†L1-L18】【F:src/modules/meta_doc.txt†L504-L562】【F:src/modules/meta_doc.txt†L614-L640】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flusso documentale segue le fasi Draft → PeerReview → QA → Publish con CTA esplicite e tool di editing/export (outline, patch suggestion, mappe ASCII, generatori di manuale/how-to) per coprire sia documentazione interna sia bundle Homebrewery.【F:src/modules/meta_doc.txt†L678-L724】【F:src/modules/meta_doc.txt†L831-L835】【F:src/modules/meta_doc.txt†L470-L539】
@@ -233,7 +232,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | base_profile | 0 | — | 2 | 1 | Pronto per sviluppo |
 | explain_methods | 0 | — | 1 | 1 | Pronto per sviluppo |
 | knowledge_pack | 0 | — | 1 | 1 | Pronto per sviluppo |
-| meta_doc | 2 | P2 | 1 | 1 | Pronto per sviluppo |
+| meta_doc | 0 | — | 1 | 1 | Pronto per sviluppo |
 | minmax_builder | 0 | — | 2 | 1 | Pronto per sviluppo |
 | narrative_flow | 1 | P2 | 1 | 1 | Pronto per sviluppo |
 | ruling_expert | 2 | P2 | 1 | 1 | Pronto per sviluppo |
