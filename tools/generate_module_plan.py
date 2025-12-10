@@ -173,15 +173,18 @@ def collect_section_lines(
     sections: Sequence[Tuple[str, List[str]]], patterns: Sequence[re.Pattern[str]]
 ) -> List[str]:
     """
-    Return the content lines for the first section whose heading matches any
-    of the provided patterns (case-insensitive, supports combined headings and emoji).
+    Return the concatenated content lines for all sections whose heading matches
+    any of the provided patterns (case-insensitive, supports combined headings
+    and emoji). The order of matching sections is preserved.
     """
 
+    collected: List[str] = []
     for heading, content in sections:
         for pattern in patterns:
             if pattern.search(heading):
-                return content
-    return []
+                collected.extend(content)
+                break
+    return collected
 
 
 def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSummary:
