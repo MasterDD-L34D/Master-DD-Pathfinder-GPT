@@ -1,6 +1,6 @@
 mode_name: Explain
-version: 3.2-hybrid
-last_updated: 2025-08-20
+version: 3.3-hybrid-kernel
+last_updated: 2025-08-23
 inherits_from: base_profile.txt
 type: explain
 
