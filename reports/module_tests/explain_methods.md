@@ -46,7 +46,11 @@
 
 ## Miglioramenti suggeriti
 - **Deleghe/quiz**: il modulo documenta deleghe ma ne delega enforcement al kernel; quiz teach-back e auto-suggest follow-up già descritti e coerenti con UI hints.【F:src/modules/explain_methods.txt†L30-L48】【F:src/modules/explain_methods.txt†L94-L117】
-- **Miglioramento suggerito**: aggiungere export filename/JSON e tag MDA nel blocco logging/export per allineare ai requisiti di QA templati (attualmente assenti).【F:src/modules/explain_methods.txt†L193-L205】【F:src/modules/explain_methods.txt†L271-L277】
 
 ## Fix necessari
-- Nessuno: l’header del modulo riporta già la versione **3.3-hybrid-kernel** in linea con il changelog e con i tool di monitoraggio, quindi non sono richieste ulteriori azioni di allineamento versione.【F:src/modules/explain_methods.txt†L1-L4】【F:src/modules/explain_methods.txt†L318-L325】
+- Nessuno: l’header del modulo riporta già la versione **3.3-hybrid-kernel** in linea con il changelog e i requisiti QA, senza altre azioni pendenti.【F:src/modules/explain_methods.txt†L1-L4】【F:src/modules/explain_methods.txt†L318-L325】
+
+## Note di verifica
+- Export e logging riportano filename atteso, payload MD/JSON e tag MDA (`MDA:explain_export`) per ogni run QA, con esempi in `export_trace` e nei self check.【F:src/modules/explain_methods.txt†L15-L21】【F:src/modules/explain_methods.txt†L288-L297】【F:src/modules/explain_methods.txt†L347-L348】
+- Con `ALLOW_MODULE_DUMP=false` la risposta è troncata con marker finale, mantenendo header MIME coerente con la policy di streaming.【F:src/app.py†L543-L563】【981c3b†L1-L6】
+- CTA e header guidati sono aggiornati: selezione metodo/profondità/speed, template per ogni metodo e flow QA/MDA già inclusi nella UI.【F:src/modules/explain_methods.txt†L42-L113】【F:src/modules/explain_methods.txt†L118-L205】
