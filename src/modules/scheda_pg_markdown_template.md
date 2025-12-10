@@ -14,15 +14,18 @@ compatibility:
 >   core_min: "3.3"
 >   integrates_with: ["MinMax Builder", "Adventurer Ledger", "Explain Methods", "Ruling Expert", "Hook VTT"]
 > triggers:
->   ledger: "Attivalo quando il payload include valute (pp/gp/sp/cp), wbl_target_gp o ledger_invested_gp per log e KPI."
->   minmax: "On se benchmarks/statistiche_chiave/benchmark_comparison sono valorizzati o si vuole QA sui DPR/CA."
->   vtt: "Usa SHOW_VTT quando map_id, vtt_bundle_path o token_scale_hint sono presenti o serve export Foundry/Roll20."
->   qa: "SHOW_QA per checklist su tabelle popolate, Δ WBL e normalizzazione valute (fmt_gp)."
->   explain: "SHOW_EXPLAIN per allegare regole/procedure didattiche (campi explain.*)."
+>   ledger: "True quando il payload porta valute (pp/gp/sp/cp), ledger_invested_gp o wbl_target_gp: abilita log, audit e KPI."
+>   minmax: "True se riempi benchmarks/statistiche_chiave/benchmark_comparison o chiedi QA su DPR/CA/metatier."
+>   vtt: "True se map_id, vtt_bundle_path, token_scale_hint o export Foundry/Roll20 sono richiesti."
+>   qa: "True per checklist su tabelle popolate, Δ WBL coerente e valute normalizzate (fmt_gp)."
+>   explain: "True quando serve allegare regole/procedure didattiche (campi explain.*)."
 > operational_policies:
->   ledger_exports: "Limita export a bundle con valuta normalizzata (fmt_gp) e Δ WBL commentato; se serve audit, ping Ledger."
->   minmax_reviews: "Coinvolgi MinMax quando DPR/Base o CA derivano da archetipi homebrew o da benchmark_comparison custom."
+>   ledger_exports: "Limita export a bundle con valuta normalizzata (fmt_gp); annota Δ WBL e cap investimenti; ping Ledger per audit."
+>   ledger_limits: "Blocca export se manca la conversione gp o se ledger_invested_gp supera il cap tavolo senza nota master."
+>   minmax_reviews: "Coinvolgi MinMax per DPR/Base o CA derivati da archetipi homebrew o benchmark_comparison custom; annota fonti."
+>   minmax_blocks: "Se mancano benchmark rilevanti, marca il DPR come ""stub"" e non esportare build finale."
 >   vtt_hand-off: "Per mappe/token con licenze sensibili o grid custom, chiedi conferma VTT e evita export automatici."
+>   export_limits: "Niente export completo (PDF/JSON) se QA non è passato o se ledger_limits/minmax_blocks sono attivi."
 >   explain_scope: "Se explain.* contiene rulings controversi, passa da Ruling Expert prima di pubblicare."
 > defaults:
 >   show_minmax: true
@@ -32,8 +35,8 @@ compatibility:
 >   show_ledger: true
 > ```
 
-> **Uso rapido:** includi sempre `module`, `version` e `compatibility` nel meta; abilita i toggle rilevanti in base ai trigger sopra per evitare report QA incompleti.
->
+> **Uso rapido:** includi sempre `module`, `version` e `compatibility` nel meta; abilita i toggle rilevanti in base ai trigger sopra per evitare QA incompleti. Se scatta una policy (ledger_limits/minmax_blocks/export_limits) sospendi l’export e chiedi conferma al master o al referente Ledger/MinMax.
+
 > **Esempio di payload (stub):**
 > ```yaml
 > module: scheda_pg_markdown_template.md
@@ -42,14 +45,18 @@ compatibility:
 >   core_min: "3.3"
 >   integrates_with: ["MinMax Builder", "Adventurer Ledger"]
 > triggers:
->   ledger: true   # attiva Ledger per gp/wbl
->   vtt: true      # attivo per export Foundry/Roll20
+>   ledger: true   # valuta + Δ WBL ⇒ Ledger
+>   minmax: true   # DPR/benchmark richiesti
+>   vtt: true      # export Foundry/Roll20
 > operational_policies:
->   ledger_exports: "Richiedi nota Δ WBL e cap investimento prima di generare PDF."
->   minmax_reviews: "Salta: mancano benchmarks."
+>   ledger_exports: "Annota Δ WBL e cap investimento prima del PDF."
+>   ledger_limits: "Blocca export se manca fmt_gp o se cap investimenti non è autorizzato."
+>   minmax_reviews: "Richiedi review: archetipi homebrew presenti."
+>   minmax_blocks: "Non esportare build finché manca benchmark_comparison."
+>   export_limits: "QA bloccante se Δ WBL > +20% o mancano tabelle popolari."
 > print_mode: false
 > show_ledger: true
-> show_minmax: false
+> show_minmax: true
 > show_vtt: true
 > ```
 
