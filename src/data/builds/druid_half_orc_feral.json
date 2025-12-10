@@ -540,7 +540,7 @@
     "archetype": "Feral Shifter",
     "mode": "extended",
     "mode_normalized": "extended",
-    "spec_id": "druid_half_orc_feral",
+    "spec_id": "druid_half-orc_feral_shifter",
     "model": null,
     "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
     "level": 1,
