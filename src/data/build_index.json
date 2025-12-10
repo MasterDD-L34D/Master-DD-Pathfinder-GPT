@@ -1,9 +1,60 @@
 {
-  "generated_at": "2025-12-10T15:48:52Z",
+  "generated_at": "2025-12-10T18:55:47Z",
   "api_url": "http://localhost:8000",
   "mode": "extended",
   "spec_file": null,
   "entries": [
+    {
+      "file": null,
+      "status": "invalid",
+      "output_prefix": "ranger_halfelf_skirmisher",
+      "level": 10,
+      "class": "Ranger",
+      "race": "Half-Elf",
+      "archetype": "Skirmisher",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "ranger_halfelf_skirmisher",
+      "model": null,
+      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
+      "level_checkpoints": [
+        5,
+        10
+      ],
+      "error": "Build incompleta per Ranger: Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
+      "completeness_errors": [
+        "Progressione assente al livello 6",
+        "Progressione assente al livello 7",
+        "Progressione assente al livello 8",
+        "Progressione assente al livello 9",
+        "Progressione assente al livello 10"
+      ]
+    },
+    {
+      "file": null,
+      "status": "invalid",
+      "output_prefix": "ranger_halfelf_skirmisher",
+      "level": 5,
+      "class": "Ranger",
+      "race": "Half-Elf",
+      "archetype": "Skirmisher",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "ranger_halfelf_skirmisher",
+      "model": null,
+      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
+      "level_checkpoints": [
+        5,
+        10
+      ],
+      "error": "Build incompleta per Ranger: Talenti/capacità mancanti o vuote; Sezione incantesimi mancante o vuota; CA dettagliata mancante o vuota; Iniziativa o velocità mancanti",
+      "completeness_errors": [
+        "Talenti/capacità mancanti o vuote",
+        "Sezione incantesimi mancante o vuota",
+        "CA dettagliata mancante o vuota",
+        "Iniziativa o velocità mancanti"
+      ]
+    },
     {
       "file": "src/data/builds/alchemist.json",
       "status": "ok",
@@ -738,32 +789,36 @@
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher.json",
       "status": "ok",
-      "output_prefix": "ranger_half-elf_skirmisher",
+      "output_prefix": "ranger_halfelf_skirmisher",
+      "level": 5,
       "class": "Ranger",
       "race": "Half-Elf",
       "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "ranger_half-elf_skirmisher",
-      "background": null,
+      "spec_id": "ranger_halfelf_skirmisher",
       "model": null,
+      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
       "level_checkpoints": [
-        1,
         5,
         10
       ],
-      "level": 1
+      "ruling_badge": "validated",
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "ranger_half-elf_skirmisher",
+      "status": "ok",
+      "output_prefix": "ranger_halfelf_skirmisher",
       "class": "Ranger",
       "race": "Half-Elf",
       "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "ranger_half-elf_skirmisher",
+      "spec_id": "ranger_halfelf_skirmisher",
       "background": null,
       "model": null,
       "level_checkpoints": [
@@ -772,40 +827,31 @@
         10
       ],
       "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ]
+      "ruling_badge": "validated"
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "ranger_half-elf_skirmisher",
+      "status": "ok",
+      "output_prefix": "ranger_halfelf_skirmisher",
+      "level": 10,
       "class": "Ranger",
       "race": "Half-Elf",
       "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "ranger_half-elf_skirmisher",
-      "background": null,
+      "spec_id": "ranger_halfelf_skirmisher",
       "model": null,
+      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ]
+      "ruling_badge": "validated",
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/rogue.json",
@@ -1224,22 +1270,22 @@
   ],
   "checkpoints": {
     "1": {
-      "total": 40,
+      "total": 39,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "5": {
-      "total": 13,
+      "total": 15,
       "invalid": 4,
       "schema_errors": 4,
       "completeness_errors": 4
     },
     "10": {
-      "total": 8,
-      "invalid": 3,
-      "schema_errors": 3,
-      "completeness_errors": 3
+      "total": 9,
+      "invalid": 2,
+      "schema_errors": 2,
+      "completeness_errors": 2
     }
   }
 }

@@ -17,7 +17,7 @@ app = FastAPI(title="Mock Builder API", version="0.1.0")
 
 
 def _slugify(name: str) -> str:
-    return name.strip().lower().replace(" ", "_")
+    return name.strip().lower().replace(" ", "_").replace("-", "")
 
 
 def _load_json(path: Path) -> Any:
@@ -111,3 +111,15 @@ async def fetch_module(name: str) -> Response:
     if module_path.suffix.lower() in {".md", ".markdown"}:
         media_type = "text/markdown"
     return Response(content=content, media_type=media_type)
+
+
+@app.post("/ruling")
+async def ruling_expert_stub(payload: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Minimal stub for Ruling Expert validation used in local harvest runs."""
+
+    return {
+        "status": "ok",
+        "ruling_badge": "validated",
+        "violations": [],
+        "payload_echo": payload or {},
+    }

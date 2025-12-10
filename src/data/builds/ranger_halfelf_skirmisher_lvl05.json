@@ -70,9 +70,9 @@
         "INT": 10,
         "SAG": 12,
         "CAR": 8,
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 17,
+        "attacco": "+9",
+        "danni": "1d8+4",
+        "ca": 19,
         "Forza": 16,
         "forza": 16,
         "Destrezza": 14,
@@ -87,84 +87,147 @@
         "carisma": 8
       },
       "statistiche_chiave": {
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 17
+        "attacco": "+9",
+        "danni": "1d8+4",
+        "ca": 19
       },
-      "pf_totali": 32,
+      "pf_totali": 57,
       "hp": {
-        "totali": 32,
+        "totali": 57,
         "per_livello": [
-          32
+          13,
+          24,
+          35,
+          46,
+          57
         ]
       },
       "salvezze": {
-        "Tempra": 4,
-        "Riflessi": 3,
-        "Volontà": 4
+        "Tempra": 6,
+        "Riflessi": 6,
+        "Volontà": 3
       },
       "skills_map": {
         "Percezione": {
-          "totale": 5
+          "totale": 11
+        },
+        "Sopravvivenza": {
+          "totale": 10
+        },
+        "Furtività": {
+          "totale": 9
         },
         "Acrobazia": {
-          "totale": 4
+          "totale": 9
         },
-        "Conoscenze": {
-          "totale": 3
+        "Conoscenze (natura)": {
+          "totale": 7
         }
       },
-      "skill_points": 20,
+      "skill_points": 35,
       "talenti": [
-        "Colpo possente",
-        "Iniziativa migliorata"
+        "Iniziativa migliorata",
+        "Robustezza",
+        "Arma focalizzata (spada lunga)",
+        "Doppia arma migliorata",
+        "Attacco poderoso",
+        "Arma focalizzata (arco lungo composito)"
       ],
       "capacita_classe": [
-        "Addestramento marziale",
-        "Specializzazione",
-        "Privilegio 1",
-        "Tecnica distintiva Skirmisher",
-        "Privilegio 2",
-        "Privilegio 3",
-        "Privilegio 4",
-        "Privilegio 5"
+        "Nemico prescelto +4",
+        "Terreno prescelto +2 (foresta)",
+        "Stile di combattimento (Due Armi)",
+        "Tracciamento rapido",
+        "Compagno animale (lupo da caccia)",
+        "Hunter's Tricks (Distracting Attack, Chameleon Step)"
       ],
       "equipaggiamento": [
-        "Arma preferita",
-        "Armatura leggera"
+        "Spada lunga masterwork",
+        "Arco lungo composito (+2)",
+        "Cotta di maglia +1",
+        "Cintura dell'agilità +2",
+        "Mantello della resistenza +1"
       ],
       "inventario": [
         "Kit da avventuriero",
-        "Pozione di cura x2"
+        "Pozione di cura moderata x2",
+        "Corde e ganci da scalata"
       ],
-      "slot_incantesimi": "Liv1:4/Liv2:3",
+      "slot_incantesimi": "Nessuno (Skirmisher rinuncia agli incantesimi)",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
-        "destrezza": 2,
-        "scudo": 1
+        "totale": 19,
+        "armatura": 6,
+        "destrezza": 3,
+        "scudo": 0,
+        "deflessione": 0,
+        "dodge": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 6,
       "velocita": 9,
       "progressione": [
         {
           "livello": 1,
           "privilegi": [
-            "Privilegio 1",
-            "Tecnica distintiva Skirmisher"
+            "Nemico prescelto (umanoide) +2; Empatia selvatica; Tracciare",
+            "Stile di combattimento: Due Armi (bonus: Combattere con due armi leggero)",
+            "PF 13 | TS +4/+4/+1 | CA 17 | Iniziativa +6",
+            "Skill: Percezione +8, Sopravvivenza +7, Furtività +6",
+            "Equip: spada lunga, arco lungo composito (+2), cotta di maglia"
           ],
           "talenti": [
-            "Talento di livello 1"
+            "Iniziativa migliorata"
           ]
         },
         {
           "livello": 2,
           "privilegi": [
-            "Privilegio 2",
-            "Tecnica distintiva Skirmisher"
+            "Tracciamento rapido (+1/2 livello); Empatia selvatica migliorata",
+            "Stile di combattimento: Difesa con due armi (bonus)",
+            "PF 24 | TS +5/+5/+2 | CA 18 | Iniziativa +6",
+            "Skill: Acrobazia +7, Conoscenze (natura) +6",
+            "Equip: mantello resistente +1, armi bilanciate"
           ],
           "talenti": [
-            "Talento di livello 2"
+            "Robustezza"
+          ]
+        },
+        {
+          "livello": 3,
+          "privilegi": [
+            "Terreno prescelto +2 (foresta); Camuffamento naturale",
+            "PF 35 | TS +6/+6/+2 | CA 18 | Iniziativa +7",
+            "Skill: Percezione +9, Sopravvivenza +8, Furtività +7",
+            "Equip: pugnale per off-hand, guanti da arrampicata"
+          ],
+          "talenti": [
+            "Arma focalizzata (spada lunga)"
+          ]
+        },
+        {
+          "livello": 4,
+          "privilegi": [
+            "Compagno animale (lupo da caccia); Addestramento animali",
+            "Stile di combattimento migliorato: Two-Weapon Defense (bonus)",
+            "PF 46 | TS +6/+6/+3 | CA 19 | Iniziativa +7",
+            "Skill: Addestrare Animali +8, Furtività +8, Acrobazia +8",
+            "Equip: cotta di maglia +1, cintura dell'agilità +2"
+          ],
+          "talenti": [
+            "Doppia arma migliorata"
+          ]
+        },
+        {
+          "livello": 5,
+          "privilegi": [
+            "Nemico prescelto aggiuntivo +2; bonus totale +4 vs umanoidi",
+            "Hunter's Trick: Distracting Attack; Hunter's Trick: Chameleon Step",
+            "PF 57 | TS +6/+7/+3 | CA 19 | Iniziativa +8",
+            "Skill: Percezione +11, Sopravvivenza +10, Acrobazia +9",
+            "Equip: spada lunga masterwork, stivali di passo leggero"
+          ],
+          "talenti": [
+            "Attacco poderoso",
+            "Arma focalizzata (arco lungo composito)"
           ]
         }
       ],

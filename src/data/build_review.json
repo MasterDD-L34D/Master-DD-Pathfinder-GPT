@@ -759,13 +759,13 @@
       },
       {
         "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
-        "output_prefix": "ranger_half-elf_skirmisher",
+        "output_prefix": "ranger_halfelf_skirmisher",
         "class": "Ranger",
         "race": "Half-Elf",
         "archetype": "Skirmisher",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "ranger_half-elf_skirmisher",
+        "spec_id": "ranger_halfelf_skirmisher",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -774,23 +774,17 @@
           10
         ],
         "level": 5,
-        "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-        "completeness_errors": [
-          "Progressione assente al livello 3",
-          "Progressione assente al livello 4",
-          "Progressione assente al livello 5"
-        ],
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
-        "output_prefix": "ranger_half-elf_skirmisher",
+        "output_prefix": "ranger_halfelf_skirmisher",
         "class": "Ranger",
         "race": "Half-Elf",
         "archetype": "Skirmisher",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "ranger_half-elf_skirmisher",
+        "spec_id": "ranger_halfelf_skirmisher",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -799,16 +793,7 @@
           10
         ],
         "level": 10,
-        "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-        "completeness_errors": [
-          "Progressione assente al livello 5",
-          "Progressione assente al livello 6",
-          "Progressione assente al livello 7",
-          "Progressione assente al livello 8",
-          "Progressione assente al livello 9",
-          "Progressione assente al livello 10"
-        ],
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/rogue.json",
