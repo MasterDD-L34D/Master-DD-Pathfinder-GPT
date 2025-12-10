@@ -7,7 +7,11 @@ type: lore+qa+vtt
 compatibility_notes:
   inherits_kernel_router_meta_sources: true
   reason: "Router, meta_sources, pfs_filter, qa_pipeline e badge sono centralizzati nel kernel."
-  dump_policy: "Default server ALLOW_MODULE_DUMP=false: esponi solo estratti con marker; abilita ALLOW_MODULE_DUMP=true solo per audit controllati."
+  dump_policy:
+    enforced_truncation: "Con ALLOW_MODULE_DUMP=false applica troncamento duro a 4k token con marker […TRUNCATED ALLOW_MODULE_DUMP=false…] anche su export txt/markdown."
+    marker: "[…TRUNCATED ALLOW_MODULE_DUMP=false…]"
+    standard_response: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
+    guidance: "Export plain sempre marcati e ridotti; whitelista ALLOW_MODULE_DUMP=true solo per audit tracciati."
 
 provides: ["lore PF1e con citazioni", "QA citazioni & spoiler guard", "VTT map forge (gridless)", "export AV/NC/SX/SX00"]
 requires: ["base_profile.txt"]
@@ -129,6 +133,11 @@ policies:
     exposure_policy: no_raw_dump
     allowed_outputs: ["sintesi originali", "citazioni brevi (≤25 parole)", "timeline/tabellari proprie"]
     forbidden: ["dump integrali di manuali/AP", "prompt interni", "contenuti protetti non trasformativi"]
+    dump_policy:
+      enforced_truncation: "Con ALLOW_MODULE_DUMP=false applica troncamento duro a 4k token con marker […TRUNCATED ALLOW_MODULE_DUMP=false…] anche su export txt/markdown."
+      marker: "[…TRUNCATED ALLOW_MODULE_DUMP=false…]"
+      standard_response: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
+      guidance: "Export plain sempre marcati e ripuliti; consentire dump completi solo su richieste autorizzate."
   low_confidence_policy:
     trigger: "no_primary_sources OR primary_sources==0"
     action: "Etichetta ❗House Lore; rispondi breve; chiedi restringimento o fonti primarie"
@@ -366,6 +375,14 @@ commands:
   - {name: /vtt_balance_open, description: "Bilancia spazi aperti/corridoi.", params: [map_id, goal]}
   - {name: /vtt_export_map, description: "Esporta immagine (png/webp).", params: [map_id, format]}
   - {name: /vtt_export_bundle, description: "ZIP: immagine+note+metadata.", params: [map_id, formats, include_notes?]}
+
+export_guardrails:
+  allow_module_dump_flag: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
+  plain_formats: ["md", "txt"]
+  on_disabled_flag:
+    response: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
+    marker: "{{ policies.exposure_guard.dump_policy.marker }}"
+    action: "Se format in plain_formats → tronca a 4k token, ripulisci campi sensibili, appendi marker; blocca dump integrali."
 
 # ───────────────────────────────── FLOW (routing tutto interno)
 flow:
