@@ -27,7 +27,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 - **base_profile**
   - Nessuno: l’endpoint di documentazione (`/doc`/`/help`/`/manuale`) è instradato nel router di base_profile e rimanda al modulo `meta_doc.txt` per l’elenco comandi principali.【F:src/modules/base_profile.txt†L140-L175】【F:src/modules/base_profile.txt†L430-L472】
 - **explain_methods**
-  - Allineare la versione dichiarata nell’header (oggi 3.2-hybrid) con quella indicata nel changelog 3.3-hybrid-kernel per evitare mismatch in status/reporting e nei tool di monitoraggio versioni.【F:src/modules/explain_methods.txt†L1-L4】【F:src/modules/explain_methods.txt†L318-L325】
+  - Nessuno: l’header riporta ora la versione 3.3-hybrid-kernel coerente con changelog e tool di monitoraggio.【F:src/modules/explain_methods.txt†L1-L4】【F:src/modules/explain_methods.txt†L318-L325】
 - **knowledge_pack**
   - Nessuno: l’endpoint `/modules/{name}/meta` espone `version`/`compatibility` in linea con quanto documentato nel modulo, eliminando parsing testuale lato client.【F:src/modules/knowledge_pack.md†L1-L6】
 - **meta_doc**
@@ -50,8 +50,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 - **tavern_hub**
   - Nessuno: i gate QA di `/export_tavern`/`/adventure_outline` bloccono su QA fail con CTA univoca verso `/save_hub` o `/check_conversation`, e lo storage hub/ledger è validato con `schema_min` e quarantena attiva.【F:src/modules/Taverna_NPC.txt†L1285-L1317】【F:src/modules/Taverna_NPC.txt†L1225-L1247】
 - **Cartelle di servizio**
-  - ⚠️ Con `ALLOW_MODULE_DUMP=false` il contenuto è troncato senza indicare dimensione residua; suggerito header/note che l'output è parziale.【F:reports/module_tests/Taverna_NPC.md†L11-L15】
-  - 🔧 Aggiungere messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" per chiarire i passi di remediation.【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
+  - Nessuno: i dump con `ALLOW_MODULE_DUMP=false` includono ora marker di troncamento e note sul contenuto parziale, e i gate Echo/self-check forniscono CTA di remediation per blocchi QA.【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】【F:reports/module_tests/Taverna_NPC.md†L11-L15】
 - **adventurer_ledger**
   - Nessuno: il `cta_guard` mantiene una CTA sintetica nelle call principali e `vendor_cap_gp` ora parte da default 2000 gp con QA che segnala WARN solo se configurato a `null`.【F:src/modules/adventurer_ledger.txt†L29-L68】【F:src/modules/adventurer_ledger.txt†L1672-L1693】
 - **archivist**
@@ -87,11 +86,11 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | minmax_builder | 0 | P1 | Completato |
 | Taverna_NPC | 0 | P1 | Completato |
 | tavern_hub | 0 | P1 | Completato |
-| Cartelle di servizio | 2 | P1 | In corso |
+| Cartelle di servizio | 0 | P1 | Completato |
 | adventurer_ledger | 0 | P1 | Completato |
 | archivist | 1 | P1 | In corso |
 | base_profile | 0 | P1 | Completato |
-| explain_methods | 3 | P1 | In corso |
+| explain_methods | 2 | P1 | In corso |
 | knowledge_pack | 1 | P1 | In corso |
 | meta_doc | 2 | P1 | In corso |
 | narrative_flow | 1 | P1 | In corso |
