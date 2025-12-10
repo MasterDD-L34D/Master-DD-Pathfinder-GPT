@@ -1,6 +1,6 @@
 # Piano operativo generato dai report
 
-Generato il 2025-12-10T15:35:34Z
+Generato il 2025-12-10T22:00:06Z
 Fonte sequenza: `planning/module_review_guide.md`
 
 ## Checklist seguita (dal documento di guida)
@@ -28,7 +28,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Nessuno: con `ALLOW_MODULE_DUMP=false` ora sono presenti policy di troncamento marcate (`[…TRUNCATED ALLOW_MODULE_DUMP=false…]`) e risposta standardizzata “⚠️ Output parziale” applicata anche agli export plain/markdown.【F:src/modules/Taverna_NPC.txt†L273-L305】
+- [P1] Nessuno: lo storage espone già `/storage_meta` con quota/pattern di auto-name e, con `ALLOW_MODULE_DUMP=false`, i dump vengono tronchi a 4k con marker `[…TRUNCATED ALLOW_MODULE_DUMP=false…]` e risposta standard “⚠️ Output parziale” anche per export plain/markdown, in linea con le policy dichiarate.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L273-L305】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 - [P2] Nessuno: lo storage espone `/storage_meta` con quota residua, pattern di auto-name e marker di troncamento quando `ALLOW_MODULE_DUMP=false`, e i gate QA/Echo forniscono ora CTA esplicite sugli export e sui blocchi QA.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 
 ### Note (Osservazioni/Errori)
@@ -79,9 +79,8 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Allineare la versione dichiarata nell’header (oggi 3.2-hybrid) con quella indicata nel changelog 3.3-hybrid-kernel per evitare mismatch in status/reporting e nei tool di monitoraggio versioni.【F:src/modules/explain_methods.txt†L1-L4】【F:src/modules/explain_methods.txt†L318-L325】
-- [P2] **Deleghe/quiz**: il modulo documenta deleghe ma ne delega enforcement al kernel; quiz teach-back e auto-suggest follow-up già descritti e coerenti con UI hints.【F:src/modules/explain_methods.txt†L30-L48】【F:src/modules/explain_methods.txt†L94-L117】
-- [P2] **Miglioramento suggerito**: aggiungere export filename/JSON e tag MDA nel blocco logging/export per allineare ai requisiti di QA templati (attualmente assenti).【F:src/modules/explain_methods.txt†L193-L205】【F:src/modules/explain_methods.txt†L271-L277】
+- [P1] Nessuno: l’header del modulo riporta già la versione **3.3-hybrid-kernel** in linea con il changelog e i requisiti QA, senza altre azioni pendenti.【F:src/modules/explain_methods.txt†L1-L4】【F:src/modules/explain_methods.txt†L318-L325】
+- [P2] Nessuno: le deleghe e i quiz teach-back/follow-up sono descritti e coerenti con gli hint UI, senza gap di enforcement segnalati nei report.【F:src/modules/explain_methods.txt†L30-L48】【F:src/modules/explain_methods.txt†L94-L117】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flusso guidato con header/CTA seleziona metodo, profondità e speed, propone follow-up/quiz e fornisce template dedicati (ELI5, First Principles, Storytelling, Visualization, Analogies, Technical) con supporto ASCII per la resa visuale.【F:src/modules/explain_methods.txt†L42-L200】【F:src/modules/explain_methods.txt†L149-L171】【F:src/modules/explain_methods.txt†L231-L248】
@@ -92,8 +91,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Esportare `version`/`compatibility` direttamente nell’endpoint `/modules/{name}/meta` per coerenza con quanto documentato nel modulo e per evitare parsing testuale lato client.【F:src/modules/knowledge_pack.md†L1-L6】
-- [P2] **Allineamento estensioni:** il modulo ricorda la migrazione a `.txt` per tutti i percorsi; conviene verificare che eventuali client puntino ai percorsi Knowledge Pack in `.txt` (non a suffix legacy).【F:src/modules/knowledge_pack.md†L3-L4】
+- [P2] **Allineamento estensioni:** il modulo ricorda la migrazione a `.txt` per tutti i percorsi; conviene verificare che eventuali client puntino ai percorsi Knowledge Pack in `.txt`, sostituendo riferimenti legacy.【F:src/modules/knowledge_pack.md†L3-L4】
 - [P2] **Miglioria potenziale:** includere nelle API di metadata un campo `version`/`compatibility` già presente nel testo per evitare parsing dal corpo del modulo.【F:src/modules/knowledge_pack.md†L1-L6】
 
 ### Note (Osservazioni/Errori)
@@ -105,9 +103,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Aggiungere esempi di errore per `export_doc` e per le checklists Homebrewery (incluso `/render_brew_example`) in modo da coprire i gate QA e rendere più chiari i fallimenti attesi quando mancano fonti o outline.【F:src/modules/meta_doc.txt†L488-L539】【F:src/modules/meta_doc.txt†L820-L829】
 - [P2] ⚠️ L’endpoint `/modules` non è stato rieseguito con `ALLOW_MODULE_DUMP=false`, ma la lista non dovrebbe cambiare; verificare se si vuole documentare eventuali differenze di suffix/size in ambienti futuri.
-- [P2] 🔧 Potrebbe essere utile aggiungere esempi di `export_doc` fallito per mancanza di fonti/outline per coprire i gate QA definiti nel modulo.【F:src/modules/meta_doc.txt†L820-L829】
 - [P2] 🔧 Per chiarezza Homebrewery, si può espandere `/render_brew_example` con snippet visivi aggiuntivi (es. box HR/Primary) seguendo il pattern attuale.【F:src/modules/meta_doc.txt†L488-L539】
 
 ### Note (Osservazioni/Errori)
@@ -119,8 +115,6 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Aggiornare l’help e le CTA finali con i prerequisiti QA e con il naming atteso dei file (`export_build`/`export_vtt`) per evitare export falliti o output inattesi.【F:src/modules/minmax_builder.txt†L930-L959】【F:src/modules/minmax_builder.txt†L1995-L2017】【F:src/modules/minmax_builder.txt†L2214-L2245】
-- [P2] Integrare l’help rapido con un rimando esplicito ai gate QA (`export_requires`) per ridurre tentativi di export falliti; oggi l’help elenca i comandi ma non indica prerequisiti PFS/fonti.【F:src/modules/minmax_builder.txt†L930-L959】【F:src/modules/minmax_builder.txt†L1995-L2017】
 - [P2] Considerare di esporre nell’export o nelle CTA finali il nome file di output/format (es. `MinMax_<nome>.pdf/json`) per allineare le aspettative su `export_build`/`export_vtt`.【F:src/modules/minmax_builder.txt†L1040-L1087】【F:src/modules/minmax_builder.txt†L2214-L2245】
 
 ### Note (Osservazioni/Errori)
@@ -145,7 +139,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Applicare la policy `no_raw_dump` anche lato server (configurando `ALLOW_MODULE_DUMP=false` by default o introducendo whitelist) così che il comportamento runtime sia coerente con quanto dichiarato nel modulo.【F:src/modules/ruling_expert.txt†L80-L85】【c08648†L20-L28】【88122c†L1-L74】
+- [P1] Nessuno: la policy `exposure_policy: no_raw_dump` è già rispettata lato server con `ALLOW_MODULE_DUMP=false` come default e con supporto a whitelist esplicita, garantendo troncamento e marker coerenti con il modulo.【F:src/modules/ruling_expert.txt†L80-L85】【F:src/config.py†L21-L21】【c08648†L20-L28】
 - [P2] **Documentare payload stub builder**: l’endpoint `/modules/minmax_builder.txt` in modalità `stub` costruisce state compositi con `build_state`, `sheet`, `benchmark`, `ledger`, `export` e `composite` coerenti con lo schema del builder; chiarire nel modulo come questi campi si mappano su rulings/QA potrebbe agevolare l’integrazione.【F:src/app.py†L366-L572】
 - [P2] **Rafforzare CTA per PFS**: il flow indica season awareness e priorità PFS ma il `status_example` non mostra esplicitamente il badge/season derivato; aggiungere un prompt CTA per confermare la stagione PFS potrebbe ridurre ambiguità di giurisdizione.【F:src/modules/ruling_expert.txt†L300-L317】【F:src/modules/ruling_expert.txt†L417-L424】
 
@@ -158,8 +152,6 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Esporre i nuovi campi di versione/compatibilità direttamente nell’header e nei metadati in modo coerente con gli altri moduli, così da abilitare un QA automatico uniforme.【F:src/modules/scheda_pg_markdown_template.md†L5-L23】
-- [P2] Aggiungere un campo “versione” e “compatibilità sistema” nel riepilogo iniziale o nel payload meta per allinearsi ad altri moduli e supportare QA catalogo.【F:src/modules/scheda_pg_markdown_template.md†L5-L23】
 - [P2] Documentare nell'header i trigger/policy operative (es. quando abilitare Ledger/MinMax) per chiarezza d'uso nelle pipeline automatiche.【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
 
 ### Note (Osservazioni/Errori)
@@ -200,9 +192,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
-- [P1] Esporre nella risposta con `ALLOW_MODULE_DUMP=false` un’indicazione chiara che il contenuto è parziale e integrare un endpoint di quota/metadati per `taverna_saves`, così da ridurre confusione e monitorare l’uso disco delle directory di servizio.【F:reports/module_tests/Taverna_NPC.md†L11-L15】【F:src/modules/Taverna_NPC.txt†L364-L380】
-- [P2] ⚠️ Con `ALLOW_MODULE_DUMP=false` il contenuto è troncato senza indicare dimensione residua; suggerito header/note che l'output è parziale.【F:reports/module_tests/Taverna_NPC.md†L11-L15】
-- [P2] 🔧 Esporre endpoint sui metadati di storage (quota residua, `max_files`) basato su `storage.auto_name_policy` aiuterebbe il monitoraggio della saturazione.【F:src/modules/Taverna_NPC.txt†L364-L380】
+- [P1] Nessuno: la risposta include ora marker e header parziale (`X-Content-Partial`, `X-Content-Remaining-Bytes`) con CTA dedicate, e lo storage espone `/storage_meta` con quota residua e auto_name_policy per `taverna_saves`.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 - [P2] 🔧 Aggiungere messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" per chiarire i passi di remediation.【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
 
 ### Note (Osservazioni/Errori)
@@ -237,18 +227,18 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 | Modulo | Task totali | Priorità massima | Osservazioni | Errori | Stato |
 | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| Taverna_NPC | 2 | P1 | 1 | 2 | Pronto per sviluppo |
-| adventurer_ledger | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| archivist | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| base_profile | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| explain_methods | 3 | P1 | 1 | 1 | Pronto per sviluppo |
-| knowledge_pack | 3 | P1 | 1 | 1 | Pronto per sviluppo |
-| meta_doc | 4 | P1 | 1 | 1 | Pronto per sviluppo |
-| minmax_builder | 3 | P1 | 2 | 1 | Pronto per sviluppo |
-| narrative_flow | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| ruling_expert | 3 | P1 | 1 | 1 | Pronto per sviluppo |
-| scheda_pg_markdown_template | 3 | P1 | 2 | 1 | Pronto per sviluppo |
-| sigilli_runner_module | 1 | P2 | 3 | 4 | Pronto per sviluppo |
-| tavern_hub | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| Cartelle di servizio | 4 | P1 | 1 | 2 | Pronto per sviluppo |
+| Encounter_Designer | 0 | — | 2 | 1 | Pronto per sviluppo |
+| Taverna_NPC | 0 | — | 1 | 2 | Pronto per sviluppo |
+| adventurer_ledger | 0 | — | 1 | 1 | Pronto per sviluppo |
+| archivist | 1 | P2 | 2 | 1 | Pronto per sviluppo |
+| base_profile | 0 | — | 2 | 1 | Pronto per sviluppo |
+| explain_methods | 0 | — | 1 | 1 | Pronto per sviluppo |
+| knowledge_pack | 2 | P2 | 1 | 1 | Pronto per sviluppo |
+| meta_doc | 2 | P2 | 1 | 1 | Pronto per sviluppo |
+| minmax_builder | 1 | P2 | 2 | 1 | Pronto per sviluppo |
+| narrative_flow | 1 | P2 | 1 | 1 | Pronto per sviluppo |
+| ruling_expert | 2 | P2 | 1 | 1 | Pronto per sviluppo |
+| scheda_pg_markdown_template | 1 | P2 | 2 | 1 | Pronto per sviluppo |
+| sigilli_runner_module | 0 | — | 3 | 4 | Pronto per sviluppo |
+| tavern_hub | 0 | — | 1 | 1 | Pronto per sviluppo |
+| Cartelle di servizio | 1 | P2 | 1 | 2 | Pronto per sviluppo |
