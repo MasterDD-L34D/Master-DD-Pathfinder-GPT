@@ -1,4 +1,18 @@
+module_name: "Scheda PG Markdown Template"
+version: "1.1"
+compatibility:
+  core_min: "3.3"
+  integrates_with: ["MinMax Builder", "Adventurer Ledger", "Explain Methods", "Ruling Expert", "Hook VTT"]
+
 ### 🧙 Scheda Personaggio in Markdown
+
+> **Meta payload (header):**
+> ```yaml
+> version: "1.1"
+> compatibility:
+>   core_min: "3.3"
+>   integrates_with: ["MinMax Builder", "Adventurer Ledger", "Explain Methods", "Ruling Expert", "Hook VTT"]
+> ```
 
 ---
 
@@ -399,7 +413,7 @@ _Nessuna tabella incantesimi disponibile._
 - **Note GM:** {{ d(vtt_gm_notes) }}  <!-- 2–3 POI, percorsi, consigli Foundry/Roll20 -->
 - **Formati supportati:** Markdown strutturato, JSON ledger/vtt_json, blocchi compatibili con VTT.
 - **Note localizzazione numerica:** separatore {{ ',' if DECIMAL_COMMA else '.' }}, unità in gp.
-- **CTA export:** /export_pg_sheet • /export_pg_sheet_json
+- **CTA export:** /export_pg_sheet • /export_pg_sheet_json (payload meta richiesto: `version`, `compatibility.core_min`, `compatibility.integrates_with`)
 {% endif %}
 
 ---
