@@ -49,8 +49,7 @@
 - Nessun errore funzionale nelle API; 404 atteso su file mancante.【bff25f†L6-L6】
 
 ## Miglioramenti suggeriti
-- Aggiungere un campo “versione” e “compatibilità sistema” nel riepilogo iniziale o nel payload meta per allinearsi ad altri moduli e supportare QA catalogo.【F:src/modules/scheda_pg_markdown_template.md†L5-L23】
 - Documentare nell'header i trigger/policy operative (es. quando abilitare Ledger/MinMax) per chiarezza d'uso nelle pipeline automatiche.【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
 
-## Fix necessari
-- Esporre i nuovi campi di versione/compatibilità direttamente nell’header e nei metadati in modo coerente con gli altri moduli, così da abilitare un QA automatico uniforme.【F:src/modules/scheda_pg_markdown_template.md†L5-L23】
+## Note di verifica
+- ✅ L’header del template ora espone `version` e `compatibility` (core_min, integrazioni) insieme al meta payload esempio, abilitando il QA automatico uniforme e allineato agli altri moduli.【F:src/modules/scheda_pg_markdown_template.md†L1-L37】
