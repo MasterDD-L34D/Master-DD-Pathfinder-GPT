@@ -304,7 +304,11 @@ policies:
   exposure_guard:
     no_internal_dump: true
     allowed_outputs: ["parafrasi con citazione","estratti brevi","tabelle riassuntive"]
-    dump_policy: "Server default ALLOW_MODULE_DUMP=false: le risposte API forniscono solo estratti (4k + marker) e bloccano asset non testuali; abilita ALLOW_MODULE_DUMP=true solo per export controllati."
+    dump_policy:
+      enforced_truncation: "Con ALLOW_MODULE_DUMP=false applica troncamento duro a 4k token con marker […TRUNCATED ALLOW_MODULE_DUMP=false…] anche per export txt/markdown."
+      marker: "[…TRUNCATED ALLOW_MODULE_DUMP=false…]"
+      standard_response: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
+      guidance: "Export plain (txt/md) sempre marcati e ridotti; altri formati consentiti solo se il flag è abilitato esplicitamente."
 
 # ---------------------------------
 # 2.c Hooks & Handoff (Archivist ↔ Taverna)
@@ -1102,6 +1106,15 @@ commands:
           - "Riprova: /npc_export canvas"
     action:
       - set: _fmt, value: "{{ arg(0) or 'md' }}"
+      - set: _allow_dump, value: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
+      - set: _dump_marker, value: "{{ policies.exposure_guard.dump_policy.marker }}"
+      - if: "{{ _fmt in ['txt','md'] and not _allow_dump }}"
+        then:
+          - output: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
+          - output: "{{ _dump_marker }}"
+          - goto_state: EXPORTED
+        else:
+          - continue
       - if: "{{ _fmt == 'canvas' }}"
         then:
           - output: "🧩 Canvas export OK (stub)."
@@ -1222,6 +1235,16 @@ commands:
   /export_tavern <md|pdf>:
     when: feature_flags.hub_board=='on'
     description: "Report Hub (Mappa+NPC+Quest+Rumor+Taglie+Fazioni+Negozi+Eventi)."
+    action:
+      - set: _fmt, value: "{{ arg(0) or 'md' }}"
+      - set: _allow_dump, value: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
+      - set: _dump_marker, value: "{{ policies.exposure_guard.dump_policy.marker }}"
+      - if: "{{ _fmt == 'md' and not _allow_dump }}"
+        then:
+          - output: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
+          - output: "{{ _dump_marker }}"
+        else:
+          - output: "📤 (stub) Export Hub {{_fmt}} generato."
 
   /save_hub:
     when: feature_flags.hub_board=='on'
@@ -1327,6 +1350,16 @@ commands:
     validators:
       - { type: path_exists, target: "src/modules/taverna_saves/", on_fail: E-LEDGER-IO }
     action:
+      - set: _fmt, value: "{{ arg(0) or 'md' }}"
+      - set: _allow_dump, value: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
+      - set: _dump_marker, value: "{{ policies.exposure_guard.dump_policy.marker }}"
+      - if: "{{ _fmt in ['md','txt'] and not _allow_dump }}"
+        then:
+          - output: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
+          - output: "{{ _dump_marker }}"
+          - goto_state: EXPORTED
+        else:
+          - continue
       - { call: Ledger.compute_kpis, with: { ledger: "{{tavern_state.ledger}}" }, return_as: KPIS }
       - { output: "Ledger: GP={{KPIS.sum_gp}}, XP={{KPIS.sum_xp}}, REP={{KPIS.sum_rep}}. Export avviato." }
 
