@@ -148,7 +148,11 @@
                                             "type": "string"
                                         },
                                         "compatibility": {
-                                            "type": "string"
+                                            "oneOf": [
+                                                {"type": "string"},
+                                                {"type": "object"},
+                                                {"type": "array"}
+                                            ]
                                         }
                                     },
                                     "required": [

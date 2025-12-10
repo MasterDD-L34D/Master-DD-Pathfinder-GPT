@@ -7,6 +7,7 @@ from time import monotonic
 from typing import Dict, List, Mapping
 
 from datetime import datetime
+import yaml
 from fastapi import (
     Body,
     Depends,
@@ -388,14 +389,49 @@ async def list_modules(_: None = Depends(require_api_key)) -> List[Dict]:
     """Return the list of available module files (txt/md/json)."""
     return _list_files(MODULES_DIR)
 
+def _parse_front_matter_metadata(text: str, *, source: Path | None = None) -> Dict[str, object]:
+    """Extract `version` and `compatibility` from YAML-like headers."""
 
-def _parse_module_metadata(path: Path) -> Dict[str, str]:
-    """Extract optional metadata fields from a module file."""
+    metadata: Dict[str, object] = {}
+    version_match = re.search(r"^version:\s*\"?(?P<version>[^\n#]+)\"?\s*$", text, re.MULTILINE)
+    if version_match:
+        metadata["version"] = version_match.group("version").strip().strip("\"")
 
-    if path.name != "knowledge_pack.md":
-        return {}
+    lines = text.splitlines()
+    for idx, line in enumerate(lines):
+        if not line.startswith("compatibility:"):
+            continue
 
-    text = path.read_text(encoding="utf-8", errors="ignore")
+        inline_value = line.partition(":")[2].strip()
+        if inline_value:
+            metadata["compatibility"] = inline_value.strip(" \"")
+            break
+
+        block_lines: List[str] = []
+        for block_line in lines[idx + 1 :]:
+            if block_line.startswith((" ", "\t")):
+                block_lines.append(block_line)
+            else:
+                break
+
+        if block_lines:
+            snippet = "compatibility:\n" + "\n".join(block_lines)
+            try:
+                parsed = yaml.safe_load(snippet)
+                compatibility = parsed.get("compatibility") if isinstance(parsed, dict) else None
+                if compatibility is not None:
+                    metadata["compatibility"] = compatibility
+            except yaml.YAMLError:
+                logging.warning(
+                    "Impossibile analizzare il blocco compatibility",
+                    extra={"path": str(source or "<inline>")},
+                )
+        break
+
+    return metadata
+
+
+def _parse_knowledge_pack_metadata(text: str) -> Dict[str, str]:
     match = re.search(
         r"\*\*Versione:\*\*\s*(?P<version>[^•\n]+).*?\*\*Compatibilit\u00e0:\*\*\s*(?P<compatibility>[^\n<]+)",
         text,
@@ -408,6 +444,18 @@ def _parse_module_metadata(path: Path) -> Dict[str, str]:
         "version": match.group("version").strip(),
         "compatibility": match.group("compatibility").strip(),
     }
+
+
+def _parse_module_metadata(path: Path) -> Dict[str, object]:
+    """Extract optional metadata fields from a module file."""
+
+    text = path.read_text(encoding="utf-8", errors="ignore")
+    metadata = _parse_front_matter_metadata(text, source=path)
+
+    if path.name == "knowledge_pack.md":
+        metadata.update(_parse_knowledge_pack_metadata(text))
+
+    return metadata
 
 
 @app.get("/modules/{name:path}/meta")

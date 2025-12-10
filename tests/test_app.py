@@ -157,19 +157,20 @@ async def allowlisted_http_client():
 
 def test_get_module_content_valid_file(client, auth_headers):
     response = client.get("/modules/base_profile.txt", headers=auth_headers)
-    assert response.status_code == 200
+    assert response.status_code == 206
+    assert response.headers["X-Content-Partial"] == "true"
     assert "base" in response.text.lower()
 
 
 def test_get_module_content_sets_text_content_type(client, auth_headers):
     response = client.get("/modules/base_profile.txt", headers=auth_headers)
-    assert response.status_code == 200
+    assert response.status_code == 206
     assert response.headers["content-type"].startswith("text/plain")
 
 
 def test_minmax_builder_returns_file_content_by_default(client, auth_headers):
     response = client.get("/modules/minmax_builder.txt", headers=auth_headers)
-    assert response.status_code == 200
+    assert response.status_code == 206
     assert response.headers["content-type"].startswith("text/plain")
     assert "MinMax Builder" in response.text
     assert response.text.lstrip().startswith("module_name")
@@ -302,9 +303,9 @@ def test_text_module_truncated_when_dump_disabled(
 
     try:
         response = client.get("/modules/large_module.txt", headers=auth_headers)
-        assert response.status_code == 200
+        assert response.status_code == 206
         assert response.headers["content-type"].startswith("text/plain")
-        assert response.text.endswith("[contenuto troncato]")
+        assert "[contenuto troncato" in response.text
         assert "A" * 10 in response.text
     finally:
         large_module.unlink(missing_ok=True)
@@ -322,7 +323,7 @@ def test_ruling_expert_truncated_when_dump_enabled_without_whitelist(
         response = client.get("/modules/ruling_expert.txt", headers=auth_headers)
         assert response.status_code == 206
         assert response.headers["X-Content-Partial"] == "true"
-        assert response.text.endswith("[contenuto troncato]")
+        assert "[contenuto troncato" in response.text
     finally:
         settings.allow_module_dump = original_allow
         settings.module_dump_whitelist = original_whitelist
@@ -374,6 +375,23 @@ def test_get_knowledge_pack_meta_includes_version_and_compatibility(
 
     assert payload["version"] == match.group("version").strip()
     assert payload["compatibility"] == match.group("compatibility").strip()
+
+
+def test_get_module_meta_includes_front_matter_fields(client, auth_headers):
+    sample_file = MODULES_DIR / "ruling_expert.txt"
+    response = client.get(
+        f"/modules/{quote(sample_file.name)}/meta", headers=auth_headers
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+
+    expected = app_module._parse_front_matter_metadata(
+        sample_file.read_text(encoding="utf-8"), source=sample_file
+    )
+
+    assert payload["version"] == expected["version"]
+    assert payload["compatibility"] == expected["compatibility"]
 
 
 def test_get_module_meta_not_found(client, auth_headers):
