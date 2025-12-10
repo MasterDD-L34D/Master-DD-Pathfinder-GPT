@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-10T22:45:47Z",
+  "generated_at": "2025-12-10T23:35:20Z",
   "api_url": null,
   "mode": "mixed",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -8,24 +8,20 @@
       "file": "src/data/builds/alchemist-goblin-vivisectionist.json",
       "status": "ok",
       "output_prefix": "alchemist-goblin-vivisectionist",
-      "level": 1,
       "class": "Alchemist",
       "race": "Goblin",
       "archetype": "Vivisectionist",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "Alchemist::Goblin::Vivisectionist",
-      "model": null,
+      "spec_id": "alchemist_goblin_vivisectionist",
       "background": null,
+      "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "full",
-      "ruling_sources": [
-        "mock_ruling_expert"
-      ],
+      "level": 1,
       "step_total": 16,
       "expected_step_total": 16,
       "extended_steps_available": true,
@@ -35,24 +31,20 @@
       "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl05.json",
       "status": "ok",
       "output_prefix": "alchemist-goblin-vivisectionist",
-      "level": 5,
       "class": "Alchemist",
       "race": "Goblin",
       "archetype": "Vivisectionist",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "Alchemist::Goblin::Vivisectionist",
-      "model": null,
+      "spec_id": "alchemist_goblin_vivisectionist",
       "background": null,
+      "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "full",
-      "ruling_sources": [
-        "mock_ruling_expert"
-      ],
+      "level": 5,
       "step_total": 16,
       "expected_step_total": 16,
       "extended_steps_available": true,
@@ -62,24 +54,20 @@
       "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl10.json",
       "status": "ok",
       "output_prefix": "alchemist-goblin-vivisectionist",
-      "level": 10,
       "class": "Alchemist",
       "race": "Goblin",
       "archetype": "Vivisectionist",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "Alchemist::Goblin::Vivisectionist",
-      "model": null,
+      "spec_id": "alchemist_goblin_vivisectionist",
       "background": null,
+      "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "full",
-      "ruling_sources": [
-        "mock_ruling_expert"
-      ],
+      "level": 10,
       "step_total": 16,
       "expected_step_total": 16,
       "extended_steps_available": true,
@@ -89,24 +77,20 @@
       "file": "src/data/builds/alchemist_goblin_bombardier.json",
       "status": "ok",
       "output_prefix": "alchemist_goblin_bombardier",
-      "level": 1,
       "class": "Alchemist",
       "race": "Goblin",
       "archetype": "Bombardier",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "Alchemist::Goblin::Bombardier",
-      "model": null,
+      "spec_id": "alchemist_goblin_bombardier",
       "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
+      "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "mock_ruling_expert"
-      ],
+      "level": 1,
       "step_total": 16,
       "expected_step_total": 16,
       "extended_steps_available": true,
@@ -116,24 +100,20 @@
       "file": "src/data/builds/alchemist_goblin_bombardier_lvl05.json",
       "status": "ok",
       "output_prefix": "alchemist_goblin_bombardier",
-      "level": 5,
       "class": "Alchemist",
       "race": "Goblin",
       "archetype": "Bombardier",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "Alchemist::Goblin::Bombardier",
-      "model": null,
+      "spec_id": "alchemist_goblin_bombardier",
       "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
+      "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "mock_ruling_expert"
-      ],
+      "level": 5,
       "step_total": 16,
       "expected_step_total": 16,
       "extended_steps_available": true,
@@ -143,47 +123,93 @@
       "file": "src/data/builds/alchemist_goblin_bombardier_lvl10.json",
       "status": "ok",
       "output_prefix": "alchemist_goblin_bombardier",
-      "level": 10,
       "class": "Alchemist",
       "race": "Goblin",
       "archetype": "Bombardier",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "Alchemist::Goblin::Bombardier",
-      "model": null,
+      "spec_id": "alchemist_goblin_bombardier",
       "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
+      "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "mock_ruling_expert"
-      ],
+      "level": 10,
       "step_total": 16,
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true
     },
     {
-      "file": "src/data/builds/arcanist.json",
+      "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
       "status": "ok",
-      "output_prefix": "arcanist_human_base",
-      "class": "Arcanist",
-      "race": "Human",
-      "archetype": "Base",
+      "output_prefix": "barbarian_fetchling_invulnerable_rager",
+      "class": "Barbarian",
+      "race": "Fetchling",
+      "archetype": "Invulnerable Rager",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "arcanist_human_base",
-      "background": null,
+      "spec_id": "barbarian_fetchling_invulnerable_rager",
+      "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
       "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "level": 1
+      "level": 1,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
+      "status": "ok",
+      "output_prefix": "barbarian_fetchling_invulnerable_rager",
+      "class": "Barbarian",
+      "race": "Fetchling",
+      "archetype": "Invulnerable Rager",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "barbarian_fetchling_invulnerable_rager",
+      "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 5,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
+      "status": "ok",
+      "output_prefix": "barbarian_fetchling_invulnerable_rager",
+      "class": "Barbarian",
+      "race": "Fetchling",
+      "archetype": "Invulnerable Rager",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "barbarian_fetchling_invulnerable_rager",
+      "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 10,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/bard.json",
@@ -1288,104 +1314,107 @@
       "level": 10
     },
     {
-      "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
+      "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json",
       "status": "ok",
-      "output_prefix": "barbarian_fetchling_invulnerable_rager",
+      "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
       "level": 1,
-      "class": "Barbarian",
-      "race": "Fetchling",
-      "archetype": "Invulnerable Rager",
+      "class": "Arcanist",
+      "race": "Tiefling",
+      "archetype": "Hexcrafter + Blood Arcanist",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "barbarian_fetchling_invulnerable_rager",
-      "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+      "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
       "model": null,
+      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "mock_ruling_expert"
-      ],
       "step_total": 16,
       "expected_step_total": 16,
       "extended_steps_available": true,
-      "step_total_ok": true
+      "step_total_ok": true,
+      "ruling_badge": "validated",
+      "ruling_sources": [
+        "mock_ruling_expert",
+        "RAW/RAI/PFS double-check"
+      ]
     },
     {
-      "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
+      "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl05.json",
       "status": "ok",
-      "output_prefix": "barbarian_fetchling_invulnerable_rager",
+      "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
       "level": 5,
-      "class": "Barbarian",
-      "race": "Fetchling",
-      "archetype": "Invulnerable Rager",
+      "class": "Arcanist",
+      "race": "Tiefling",
+      "archetype": "Hexcrafter + Blood Arcanist",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "barbarian_fetchling_invulnerable_rager",
-      "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+      "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
       "model": null,
+      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "mock_ruling_expert"
-      ],
       "step_total": 16,
       "expected_step_total": 16,
       "extended_steps_available": true,
-      "step_total_ok": true
+      "step_total_ok": true,
+      "ruling_badge": "validated",
+      "ruling_sources": [
+        "mock_ruling_expert",
+        "RAW/RAI/PFS double-check"
+      ]
     },
     {
-      "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
+      "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl10.json",
       "status": "ok",
-      "output_prefix": "barbarian_fetchling_invulnerable_rager",
+      "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
       "level": 10,
-      "class": "Barbarian",
-      "race": "Fetchling",
-      "archetype": "Invulnerable Rager",
+      "class": "Arcanist",
+      "race": "Tiefling",
+      "archetype": "Hexcrafter + Blood Arcanist",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "barbarian_fetchling_invulnerable_rager",
-      "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+      "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
       "model": null,
+      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "mock_ruling_expert"
-      ],
       "step_total": 16,
       "expected_step_total": 16,
       "extended_steps_available": true,
-      "step_total_ok": true
+      "step_total_ok": true,
+      "ruling_badge": "validated",
+      "ruling_sources": [
+        "mock_ruling_expert",
+        "RAW/RAI/PFS double-check"
+      ]
     }
   ],
   "checkpoints": {
     "1": {
-      "total": 42,
+      "total": 41,
       "invalid": 1,
-      "schema_errors": 1,
+      "schema_errors": 0,
       "completeness_errors": 0
     },
     "5": {
-      "total": 16,
+      "total": 17,
       "invalid": 1,
-      "schema_errors": 1,
+      "schema_errors": 0,
       "completeness_errors": 0
     },
     "10": {
-      "total": 11,
+      "total": 12,
       "invalid": 1,
-      "schema_errors": 1,
+      "schema_errors": 0,
       "completeness_errors": 0
     }
   }
