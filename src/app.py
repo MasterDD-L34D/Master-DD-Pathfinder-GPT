@@ -1481,6 +1481,8 @@ async def get_module_content(
     if is_truncated:
         headers["X-Truncation-Limit-Chars"] = str(max_chars)
         headers["X-Truncated"] = "true"
+        headers["x-truncated"] = "true"
+        headers["x-original-length"] = str(original_length)
 
     return StreamingResponse(
         _truncated_text(),
