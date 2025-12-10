@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-10T15:48:52Z",
+  "generated_at": "2025-12-10T19:50:20Z",
   "builds": {
     "total": 61,
-    "valid": 54,
-    "invalid": 7,
+    "valid": 58,
+    "invalid": 3,
     "errors": 0,
     "missing": 0,
     "entries": [
@@ -321,18 +321,18 @@
         "file": "src/data/builds/fighter_dwarf_shielded.json",
         "output_prefix": "fighter_dwarf_shielded",
         "class": "Fighter",
-        "race": "Human",
-        "archetype": "Weapon Master",
+        "race": "Dwarf",
+        "archetype": "Shielded Fighter",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "fighter_human_weapon_master",
+        "spec_id": "fighter_dwarf_shielded_fighter",
         "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
         "model": null,
         "level_checkpoints": [
           5,
           10
         ],
-        "level": 5,
+        "level": 1,
         "step_total": 16,
         "expected_step_total": 16,
         "extended_steps_available": true,
@@ -356,23 +356,17 @@
           10
         ],
         "level": 5,
-        "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-        "completeness_errors": [
-          "Progressione assente al livello 3",
-          "Progressione assente al livello 4",
-          "Progressione assente al livello 5"
-        ],
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
         "output_prefix": "fighter_dwarf_shielded",
         "class": "Fighter",
-        "race": "Human",
-        "archetype": "Weapon Master",
+        "race": "Dwarf",
+        "archetype": "Shielded Fighter",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "fighter_human_weapon_master",
+        "spec_id": "fighter_dwarf_shielded_fighter",
         "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
         "model": null,
         "level_checkpoints": [
@@ -384,7 +378,16 @@
         "expected_step_total": 16,
         "extended_steps_available": true,
         "step_total_ok": true,
-        "status": "ok"
+        "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
+        "completeness_errors": [
+          "Progressione assente al livello 5",
+          "Progressione assente al livello 6",
+          "Progressione assente al livello 7",
+          "Progressione assente al livello 8",
+          "Progressione assente al livello 9",
+          "Progressione assente al livello 10"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/fighter_weapon_master_human.json",
@@ -740,21 +743,24 @@
       },
       {
         "file": "src/data/builds/ranger_halfelf_skirmisher.json",
-        "output_prefix": "ranger_half-elf_skirmisher",
+        "output_prefix": "ranger_halfelf_skirmisher",
         "class": "Ranger",
         "race": "Half-Elf",
         "archetype": "Skirmisher",
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "ranger_half-elf_skirmisher",
-        "background": null,
+        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
         "model": null,
         "level_checkpoints": [
-          1,
           5,
           10
         ],
-        "level": 1,
+        "level": 5,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
@@ -765,7 +771,7 @@
         "archetype": "Skirmisher",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "ranger_halfelf_skirmisher",
+        "spec_id": "ranger_half-elf_skirmisher",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -784,8 +790,8 @@
         "archetype": "Skirmisher",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "ranger_halfelf_skirmisher",
-        "background": null,
+        "spec_id": "ranger_half-elf_skirmisher",
+        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -793,6 +799,10 @@
           10
         ],
         "level": 10,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
@@ -1219,15 +1229,15 @@
       },
       "5": {
         "total": 13,
-        "invalid": 4,
-        "schema_errors": 4,
-        "completeness_errors": 4
+        "invalid": 1,
+        "schema_errors": 1,
+        "completeness_errors": 1
       },
       "10": {
         "total": 8,
-        "invalid": 3,
-        "schema_errors": 3,
-        "completeness_errors": 3
+        "invalid": 2,
+        "schema_errors": 2,
+        "completeness_errors": 2
       }
     }
   },
@@ -1248,13 +1258,13 @@
         "module": "Taverna_NPC.txt",
         "file": "src/data/modules/Taverna_NPC.txt",
         "status": "ok",
-        "size_bytes": 28
+        "size_bytes": 118875
       },
       {
         "module": "adventurer_ledger.txt",
         "file": "src/data/modules/adventurer_ledger.txt",
         "status": "ok",
-        "size_bytes": 20
+        "size_bytes": 78578
       },
       {
         "module": "archivist.txt",
@@ -1266,7 +1276,7 @@
         "module": "base_profile.txt",
         "file": "src/data/modules/base_profile.txt",
         "status": "ok",
-        "size_bytes": 22
+        "size_bytes": 36093
       },
       {
         "module": "explain_methods.txt",
@@ -1296,7 +1306,7 @@
         "module": "narrative_flow.txt",
         "file": "src/data/modules/narrative_flow.txt",
         "status": "ok",
-        "size_bytes": 30
+        "size_bytes": 24288
       },
       {
         "module": "ruling_expert.txt",
@@ -1308,7 +1318,7 @@
         "module": "scheda_pg_markdown_template.md",
         "file": "src/data/modules/scheda_pg_markdown_template.md",
         "status": "ok",
-        "size_bytes": 31
+        "size_bytes": 23497
       },
       {
         "module": "sigilli_runner_module.txt",

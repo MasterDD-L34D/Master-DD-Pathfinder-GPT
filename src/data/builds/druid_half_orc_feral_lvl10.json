@@ -351,38 +351,88 @@
       "show_ledger": true,
       "decimal_comma": true,
       "skills": [
-        "Percezione +14",
-        "Sopravvivenza +14",
-        "Conoscenze (natura) +13",
-        "Furtività +11",
-        "Intimidire +9"
+        {
+          "nome": "Percezione",
+          "gradi": 10,
+          "mod_car": 1,
+          "var": 3,
+          "classe": true,
+          "totale": 14
+        },
+        {
+          "nome": "Sopravvivenza",
+          "gradi": 10,
+          "mod_car": 1,
+          "var": 3,
+          "classe": true,
+          "totale": 14
+        },
+        {
+          "nome": "Conoscenze (natura)",
+          "gradi": 10,
+          "mod_car": 0,
+          "var": 3,
+          "classe": true,
+          "totale": 13
+        },
+        {
+          "nome": "Furtività",
+          "gradi": 10,
+          "mod_car": 2,
+          "var": -1,
+          "classe": false,
+          "totale": 11
+        },
+        {
+          "nome": "Intimidire",
+          "gradi": 10,
+          "mod_car": -1,
+          "var": 0,
+          "classe": false,
+          "totale": 9
+        }
       ],
-      "spell_levels": {
-        "Livello 1": [
-          "Intrappolare (entangle)",
-          "Fuoco fatato",
-          "Cura ferite leggere",
-          "Individuazione del veleno"
-        ],
-        "Livello 2": [
-          "Pelle coriacea",
-          "Artigli ferini",
-          "Corteccia d'albero"
-        ],
-        "Livello 3": [
-          "Invocare alleato naturale III",
-          "Vigore dell'orso",
-          "Cerchio di spine"
-        ],
-        "Livello 4": [
-          "Libertà di movimento",
-          "Tempesta di neve minore"
-        ],
-        "Livello 5": [
-          "Muro di spine",
-          "Invocare alleato naturale V"
-        ]
-      },
+      "spell_levels": [
+        {
+          "liv": 1,
+          "spells": [
+            "Intrappolare (entangle)",
+            "Fuoco fatato",
+            "Cura ferite leggere",
+            "Individuazione del veleno"
+          ]
+        },
+        {
+          "liv": 2,
+          "spells": [
+            "Pelle coriacea",
+            "Artigli ferini",
+            "Corteccia d'albero"
+          ]
+        },
+        {
+          "liv": 3,
+          "spells": [
+            "Invocare alleato naturale III",
+            "Vigore dell'orso",
+            "Cerchio di spine"
+          ]
+        },
+        {
+          "liv": 4,
+          "spells": [
+            "Libertà di movimento",
+            "Tempesta di neve minore"
+          ]
+        },
+        {
+          "liv": 5,
+          "spells": [
+            "Muro di spine",
+            "Invocare alleato naturale V"
+          ]
+        }
+      ],
       "magia": {
         "Livello 1": [
           "Intrappolare (entangle)",
