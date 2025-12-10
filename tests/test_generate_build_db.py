@@ -111,9 +111,7 @@ def test_review_local_database_flags_missing_progression(monkeypatch, tmp_path):
         "request": BuildRequest(class_name="Rogue", level=5).metadata(),
     }
 
-    (build_dir / "rogue_lvl05.json").write_text(
-        json.dumps(payload), encoding="utf-8"
-    )
+    (build_dir / "rogue_lvl05.json").write_text(json.dumps(payload), encoding="utf-8")
 
     report = review_local_database(build_dir, module_dir, strict=False)
 
@@ -366,9 +364,7 @@ async def _run_incomplete_harvest(tmp_path, monkeypatch):
 
 
 def test_run_harvest_skips_incomplete_payload(tmp_path, monkeypatch):
-    output_dir, index_path = asyncio.run(
-        _run_incomplete_harvest(tmp_path, monkeypatch)
-    )
+    output_dir, index_path = asyncio.run(_run_incomplete_harvest(tmp_path, monkeypatch))
 
     assert not (output_dir / "fighter.json").exists()
     assert not (output_dir / "fighter_lvl05.json").exists()
@@ -424,7 +420,7 @@ def test_analyze_indices_archives_invalid_payloads(tmp_path):
     valid_build = build_dir / "valid.json"
     invalid_build = build_dir / "invalid.json"
     valid_build.write_text("{}", encoding="utf-8")
-    invalid_build.write_text("{""bad"": true}", encoding="utf-8")
+    invalid_build.write_text("{" "bad" ": true}", encoding="utf-8")
 
     module_file = module_dir / "bad_module.txt"
     module_file.write_text("content", encoding="utf-8")
@@ -466,7 +462,9 @@ def test_analyze_indices_archives_invalid_payloads(tmp_path):
     )
 
     archive_dir = tmp_path / "archive"
-    report = analyze_indices(build_index_path, module_index_path, archive_dir=archive_dir)
+    report = analyze_indices(
+        build_index_path, module_index_path, archive_dir=archive_dir
+    )
 
     assert report["builds"]["invalid"] == 1
     assert report["builds"]["errors"] == 1

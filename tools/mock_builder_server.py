@@ -43,7 +43,9 @@ async def fetch_build(class_: str | None = Query(default=None, alias="class")) -
 @app.get("/modules")
 async def list_modules() -> list[str]:
     index_payload = _load_json(MODULE_INDEX)
-    entries = index_payload.get("entries", []) if isinstance(index_payload, dict) else []
+    entries = (
+        index_payload.get("entries", []) if isinstance(index_payload, dict) else []
+    )
     names: list[str] = []
     for entry in entries:
         name = None
@@ -59,7 +61,9 @@ async def list_modules() -> list[str]:
 @app.get("/modules/{name:path}/meta")
 async def module_meta(name: str) -> dict[str, Any]:
     index_payload = _load_json(MODULE_INDEX)
-    entries = index_payload.get("entries", []) if isinstance(index_payload, dict) else []
+    entries = (
+        index_payload.get("entries", []) if isinstance(index_payload, dict) else []
+    )
     for entry in entries:
         if not isinstance(entry, dict):
             continue
