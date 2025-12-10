@@ -10,8 +10,12 @@
 {% set SHOW_EXPLAIN  = show_explain  | default(true)  %}
 {% set SHOW_LEDGER   = show_ledger   | default(true)  %}  {# <-- nuovo: Libro Mastro #}
 {% set DECIMAL_COMMA = decimal_comma | default(true)  %}
+{% set DESC_FALLBACK = 'n/d' %}
 
-{% macro d(val, fallback='—') -%}{{ (val if (val is not none and val != '') else fallback) }}{%- endmacro %}
+{% macro d(val, fallback='—') -%}
+{%- set trimmed = (val|string|trim) -%}
+{{ fallback if (val is none or trimmed == '') else (trimmed if (val is string) else val) }}
+{%- endmacro %}
 {% macro mod(x) -%}{{ (((x|default(10))|int) - 10) // 2 }}{%- endmacro %}
 {% macro j(list, sep=', ') -%}{{ (list or []) | select('string') | list | join(sep) }}{%- endmacro %}
 {% macro signed(x) -%}{% if x is not none %}{{ "+" if x>=0 else "" }}{{ x }}{% else %}—{% endif %}{%- endmacro %}
@@ -39,8 +43,19 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
 {% set ST_SAG = ST.SAG | default(ST.Saggezza) | default(ST.saggezza) | default(10) %}
 {% set ST_CAR = ST.CAR | default(ST.Carisma) | default(ST.carisma) | default(10) %}
 
-{% set CL = classi or [] %}
-{% set FIRST_CLASS = (CL[0].nome if CL and CL|length>0 else '—') %}
+{%- set CL = classi or [] -%}
+{%- set FIRST_CLASS = (CL[0].nome if CL and CL|length>0 else '—') -%}
+{%- set has_alignment = (allineamento | default('') | trim) != '' -%}
+{%- set has_deity = (divinita | default('') | trim) != '' -%}
+{%- set has_size = (taglia | default('') | trim) != '' -%}
+{%- set has_age = (eta | default('') | trim) != '' -%}
+{%- set has_sex = (sesso | default('') | trim) != '' -%}
+{%- set has_height = (altezza | default('') | trim) != '' -%}
+{%- set has_weight = (peso | default('') | trim) != '' -%}
+{%- set has_role = (ruolo | default('') | trim) != '' -%}
+{%- set has_player_style = (player_style | default('') | trim) != '' -%}
+{%- set has_background = (background | default('') | trim) != '' -%}
+{%- set has_style_hint = (style_hint(player_style) | default('') | trim) != '' -%}
 
 {% set cur_pp = (currency.pp if currency is defined else pp) | default(0) %}
 {% set cur_gp = (currency.gp if currency is defined else gp) | default(0) %}
@@ -77,21 +92,23 @@ PP {{pp|default(0)}} • GP {{gp|default(0)}} • SP {{sp|default(0)}} • CP {{
   {% set percezione_tot = skills_map.Percezione.totale %}
 {% endif %}
 
-{# Ledger / equipaggiamento helpers #}
-{% set LEDGER = ledger or {} %}
-{% set ledger_currency = currency or LEDGER.currency or {} %}
-{% set ledger_movimenti = ledger_movimenti or LEDGER.movimenti or [] %}
-{% set ledger_parcels = ledger_parcels or LEDGER.parcels or [] %}
-{% set ledger_crafting = ledger_crafting or LEDGER.crafting or [] %}
+# {{ d(nome, FIRST_CLASS) }} — Liv. {{ get_total_level(CL)|default('—') }} ({{ d(razza, DESC_FALLBACK) }} · {% for c in CL %}{{ c.nome }} ({{ c.livelli }}){% if c.archetipi %} — {{ c.archetipi | join(', ') }}{% endif %}{% if not loop.last %} / {% endif %}{% endfor %})
 
-# {{ nome | default('—') }} — Liv. {{ get_total_level(CL)|default('—') }} ({{ razza | default('—') }} · {% for c in CL %}{{ c.nome }} ({{ c.livelli }}){% if c.archetipi %} — {{ c.archetipi | join(', ') }}{% endif %}{% if not loop.last %} / {% endif %}{% endfor %})
-
-**Allineamento:** {{ d(allineamento) }}  
-**Divinità:** {{ d(divinita) }}  
-**Taglia:** {{ d(taglia) }} | **Età:** {{ d(eta) }} | **Sesso:** {{ d(sesso) }} | **Altezza/Peso:** {{ d(altezza) }} / {{ d(peso) }}  
-**Ruolo consigliato:** {{ d(ruolo) }}  
-**Stile interpretativo:** {{ d(player_style) }} — {{ d(style_hint(player_style)) }}
-**Background breve (5–10 righe):** {{ d(background) }}
+{% if has_alignment or has_deity -%}
+**Allineamento:** {{ d(allineamento, DESC_FALLBACK) }}{% if has_deity %} | **Divinità:** {{ d(divinita, DESC_FALLBACK) }}{% endif %}
+{% endif -%}
+{% if has_size or has_age or has_sex or has_height or has_weight -%}
+**Taglia:** {{ d(taglia, DESC_FALLBACK) }} | **Età:** {{ d(eta, DESC_FALLBACK) }} | **Sesso:** {{ d(sesso, DESC_FALLBACK) }} | **Altezza/Peso:** {{ d(altezza, DESC_FALLBACK) }} / {{ d(peso, DESC_FALLBACK) }}
+{% endif -%}
+{% if has_role -%}
+**Ruolo consigliato:** {{ d(ruolo, DESC_FALLBACK) }}
+{% endif -%}
+{% if has_player_style or has_style_hint -%}
+**Stile interpretativo:** {{ d(player_style, DESC_FALLBACK) }}{% if has_style_hint %} — {{ d(style_hint(player_style), DESC_FALLBACK) }}{% endif %}
+{% endif -%}
+{% if has_background -%}
+**Background breve (5–10 righe):** {{ d(background, DESC_FALLBACK) }}
+{% endif %}
 
 {% if not PRINT_MODE %}
 ---
@@ -212,16 +229,13 @@ _Nessun breakdown CA dettagliato nel payload._
 ---
 
 ## Abilità (Skills)
-{% set SKILLS = skills or [] %}
-{% if SKILLS %}
 | Abilità | Gradi | Mod Car | Var | Classe? | Totale |
 |---|---:|---:|---:|:--:|---:|
-{% for s in SKILLS %}
+{% for s in (skills or []) %}
 | {{ d(s.nome) }} | {{ s.gradi|default(0) }} | {{ signed(s.mod_car|default(0)) }} | {{ signed(s.var|default(0)) }} | {{ '✓' if s.classe else '' }} | {{ s.totale|default(s.gradi|default(0) + s.mod_car|default(0) + s.var|default(0) + (3 if s.classe else 0)) }} |
-{% endfor %}
 {% else %}
-_Nessuna abilità strutturata: nascondi la tabella o aggiungi almeno Percezione/Acrobazia._
-{% endif %}
+_Nessuna abilità strutturata._
+{% endfor %}
 
 ---
 
@@ -307,26 +321,11 @@ _Nessuna tabella incantesimi disponibile._
 ---
 
 ## Equipaggiamento
-{% set EQUIP = equipaggiamento or [] %}
-{% set EQUIP_SUM = equipment_summary or {} %}
-{% if EQUIP %}
-| Oggetto | Note |
-|---|---|
-{% for item in EQUIP -%}
-| {{ item }} | {{ EQUIP_SUM.get(item) or EQUIP_SUM.get('note', '') }} |
-{%- endfor %}
-{% else %}
-_Nessun equipaggiamento strutturato: aggiungi 2–3 voci o usa l’inventario sintetico._
-{% endif %}
-
-- **Armi/Armature/Oggetti:** {{ d(equip_base) }}
-- **Peso totale trasportato:** {{ d(peso_totale, EQUIP_SUM.get('peso_totale')) }}
-- **Capacità di trasporto:** L {{ d(carico_leggero) }} / M {{ d(carico_medio) }} / P {{ d(carico_pesante) }}
-- **Valute:**
-  - **PP:** {{ ledger_currency.pp | default(pp | default(0)) }}
-  - **GP:** {{ ledger_currency.gp | default(gp | default(0)) }}
-  - **SP:** {{ ledger_currency.sp | default(sp | default(0)) }}
-  - **CP:** {{ ledger_currency.cp | default(cp | default(0)) }}
+- {{ (equipaggiamento or []) | join(', ') if equipaggiamento else '—' }}
+- **Armi/Armature/Oggetti:** {{ d(equip_base) }}  
+- **Peso totale trasportato:** {{ d(peso_totale) }}  
+- **Capacità di trasporto:** L {{ d(carico_leggero) }} / M {{ d(carico_medio) }} / P {{ d(carico_pesante) }}  
+- **Valute:** Rame {{ cp|default(0) }} • Argento {{ sp|default(0) }} • Oro {{ gp|default(0) }} • Platino {{ pp|default(0) }}
 
 ---
 
@@ -362,37 +361,28 @@ _Nessun equipaggiamento strutturato: aggiungi 2–3 voci o usa l’inventario si
 - **Encumbrance hint:** {{ d(ledger_encumbrance_hint, 'ok') }}
 
 ### Movimenti (ultimi / sessione)
-{% if ledger_movimenti %}
 | Data | Tipo | Oggetto/Voce | Q.tà | Val. unit | Totale | Δ GP | Fonte (AP/SX) | PFS |
 |---|---|---|---:|---:|---:|---:|---|:--:|
-{% for m in ledger_movimenti -%}
-| {{ d(m.data) }} | {{ d(m.tipo) }} | {{ d(m.oggetto) }} | {{ d(m.qty,1) }} | {{ d(m.vu, m.val_unit) }} | {{ d(m.tot, m.importo) }} | {{ d(m.delta_gp, m.importo) }} | {{ d(m.source) }} | {{ '✓' if m.pfs else '' }} |
+{% for m in (ledger_movimenti or []) -%}
+| {{ d(m.data) }} | {{ d(m.tipo) }} | {{ d(m.oggetto) }} | {{ d(m.qty,1) }} | {{ d(m.vu) }} | {{ d(m.tot) }} | {{ d(m.delta_gp) }} | {{ d(m.source) }} | {{ '✓' if m.pfs else '' }} |
 {%- endfor %}
-{% else %}
-_Nessun movimento registrato: ometti la tabella se il ledger è vuoto._
-{% endif %}
+{% if (ledger_movimenti or [])|length == 0 %}_Nessun movimento registrato._{% endif %}
 
 ### Loot Parcels (non ancora liquidati)
-{% if ledger_parcels %}
 | Parcella | Stima gp | Assegnatario | Note |
 |---|---:|---|---|
-{% for p in ledger_parcels -%}
+{% for p in (ledger_parcels or []) -%}
 | {{ d(p.nome) }} | {{ d(p.val_gp) }} | {{ d(p.assegnatario) }} | {{ d(p.note) }} |
 {%- endfor %}
-{% else %}
-_Nessun loot in attesa._
-{% endif %}
+{% if (ledger_parcels or [])|length == 0 %}_Nessun loot in attesa._{% endif %}
 
 ### Coda Crafting
-{% if ledger_crafting %}
 | Item | DC | Giorni | Costo materie | Risparmio | Stato |
 |---|---:|---:|---:|---:|---|
-{% for c in ledger_crafting -%}
+{% for c in (ledger_crafting or []) -%}
 | {{ d(c.item) }} | {{ d(c.dc) }} | {{ d(c.days) }} | {{ d(c.cost) }} | {{ d(c.saving) }} | {{ d(c.status,'open') }} |
 {%- endfor %}
-{% else %}
-_Nessun crafting pianificato._
-{% endif %}
+{% if (ledger_crafting or [])|length == 0 %}_Nessun crafting pianificato._{% endif %}
 
 ### Audit & PFS
 - **Flag non PFS-legal:** {{ d(ledger_pfs_flags, '—') }}
