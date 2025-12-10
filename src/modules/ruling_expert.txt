@@ -285,19 +285,19 @@ commands:
 minmax_builder_stub_fields:
   description: "Mappa del payload JSON restituito da GET /modules/minmax_builder.txt?mode=stub (o stub=true) per QA/integrazione con il builder."
   fields:
-    build_state: "Metadati di avanzamento della build (mode, razza/classe, archetipi, step corrente/totale, etichette step, statistics) usati per orientare rulings e gating PFS."
-    sheet: "Scheda sintetica con statistiche_chiave, slot incantesimi, progressione e inventario: base per esempi numerici, stacking e controlli di legalità."
-    benchmark: "Tier/meta_tier, ruling_badge e snapshot DPR/statistiche_chiave che fungono da gate QA e da riferimento per simulazioni MinMax."
-    ledger: "Movimenti e currency (oro/argento/rame) per verifiche di costo/ricompense; supporta check di compliance PFS e export equipaggiamento."
-    export: "Blocco sheet_payload già formattato per export_build/export_vtt, coerente con lo schema builder e riutilizzabile dai moduli di rendering."
-    composite: "Vista aggregata: build_state+benchmark+export nella sezione build, più narrative/sheet/ledger. Pensata per client che vogliono un payload unico e per cross-check con rulings."
+    build_state: "Metadati di avanzamento della build (mode, razza/classe, archetipi scelti/scartati, step corrente/totale, etichette step, statistics) usati per orientare rulings, decidere il contesto (es. progressione multiclasse) e applicare gating PFS/Additional Resources."
+    sheet: "Scheda sintetica con statistiche_chiave, slot incantesimi, progressione e inventario (item, carichi, bonus tipizzati): base per esempi numerici, check stacking, controlli di legalità e per popolare le sezioni RAW/PFS con numeri verificabili."
+    benchmark: "Tier/meta_tier, ruling_badge e snapshot DPR/statistiche_chiave che fungono da gate QA; il badge viene riportato nei rulings per segnalare deviazioni di potenza e per validare i confronti DPR/AC vs target di campagna."
+    ledger: "Movimenti e currency (oro/argento/rame, prestige, boons) per verifiche di costo/ricompense; alimenta QA su acquisti legali PFS (Additional Resources, boons) ed esportazioni equipaggiamento con prezzi corretti."
+    export: "Blocco sheet_payload già formattato per export_build/export_vtt (abilità, talenti, equip, note PFS), coerente con lo schema builder; permette di citare direttamente campi di export nei rulings e di confrontare QA tra sheet e output finale."
+    composite: "Vista aggregata: build_state+benchmark+export nella sezione build, più narrative/sheet/ledger. Pensata per client che vogliono un payload unico; usata dal QA per incrociare stato, aspettativa di potenza e risultato finale, evidenziando disallineamenti (es. badge ≠ DPR)."
   usage_in_rulings_and_qa:
-    build_state: "Legge step e classi/archetipi per capire se la domanda è legalmente valida (es. prerequisiti, archetipi incompatibili) e per applicare restrizioni PFS per livello/stagione."
-    sheet: "Alimenta esempi numerici (CA, TxC, slot) e calcoli arithmetic_guard; funge da prova di legalità per stacking e disponibilità di risorse."
-    benchmark: "Stabilisce il target di potenza atteso; i rulings segnalano deviazioni (over/under) e il QA verifica coerenza con ruling_badge/tier."
-    ledger: "Verifica spesa/ricompense e cronologia acquisti; QA controlla che le fonti di oro o item rispettino Additional Resources/Guide PFS."
-    export: "Garantisce che le risposte siano compatibili con i formati di export (build/vtt); QA confronta i campi calcolati con sheet/benchmark per coerenza."
-    composite: "Usato per QA incrociato: build_state guida le decisioni, benchmark definisce l’aspettativa, export/sheet mostrano il risultato finale; eventuali divergenze fanno scattare flag QA."
+    build_state: "Legge step e classi/archetipi per validare prerequisiti, conflitti di archetipi e per applicare restrizioni PFS per livello/stagione; i rulings riportano i vincoli di step e QA segnala mismatch tra domanda e stato build."
+    sheet: "Alimenta esempi numerici (CA, TxC, slot), calcoli arithmetic_guard e verifica stacking; fornisce evidenze quantitative nelle sezioni RAW/PFS e QA controlla coerenza con export."
+    benchmark: "Stabilisce il target di potenza atteso; i rulings citano il ruling_badge/meta_tier per classificare la risposta (over/under) e QA verifica coerenza tra badge, DPR e statistiche_calcolate."
+    ledger: "Verifica spesa/ricompense e cronologia acquisti; QA controlla legalità PFS di costi/fonti (Additional Resources, boons) e i rulings indicano eventuali rimborsi/limiti di spesa."
+    export: "Garantisce compatibilità con i formati di export (build/vtt); i rulings referenziano i campi già serializzati e QA confronta valori con sheet/benchmark per individuare errori di serializzazione."
+    composite: "Usato per QA incrociato e per risposte sintetiche: build_state guida le decisioni, benchmark definisce l’aspettativa, export/sheet mostrano il risultato finale; se le tre viste non allineano, QA evidenzia la divergenza nel ruling."
 
 flow:
   cache_enabled: true
@@ -444,7 +444,7 @@ status_example:
   output: |
     Ruling Expert • scope: RAW • PFS: auto (season: auto) • speed: balanced • output: Completo • dump: locked (ALLOW_MODULE_DUMP=false; whitelist: -)
     Last sources: AoN:[…], Book/Page:[…], FAQ:[…] | Cache: hit yes/no | Offline: disabled
-    👉 Prima di procedere, conferma esplicitamente la stagione PFS attiva con /set_pfs_season 10-11 (o "auto").
+    👉 Azione richiesta: conferma ORA la stagione PFS attiva con **/set_pfs_season 10-11** (o "auto") prima di chiedere rulings PFS.
 
 examples:
   - user: "/ruling Canny Defense"
