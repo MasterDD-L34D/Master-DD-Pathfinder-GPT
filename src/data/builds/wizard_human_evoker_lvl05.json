@@ -563,7 +563,7 @@
     }
   },
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=5&race=Human&archetype=Evoker",
-  "fetched_at": "2025-12-10T01:25:59Z",
+  "fetched_at": "2025-12-10T02:14:26Z",
   "request": {
     "class": "Wizard",
     "race": "Human",

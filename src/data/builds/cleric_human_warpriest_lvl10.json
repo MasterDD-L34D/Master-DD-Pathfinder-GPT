@@ -613,7 +613,7 @@
     }
   },
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=10&race=Human&archetype=Warpriest",
-  "fetched_at": "2025-12-10T01:25:59Z",
+  "fetched_at": "2025-12-10T02:13:18Z",
   "request": {
     "class": "Cleric",
     "race": "Human",

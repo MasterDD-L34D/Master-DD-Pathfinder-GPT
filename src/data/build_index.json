@@ -1,1108 +1,577 @@
 {
-  "generated_at": "2025-12-10T01:31:50Z",
+  "generated_at": "2025-12-10T02:14:11Z",
   "api_url": "http://localhost:8000",
   "mode": "extended",
   "spec_file": null,
   "entries": [
     {
-      "file": "src/data/builds/alchemist.json",
-      "status": "ok",
-      "class": "Alchemist",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "alchemist_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/arcanist.json",
-      "status": "ok",
-      "class": "Arcanist",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "arcanist_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/barbarian.json",
-      "status": "ok",
-      "class": "Barbarian",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "barbarian_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/bard.json",
-      "status": "ok",
-      "class": "Bard",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "bard_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/bloodrager.json",
-      "status": "ok",
-      "class": "Bloodrager",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "bloodrager_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/brawler.json",
-      "status": "ok",
-      "class": "Brawler",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "brawler_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/cavalier.json",
-      "status": "ok",
-      "class": "Cavalier",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "cavalier_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/cleric.json",
-      "status": "ok",
-      "class": "Cleric",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "cleric_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
       "file": "src/data/builds/cleric_human_warpriest.json",
       "status": "ok",
+      "output_prefix": "cleric_human_warpriest",
+      "level": 1,
       "class": "Cleric",
       "race": "Human",
       "archetype": "Warpriest",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_human_warpriest",
-      "background": null,
-      "level": 1,
+      "model": null,
+      "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/cleric_human_warpriest_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "cleric_human_warpriest",
+      "level": 5,
       "class": "Cleric",
       "race": "Human",
       "archetype": "Warpriest",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_human_warpriest",
-      "background": null,
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ],
+      "model": null,
+      "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/cleric_human_warpriest_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "cleric_human_warpriest",
+      "level": 10,
       "class": "Cleric",
       "race": "Human",
       "archetype": "Warpriest",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_human_warpriest",
-      "background": null,
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ],
+      "model": null,
+      "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
-    },
-    {
-      "file": "src/data/builds/druid.json",
-      "status": "ok",
-      "class": "Druid",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "druid_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/druid_half_orc_feral.json",
       "status": "ok",
+      "output_prefix": "druid_half_orc_feral",
+      "level": 1,
       "class": "Druid",
       "race": "Half-Orc",
       "archetype": "Feral Shifter",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "druid_half-orc_feral_shifter",
-      "background": null,
-      "level": 1,
+      "spec_id": "druid_half_orc_feral",
+      "model": null,
+      "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "druid_half_orc_feral",
+      "level": 5,
       "class": "Druid",
       "race": "Half-Orc",
       "archetype": "Feral Shifter",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "druid_half-orc_feral_shifter",
-      "background": null,
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ],
+      "spec_id": "druid_half_orc_feral",
+      "model": null,
+      "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "druid_half_orc_feral",
+      "level": 10,
       "class": "Druid",
       "race": "Half-Orc",
       "archetype": "Feral Shifter",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "druid_half-orc_feral_shifter",
-      "background": null,
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ],
+      "spec_id": "druid_half_orc_feral",
+      "model": null,
+      "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
-    },
-    {
-      "file": "src/data/builds/fighter.json",
-      "status": "ok",
-      "class": "Fighter",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "fighter_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded.json",
       "status": "ok",
+      "output_prefix": "fighter_dwarf_shielded",
+      "level": 1,
       "class": "Fighter",
       "race": "Dwarf",
       "archetype": "Shielded Fighter",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_dwarf_shielded_fighter",
-      "background": null,
-      "level": 1,
+      "spec_id": "fighter_dwarf_shielded",
+      "model": null,
+      "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "fighter_dwarf_shielded",
+      "level": 5,
       "class": "Fighter",
       "race": "Dwarf",
       "archetype": "Shielded Fighter",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_dwarf_shielded_fighter",
-      "background": null,
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ],
+      "spec_id": "fighter_dwarf_shielded",
+      "model": null,
+      "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "fighter_dwarf_shielded",
+      "level": 10,
       "class": "Fighter",
       "race": "Dwarf",
       "archetype": "Shielded Fighter",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_dwarf_shielded_fighter",
-      "background": null,
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ],
+      "spec_id": "fighter_dwarf_shielded",
+      "model": null,
+      "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human.json",
       "status": "ok",
+      "output_prefix": "fighter_weapon_master_human",
+      "level": 1,
       "class": "Fighter",
       "race": "Human",
       "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_human_weapon_master",
-      "background": null,
-      "level": 1,
+      "spec_id": "fighter_weapon_master_human",
+      "model": null,
+      "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "fighter_weapon_master_human",
+      "level": 5,
       "class": "Fighter",
       "race": "Human",
       "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_human_weapon_master",
-      "background": null,
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ],
+      "spec_id": "fighter_weapon_master_human",
+      "model": null,
+      "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "fighter_weapon_master_human",
+      "level": 10,
       "class": "Fighter",
       "race": "Human",
       "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_human_weapon_master",
-      "background": null,
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ],
+      "spec_id": "fighter_weapon_master_human",
+      "model": null,
+      "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
-    },
-    {
-      "file": "src/data/builds/gunslinger.json",
-      "status": "ok",
-      "class": "Gunslinger",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "gunslinger_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/hunter.json",
-      "status": "ok",
-      "class": "Hunter",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "hunter_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/inquisitor.json",
-      "status": "ok",
-      "class": "Inquisitor",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "inquisitor_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/investigator.json",
-      "status": "ok",
-      "class": "Investigator",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "investigator_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/kineticist.json",
-      "status": "ok",
-      "class": "Kineticist",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "kineticist_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/magus.json",
-      "status": "ok",
-      "class": "Magus",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "magus_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/medium.json",
-      "status": "ok",
-      "class": "Medium",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "medium_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/mesmerist.json",
-      "status": "ok",
-      "class": "Mesmerist",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "mesmerist_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/monk.json",
-      "status": "ok",
-      "class": "Monk",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "monk_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/ninja.json",
-      "status": "ok",
-      "class": "Ninja",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "ninja_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/occultist.json",
-      "status": "ok",
-      "class": "Occultist",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "occultist_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/oracle.json",
-      "status": "ok",
-      "class": "Oracle",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "oracle_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/paladin.json",
-      "status": "ok",
-      "class": "Paladin",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "paladin_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/psychic.json",
-      "status": "ok",
-      "class": "Psychic",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "psychic_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/ranger.json",
-      "status": "ok",
-      "class": "Ranger",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "ranger_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher.json",
       "status": "ok",
+      "output_prefix": "ranger_halfelf_skirmisher",
+      "level": 1,
       "class": "Ranger",
       "race": "Half-Elf",
       "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "ranger_half-elf_skirmisher",
-      "background": null,
-      "level": 1,
+      "spec_id": "ranger_halfelf_skirmisher",
+      "model": null,
+      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "ranger_halfelf_skirmisher",
+      "level": 5,
       "class": "Ranger",
       "race": "Half-Elf",
       "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "ranger_half-elf_skirmisher",
-      "background": null,
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ],
+      "spec_id": "ranger_halfelf_skirmisher",
+      "model": null,
+      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "ranger_halfelf_skirmisher",
+      "level": 10,
       "class": "Ranger",
       "race": "Half-Elf",
       "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "ranger_half-elf_skirmisher",
-      "background": null,
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ],
+      "spec_id": "ranger_halfelf_skirmisher",
+      "model": null,
+      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
-    },
-    {
-      "file": "src/data/builds/rogue.json",
-      "status": "ok",
-      "class": "Rogue",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "rogue_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse.json",
       "status": "ok",
+      "output_prefix": "rogue_halfling_cutpurse",
+      "level": 1,
       "class": "Rogue",
       "race": "Halfling",
       "archetype": "Cutpurse",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
-      "background": null,
-      "level": 1,
+      "model": null,
+      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "rogue_halfling_cutpurse",
+      "level": 5,
       "class": "Rogue",
       "race": "Halfling",
       "archetype": "Cutpurse",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
-      "background": null,
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ],
+      "model": null,
+      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "rogue_halfling_cutpurse",
+      "level": 10,
       "class": "Rogue",
       "race": "Halfling",
       "archetype": "Cutpurse",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
-      "background": null,
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ],
+      "model": null,
+      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
-    },
-    {
-      "file": "src/data/builds/samurai.json",
-      "status": "ok",
-      "class": "Samurai",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "samurai_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/shaman.json",
-      "status": "ok",
-      "class": "Shaman",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "shaman_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/skald.json",
-      "status": "ok",
-      "class": "Skald",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "skald_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/slayer.json",
-      "status": "ok",
-      "class": "Slayer",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "slayer_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/sorcerer.json",
-      "status": "ok",
-      "class": "Sorcerer",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "sorcerer_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/spiritualist.json",
-      "status": "ok",
-      "class": "Spiritualist",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "spiritualist_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/summoner.json",
-      "status": "ok",
-      "class": "Summoner",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "summoner_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/swashbuckler.json",
-      "status": "ok",
-      "class": "Swashbuckler",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "swashbuckler_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/warpriest.json",
-      "status": "ok",
-      "class": "Warpriest",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "warpriest_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/witch.json",
-      "status": "ok",
-      "class": "Witch",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "witch_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
-    },
-    {
-      "file": "src/data/builds/wizard.json",
-      "status": "ok",
-      "class": "Wizard",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "wizard_human_base",
-      "background": null,
-      "level": 1,
-      "level_checkpoints": [
-        1
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/wizard_elf_universalist.json",
       "status": "ok",
+      "output_prefix": "wizard_elf_universalist",
+      "level": 1,
       "class": "Wizard",
       "race": "Elf",
       "archetype": "Universalist",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_elf_universalist",
-      "background": null,
-      "level": 1,
+      "model": null,
+      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "wizard_elf_universalist",
+      "level": 5,
       "class": "Wizard",
       "race": "Elf",
       "archetype": "Universalist",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_elf_universalist",
-      "background": null,
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ],
+      "model": null,
+      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "wizard_elf_universalist",
+      "level": 10,
       "class": "Wizard",
       "race": "Elf",
       "archetype": "Universalist",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_elf_universalist",
-      "background": null,
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ],
+      "model": null,
+      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/wizard_human_evoker.json",
       "status": "ok",
+      "output_prefix": "wizard_human_evoker",
+      "level": 1,
       "class": "Wizard",
       "race": "Human",
       "archetype": "Evoker",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_human_evoker",
-      "background": null,
-      "level": 1,
+      "model": null,
+      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/wizard_human_evoker_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "wizard_human_evoker",
+      "level": 5,
       "class": "Wizard",
       "race": "Human",
       "archetype": "Evoker",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_human_evoker",
-      "background": null,
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ],
+      "model": null,
+      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/wizard_human_evoker_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
+      "output_prefix": "wizard_human_evoker",
+      "level": 10,
       "class": "Wizard",
       "race": "Human",
       "archetype": "Evoker",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_human_evoker",
-      "background": null,
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ],
+      "model": null,
+      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
       "level_checkpoints": [
         1,
         5,
         10
-      ]
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     }
   ],
   "checkpoints": {
     "1": {
-      "total": 0,
+      "total": 8,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "5": {
-      "total": 0,
+      "total": 8,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "10": {
-      "total": 0,
+      "total": 8,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
