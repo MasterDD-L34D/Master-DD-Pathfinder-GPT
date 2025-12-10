@@ -6,6 +6,7 @@ from pathlib import Path
 from time import monotonic
 from typing import Dict, List, Mapping
 
+from datetime import datetime
 from fastapi import (
     Body,
     Depends,
@@ -243,6 +244,26 @@ def _taverna_saves_metrics() -> Dict[str, object]:
     }
 
 
+def _taverna_saves_metadata() -> Dict[str, object]:
+    metrics = _taverna_saves_metrics()
+
+    auto_name_policy = {
+        "pattern": "NPC-YYYYMMDD-HHMM",
+        "example": datetime.utcnow().strftime("NPC-%Y%m%d-%H%M"),
+        "max_files": TAVERNA_SAVES_MAX_FILES,
+        "on_overflow": "delete_oldest",
+    }
+
+    metrics.update(
+        {
+            "remaining_bytes": metrics.get("disk_usage", {}).get("free_bytes", 0),
+            "auto_name_policy": auto_name_policy,
+        }
+    )
+
+    return metrics
+
+
 @app.get("/health")
 async def health() -> Dict[str, Dict]:
     """Simple healthcheck for Actions."""
@@ -416,13 +437,13 @@ async def get_taverna_saves_meta(
 ) -> Dict[str, object]:
     """Expose metadata and quota information for the taverna_saves service directory."""
 
-    metrics = _taverna_saves_metrics()
-    metrics["storage_policy"] = {
+    meta = _taverna_saves_metadata()
+    meta["storage_policy"] = {
         "file_naming": "{name}.json",
-        "auto_name_pattern": "NPC-YYYYMMDD-HHMM",
-        "on_overflow": "delete_oldest",
+        "auto_name_pattern": meta.get("auto_name_policy", {}).get("pattern"),
+        "on_overflow": meta.get("auto_name_policy", {}).get("on_overflow"),
     }
-    return metrics
+    return meta
 
 
 @app.get("/modules/taverna_saves/quota")
@@ -432,6 +453,13 @@ async def get_taverna_saves_quota(
     """Return a focused view on taverna_saves quota/usage metrics."""
 
     return _taverna_saves_metrics()
+
+
+@app.get("/storage_meta")
+async def storage_meta(_: None = Depends(require_api_key)) -> Dict[str, object]:
+    """Expose storage metadata with quota, max_files and auto-naming policy."""
+
+    return _taverna_saves_metadata()
 
 
 TEXT_SUFFIXES = {".txt", ".md"}
@@ -1020,17 +1048,24 @@ async def get_module_content(
 
     max_chars = 4000
 
+    total_size = path.stat().st_size
+    with path.open("r", encoding="utf-8", errors="ignore") as source:
+        chunk = source.read(max_chars + 1)
+
+    truncated_size = len(chunk[:max_chars].encode("utf-8", errors="ignore"))
+    remaining = max(total_size - truncated_size, 0)
+
     def _truncated_text():
-        with path.open("r", encoding="utf-8", errors="ignore") as source:
-            chunk = source.read(max_chars + 1)
         if len(chunk) > max_chars:
             yield chunk[:max_chars]
-            yield "\n\n[contenuto troncato]"
+            yield f"\n\n[contenuto troncato — restano circa {remaining} byte su {total_size}]"
         else:
             yield chunk
 
     headers = {
         "X-Content-Partial": "true",
+        "X-Content-Total-Bytes": str(total_size),
+        "X-Content-Remaining-Bytes": str(remaining),
         "Warning": '199 - "Contenuto parziale: ALLOW_MODULE_DUMP=false"',
     }
 

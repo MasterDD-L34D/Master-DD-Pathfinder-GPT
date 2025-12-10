@@ -795,6 +795,9 @@ commands:
       - set: _ledger_ok, value: "{{ ledger_storage.path is not none }}"
       - set: _hub_on,    value: "{{ feature_flags.hub_board=='on' }}"
       - output: "QA={{ 'OK' if (_canvas_ok and _ledger_ok) else 'CHECK' }} | Canvas={{ 'OK' if _canvas_ok else 'FAIL' }} | MinMax={{ 'ON' if _minmax_on else 'OFF' }} | Ledger={{ 'OK' if _ledger_ok else 'FAIL' }} | Hub={{ 'ON' if _hub_on else 'OFF' }}"
+      - if: "{{ not (_canvas_ok and _ledger_ok) }}"
+        then:
+          - output: "ℹ️ QA CHECK: completa Canvas obbligatorio (usa /canvas_set o rigenera) e monta il Ledger con /ledger_init o /ledger_append. Riesegui /self_check prima di esportare."
 
   /echo <on|off>:
     description: "Abilita/disabilita il grading+gate Echo locale (rispetta anche i toggles globali)."
@@ -1000,6 +1003,7 @@ commands:
             then:
               - output: "🧪 Echo gate: score {{QR.score}}/10 (< {{runtime.echo_min_score}}) → applico micro-refine (card più compatta/equip/feats coerenti)."
               - # (eventuale micro-refine qui; lasciamo nota)
+              - output: "➡️ Remediation: applica i fix suggeriti da /grade o usa /refine_npc per migliorare il punteggio; se stai testando in sandbox puoi disattivare il gate con /echo off."
             else:
               - output: "✅ Echo gate: OK ({{QR.score}}/10)."
       - output_template: ui_templates.npc_card_compact
