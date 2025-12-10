@@ -2257,6 +2257,16 @@ def _progression_level_errors(
     if isinstance(progression, Sequence) and not isinstance(progression, (str, bytes)):
         progression_entries = progression
 
+    has_progression_content = False
+    if progression_entries:
+        for candidate in progression_entries:
+            if _has_content(candidate):
+                has_progression_content = True
+                break
+
+    if not has_progression_content:
+        return []
+
     def _entry_for_level(level: int) -> Mapping | None:
         if progression_entries is None:
             return None
