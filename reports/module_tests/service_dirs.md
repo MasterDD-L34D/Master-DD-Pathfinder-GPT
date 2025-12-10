@@ -67,9 +67,12 @@
 - ⚠️ `curl | head` con dump abilitato può fallire in locale per errore di scrittura ma il server fornisce `content-length`; nessuna azione lato server.【F:reports/module_tests/Taverna_NPC.md†L11-L13】
 
 ## Miglioramenti suggeriti
-- ⚠️ Con `ALLOW_MODULE_DUMP=false` il contenuto è troncato senza indicare dimensione residua; suggerito header/note che l'output è parziale.【F:reports/module_tests/Taverna_NPC.md†L11-L15】
-- 🔧 Esporre endpoint sui metadati di storage (quota residua, `max_files`) basato su `storage.auto_name_policy` aiuterebbe il monitoraggio della saturazione.【F:src/modules/Taverna_NPC.txt†L364-L380】
 - 🔧 Aggiungere messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" per chiarire i passi di remediation.【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
 
 ## Fix necessari
-- Esporre nella risposta con `ALLOW_MODULE_DUMP=false` un’indicazione chiara che il contenuto è parziale e integrare un endpoint di quota/metadati per `taverna_saves`, così da ridurre confusione e monitorare l’uso disco delle directory di servizio.【F:reports/module_tests/Taverna_NPC.md†L11-L15】【F:src/modules/Taverna_NPC.txt†L364-L380】
+- Nessuno: la risposta include ora marker e header parziale (`X-Content-Partial`, `X-Content-Remaining-Bytes`) con CTA dedicate, e lo storage espone `/storage_meta` con quota residua e auto_name_policy per `taverna_saves`.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
+
+## Note di verifica
+- Gli export e lo storage usano naming automatico (`NPC-YYYYMMDD-HHMM`) con sanitizzazione e limite `max_files`, garantendo filename coerente e payload JSON salvabile con tag QA/MDA presenti nel modulo NPC.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L2873-L2874】
+- Con `ALLOW_MODULE_DUMP=false` i dump vengono troncati con marker espliciti e header di parzialità, preservando la policy di sicurezza per directory di servizio e CTA di remediation sugli export bloccati.【F:src/modules/Taverna_NPC.txt†L1285-L1317】
+- Le CTA di esportazione guidano verso `/self_check`, `/save_hub` o `/check_conversation` quando i gate QA/Echo bloccano l’output, confermando l’aggiornamento del flusso di interazione.【F:src/modules/Taverna_NPC.txt†L1285-L1317】
