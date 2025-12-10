@@ -95,13 +95,17 @@
       "hp": {
         "totali": 32,
         "per_livello": [
-          32
+          8,
+          6,
+          6,
+          6,
+          6
         ]
       },
       "salvezze": {
-        "Tempra": 4,
+        "Tempra": 3,
         "Riflessi": 3,
-        "Volontà": 4
+        "Volontà": 5
       },
       "skills_map": {
         "Percezione": {
@@ -130,14 +134,17 @@
         "Privilegio 5"
       ],
       "equipaggiamento": [
-        "Arma preferita",
-        "Armatura leggera"
+        "Bastone da mago in legno di frassino",
+        "Anello di protezione +1",
+        "Mantello della resistenza +1"
       ],
       "inventario": [
+        "Libro degli incantesimi ampliato",
+        "Bacchetta di dardo incantato (CL3)",
         "Kit da avventuriero",
-        "Pozione di cura x2"
+        "Pozione di cura x3"
       ],
-      "slot_incantesimi": "Liv1:4/Liv2:3",
+      "slot_incantesimi": "Liv1:6/Liv2:5/Liv3:3",
       "ac_breakdown": {
         "totale": 18,
         "armatura": 5,
@@ -166,6 +173,41 @@
           "talenti": [
             "Talento di livello 2"
           ]
+        },
+        {
+          "livello": 3,
+          "privilegi": [
+            "Privilegio 3",
+            "Tecnica distintiva Universalist",
+            "Studio universale"
+          ],
+          "talenti": [
+            "Talento di livello 3",
+            "Talento metamagico"
+          ]
+        },
+        {
+          "livello": 4,
+          "privilegi": [
+            "Privilegio 4",
+            "Tecnica distintiva Universalist",
+            "Scuola focalizzata"
+          ],
+          "talenti": [
+            "Talento di livello 4"
+          ]
+        },
+        {
+          "livello": 5,
+          "privilegi": [
+            "Privilegio 5",
+            "Tecnica distintiva Universalist",
+            "Talento bonus da mago"
+          ],
+          "talenti": [
+            "Talento di livello 5",
+            "Talento bonus (magia)"
+          ]
         }
       ],
       "benchmarks": {
@@ -180,12 +222,20 @@
           {
             "voce": "Ricompensa missione",
             "importo": 250
+          },
+          {
+            "voce": "Acquisto bacchetta e reagenti",
+            "importo": -180
+          },
+          {
+            "voce": "Vendita bottino arcano",
+            "importo": 120
           }
         ],
         "currency": {
-          "oro": 100,
-          "argento": 25,
-          "rame": 40
+          "oro": 140,
+          "argento": 15,
+          "rame": 20
         }
       },
       "razza": "Elf",
@@ -209,7 +259,7 @@
           "totale": 4
         }
       },
-      "pf_per_livello": "n/d (PF per livello non fornito)",
+      "pf_per_livello": "Liv1:8, Liv2:6, Liv3:6, Liv4:6, Liv5:6",
       "AC_arm": 0,
       "AC_scudo": 0,
       "AC_des": 0,
@@ -265,7 +315,23 @@
         }
       ],
       "spell_levels": [],
-      "magia": {},
+      "magia": {
+        "1": [
+          "Armatura magica",
+          "Dardo incantato",
+          "Scudo"
+        ],
+        "2": [
+          "Ragnatela",
+          "Polvere luccicante",
+          "Invisibilità"
+        ],
+        "3": [
+          "Palla di fuoco",
+          "Cerchio magico",
+          "Velocità"
+        ]
+      },
       "lingue": [],
       "sensi": [],
       "condizioni": []
