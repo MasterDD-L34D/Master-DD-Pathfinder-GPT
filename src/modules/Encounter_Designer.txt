@@ -377,7 +377,7 @@ commands:
       - output: "⏱️ Pacing: escalation={{encounter_state.pacing.escalation}}, waves={{ (encounter_state.pacing.waves or []) | length }}."
 
   /validate_encounter:
-    description: QA: coerenza CR, budget e rischi.
+    description: QA: coerenza CR, budget, pacing e loot.
     action:
       - if: '{{ (encounter_state.enemies or []) | length == 0 }}'
         then: { output: "❌ Nessun nemico nell'incontro." }
@@ -387,15 +387,21 @@ commands:
         value: '{{ enemies_badge_ok(encounter_state.enemies) }}'
       - set: encounter_state.export.pfs_gate_ok
         value: '{{ pfs_hr_gate(encounter_state.enemies, encounter_state.party.rules.pfs_active) }}'
+      - set: encounter_state.export.pacing_defined
+        value: '{{ pacing_waves_defined(encounter_state.pacing) }}'
+      - set: encounter_state.export.loot_resolved
+        value: '{{ loot_policy_resolved(encounter_state.enemies, encounter_state.loot) }}'
       - run_qagates:
-          requires: [enemies_exist, cr_estimated, sources_tagged, pfs_gate_ok]
+          requires: [enemies_exist, cr_estimated, sources_tagged, pfs_gate_ok, pacing_defined, loot_resolved]
           as: qa_ok
       - set: encounter_state.export.qa_ok
-        value: '{{ qa_ok and encounter_state.export.sources_tagged and encounter_state.export.pfs_gate_ok }}'
+        value: '{{ qa_ok and encounter_state.export.sources_tagged and encounter_state.export.pfs_gate_ok and encounter_state.export.pacing_defined and encounter_state.export.loot_resolved }}'
       - output: >-
           {{ '✅ QA OK.' if encounter_state.export.qa_ok else '❌ QA FAIL: rivedi bilanciamento o rischi.' }}
           Checklist: badge={{'OK' if encounter_state.export.sources_tagged else 'KO'}},
-          PFS={{'OK' if encounter_state.export.pfs_gate_ok else 'KO (HR bloccato)'}}.
+          PFS={{'OK' if encounter_state.export.pfs_gate_ok else 'KO (HR bloccato)'}},
+          Pacing={{'OK' if encounter_state.export.pacing_defined else 'KO (usa /set_pacing con waves)'}},
+          Loot={{'OK' if encounter_state.export.loot_resolved else 'KO (imposta /set_loot_policy o loot_policy per nemici)'}}.
 
   /export_encounter:
     description: Esporta card estesa, JSON VTT o MD (QA-gated).
@@ -623,17 +629,25 @@ qa_templates:
     - cr_estimated
     - sources_tagged
     - pfs_gate_ok
+    - pacing_defined
+    - loot_resolved
   errors:
     no_enemies: "Nessun nemico impostato."
     no_cr: "CR effettivo non stimato: esegui /auto_balance."
     no_sources: "Badge RAW/RAI/PFS/HR mancanti: aggiungi ruling_badge a ogni nemico."
     pfs_block: "PFS attivo: ❗ HR non consentito, rimuovi/riclassifica i nemici HR."
+    pacing_missing: "Pacing incompleto: definisci almeno una wave o escalation."
+    loot_unset: "Loot non risolto: imposta loot_policy sui nemici o usa /set_loot_policy."
   resolution_tips:
     - "Riduci o aumenta quantità/CR dei nemici."
     - "Adegua la difficoltà target o inserisci ondate per scalare pressione."
+    - "Imposta pacing con /set_pacing (waves round-based o escalation/rest pressure)."
+    - "Risolvi il loot: /set_loot_policy per totale/items o per- nemico loot_policy=custom/none."
   checklist:
     - sources_tagged
     - pfs_gate_ok
+    - pacing_defined
+    - loot_resolved
 
 helpers:
   now:
@@ -684,6 +698,27 @@ helpers:
         return True
       for e in (enemies or []):
         if str(e.get('ruling_badge','')).startswith('❗'):
+          return False
+      return True
+
+  pacing_waves_defined:
+    params: [pacing]
+    logic: |
+      waves = (pacing or {}).get('waves') or []
+      return len(waves) > 0
+
+  loot_policy_resolved:
+    params: [enemies, loot]
+    logic: |
+      loot_block = loot or {}
+      if loot_block.get('gp_total_hint') or (loot_block.get('items') or []):
+        return True
+      es = enemies or []
+      if not es:
+        return False
+      for e in es:
+        lp = str(e.get('loot_policy','auto')).lower()
+        if lp in ['', 'auto', 'undefined', 'null']:
           return False
       return True
 
