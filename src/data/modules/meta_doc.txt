@@ -652,7 +652,7 @@ data_sources:
     - core: "Pathfinder Master DD - Istruzioni Operative Core"
     - modules_active: ["*"]
     - glossary_local: true
-    - assets: ["*.md","*.yaml","*.json","*.txt","*Homebrewery*V3*.pdf"]
+    - assets: ["*.md","*.txt","*.json","*Homebrewery*V3*.pdf"]
   pdf_support:
     enabled: true
     use_text_pdf_match_hint: true
