@@ -238,32 +238,7 @@
       "show_explain": true,
       "show_ledger": true,
       "decimal_comma": true,
-      "skills": [
-        {
-          "nome": "Percezione",
-          "gradi": 2,
-          "mod_car": 1,
-          "var": 2,
-          "classe": true,
-          "totale": 5
-        },
-        {
-          "nome": "Acrobazia",
-          "gradi": 1,
-          "mod_car": 2,
-          "var": 1,
-          "classe": false,
-          "totale": 4
-        },
-        {
-          "nome": "Conoscenze",
-          "gradi": 2,
-          "mod_car": 0,
-          "var": 1,
-          "classe": true,
-          "totale": 3
-        }
-      ],
+      "skills": [],
       "spell_levels": [],
       "magia": {},
       "lingue": [],
@@ -563,7 +538,7 @@
     }
   },
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=5&race=Halfling&archetype=Cutpurse",
-  "fetched_at": "2025-12-10T01:26:00Z",
+  "fetched_at": "2025-12-10T02:13:19Z",
   "request": {
     "class": "Rogue",
     "race": "Halfling",
