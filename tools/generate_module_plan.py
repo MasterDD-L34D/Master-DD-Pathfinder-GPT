@@ -1,0 +1,276 @@
+#!/usr/bin/env python3
+"""Generate a per-module work plan from module reports.
+
+The script follows the sequence defined in `planning/module_review_guide.md`
+(“Sequenza di lettura”) and extracts tasks from each report in
+`reports/module_tests/`. For every module it collects:
+- Fix necessari → prioritised as P1 (bug/ambiguità funzionali)
+- Miglioramenti → default P2 (QA/completezza) unless a bullet is tagged with
+  `[P3]` or another explicit priority prefix
+- Errori → added as contextual notes per modulo
+
+It also emits a closing summary with task counts and highest priority per
+modulo, and highlights the cross-cutting clusters (builder/bilanciamento e
+hub/persistenza) menzionati nella guida.
+
+Usage:
+    python tools/generate_module_plan.py --output planning/module_work_plan.md
+
+If a report is missing, the entry will be flagged as "Report mancante".
+"""
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import re
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Dict, Iterable, List, Optional, Tuple
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+GUIDE_PATH = REPO_ROOT / "planning" / "module_review_guide.md"
+REPORT_DIR = REPO_ROOT / "reports" / "module_tests"
+DEFAULT_OUTPUT = REPO_ROOT / "planning" / "module_work_plan.md"
+
+# Mapping for guide labels that do not match report stems
+ALIASES: Dict[str, str] = {
+    "cartelle_di_servizio": "service_dirs",
+}
+
+SEQUENCE_FALLBACK = [
+    "Encounter_Designer",
+    "Taverna_NPC",
+    "adventurer_ledger",
+    "archivist",
+    "base_profile",
+    "explain_methods",
+    "knowledge_pack",
+    "meta_doc",
+    "minmax_builder",
+    "narrative_flow",
+    "ruling_expert",
+    "scheda_pg_markdown_template",
+    "sigilli_runner_module",
+    "tavern_hub",
+    "Cartelle di servizio",
+]
+
+BUILDER_CLUSTER = {"encounter_designer", "minmax_builder"}
+HUB_CLUSTER = {"taverna_npc", "tavern_hub", "cartelle_di_servizio"}
+
+
+@dataclass
+class ModuleSummary:
+    label: str
+    report_path: Optional[Path]
+    tasks: List[Tuple[int, str]]
+    errors: List[str]
+
+    @property
+    def status(self) -> str:
+        if not self.report_path or not self.report_path.exists():
+            return "In attesa (aggiungere report)"
+        if self.tasks:
+            return "Pronto per sviluppo"
+        return "In attesa (nessun task rilevato)"
+
+    @property
+    def highest_priority(self) -> str:
+        if not self.tasks:
+            return "N/A"
+        level = min(p for p, _ in self.tasks)
+        return f"P{level}"
+
+
+def normalise_name(name: str) -> str:
+    """Normalise a module label into a comparable stem."""
+    stem = re.sub(r"[^A-Za-z0-9_]+", "_", name).strip("_").lower()
+    return stem
+
+
+def load_sequence_from_guide() -> List[str]:
+    pattern = re.compile(r"^\d+\.\s+(.*)")
+    lines = GUIDE_PATH.read_text(encoding="utf-8").splitlines()
+    sequence = []
+    for line in lines:
+        match = pattern.match(line.strip())
+        if match:
+            sequence.append(match.group(1).strip())
+    return sequence or SEQUENCE_FALLBACK
+
+
+def map_reports() -> Dict[str, Path]:
+    mapping: Dict[str, Path] = {}
+    for report in REPORT_DIR.glob("*.md"):
+        mapping[report.stem.lower()] = report
+    return mapping
+
+
+def find_report(module_label: str, existing: Dict[str, Path]) -> Optional[Path]:
+    stem = normalise_name(module_label)
+    stem = ALIASES.get(stem, stem)
+    return existing.get(stem)
+
+
+def extract_section(lines: List[str], heading: str) -> List[str]:
+    target = f"## {heading}".lower()
+    start = False
+    collected: List[str] = []
+    for line in lines:
+        if line.strip().lower() == target:
+            start = True
+            continue
+        if start and line.startswith("## "):
+            break
+        if start:
+            collected.append(line.rstrip())
+    return collected
+
+
+def parse_bullets(lines: Iterable[str]) -> List[str]:
+    bullets: List[str] = []
+    current: List[str] = []
+    for line in lines:
+        if line.startswith("- "):
+            if current:
+                bullets.append(" ".join(current).strip())
+            current = [line[2:].strip()]
+        elif current:
+            current.append(line.strip())
+    if current:
+        bullets.append(" ".join(current).strip())
+    return bullets
+
+
+def parse_prioritised_tasks(
+    lines: List[str], *, default_priority: int
+) -> List[Tuple[int, str]]:
+    tasks: List[Tuple[int, str]] = []
+    for bullet in parse_bullets(lines):
+        match = re.match(r"^\[P(\d)\]\s+(.*)", bullet)
+        if match:
+            priority = int(match.group(1))
+            text = match.group(2).strip()
+        else:
+            priority = default_priority
+            text = bullet
+        tasks.append((priority, text))
+    return tasks
+
+
+def extract_first_available(lines: List[str], headings: List[str]) -> List[str]:
+    for heading in headings:
+        section = extract_section(lines, heading)
+        if section:
+            return section
+    return []
+
+
+def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSummary:
+    if not report_path or not report_path.exists():
+        return ModuleSummary(module_label, report_path, [], [])
+
+    lines = report_path.read_text(encoding="utf-8").splitlines()
+    fixes = parse_prioritised_tasks(extract_section(lines, "Fix necessari"), default_priority=1)
+    improvements = parse_prioritised_tasks(
+        extract_first_available(lines, ["Miglioramenti suggeriti", "Miglioramenti"]),
+        default_priority=2,
+    )
+    errors = parse_bullets(extract_section(lines, "Errori"))
+
+    tasks: List[Tuple[int, str]] = fixes + improvements
+    return ModuleSummary(module_label, report_path, tasks, errors)
+
+
+def format_module_block(summary: ModuleSummary) -> str:
+    report_text = (
+        "**mancante**" if not summary.report_path else f"`{summary.report_path.relative_to(REPO_ROOT)}`"
+    )
+    parts = [
+        f"## {summary.label}",
+        f"- Report: {report_text}",
+        f"- Stato: {summary.status}",
+        "",
+        "### Task (priorità e scope)",
+    ]
+
+    if summary.tasks:
+        for priority, text in sorted(summary.tasks, key=lambda t: t[0]):
+            parts.append(f"- [P{priority}] {text}")
+    else:
+        parts.append("- Nessun task rilevato")
+
+    parts.extend(["", "### Note (Errori)"])
+    if summary.errors:
+        parts.extend([f"- {item}" for item in summary.errors])
+    else:
+        parts.append("- Nessuna nota aggiuntiva")
+
+    parts.append("")
+    return "\n".join(parts)
+
+
+def build_plan(output_path: Path) -> None:
+    sequence = load_sequence_from_guide()
+    report_map = map_reports()
+
+    summaries: List[ModuleSummary] = []
+    for module in sequence:
+        report_path = find_report(module, report_map)
+        summaries.append(summarise_module(module, report_path))
+
+    now = dt.datetime.now(dt.timezone.utc)
+    header = [
+        "# Piano operativo generato dai report",
+        "",
+        f"Generato il {now.isoformat(timespec='seconds').replace('+00:00', 'Z')}",
+        "Fonte sequenza: `planning/module_review_guide.md`",
+        "",
+        "## Checklist seguita (dal documento di guida)",
+        "- Sequenza completa: Encounter_Designer → Taverna_NPC → adventurer_ledger → archivist → base_profile → explain_methods → knowledge_pack → meta_doc → minmax_builder → narrative_flow → ruling_expert → scheda_pg_markdown_template → sigilli_runner_module → tavern_hub → Cartelle di servizio.",
+        "- Per ogni report: checklist Ambiente di test → Esiti API → Metadati → Comandi/Flow → QA → Errori → Miglioramenti → Fix necessari.",
+        "- Task derivati da Errori/Fix/Miglioramenti con priorità P1 bug/ambiguità, P2 QA/completezza, P3 UX/copy; collegare a sezioni/linee citate nei report.",
+        "- Stato modulo: Pronto per sviluppo se i task sono completi e scoped; In attesa se servono dati aggiuntivi.",
+        "- Cross-cutting: coordinare builder/bilanciamento (Encounter_Designer, minmax_builder) e hub/persistenza (Taverna_NPC, tavern_hub, Cartelle di servizio).",
+        "",
+    ]
+
+    body = [format_module_block(summary) for summary in summaries]
+
+    cross_cutting = [
+        "## Cross-cutting e dipendenze",
+        "- Builder/Bilanciamento (Encounter_Designer, minmax_builder): usare i task sopra per valutare epic condivise su export/QA o flow di bilanciamento; ordinare i fix P1 prima dei miglioramenti.",
+        "- Hub/Persistenza (Taverna_NPC, tavern_hub, Cartelle di servizio): verificare coerenza delle policy di salvataggio/quarantena e annotare eventuali blocchi prima di procedere con altri moduli dipendenti.",
+        "",
+        "## Chiusura",
+        "- Compila il sommario sprint con numero task, priorità massima e blocchi per modulo usando la tabella seguente.",
+        "",
+    ]
+
+    summary_rows = [
+        "| Modulo | Task totali | Priorità massima | Stato |",
+        "| --- | --- | --- | --- |",
+    ]
+    for summary in summaries:
+        summary_rows.append(
+            f"| {summary.label} | {len(summary.tasks)} | {summary.highest_priority} | {summary.status} |"
+        )
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        "\n".join(header + body + cross_cutting + summary_rows),
+        encoding="utf-8",
+    )
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate a work plan from module reports.")
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=DEFAULT_OUTPUT,
+        help="Path to the output Markdown file (default: planning/module_work_plan.md)",
+    )
+    args = parser.parse_args()
+    build_plan(args.output)
+    print(f"Work plan written to {args.output}")
