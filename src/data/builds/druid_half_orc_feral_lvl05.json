@@ -284,28 +284,40 @@
       "show_ledger": true,
       "decimal_comma": true,
       "skills": [
-        "Percezione +9",
-        "Sopravvivenza +9",
-        "Conoscenze (natura) +8",
-        "Furtività +7"
+        {
+          "nome": "Percezione",
+          "gradi": 5,
+          "mod_car": 1,
+          "var": 3,
+          "classe": true,
+          "totale": 9
+        },
+        {
+          "nome": "Sopravvivenza",
+          "gradi": 5,
+          "mod_car": 1,
+          "var": 3,
+          "classe": true,
+          "totale": 9
+        },
+        {
+          "nome": "Conoscenze (natura)",
+          "gradi": 5,
+          "mod_car": 0,
+          "var": 3,
+          "classe": true,
+          "totale": 8
+        },
+        {
+          "nome": "Furtività",
+          "gradi": 5,
+          "mod_car": 2,
+          "var": 0,
+          "classe": false,
+          "totale": 7
+        }
       ],
-      "spell_levels": {
-        "Livello 1": [
-          "Intrappolare (entangle)",
-          "Fuoco fatato",
-          "Cura ferite leggere",
-          "Morso magico"
-        ],
-        "Livello 2": [
-          "Pelle coriacea",
-          "Artigli ferini",
-          "Passo senza tracce"
-        ],
-        "Livello 3": [
-          "Invocare alleato naturale III",
-          "Vigore dell'orso"
-        ]
-      },
+      "spell_levels": [],
       "magia": {
         "Livello 1": [
           "Intrappolare (entangle)",

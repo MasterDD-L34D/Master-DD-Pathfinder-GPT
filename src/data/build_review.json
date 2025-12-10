@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-10T19:11:04Z",
+  "generated_at": "2025-12-10T19:17:13Z",
   "builds": {
     "total": 61,
     "valid": 56,
@@ -277,8 +277,7 @@
           10
         ],
         "level": 5,
-        "error": "'Percezione +9' is not of type 'object'; 'Sopravvivenza +9' is not of type 'object'; 'Conoscenze (natura) +8' is not of type 'object'; 'Furtività +7' is not of type 'object'; {'Livello 1': ['Intrappolare (entangle)', 'Fuoco fatato', 'Cura ferite leggere', 'Morso magico'], 'Livello 2': ['Pelle coriacea', 'Artigli ferini', 'Passo senza tracce'], 'Livello 3': ['Invocare alleato naturale III', \"Vigore dell'orso\"]} is not of type 'array'",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
@@ -297,8 +296,7 @@
           10
         ],
         "level": 10,
-        "error": "'Percezione +14' is not of type 'object'; 'Sopravvivenza +14' is not of type 'object'; 'Conoscenze (natura) +13' is not of type 'object'; 'Furtività +11' is not of type 'object'; 'Intimidire +9' is not of type 'object'; {'Livello 1': ['Intrappolare (entangle)', 'Fuoco fatato', 'Cura ferite leggere', 'Individuazione del veleno'], 'Livello 2': ['Pelle coriacea', 'Artigli ferini', \"Corteccia d'albero\"], 'Livello 3': ['Invocare alleato naturale III', \"Vigore dell'orso\", 'Cerchio di spine'], 'Livello 4': ['Libertà di movimento', 'Tempesta di neve minore'], 'Livello 5': ['Muro di spine', 'Invocare alleato naturale V']} is not of type 'array'",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/fighter.json",
@@ -1231,14 +1229,14 @@
       },
       "5": {
         "total": 13,
-        "invalid": 3,
-        "schema_errors": 2,
+        "invalid": 2,
+        "schema_errors": 1,
         "completeness_errors": 1
       },
       "10": {
         "total": 8,
         "invalid": 3,
-        "schema_errors": 3,
+        "schema_errors": 2,
         "completeness_errors": 2
       }
     }
