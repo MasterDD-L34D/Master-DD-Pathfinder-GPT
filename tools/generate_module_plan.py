@@ -278,6 +278,22 @@ def build_plan(output_path: Path) -> None:
 
     body = [format_module_block(summary) for summary in summaries]
 
+    note_summary = [
+        "## Riepilogo osservazioni ed errori",
+        "| Modulo | Osservazioni | Errori | Totale note |",
+        "| --- | --- | --- | --- |",
+    ]
+    for summary in sorted(
+        summaries,
+        key=lambda item: (len(item.observations) + len(item.errors)),
+        reverse=True,
+    ):
+        note_summary.append(
+            "| "
+            f"{summary.label} | {len(summary.observations)} | {len(summary.errors)} | "
+            f"{len(summary.observations) + len(summary.errors)} |"
+        )
+
     cross_cutting = [
         "## Cross-cutting e dipendenze",
         "- Builder/Bilanciamento (Encounter_Designer, minmax_builder): usare i task sopra per valutare epic condivise su export/QA o flow di bilanciamento; ordinare i fix P1 prima dei miglioramenti.",
@@ -301,7 +317,7 @@ def build_plan(output_path: Path) -> None:
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(
-        "\n".join(header + body + cross_cutting + summary_rows),
+        "\n".join(header + body + note_summary + cross_cutting + summary_rows),
         encoding="utf-8",
     )
 
