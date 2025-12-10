@@ -26,6 +26,17 @@ DEFAULT_INDEX_PATH = Path("src/data/build_index.json")
 DEFAULT_REPORT_PATH = Path("reports/build_qa_report.json")
 
 
+def _normalize_badge_value(badge: object) -> str | None:
+    if isinstance(badge, str):
+        return badge.strip().lower() or None
+    if isinstance(badge, Mapping):
+        for key in ("badge", "label", "value"):
+            candidate = badge.get(key)
+            if isinstance(candidate, str):
+                return candidate.strip().lower() or None
+    return None
+
+
 @dataclass
 class StepResult:
     name: str
@@ -129,18 +140,36 @@ class QaPipeline:
             step_name="ruling_expert",
         )
         if result.status == "PASS":
-            badge = None
-            response = result.details or {}
-            if isinstance(response, Mapping):
-                badge = response.get("ruling_badge") or response.get("badge")
-            reason = "Badge validato" if badge else "Validazione completata"
-            details = dict(result.details or {})
-            if badge:
-                details["ruling_badge"] = badge
+            response = result.details if isinstance(result.details, Mapping) else {}
+            badge = response.get("ruling_badge") or response.get("badge")
+            sources = response.get("sources") or response.get("fonti")
+            violations = response.get("violations")
+            if violations:
+                return StepResult(
+                    name="ruling_expert",
+                    status="FAIL",
+                    reason="Violazioni Ruling Expert: "
+                    + "; ".join(map(str, violations)),
+                    details=response,
+                )
+
+            normalized_badge = _normalize_badge_value(badge)
+            if not normalized_badge:
+                return StepResult(
+                    name="ruling_expert",
+                    status="FAIL",
+                    reason="Badge Ruling Expert mancante o non conforme",
+                    details=response or None,
+                )
+
+            details = dict(response)
+            details["ruling_badge"] = normalized_badge
+            if sources:
+                details["sources"] = sources
             return StepResult(
                 name="ruling_expert",
                 status="PASS",
-                reason=reason,
+                reason=f"Badge validato ({normalized_badge})",
                 details=details or None,
             )
         return result

@@ -1093,6 +1093,25 @@ def parse_args() -> argparse.Namespace:
         help="API key da passare nell'header x-api-key (default: variabile API_KEY)",
     )
     parser.add_argument(
+        "--ruling-expert-url",
+        dest="ruling_expert_url",
+        default=os.environ.get("RULING_EXPERT_URL"),
+        help="Endpoint REST del Ruling Expert per convalidare il badge (obbligatorio)",
+    )
+    parser.add_argument(
+        "--ruling-expert-timeout",
+        dest="ruling_timeout",
+        type=float,
+        default=30.0,
+        help="Timeout (secondi) per la chiamata verso Ruling Expert (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--ruling-expert-max-retries",
+        dest="ruling_max_retries",
+        type=int,
+        help="Retry massimo per la chiamata Ruling Expert (default: usa --max-retries)",
+    )
+    parser.add_argument(
         "--mode",
         default=DEFAULT_MODE,
         choices=["core", "extended", "full-pg"],
@@ -1756,7 +1775,139 @@ def _enrich_sheet_payload(
                 if alias not in normalized or _is_placeholder(normalized.get(alias)):
                     normalized[alias] = normalized[short]
 
-        return normalized
+    return normalized
+
+
+def _stringify_sequence(values: object, *, limit: int | None = None) -> list[str]:
+    """Converti una sequenza generica in un elenco di stringhe pulite."""
+
+    if not isinstance(values, Sequence) or isinstance(values, (str, bytes)):
+        return []
+
+    normalized: list[str] = []
+    for item in values:
+        if isinstance(item, Mapping):
+            candidate = item.get("name") or item.get("label") or item.get("id")
+            normalized.append(str(candidate)) if candidate else None
+        else:
+            normalized.append(str(item))
+
+        if limit is not None and len(normalized) >= limit:
+            break
+
+    return [value.strip() for value in normalized if value and value.strip()]
+
+
+def _normalize_badge_value(badge: object) -> str | None:
+    if isinstance(badge, str):
+        return badge.strip().lower() or None
+    if isinstance(badge, Mapping):
+        for key in ("label", "value", "badge"):
+            candidate = badge.get(key)
+            if isinstance(candidate, str):
+                return candidate.strip().lower() or None
+    return None
+
+
+def _ruling_context_from_payload(
+    payload: Mapping[str, Any], request: BuildRequest
+) -> Mapping[str, object]:
+    export = payload.get("export") if isinstance(payload, Mapping) else None
+    sheet_payload = (
+        export.get("sheet_payload") if isinstance(export, Mapping) else None
+    )
+    talents = []
+    if isinstance(sheet_payload, Mapping):
+        talents = _stringify_sequence(sheet_payload.get("talenti"), limit=5)
+
+    hr_sources: object | None = None
+    meta_sources: object | None = None
+    pfs_mode: object | None = None
+    if isinstance(sheet_payload, Mapping):
+        hr_sources = sheet_payload.get("hr_sources")
+        meta_sources = sheet_payload.get("meta_sources")
+        pfs_mode = sheet_payload.get("pfs_mode")
+
+    return {
+        "class": payload.get("class") or request.class_name,
+        "level": payload.get("request", {}).get("level") or request.level,
+        "talenti_chiave": talents,
+        "hr_sources": hr_sources,
+        "meta_sources": meta_sources,
+        "pfs_mode": pfs_mode,
+    }
+
+
+def _pfs_blocks_homebrew(context: Mapping[str, object]) -> bool:
+    pfs_mode = str(context.get("pfs_mode") or "").lower()
+    pfs_active = pfs_mode in {"true", "on", "yes", "1", "active", "pfs"}
+    hr_present = bool(context.get("hr_sources"))
+    meta_present = bool(context.get("meta_sources"))
+    return bool(pfs_active and (hr_present or meta_present))
+
+
+async def _validate_ruling_badge(
+    client: httpx.AsyncClient,
+    *,
+    url: str | None,
+    api_key: str | None,
+    payload: MutableMapping,
+    request: BuildRequest,
+    timeout: float,
+    max_retries: int,
+) -> tuple[str, object | None]:
+    if not url:
+        raise BuildFetchError("Endpoint Ruling Expert obbligatorio per il salvataggio")
+
+    context = _ruling_context_from_payload(payload, request)
+
+    if _pfs_blocks_homebrew(context):
+        raise BuildFetchError(
+            "PFS attivo: HR/META rilevati e non ammessi per lo snapshot",
+        )
+
+    headers = {"x-api-key": api_key} if api_key else {}
+    response = await request_with_retry(
+        client,
+        "POST",
+        url,
+        headers=headers,
+        json_body={"build": payload, "context": context},
+        timeout=timeout,
+        max_retries=max_retries,
+        backoff_factor=0.5,
+    )
+
+    try:
+        data = response.json()
+    except json.JSONDecodeError as exc:  # pragma: no cover - network dependent
+        raise BuildFetchError("Risposta Ruling Expert non JSON") from exc
+
+    violations = data.get("violations") if isinstance(data, Mapping) else None
+    if violations:
+        raise BuildFetchError(
+            "Violazioni Ruling Expert: " + "; ".join(map(str, violations))
+        )
+
+    badge = data.get("ruling_badge") if isinstance(data, Mapping) else None
+    badge = badge or (data.get("badge") if isinstance(data, Mapping) else None)
+    normalized_badge = _normalize_badge_value(badge)
+    if not normalized_badge:
+        raise BuildFetchError("Badge Ruling Expert mancante o non conforme")
+
+    sources = data.get("sources") if isinstance(data, Mapping) else None
+    sources = sources or (data.get("fonti") if isinstance(data, Mapping) else None)
+
+    payload["ruling_badge"] = normalized_badge
+    if sources:
+        payload["ruling_sources"] = sources
+    payload.setdefault("qa", {})["ruling_expert"] = {
+        "badge": normalized_badge,
+        "sources": sources,
+        "context": context,
+    }
+
+    return normalized_badge, sources
 
     sheet_payload: MutableMapping[str, object] = {}
     for candidate in (
@@ -2355,6 +2506,9 @@ async def fetch_build(
     max_retries: int,
     require_complete: bool = True,
     target_level: int | None = None,
+    ruling_expert_url: str | None = None,
+    ruling_timeout: float = 30.0,
+    ruling_max_retries: int | None = None,
 ) -> MutableMapping:
     params: MutableMapping[str, object] = {
         "mode": request.mode,
@@ -2565,6 +2719,17 @@ async def fetch_build(
         }
     )
 
+    ruling_retries = ruling_max_retries if ruling_max_retries is not None else max_retries
+    await _validate_ruling_badge(
+        client,
+        url=ruling_expert_url,
+        api_key=api_key,
+        payload=payload,
+        request=request,
+        timeout=ruling_timeout,
+        max_retries=ruling_retries,
+    )
+
     if require_complete and completeness_errors:
         joined_errors = "; ".join(completeness_errors)
         raise BuildFetchError(
@@ -2747,6 +2912,8 @@ def build_index_entry(
     error: str | None = None,
     step_audit: Mapping[str, object] | None = None,
     completeness_errors: Sequence[str] | None = None,
+    ruling_badge: str | None = None,
+    ruling_sources: object | None = None,
 ) -> Mapping:
     entry: dict[str, object] = {
         "file": str(output_file) if output_file else None,
@@ -2759,6 +2926,10 @@ def build_index_entry(
         entry["error"] = error
     if completeness_errors:
         entry["completeness_errors"] = list(completeness_errors)
+    if ruling_badge:
+        entry["ruling_badge"] = ruling_badge
+    if ruling_sources:
+        entry["ruling_sources"] = ruling_sources
     if step_audit:
         entry.update(
             {
@@ -2813,6 +2984,9 @@ async def run_harvest(
     level_filters: Sequence[int] | None = None,
     skip_unchanged: bool = False,
     max_items: int | None = None,
+    ruling_expert_url: str | None = None,
+    ruling_timeout: float = 30.0,
+    ruling_max_retries: int | None = None,
 ) -> None:
     requests = list(requests)
     max_items = int(max_items) if max_items is not None else None
@@ -2954,6 +3128,9 @@ async def run_harvest(
                                     max_retries,
                                     require_complete=require_complete,
                                     target_level=request.level,
+                                    ruling_expert_url=ruling_expert_url,
+                                    ruling_timeout=ruling_timeout,
+                                    ruling_max_retries=ruling_max_retries,
                                 )
                                 break
                             except BuildFetchError as exc:
@@ -3012,6 +3189,16 @@ async def run_harvest(
                             )
                         incomplete_payload = bool(completeness_errors)
                         status = "ok" if validation_error is None else "invalid"
+                        ruling_badge = (
+                            payload.get("ruling_badge")
+                            if isinstance(payload, Mapping)
+                            else None
+                        )
+                        ruling_sources = (
+                            payload.get("ruling_sources")
+                            if isinstance(payload, Mapping)
+                            else None
+                        )
                         if incomplete_payload:
                             status = "invalid"
                             logging.warning(
@@ -3052,6 +3239,8 @@ async def run_harvest(
                                         validation_error,
                                         payload.get("step_audit"),
                                         completeness_errors,
+                                        ruling_badge,
+                                        ruling_sources,
                                     )
 
                             destination.write_text(
@@ -3075,6 +3264,8 @@ async def run_harvest(
                             validation_error,
                             payload.get("step_audit"),
                             completeness_errors,
+                            ruling_badge,
+                            ruling_sources,
                         )
                     except ValidationError:
                         raise
@@ -3100,6 +3291,16 @@ async def run_harvest(
                                 else None
                             ),
                             completeness_errors,
+                            (
+                                payload.get("ruling_badge")
+                                if isinstance(payload, Mapping)
+                                else None
+                            ),
+                            (
+                                payload.get("ruling_sources")
+                                if isinstance(payload, Mapping)
+                                else None
+                            ),
                         )
                     except Exception as exc:  # pragma: no cover - network dependent
                         logging.exception(
@@ -3121,6 +3322,16 @@ async def run_harvest(
                                     if "completeness_errors" in locals()
                                     else None
                                 ),
+                            ),
+                            (
+                                payload.get("ruling_badge")
+                                if isinstance(payload, Mapping)
+                                else None
+                            ),
+                            (
+                                payload.get("ruling_sources")
+                                if isinstance(payload, Mapping)
+                                else None
                             ),
                         )
 
@@ -3280,6 +3491,9 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 level_filters=args.filter_levels,
                 skip_unchanged=args.skip_unchanged,
                 max_items=args.max_items,
+                ruling_expert_url=args.ruling_expert_url,
+                ruling_timeout=args.ruling_timeout,
+                ruling_max_retries=args.ruling_max_retries,
             )
         )
         report["strict"]["status"] = "ok"
@@ -3313,6 +3527,9 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 level_filters=args.filter_levels,
                 skip_unchanged=args.skip_unchanged,
                 max_items=args.max_items,
+                ruling_expert_url=args.ruling_expert_url,
+                ruling_timeout=args.ruling_timeout,
+                ruling_max_retries=args.ruling_max_retries,
             )
         )
         report["tolerant"]["status"] = "ok"
@@ -3341,6 +3558,9 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
     if args.dual_pass and args.validate_db:
         raise ValueError("--dual-pass non è compatibile con --validate-db")
+
+    if not args.ruling_expert_url and not args.validate_db:
+        raise ValueError("--ruling-expert-url è obbligatorio per salvare nuovi snapshot")
 
     if args.dual_pass:
         run_dual_pass_harvest(args)
@@ -3395,6 +3615,9 @@ def main() -> None:
             args.filter_levels,
             args.skip_unchanged,
             args.max_items,
+            args.ruling_expert_url,
+            args.ruling_timeout,
+            args.ruling_max_retries,
         )
     )
 
