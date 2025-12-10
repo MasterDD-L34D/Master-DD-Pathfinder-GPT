@@ -32,11 +32,33 @@ async def health() -> dict[str, str]:
 
 
 @app.api_route("/modules/minmax_builder.txt", methods=["GET", "POST"])
-async def fetch_build(class_: str | None = Query(default=None, alias="class")) -> Any:
+async def fetch_build(
+    class_: str | None = Query(default=None, alias="class"),
+    race: str | None = Query(default=None),
+    archetype: str | None = Query(default=None),
+    level: int | None = Query(default=None),
+) -> Any:
     if not class_:
         raise HTTPException(status_code=400, detail="Parametro 'class' mancante")
-    slug = _slugify(class_)
-    build_path = BUILDS_DIR / f"{slug}.json"
+
+    slug_parts = [_slugify(class_)]
+    if race:
+        slug_parts.append(_slugify(race))
+    if archetype:
+        slug_parts.append(_slugify(archetype))
+
+    base_slug = "_".join(slug_parts)
+
+    if level and level > 0:
+        level_slug = f"{base_slug}_lvl{int(level):02d}"
+        level_path = BUILDS_DIR / f"{level_slug}.json"
+        if level_path.is_file():
+            return _load_json(level_path)
+
+    build_path = BUILDS_DIR / f"{base_slug}.json"
+    if not build_path.is_file():
+        build_path = BUILDS_DIR / f"{_slugify(class_)}.json"
+
     return _load_json(build_path)
 
 

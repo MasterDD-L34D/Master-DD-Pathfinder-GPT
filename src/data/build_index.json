@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-10T14:39:37Z",
+  "generated_at": "2025-12-10T15:09:17Z",
   "api_url": "http://localhost:8000",
   "mode": "extended",
   "spec_file": null,
@@ -166,43 +166,21 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_human_warpriest",
-      "background": null,
+      "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
       "model": null,
       "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1
-    },
-    {
-      "file": "src/data/builds/cleric_human_warpriest_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "cleric_human_warpriest",
-      "class": "Cleric",
-      "race": "Human",
-      "archetype": "Warpriest",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "cleric_human_warpriest",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
         5,
         10
       ],
       "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ]
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
-      "file": "src/data/builds/cleric_human_warpriest_lvl10.json",
-      "status": "invalid",
+      "file": "src/data/builds/cleric_human_warpriest_lvl05.json",
+      "status": "ok",
       "output_prefix": "cleric_human_warpriest",
       "class": "Cleric",
       "race": "Human",
@@ -217,16 +195,29 @@
         5,
         10
       ],
+      "level": 5
+    },
+    {
+      "file": "src/data/builds/cleric_human_warpriest_lvl10.json",
+      "status": "ok",
+      "output_prefix": "cleric_human_warpriest",
+      "class": "Cleric",
+      "race": "Human",
+      "archetype": "Warpriest",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "cleric_human_warpriest",
+      "background": "Seguace zelota che bilancia liturgia e combattimento sacro.",
+      "model": null,
+      "level_checkpoints": [
+        5,
+        10
+      ],
       "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ]
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
     },
     {
       "file": "src/data/builds/druid.json",
@@ -1143,27 +1134,20 @@
       "file": "src/data/builds/wizard_elf_universalist.json",
       "status": "ok",
       "output_prefix": "wizard_elf_universalist",
-      "level": 5,
       "class": "Wizard",
       "race": "Elf",
       "archetype": "Universalist",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_elf_universalist",
+      "background": null,
       "model": null,
-      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "stub"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 5
     },
     {
       "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
@@ -1188,53 +1172,39 @@
       "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
       "status": "ok",
       "output_prefix": "wizard_elf_universalist",
-      "level": 10,
       "class": "Wizard",
       "race": "Elf",
       "archetype": "Universalist",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_elf_universalist",
+      "background": null,
       "model": null,
-      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "stub"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 10
     },
     {
       "file": "src/data/builds/wizard_human_evoker.json",
       "status": "ok",
       "output_prefix": "wizard_human_evoker",
-      "level": 5,
       "class": "Wizard",
       "race": "Human",
       "archetype": "Evoker",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_human_evoker",
+      "background": null,
       "model": null,
-      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "stub"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 5
     },
     {
       "file": "src/data/builds/wizard_human_evoker_lvl05.json",
@@ -1249,6 +1219,7 @@
       "background": null,
       "model": null,
       "level_checkpoints": [
+        1,
         5,
         10
       ],
@@ -1258,47 +1229,40 @@
       "file": "src/data/builds/wizard_human_evoker_lvl10.json",
       "status": "ok",
       "output_prefix": "wizard_human_evoker",
-      "level": 10,
       "class": "Wizard",
       "race": "Human",
       "archetype": "Evoker",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_human_evoker",
+      "background": null,
       "model": null,
-      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
       "level_checkpoints": [
+        1,
         5,
         10
       ],
-      "ruling_badge": "validated",
-      "ruling_sources": [
-        "stub"
-      ],
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 10
     }
   ],
   "checkpoints": {
     "1": {
-      "total": 45,
+      "total": 42,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "5": {
-      "total": 8,
-      "invalid": 7,
-      "schema_errors": 7,
-      "completeness_errors": 7
+      "total": 11,
+      "invalid": 5,
+      "schema_errors": 5,
+      "completeness_errors": 5
     },
     "10": {
       "total": 8,
-      "invalid": 7,
-      "schema_errors": 7,
-      "completeness_errors": 7
+      "invalid": 5,
+      "schema_errors": 5,
+      "completeness_errors": 5
     }
   }
 }

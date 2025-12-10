@@ -3008,15 +3008,40 @@ async def run_harvest(
     max_items = max_items if max_items and max_items > 0 else None
     ensure_output_dirs(output_dir)
     ensure_output_dirs(modules_output_dir)
+    existing_build_entries: dict[str, Mapping] = {}
+    existing_build_meta: dict[str, object] = {}
+    if index_path.is_file():
+        try:
+            cached = json.loads(index_path.read_text(encoding="utf-8"))
+            existing_build_meta.update(
+                {
+                    "api_url": cached.get("api_url"),
+                    "mode": cached.get("mode"),
+                    "spec_file": cached.get("spec_file"),
+                }
+            )
+            for entry in cached.get("entries", []):
+                key = entry.get("file") or f"{entry.get('output_prefix')}@{entry.get('level')}"
+                if key:
+                    existing_build_entries[str(key)] = entry
+        except Exception as exc:  # pragma: no cover - defensive logging only
+            logging.warning(
+                "Impossibile caricare build_index esistente %s: %s", index_path, exc
+            )
+
     builds_index: dict[str, object] = {
         "generated_at": now_iso_utc(),
-        "api_url": api_url,
+        "api_url": existing_build_meta.get("api_url", api_url),
         "mode": (
-            requests[0].mode
-            if requests and len({req.mode for req in requests}) == 1
-            else "mixed" if requests else "mixed"
+            existing_build_meta.get("mode")
+            or (
+                requests[0].mode
+                if requests and len({req.mode for req in requests}) == 1
+                else "mixed" if requests else "mixed"
+            )
         ),
-        "spec_file": str(spec_path) if spec_path else None,
+        "spec_file": existing_build_meta.get("spec_file")
+        or (str(spec_path) if spec_path else None),
         "entries": [],
     }
     modules_index: dict[str, object] = {
@@ -3424,9 +3449,20 @@ async def run_harvest(
         build_results = await asyncio.gather(*build_tasks)
         module_results = await asyncio.gather(*module_tasks)
 
-    builds_index["entries"].extend(
-        entry for _, entry in sorted(build_results, key=lambda item: item[0])
-    )
+    new_build_entries: dict[str, Mapping] = {}
+    for _, entry in sorted(build_results, key=lambda item: item[0]):
+        key = entry.get("file") or f"{entry.get('output_prefix')}@{entry.get('level')}"
+        if key:
+            new_build_entries[str(key)] = entry
+
+    merged_build_entries = []
+    for key in sorted(set(new_build_entries) | set(existing_build_entries)):
+        if key in new_build_entries:
+            merged_build_entries.append(new_build_entries[key])
+        else:
+            merged_build_entries.append(existing_build_entries[key])
+
+    builds_index["entries"] = merged_build_entries
     builds_index["checkpoints"] = _checkpoint_summary_from_entries(
         builds_index["entries"]
     )
