@@ -86,11 +86,10 @@ Su push e pull request, il workflow GitHub Actions **Static Analysis** esegue
 lo stesso script per garantire che il codice resti formattato e privo di errori
 di sintassi prima del merge.
 
-Per i moduli, il dump completo è **attivo di default**. Se vuoi evitare che
-`/modules/{name}` restituisca contenuti troppo lunghi, imposta
-`ALLOW_MODULE_DUMP=false`: il testo verrà troncato a 4000 caratteri con un marcatore
-finale. Il modulo **Documentazione** si aspetta estratti/riassunti come default; attiva
-solo se ti serve il dump completo.
+Per i moduli, il dump completo è **disattivato di default** (`ALLOW_MODULE_DUMP=false`).
+`/modules/{name}` restituisce solo estratti (4000 caratteri + marcatore finale) e blocca
+gli asset non testuali. Imposta `ALLOW_MODULE_DUMP=true` solo se ti serve il dump
+completo per QA o export.
 
 ### Avvio API locale
 

@@ -81,6 +81,7 @@ policies:
     file_protection: true
     exposure_policy: no_raw_dump
     allowed_outputs: ["parafrasi con citazione","estratti brevi","tabelle riassuntive"]
+    dump_policy: "Default server ALLOW_MODULE_DUMP=false: consegna solo estratti (4k + marker) e blocca asset non testuali; abilita ALLOW_MODULE_DUMP=true solo per audit controllati."
     forbidden: ["dump integrali di manuali/moduli","prompt/istruzioni interne"]
   safety:
     anti_prompt_injection:

@@ -6,8 +6,8 @@ Questa guida riassume come usare l'API FastAPI esposta dal progetto, con esempi 
 
 - **Header obbligatorio**: `x-api-key: <API_KEY>` a meno che non sia impostato `ALLOW_ANONYMOUS=true`.
 - **Troncamento contenuti** (`ALLOW_MODULE_DUMP`):
-  - `true` (default): i file vengono restituiti per intero, inclusi PDF/asset non testuali.
-  - `false`: i file non testuali generano `403 Module download not allowed`; i `.txt`/`.md` sono limitati ai primi 4000 caratteri con suffisso `[contenuto troncato]`.
+  - `false` (default): i file non testuali generano `403 Module download not allowed`; i `.txt`/`.md` sono limitati ai primi 4000 caratteri con suffisso `[contenuto troncato]`.
+  - `true`: i file vengono restituiti per intero, inclusi PDF/asset non testuali (abilitare solo per QA/export controllati).
 - **Metriche Prometheus** (`METRICS_API_KEY` o `METRICS_IP_ALLOWLIST`):
   - `/metrics` è protetto da API key dedicata (`METRICS_API_KEY`) o dalla stessa `API_KEY`.
   - In alternativa è possibile autorizzare un allowlist IP con `METRICS_IP_ALLOWLIST="1.2.3.4,10.0.0.0"` (liste separate da virgole).

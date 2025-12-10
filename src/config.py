@@ -18,7 +18,7 @@ class Settings:
             "y",
         )
         self.allow_module_dump: bool = os.getenv(
-            "ALLOW_MODULE_DUMP", "true"
+            "ALLOW_MODULE_DUMP", "false"
         ).lower() in (
             "1",
             "true",
