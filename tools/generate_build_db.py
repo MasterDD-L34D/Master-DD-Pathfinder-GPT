@@ -623,7 +623,9 @@ def _checkpoint_summary_from_entries(
             completeness_error=bool(entry.get("completeness_errors")),
         )
 
-    return {key: checkpoints[key] for key in sorted(checkpoints, key=lambda item: int(item))}
+    return {
+        key: checkpoints[key] for key in sorted(checkpoints, key=lambda item: int(item))
+    }
 
 
 def _load_build_index_entries(
@@ -638,7 +640,9 @@ def _load_build_index_entries(
             build_index_payload.get("entries") or []
         )
     except Exception as exc:  # pragma: no cover - defensive logging
-        logging.warning("Impossibile leggere l'indice build %s: %s", build_index_path, exc)
+        logging.warning(
+            "Impossibile leggere l'indice build %s: %s", build_index_path, exc
+        )
         return {}
 
     entries: dict[Path, Mapping[str, object]] = {}
@@ -660,7 +664,9 @@ def _requested_level(payload: Mapping[str, object] | None) -> int | None:
     if not isinstance(payload, Mapping):
         return None
 
-    request_ctx = payload.get("request") if isinstance(payload.get("request"), Mapping) else {}
+    request_ctx = (
+        payload.get("request") if isinstance(payload.get("request"), Mapping) else {}
+    )
     level = request_ctx.get("level") if isinstance(request_ctx, Mapping) else None
     if level is None and isinstance(payload.get("build_state"), Mapping):
         level = payload.get("build_state", {}).get("level")
@@ -710,7 +716,10 @@ def review_local_database(
             if path.is_file():
                 build_files[path.resolve()] = str(path)
     for resolved_path in build_index_entries:
-        build_files.setdefault(resolved_path, str(build_index_entries[resolved_path].get("file") or resolved_path))
+        build_files.setdefault(
+            resolved_path,
+            str(build_index_entries[resolved_path].get("file") or resolved_path),
+        )
 
     for path, display_path in sorted(build_files.items(), key=lambda item: item[1]):
         entry: dict[str, Any] = {"file": display_path}
@@ -720,10 +729,14 @@ def review_local_database(
         validation_error: str | None = None
         completeness_errors: list[str] = []
         if index_entry:
-            entry.update({k: v for k, v in index_entry.items() if k not in {"file", "status"}})
+            entry.update(
+                {k: v for k, v in index_entry.items() if k not in {"file", "status"}}
+            )
 
         if not path.exists():
-            status = _worst_status("missing", str(index_entry.get("status")) if index_entry else None)
+            status = _worst_status(
+                "missing", str(index_entry.get("status")) if index_entry else None
+            )
             entry["status"] = status
             entry["error"] = "File mancante"
             _bump_review(builds_section, status)
@@ -746,9 +759,9 @@ def review_local_database(
                 f"build {path.name}",
                 strict=strict,
             )
-            sheet_payload = payload.get("export", {}).get("sheet_payload") or payload.get(
+            sheet_payload = payload.get("export", {}).get(
                 "sheet_payload"
-            )
+            ) or payload.get("sheet_payload")
             sheet_error = None
             if sheet_payload is not None:
                 sheet_error = validate_with_schema(
@@ -775,7 +788,9 @@ def review_local_database(
                     completeness_errors.append(error)
             completeness_text: str | None = None
             if completeness_errors:
-                completeness_text = "; ".join(str(error) for error in completeness_errors)
+                completeness_text = "; ".join(
+                    str(error) for error in completeness_errors
+                )
                 validation_error = (
                     completeness_text
                     if validation_error is None
@@ -795,7 +810,9 @@ def review_local_database(
             status = "error"
             entry["error"] = str(exc)
 
-        status = _worst_status(status, str(index_entry.get("status")) if index_entry else None)
+        status = _worst_status(
+            status, str(index_entry.get("status")) if index_entry else None
+        )
         if "error" not in entry and index_entry and index_entry.get("error"):
             entry["error"] = index_entry["error"]
         entry["status"] = status
@@ -811,21 +828,23 @@ def review_local_database(
         )
         builds_section["entries"].append(entry)
 
-        class_name = entry.get("class") or (payload or {}).get("class") or (
-            (payload or {}).get("build_state") or {}
-        ).get("class")
-        race = (payload or {}).get("race") or ((payload or {}).get("build_state") or {}).get(
-            "race"
+        class_name = (
+            entry.get("class")
+            or (payload or {}).get("class")
+            or ((payload or {}).get("build_state") or {}).get("class")
         )
+        race = (payload or {}).get("race") or (
+            (payload or {}).get("build_state") or {}
+        ).get("race")
         archetype = (
             (payload or {}).get("archetype")
             or ((payload or {}).get("build_state") or {}).get("archetype")
             or ((payload or {}).get("build_state") or {}).get("model")
         )
         background = (payload or {}).get("background")
-        mode = (payload or {}).get("mode") or ((payload or {}).get("build_state") or {}).get(
-            "mode"
-        )
+        mode = (payload or {}).get("mode") or (
+            (payload or {}).get("build_state") or {}
+        ).get("mode")
         spec_parts = [class_name, race, archetype, background]
         spec_id = (
             slugify("_".join(str(part) for part in spec_parts if part))
@@ -921,7 +940,8 @@ def review_local_database(
 
     if checkpoints:
         builds_section["checkpoints"] = {
-            key: checkpoints[key] for key in sorted(checkpoints, key=lambda item: int(item))
+            key: checkpoints[key]
+            for key in sorted(checkpoints, key=lambda item: int(item))
         }
 
     report = {
@@ -939,7 +959,9 @@ def review_local_database(
         index_payload: dict[str, object] = {
             "generated_at": now_iso_utc(),
             **build_index_meta,
-            "entries": sorted(index_entries, key=lambda entry: str(entry.get("file") or "")),
+            "entries": sorted(
+                index_entries, key=lambda entry: str(entry.get("file") or "")
+            ),
         }
         index_payload["checkpoints"] = _checkpoint_summary_from_entries(index_entries)
         write_json(build_index_path, index_payload)
@@ -1329,7 +1351,9 @@ def filter_requests(
         if level_set is not None:
             request_level = None
             try:
-                request_level = int(request.level) if request.level is not None else None
+                request_level = (
+                    int(request.level) if request.level is not None else None
+                )
             except (TypeError, ValueError):
                 request_level = None
 
@@ -1339,9 +1363,7 @@ def filter_requests(
             filtered_levels = [
                 coerced
                 for coerced in (
-                    int(lvl)
-                    for lvl in request.level_checkpoints
-                    if lvl is not None
+                    int(lvl) for lvl in request.level_checkpoints if lvl is not None
                 )
                 if coerced in level_set
             ]
@@ -1431,7 +1453,11 @@ def select_request_window(
             normalized_max_items = effective_page_size
 
     start_index = min(effective_offset, total)
-    end_index = total if normalized_max_items is None else min(start_index + normalized_max_items, total)
+    end_index = (
+        total
+        if normalized_max_items is None
+        else min(start_index + normalized_max_items, total)
+    )
 
     selected = list(islice(requests, start_index, end_index))
 
@@ -1581,7 +1607,11 @@ def _enrich_sheet_payload(
         ):
             numeric_parts = [
                 part
-                for part in (entry.get("base"), entry.get("modificatore"), entry.get("misc"))
+                for part in (
+                    entry.get("base"),
+                    entry.get("modificatore"),
+                    entry.get("misc"),
+                )
                 if isinstance(part, (int, float))
             ]
             if numeric_parts:
@@ -1753,7 +1783,8 @@ def _enrich_sheet_payload(
         saves_totals[extra_key] = normalized_entry.get("totale")
     sheet_payload["salvezze_breakdown"] = normalized_saves
     if not any(
-        isinstance(value, (int, float)) and value != 0 for value in saves_totals.values()
+        isinstance(value, (int, float)) and value != 0
+        for value in saves_totals.values()
     ):
         for key, value in list(saves_totals.items()):
             if value in {None, 0} or _is_placeholder(value):
@@ -1787,7 +1818,9 @@ def _enrich_sheet_payload(
     if pf_total is not None:
         sheet_payload["pf_totali"] = pf_total
     elif hp_block:
-        sheet_payload["pf_totali"] = hp_block.get("totale") or _fallback_stat("PF totali")
+        sheet_payload["pf_totali"] = hp_block.get("totale") or _fallback_stat(
+            "PF totali"
+        )
     else:
         sheet_payload["pf_totali"] = _fallback_stat("PF totali")
     pf_progression = _first_non_placeholder(
@@ -1846,9 +1879,11 @@ def _enrich_sheet_payload(
     for ca_key in ("AC_tot", "CA_touch", "CA_ff"):
         derived = _first_non_placeholder(
             ac_breakdown.get(ca_key) if ac_breakdown else None,
-            stat_key_block.get(ca_key.lower())
-            if isinstance(stat_key_block.get(ca_key.lower()), (int, float))
-            else None,
+            (
+                stat_key_block.get(ca_key.lower())
+                if isinstance(stat_key_block.get(ca_key.lower()), (int, float))
+                else None
+            ),
             stat_key_block.get(ca_key),
             stat_key_block.get("ca") if ca_key == "AC_tot" else None,
             sheet_payload.get(ca_key),
@@ -2117,7 +2152,9 @@ def _enrich_sheet_payload(
         _load_local_modules(SHEET_MODULE_TARGETS),
     )
 
-    allowed_sheet_modules = {name: module_payloads.get(name) for name in SHEET_MODULE_TARGETS}
+    allowed_sheet_modules = {
+        name: module_payloads.get(name) for name in SHEET_MODULE_TARGETS
+    }
     filtered_modules = {k: v for k, v in allowed_sheet_modules.items() if v}
 
     if filtered_modules:
@@ -2196,7 +2233,9 @@ def _apply_level_checkpoint(
 
         notes = sheet_payload.get("note_progressione")
         if isinstance(notes, Sequence) and not isinstance(notes, (str, bytes)):
-            sheet_payload["note_progressione"] = list(notes)[: len(truncated_progression)]
+            sheet_payload["note_progressione"] = list(notes)[
+                : len(truncated_progression)
+            ]
 
     for key in ("magia", "equipaggiamento"):
         truncated = _truncate_sequence_by_level(sheet_payload.get(key), target_level)
@@ -2578,7 +2617,9 @@ def analyze_indices(
                 logging.warning("Impossibile leggere l'indice %s: %s", path, exc)
         return {"entries": []}
 
-    def _archive_payload(source: Path, destination_dir: Path, archived: list[str]) -> None:
+    def _archive_payload(
+        source: Path, destination_dir: Path, archived: list[str]
+    ) -> None:
         destination_dir.mkdir(parents=True, exist_ok=True)
         destination = destination_dir / source.name
         if destination.exists():
@@ -2739,9 +2780,7 @@ async def run_harvest(
         "mode": (
             requests[0].mode
             if requests and len({req.mode for req in requests}) == 1
-            else "mixed"
-            if requests
-            else "mixed"
+            else "mixed" if requests else "mixed"
         ),
         "spec_file": str(spec_path) if spec_path else None,
         "entries": [],
@@ -2809,7 +2848,9 @@ async def run_harvest(
 
         modules_index["module_plan"] = module_plan
 
-        level_filter_set = {int(level) for level in level_filters} if level_filters else None
+        level_filter_set = (
+            {int(level) for level in level_filters} if level_filters else None
+        )
 
         build_tasks = []
         snapshots_planned = 0
@@ -3008,9 +3049,11 @@ async def run_harvest(
                             None,
                             status,
                             str(exc),
-                            payload.get("step_audit")
-                            if isinstance(payload, Mapping)
-                            else None,
+                            (
+                                payload.get("step_audit")
+                                if isinstance(payload, Mapping)
+                                else None
+                            ),
                             completeness_errors,
                         )
                     except Exception as exc:  # pragma: no cover - network dependent
@@ -3022,15 +3065,20 @@ async def run_harvest(
                             None,
                             "error",
                             str(exc),
-                            payload.get("step_audit")
-                            if isinstance(payload, Mapping)
-                            else None,
                             (
-                                completeness_errors
-                                if "completeness_errors" in locals()
-                                else None,
+                                payload.get("step_audit")
+                                if isinstance(payload, Mapping)
+                                else None
+                            ),
+                            (
+                                (
+                                    completeness_errors
+                                    if "completeness_errors" in locals()
+                                    else None
+                                ),
                             ),
                         )
+
             for idx, level in enumerate(level_plan):
                 if max_items is not None and snapshots_planned >= max_items:
                     skipped_for_limit += len(level_plan) - idx
@@ -3191,7 +3239,9 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
         )
         report["strict"]["status"] = "ok"
     except Exception as exc:
-        logging.warning("Passaggio strict fallito, procedo con il run tollerante: %s", exc)
+        logging.warning(
+            "Passaggio strict fallito, procedo con il run tollerante: %s", exc
+        )
         report["strict"].update({"status": "failed", "error": str(exc)})
 
     try:
@@ -3223,7 +3273,9 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
         report["tolerant"]["status"] = "ok"
         if args.invalid_archive_dir:
             analysis = analyze_indices(
-                args.index_path, args.module_index_path, archive_dir=args.invalid_archive_dir
+                args.index_path,
+                args.module_index_path,
+                archive_dir=args.invalid_archive_dir,
             )
         else:
             analysis = analyze_indices(args.index_path, args.module_index_path)

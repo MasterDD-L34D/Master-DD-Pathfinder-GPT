@@ -267,9 +267,8 @@ def _validate_directories(raise_on_error: bool = False) -> Dict[str, Dict]:
         )
         if missing_required_files:
             required_files_status = "error"
-            message = (
-                "File obbligatori mancanti in modules: "
-                + ", ".join(missing_required_files)
+            message = "File obbligatori mancanti in modules: " + ", ".join(
+                missing_required_files
             )
             logging.error(
                 "Required module files missing",
@@ -462,9 +461,11 @@ async def get_module_content(
                     "livello": lvl,
                     "privilegi": [
                         f"Privilegio {lvl}",
-                        f"Tecnica distintiva {resolved_archetype}"
-                        if resolved_archetype
-                        else "Tecnica distintiva",
+                        (
+                            f"Tecnica distintiva {resolved_archetype}"
+                            if resolved_archetype
+                            else "Tecnica distintiva"
+                        ),
                     ],
                     "talenti": [f"Talento di livello {lvl}"],
                 }

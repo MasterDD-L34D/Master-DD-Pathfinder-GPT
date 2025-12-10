@@ -10,7 +10,9 @@ def extract_documented_modules(index_path: Path) -> set[str]:
 
 def list_module_files(modules_dir: Path) -> set[str]:
     files = {path.name for path in modules_dir.iterdir() if path.is_file()}
-    directories = {f"src/modules/{path.name}/" for path in modules_dir.iterdir() if path.is_dir()}
+    directories = {
+        f"src/modules/{path.name}/" for path in modules_dir.iterdir() if path.is_dir()
+    }
     return files | directories
 
 

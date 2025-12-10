@@ -351,9 +351,7 @@ def test_get_module_meta_path_traversal(client, auth_headers):
     assert response.json()["detail"] == "Invalid module path"
 
 
-def test_get_module_rejects_symlink_outside_modules(
-    client, auth_headers, tmp_path
-):
+def test_get_module_rejects_symlink_outside_modules(client, auth_headers, tmp_path):
     external_file = tmp_path / "outside.txt"
     external_file.write_text("top-secret")
 
@@ -466,7 +464,9 @@ def test_metrics_rejects_invalid_api_key(client, metrics_security_settings):
     assert response.json()["detail"] == "Accesso alle metriche non autorizzato"
 
 
-def test_metrics_rejects_unauthorized_client(client, metrics_security_settings, monkeypatch):
+def test_metrics_rejects_unauthorized_client(
+    client, metrics_security_settings, monkeypatch
+):
     monkeypatch.setattr(settings, "metrics_api_key", None)
     monkeypatch.setattr(settings, "metrics_ip_allowlist", ["203.0.113.5"])
     monkeypatch.setattr(client._transport, "client", ("198.51.100.1", 50000))
@@ -487,7 +487,9 @@ def test_metrics_allows_metrics_api_key(client, metrics_security_settings, monke
     assert response.headers["content-type"] == CONTENT_TYPE_LATEST
 
 
-def test_metrics_allows_allowlisted_client_host(client, metrics_security_settings, monkeypatch):
+def test_metrics_allows_allowlisted_client_host(
+    client, metrics_security_settings, monkeypatch
+):
     monkeypatch.setattr(settings, "metrics_api_key", None)
     monkeypatch.setattr(settings, "metrics_ip_allowlist", ["203.0.113.5"])
     monkeypatch.setattr(client._transport, "client", ("203.0.113.5", 50000))
