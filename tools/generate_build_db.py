@@ -12,7 +12,7 @@ import textwrap
 from fnmatch import fnmatchcase
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
-from itertools import product
+from itertools import islice, product
 from pathlib import Path
 from typing import Any, Iterable, List, Mapping, MutableMapping, Sequence
 
@@ -1202,6 +1202,14 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--max-items",
+        type=int,
+        help=(
+            "Numero massimo di file di build da generare in una singola esecuzione "
+            "dopo l'applicazione dei filtri di classe/livello"
+        ),
+    )
+    parser.add_argument(
         "classes",
         nargs="*",
         default=PF1E_CLASSES,
@@ -1279,6 +1287,7 @@ def filter_requests(
     requests: Sequence[BuildRequest],
     class_filters: Sequence[str] | None,
     level_filters: Sequence[int] | None,
+    max_items: int | None = None,
 ) -> list[BuildRequest]:
     class_set = (
         {slugify(name).lower() for name in class_filters if name}
@@ -1315,6 +1324,22 @@ def filter_requests(
             updated_request = replace(request, level_checkpoints=filtered_levels)
 
         filtered_requests.append(updated_request)
+
+    if max_items is not None:
+        max_items = max(0, int(max_items))
+        if max_items == 0:
+            logging.info("Limite max-items=0: nessuna richiesta sarà processata")
+            return []
+
+        if len(filtered_requests) > max_items:
+            discarded = len(filtered_requests) - max_items
+            logging.info(
+                "Limite max-items=%s raggiunto: scarto %s richieste su %s",
+                max_items,
+                discarded,
+                len(filtered_requests),
+            )
+            filtered_requests = list(islice(filtered_requests, max_items))
 
     return filtered_requests
 
@@ -2601,8 +2626,11 @@ async def run_harvest(
     skip_health_check: bool = False,
     level_filters: Sequence[int] | None = None,
     skip_unchanged: bool = False,
+    max_items: int | None = None,
 ) -> None:
     requests = list(requests)
+    max_items = int(max_items) if max_items is not None else None
+    max_items = max_items if max_items and max_items > 0 else None
     ensure_output_dirs(output_dir)
     ensure_output_dirs(modules_output_dir)
     builds_index: dict[str, object] = {
@@ -2611,6 +2639,8 @@ async def run_harvest(
         "mode": (
             requests[0].mode
             if requests and len({req.mode for req in requests}) == 1
+            else "mixed"
+            if requests
             else "mixed"
         ),
         "spec_file": str(spec_path) if spec_path else None,
@@ -2682,7 +2712,12 @@ async def run_harvest(
         level_filter_set = {int(level) for level in level_filters} if level_filters else None
 
         build_tasks = []
+        snapshots_planned = 0
+        skipped_for_limit = 0
+        limit_reached = False
         for build_request in requests:
+            if limit_reached:
+                break
             seen_levels: set[int] = set()
             level_plan: list[int] = []
             levels_to_process = [1, *build_request.level_checkpoints]
@@ -2896,7 +2931,11 @@ async def run_harvest(
                                 else None,
                             ),
                         )
-            for level in level_plan:
+            for idx, level in enumerate(level_plan):
+                if max_items is not None and snapshots_planned >= max_items:
+                    skipped_for_limit += len(level_plan) - idx
+                    limit_reached = True
+                    break
                 task_request = replace(
                     build_request,
                     level=level,
@@ -2908,6 +2947,14 @@ async def run_harvest(
                 build_tasks.append(
                     asyncio.create_task(process_class(task_request, output_file))
                 )
+                snapshots_planned += 1
+
+        if skipped_for_limit:
+            logging.info(
+                "Limite max-items=%s raggiunto: scartati %s snapshot aggiuntivi",
+                max_items,
+                skipped_for_limit,
+            )
 
         module_tasks = []
         for module_name in module_plan:
@@ -2983,7 +3030,10 @@ async def run_harvest(
 
 def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
     requests = filter_requests(
-        build_requests_from_args(args), args.filter_classes, args.filter_levels
+        build_requests_from_args(args),
+        args.filter_classes,
+        args.filter_levels,
+        args.max_items,
     )
     strict_output_dir = args.output_dir / "strict"
     strict_modules_dir = args.modules_output_dir / "strict"
@@ -3029,6 +3079,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 skip_health_check=args.skip_health_check,
                 level_filters=args.filter_levels,
                 skip_unchanged=args.skip_unchanged,
+                max_items=args.max_items,
             )
         )
         report["strict"]["status"] = "ok"
@@ -3059,6 +3110,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 skip_health_check=args.skip_health_check,
                 level_filters=args.filter_levels,
                 skip_unchanged=args.skip_unchanged,
+                max_items=args.max_items,
             )
         )
         report["tolerant"]["status"] = "ok"
@@ -3091,7 +3143,10 @@ def main() -> None:
         return
 
     requests = filter_requests(
-        build_requests_from_args(args), args.filter_classes, args.filter_levels
+        build_requests_from_args(args),
+        args.filter_classes,
+        args.filter_levels,
+        args.max_items,
     )
     strict_mode = args.strict and not args.warn_only
 
@@ -3128,6 +3183,7 @@ def main() -> None:
             args.skip_health_check,
             args.filter_levels,
             args.skip_unchanged,
+            args.max_items,
         )
     )
 
