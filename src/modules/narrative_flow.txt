@@ -328,7 +328,14 @@ commands:
       - call: validate_threads_resolution
       - call: validate_pacing_ok
       - call: validate_style_guardrails_ok
-      - output: "✅ Story QA completato. Usa /plot_curve o /scene_tracker per dettagli."
+      - output: |
+          ✅ Story QA completato.
+          - Arco: {{ '✅ Coerente' if result.validate_arc_coherence.ok else '❌ Incoerente — ripassa i beats Setup→Midpoint→Climax con want/need/lie' }}
+          - Tema: {{ '✅ Copertura adeguata' if result.validate_theme_consistency.ok else '❌ Tema poco presente — tagga il tema in ≥60% scene e per ogni atto' }}
+          - Hook: {{ '✅ Thread sotto controllo' if result.validate_threads_resolution.ok else '❌ Troppi hook aperti — chiudi a ≤2 entro Atto II e 0 in Atto III' }}
+          - Pacing/Dialogo: {{ '✅ Dentro range' if result.validate_pacing_ok.ok else '❌ Fuori range — mantieni 300–900 parole/scene e 25–55% dialogo' }}
+          - Stile: {{ '✅ Guard-rail rispettati' if result.validate_style_guardrails_ok.ok else '❌ Violazioni stile — evita forbid_words e rispetta mix frasi del preset' }}
+          Suggerimenti: usa /scene_tracker per verificare hook, /arc per riallineare want/need/lie, /theme per marcare i temi e /style_lock per fissare il preset.
   /arc:
     description: "Imposta/mostra arco del protagonista"
     params: [want, need, lie, ghost, flaw, change_signal]
@@ -691,28 +698,119 @@ stub_functions:
   validate_arc_coherence:
     description: "Controlla che i beats riflettano cambio da Want→Need e superamento Lie"
     input: story_state
-    output: boolean
-    logic: return True
+    output: {ok: boolean, report: string, hint: string}
+    logic: |
+      arc = ((story_state or {}).get("protagonists") or [{}])[0].get("arc", {})
+      beats = [b.get("evento", "") for b in (story_state.get("timeline") or [])]
+      required = ["Setup", "Inciting Incident", "Midpoint", "Climax", "Resolution"]
+      missing_beats = [b for b in required if not any(b.lower() in evt.lower() for evt in beats)]
+      want_need_ok = all(len(arc.get(k, "")) >= 3 for k in ["want", "need", "lie"])
+      change_signal_ok = any("change" in evt.lower() or arc.get("change_signal") for evt in beats)
+      lie_resolved = any("truth" in evt.lower() or "lie superata" in evt.lower() for evt in beats)
+      ok = want_need_ok and change_signal_ok and lie_resolved and len(missing_beats) == 0
+      report = "Beats completi e arco coerente" if ok else f"Beats mancanti: {missing_beats} / want_need_ok={want_need_ok} / change_signal_ok={change_signal_ok} / lie_resolved={lie_resolved}"
+      hint = "Assicurati di avere Setup→Midpoint→Climax→Resolution e di mostrare il cambio da want a need con un segnale esplicito di verità che supera la lie. Usa /arc per compilare i campi mancanti."
+      return {"ok": ok, "report": report, "hint": hint}
   validate_theme_consistency:
     description: "Tema presente almeno in 3 atti e citato in ≥60% scene"
     input: story_state
-    output: boolean
-    logic: return True
+    output: {ok: boolean, report: string, hint: string}
+    logic: |
+      themes = (story_state.get("tags") or []) + (story_state.get("theme_tags") or []) + (story_state.get("themes") or [])
+      timeline = story_state.get("timeline") or []
+      scenes = len(timeline)
+      acts = {}
+      theme_hits = 0
+      for scene in timeline:
+        act = scene.get("atto", 0)
+        tags = scene.get("tags") or []
+        has_theme = any(t.lower() in [tag.lower() for tag in tags] for t in themes)
+        if has_theme:
+          theme_hits += 1
+          acts[act] = True
+      coverage = (theme_hits / scenes) if scenes else 0
+      ok = scenes > 0 and coverage >= 0.6 and len(acts.keys()) >= 3
+      report = f"Tema in {theme_hits}/{scenes} scene ({coverage:.0%}), atti coperti: {sorted(list(acts.keys()))}"
+      hint = "Tagga il tema in almeno il 60% delle scene e assicurati che ogni atto riporti almeno un richiamo. Usa /theme per impostare i temi e aggiorna i tags scena." if not ok else "Copertura tema ok"
+      return {"ok": ok, "report": report, "hint": hint}
   validate_threads_resolution:
     description: "Hook aperti ≤2 a fine Atto II; 0 a fine Atto III"
     input: story_state.open_threads
-    output: boolean
-    logic: return True
+    output: {ok: boolean, report: string, hint: string}
+    logic: |
+      threads = story_state.get("open_threads") or []
+      act_max = max([s.get("atto", 0) for s in (story_state.get("timeline") or [])] or [0])
+      open_count = len([t for t in threads if t.get("status", "open") != "closed"])
+      if act_max >= 3:
+        ok = open_count == 0
+        threshold = 0
+      elif act_max >= 2:
+        ok = open_count <= 2
+        threshold = 2
+      else:
+        ok = open_count <= 3
+        threshold = 3
+      report = f"Act massimo: {act_max}, hook aperti: {open_count}, soglia: {threshold}"
+      hint = "Chiudi o declassa i thread secondari prima dell'Atto III; usa /scene_tracker per segnare la chiusura." if not ok else "Hook sotto controllo"
+      return {"ok": ok, "report": report, "hint": hint}
   validate_pacing_ok:
     description: "Parole/scene e % dialogo entro range"
     input: story_state
-    output: boolean
-    logic: return True
+    output: {ok: boolean, report: string, hint: string}
+    logic: |
+      scenes = story_state.get("timeline") or []
+      if not scenes:
+        return {"ok": False, "report": "Nessuna scena tracciata", "hint": "Aggiungi scene con parole_totali e dialog_pct per valutare il pacing."}
+      words = [s.get("parole_totali") for s in scenes if s.get("parole_totali") is not None]
+      dialogs = [s.get("dialogo_pct") for s in scenes if s.get("dialogo_pct") is not None]
+      words_ok = all(300 <= w <= 900 for w in words) if words else False
+      dialog_ok = all(25 <= d <= 55 for d in dialogs) if dialogs else False
+      avg_words = sum(words) / len(words) if words else 0
+      avg_dialog = sum(dialogs) / len(dialogs) if dialogs else 0
+      ok = words_ok and dialog_ok
+      report = f"media parole: {avg_words:.0f}, media dialogo%: {avg_dialog:.0f}, words_ok={words_ok}, dialog_ok={dialog_ok}"
+      hint = "Mantieni 300–900 parole per scena e 25–55% di dialogo; usa /pacing_controller per adeguare lunghezza e dialoghi." if not ok else "Pacing nella norma"
+      return {"ok": ok, "report": report, "hint": hint}
   validate_style_guardrails_ok:
     description: "Rispetta Style Bible (forbid_words, sentence_mix)"
     input: string
-    output: boolean
-    logic: return True
+    output: {ok: boolean, report: string, hint: string}
+    logic: |
+      style_state = story_state.get("style") or {}
+      preset = style_state.get("preset") or style_state.get("art_style")
+      presets = {p.get("id"): p for p in (style_bible.get("presets") or [])}
+      active_preset = presets.get(preset) or {}
+      last_scene = (story_state.get("timeline") or [{}])[-1]
+      text = last_scene.get("testo", "") + " " + " ".join(last_scene.get("dialoghi", []))
+      forbid = active_preset.get("forbid_words") or []
+      sentence_mix = active_preset.get("sentence_mix") or {}
+      violations = [w for w in forbid if w.lower() in text.lower()]
+      lengths = last_scene.get("sentence_mix") or sentence_mix
+      mix_ok = True
+      if isinstance(lengths, dict) and sentence_mix:
+        mix_ok = all(abs((lengths.get(k, 0) or 0) - (sentence_mix.get(k, 0) or 0)) <= 20 for k in ["short_pct", "medium_pct", "long_pct"])
+      ok = len(violations) == 0 and mix_ok
+      report = f"Preset: {preset}, forbid_hits: {violations}, mix_ok={mix_ok}"
+      hint = "Rimuovi parole vietate e avvicina il mix di frasi al preset scelto; attiva /style_lock per non deviare." if not ok else "Stile conforme"
+      return {"ok": ok, "report": report, "hint": hint}
+
+# ── Validator examples (pass/fail quick refs)
+validator_examples:
+  validate_arc_coherence:
+    pass: "protagonist.arc filled (want/need/lie/change_signal) + timeline contiene Setup, Inciting Incident, Midpoint, Climax, Resolution e scena 'truth' che supera la menzogna"
+    fail: "arc mancante o Midpoint assente; nessuna scena con cambio/‘truth’, quindi ok=False con hint di ricollegare want→need"
+  validate_theme_consistency:
+    pass: "theme_tags=['speranza']; timeline 5 scene con tag 'speranza' in almeno 3 atti → coverage 80%"
+    fail: "timeline da 6 scene ma solo 2 con tag tema e nessuna in Atto III → coverage 33%, atti coperti=2 → ok=False"
+  validate_threads_resolution:
+    pass: "Atto II completato con 2 hook aperti; Atto III con open_threads=[] → ok=True"
+    fail: "Act massimo=3 ma open_threads contiene 3 elementi status=open → ok=False, suggerisce chiusura prima del finale"
+  validate_pacing_ok:
+    pass: "scene con parole_totali 650/720/540 e dialogo_pct 30/40/35 → words_ok=True & dialog_ok=True"
+    fail: "scene con 1200 parole e dialogo_pct 10 → ok=False, hint a ridurre lunghezza e alzare dialoghi"
+  validate_style_guardrails_ok:
+    pass: "preset=DashiellNoir, forbid_words assenti nel testo ultimo scene, sentence_mix aderente ±20%"
+    fail: "testo contiene parola vietata 'slang attuale' o sentence_mix long_pct 60% → ok=False con hint su style_lock"
 
 # ── Helpers (aggiunta per seed/tempo)
 helpers:
