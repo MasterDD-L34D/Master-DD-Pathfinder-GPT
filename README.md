@@ -134,6 +134,14 @@ python tools/generate_build_db.py --spec-file docs/examples/pg_variants.yml --le
 
 # Se devi generare batch piccoli (es. 10 file alla volta) puoi impostare un tetto
 python tools/generate_build_db.py --max-items 10 --skip-unchanged
+
+# Quando hai bisogno di riavviare batch successivi, combina max-items con offset/paginazione
+python tools/generate_build_db.py --max-items 10 --offset 0   # Batch 1
+python tools/generate_build_db.py --max-items 10 --offset 10  # Batch 2
+python tools/generate_build_db.py --max-items 10 --offset 20  # Batch 3 (e così via)
+python tools/generate_build_db.py --max-items 10 --page 1 --page-size 10  # Equivalente a offset 0
+python tools/generate_build_db.py --max-items 10 --page 2 --page-size 10  # Equivalente a offset 10
+# Ripeti incrementando l'offset/la pagina finché non hai coperto tutte le classi e i checkpoint richiesti
 ```
 
 Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`. Ogni chiamata include il parametro `mode=core|extended` e l'indice registra lo `step_total` osservato, così puoi verificare che i 16 step appaiano solo quando richiedi `extended`.

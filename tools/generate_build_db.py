@@ -1210,6 +1210,31 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--offset",
+        type=int,
+        default=0,
+        help=(
+            "Numero di richieste già processate da saltare prima di applicare max-items "
+            "(partendo da 0)"
+        ),
+    )
+    parser.add_argument(
+        "--page",
+        type=int,
+        help=(
+            "Numero di pagina (1-based) da processare: calcola l'offset automaticamente "
+            "se combinato con --page-size o --max-items"
+        ),
+    )
+    parser.add_argument(
+        "--page-size",
+        type=int,
+        help=(
+            "Dimensione della pagina da usare con --page; se omessa, usa --max-items come"
+            " valore di riferimento"
+        ),
+    )
+    parser.add_argument(
         "classes",
         nargs="*",
         default=PF1E_CLASSES,
@@ -1287,7 +1312,6 @@ def filter_requests(
     requests: Sequence[BuildRequest],
     class_filters: Sequence[str] | None,
     level_filters: Sequence[int] | None,
-    max_items: int | None = None,
 ) -> list[BuildRequest]:
     class_set = (
         {slugify(name).lower() for name in class_filters if name}
@@ -1325,23 +1349,99 @@ def filter_requests(
 
         filtered_requests.append(updated_request)
 
-    if max_items is not None:
-        max_items = max(0, int(max_items))
-        if max_items == 0:
-            logging.info("Limite max-items=0: nessuna richiesta sarà processata")
-            return []
-
-        if len(filtered_requests) > max_items:
-            discarded = len(filtered_requests) - max_items
-            logging.info(
-                "Limite max-items=%s raggiunto: scarto %s richieste su %s",
-                max_items,
-                discarded,
-                len(filtered_requests),
-            )
-            filtered_requests = list(islice(filtered_requests, max_items))
-
     return filtered_requests
+
+
+def _request_identifier(request: BuildRequest) -> str:
+    return (
+        request.spec_id
+        or request.filename_prefix
+        or request.output_name()
+        or request.class_name
+    )
+
+
+def log_request_batch(
+    requests: Sequence[BuildRequest],
+    window: Mapping[str, int | None],
+) -> None:
+    offset = window.get("offset")
+    limit = window.get("limit")
+    start = window.get("start")
+    end = window.get("end")
+    total = window.get("total")
+
+    if not requests:
+        logging.info(
+            "Nessuna richiesta selezionata (offset=%s, max_items=%s su totale %s)",
+            offset,
+            limit if limit is not None else "all",
+            total,
+        )
+        return
+
+    first = _request_identifier(requests[0])
+    last = _request_identifier(requests[-1])
+
+    logging.info(
+        "Batch selezionato: offset=%s, max_items=%s, richieste %s-%s/%s (%s -> %s)",
+        offset,
+        limit if limit is not None else "all",
+        start,
+        (end - 1) if end is not None else start,
+        total,
+        first,
+        last,
+    )
+
+
+def select_request_window(
+    requests: Sequence[BuildRequest],
+    *,
+    offset: int = 0,
+    max_items: int | None = None,
+    page: int | None = None,
+    page_size: int | None = None,
+) -> tuple[list[BuildRequest], dict[str, int | None]]:
+    total = len(requests)
+
+    normalized_max_items = int(max_items) if max_items is not None else None
+    effective_offset = max(0, int(offset or 0))
+
+    if normalized_max_items is not None:
+        normalized_max_items = max(0, normalized_max_items)
+        if normalized_max_items == 0:
+            return [], {
+                "offset": effective_offset,
+                "start": min(effective_offset, total),
+                "end": min(effective_offset, total),
+                "limit": 0,
+                "total": total,
+            }
+
+    if page is not None:
+        page_num = max(1, int(page))
+        effective_page_size = page_size or normalized_max_items
+        if effective_page_size is None or effective_page_size <= 0:
+            raise ValueError(
+                "--page richiede un --page-size valido o un --max-items positivo per calcolare la finestra"
+            )
+        effective_offset = (page_num - 1) * effective_page_size
+        if normalized_max_items is None:
+            normalized_max_items = effective_page_size
+
+    start_index = min(effective_offset, total)
+    end_index = total if normalized_max_items is None else min(start_index + normalized_max_items, total)
+
+    selected = list(islice(requests, start_index, end_index))
+
+    return selected, {
+        "offset": effective_offset,
+        "start": start_index,
+        "end": end_index,
+        "limit": normalized_max_items,
+        "total": total,
+    }
 
 
 async def request_with_retry(
@@ -3033,8 +3133,15 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
         build_requests_from_args(args),
         args.filter_classes,
         args.filter_levels,
-        args.max_items,
     )
+    requests, window = select_request_window(
+        requests,
+        offset=args.offset,
+        max_items=args.max_items,
+        page=args.page,
+        page_size=args.page_size,
+    )
+    log_request_batch(requests, window)
     strict_output_dir = args.output_dir / "strict"
     strict_modules_dir = args.modules_output_dir / "strict"
     strict_build_index = path_with_suffix(args.index_path, "strict")
@@ -3146,8 +3253,15 @@ def main() -> None:
         build_requests_from_args(args),
         args.filter_classes,
         args.filter_levels,
-        args.max_items,
     )
+    requests, window = select_request_window(
+        requests,
+        offset=args.offset,
+        max_items=args.max_items,
+        page=args.page,
+        page_size=args.page_size,
+    )
+    log_request_batch(requests, window)
     strict_mode = args.strict and not args.warn_only
 
     if args.validate_db:
