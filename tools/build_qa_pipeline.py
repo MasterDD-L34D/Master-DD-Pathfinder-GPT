@@ -4,10 +4,12 @@ This script loads build payloads collected via ``tools/generate_build_db.py``
 and runs a QA pipeline across multiple services:
 - Ruling Expert: validates and tags ``ruling_badge``
 - MinMax Builder: runs benchmark/QA checks
-- Narrative hooks (optional): ``/export_arc_to_build`` and ``/ruling_check``
+- Narrative enrichment: fetches arc/theme from Taverna and exports it to MinMax
+  before re-running QA and a narrative ruling check.
 
 Each step records PASS/FAIL with a rationale. Any failure marks the build as
-``invalid`` and stops subsequent export actions.
+``invalid`` and stops subsequent export actions while logging the applied
+changes.
 """
 
 from __future__ import annotations
@@ -63,6 +65,7 @@ class BuildReportEntry:
     spec_id: str | None
     status: str = "valid"
     steps: list[StepResult] = field(default_factory=list)
+    changes: list[str] = field(default_factory=list)
 
     def to_dict(self) -> Mapping[str, Any]:
         return {
@@ -72,6 +75,7 @@ class BuildReportEntry:
             "spec_id": self.spec_id,
             "status": self.status,
             "steps": [step.to_dict() for step in self.steps],
+            "changes": self.changes,
         }
 
 
@@ -79,6 +83,7 @@ class BuildReportEntry:
 class QaPipelineConfig:
     ruling_expert_url: str | None
     minmax_builder_url: str | None
+    narrative_arc_url: str | None
     narrative_export_url: str | None
     narrative_ruling_check_url: str | None
     api_key: str | None
@@ -102,6 +107,8 @@ class QaPipeline:
         )
 
         steps: list[StepResult] = []
+        change_log: list[str] = []
+        arc_context: Mapping[str, Any] | None = None
 
         ruling_result = self._run_ruling_expert(payload)
         steps.append(ruling_result)
@@ -118,12 +125,45 @@ class QaPipeline:
             return report
 
         if self.config.enable_narrative:
-            narrative_result = self._run_narrative_hooks(payload)
-            steps.append(narrative_result)
-            if narrative_result.status == "FAIL":
+            arc_result = self._fetch_narrative_arc(payload)
+            steps.append(arc_result)
+            change_log.extend(self._collect_change_log(arc_result.details))
+            if arc_result.status == "FAIL":
+                report.status = "invalid"
+                report.steps = steps
+                report.changes = change_log
+                return report
+
+            arc_context = arc_result.details if isinstance(arc_result.details, Mapping) else None
+
+            export_result = self._export_arc_to_build(payload, arc_context)
+            steps.append(export_result)
+            change_log.extend(self._collect_change_log(export_result.details))
+            if export_result.status == "FAIL":
+                report.status = "invalid"
+                report.steps = steps
+                report.changes = change_log
+                return report
+
+            qa_result = self._run_post_import_qa(payload, arc_context)
+            steps.append(qa_result)
+            change_log.extend(self._collect_change_log(qa_result.details))
+            if qa_result.status == "FAIL":
+                report.status = "invalid"
+                report.steps = steps
+                report.changes = change_log
+                return report
+
+            ruling_check_result = self._run_narrative_ruling_check(
+                payload, arc_context
+            )
+            steps.append(ruling_check_result)
+            change_log.extend(self._collect_change_log(ruling_check_result.details))
+            if ruling_check_result.status == "FAIL":
                 report.status = "invalid"
 
         report.steps = steps
+        report.changes = change_log
         return report
 
     def _run_ruling_expert(self, payload: Mapping[str, Any]) -> StepResult:
@@ -188,55 +228,262 @@ class QaPipeline:
             step_name="minmax_builder",
         )
 
-    def _run_narrative_hooks(self, payload: Mapping[str, Any]) -> StepResult:
-        export_url = self.config.narrative_export_url
-        ruling_url = self.config.narrative_ruling_check_url
-
-        if not export_url and not ruling_url:
+    def _fetch_narrative_arc(self, payload: Mapping[str, Any]) -> StepResult:
+        if not self.config.narrative_arc_url:
             return StepResult(
-                name="narrative_hooks",
-                status="PASS",
-                reason="Step narrativo disattivato o nessun endpoint fornito",
+                name="narrative_arc",
+                status="FAIL",
+                reason="Endpoint Taverna/Narrative per l'arco non configurato",
             )
 
-        details: dict[str, Any] = {}
+        arc_result = self._post_json(
+            url=self.config.narrative_arc_url,
+            payload={"build": payload},
+            step_name="narrative_arc",
+        )
 
-        if export_url:
-            export_result = self._post_json(
-                url=export_url,
-                payload={"build": payload},
-                step_name="export_arc_to_build",
-            )
-            details["export_arc_to_build"] = export_result.to_dict()
-            if export_result.status == "FAIL":
-                return StepResult(
-                    name="narrative_hooks",
-                    status="FAIL",
-                    reason=f"export_arc_to_build fallito: {export_result.reason}",
-                    details=details,
-                )
+        if arc_result.status != "PASS":
+            return arc_result
 
-        if ruling_url:
-            ruling_result = self._post_json(
-                url=ruling_url,
-                payload={"build": payload},
-                step_name="ruling_check",
+        details = (
+            dict(arc_result.details)
+            if isinstance(arc_result.details, Mapping)
+            else {}
+        )
+        arc = self._extract_arc(details)
+        themes = self._extract_themes(details)
+        if not arc or not themes:
+            return StepResult(
+                name="narrative_arc",
+                status="FAIL",
+                reason="Arco o tema assente nella risposta narrativa",
+                details=details or None,
             )
-            details["ruling_check"] = ruling_result.to_dict()
-            if ruling_result.status == "FAIL":
-                return StepResult(
-                    name="narrative_hooks",
-                    status="FAIL",
-                    reason=f"ruling_check fallito: {ruling_result.reason}",
-                    details=details,
-                )
+
+        details["arc"] = arc
+        details["themes"] = themes
+        change_log = self._collect_change_log(details)
+        if change_log:
+            details["changes_applied"] = change_log
 
         return StepResult(
-            name="narrative_hooks",
+            name="narrative_arc",
             status="PASS",
-            reason="Hook narrativi completati",
+            reason=f"Arco e tema ricevuti ({arc})",
             details=details or None,
         )
+
+    def _export_arc_to_build(
+        self, payload: Mapping[str, Any], arc_details: Mapping[str, Any] | None
+    ) -> StepResult:
+        if not self.config.narrative_export_url:
+            return StepResult(
+                name="export_arc_to_build",
+                status="FAIL",
+                reason="Endpoint /export_arc_to_build non configurato",
+            )
+
+        export_payload: dict[str, Any] = {"build": payload}
+        if arc_details:
+            export_payload.update(
+                {
+                    "arc": arc_details.get("arc"),
+                    "themes": arc_details.get("themes"),
+                    "pg_id": arc_details.get("pg_id")
+                    or payload.get("pg_id")
+                    or payload.get("spec_id"),
+                }
+            )
+
+        export_result = self._post_json(
+            url=self.config.narrative_export_url,
+            payload=export_payload,
+            step_name="export_arc_to_build",
+        )
+
+        if export_result.status != "PASS":
+            return export_result
+
+        details = (
+            dict(export_result.details)
+            if isinstance(export_result.details, Mapping)
+            else {}
+        )
+        change_log = self._collect_change_log(details)
+        if change_log:
+            details["changes_applied"] = change_log
+
+        return StepResult(
+            name="export_arc_to_build",
+            status="PASS",
+            reason="Arco/tema inviati a MinMax",
+            details=details or None,
+        )
+
+    def _run_post_import_qa(
+        self, payload: Mapping[str, Any], arc_details: Mapping[str, Any] | None
+    ) -> StepResult:
+        if not self.config.minmax_builder_url:
+            return StepResult(
+                name="post_import_qa",
+                status="FAIL",
+                reason="Endpoint MinMax Builder non configurato",
+            )
+
+        qa_items = ["CA", "PF", "TS", "skill", "equip", "incantesimi"]
+        request_payload: dict[str, Any] = {
+            "build": payload,
+            "qa_checklist": qa_items,
+            "phase": "post_import",
+        }
+        if arc_details:
+            request_payload["arc"] = arc_details
+
+        qa_result = self._post_json(
+            url=self.config.minmax_builder_url,
+            payload=request_payload,
+            step_name="post_import_qa",
+        )
+
+        if qa_result.status != "PASS":
+            return qa_result
+
+        details = (
+            dict(qa_result.details)
+            if isinstance(qa_result.details, Mapping)
+            else {}
+        )
+        issue_key, issue_value = self._extract_inconsistencies(details)
+        if issue_key:
+            summary = issue_value if isinstance(issue_value, str) else str(issue_value)
+            return StepResult(
+                name="post_import_qa",
+                status="FAIL",
+                reason=f"Incongruenze QA ({issue_key}): {summary}",
+                details=details or None,
+            )
+
+        change_log = self._collect_change_log(details)
+        if change_log:
+            details["changes_applied"] = change_log
+
+        return StepResult(
+            name="post_import_qa",
+            status="PASS",
+            reason="Checklist CA/PF/TS/skill/equip/incantesimi OK",
+            details=details or None,
+        )
+
+    def _run_narrative_ruling_check(
+        self, payload: Mapping[str, Any], arc_details: Mapping[str, Any] | None
+    ) -> StepResult:
+        if not self.config.narrative_ruling_check_url:
+            return StepResult(
+                name="ruling_check",
+                status="FAIL",
+                reason="Endpoint ruling_check narrativo non configurato",
+            )
+
+        request_payload: dict[str, Any] = {"build": payload}
+        if arc_details:
+            request_payload["arc"] = arc_details
+
+        ruling_result = self._post_json(
+            url=self.config.narrative_ruling_check_url,
+            payload=request_payload,
+            step_name="ruling_check",
+        )
+
+        if ruling_result.status != "PASS":
+            return ruling_result
+
+        details = (
+            dict(ruling_result.details)
+            if isinstance(ruling_result.details, Mapping)
+            else {}
+        )
+        issue_key, issue_value = self._extract_inconsistencies(details)
+        if issue_key:
+            summary = issue_value if isinstance(issue_value, str) else str(issue_value)
+            return StepResult(
+                name="ruling_check",
+                status="FAIL",
+                reason=f"Incongruenze narrative rilevate ({issue_key}): {summary}",
+                details=details or None,
+            )
+
+        change_log = self._collect_change_log(details)
+        if change_log:
+            details["changes_applied"] = change_log
+
+        return StepResult(
+            name="ruling_check",
+            status="PASS",
+            reason="Ruling narrativo allineato con l'import",
+            details=details or None,
+        )
+
+    def _extract_arc(self, details: Mapping[str, Any]) -> str | None:
+        for key in ("arc", "arco", "protagonist_arc", "story_arc"):
+            value = details.get(key)
+            if isinstance(value, str) and value.strip():
+                return value.strip()
+        return None
+
+    def _extract_themes(self, details: Mapping[str, Any]) -> list[str] | None:
+        theme_keys = ("themes", "tema", "temi", "story_themes")
+        for key in theme_keys:
+            value = details.get(key)
+            if isinstance(value, str) and value.strip():
+                return [value.strip()]
+            if isinstance(value, list) and value:
+                normalized = [str(item).strip() for item in value if str(item).strip()]
+                if normalized:
+                    return normalized
+        return None
+
+    def _extract_inconsistencies(
+        self, details: Mapping[str, Any]
+    ) -> tuple[str | None, Any]:
+        for key in (
+            "incongruenze",
+            "inconsistencies",
+            "issues",
+            "qa_failures",
+        ):
+            value = details.get(key)
+            if isinstance(value, list) and value:
+                return key, value
+            if isinstance(value, str) and value.strip():
+                return key, value
+
+        qa_status = details.get("qa_status")
+        if isinstance(qa_status, str) and qa_status.lower() not in {"ok", "pass", "passed"}:
+            return "qa_status", qa_status
+
+        return None, None
+
+    def _collect_change_log(self, details: Mapping[str, Any] | None) -> list[str]:
+        if not details:
+            return []
+
+        collected: list[str] = []
+        for key in ("changes", "modifiche", "tratti", "traits", "background", "motivazioni", "motivations"):
+            value = details.get(key)
+            if isinstance(value, str) and value.strip():
+                collected.append(f"{key}: {value.strip()}")
+            elif isinstance(value, list):
+                for item in value:
+                    item_text = str(item).strip()
+                    if item_text:
+                        collected.append(f"{key}: {item_text}")
+            elif isinstance(value, Mapping):
+                for sub_key, sub_val in value.items():
+                    sub_text = str(sub_val).strip()
+                    if sub_text:
+                        collected.append(f"{key}.{sub_key}: {sub_text}")
+
+        return collected
 
     def _post_json(
         self, url: str, payload: Mapping[str, Any], step_name: str
@@ -310,6 +557,12 @@ def parse_args() -> argparse.Namespace:
         dest="narrative_export_url",
         type=str,
         help="Endpoint opzionale per l'hook narrativo /export_arc_to_build",
+    )
+    parser.add_argument(
+        "--narrative-arc-url",
+        dest="narrative_arc_url",
+        type=str,
+        help="Endpoint Taverna/Narrative per recuperare arco e tema del PG",
     )
     parser.add_argument(
         "--narrative-ruling-check-url",
@@ -428,6 +681,7 @@ def main() -> None:
     config = QaPipelineConfig(
         ruling_expert_url=args.ruling_expert_url,
         minmax_builder_url=args.minmax_builder_url,
+        narrative_arc_url=args.narrative_arc_url,
         narrative_export_url=args.narrative_export_url,
         narrative_ruling_check_url=args.narrative_ruling_check_url,
         api_key=args.api_key,
