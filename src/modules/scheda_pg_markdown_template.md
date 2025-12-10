@@ -19,6 +19,11 @@ compatibility:
 >   vtt: "Usa SHOW_VTT quando map_id, vtt_bundle_path o token_scale_hint sono presenti o serve export Foundry/Roll20."
 >   qa: "SHOW_QA per checklist su tabelle popolate, Δ WBL e normalizzazione valute (fmt_gp)."
 >   explain: "SHOW_EXPLAIN per allegare regole/procedure didattiche (campi explain.*)."
+> operational_policies:
+>   ledger_exports: "Limita export a bundle con valuta normalizzata (fmt_gp) e Δ WBL commentato; se serve audit, ping Ledger."
+>   minmax_reviews: "Coinvolgi MinMax quando DPR/Base o CA derivano da archetipi homebrew o da benchmark_comparison custom."
+>   vtt_hand-off: "Per mappe/token con licenze sensibili o grid custom, chiedi conferma VTT e evita export automatici."
+>   explain_scope: "Se explain.* contiene rulings controversi, passa da Ruling Expert prima di pubblicare."
 > defaults:
 >   show_minmax: true
 >   show_vtt: true
@@ -36,10 +41,16 @@ compatibility:
 > compatibility:
 >   core_min: "3.3"
 >   integrates_with: ["MinMax Builder", "Adventurer Ledger"]
+> triggers:
+>   ledger: true   # attiva Ledger per gp/wbl
+>   vtt: true      # attivo per export Foundry/Roll20
+> operational_policies:
+>   ledger_exports: "Richiedi nota Δ WBL e cap investimento prima di generare PDF."
+>   minmax_reviews: "Salta: mancano benchmarks."
 > print_mode: false
-> show_ledger: true   # attiva Ledger per gp/wbl
-> show_minmax: false  # disattivo se mancano benchmark
-> show_vtt: true      # attivo per export Foundry/Roll20
+> show_ledger: true
+> show_minmax: false
+> show_vtt: true
 > ```
 
 ---
