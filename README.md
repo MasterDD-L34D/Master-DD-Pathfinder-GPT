@@ -135,6 +135,8 @@ python tools/generate_build_db.py --spec-file docs/examples/pg_variants.yml --le
 
 Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`. Ogni chiamata include il parametro `mode=core|extended` e l'indice registra lo `step_total` osservato, così puoi verificare che i 16 step appaiano solo quando richiedi `extended`.
 
+Ogni build viene recuperata sui checkpoint di livello dichiarati nella spec (default 1/5/10) e scritta in file separati con suffisso `_lvlXX` (es. `Fighter_lvl05.json`): le entry dell'indice `build_index.json` includono il campo `level` e un riepilogo `checkpoints` con i totali/invalidi (incluse le invalidazioni di schema o completezza) per ciascun livello.
+
 #### Troubleshooting
 
 - Endpoint senza `/health`: aggiungi `--skip-health-check` per saltare il probe iniziale quando l'API è accessibile ma non espone l'handler di health (o usa l'ambiente `API_URL` per puntare a un host remoto se non è `localhost`).
@@ -269,7 +271,7 @@ Se hai già generato il database e vuoi avviare una review offline, usa la nuova
 python tools/generate_build_db.py --validate-db --review-output src/data/build_review.json
 ```
 
-Il report include conteggi di build e moduli validi/invalidi, file mancanti e relativi errori di schema così da facilitare la revisione manuale.
+Il report include conteggi di build e moduli validi/invalidi, file mancanti e relativi errori di schema così da facilitare la revisione manuale. Nella sezione `builds.checkpoints` trovi il riepilogo dei checkpoint di livello (per default 1/5/10) con totali, invalidazioni e conteggi distinti per errori di schema o completezza, così puoi identificare rapidamente quali livelli sono più fragili. Lo stesso riepilogo viene scritto anche in `build_index.json`, affiancato alle entry per livello generate con suffisso `_lvlXX`.
 
 ### Endpoints principali
 
