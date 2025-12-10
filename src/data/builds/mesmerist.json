@@ -562,7 +562,11 @@
     "mode_normalized": "extended",
     "spec_id": "Mesmerist::Human::Base",
     "model": null,
-    "background": null
+    "background": null,
+    "level": 1,
+    "level_checkpoints": [
+      1
+    ]
   },
   "query_params": {
     "mode": "extended",

@@ -13,7 +13,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "alchemist_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/arcanist.json",
@@ -24,7 +28,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "arcanist_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/barbarian.json",
@@ -35,7 +43,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "barbarian_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/bard.json",
@@ -46,7 +58,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "bard_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/bloodrager.json",
@@ -57,7 +73,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "bloodrager_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/brawler.json",
@@ -68,7 +88,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "brawler_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/cavalier.json",
@@ -79,7 +103,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cavalier_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/cleric.json",
@@ -90,7 +118,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/cleric_human_warpriest.json",
@@ -102,7 +134,12 @@
       "mode_normalized": "extended",
       "spec_id": "cleric_human_warpriest",
       "background": null,
-      "level": 1
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ]
     },
     {
       "file": "src/data/builds/cleric_human_warpriest_lvl05.json",
@@ -120,6 +157,11 @@
         "Progressione assente al livello 3",
         "Progressione assente al livello 4",
         "Progressione assente al livello 5"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -141,6 +183,11 @@
         "Progressione assente al livello 8",
         "Progressione assente al livello 9",
         "Progressione assente al livello 10"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -152,7 +199,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "druid_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/druid_half_orc_feral.json",
@@ -164,7 +215,12 @@
       "mode_normalized": "extended",
       "spec_id": "druid_half-orc_feral_shifter",
       "background": null,
-      "level": 1
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ]
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
@@ -182,6 +238,11 @@
         "Progressione assente al livello 3",
         "Progressione assente al livello 4",
         "Progressione assente al livello 5"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -203,6 +264,11 @@
         "Progressione assente al livello 8",
         "Progressione assente al livello 9",
         "Progressione assente al livello 10"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -214,7 +280,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "fighter_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded.json",
@@ -226,7 +296,12 @@
       "mode_normalized": "extended",
       "spec_id": "fighter_dwarf_shielded_fighter",
       "background": null,
-      "level": 1
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ]
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
@@ -244,6 +319,11 @@
         "Progressione assente al livello 3",
         "Progressione assente al livello 4",
         "Progressione assente al livello 5"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -265,6 +345,11 @@
         "Progressione assente al livello 8",
         "Progressione assente al livello 9",
         "Progressione assente al livello 10"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -277,7 +362,12 @@
       "mode_normalized": "extended",
       "spec_id": "fighter_human_weapon_master",
       "background": null,
-      "level": 1
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ]
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
@@ -295,6 +385,11 @@
         "Progressione assente al livello 3",
         "Progressione assente al livello 4",
         "Progressione assente al livello 5"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -316,6 +411,11 @@
         "Progressione assente al livello 8",
         "Progressione assente al livello 9",
         "Progressione assente al livello 10"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -327,7 +427,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "gunslinger_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/hunter.json",
@@ -338,7 +442,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "hunter_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/inquisitor.json",
@@ -349,7 +457,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "inquisitor_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/investigator.json",
@@ -360,7 +472,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "investigator_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/kineticist.json",
@@ -371,7 +487,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "kineticist_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/magus.json",
@@ -382,7 +502,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "magus_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/medium.json",
@@ -393,7 +517,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "medium_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/mesmerist.json",
@@ -404,7 +532,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "mesmerist_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/monk.json",
@@ -415,7 +547,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "monk_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/ninja.json",
@@ -426,7 +562,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "ninja_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/occultist.json",
@@ -437,7 +577,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "occultist_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/oracle.json",
@@ -448,7 +592,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "oracle_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/paladin.json",
@@ -459,7 +607,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "paladin_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/psychic.json",
@@ -470,7 +622,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "psychic_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/ranger.json",
@@ -481,7 +637,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "ranger_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher.json",
@@ -493,7 +653,12 @@
       "mode_normalized": "extended",
       "spec_id": "ranger_half-elf_skirmisher",
       "background": null,
-      "level": 1
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ]
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
@@ -511,6 +676,11 @@
         "Progressione assente al livello 3",
         "Progressione assente al livello 4",
         "Progressione assente al livello 5"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -532,6 +702,11 @@
         "Progressione assente al livello 8",
         "Progressione assente al livello 9",
         "Progressione assente al livello 10"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -543,7 +718,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse.json",
@@ -555,7 +734,12 @@
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
       "background": null,
-      "level": 1
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ]
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
@@ -573,6 +757,11 @@
         "Progressione assente al livello 3",
         "Progressione assente al livello 4",
         "Progressione assente al livello 5"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -594,6 +783,11 @@
         "Progressione assente al livello 8",
         "Progressione assente al livello 9",
         "Progressione assente al livello 10"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -605,7 +799,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "samurai_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/shaman.json",
@@ -616,7 +814,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "shaman_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/skald.json",
@@ -627,7 +829,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "skald_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/slayer.json",
@@ -638,7 +844,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "slayer_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/sorcerer.json",
@@ -649,7 +859,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "sorcerer_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/spiritualist.json",
@@ -660,7 +874,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "spiritualist_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/summoner.json",
@@ -671,7 +889,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "summoner_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/swashbuckler.json",
@@ -682,7 +904,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "swashbuckler_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/warpriest.json",
@@ -693,7 +919,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "warpriest_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/witch.json",
@@ -704,7 +934,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "witch_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/wizard.json",
@@ -715,7 +949,11 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "wizard_human_base",
-      "background": null
+      "background": null,
+      "level": 1,
+      "level_checkpoints": [
+        1
+      ]
     },
     {
       "file": "src/data/builds/wizard_elf_universalist.json",
@@ -727,7 +965,12 @@
       "mode_normalized": "extended",
       "spec_id": "wizard_elf_universalist",
       "background": null,
-      "level": 1
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ]
     },
     {
       "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
@@ -745,6 +988,11 @@
         "Progressione assente al livello 3",
         "Progressione assente al livello 4",
         "Progressione assente al livello 5"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -766,6 +1014,11 @@
         "Progressione assente al livello 8",
         "Progressione assente al livello 9",
         "Progressione assente al livello 10"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -778,7 +1031,12 @@
       "mode_normalized": "extended",
       "spec_id": "wizard_human_evoker",
       "background": null,
-      "level": 1
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ]
     },
     {
       "file": "src/data/builds/wizard_human_evoker_lvl05.json",
@@ -796,6 +1054,11 @@
         "Progressione assente al livello 3",
         "Progressione assente al livello 4",
         "Progressione assente al livello 5"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     },
     {
@@ -817,27 +1080,32 @@
         "Progressione assente al livello 8",
         "Progressione assente al livello 9",
         "Progressione assente al livello 10"
+      ],
+      "level_checkpoints": [
+        1,
+        5,
+        10
       ]
     }
   ],
   "checkpoints": {
     "1": {
-      "total": 8,
+      "total": 0,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "5": {
-      "total": 8,
-      "invalid": 8,
-      "schema_errors": 8,
-      "completeness_errors": 8
+      "total": 0,
+      "invalid": 0,
+      "schema_errors": 0,
+      "completeness_errors": 0
     },
     "10": {
-      "total": 8,
-      "invalid": 8,
-      "schema_errors": 8,
-      "completeness_errors": 8
+      "total": 0,
+      "invalid": 0,
+      "schema_errors": 0,
+      "completeness_errors": 0
     }
   }
 }
