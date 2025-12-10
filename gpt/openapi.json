@@ -143,6 +143,12 @@
                                         },
                                         "suffix": {
                                             "type": "string"
+                                        },
+                                        "version": {
+                                            "type": "string"
+                                        },
+                                        "compatibility": {
+                                            "type": "string"
                                         }
                                     },
                                     "required": [
