@@ -73,3 +73,12 @@ requests:
     query:
       race: Half-Orc
       archetype: Feral Shifter
+  - id: alchemist_goblin_bombardier
+    class: Alchemist
+    race: Goblin
+    archetype: Bombardier
+    background_hooks: "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche."
+    output_prefix: alchemist_goblin_bombardier
+    query:
+      race: Goblin
+      archetype: Bombardier
