@@ -259,7 +259,7 @@
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "druid_half-orc_feral_shifter",
       "class": "Druid",
       "race": "Half-Orc",
@@ -274,17 +274,11 @@
         5,
         10
       ],
-      "level": 5,
-      "error": "Progressione assente al livello 3; Progressione assente al livello 4; Progressione assente al livello 5",
-      "completeness_errors": [
-        "Progressione assente al livello 3",
-        "Progressione assente al livello 4",
-        "Progressione assente al livello 5"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "druid_half-orc_feral_shifter",
       "class": "Druid",
       "race": "Half-Orc",
@@ -299,16 +293,7 @@
         5,
         10
       ],
-      "level": 10,
-      "error": "Progressione assente al livello 5; Progressione assente al livello 6; Progressione assente al livello 7; Progressione assente al livello 8; Progressione assente al livello 9; Progressione assente al livello 10",
-      "completeness_errors": [
-        "Progressione assente al livello 5",
-        "Progressione assente al livello 6",
-        "Progressione assente al livello 7",
-        "Progressione assente al livello 8",
-        "Progressione assente al livello 9",
-        "Progressione assente al livello 10"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/fighter.json",
