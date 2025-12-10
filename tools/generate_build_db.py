@@ -1038,6 +1038,11 @@ def parse_args() -> argparse.Namespace:
         help="Salta il controllo di raggiungibilità dell'API (fallback per ambienti in cui /health non è disponibile)",
     )
     parser.add_argument(
+        "--skip-unchanged",
+        action="store_true",
+        help="Evita di riscrivere i payload invariati confrontando i JSON generati con i file già presenti",
+    )
+    parser.add_argument(
         "--dual-pass",
         action="store_true",
         help="Esegue prima un passaggio fail-fast (--strict) e poi uno tollerante con --keep-invalid",
@@ -2523,6 +2528,7 @@ async def run_harvest(
     require_complete: bool = True,
     skip_health_check: bool = False,
     level_filters: Sequence[int] | None = None,
+    skip_unchanged: bool = False,
 ) -> None:
     requests = list(requests)
     ensure_output_dirs(output_dir)
@@ -2724,7 +2730,41 @@ async def run_harvest(
                                 destination.unlink()
                             output_path: Path | None = None
                         elif status == "ok" or keep_invalid:
-                            write_json(destination, payload)
+                            if skip_unchanged and destination.exists():
+                                try:
+                                    existing_payload = json.loads(
+                                        destination.read_text(encoding="utf-8")
+                                    )
+                                except Exception:
+                                    existing_payload = None
+
+                                comparison_payload: object = payload
+                                if isinstance(payload, Mapping):
+                                    comparison_payload = dict(payload)
+                                    if isinstance(existing_payload, Mapping):
+                                        comparison_payload["fetched_at"] = (
+                                            existing_payload.get("fetched_at")
+                                        )
+
+                                if existing_payload == comparison_payload:
+                                    logging.info(
+                                        "Payload invariato per %s, salto la scrittura",
+                                        request.output_name(),
+                                    )
+                                    output_path = destination
+                                    return destination.name, build_index_entry(
+                                        request,
+                                        output_path,
+                                        status,
+                                        validation_error,
+                                        payload.get("step_audit"),
+                                        completeness_errors,
+                                    )
+
+                            destination.write_text(
+                                json.dumps(payload, indent=2, ensure_ascii=False),
+                                encoding="utf-8",
+                            )
                             output_path = destination
                         else:
                             if destination.exists():
@@ -2913,6 +2953,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 require_complete=args.require_complete,
                 skip_health_check=args.skip_health_check,
                 level_filters=args.filter_levels,
+                skip_unchanged=args.skip_unchanged,
             )
         )
         report["strict"]["status"] = "ok"
@@ -2942,6 +2983,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 require_complete=args.require_complete,
                 skip_health_check=args.skip_health_check,
                 level_filters=args.filter_levels,
+                skip_unchanged=args.skip_unchanged,
             )
         )
         report["tolerant"]["status"] = "ok"
@@ -3010,6 +3052,7 @@ def main() -> None:
             args.require_complete,
             args.skip_health_check,
             args.filter_levels,
+            args.skip_unchanged,
         )
     )
 

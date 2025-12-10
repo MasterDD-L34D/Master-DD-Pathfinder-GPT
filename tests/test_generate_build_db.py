@@ -138,7 +138,7 @@ def test_enrich_sheet_payload_template_error_indicator():
     assert not enriched.get("sheet_markdown")
 
 
-async def _run_core_harvest(tmp_path, monkeypatch):
+async def _run_core_harvest(tmp_path, monkeypatch, *, skip_unchanged: bool = False):
     sheet_payload = {
         "nome": "Alchemist Sample",
         "razza": "Human",
@@ -239,6 +239,7 @@ async def _run_core_harvest(tmp_path, monkeypatch):
         keep_invalid=True,
         require_complete=True,
         skip_health_check=False,
+        skip_unchanged=skip_unchanged,
     )
 
     return output_dir, index_path
@@ -361,6 +362,24 @@ def test_run_harvest_skips_incomplete_payload(tmp_path, monkeypatch):
         assert entry["status"] == "invalid"
         assert entry.get("completeness_errors")
         assert "Narrativa assente" in entry["error"]
+
+
+def test_run_harvest_skips_unchanged_payload(tmp_path, monkeypatch):
+    output_dir, _ = asyncio.run(_run_core_harvest(tmp_path, monkeypatch))
+
+    target_file = output_dir / "alchemist.json"
+    first_mtime = target_file.stat().st_mtime_ns
+    original_content = target_file.read_text(encoding="utf-8")
+
+    _, index_path = asyncio.run(
+        _run_core_harvest(tmp_path, monkeypatch, skip_unchanged=True)
+    )
+
+    assert target_file.stat().st_mtime_ns == first_mtime
+    assert target_file.read_text(encoding="utf-8") == original_content
+
+    index_payload = json.loads(index_path.read_text(encoding="utf-8"))
+    assert all(entry["status"] == "ok" for entry in index_payload["entries"])
 
 
 def test_enrich_sheet_payload_trims_markdown_whitespace():
