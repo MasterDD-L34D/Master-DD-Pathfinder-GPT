@@ -317,7 +317,32 @@
           "totale": 7
         }
       ],
-      "spell_levels": [],
+      "spell_levels": [
+        {
+          "liv": 1,
+          "spells": [
+            "Intrappolare (entangle)",
+            "Fuoco fatato",
+            "Cura ferite leggere",
+            "Morso magico"
+          ]
+        },
+        {
+          "liv": 2,
+          "spells": [
+            "Pelle coriacea",
+            "Artigli ferini",
+            "Passo senza tracce"
+          ]
+        },
+        {
+          "liv": 3,
+          "spells": [
+            "Invocare alleato naturale III",
+            "Vigore dell'orso"
+          ]
+        }
+      ],
       "magia": {
         "Livello 1": [
           "Intrappolare (entangle)",

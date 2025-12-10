@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-10T19:17:13Z",
+  "generated_at": "2025-12-10T19:50:20Z",
   "api_url": "http://localhost:8000",
   "mode": "extended",
   "spec_file": null,
@@ -1226,13 +1226,13 @@
     },
     "5": {
       "total": 13,
-      "invalid": 2,
+      "invalid": 1,
       "schema_errors": 1,
       "completeness_errors": 1
     },
     "10": {
       "total": 8,
-      "invalid": 3,
+      "invalid": 2,
       "schema_errors": 2,
       "completeness_errors": 2
     }

@@ -392,7 +392,47 @@
           "totale": 9
         }
       ],
-      "spell_levels": [],
+      "spell_levels": [
+        {
+          "liv": 1,
+          "spells": [
+            "Intrappolare (entangle)",
+            "Fuoco fatato",
+            "Cura ferite leggere",
+            "Individuazione del veleno"
+          ]
+        },
+        {
+          "liv": 2,
+          "spells": [
+            "Pelle coriacea",
+            "Artigli ferini",
+            "Corteccia d'albero"
+          ]
+        },
+        {
+          "liv": 3,
+          "spells": [
+            "Invocare alleato naturale III",
+            "Vigore dell'orso",
+            "Cerchio di spine"
+          ]
+        },
+        {
+          "liv": 4,
+          "spells": [
+            "Libertà di movimento",
+            "Tempesta di neve minore"
+          ]
+        },
+        {
+          "liv": 5,
+          "spells": [
+            "Muro di spine",
+            "Invocare alleato naturale V"
+          ]
+        }
+      ],
       "magia": {
         "Livello 1": [
           "Intrappolare (entangle)",
