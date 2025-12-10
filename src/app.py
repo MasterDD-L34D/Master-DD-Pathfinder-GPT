@@ -2,7 +2,7 @@ import logging
 from contextlib import asynccontextmanager
 from pathlib import Path
 from time import monotonic
-from typing import Dict, List
+from typing import Dict, List, Mapping
 
 from fastapi import (
     Body,
@@ -453,23 +453,239 @@ async def get_module_content(
             },
         }
 
-        base_hp = 12 + 5 * max(resolved_level - 1, 0)
+        is_wizard_evoker = str(class_name or "").lower() == "wizard" and str(
+            resolved_archetype or ""
+        ).lower() == "evoker"
+
+        wizard_progression_plan: list[dict[str, object]] = [
+            {
+                "livello": 1,
+                "talenti": ["Iniziativa migliorata"],
+                "slot": "1°: 4",
+                "equip": ["Bastone ferrato", "Spellbook", "Abito da viaggiatore"],
+                "pf": 12,
+                "salvezze": {"Tempra": 2, "Riflessi": 3, "Volontà": 4},
+                "skills": {"Conoscenze (arcana)": 6, "Sapienza Magica": 6, "Percezione": 5},
+                "ca": {"totale": 15, "armatura": 3, "destrezza": 2, "deflessione": 0, "misc": 0},
+                "privilegi": [
+                    "Legame arcano (famiglio)",
+                    "Scuola di Invocazione — Intensified Spells",
+                    "PF 12 | TS +2/+3/+4 | CA 15",
+                    "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore",
+                ],
+            },
+            {
+                "livello": 2,
+                "talenti": ["Metamagia (Incantesimi Estesi)"],
+                "slot": "1°: 5 / 2°: 2",
+                "equip": ["Pagina di pergamena", "Mantello resistente +1"],
+                "pf": 20,
+                "salvezze": {"Tempra": 3, "Riflessi": 4, "Volontà": 5},
+                "skills": {"Conoscenze (arcana)": 7, "Sapienza Magica": 7, "Percezione": 6},
+                "ca": {"totale": 15, "armatura": 3, "destrezza": 2, "deflessione": 0, "misc": 0},
+                "privilegi": [
+                    "Potere di scuola (Evoker's Admixture)",
+                    "PF 20 | TS +3/+4/+5 | CA 15",
+                    "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1",
+                ],
+            },
+            {
+                "livello": 3,
+                "talenti": ["Incantesimi focalizzati (Invocazione)"],
+                "slot": "1°: 6 / 2°: 4 / 3°: 2",
+                "equip": ["Bacchetta di dardo incantato (CL3)"],
+                "pf": 28,
+                "salvezze": {"Tempra": 3, "Riflessi": 4, "Volontà": 6},
+                "skills": {"Conoscenze (arcana)": 9, "Sapienza Magica": 9, "Percezione": 6},
+                "ca": {"totale": 16, "armatura": 3, "destrezza": 2, "deflessione": 1, "misc": 0},
+                "privilegi": [
+                    "Talento bonus del mago",
+                    "PF 28 | TS +3/+4/+6 | CA 16",
+                    "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)",
+                ],
+            },
+            {
+                "livello": 4,
+                "talenti": ["Magia focalizzata superiore (Invocazione)"],
+                "slot": "1°: 6 / 2°: 5 / 3°: 4",
+                "equip": ["Veste da mago rinforzata"],
+                "pf": 36,
+                "salvezze": {"Tempra": 4, "Riflessi": 5, "Volontà": 7},
+                "skills": {"Conoscenze (arcana)": 10, "Sapienza Magica": 10, "Percezione": 7},
+                "ca": {"totale": 16, "armatura": 3, "destrezza": 2, "deflessione": 1, "misc": 0},
+                "privilegi": [
+                    "Scoperta arcana: specializzazione intensificata",
+                    "PF 36 | TS +4/+5/+7 | CA 16",
+                    "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata",
+                ],
+            },
+            {
+                "livello": 5,
+                "talenti": ["Incantesimi massimizzati (metamagia)"],
+                "slot": "1°: 7 / 2°: 6 / 3°: 5 / 4°: 3",
+                "equip": ["Perla di potere I", "Anello di protezione +1"],
+                "pf": 44,
+                "salvezze": {"Tempra": 4, "Riflessi": 5, "Volontà": 8},
+                "skills": {"Conoscenze (arcana)": 12, "Sapienza Magica": 12, "Percezione": 8},
+                "ca": {"totale": 17, "armatura": 3, "destrezza": 2, "deflessione": 1, "misc": 1},
+                "privilegi": [
+                    "Scuola di opposizione consolidata",
+                    "PF 44 | TS +4/+5/+8 | CA 17",
+                    "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1",
+                ],
+            },
+            {
+                "livello": 6,
+                "talenti": ["Talento bonus (Mago) — Incantesimi rapidi"],
+                "slot": "1°: 7 / 2°: 6 / 3°: 6 / 4°: 4",
+                "equip": ["Bacchetta di palla di fuoco (CL6)"],
+                "pf": 52,
+                "salvezze": {"Tempra": 5, "Riflessi": 6, "Volontà": 9},
+                "skills": {"Conoscenze (arcana)": 13, "Sapienza Magica": 13, "Percezione": 9},
+                "ca": {"totale": 17, "armatura": 3, "destrezza": 2, "deflessione": 1, "misc": 1},
+                "privilegi": [
+                    "Potere di scuola avanzato (Force Missile)",
+                    "PF 52 | TS +5/+6/+9 | CA 17",
+                    "Slot 1°:7 / 2°:6 / 3°:6 / 4°:4 | Equip: bacchetta di palla di fuoco (CL6)",
+                ],
+            },
+            {
+                "livello": 7,
+                "talenti": ["Incantesimi focalizzati superiori (Invocazione)", "Talento bonus (Difensivo)"] ,
+                "slot": "1°: 8 / 2°: 7 / 3°: 7 / 4°: 5 / 5°: 3",
+                "equip": ["Cintura della destrezza +2"],
+                "pf": 60,
+                "salvezze": {"Tempra": 5, "Riflessi": 6, "Volontà": 10},
+                "skills": {"Conoscenze (arcana)": 14, "Sapienza Magica": 14, "Percezione": 9},
+                "ca": {"totale": 18, "armatura": 3, "destrezza": 3, "deflessione": 1, "misc": 1},
+                "privilegi": [
+                    "Talento bonus del mago (difesa arcana)",
+                    "PF 60 | TS +5/+6/+10 | CA 18",
+                    "Slot 1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3 | Equip: cintura della destrezza +2",
+                ],
+            },
+            {
+                "livello": 8,
+                "talenti": ["Penetrare resistenza magica"],
+                "slot": "1°: 8 / 2°: 7 / 3°: 7 / 4°: 6 / 5°: 4",
+                "equip": ["Pergamena di muro di forza"],
+                "pf": 68,
+                "salvezze": {"Tempra": 6, "Riflessi": 7, "Volontà": 11},
+                "skills": {"Conoscenze (arcana)": 15, "Sapienza Magica": 15, "Percezione": 10},
+                "ca": {"totale": 18, "armatura": 3, "destrezza": 3, "deflessione": 1, "misc": 1},
+                "privilegi": [
+                    "Ricerca superiore (arcane discovery)",
+                    "PF 68 | TS +6/+7/+11 | CA 18",
+                    "Slot 1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4 | Equip: pergamena di muro di forza",
+                ],
+            },
+            {
+                "livello": 9,
+                "talenti": ["Incantesimi rapidi migliorati"],
+                "slot": "1°: 8 / 2°: 7 / 3°: 7 / 4°: 7 / 5°: 5",
+                "equip": ["Bacchetta di fulmine (CL9)"],
+                "pf": 76,
+                "salvezze": {"Tempra": 6, "Riflessi": 7, "Volontà": 12},
+                "skills": {"Conoscenze (arcana)": 17, "Sapienza Magica": 17, "Percezione": 10},
+                "ca": {"totale": 19, "armatura": 3, "destrezza": 3, "deflessione": 2, "misc": 1},
+                "privilegi": [
+                    "Talento bonus (metamagia di scuola)",
+                    "PF 76 | TS +6/+7/+12 | CA 19",
+                    "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5 | Equip: bacchetta di fulmine (CL9)",
+                ],
+            },
+            {
+                "livello": 10,
+                "talenti": ["Incantesimi potenziati (metamagia)", "Penetrare resistenza magica migliorato"],
+                "slot": "1°: 8 / 2°: 7 / 3°: 7 / 4°: 7 / 5°: 6",
+                "equip": ["Testa di bacco runica", "Perla di potere IV"],
+                "pf": 84,
+                "salvezze": {"Tempra": 7, "Riflessi": 8, "Volontà": 13},
+                "skills": {"Conoscenze (arcana)": 18, "Sapienza Magica": 18, "Percezione": 11},
+                "ca": {"totale": 20, "armatura": 3, "destrezza": 3, "deflessione": 2, "misc": 2},
+                "privilegi": [
+                    "Potere di scuola maggiore (elemental mastery)",
+                    "PF 84 | TS +7/+8/+13 | CA 20",
+                    "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6 | Equip: perla di potere IV, focus arcani runici",
+                ],
+            },
+        ]
+
         progression: list[dict[str, object]] = []
-        for lvl in range(1, resolved_level + 1):
-            progression.append(
-                {
-                    "livello": lvl,
-                    "privilegi": [
-                        f"Privilegio {lvl}",
-                        (
-                            f"Tecnica distintiva {resolved_archetype}"
-                            if resolved_archetype
-                            else "Tecnica distintiva"
-                        ),
-                    ],
-                    "talenti": [f"Talento di livello {lvl}"],
-                }
-            )
+        base_hp = 12 + 5 * max(resolved_level - 1, 0)
+
+        if is_wizard_evoker:
+            for entry in wizard_progression_plan:
+                if entry["livello"] > resolved_level:
+                    break
+                progression.append(
+                    {
+                        "livello": entry["livello"],
+                        "privilegi": entry["privilegi"],
+                        "talenti": entry["talenti"],
+                    }
+                )
+            if progression:
+                base_hp = wizard_progression_plan[min(resolved_level, len(wizard_progression_plan)) - 1][
+                    "pf"
+                ]
+        else:
+            for lvl in range(1, resolved_level + 1):
+                progression.append(
+                    {
+                        "livello": lvl,
+                        "privilegi": [
+                            f"Privilegio {lvl}",
+                            (
+                                f"Tecnica distintiva {resolved_archetype}"
+                                if resolved_archetype
+                                else "Tecnica distintiva"
+                            ),
+                        ],
+                        "talenti": [f"Talento di livello {lvl}"],
+                    }
+                )
+
+        wizard_levels = (
+            [entry for entry in wizard_progression_plan if entry["livello"] <= resolved_level]
+            if is_wizard_evoker
+            else []
+        )
+        wizard_snapshot = wizard_levels[-1] if wizard_levels else None
+        hp_progression = [entry.get("pf", base_hp) for entry in wizard_levels]
+        if not hp_progression:
+            hp_progression = [base_hp]
+        saves_block = (
+            wizard_snapshot.get("salvezze") if wizard_snapshot else {"Tempra": 4, "Riflessi": 3, "Volontà": 4}
+        )
+        skills_map = (
+            {name: {"totale": value} for name, value in wizard_snapshot.get("skills", {}).items()}
+            if wizard_snapshot
+            else {"Percezione": {"totale": 5}, "Acrobazia": {"totale": 4}, "Conoscenze": {"totale": 3}}
+        )
+        slot_text = wizard_snapshot.get("slot") if wizard_snapshot else "Liv1:4/Liv2:3"
+        ac_block = wizard_snapshot.get("ca") if wizard_snapshot else {"totale": 18, "armatura": 5, "destrezza": 2, "scudo": 1}
+        if isinstance(ac_block, Mapping) and "scudo" not in ac_block:
+            ac_block = {**ac_block, "scudo": 0}
+        equip_full = []
+        if wizard_levels:
+            for entry in wizard_levels:
+                equip_full.extend(entry.get("equip", []))
+        else:
+            equip_full.extend(["Arma preferita", "Armatura leggera"])
+        inventory_full = ["Kit da avventuriero", "Pozione di cura x2"]
+        talents_full: list[str] = []
+        if wizard_levels:
+            for entry in wizard_levels:
+                talents_full.extend(entry.get("talenti", []))
+        else:
+            talents_full.extend(["Colpo possente", "Iniziativa migliorata"])
+        class_features: list[str] = []
+        if wizard_levels:
+            for entry in wizard_levels:
+                class_features.extend(entry.get("privilegi", []))
+        else:
+            class_features.extend(["Addestramento marziale", "Specializzazione"])
 
         sheet_payload = {
             "classi": [
@@ -490,24 +706,20 @@ async def get_module_content(
             "statistiche_chiave": {
                 "attacco": "+4",
                 "danni": "1d8+3",
-                "ca": 17,
+                "ca": ac_block.get("totale", 17) if isinstance(ac_block, Mapping) else 17,
             },
             "pf_totali": base_hp,
-            "hp": {"totali": base_hp, "per_livello": [base_hp]},
-            "salvezze": {"Tempra": 4, "Riflessi": 3, "Volontà": 4},
-            "skills_map": {
-                "Percezione": {"totale": 5},
-                "Acrobazia": {"totale": 4},
-                "Conoscenze": {"totale": 3},
-            },
-            "skill_points": 4 * resolved_level,
-            "talenti": ["Colpo possente", "Iniziativa migliorata"],
-            "capacita_classe": ["Addestramento marziale", "Specializzazione"],
-            "equipaggiamento": ["Arma preferita", "Armatura leggera"],
-            "inventario": ["Kit da avventuriero", "Pozione di cura x2"],
+            "hp": {"totali": base_hp, "per_livello": hp_progression},
+            "salvezze": saves_block,
+            "skills_map": skills_map,
+            "skill_points": max(5 * resolved_level, 4 * resolved_level),
+            "talenti": sorted(set(talents_full)),
+            "capacita_classe": sorted(set(class_features)),
+            "equipaggiamento": sorted(set(equip_full)),
+            "inventario": sorted(set(inventory_full + equip_full)),
             "spell_levels": [],
-            "slot_incantesimi": "Liv1:4/Liv2:3",
-            "ac_breakdown": {"totale": 18, "armatura": 5, "destrezza": 2, "scudo": 1},
+            "slot_incantesimi": slot_text,
+            "ac_breakdown": ac_block if isinstance(ac_block, Mapping) else {"totale": 18, "armatura": 5, "destrezza": 2, "scudo": 1},
             "iniziativa": 2,
             "velocita": 9,
             "progressione": progression,
@@ -621,6 +833,13 @@ async def get_knowledge_meta(name: str, _: None = Depends(require_api_key)) -> D
         "size_bytes": path.stat().st_size,
         "suffix": path.suffix,
     }
+
+
+@app.post("/ruling-expert")
+async def ruling_expert_stub(_: None = Depends(require_api_key)) -> Dict[str, object]:
+    """Stub di Ruling Expert: restituisce sempre badge validato."""
+
+    return {"ruling_badge": "validated", "sources": ["stub"], "violations": []}
 
 
 @app.get("/metrics")

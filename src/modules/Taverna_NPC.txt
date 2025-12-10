@@ -2925,3 +2925,16 @@ migration_notes:
   details: >
     Il vecchio “Quiz semplice” è stato rimosso.
     Comandi attivi: /quiz_start, /quiz_bestworst, /quiz_pair, /quiz_sjt, /quiz_status, /quiz_finalize.
+
+# Wizard Evoker — progressione rapida per NPC/PG (liv. 3-10)
+wizard_evoker_progressione:
+  note: "Schema da riusare quando si aggiungono livelli via /add_level: include slot, CA e pacchetti equip."
+  step:
+    - { livello: 3, slot: "1°:6 / 2°:4 / 3°:2", ca: 16, pf: 28, talenti: ["Incantesimi focalizzati (Invocazione)"], equip: ["Bacchetta di dardo incantato (CL3)"] }
+    - { livello: 4, slot: "1°:6 / 2°:5 / 3°:4", ca: 16, pf: 36, talenti: ["Magia focalizzata superiore (Invocazione)"], equip: ["Veste da mago rinforzata"] }
+    - { livello: 5, slot: "1°:7 / 2°:6 / 3°:5 / 4°:3", ca: 17, pf: 44, talenti: ["Incantesimi massimizzati"], equip: ["Perla di potere I", "Anello di protezione +1"] }
+    - { livello: 6, slot: "1°:7 / 2°:6 / 3°:6 / 4°:4", ca: 17, pf: 52, talenti: ["Talento bonus (Mago) — Incantesimi rapidi"], equip: ["Bacchetta di palla di fuoco (CL6)"] }
+    - { livello: 7, slot: "1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3", ca: 18, pf: 60, talenti: ["Incantesimi focalizzati superiori", "Talento bonus difensivo"], equip: ["Cintura della destrezza +2"] }
+    - { livello: 8, slot: "1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4", ca: 18, pf: 68, talenti: ["Penetrare resistenza magica"], equip: ["Pergamena di muro di forza"] }
+    - { livello: 9, slot: "1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5", ca: 19, pf: 76, talenti: ["Incantesimi rapidi migliorati"], equip: ["Bacchetta di fulmine (CL9)"] }
+    - { livello: 10, slot: "1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6", ca: 20, pf: 84, talenti: ["Incantesimi potenziati", "Penetrare RM migliorato"], equip: ["Perla di potere IV", "Focus runici"] }

@@ -371,6 +371,20 @@ def _truncate_sequence_by_level(
     current_level = 0
 
     for entry in entries:
+        if isinstance(entry, Mapping):
+            absolute_level = _coerce_number(entry.get("livello"))
+            if isinstance(absolute_level, (int, float)):
+                try:
+                    coerced = int(absolute_level)
+                except (TypeError, ValueError):
+                    coerced = None
+                if coerced is not None:
+                    if coerced > target_level:
+                        break
+                    kept.append(entry)
+                    current_level = max(current_level, coerced)
+                    continue
+
         level_increment: int | None = None
         if isinstance(entry, Mapping):
             for classes_key in ("classi", "classes"):
