@@ -178,13 +178,15 @@ def collect_section_lines(
     and emoji). The order of matching sections is preserved.
     """
 
-    collected: List[str] = []
+    matched_sections: List[List[str]] = []
     for heading, content in sections:
-        for pattern in patterns:
-            if pattern.search(heading):
-                collected.extend(content)
-                break
-    return collected
+        if any(pattern.search(heading) for pattern in patterns):
+            matched_sections.append(content)
+
+    merged_lines: List[str] = []
+    for content in matched_sections:
+        merged_lines.extend(content)
+    return merged_lines
 
 
 def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSummary:
