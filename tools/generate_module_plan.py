@@ -287,12 +287,14 @@ def build_plan(output_path: Path) -> None:
     ]
 
     summary_rows = [
-        "| Modulo | Task totali | Priorità massima | Stato |",
-        "| --- | --- | --- | --- |",
+        "| Modulo | Task totali | Priorità massima | Osservazioni | Errori | Stato |",
+        "| --- | --- | --- | --- | --- | --- |",
     ]
     for summary in summaries:
         summary_rows.append(
-            f"| {summary.label} | {len(summary.tasks)} | {summary.highest_priority} | {summary.status} |"
+            "| "
+            f"{summary.label} | {len(summary.tasks)} | {summary.highest_priority} | "
+            f"{len(summary.observations)} | {len(summary.errors)} | {summary.status} |"
         )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
