@@ -62,8 +62,7 @@
 - ⚠️ `curl | head` con dump abilitato ritorna errore di write locale, ma il server fornisce `content-length`; nessuna azione necessaria lato server. 【b21fe7†L3-L16】
 
 ## Miglioramenti suggeriti
-- 🔧 Miglioria proposta: esporre endpoint dedicato ai metadati di storage (quota residua, `max_files`) basato su configurazione `storage.auto_name_policy` per monitorare saturazione. 【F:src/modules/Taverna_NPC.txt†L364-L380】
-- 🔧 Valutare messaggio di guida quando Echo gate blocca (<8.5) o quando `qa_guard` disattivato da check falliti, per chiarezza UX. 【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
+- Nessuno: lo storage espone `/storage_meta` con quota residua, pattern di auto-name e marker di troncamento quando `ALLOW_MODULE_DUMP=false`, e i gate QA/Echo forniscono ora CTA esplicite sugli export e sui blocchi QA.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 
 ## Fix necessari
 - Nessuno: con `ALLOW_MODULE_DUMP=false` ora sono presenti policy di troncamento marcate (`[…TRUNCATED ALLOW_MODULE_DUMP=false…]`) e risposta standardizzata “⚠️ Output parziale” applicata anche agli export plain/markdown.【F:src/modules/Taverna_NPC.txt†L273-L305】

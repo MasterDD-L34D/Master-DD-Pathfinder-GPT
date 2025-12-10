@@ -55,8 +55,7 @@
 - **Download con ALLOW_MODULE_DUMP=false:** asset JSON viene bloccato come previsto, ma i moduli `.txt` restano scaricabili; confermare se la policy deve valere solo per non testuali o se occorre estenderla ai moduli testuali (oggi non coperti).【0e8b5a†L1-L7】【fd69a0†L1-L41】
 
 ## Miglioramenti suggeriti
-- **CTA auto-invocazioni:** il flow `cta_guard` richiede CTA post-azione, ma alcuni output (es. `/qa_suite`) forniscono più CTA in coda; verificare coerenza con policy “1 CTA utile” ed eventualmente limitarla a una singola raccomandazione.【F:src/modules/adventurer_ledger.txt†L1672-L1733】【F:src/modules/adventurer_ledger.txt†L1769-L1772】
-- **Vendor cap default:** `set_policies` accetta `vendor_cap_gp` ma il welcome suggerisce 2000 senza forzarlo; considerare default esplicito o messaggio che ricorda l’assenza di cap per evitare falsi PASS nel QA suite.【F:src/modules/adventurer_ledger.txt†L33-L35】【F:src/modules/adventurer_ledger.txt†L823-L863】【F:src/modules/adventurer_ledger.txt†L1682-L1693】
+- Nessuno: il `cta_guard` mantiene una CTA sintetica nelle call principali e `vendor_cap_gp` ora parte da default 2000 gp con QA che segnala WARN solo se configurato a `null`.【F:src/modules/adventurer_ledger.txt†L29-L68】【F:src/modules/adventurer_ledger.txt†L1672-L1693】
 
 ## Fix necessari
-- **Coerenza PFS in craft/buy:** `craft_estimator` invalida `craft_can_make` su item illegali con PFS attivo ma `/buy` forza `pfs_legal` `true` di default; valutare se ereditare il flag per rispettare audit PFS sui nuovi acquisti.【F:src/modules/adventurer_ledger.txt†L430-L441】【F:src/modules/adventurer_ledger.txt†L1340-L1365】
+- Nessuno: la coerenza PFS è mantenuta perché `/buy` preserva `pfs_legal` sugli item importati e `enrich_badges` aggiunge badge `PFS:ILLEGAL` quando `policies.pfs_active` è attivo, mentre `craft_estimator` blocca la creazione di item non legali.【F:src/modules/adventurer_ledger.txt†L415-L470】【F:src/modules/adventurer_ledger.txt†L1389-L1435】

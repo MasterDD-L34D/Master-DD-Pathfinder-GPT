@@ -25,26 +25,25 @@
 ## Comandi principali e logica (setup → QA/export → CTA)
 - **compute_seals(mode, toggles, meta, output_text, memory, constants, tables, features)**: unico entrypoint esportato.
   - **Setup/parametri**: legge soglie `sigilli_mini_threshold` (200), `sigilli_code_lines` (12), cooldown raro e quest_every; mode è normalizzato upper-case.【F:src/modules/sigilli_runner_module.txt†L7-L13】【F:src/modules/sigilli_runner_module.txt†L103-L123】
-  - **Ambiente/obiettivi**: calcola `length_ok` via `_len`; valuta `code_ok` ma non lo usa (vedi fix).【F:src/modules/sigilli_runner_module.txt†L91-L115】
+  - **Ambiente/obiettivi**: calcola `length_ok` via `_len`; `code_ok` ora assegna sigillo/bonus token dedicato e tag `MDA:code_block` quando rilevate ≥12 righe di codice.【F:src/modules/sigilli_runner_module.txt†L110-L123】
   - **Nemici/bilanciamento**: non applicabile (modulo decoratore), ma il raro introduce pacing tramite cooldown e indice.【F:src/modules/sigilli_runner_module.txt†L116-L148】
-  - **Simulazione/pacing/loot**: assegna sigilli comuni solo se sopra soglia, aggiunge mode bonus senza soglia, raro condizionato da cooldown, quest ogni 5 risposte utili, progressione livelli a 5/9/13/21 con badge dedicato.【F:src/modules/sigilli_runner_module.txt†L106-L154】【F:src/modules/sigilli_runner_module.txt†L33-L40】
-  - **QA/export**: aggiorna memoria e appende sempre il portale se `sigilli_show_badge` true, fungendo da CTA di continuazione/esportazione esterna.【F:src/modules/sigilli_runner_module.txt†L144-L154】【F:src/modules/sigilli_runner_module.txt†L28-L34】
+  - **Simulazione/pacing/loot**: assegna sigilli comuni solo se sopra soglia, aggiunge mode bonus senza soglia, raro condizionato da cooldown, quest ogni 5 risposte utili, progressione livelli a 5/9/13/21 con badge dedicato e tag MDA/CTA in-line.【F:src/modules/sigilli_runner_module.txt†L106-L154】【F:src/modules/sigilli_runner_module.txt†L33-L40】
+  - **QA/export**: aggiorna memoria, applica tagging MDA per lunghezza/codice/mode/raro/quest/level-up e appende sempre il portale se `sigilli_show_badge` true, fungendo da CTA di continuazione/esportazione esterna.【F:src/modules/sigilli_runner_module.txt†L117-L159】【F:src/modules/sigilli_runner_module.txt†L28-L34】
   - **Narrazione/lifecycle**: nessun state machine narrativo, ma la quest periodica funge da hook di progressione ogni `quest_every`.【F:src/modules/sigilli_runner_module.txt†L125-L131】
 
 ## Flow guidato / CTA / template
-- `output_checklist` prescrive header con mode attivo e soglie, motivazioni per badge (lunghezza, code block, mode, raro, quest), stato memoria aggiornato e link portale/CTA.【F:src/modules/sigilli_runner_module.txt†L155-L159】
+- `output_checklist` prescrive header con mode attivo e soglie, motivazioni per badge (lunghezza, code block, mode, raro, quest), stato memoria aggiornato e link portale/CTA; i tag MDA/CTA sono incorporati nei sigilli quando applicabile.【F:src/modules/sigilli_runner_module.txt†L117-L159】
 - Il portale `sigilli_portal` garantisce una CTA stabile al termine di ogni run; nessun template UI aggiuntivo è definito.【F:src/modules/sigilli_runner_module.txt†L28-L34】【F:src/modules/sigilli_runner_module.txt†L144-L154】
 
 ## QA template e helper
 - Helper: `_len` per lunghezza, `_looks_like_code` per contare righe con backtick/brace, `_rarity_roll` con seed deterministico e dipendente da indice/cooldown.【F:src/modules/sigilli_runner_module.txt†L70-L90】
-- Gates: `length_ok` governa sigilli comuni, quest e raro; cooldown `sigilli_rotation_cooldown` evita rari ravvicinati; badge livello attivato solo su soglie token.【F:src/modules/sigilli_runner_module.txt†L106-L154】
-- Export filename/JSON: non previsto (decorator), ma il portale e la checklist forniscono CTA esterne; MDA tagging non presente.
+- Gates: `length_ok` governa sigilli comuni, quest e raro; cooldown `sigilli_rotation_cooldown` evita rari ravvicinati; badge livello attivato solo su soglie token con tagging MDA coerente.【F:src/modules/sigilli_runner_module.txt†L106-L154】
+- Export filename/JSON: non previsto (decorator), ma il portale e la checklist forniscono CTA esterne con tag CTA/MDA integrati nei sigilli.
 
 ## Osservazioni
-- L’euristica `code_ok` è calcolata ma non influenza sigilli/token: manca qualsiasi uso downstream.【F:src/modules/sigilli_runner_module.txt†L108-L118】
 - Il raro può attivarsi solo da indice 14 con stato di default; documentare la finestra di attivazione per evitare percezione di malfunzionamento iniziale.【F:src/modules/sigilli_runner_module.txt†L116-L148】
 - Il portale viene aggiunto anche quando nessun sigillo è stato assegnato, garantendo almeno un elemento in `seals`.【F:src/modules/sigilli_runner_module.txt†L144-L154】
-- Il presente report incorpora tutti i punti richiesti nelle due iterazioni precedenti (API, metadati, modello dati, flow/CTA, errori simulati e fix suggeriti), senza ulteriori lacune note.
+- Il presente report incorpora tutti i punti richiesti nelle due iterazioni precedenti (API, metadati, modello dati, flow/CTA, errori simulati e fix applicati), senza ulteriori lacune note.
 
 ## Errori simulati
 - API key mancante: `/modules*` ritorna `401 Invalid or missing API key`, confermato con TestClient.【fc8c1a†L3-L12】
@@ -52,11 +51,7 @@
 - Dump disabilitato: `ALLOW_MODULE_DUMP=false` restituisce header troncato, utile per evitare leak completi.【5c31d3†L11-L18】
 
 ## Errori
-- L’euristica `code_ok` è calcolata ma non influenza l’assegnazione dei sigilli, indicando una logica incompleta nel decoratore.【F:src/modules/sigilli_runner_module.txt†L108-L118】
+- Nessun errore bloccante dopo l’integrazione di `code_ok` e il tagging MDA/CTA nei sigilli.
 
 ## Miglioramenti suggeriti
-- Esporre motivazioni esplicite per il raro (indice corrente, cooldown residuo) nell’output, seguendo la checklist di trasparenza.【F:src/modules/sigilli_runner_module.txt†L116-L148】【F:src/modules/sigilli_runner_module.txt†L155-L159】
-- Aggiungere tagging MDA/CTA in `output_checklist` o nei seals per allineare il modulo alle convenzioni degli altri report/export.【F:src/modules/sigilli_runner_module.txt†L28-L34】【F:src/modules/sigilli_runner_module.txt†L155-L159】
-
-## Fix necessari
-- Integrare `code_ok` in `compute_seals` (es. bonus token o sigillo dedicato) oppure rimuoverlo per coerenza con il resto della pipeline di assegnazione sigilli.【F:src/modules/sigilli_runner_module.txt†L108-L118】
+- Nessuno: logica di assegnazione sigilli e motivazioni MDA/CTA risultano allineate alla checklist.

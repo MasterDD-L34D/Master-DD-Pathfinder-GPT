@@ -25,12 +25,10 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ## Taverna_NPC
 - Report: `reports/module_tests/Taverna_NPC.md`
-- Stato: Pronto per sviluppo
+- Stato: Completato
 
 ### Task (priorità e scope)
-- [P1] Nessuno: con `ALLOW_MODULE_DUMP=false` ora sono presenti policy di troncamento marcate (`[…TRUNCATED ALLOW_MODULE_DUMP=false…]`) e risposta standardizzata “⚠️ Output parziale” applicata anche agli export plain/markdown.【F:src/modules/Taverna_NPC.txt†L273-L305】
-- [P2] 🔧 Miglioria proposta: esporre endpoint dedicato ai metadati di storage (quota residua, `max_files`) basato su configurazione `storage.auto_name_policy` per monitorare saturazione. 【F:src/modules/Taverna_NPC.txt†L364-L380】
-- [P2] 🔧 Valutare messaggio di guida quando Echo gate blocca (<8.5) o quando `qa_guard` disattivato da check falliti, per chiarezza UX. 【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
+- Nessun task aperto: lo storage espone `/storage_meta` con quota residua e marker di troncamento, mentre i gate QA/Echo bloccano gli export con CTA esplicite quando QA<OK o Echo<8.5.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flusso guidato accompagna l’utente da onboarding lingua/universo/ritratto alle fasi di quiz e generazione PNG, con CTA e template UI dedicati per ogni step.【F:src/modules/Taverna_NPC.txt†L282-L518】【F:src/modules/Taverna_NPC.txt†L838-L974】
@@ -39,12 +37,10 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ## adventurer_ledger
 - Report: `reports/module_tests/adventurer_ledger.md`
-- Stato: Pronto per sviluppo
+- Stato: Completato
 
 ### Task (priorità e scope)
-- [P1] **Coerenza PFS in craft/buy:** `craft_estimator` invalida `craft_can_make` su item illegali con PFS attivo ma `/buy` forza `pfs_legal` `true` di default; valutare se ereditare il flag per rispettare audit PFS sui nuovi acquisti.【F:src/modules/adventurer_ledger.txt†L430-L441】【F:src/modules/adventurer_ledger.txt†L1340-L1365】
-- [P2] **CTA auto-invocazioni:** il flow `cta_guard` richiede CTA post-azione, ma alcuni output (es. `/qa_suite`) forniscono più CTA in coda; verificare coerenza con policy “1 CTA utile” ed eventualmente limitarla a una singola raccomandazione.【F:src/modules/adventurer_ledger.txt†L1672-L1733】【F:src/modules/adventurer_ledger.txt†L1769-L1772】
-- [P2] **Vendor cap default:** `set_policies` accetta `vendor_cap_gp` ma il welcome suggerisce 2000 senza forzarlo; considerare default esplicito o messaggio che ricorda l’assenza di cap per evitare falsi PASS nel QA suite.【F:src/modules/adventurer_ledger.txt†L33-L35】【F:src/modules/adventurer_ledger.txt†L823-L863】【F:src/modules/adventurer_ledger.txt†L1682-L1693】
+- Nessun task aperto: il welcome imposta `vendor_cap_gp` di default a 2000 gp, la QA suite segnala WARN solo se il cap è nullo, e `/buy` preserva i flag PFS applicando badge `PFS:ILLEGAL` quando il profilo PFS è attivo.【F:src/modules/adventurer_ledger.txt†L29-L68】【F:src/modules/adventurer_ledger.txt†L1672-L1693】【F:src/modules/adventurer_ledger.txt†L1389-L1435】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il welcome e il flow guidato coprono cinque passi (policy, stile giocatore, profilo WBL, roll loot, export) con CTA e template Markdown/VTT per ledger, buylist e scheda PG pronti all’uso.【F:src/modules/adventurer_ledger.txt†L29-L45】【F:src/modules/adventurer_ledger.txt†L686-L750】【F:src/modules/adventurer_ledger.txt†L1760-L1772】
@@ -65,12 +61,10 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ## base_profile
 - Report: `reports/module_tests/base_profile.md`
-- Stato: Pronto per sviluppo
+- Stato: Completato
 
 ### Task (priorità e scope)
-- [P1] Documentare nel codice l’elenco comandi principali anche in un endpoint `/doc` o README per facilitarne la discovery (riferimento sezione `commands` del modulo).【F:src/modules/base_profile.txt†L452-L472】
-- [P2] **Coverage API incompleto**: il report precedente non menzionava `/health` né l’errore 404 su modulo inesistente; ora coperti dai test 503/404 con path e status.【F:tests/test_app.py†L304-L314】【F:tests/test_app.py†L547-L591】
-- [P2] **Chiarezza dump/troncamento**: esplicitata distinzione testo troncato vs blocco binari con ALLOW_MODULE_DUMP=false per allineare alla policy Documentazione.【F:tests/test_app.py†L282-L302】
+- Nessun task aperto: il router instrada `/doc`/`/help`/`/manuale` verso `meta_doc.txt`, coprendo discovery comandi, e i test includono ora health/404 e le note di troncamento ALLOW_MODULE_DUMP.【F:src/modules/base_profile.txt†L140-L175】【F:tests/test_app.py†L282-L314】【F:tests/test_app.py†L547-L591】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il router centralizza CTA e preset per le modalità specializzate (MinMax, Encounter, Taverna, Narrativa) guidando l’utente con flow e quiz sequenziali e welcome dedicato.【F:src/modules/base_profile.txt†L95-L176】【F:src/modules/base_profile.txt†L452-L560】
@@ -172,46 +166,36 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ## sigilli_runner_module
 - Report: `reports/module_tests/sigilli_runner_module.md`
-- Stato: Pronto per sviluppo
+- Stato: Completato
 
 ### Task (priorità e scope)
-- [P1] Integrare `code_ok` in `compute_seals` (es. bonus token o sigillo dedicato) oppure rimuoverlo per coerenza con il resto della pipeline di assegnazione sigilli.【F:src/modules/sigilli_runner_module.txt†L108-L118】
-- [P2] Esporre motivazioni esplicite per il raro (indice corrente, cooldown residuo) nell’output, seguendo la checklist di trasparenza.【F:src/modules/sigilli_runner_module.txt†L116-L148】【F:src/modules/sigilli_runner_module.txt†L155-L159】
-- [P2] Aggiungere tagging MDA/CTA in `output_checklist` o nei seals per allineare il modulo alle convenzioni degli altri report/export.【F:src/modules/sigilli_runner_module.txt†L28-L34】【F:src/modules/sigilli_runner_module.txt†L155-L159】
+- Nessun task aperto: `code_ok` assegna ora sigillo/bonus con tag `MDA:code_block`, i rari/quest riportano motivazioni e tagging MDA/CTA, e la checklist include tutte le note di trasparenza richieste.【F:src/modules/sigilli_runner_module.txt†L106-L159】
 
 ### Note (Osservazioni/Errori)
-- [Osservazione] L’euristica `code_ok` è calcolata ma non influenza sigilli/token: manca qualsiasi uso downstream.【F:src/modules/sigilli_runner_module.txt†L108-L118】
 - [Osservazione] Il raro può attivarsi solo da indice 14 con stato di default; documentare la finestra di attivazione per evitare percezione di malfunzionamento iniziale.【F:src/modules/sigilli_runner_module.txt†L116-L148】
 - [Osservazione] Il portale viene aggiunto anche quando nessun sigillo è stato assegnato, garantendo almeno un elemento in `seals`.【F:src/modules/sigilli_runner_module.txt†L144-L154】
 - [Osservazione] Il presente report incorpora tutti i punti richiesti nelle due iterazioni precedenti (API, metadati, modello dati, flow/CTA, errori simulati e fix suggeriti), senza ulteriori lacune note.
 - [Errore] API key mancante: `/modules*` ritorna `401 Invalid or missing API key`, confermato con TestClient.【fc8c1a†L3-L12】
 - [Errore] Modulo inesistente: `/modules/bogus.txt` → `404 Module not found`.【5c31d3†L9-L10】
 - [Errore] Dump disabilitato: `ALLOW_MODULE_DUMP=false` restituisce header troncato, utile per evitare leak completi.【5c31d3†L11-L18】
-- [Errore] L’euristica `code_ok` è calcolata ma non influenza l’assegnazione dei sigilli, indicando una logica incompleta nel decoratore.【F:src/modules/sigilli_runner_module.txt†L108-L118】
 
 ## tavern_hub
 - Report: `reports/module_tests/tavern_hub.md`
-- Stato: Pronto per sviluppo
+- Stato: Completato
 
 ### Task (priorità e scope)
-- [P1] Allineare le rotte Hub con i gate QA dichiarati, includendo controlli espliciti prima di `/export_tavern`/`/adventure_outline` e aggiungendo messaggio/header di troncamento per asset bloccati, così da mantenere la coerenza con la policy e con il comportamento osservato su altri moduli.【F:src/modules/Taverna_NPC.txt†L1158-L1162】【F:src/modules/Taverna_NPC.txt†L1221-L1231】【3bedc0†L1-L8】
-- [P2] **CTA export dipendenti da QA:** i gate QA sono descritti come bloccanti ma alcune rotte stub (`/export_tavern`, `/adventure_outline`) non verificano esplicitamente lo stato prima dell’output; utile allineare implementazione con la policy “Export bloccato se QA FAIL”.【F:src/modules/Taverna_NPC.txt†L1158-L1162】【F:src/modules/Taverna_NPC.txt†L1221-L1231】【F:src/modules/Taverna_NPC.txt†L789-L802】
-- [P2] **Storage hub/ledger condiviso:** `ledger_storage` punta a `tavern_hub.json` ma la validazione `hub_storage.validation.schema_min` non è inclusa nello stato; aggiungere schema o riferimenti per ridurre rischi di corruption fra moduli Hub/ledger.【F:src/modules/Taverna_NPC.txt†L382-L386】
-- [P2] **Pattern CTA di salvataggio:** `/check_conversation` segnala salvataggi/export pendenti ma non forza snapshot pre-export come raccomandato dal Knowledge Pack; potrebbe auto-invocare `/save_hub`/`/snapshot` quando `handoff_log` è non vuoto.【F:src/modules/Taverna_NPC.txt†L1257-L1259】【F:src/modules/knowledge_pack.md†L111-L113】
+- Nessun task aperto: gli export hub applicano ora gate QA/Echo con CTA unica verso `/save_hub` o `/check_conversation`, includendo marker di troncamento quando ALLOW_MODULE_DUMP è disattivato; storage e caricamenti usano `schema_min` con quarantena sugli errori.【F:src/modules/Taverna_NPC.txt†L1225-L1317】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] L’Hub aggrega quest/rumor/bounty/eventi con flow GameMode, CTA di salvataggio e export, mantenendo storage con rate limit/quarantena e integrazioni con Encounter/Ledger per outline e inventari WBL.【F:src/modules/Taverna_NPC.txt†L1133-L1256】【F:src/modules/Taverna_NPC.txt†L365-L386】【F:src/modules/Taverna_NPC.txt†L789-L802】
-- [Errore] **Nessun troncamento con `ALLOW_MODULE_DUMP=false`:** la policy blocca correttamente gli asset non testuali via `403` ma non fornisce versione redatta/troncata; valutare se serve un messaggio più guida o un body minificato per QA automatico.【3bedc0†L1-L8】
+- [Errore] Nessun errore aperto: policy di troncamento/403 coerenti con i gate QA e marker di dump applicati sugli export hub.【3bedc0†L1-L8】【F:src/modules/Taverna_NPC.txt†L1285-L1310】
 
 ## Cartelle di servizio
 - Report: `reports/module_tests/service_dirs.md`
-- Stato: Pronto per sviluppo
+- Stato: Completato
 
 ### Task (priorità e scope)
-- [P1] Esporre nella risposta con `ALLOW_MODULE_DUMP=false` un’indicazione chiara che il contenuto è parziale e integrare un endpoint di quota/metadati per `taverna_saves`, così da ridurre confusione e monitorare l’uso disco delle directory di servizio.【F:reports/module_tests/Taverna_NPC.md†L11-L15】【F:src/modules/Taverna_NPC.txt†L364-L380】
-- [P2] ⚠️ Con `ALLOW_MODULE_DUMP=false` il contenuto è troncato senza indicare dimensione residua; suggerito header/note che l'output è parziale.【F:reports/module_tests/Taverna_NPC.md†L11-L15】
-- [P2] 🔧 Esporre endpoint sui metadati di storage (quota residua, `max_files`) basato su `storage.auto_name_policy` aiuterebbe il monitoraggio della saturazione.【F:src/modules/Taverna_NPC.txt†L364-L380】
-- [P2] 🔧 Aggiungere messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" per chiarire i passi di remediation.【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
+- Nessun task aperto: i dump con `ALLOW_MODULE_DUMP=false` includono marker chiari di output parziale e `/storage_meta` espone quota residua/max_files e note di troncamento, mentre i gate Echo/QA forniscono CTA di remediation.【F:src/modules/Taverna_NPC.txt†L273-L305】【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Le directory di servizio aggregano i template e i workflow Taverna (onboarding, quiz MaxDiff/Pairwise/SJT, export `taverna_saves`) garantendo naming coerente, guardrail Echo e CTA guidate per generazione e salvataggio PNG/quest/rumor.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L428-L965】
@@ -243,11 +227,11 @@ Fonte sequenza: `planning/module_review_guide.md`
 ## Piano di lavoro esecutivo (aggiornare stato/task/note a fine attività)
 | Modulo/Area | Attività pianificata | Stato | Prossimi step / Note operative |
 | --- | --- | --- | --- |
-| Cartelle di servizio / Taverna_NPC | Definire endpoint metadati storage (quota, max_files) e messaggio di troncamento chiaro con ALLOW_MODULE_DUMP=false. | TODO | Mappare configurazione `storage.auto_name_policy` e aggiungere header/note su output parziali prima di implementare API. |
-| tavern_hub | Allineare gate QA e blocco export (`/export_tavern`, `/adventure_outline`) ai check dichiarati. | TODO | Introdurre verifica QA esplicita e, se fallisce, rimandare a `/save_hub`/`/check_conversation` con CTA univoca. |
-| sigilli_runner_module | Integrare `code_ok` in `compute_seals` o rimuovere l’euristica; aggiungere motivazioni e tagging MDA/CTA nei sigilli. | TODO | Valutare impatto su assegnazione token/sigilli e aggiornare `output_checklist` con motivazioni e badge. |
-| adventurer_ledger | Allineare flag PFS tra craft/buy e definire default esplicito per `vendor_cap_gp` per evitare PASS fuorvianti. | TODO | Decidere se ereditarietà `pfs_legal` o nuovo prompt; documentare default nel welcome e nei QA. |
-| base_profile | Documentare i comandi principali in endpoint `/doc` o README dedicato per migliorare discovery. | TODO | Redigere elenco comandi e riferimenti ai flow specializzati, assicurando coerenza con router centrale. |
+| Cartelle di servizio / Taverna_NPC | Definire endpoint metadati storage (quota, max_files) e messaggio di troncamento chiaro con ALLOW_MODULE_DUMP=false. | Completato | `/storage_meta` pubblica quota/pattern/overflow e riusa header “⚠️ Output parziale” sugli export con dump disabilitato. |
+| tavern_hub | Allineare gate QA e blocco export (`/export_tavern`, `/adventure_outline`) ai check dichiarati. | Completato | Export bloccati quando QA/Echo falliscono con CTA unica verso `/save_hub` o `/check_conversation` e marker di troncamento sugli stub. |
+| sigilli_runner_module | Integrare `code_ok` in `compute_seals` o rimuovere l’euristica; aggiungere motivazioni e tagging MDA/CTA nei sigilli. | Completato | `code_ok` assegna ora sigillo/bonus con tag MDA, motivazioni per raro/quest/level-up e CTA nel portale finale. |
+| adventurer_ledger | Allineare flag PFS tra craft/buy e definire default esplicito per `vendor_cap_gp` per evitare PASS fuorvianti. | Completato | Default vendor cap 2000 gp, QA WARN solo se nullo, badge PFS:ILLEGAL applicati quando PFS attivo nelle rotte buy/craft. |
+| base_profile | Documentare i comandi principali in endpoint `/doc` o README dedicato per migliorare discovery. | Completato | Router indirizza `/doc`/`/help`/`/manuale` a `meta_doc.txt` con elenco comandi e note di troncamento ALLOW_MODULE_DUMP. |
 
 ## Chiusura
 - Compila il sommario sprint con numero task, priorità massima e blocchi per modulo usando la tabella seguente.
@@ -255,10 +239,10 @@ Fonte sequenza: `planning/module_review_guide.md`
 | Modulo | Task totali | Priorità massima | Osservazioni | Errori | Stato |
 | --- | --- | --- | --- | --- | --- |
 | Encounter_Designer | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| Taverna_NPC | 3 | P1 | 1 | 2 | Pronto per sviluppo |
-| adventurer_ledger | 3 | P1 | 1 | 1 | Pronto per sviluppo |
+| Taverna_NPC | 0 | — | 1 | 2 | Completato |
+| adventurer_ledger | 0 | — | 1 | 1 | Completato |
 | archivist | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| base_profile | 3 | P1 | 2 | 1 | Pronto per sviluppo |
+| base_profile | 0 | — | 2 | 1 | Completato |
 | explain_methods | 3 | P1 | 1 | 1 | Pronto per sviluppo |
 | knowledge_pack | 3 | P1 | 1 | 1 | Pronto per sviluppo |
 | meta_doc | 4 | P1 | 1 | 1 | Pronto per sviluppo |
@@ -266,6 +250,6 @@ Fonte sequenza: `planning/module_review_guide.md`
 | narrative_flow | 2 | P1 | 1 | 1 | Pronto per sviluppo |
 | ruling_expert | 3 | P1 | 1 | 1 | Pronto per sviluppo |
 | scheda_pg_markdown_template | 3 | P1 | 2 | 1 | Pronto per sviluppo |
-| sigilli_runner_module | 3 | P1 | 4 | 4 | Pronto per sviluppo |
-| tavern_hub | 4 | P1 | 1 | 1 | Pronto per sviluppo |
-| Cartelle di servizio | 4 | P1 | 1 | 2 | Pronto per sviluppo |
+| sigilli_runner_module | 0 | — | 4 | 4 | Completato |
+| tavern_hub | 0 | — | 1 | 1 | Completato |
+| Cartelle di servizio | 0 | — | 1 | 2 | Completato |
