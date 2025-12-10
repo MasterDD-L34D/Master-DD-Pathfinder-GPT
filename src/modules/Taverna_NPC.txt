@@ -1108,11 +1108,20 @@ commands:
       - set: _fmt, value: "{{ arg(0) or 'md' }}"
       - set: _allow_dump, value: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
       - set: _dump_marker, value: "{{ policies.exposure_guard.dump_policy.marker }}"
+      - set: _dump_warning, value: "{{ policies.exposure_guard.dump_policy.standard_response }}"
+      - set: _storage_used, value: "{{ storage_metrics.taverna_saves.count | default(0) }}"
+      - set: _storage_max, value: "{{ storage.auto_name_policy.max_files }}"
+      - set: _storage_remaining, value: "{{ (_storage_max|int) - (_storage_used|int) }}"
       - if: "{{ _fmt in ['txt','md'] and not _allow_dump }}"
         then:
-          - output: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
+          - output: "{{ _dump_warning }}"
           - output: "{{ _dump_marker }}"
           - goto_state: EXPORTED
+        else:
+          - continue
+      - if: "{{ _storage_remaining|int <= 0 }}"
+        then:
+          - output: "⚠️ Storage taverna_saves saturo ({{_storage_used}}/{{_storage_max}}); overflow={{storage.auto_name_policy.on_overflow}}."
         else:
           - continue
       - if: "{{ _fmt == 'canvas' }}"
@@ -1239,12 +1248,39 @@ commands:
       - set: _fmt, value: "{{ arg(0) or 'md' }}"
       - set: _allow_dump, value: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
       - set: _dump_marker, value: "{{ policies.exposure_guard.dump_policy.marker }}"
+      - set: _dump_warning, value: "{{ policies.exposure_guard.dump_policy.standard_response }}"
+      - set: _storage_used, value: "{{ storage_metrics.taverna_saves.count | default(0) }}"
+      - set: _storage_max, value: "{{ storage.auto_name_policy.max_files }}"
+      - set: _storage_remaining, value: "{{ (_storage_max|int) - (_storage_used|int) }}"
       - if: "{{ _fmt == 'md' and not _allow_dump }}"
         then:
-          - output: "⚠️ Output parziale (ALLOW_MODULE_DUMP=false). Contenuti sensibili rimossi; usa export controllati (md/pdf/json) o abilita il flag su whitelist."
+          - output: "{{ _dump_warning }}"
           - output: "{{ _dump_marker }}"
         else:
-          - output: "📤 (stub) Export Hub {{_fmt}} generato."
+          - continue
+      - if: "{{ _storage_remaining|int <= 0 }}"
+        then:
+          - output: "⚠️ Storage taverna_saves saturo ({{_storage_used}}/{{_storage_max}}); overflow={{storage.auto_name_policy.on_overflow}}."
+        else:
+          - continue
+      - output: "📤 (stub) Export Hub {{_fmt}} generato."
+
+  /storage_meta:
+    when: feature_flags.hub_board=='on'
+    description: "Mostra path storage, auto_name_policy e quota residua per taverna_saves."
+    action:
+      - set: _path, value: "{{ storage.path }}"
+      - set: _pattern, value: "{{ storage.auto_name_policy.pattern }}"
+      - set: _max, value: "{{ storage.auto_name_policy.max_files }}"
+      - set: _overflow, value: "{{ storage.auto_name_policy.on_overflow }}"
+      - set: _used, value: "{{ storage_metrics.taverna_saves.count | default(0) }}"
+      - set: _remaining, value: "{{ (_max|int) - (_used|int) }}"
+      - set: _allow_dump, value: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
+      - output: "📦 Storage taverna_saves → path={{_path}}, auto_name={{_pattern}} (max {{_max}}, overflow={{_overflow}}). Occupati {{_used}}/{{_max}}, residui {{ [_remaining,0] | max }}."
+      - if: "{{ not _allow_dump }}"
+        then:
+          - output: "{{ policies.exposure_guard.dump_policy.standard_response }}"
+          - output: "{{ policies.exposure_guard.dump_policy.marker }}"
 
   /save_hub:
     when: feature_flags.hub_board=='on'
