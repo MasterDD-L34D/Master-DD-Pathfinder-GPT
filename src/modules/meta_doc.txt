@@ -9,6 +9,7 @@ api_usage:
   flow: "Decidi la modalità → GET /modules/{name} con header x-api-key → riformula con badge RAW/RAI/PFS/HR/🧠META."
   sample_call: |
     curl -H "x-api-key: $API_KEY" http://localhost:8000/modules/meta_doc.txt
+  dump_variants: "Con ALLOW_MODULE_DUMP=false l'elenco /modules rimane disponibile ma i singoli file possono esporre size/suffix da dump parziale (≈4k + marker '[contenuto troncato]')."
 
 summary: >-
   Modulo per creare, mantenere e pubblicare la documentazione dei moduli Master DD
@@ -221,7 +222,7 @@ commands:
           /export_doc <md|pdf|canvas|zip> — esporta
           /export_doc_brew — esporta Homebrewery V3
           /brew_lint — conformità V3 (headers/spazi/footers/immagini)
-          /render_brew_example <kind> — snippet cover/toc/box/image/hr-primary
+          /render_brew_example <kind> — snippet cover/toc/box/image/hr-primary/dual
           /generate_briefing {...} — crea Briefing Modulo da template
           /doc_pack — crea pacchetto finale (ZIP)
 
@@ -554,6 +555,22 @@ commands:
                   **[HR]** Variante di tavolo: sostituisci il tiro conoscenze con Percezione.
                   >note
                   🏛️ Primary Source — Regola base: richiedi Ricordare Conoscenze con CD adeguata.
+          - when: 'box_hr_primary_split'
+            do:
+              - output: |
+                  >warning
+                  **[HR]** House Rule (tavolo): applica svantaggio ai Recall Knowledge contro creature già note.
+                  ---
+                  >note
+                  🏛️ Primary Source — Regola base: un Recall Knowledge riuscito fornisce 1 info utile; ripetizioni aumentano la CD.
+          - when: 'box_primary_dual'
+            do:
+              - output: |
+                  >note
+                  🏛️ Primary Source — Codex: CD Recall Knowledge = difficoltà moderata per livello creatura.
+                  &emsp;
+                  >note
+                  🏛️ Primary Source — Bestiario: consenti un secondo tiro solo se cambia l'abilità usata (Arcana/Natura/Occultismo/Religione).
           - when: 'box_primary_reference'
             do:
               - output: |
@@ -590,9 +607,9 @@ commands:
           - when: 'cta'
             do:
               - output: |
-                  {{text-align:center,margin-left:60px,margin-right:60px,margin-bottom:16px Apri `/render_brew_example cover|toc|box_raw|box_pfs|box_meta|box_hr|box_primary|box_hr_primary|box_primary_reference|wrap_left|watercolor_corner|center_note|checklist` e chiudi con `/brew_lint`}}
+                  {{text-align:center,margin-left:60px,margin-right:60px,margin-bottom:16px Apri `/render_brew_example cover|toc|box_raw|box_pfs|box_meta|box_hr|box_primary|box_hr_primary|box_hr_primary_split|box_primary_dual|box_primary_reference|wrap_left|watercolor_corner|center_note|checklist` e chiudi con `/brew_lint`}}
           - default:
-              - output: "⚠ Tipo di esempio non riconosciuto. Usa cover/toc/box_raw/box_pfs/box_meta/box_hr/box_primary/box_hr_primary/box_primary_reference/wrap_left/watercolor_corner/center_note/checklist/cta."
+              - output: "⚠ Tipo di esempio non riconosciuto. Usa cover/toc/box_raw/box_pfs/box_meta/box_hr/box_primary/box_hr_primary/box_hr_primary_split/box_primary_dual/box_primary_reference/wrap_left/watercolor_corner/center_note/checklist/cta."
 
   /generate_briefing:
     description: Genera un briefing usando lo standard_briefing_template
