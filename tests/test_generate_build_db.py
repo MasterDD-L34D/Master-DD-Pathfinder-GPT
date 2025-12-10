@@ -99,7 +99,9 @@ def test_review_local_database_flags_missing_progression(monkeypatch, tmp_path):
         "iniziativa": 3,
         "velocita": 9,
         "skill_points": 0,
-        "progressione": [],
+        "progressione": [
+            {"livello": 1, "privilegi": ["Sneak Attack"]},
+        ],
     }
 
     payload = {
@@ -118,7 +120,7 @@ def test_review_local_database_flags_missing_progression(monkeypatch, tmp_path):
     entry = report["builds"]["entries"][0]
     assert entry["status"] == "invalid"
     assert any(
-        "Progressione assente al livello 5" in error
+        "Progressione assente al livello 2" in error
         for error in entry.get("completeness_errors", [])
     )
 
