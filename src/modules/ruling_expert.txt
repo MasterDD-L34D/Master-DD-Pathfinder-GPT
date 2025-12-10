@@ -282,6 +282,16 @@ commands:
         value: "{{ not runtime.require_citation_strict }}"
       - output: "🔒 Strict citations: {{ 'ON' if runtime.require_citation_strict else 'OFF' }}"
 
+minmax_builder_stub_fields:
+  description: "Mappa del payload JSON restituito da GET /modules/minmax_builder.txt?mode=stub (o stub=true) per QA/integrazione con il builder."
+  fields:
+    build_state: "Metadati di avanzamento della build (mode, razza/classe, archetipi, step corrente/totale, etichette step, statistics) usati per orientare rulings e gating PFS."
+    sheet: "Scheda sintetica con statistiche_chiave, slot incantesimi, progressione e inventario: base per esempi numerici, stacking e controlli di legalità."
+    benchmark: "Tier/meta_tier, ruling_badge e snapshot DPR/statistiche_chiave che fungono da gate QA e da riferimento per simulazioni MinMax."
+    ledger: "Movimenti e currency (oro/argento/rame) per verifiche di costo/ricompense; supporta check di compliance PFS e export equipaggiamento."
+    export: "Blocco sheet_payload già formattato per export_build/export_vtt, coerente con lo schema builder e riutilizzabile dai moduli di rendering."
+    composite: "Vista aggregata: build_state+benchmark+export nella sezione build, più narrative/sheet/ledger. Pensata per client che vogliono un payload unico e per cross-check con rulings."
+
 flow:
   cache_enabled: true
   max_retries: 3
@@ -427,6 +437,7 @@ status_example:
   output: |
     Ruling Expert • scope: RAW • PFS: auto (season: auto) • speed: balanced • output: Completo • dump: locked (ALLOW_MODULE_DUMP=false; whitelist: -)
     Last sources: AoN:[…], Book/Page:[…], FAQ:[…] | Cache: hit yes/no | Offline: disabled
+    👉 Conferma stagione PFS attiva (/set_pfs_season 10-11 o "auto") prima di applicare i ruling.
 
 examples:
   - user: "/ruling Canny Defense"
