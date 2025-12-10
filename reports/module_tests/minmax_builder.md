@@ -46,7 +46,7 @@
 - Nessun errore bloccante emerso nei test API e negli stub di build.【1cc753†L6-L7】
 
 ## Miglioramenti suggeriti
-- Considerare di esporre nell’export o nelle CTA finali il nome file di output/format (es. `MinMax_<nome>.pdf/json`) per allineare le aspettative su `export_build`/`export_vtt`.【F:src/modules/minmax_builder.txt†L1040-L1087】【F:src/modules/minmax_builder.txt†L2214-L2245】
+- Nessuno aperto: le CTA di export riportano ora il nome file previsto (`MinMax_<nome>.pdf/.xlsx/.json`) allineato con la nomenclatura condivisa di Encounter_Designer, riducendo gli equivoci sull’output.【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1070-L1088】
 
 ## Note di verifica
 - ✅ L’help rapido ora include i gate QA (`export_requires`) e il naming atteso dei file (`MinMax_<nome>.pdf/.xlsx/.json`), riducendo i tentativi di export falliti: non risultano più fix aperti su questo punto.【F:src/modules/minmax_builder.txt†L930-L960】【F:src/modules/minmax_builder.txt†L1995-L2017】

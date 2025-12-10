@@ -15,7 +15,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 ## Seconda fase · P1 residui e P2 cooperativi
 
 - **minmax_builder**
-  - Considerare di esporre nell’export o nelle CTA finali il nome file di output/format (es. `MinMax_<nome>.pdf/json`) per allineare le aspettative su `export_build`/`export_vtt`. Dipendenza: coordinarsi con Encounter_Designer per la nomenclatura export condivisa.【F:src/modules/minmax_builder.txt†L1040-L1087】【F:src/modules/minmax_builder.txt†L2214-L2245】
+  - Nessun task aperto: le CTA di export mostrano il naming condiviso `MinMax_<nome>.pdf/.xlsx/.json` in linea con Encounter_Designer, chiarendo l’output previsto.【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1070-L1088】
 - **knowledge_pack**
   - **Allineamento estensioni:** verificare che i client puntino ai percorsi Knowledge Pack in `.txt`, sostituendo riferimenti legacy.【F:src/modules/knowledge_pack.md†L3-L4】
   - **Miglioria potenziale:** includere nelle API di metadata un campo `version`/`compatibility` già presente nel testo per evitare parsing dal corpo del modulo.【F:src/modules/knowledge_pack.md†L1-L6】
@@ -40,7 +40,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | Modulo | Task aperti | Priorità massima | Stato |
 | --- | --- | --- | --- |
 | Encounter_Designer | 0 | — | Pronto per sviluppo |
-| minmax_builder | 1 | P2 | Pronto per sviluppo |
+| minmax_builder | 0 | — | Pronto per sviluppo |
 | Taverna_NPC | 0 | — | Pronto per sviluppo |
 | tavern_hub | 0 | — | Pronto per sviluppo |
 | Cartelle di servizio | 1 | P2 | Pronto per sviluppo |
