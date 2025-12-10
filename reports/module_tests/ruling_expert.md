@@ -50,4 +50,4 @@
 - **Rafforzare CTA per PFS**: il flow indica season awareness e priorità PFS ma il `status_example` non mostra esplicitamente il badge/season derivato; aggiungere un prompt CTA per confermare la stagione PFS potrebbe ridurre ambiguità di giurisdizione.【F:src/modules/ruling_expert.txt†L300-L317】【F:src/modules/ruling_expert.txt†L417-L424】
 
 ## Fix necessari
-- Applicare la policy `no_raw_dump` anche lato server (configurando `ALLOW_MODULE_DUMP=false` by default o introducendo whitelist) così che il comportamento runtime sia coerente con quanto dichiarato nel modulo.【F:src/modules/ruling_expert.txt†L80-L85】【c08648†L20-L28】【88122c†L1-L74】
+- Nessuno: la policy `exposure_policy: no_raw_dump` è già rispettata lato server con `ALLOW_MODULE_DUMP=false` come default e con supporto a whitelist esplicita, garantendo troncamento e marker coerenti con il modulo.【F:src/modules/ruling_expert.txt†L80-L85】【F:src/config.py†L21-L21】【c08648†L20-L28】
