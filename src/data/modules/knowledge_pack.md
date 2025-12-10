@@ -1,7 +1,7 @@
 # Knowledge Pack — Guida d’Uso + Demo + Prompt (PF1e Master DD)
 
 > **Versione:** v2 • **Data:** 2025-09-04 • **Compatibilità:** Core 3.3+
-> **Nota migrazione:** tutti i percorsi ora puntano a **.txt** (niente .yaml).
+> **Nota migrazione:** tutti i percorsi Knowledge Pack ora puntano a file **.txt**; aggiorna eventuali client legacy di conseguenza.
 > **Badge:** [RAW] [RAI] [PFS] 🧠 META [HR]
 > **Recupero moduli:** segui il flusso `decidi modalità → GET /modules/{name} (header x-api-key) → riformula` senza duplicare il kernel nel profilo GPT.
 
