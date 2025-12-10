@@ -1791,7 +1791,6 @@ def _enrich_sheet_payload(
 
         return normalized
 
-
     sheet_payload: MutableMapping[str, object] = {}
     for candidate in (
         _as_mapping(export_ctx.get("sheet_payload")),
@@ -2277,6 +2276,7 @@ def _enrich_sheet_payload(
 
     return sheet_payload
 
+
 def _stringify_sequence(values: object, *, limit: int | None = None) -> list[str]:
     """Converti una sequenza generica in un elenco di stringhe pulite."""
 
@@ -2312,9 +2312,7 @@ def _ruling_context_from_payload(
     payload: Mapping[str, Any], request: BuildRequest
 ) -> Mapping[str, object]:
     export = payload.get("export") if isinstance(payload, Mapping) else None
-    sheet_payload = (
-        export.get("sheet_payload") if isinstance(export, Mapping) else None
-    )
+    sheet_payload = export.get("sheet_payload") if isinstance(export, Mapping) else None
     talents = []
     if isinstance(sheet_payload, Mapping):
         talents = _stringify_sequence(sheet_payload.get("talenti"), limit=5)
@@ -2407,7 +2405,6 @@ async def _validate_ruling_badge(
     }
 
     return normalized_badge, sources
-
 
 
 def _apply_level_checkpoint(
@@ -2734,7 +2731,9 @@ async def fetch_build(
         }
     )
 
-    ruling_retries = ruling_max_retries if ruling_max_retries is not None else max_retries
+    ruling_retries = (
+        ruling_max_retries if ruling_max_retries is not None else max_retries
+    )
     await _validate_ruling_badge(
         client,
         url=ruling_expert_url,
@@ -3021,7 +3020,10 @@ async def run_harvest(
                 }
             )
             for entry in cached.get("entries", []):
-                key = entry.get("file") or f"{entry.get('output_prefix')}@{entry.get('level')}"
+                key = (
+                    entry.get("file")
+                    or f"{entry.get('output_prefix')}@{entry.get('level')}"
+                )
                 if key:
                     existing_build_entries[str(key)] = entry
         except Exception as exc:  # pragma: no cover - defensive logging only
@@ -3611,7 +3613,9 @@ def main() -> None:
         raise ValueError("--dual-pass non è compatibile con --validate-db")
 
     if not args.ruling_expert_url and not args.validate_db:
-        raise ValueError("--ruling-expert-url è obbligatorio per salvare nuovi snapshot")
+        raise ValueError(
+            "--ruling-expert-url è obbligatorio per salvare nuovi snapshot"
+        )
 
     if args.dual_pass:
         run_dual_pass_harvest(args)

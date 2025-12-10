@@ -6,7 +6,7 @@ Questa guida riassume come usare l'API FastAPI esposta dal progetto, con esempi 
 
 - **Header obbligatorio**: `x-api-key: <API_KEY>` a meno che non sia impostato `ALLOW_ANONYMOUS=true`.
 - **Troncamento contenuti** (`ALLOW_MODULE_DUMP`):
-  - `false` (default): i file non testuali generano `403 Module download not allowed`; i `.txt`/`.md` sono limitati ai primi 4000 caratteri con suffisso `[contenuto troncato]`.
+  - `false` (default): i file non testuali generano `403 Module download not allowed`; i `.txt`/`.md` sono limitati ai primi 4000 caratteri con suffisso `[contenuto troncato]`, header `X-Content-Partial: true` e status `206 Partial Content`.
   - `true`: i file vengono restituiti per intero, inclusi PDF/asset non testuali (abilitare solo per QA/export controllati).
 - **Metriche Prometheus** (`METRICS_API_KEY` o `METRICS_IP_ALLOWLIST`):
   - `/metrics` è protetto da API key dedicata (`METRICS_API_KEY`) o dalla stessa `API_KEY`.
@@ -50,6 +50,12 @@ x-api-key: ${API_KEY}
 
 ### `GET /modules/{name}/meta`
 Restituisce metadati (nome, dimensioni, estensione) senza il contenuto del file.
+
+### `GET /modules/taverna_saves/meta`
+Restituisce quota e metadati della cartella di servizio `taverna_saves`, inclusi path, `max_files`, slot residui, spazio disco libero e policy di naming/overflow.
+
+### `GET /modules/taverna_saves/quota`
+Espone solo i numeri di quota/occupazione (`current_files`, `remaining_files`, spazio disco, dimensione totale dei JSON salvati).
 
 ### `GET|POST /modules/{name}`
 Restituisce il contenuto del modulo o, per `minmax_builder.txt`, uno **stub** di risposta del builder.
