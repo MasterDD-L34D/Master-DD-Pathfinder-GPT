@@ -96,8 +96,9 @@ Per monitorare i salvataggi generati dal flusso Taverna, sono disponibili gli en
 `GET /modules/taverna_saves/meta` (path, quota `max_files`, spazio residuo, policy di
 overflow) e `GET /modules/taverna_saves/quota` (occupazione rapida della cartella). Il
 payload include note di remediation per Echo gate <8.5 (ripeti /grade, usa /refine_npc o,
-in sandbox, disattiva temporaneamente con /echo off) e per QA CHECK bloccanti (esegui
-/self_check e la routine QA CHECK/repair prima di salvare/esportare).
+in sandbox, disattiva temporaneamente con /echo off) e per QA CHECK bloccanti: completa
+Canvas+Ledger, ripeti /self_check e verifica Echo ≥ soglia prima di rilanciare /save_npc o
+/npc_export (bloccati finché QA=CHECK o Echo è sotto soglia).
 
 ### Avvio API locale
 

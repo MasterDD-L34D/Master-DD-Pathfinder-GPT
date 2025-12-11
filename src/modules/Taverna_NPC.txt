@@ -800,7 +800,7 @@ commands:
         then:
           - if: "{{ not _canvas_ok }}": { output: "📑 Canvas mancante/incompleto: usa /canvas_set o rigenera la card finché i campi richiesti sono coperti." }
           - if: "{{ not _ledger_ok }}": { output: "💾 Ledger non montato: inizializza con /ledger_init o importa con /ledger_append per riprendere un salvataggio." }
-          - output: "ℹ️ QA CHECK: completa i punti sopra, poi riesegui /self_check. Se Echo < {{runtime.echo_min_score}} esegui /grade (ripeti finché ≥soglia) o /refine_npc; in sandbox puoi disattivare temporaneamente con /echo off. Export e salvataggi restano bloccati finché QA=CHECK o Echo < soglia."
+          - output: "ℹ️ QA CHECK: completa i punti sopra, poi riesegui /self_check. Se Echo < {{runtime.echo_min_score}} esegui /grade (ripeti finché ≥soglia) o /refine_npc; in sandbox puoi disattivare temporaneamente con /echo off. Solo quando QA=OK ed Echo ≥ soglia riprova /save_npc o /npc_export: finché QA=CHECK o Echo < soglia restano bloccati."
 
   /echo <on|off>:
     description: "Abilita/disabilita il grading+gate Echo locale (rispetta anche i toggles globali)."
@@ -1006,7 +1006,7 @@ commands:
             then:
               - output: "🧪 Echo gate: score {{QR.score}}/10 (< {{runtime.echo_min_score}}) → applico micro-refine (card più compatta/equip/feats coerenti)."
               - # (eventuale micro-refine qui; lasciamo nota)
-              - output: "➡️ Remediation: applica i fix suggeriti da /grade, riesegui /grade finché Echo ≥ {{runtime.echo_min_score}} o usa /refine_npc; i salvataggi/export su taverna_saves restano bloccati finché Echo < soglia (in sandbox puoi disattivare il gate con /echo off)."
+              - output: "➡️ Remediation: applica i fix suggeriti da /grade, riesegui /grade finché Echo ≥ {{runtime.echo_min_score}} o usa /refine_npc; in sandbox puoi disattivare il gate con /echo off per iterare rapidamente ma prima di salvare/export rifai /grade e /self_check finché Echo ≥ soglia. I salvataggi/export su taverna_saves restano bloccati finché Echo < soglia."
             else:
               - output: "✅ Echo gate: OK ({{QR.score}}/10)."
       - output_template: ui_templates.npc_card_compact
@@ -1133,7 +1133,7 @@ commands:
         then:
           - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
           - output: "⛔ Export bloccato: {{ _gate_reason }}."
-          - output: "➡️ CTA: riesegui /self_check finché QA=OK, poi /grade (ripeti) o /refine_npc se Echo < {{runtime.echo_min_score}}; in sandbox puoi disattivare Echo con /echo off prima di ritentare."
+          - output: "➡️ CTA: riesegui /self_check finché QA=OK, poi /grade (ripeti) o /refine_npc se Echo < {{runtime.echo_min_score}}; in sandbox puoi disattivare Echo con /echo off prima di iterare. Solo con QA=OK+Echo ≥ soglia riprova /npc_export o /save_npc."
           - goto_state: READY
         else:
           - continue
@@ -1224,8 +1224,8 @@ commands:
         then:
           - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
           - output: "⛔ Export bloccato: {{ _gate_reason }}."
-          - output: "➡️ CTA: prima esegui /save_hub o /check_conversation, poi riprova."
-          - output: "🛠️ Remediation: esegui /self_check per forzare il QA CHECK/repair (Canvas+Ledger); se Echo < {{runtime.echo_min_score}} ripeti /grade o /refine_npc finché non superi la soglia oppure, in sandbox, disattiva temporaneamente con /echo off prima di riprovare."
+          - output: "➡️ CTA: riesegui /self_check finché QA=OK, poi /grade (ripeti) o /refine_npc se Echo < {{runtime.echo_min_score}}; in sandbox puoi disattivare Echo con /echo off prima di iterare. Solo con QA=OK+Echo ≥ soglia riprova /npc_export o /save_npc."
+          - output: "🛠️ Remediation: esegui /self_check per forzare il QA CHECK/repair (Canvas+Ledger); se Echo < {{runtime.echo_min_score}} ripeti /grade o /refine_npc finché non superi la soglia oppure, in sandbox, disattiva temporaneamente con /echo off prima di riprovare. Prima di un nuovo export/salvataggio verifica QA=OK ed Echo ≥ soglia con /self_check + /grade."
           - goto_state: READY
         else:
           - output: "🗺️ (stub) Outline avventura generato da seed/quest selezionato."
@@ -1319,8 +1319,8 @@ commands:
         then:
           - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
           - output: "⛔ Export bloccato: {{ _gate_reason }}."
-          - output: "➡️ CTA: riesegui /self_check finché QA=OK, poi /grade (ripeti) o /refine_npc se Echo < {{runtime.echo_min_score}}; in sandbox puoi disattivare Echo con /echo off. Salva con /save_hub o riallinea la chat con /check_conversation prima di riprovare."
-          - output: "🛠️ Remediation: assicurati che Canvas+Ledger siano OK, porta Echo ≥ {{runtime.echo_min_score}} o disattiva il gate (solo sandbox) e ripeti /self_check prima di esportare."
+          - output: "➡️ CTA: riesegui /self_check finché QA=OK, poi /grade (ripeti) o /refine_npc se Echo < {{runtime.echo_min_score}}; in sandbox puoi disattivare Echo con /echo off. Solo quando QA=OK+Echo ≥ soglia prova /npc_export o /save_npc, dopo aver eventualmente riallineato la chat con /check_conversation."
+          - output: "🛠️ Remediation: assicurati che Canvas+Ledger siano OK, porta Echo ≥ {{runtime.echo_min_score}} o disattiva il gate (solo sandbox) e ripeti /self_check + /grade prima di esportare o salvare."
           - goto_state: READY
         else:
           - continue

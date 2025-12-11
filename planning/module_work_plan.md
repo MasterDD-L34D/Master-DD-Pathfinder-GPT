@@ -233,7 +233,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ### Task (priorità e scope)
 - [P1] Nessuno: la risposta include ora marker e header parziale (`X-Content-Partial`, `X-Content-Remaining-Bytes`) con CTA dedicate, e lo storage espone `/storage_meta` con quota residua e auto_name_policy per `taverna_saves`.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
-- [P2] 🔧 Aggiungere messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" per chiarire i passi di remediation.【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
+- [P2] ✅ CTA Echo/self-check aggiornate: aggiunti messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" con passi di remediation prima di export/salvataggi.【F:src/modules/Taverna_NPC.txt†L788-L811】【F:src/modules/Taverna_NPC.txt†L1129-L1144】
 
 ### Dipendenze
 - Supportano `Taverna_NPC` e `tavern_hub`; mantenere la coerenza dei messaggi con i gate Echo/QA condivisi.
