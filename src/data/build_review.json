@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-12-11T11:33:08Z",
+  "generated_at": "2025-12-11T12:09:55Z",
   "builds": {
-    "total": 89,
-    "valid": 89,
+    "total": 91,
+    "valid": 91,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
@@ -326,6 +326,25 @@
           10
         ],
         "level": 10,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/archive/gunslinger_human_base.json",
+        "output_prefix": "gunslinger_human_base",
+        "class": "Gunslinger",
+        "race": "Human",
+        "archetype": "Base",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "gunslinger_human_base",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 1,
         "status": "ok"
       },
       {
@@ -995,7 +1014,7 @@
         "archetype": "Pistolero + Bolt Ace",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "gunslinger_tengu_pistolero_bolt_ace",
+        "spec_id": "gunslinger_tengu_pistolero_+_bolt_ace",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -1014,7 +1033,7 @@
         "archetype": "Pistolero + Bolt Ace",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "gunslinger_tengu_pistolero_bolt_ace",
+        "spec_id": "gunslinger_tengu_pistolero_+_bolt_ace",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -1033,7 +1052,7 @@
         "archetype": "Pistolero + Bolt Ace",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "gunslinger_tengu_pistolero_bolt_ace",
+        "spec_id": "gunslinger_tengu_pistolero_+_bolt_ace",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -1064,14 +1083,14 @@
         "status": "ok"
       },
       {
-        "file": "src/data/builds/inquisitor.json",
-        "output_prefix": "inquisitor_human_base",
+        "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher.json",
+        "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",
         "class": "Inquisitor",
-        "race": "Human",
-        "archetype": "Base",
+        "race": "Vishkanya",
+        "archetype": "Tactical Leader Preacher",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "inquisitor_human_base",
+        "spec_id": "inquisitor_vishkanya_tactical_leader_preacher",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -1079,7 +1098,42 @@
           5,
           10
         ],
-        "level": 1,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl05.json",
+        "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",
+        "class": "Inquisitor",
+        "race": "Vishkanya",
+        "archetype": "Tactical Leader Preacher",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "inquisitor_vishkanya_tactical_leader_preacher",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl10.json",
+        "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",
+        "class": "Inquisitor",
+        "race": "Vishkanya",
+        "archetype": "Tactical Leader Preacher",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "inquisitor_vishkanya_tactical_leader_preacher",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
         "status": "ok"
       },
       {
