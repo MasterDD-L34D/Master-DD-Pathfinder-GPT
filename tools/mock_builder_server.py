@@ -49,15 +49,24 @@ async def fetch_build(
 
     base_slug = "_".join(slug_parts)
 
-    if level and level > 0:
-        level_slug = f"{base_slug}_lvl{int(level):02d}"
-        level_path = BUILDS_DIR / f"{level_slug}.json"
-        if level_path.is_file():
-            return _load_json(level_path)
+    slug_variants = [base_slug]
+    hyphen_variant = base_slug.replace("_", "-")
+    if hyphen_variant not in slug_variants:
+        slug_variants.append(hyphen_variant)
 
-    build_path = BUILDS_DIR / f"{base_slug}.json"
-    if not build_path.is_file():
-        build_path = BUILDS_DIR / f"{_slugify(class_)}.json"
+    if level and level > 0:
+        for variant in slug_variants:
+            level_slug = f"{variant}_lvl{int(level):02d}"
+            level_path = BUILDS_DIR / f"{level_slug}.json"
+            if level_path.is_file():
+                return _load_json(level_path)
+
+    for variant in slug_variants:
+        build_path = BUILDS_DIR / f"{variant}.json"
+        if build_path.is_file():
+            return _load_json(build_path)
+
+    build_path = BUILDS_DIR / f"{_slugify(class_)}.json"
 
     return _load_json(build_path)
 

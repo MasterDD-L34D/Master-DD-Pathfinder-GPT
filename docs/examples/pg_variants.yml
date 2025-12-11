@@ -91,3 +91,12 @@ requests:
     query:
       race: Goblin
       archetype: Bombardier
+  - id: bloodrager_skinwalker_primalist_blood_conduit
+    class: Bloodrager
+    race: Skinwalker
+    archetype: Primalist Blood Conduit
+    background_hooks: "Totemista skinwalker che canalizza il sangue elementale come araldo tribale."
+    output_prefix: bloodrager-skinwalker-primalist-blood-conduit
+    query:
+      race: Skinwalker
+      archetype: Primalist Blood Conduit
