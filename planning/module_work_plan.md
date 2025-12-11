@@ -1,6 +1,6 @@
 # Piano operativo generato dai report
 
-Generato il 2025-12-11T14:36:13Z
+Generato il 2025-12-11T15:17:59Z
 Fonte sequenza: `planning/module_review_guide.md`
 
 ## Checklist seguita (dal documento di guida)
@@ -109,6 +109,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] TODO
 - [P2] Nessuno aperto: la documentazione/client fa già riferimento ai percorsi `.txt` e l’API di metadata restituisce `version`/`compatibility` dal modulo senza necessità di parsing aggiuntivo.【F:docs/api_usage.md†L20-L27】【F:src/app.py†L392-L458】【F:src/modules/knowledge_pack.md†L1-L6】
 
 ### Dipendenze
@@ -123,6 +124,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] TODO
 - [P2] ✅ L’elenco `/modules` ora documenta che, con `ALLOW_MODULE_DUMP=false`, i file possono comparire con size ridotta e suffix `-partial`, chiarendo il comportamento in ambienti a dump limitato.【F:src/modules/meta_doc.txt†L1-L18】
 - [P2] ✅ `/render_brew_example` include snippet aggiuntivi HR/Primary (anche combinati) e una CTA di export Homebrewery pronta all’uso.【F:src/modules/meta_doc.txt†L504-L562】【F:src/modules/meta_doc.txt†L614-L640】
 
@@ -138,6 +140,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] TODO
 - [P2] Nessuno aperto: le CTA di export riportano ora il nome file previsto (`MinMax_<nome>.pdf/.xlsx/.json`) allineato con la nomenclatura condivisa di Encounter_Designer, riducendo gli equivoci sull’output.【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1070-L1088】
 
 ### Dipendenze
@@ -177,12 +180,14 @@ Fonte sequenza: `planning/module_review_guide.md`
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flow guidato RAW→FAQ→PFS applica guardrail anti-injection, disambiguazione con soglia 0.65 e CTA post-risposta, offrendo template UI per sezioni RAW/RAI/PFS/HR e strumenti di diagnostica per cache/offline e arithmetic_guard.【F:src/modules/ruling_expert.txt†L284-L356】【F:src/modules/ruling_expert.txt†L331-L410】
 - [Osservazione] La policy `exposure_policy: no_raw_dump` è applicata di default con `ALLOW_MODULE_DUMP=false` e whitelist opzionale: i dump testuali vengono troncati salvo opt-in esplicito.【F:src/modules/ruling_expert.txt†L80-L85】【F:src/config.py†L17-L28】
+- [Errore] TODO
 
 ## scheda_pg_markdown_template
 - Report: `reports/module_tests/scheda_pg_markdown_template.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] TODO
 - [P2] Nessuno aperto: i trigger/policy operative sono documentati nel meta header con CTA di export e note di sblocco.【F:src/modules/scheda_pg_markdown_template.md†L13-L63】【F:src/modules/scheda_pg_markdown_template.md†L35-L63】
 
 ### Dipendenze
@@ -198,6 +203,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] TODO
 - [P2] Nessuno: logica di assegnazione sigilli e motivazioni MDA/CTA risultano allineate alla checklist.
 
 ### Dipendenze
@@ -252,6 +258,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | archivist | 2 | 1 | 3 |
 | base_profile | 2 | 1 | 3 |
 | minmax_builder | 2 | 1 | 3 |
+| ruling_expert | 2 | 1 | 3 |
 | scheda_pg_markdown_template | 2 | 1 | 3 |
 | Cartelle di servizio | 1 | 2 | 3 |
 | adventurer_ledger | 1 | 1 | 2 |
@@ -259,7 +266,6 @@ Fonte sequenza: `planning/module_review_guide.md`
 | knowledge_pack | 1 | 1 | 2 |
 | meta_doc | 1 | 1 | 2 |
 | narrative_flow | 1 | 1 | 2 |
-| ruling_expert | 2 | 0 | 2 |
 | tavern_hub | 1 | 1 | 2 |
 ## Cross-cutting e dipendenze
 - Builder/Bilanciamento (Encounter_Designer, minmax_builder): usare i task sopra per valutare epic condivise su export/QA o flow di bilanciamento; ordinare i fix P1 prima dei miglioramenti.
@@ -271,7 +277,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | Modulo | Task totali | Priorità massima | #Osservazioni | #Errori | #Dipendenze | Stato |
 | --- | --- | --- | --- | --- | --- | --- |
 | Encounter_Designer | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo |
-| minmax_builder | 1 | P2 | 2 | 1 | 0 | Pronto per sviluppo |
+| minmax_builder | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo |
 | Taverna_NPC | 2 | P1 | 1 | 2 | 0 | Pronto per sviluppo |
 | tavern_hub | 2 | P1 | 1 | 1 | 0 | Pronto per sviluppo |
 | Cartelle di servizio | 2 | P1 | 1 | 2 | 0 | Pronto per sviluppo |
@@ -279,9 +285,9 @@ Fonte sequenza: `planning/module_review_guide.md`
 | archivist | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo |
 | base_profile | 2 | P1 | 2 | 1 | 1 | Pronto per sviluppo |
 | explain_methods | 2 | P1 | 1 | 1 | 0 | Pronto per sviluppo |
-| knowledge_pack | 1 | P2 | 1 | 1 | 0 | Pronto per sviluppo |
-| meta_doc | 2 | P2 | 1 | 1 | 0 | Pronto per sviluppo |
+| knowledge_pack | 2 | P1 | 1 | 1 | 0 | Pronto per sviluppo |
+| meta_doc | 3 | P1 | 1 | 1 | 0 | Pronto per sviluppo |
 | narrative_flow | 2 | P1 | 1 | 1 | 0 | Pronto per sviluppo |
-| ruling_expert | 2 | P1 | 2 | 0 | 0 | Pronto per sviluppo |
-| scheda_pg_markdown_template | 1 | P2 | 2 | 1 | 0 | Pronto per sviluppo |
-| sigilli_runner_module | 1 | P2 | 3 | 4 | 0 | Pronto per sviluppo |
+| ruling_expert | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo |
+| scheda_pg_markdown_template | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo |
+| sigilli_runner_module | 2 | P1 | 3 | 4 | 0 | Pronto per sviluppo |

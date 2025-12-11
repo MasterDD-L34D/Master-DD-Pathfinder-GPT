@@ -408,17 +408,33 @@ def build_plan(output_path: Path, executive_output: Path) -> None:
         "",
     ]
 
+    summary_columns = [
+        "Modulo",
+        "Task totali",
+        "Priorità massima",
+        "#Osservazioni",
+        "#Errori",
+        "#Dipendenze",
+        "Stato",
+    ]
     summary_rows = [
-        "| Modulo | Task totali | Priorità massima | #Osservazioni | #Errori | #Dipendenze | Stato |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
+        "| " + " | ".join(summary_columns) + " |",
+        "| " + " | ".join(["---"] * len(summary_columns)) + " |",
     ]
     for summary in sorted(
         summaries, key=lambda s: _module_sort_key(s.label, sequence_index=sequence_index)
     ):
+        row_cells = [
+            summary.label,
+            str(len(summary.tasks)),
+            summary.highest_priority,
+            str(len(summary.observations)),
+            str(len(summary.errors)),
+            str(len(summary.dependencies)),
+            summary.status,
+        ]
         summary_rows.append(
-            "| "
-            f"{summary.label} | {len(summary.tasks)} | {summary.highest_priority} | "
-            f"{len(summary.observations)} | {len(summary.errors)} | {len(summary.dependencies)} | {summary.status} |"
+            "| " + " | ".join(row_cells) + " |"
         )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
