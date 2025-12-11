@@ -92,14 +92,14 @@ Per allineare i report QA in `reports/module_tests/` alla checklist standard
 (Ambiente, Esiti API, Metadati, Comandi/Flow, QA, Osservazioni, Errori,
 Miglioramenti suggeriti, Fix necessari) puoi usare lo script
 `tools/refresh_module_reports.py`, che legge automaticamente la sequenza moduli
-da `planning/module_review_guide.md` e precompila i blocchi Metadati/Comandi con
-nome, versione, trigger e comandi estratti dal sorgente del modulo:
+da `planning/module_review_guide.md` e applica i placeholder nelle sezioni
+obbligatorie (creando i report mancanti quando serve):
 
 ```bash
-# Verifica che ogni report contenga le sezioni richieste (exit 1 se ne manca una)
+# Verifica che ogni report contenga tutte le sezioni richieste con almeno un bullet
 python tools/refresh_module_reports.py --check
 
-# Aggiunge le sezioni mancanti con bullet placeholder "- TODO" (Metadati/Comandi già valorizzati)
+# Aggiunge le sezioni mancanti con bullet placeholder "- TODO"
 python tools/refresh_module_reports.py --write
 ```
 
