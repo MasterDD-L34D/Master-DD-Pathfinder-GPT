@@ -180,10 +180,16 @@ def collect_section_lines(
     and emoji). The order of matching sections is preserved.
     """
 
+    matching_sections: List[List[str]] = [
+        content
+        for heading, content in sections
+        if any(pattern.search(heading) for pattern in patterns)
+    ]
+
     merged_lines: List[str] = []
-    for heading, content in sections:
-        if any(pattern.search(heading) for pattern in patterns):
-            merged_lines.extend(content)
+    for content in matching_sections:
+        merged_lines.extend(content)
+
     return merged_lines
 
 
