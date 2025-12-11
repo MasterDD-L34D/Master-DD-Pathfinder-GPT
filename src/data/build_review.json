@@ -1,8 +1,8 @@
 {
-    "generated_at": "2025-12-11T01:16:44Z",
+    "generated_at": "2025-12-11T11:11:48Z",
     "builds": {
-        "total": 83,
-        "valid": 83,
+        "total": 86,
+        "valid": 86,
         "invalid": 0,
         "errors": 0,
         "missing": 0,
@@ -215,25 +215,6 @@
                 "status": "ok"
             },
             {
-                "file": "src/data/builds/archive/bloodrager_human_base.json",
-                "output_prefix": "bloodrager_human_base",
-                "class": "Bloodrager",
-                "race": "Human",
-                "archetype": "Base",
-                "mode": "extended",
-                "mode_normalized": "extended",
-                "spec_id": "bloodrager_human_base",
-                "background": null,
-                "model": null,
-                "level_checkpoints": [
-                    1,
-                    5,
-                    10
-                ],
-                "level": 1,
-                "status": "ok"
-            },
-            {
                 "file": "src/data/builds/archive/brawler_human_base.json",
                 "output_prefix": "brawler_human_base",
                 "class": "Brawler",
@@ -251,6 +232,21 @@
                 ],
                 "level": 1,
                 "status": "ok"
+            },
+            {
+                "file": "src/data/builds/archive/cavalier_human_base.json",
+                "class": "Cavalier",
+                "mode": "extended",
+                "status": "ok",
+                "level": 1,
+                "output_prefix": "cavalier_human_base",
+                "level_checkpoints": [
+                    1,
+                    5,
+                    10
+                ],
+                "spec_id": "cavalier_human_base",
+                "mode_normalized": "extended"
             },
             {
                 "file": "src/data/builds/archive/cleric.json",
@@ -454,73 +450,49 @@
                 "status": "ok"
             },
             {
-                "file": "src/data/builds/bloodrager-skinwalker-primalist-blood-conduit.json",
-                "output_prefix": "bloodrager-skinwalker-primalist-blood-conduit",
+                "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager.json",
                 "class": "Bloodrager",
-                "race": "Skinwalker",
-                "archetype": "Primalist Blood Conduit",
                 "mode": "extended",
-                "mode_normalized": "extended",
-                "spec_id": "bloodrager_skinwalker_primalist_blood_conduit",
-                "background": "Totemista skinwalker che canalizza il sangue elementale come araldo tribale.",
-                "model": null,
-                "level_checkpoints": [
-                    1,
-                    5,
-                    10
-                ],
+                "status": "ok",
                 "level": 1,
-                "step_total": 16,
-                "expected_step_total": 16,
-                "extended_steps_available": true,
-                "step_total_ok": true,
-                "status": "ok"
-            },
-            {
-                "file": "src/data/builds/bloodrager-skinwalker-primalist-blood-conduit_lvl05.json",
-                "output_prefix": "bloodrager-skinwalker-primalist-blood-conduit",
-                "class": "Bloodrager",
-                "race": "Skinwalker",
-                "archetype": "Primalist Blood Conduit",
-                "mode": "extended",
-                "mode_normalized": "extended",
-                "spec_id": "bloodrager_skinwalker_primalist_blood_conduit",
-                "background": "Totemista skinwalker che canalizza il sangue elementale come araldo tribale.",
-                "model": null,
+                "output_prefix": "bloodrager-shabti-steelblood-metamagic-rager",
                 "level_checkpoints": [
                     1,
                     5,
                     10
                 ],
+                "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
+                "mode_normalized": "extended"
+            },
+            {
+                "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json",
+                "class": "Bloodrager",
+                "mode": "extended",
+                "status": "ok",
                 "level": 5,
-                "step_total": 16,
-                "expected_step_total": 16,
-                "extended_steps_available": true,
-                "step_total_ok": true,
-                "status": "ok"
-            },
-            {
-                "file": "src/data/builds/bloodrager-skinwalker-primalist-blood-conduit_lvl10.json",
-                "output_prefix": "bloodrager-skinwalker-primalist-blood-conduit",
-                "class": "Bloodrager",
-                "race": "Skinwalker",
-                "archetype": "Primalist Blood Conduit",
-                "mode": "extended",
-                "mode_normalized": "extended",
-                "spec_id": "bloodrager_skinwalker_primalist_blood_conduit",
-                "background": "Totemista skinwalker che canalizza il sangue elementale come araldo tribale.",
-                "model": null,
+                "output_prefix": "bloodrager-shabti-steelblood-metamagic-rager",
                 "level_checkpoints": [
                     1,
                     5,
                     10
                 ],
+                "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
+                "mode_normalized": "extended"
+            },
+            {
+                "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json",
+                "class": "Bloodrager",
+                "mode": "extended",
+                "status": "ok",
                 "level": 10,
-                "step_total": 16,
-                "expected_step_total": 16,
-                "extended_steps_available": true,
-                "step_total_ok": true,
-                "status": "ok"
+                "output_prefix": "bloodrager-shabti-steelblood-metamagic-rager",
+                "level_checkpoints": [
+                    1,
+                    5,
+                    10
+                ],
+                "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
+                "mode_normalized": "extended"
             },
             {
                 "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json",
@@ -593,7 +565,6 @@
             },
             {
                 "file": "src/data/builds/cavalier_strix_strategist_honor_guard.json",
-                "level": 1,
                 "output_prefix": "cavalier_strix_strategist_honor_guard",
                 "class": "Cavalier",
                 "race": "Strix",
@@ -608,6 +579,7 @@
                     5,
                     10
                 ],
+                "level": 1,
                 "step_total": 16,
                 "expected_step_total": 16,
                 "extended_steps_available": true,
@@ -616,7 +588,6 @@
             },
             {
                 "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl05.json",
-                "level": 5,
                 "output_prefix": "cavalier_strix_strategist_honor_guard",
                 "class": "Cavalier",
                 "race": "Strix",
@@ -631,6 +602,7 @@
                     5,
                     10
                 ],
+                "level": 5,
                 "step_total": 16,
                 "expected_step_total": 16,
                 "extended_steps_available": true,
@@ -639,7 +611,6 @@
             },
             {
                 "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl10.json",
-                "level": 10,
                 "output_prefix": "cavalier_strix_strategist_honor_guard",
                 "class": "Cavalier",
                 "race": "Strix",
@@ -654,6 +625,7 @@
                     5,
                     10
                 ],
+                "level": 10,
                 "step_total": 16,
                 "expected_step_total": 16,
                 "extended_steps_available": true,
@@ -730,61 +702,19 @@
                 "status": "ok"
             },
             {
-                "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
-                "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+                "file": "src/data/builds/druid.json",
                 "class": "Druid",
-                "race": "Wayang",
-                "archetype": "Mooncaller Shapeshifter",
                 "mode": "extended",
-                "mode_normalized": "extended",
-                "spec_id": "druid_wayang_mooncaller_shapeshifter",
-                "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurit\u00e0.",
-                "model": null,
-                "level_checkpoints": [
-                    1,
-                    5,
-                    10
-                ],
+                "status": "ok",
                 "level": 1,
-                "status": "ok"
-            },
-            {
-                "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
-                "output_prefix": "druid_wayang_mooncaller_shapeshifter",
-                "class": "Druid",
-                "race": "Wayang",
-                "archetype": "Mooncaller Shapeshifter",
-                "mode": "extended",
-                "mode_normalized": "extended",
-                "spec_id": "druid_wayang_mooncaller_shapeshifter",
-                "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurit\u00e0.",
-                "model": null,
+                "output_prefix": "druid_human_base",
                 "level_checkpoints": [
                     1,
                     5,
                     10
                 ],
-                "level": 5,
-                "status": "ok"
-            },
-            {
-                "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
-                "output_prefix": "druid_wayang_mooncaller_shapeshifter",
-                "class": "Druid",
-                "race": "Wayang",
-                "archetype": "Mooncaller Shapeshifter",
-                "mode": "extended",
-                "mode_normalized": "extended",
-                "spec_id": "druid_wayang_mooncaller_shapeshifter",
-                "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurit\u00e0.",
-                "model": null,
-                "level_checkpoints": [
-                    1,
-                    5,
-                    10
-                ],
-                "level": 10,
-                "status": "ok"
+                "spec_id": "druid_human_base",
+                "mode_normalized": "extended"
             },
             {
                 "file": "src/data/builds/druid_half_orc_feral.json",
@@ -834,6 +764,67 @@
                 "mode_normalized": "extended",
                 "spec_id": "druid_half_orc_feral",
                 "background": null,
+                "model": null,
+                "level_checkpoints": [
+                    1,
+                    5,
+                    10
+                ],
+                "level": 10,
+                "status": "ok"
+            },
+            {
+                "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
+                "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+                "level": 1,
+                "class": "Druid",
+                "race": "Wayang",
+                "archetype": "Mooncaller Shapeshifter",
+                "mode": "extended",
+                "mode_normalized": "extended",
+                "spec_id": "druid_wayang_mooncaller_shapeshifter",
+                "model": null,
+                "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità.",
+                "level_checkpoints": [
+                    1,
+                    5,
+                    10
+                ],
+                "step_total": 16,
+                "expected_step_total": 16,
+                "extended_steps_available": true,
+                "step_total_ok": true,
+                "status": "ok"
+            },
+            {
+                "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
+                "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+                "class": "Druid",
+                "race": "Wayang",
+                "archetype": "Mooncaller Shapeshifter",
+                "mode": "extended",
+                "mode_normalized": "extended",
+                "spec_id": "druid_wayang_mooncaller_shapeshifter",
+                "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità.",
+                "model": null,
+                "level_checkpoints": [
+                    1,
+                    5,
+                    10
+                ],
+                "level": 5,
+                "status": "ok"
+            },
+            {
+                "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
+                "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+                "class": "Druid",
+                "race": "Wayang",
+                "archetype": "Mooncaller Shapeshifter",
+                "mode": "extended",
+                "mode_normalized": "extended",
+                "spec_id": "druid_wayang_mooncaller_shapeshifter",
+                "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità.",
                 "model": null,
                 "level_checkpoints": [
                     1,
@@ -1720,20 +1711,20 @@
         ],
         "checkpoints": {
             "1": {
-                "total": 44,
-                "invalid": 0,
+                "total": 46,
+                "invalid": 2,
                 "schema_errors": 0,
                 "completeness_errors": 0
             },
             "5": {
-                "total": 22,
-                "invalid": 0,
+                "total": 24,
+                "invalid": 1,
                 "schema_errors": 0,
                 "completeness_errors": 0
             },
             "10": {
-                "total": 17,
-                "invalid": 0,
+                "total": 19,
+                "invalid": 1,
                 "schema_errors": 0,
                 "completeness_errors": 0
             }
@@ -1741,8 +1732,8 @@
     },
     "modules": {
         "total": 14,
-        "valid": 14,
-        "invalid": 0,
+        "valid": 9,
+        "invalid": 5,
         "errors": 0,
         "missing": 0,
         "entries": [
@@ -1755,13 +1746,15 @@
             {
                 "module": "Taverna_NPC.txt",
                 "file": "src/data/modules/Taverna_NPC.txt",
-                "status": "ok",
-                "size_bytes": 130023
+                "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
+                "status": "invalid",
+                "size_bytes": 124135
             },
             {
                 "module": "adventurer_ledger.txt",
                 "file": "src/data/modules/adventurer_ledger.txt",
-                "status": "ok",
+                "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
+                "status": "invalid",
                 "size_bytes": 78592
             },
             {
@@ -1773,8 +1766,9 @@
             {
                 "module": "base_profile.txt",
                 "file": "src/data/modules/base_profile.txt",
-                "status": "ok",
-                "size_bytes": 36129
+                "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
+                "status": "invalid",
+                "size_bytes": 36078
             },
             {
                 "module": "explain_methods.txt",
@@ -1803,8 +1797,9 @@
             {
                 "module": "narrative_flow.txt",
                 "file": "src/data/modules/narrative_flow.txt",
-                "status": "ok",
-                "size_bytes": 37950
+                "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
+                "status": "invalid",
+                "size_bytes": 35089
             },
             {
                 "module": "ruling_expert.txt",
@@ -1815,8 +1810,9 @@
             {
                 "module": "scheda_pg_markdown_template.md",
                 "file": "src/data/modules/scheda_pg_markdown_template.md",
-                "status": "ok",
-                "size_bytes": 26242
+                "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
+                "status": "invalid",
+                "size_bytes": 23497
             },
             {
                 "module": "sigilli_runner_module.txt",
