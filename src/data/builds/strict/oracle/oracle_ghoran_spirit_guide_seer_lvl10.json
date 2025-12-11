@@ -1,0 +1,246 @@
+{
+  "build_state": {
+    "class": "Oracle",
+    "mode": "extended",
+    "race": "Ghoran",
+    "archetype": "Spirit Guide + Seer",
+    "step": 1,
+    "step_total": 16,
+    "step_labels": {
+      "1": "Profilo Base",
+      "2": "Razza & Classe",
+      "3": "Archetipi & Multiclasse",
+      "4": "Feats & Talenti",
+      "5": "Spell & Power Set",
+      "6": "Equip & Risorse",
+      "7": "Benchmark & Simulazioni",
+      "8": "QA & Export",
+      "9": "Dummies Sheet",
+      "10": "Esportazione",
+      "11": "Fork/Varianti",
+      "12": "Comparativa",
+      "13": "Meta Rating",
+      "14": "Companion",
+      "15": "Report",
+      "16": "Chiusura"
+    },
+    "statistics": {
+      "FOR": 10,
+      "DES": 12,
+      "COS": 18,
+      "INT": 10,
+      "SAG": 16,
+      "CAR": 22
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 8,
+        "picco": 14
+      },
+      "livello_5": {
+        "media": 23,
+        "picco": 36
+      },
+      "livello_10": {
+        "media": 46,
+        "picco": 68
+      }
+    },
+    "statistics": {
+      "attacco": "+13",
+      "danni": "controllo T1 + evocazioni estese",
+      "ca": 24
+    },
+    "bench_log": [
+      "Varianti testate (Ruling Expert → MinMax → Taverna/Narrative): (1) Ghoran Spirit Guide + Seer con mystery Lore e patroni adattivi (T1), (2) Ghoran Dual-Cursed + Seeker focalizzata sulle maledizioni e buff (T2), (3) Ghoran Spirit Guide + Planar Oracle a tema natura/invocazione (T2).",
+      "Ruling: badge RAW/RAI/PFS confermato per la combinazione Spirit Guide + Seer con consultazione oracolare e patroni shaman; nessuna HR necessaria.",
+      "Benchmark: promossa la variante 1 per accesso anticipato a incantesimi T1 e sinergia con hex condivisi; log di bench/ruling salvato nei metadati."
+    ]
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Oracle",
+          "livelli": 1,
+          "archetipi": [
+            "Spirit Guide",
+            "Seer"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 10,
+        "DES": 12,
+        "COS": 18,
+        "INT": 10,
+        "SAG": 16,
+        "CAR": 22,
+        "attacco": "+13",
+        "danni": "1d6+6+buff",
+        "ca": 24
+      },
+      "statistiche_chiave": {
+        "attacco": "+13 con blessing, reroll e metamagia",
+        "danni": "incantesimi di 6° + hex full sharing",
+        "ca": 24
+      },
+      "benchmarks": {
+        "meta_tier": "T1"
+      },
+      "salvezze": {
+        "Tempra": 8,
+        "Riflessi": 5,
+        "Volontà": 13
+      },
+      "attack_bonus": {
+        "melee": "+13",
+        "ranged": "+11",
+        "special": "+16 (tocco benedetto/metamagia)"
+      },
+      "damage": {
+        "melee": "bastone 1d6+6+blessing",
+        "special": "evocazioni di 6° + hex condivisi"
+      },
+      "skills": [
+        {
+          "nome": "Conoscenze (religioni)",
+          "gradi": 1,
+          "mod_car": 2,
+          "var": 3,
+          "classe": true,
+          "totale": 13
+        },
+        {
+          "nome": "Conoscenze (arcane)",
+          "gradi": 1,
+          "mod_car": 0,
+          "var": 3,
+          "classe": true,
+          "totale": 11
+        },
+        {
+          "nome": "Percezione",
+          "gradi": 1,
+          "mod_car": 2,
+          "var": 1,
+          "classe": true,
+          "totale": 9
+        }
+      ],
+      "equipaggiamento": [
+        "Bastone rituale di linfa",
+        "Focus druidico intrecciato",
+        "Set da veggente Ghoran",
+        "Tatuaggi di mistero lore"
+      ],
+      "bench_log": [
+        "Pipeline confermata: Spirit Guide + Seer mantiene badge RAW/RAI/PFS e posizionamento T1."
+      ],
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; patroni shaman e reroll Seer compatibili"
+    }
+  },
+  "narrative": "Vegliardo di linfa che filtra i sussurri del mondo attraverso spiriti guida e presagi vegetali, condividendo hex e reroll con la comunità.",
+  "bench_log": [
+    "Ruling Expert: validata la doppia archetipazione Spirit Guide + Seer e l'accesso a patroni e reroll su base Ghoran.",
+    "MinMax: confrontate 3 varianti; scelta la T1 con mystery Lore, patrono Adaptation e reroll Seer per massimizzare versatilità di controllo.",
+    "Narrative/Taverna: oracolo arboreo che funge da oracolo itinerante nei mercati di linfa e spirito."
+  ],
+  "body_params": {
+    "race": "Ghoran",
+    "archetype_primary": "Spirit Guide",
+    "archetype_secondary": "Seer",
+    "focus": "caster T1 con hex condivisi e reroll di presagio"
+  },
+  "build_source": "local spec",
+  "class": "Oracle",
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    "mock_ruling_expert"
+  ],
+  "qa": {
+    "ruling_expert": {
+      "badge": "RAW/RAI/PFS",
+      "sources": [
+        "mock_ruling_expert"
+      ],
+      "context": {
+        "class": "Oracle",
+        "archetype": "Spirit Guide + Seer",
+        "race": "Ghoran",
+        "level": 10,
+        "talenti_chiave": [
+          "Extra Revelation",
+          "Selective Channeling",
+          "Spell Focus (conjuration)"
+        ],
+        "hr_sources": null,
+        "meta_sources": [
+          "Pipeline Ruling Expert → MinMax → Taverna"
+        ],
+        "pfs_mode": "RAW"
+      }
+    },
+    "minmax": {
+      "badge": "validated",
+      "sources": [
+        "minmax_runner"
+      ],
+      "context": {
+        "key_rotation": "Metamagia su controlli + hex condivisi per lockdown",
+        "nova": "Summon monster VI + miracle-lite da mystery Lore",
+        "safety": "Reroll multipli + life link di linfa"
+      }
+    },
+    "narrative": {
+      "badge": "tavern_ok",
+      "sources": [
+        "tavern_builder"
+      ],
+      "context": {
+        "role": "Veggente arboreo",
+        "hook": "Offre presagi in cambio di linfa e storie",
+        "voice": "tono sussurrato e frusciante"
+      }
+    }
+  },
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "ok",
+      "bench_log": "Badge RAW/RAI/PFS validato; hex di supporto e reroll attivi",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 5,
+      "status": "ok",
+      "bench_log": "Patrono Adaptation online; summon e controlli T1 consolidati",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 10,
+      "status": "ok",
+      "bench_log": "Accesso a incantesimi di 6° e reroll ampliati; support/control T1 stabile",
+      "ruling_badge": "RAW/RAI/PFS"
+    }
+  ],
+  "output_prefix": "oracle_ghoran_spirit_guide_seer",
+  "race": "Ghoran",
+  "archetype": "Spirit Guide + Seer",
+  "spec_id": "oracle_ghoran_spirit_guide_seer",
+  "background": "Oracolo Ghoran che intreccia presagi vegetali e patroni shamanici",
+  "level": 10,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ]
+}
