@@ -180,14 +180,10 @@ def collect_section_lines(
     and emoji). The order of matching sections is preserved.
     """
 
-    matched_sections: List[List[str]] = []
+    merged_lines: List[str] = []
     for heading, content in sections:
         if any(pattern.search(heading) for pattern in patterns):
-            matched_sections.append(content)
-
-    merged_lines: List[str] = []
-    for content in matched_sections:
-        merged_lines.extend(content)
+            merged_lines.extend(content)
     return merged_lines
 
 
@@ -216,11 +212,11 @@ def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSu
     observation_lines = collect_section_lines(sections, observation_patterns)
     dependency_lines = collect_section_lines(sections, dependency_patterns)
 
-    fixes = parse_prioritised_tasks(list(fix_lines), default_priority=1)
-    improvements = parse_prioritised_tasks(list(improvement_lines), default_priority=2)
-    errors = parse_bullets(list(error_lines))
-    observations = parse_bullets(list(observation_lines))
-    dependencies = parse_bullets(list(dependency_lines))
+    fixes = parse_prioritised_tasks(fix_lines, default_priority=1)
+    improvements = parse_prioritised_tasks(improvement_lines, default_priority=2)
+    errors = parse_bullets(error_lines)
+    observations = parse_bullets(observation_lines)
+    dependencies = parse_bullets(dependency_lines)
 
     tasks: List[Tuple[int, str]] = fixes + improvements
     return ModuleSummary(module_label, report_path, tasks, errors, observations, dependencies)
