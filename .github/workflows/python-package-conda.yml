@@ -34,6 +34,10 @@ jobs:
     - name: Daily workflow CLI smoke test
       run: |
         pytest tests/test_daily_workflow_cli.py
+      env:
+        ALLOW_MODULE_DUMP: ""
     - name: Test with pytest
       run: |
         pytest
+      env:
+        ALLOW_MODULE_DUMP: ""
