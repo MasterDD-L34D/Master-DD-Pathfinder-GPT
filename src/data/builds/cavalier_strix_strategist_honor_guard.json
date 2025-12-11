@@ -1,0 +1,259 @@
+{
+  "build_state": {
+    "class": "Cavalier",
+    "mode": "extended",
+    "race": "Strix",
+    "archetype": "Strategist Honor Guard",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 18,
+      "DES": 15,
+      "COS": 14,
+      "INT": 12,
+      "SAG": 12,
+      "CAR": 10,
+      "level": 1
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T3",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 11,
+        "picco": 17
+      },
+      "livello_5": {
+        "media": 32,
+        "picco": 52
+      },
+      "livello_10": {
+        "media": 68,
+        "picco": 102
+      }
+    },
+    "statistics": {
+      "attacco": "+6",
+      "danni": "lancia lunga 1d8+6 (carica a cavallo)",
+      "ca": 19
+    },
+    "bench_log": [
+      "Varianti testate: (1) difesa a cavallo con Strix Honor Guard su destriero bardato; (2) cariche ottimizzate con lancia lunga e Tactician per Ordine del Drago; (3) supporto tattico Strategist con ordini condivisi e Bodyguard.",
+      "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata su livelli 1/5/10: ruling RAW/RAI/PFS confermato, simulazioni di bench offensive/difensive annotate nei metadati.",
+      "Variante selezionata: Strategist + Honor Guard con Strix (difesa a cavallo + supporto tattico), miglior punteggio combinato di DPR e CA, mantenendo badge PFS friendly."
+    ]
+  },
+  "bench_log": [
+    "Checkpoint 1: difesa a cavallo attiva (Bodyguard, Mounted Combat) con CA 19/21 in reazione e DPR medio 11.",
+    "Note ruling: ordini condivisi tramite Strategist rispettano RAW/RAI; bonus guarding compatibili con PFS (Ruling Expert log allegato)."
+  ],
+  "body_params": {
+    "race": "Strix",
+    "archetype_primary": "Strategist",
+    "archetype_secondary": "Honor Guard",
+    "focus": "mounted tactical defense"
+  },
+  "build_source": "local spec",
+  "class": "Cavalier",
+  "completeness": {
+    "status": "complete",
+    "missing": []
+  },
+  "composite": {
+    "build": {
+      "build_state": {
+        "class": "Cavalier",
+        "mode": "extended",
+        "race": "Strix",
+        "archetype": "Strategist Honor Guard",
+        "step": 16,
+        "step_total": 16,
+        "statistics": {
+          "FOR": 18,
+          "DES": 15,
+          "COS": 14,
+          "INT": 12,
+          "SAG": 12,
+          "CAR": 10,
+          "level": 1
+        }
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 11,
+            "picco": 17
+          },
+          "livello_5": {
+            "media": 32,
+            "picco": 52
+          },
+          "livello_10": {
+            "media": 68,
+            "picco": 102
+          }
+        },
+        "statistics": {
+          "attacco": "+6",
+          "danni": "lancia lunga 1d8+6 (carica a cavallo)",
+          "ca": 19
+        },
+        "bench_log": [
+          "Varianti testate: (1) difesa a cavallo con Strix Honor Guard su destriero bardato; (2) cariche ottimizzate con lancia lunga e Tactician per Ordine del Drago; (3) supporto tattico Strategist con ordini condivisi e Bodyguard.",
+          "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata su livelli 1/5/10: ruling RAW/RAI/PFS confermato, simulazioni di bench offensive/difensive annotate nei metadati.",
+          "Variante selezionata: Strategist + Honor Guard con Strix (difesa a cavallo + supporto tattico), miglior punteggio combinato di DPR e CA, mantenendo badge PFS friendly."
+        ]
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Cavalier",
+              "livelli": 1,
+              "archetipi": [
+                "Strategist",
+                "Honor Guard"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 18,
+            "DES": 15,
+            "COS": 14,
+            "INT": 12,
+            "SAG": 12,
+            "CAR": 10,
+            "attacco": "+6",
+            "danni": "lancia lunga 1d8+6",
+            "ca": 19
+          },
+          "statistiche_chiave": {
+            "attacco": "+6",
+            "danni": "1d8+6",
+            "ca": 19
+          },
+          "level": 1,
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "modules": [
+            "base_profile.txt",
+            "Taverna_NPC.txt",
+            "narrative_flow.txt"
+          ]
+        }
+      }
+    },
+    "narrative": {
+      "riassunto": "Guardia d'onore strix che usa il volo per schermare gli alleati e aprire linee di carica sicure; Strategist coordina il party con ordini condivisi.",
+      "taverna_hook": "Arriva come scorta alata di un emissario, offre supporto tattico al gruppo in cambio di un corridoio aereo sicuro."
+    },
+    "sheet": {
+      "ready": true,
+      "print_mode": false
+    },
+    "ledger": {
+      "notes": "import manuale pipeline potenziata"
+    }
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Cavalier",
+          "livelli": 1,
+          "archetipi": [
+            "Strategist",
+            "Honor Guard"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 18,
+        "DES": 15,
+        "COS": 14,
+        "INT": 12,
+        "SAG": 12,
+        "CAR": 10,
+        "attacco": "+6",
+        "danni": "lancia lunga 1d8+6",
+        "ca": 19
+      },
+      "statistiche_chiave": {
+        "attacco": "+6",
+        "danni": "1d8+6",
+        "ca": 19
+      },
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "modules": [
+        "base_profile.txt",
+        "Taverna_NPC.txt",
+        "narrative_flow.txt"
+      ]
+    }
+  },
+  "fetched_at": "2025-12-11T01:14:21Z",
+  "ledger": {
+    "notes": "import manuale pipeline potenziata"
+  },
+  "level": 1,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "narrative": {
+    "riassunto": "Guardia d'onore strix che usa il volo per schermare gli alleati e aprire linee di carica sicure; Strategist coordina il party con ordini condivisi.",
+    "taverna_hook": "Arriva come scorta alata di un emissario, offre supporto tattico al gruppo in cambio di un corridoio aereo sicuro."
+  },
+  "query_params": {
+    "race": "Strix",
+    "archetype": "Strategist Honor Guard"
+  },
+  "request": {
+    "class": "Cavalier",
+    "race": "Strix",
+    "archetype": "Strategist Honor Guard",
+    "mode": "extended",
+    "mode_normalized": "extended",
+    "spec_id": "cavalier_strix_strategist_honor_guard",
+    "model": "ruling-expert/minmax",
+    "background": "Skyward honor guard",
+    "level": 1,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    {
+      "source": "Ruling Expert",
+      "note": "Ordini Strategist condivisi RAW; bonus Bodyguard applicabili in sella secondo RAI"
+    },
+    {
+      "source": "PFS",
+      "note": "Archetipo doppio ammesso, senza limiti di fazione"
+    }
+  ],
+  "sheet": {
+    "ready": true,
+    "print_mode": false
+  },
+  "source_url": "local://cavalier/strix/strategist-honor-guard",
+  "spec_id": "cavalier_strix_strategist_honor_guard",
+  "archetype": ""
+}

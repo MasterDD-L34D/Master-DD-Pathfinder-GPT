@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-12-11T00:56:22Z",
+  "generated_at": "2025-12-11T01:16:44Z",
   "builds": {
-    "total": 81,
-    "valid": 81,
+    "total": 83,
+    "valid": 83,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
@@ -235,18 +235,22 @@
       },
       {
         "file": "src/data/builds/archive/brawler_human_base.json",
-        "class": "Brawler",
-        "mode": "extended",
-        "status": "ok",
-        "level": 1,
         "output_prefix": "brawler_human_base",
+        "class": "Brawler",
+        "race": "Human",
+        "archetype": "Base",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "brawler_human_base",
+        "background": null,
+        "model": null,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "spec_id": "brawler_human_base",
-        "mode_normalized": "extended"
+        "level": 1,
+        "status": "ok"
       },
       {
         "file": "src/data/builds/archive/cleric.json",
@@ -526,7 +530,7 @@
         "archetype": "Mutagenic Mauler + Strangler",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
+        "spec_id": "brawler_grippli_mutagenic_mauler_+_strangler",
         "background": "Assassino anfibio addestrato a strangolare i bersagli dopo un balzo potenziato dal mutageno.",
         "model": null,
         "level_checkpoints": [
@@ -549,7 +553,7 @@
         "archetype": "Mutagenic Mauler + Strangler",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
+        "spec_id": "brawler_grippli_mutagenic_mauler_+_strangler",
         "background": "Assassino anfibio addestrato a strangolare i bersagli dopo un balzo potenziato dal mutageno.",
         "model": null,
         "level_checkpoints": [
@@ -572,7 +576,7 @@
         "archetype": "Mutagenic Mauler + Strangler",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
+        "spec_id": "brawler_grippli_mutagenic_mauler_+_strangler",
         "background": "Assassino anfibio addestrato a strangolare i bersagli dopo un balzo potenziato dal mutageno.",
         "model": null,
         "level_checkpoints": [
@@ -588,22 +592,72 @@
         "status": "ok"
       },
       {
-        "file": "src/data/builds/cavalier.json",
-        "output_prefix": "cavalier_human_base",
+        "file": "src/data/builds/cavalier_strix_strategist_honor_guard.json",
+        "level": 1,
+        "output_prefix": "cavalier_strix_strategist_honor_guard",
         "class": "Cavalier",
-        "race": "Human",
-        "archetype": "Base",
+        "race": "Strix",
+        "archetype": "Strategist Honor Guard",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "cavalier_human_base",
-        "background": null,
-        "model": null,
+        "spec_id": "cavalier_strix_strategist_honor_guard",
+        "background": "Skyward honor guard",
+        "model": "ruling-expert/minmax",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl05.json",
+        "level": 5,
+        "output_prefix": "cavalier_strix_strategist_honor_guard",
+        "class": "Cavalier",
+        "race": "Strix",
+        "archetype": "Strategist Honor Guard",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "cavalier_strix_strategist_honor_guard",
+        "background": "Skyward honor guard",
+        "model": "ruling-expert/minmax",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl10.json",
+        "level": 10,
+        "output_prefix": "cavalier_strix_strategist_honor_guard",
+        "class": "Cavalier",
+        "race": "Strix",
+        "archetype": "Strategist Honor Guard",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "cavalier_strix_strategist_honor_guard",
+        "background": "Skyward honor guard",
+        "model": "ruling-expert/minmax",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
@@ -1628,19 +1682,19 @@
     ],
     "checkpoints": {
       "1": {
-        "total": 43,
+        "total": 44,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "5": {
-        "total": 21,
+        "total": 22,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "10": {
-        "total": 16,
+        "total": 17,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
