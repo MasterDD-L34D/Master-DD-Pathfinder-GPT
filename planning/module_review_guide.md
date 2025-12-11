@@ -3,6 +3,8 @@
 ## Sequenza di lettura (copertura completa)
 Procedi nell’ordine dell’indice moduli: Encounter_Designer → Taverna_NPC → adventurer_ledger → archivist → base_profile → explain_methods → knowledge_pack → meta_doc → minmax_builder → narrative_flow → ruling_expert → scheda_pg_markdown_template → sigilli_runner_module → tavern_hub, chiudendo con le cartelle di servizio. Questo assicura che tutti i 15 moduli del kernel e le directory di supporto siano coperti una sola volta.
 
+Prima della revisione esegui `python tools/refresh_module_reports.py --write` per portare tutti i report in linea con la checklist: lo script legge la sequenza moduli direttamente da questa guida tramite `load_sequence_from_guide` (in `tools/generate_module_plan.py`), così l’ordine applicato ai file coincide con quello usato nella lettura.
+
 ## Metodo di analisi per ogni report
 Apri il report corrispondente in `reports/module_tests/<nome>.md` e compila tutte le sottosezioni seguenti (il modello completo è già applicato al report di `base_profile` con riferimenti inline e la stessa sequenza di titoli):
 
