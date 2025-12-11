@@ -16,6 +16,7 @@
 - Template markdown PF1e con macro di setup (print mode, toggle MINMAX/VTT/QA/EXPLAIN/LEDGER, separatore decimale, fallback descrizioni) e helper per mod, firma, badge.【F:src/modules/scheda_pg_markdown_template.md†L5-L33】
 - Header anagrafico con classi/archetipi, allineamento/divinità, ruolo consigliato e stile interpretativo; include background breve e indicatori opzionali su taglia/età ecc.【F:src/modules/scheda_pg_markdown_template.md†L95-L111】
 - Scopo dichiarato via toggle badges nel riepilogo rapido: mostra attivazione MINMAX/VTT/QA/EXPLAIN/LEDGER e flash economico/VTT/QA/Explain.【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
+- Meta header esteso con `triggers.*`, `activation.*` e `export_policy.*` per dichiarare quando attivare Ledger/MinMax/VTT/QA/Explain, quando forzare i flussi e come limitare gli export (full/limited/block) con note di sblocco.【F:src/modules/scheda_pg_markdown_template.md†L13-L60】
 
 ## Modello dati / stato
 - Statistiche base e breakdown CA/CMD, salvezze, iniziativa, velocità, XP e PF con calcolo macro `mod`, includendo CA touch/ff e CMD dettagliato.【F:src/modules/scheda_pg_markdown_template.md†L144-L162】
@@ -32,7 +33,7 @@
 
 ## Flow guidato / CTA
 - Riepilogo rapido con badge attivi guida l'utente su sezioni da riempire (MinMax, VTT, QA, Explain, Ledger) e mostra prompt “QA ready”/“Explain (tldr)”.【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
-- CTA export esplicite per scheda e JSON (ledger/vtt_json) e note localizzazione numerica per VTT; suggeriti percorsi Foundry/Roll20 nelle note GM.【F:src/modules/scheda_pg_markdown_template.md†L393-L403】
+- CTA export esplicite per scheda e JSON (ledger/vtt_json), con istruzioni su `export_policy.mode` (`full`/`limited`/`block`) e note di sblocco per Ledger/MinMax/VTT quando scattano le policy operative.【F:src/modules/scheda_pg_markdown_template.md†L35-L63】【F:src/modules/scheda_pg_markdown_template.md†L393-L403】
 - Output checklist vincola la consegna finale a header con toggle attivi, tag RAW/PFS/HR/META e formattazione numerica coerente.【F:src/modules/scheda_pg_markdown_template.md†L485-L490】
 
 ## QA templates e helper
@@ -43,13 +44,13 @@
 
 ## Osservazioni
 - Il troncamento mantiene il titolo e il marker finale, utile per audit in ambienti con dump limitato; la lunghezza compatta (4k) preserva contesto iniziale.【300994†L1-L4】
-- Mancano metadati espliciti su versione/compatibilità o policy di trigger; potrebbero essere esposti nel blocco meta iniziale insieme ai toggle per facilitare QA automatizzato.【F:src/modules/scheda_pg_markdown_template.md†L5-L23】
+- Il meta header espone ora versione/compatibilità, trigger e policy operative (activation, export_policy) permettendo QA e pipeline automatiche senza inferenze manuali.【F:src/modules/scheda_pg_markdown_template.md†L13-L60】
 
 ## Errori
 - Nessun errore funzionale nelle API; 404 atteso su file mancante.【bff25f†L6-L6】
 
 ## Miglioramenti suggeriti
-- Documentare nell'header i trigger/policy operative (es. quando abilitare Ledger/MinMax) per chiarezza d'uso nelle pipeline automatiche.【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
+- Nessuno aperto: i trigger/policy operative sono documentati nel meta header con CTA di export e note di sblocco.【F:src/modules/scheda_pg_markdown_template.md†L13-L63】【F:src/modules/scheda_pg_markdown_template.md†L35-L63】
 
 ## Note di verifica
 - ✅ L’header del template ora espone `version` e `compatibility` (core_min, integrazioni) insieme al meta payload esempio, abilitando il QA automatico uniforme e allineato agli altri moduli.【F:src/modules/scheda_pg_markdown_template.md†L1-L37】

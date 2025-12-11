@@ -28,7 +28,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
   - **Documentare payload stub builder**: chiarire nel modulo come i campi `build_state`/`sheet`/`benchmark`/`ledger`/`export`/`composite` si mappano su rulings/QA per agevolare l’integrazione con il builder.【F:src/app.py†L366-L572】
   - **Rafforzare CTA per PFS**: aggiungere un prompt CTA per confermare la stagione PFS nel `status_example`, riducendo ambiguità di giurisdizione.【F:src/modules/ruling_expert.txt†L300-L317】【F:src/modules/ruling_expert.txt†L417-L424】
 - **scheda_pg_markdown_template**
-  - Documentare nell'header i trigger/policy operative (es. quando abilitare Ledger/MinMax) per chiarezza d'uso nelle pipeline automatiche.【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
+  - ✅ Trigger e policy operative documentati nel meta header (`triggers.*`, `activation.*`, `export_policy.*`) con CTA su export limitati/bloccati e note di sblocco per Ledger/MinMax/VTT.【F:src/modules/scheda_pg_markdown_template.md†L13-L63】
 - **Cartelle di servizio**
   - 🔧 Aggiungere messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" per chiarire i passi di remediation.【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
 
@@ -52,5 +52,5 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | meta_doc | 0 | — | Pronto per sviluppo |
 | narrative_flow | 0 | — | Pronto per sviluppo |
 | ruling_expert | 2 | P2 | Pronto per sviluppo |
-| scheda_pg_markdown_template | 1 | P2 | Pronto per sviluppo |
+| scheda_pg_markdown_template | 0 | — | Pronto per sviluppo |
 | sigilli_runner_module | 0 | — | Pronto per sviluppo |
