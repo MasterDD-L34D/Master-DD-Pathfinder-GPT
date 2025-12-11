@@ -12,6 +12,8 @@
 5. `GET /modules/bogus.txt` → `404 Module not found` sia con che senza flag anonimo.【fc8c1a†L9-L12】【5c31d3†L9-L10】
 6. `GET /modules/sigilli_runner_module.txt` con `ALLOW_MODULE_DUMP=false` → `200 OK` ma contenuto troncato (mostra solo header del modulo).【5c31d3†L11-L18】
 
+- TODO
+
 ## Metadati e scopo
 - Nome: **Sigilli Runner**, versione **2.1**, tipo `decorator_logic`, ultimo aggiornamento **2025-09-06**.【F:src/modules/sigilli_runner_module.txt†L1-L5】
 - Principi: traccia progressione `sigilli_tokens/level/index` e badge rari/quest; espone portale promozionale opzionale e tabelle sigilli comuni, bonus per mode e rari.【F:src/modules/sigilli_runner_module.txt†L14-L68】【F:src/modules/sigilli_runner_module.txt†L30-L34】

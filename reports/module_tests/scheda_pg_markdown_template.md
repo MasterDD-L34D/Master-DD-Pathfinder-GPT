@@ -12,6 +12,8 @@
 5. `ALLOW_MODULE_DUMP=false` produce `200` con 4k char, header preservato e suffisso `[contenuto troncato]`.【300994†L1-L4】
 6. `GET /modules/missing_file.md` → `404 Module not found` su nome errato.【bff25f†L6-L6】
 
+- TODO
+
 ## Metadati / Scopo
 - Template markdown PF1e con macro di setup (print mode, toggle MINMAX/VTT/QA/EXPLAIN/LEDGER, separatore decimale, fallback descrizioni) e helper per mod, firma, badge.【F:src/modules/scheda_pg_markdown_template.md†L5-L33】
 - Header anagrafico con classi/archetipi, allineamento/divinità, ruolo consigliato e stile interpretativo; include background breve e indicatori opzionali su taglia/età ecc.【F:src/modules/scheda_pg_markdown_template.md†L95-L111】

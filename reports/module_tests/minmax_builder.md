@@ -11,6 +11,8 @@
 7. **`GET /modules/minmax_builder.txt?stub=true&class=Fighter&race=Elf&archetype=Lore Warden`** → stub `extended` con `step_total=16`, `benchmark.meta_tier=T3`.【1cc753†L6-L6】【F:src/app.py†L396-L523】
 8. **`POST /modules/minmax_builder.txt?stub=true&class=Ranger&race=Human&archetype=Trapper` + body `{ "mode": "core", "hooks": ["hello"] }`** → stub `core` `step_total=8`, hook propagato in `export.sheet_payload`.【1cc753†L7-L7】【F:src/app.py†L396-L521】
 
+- TODO
+
 ## Metadati / Scopo
 - Nome/versione/tipo: **MinMax Builder v5** (`type: minmax`), file binding `src/modules/minmax_builder.txt`.【F:src/modules/minmax_builder.txt†L1-L6】
 - Principi & policy: priorità RAW→RAI→PFS, blocco HR/META in PFS, citazioni obbligatorie, flusso vincolato Setup→Export.【F:src/modules/minmax_builder.txt†L41-L60】

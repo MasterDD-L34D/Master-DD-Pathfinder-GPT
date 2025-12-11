@@ -227,7 +227,9 @@ def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSu
     dependencies = parse_bullets(dependency_lines)
 
     tasks: List[Tuple[int, str]] = fixes + improvements
-    return ModuleSummary(module_label, report_path, tasks, errors, observations, dependencies)
+    return ModuleSummary(
+        module_label, report_path, tasks, errors, observations, dependencies
+    )
 
 
 def format_module_block(summary: ModuleSummary) -> str:
@@ -430,7 +432,8 @@ def build_plan(output_path: Path, executive_output: Path) -> None:
         "| " + " | ".join(["---"] * len(summary_columns)) + " |",
     ]
     for summary in sorted(
-        summaries, key=lambda s: _module_sort_key(s.label, sequence_index=sequence_index)
+        summaries,
+        key=lambda s: _module_sort_key(s.label, sequence_index=sequence_index),
     ):
         row_cells = [
             summary.label,
@@ -441,9 +444,7 @@ def build_plan(output_path: Path, executive_output: Path) -> None:
             str(len(summary.observations)),
             str(len(summary.errors)),
         ]
-        summary_rows.append(
-            "| " + " | ".join(row_cells) + " |"
-        )
+        summary_rows.append("| " + " | ".join(row_cells) + " |")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(

@@ -11,6 +11,8 @@
 5. `GET /modules/nope.txt/meta` con API key → `404 Module not found` confermato.【871928†L1-L8】
 6. `GET /modules/ruling_expert.txt` con `ALLOW_MODULE_DUMP=false` → risposta `200 OK` ma contenuto limitato a ~4000 caratteri seguito da `[contenuto troncato]`.【88122c†L1-L74】
 
+- TODO
+
 ## Metadati / Scopo
 - Nome **Ruling Expert** v3.1 (last_updated 2025-08-20), eredità `base_profile.txt`, integrazioni dichiarate con MinMax Builder, Documentazione, Taverna NPC, Explain, Archivist, trigger per richieste RAW/RAI/PFS e conflitti di regole.【F:src/modules/ruling_expert.txt†L1-L12】
 - Principi e vincoli: solo materiale PF1e ufficiale con tag obbligatori RAW/RAI/PFS/HR, necessità di almeno una fonte verificabile, citazioni brevi, niente 3PP salvo richiesta; priorità fonti AoN→Paizo book/FAQ→PFS→d20pfsrd.【F:src/modules/ruling_expert.txt†L13-L45】

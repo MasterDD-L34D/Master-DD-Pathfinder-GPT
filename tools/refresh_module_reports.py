@@ -91,7 +91,9 @@ def build_source_map() -> Dict[str, Path]:
     return mapping
 
 
-def resolve_source_path(module_label: str, source_map: Dict[str, Path]) -> Optional[Path]:
+def resolve_source_path(
+    module_label: str, source_map: Dict[str, Path]
+) -> Optional[Path]:
     stem = normalise_name(module_label)
     stem = ALIASES.get(stem, stem)
     stem = SOURCE_ALIASES.get(stem, stem)
@@ -132,7 +134,9 @@ def ensure_placeholder(lines: List[str], block: SectionBlock) -> None:
         lines.insert(insertion + 1, "")
 
 
-def ensure_section(lines: List[str], spec: SectionSpec, *, write: bool) -> Optional[str]:
+def ensure_section(
+    lines: List[str], spec: SectionSpec, *, write: bool
+) -> Optional[str]:
     blocks = extract_sections(lines)
     target: Optional[SectionBlock] = None
     for block in blocks:
@@ -219,8 +223,12 @@ def process_report(
     return issues
 
 
-def collect_extra_reports(sequence: Sequence[str], report_map: Dict[str, Path]) -> List[Path]:
-    sequence_stems = {ALIASES.get(normalise_name(label), normalise_name(label)) for label in sequence}
+def collect_extra_reports(
+    sequence: Sequence[str], report_map: Dict[str, Path]
+) -> List[Path]:
+    sequence_stems = {
+        ALIASES.get(normalise_name(label), normalise_name(label)) for label in sequence
+    }
     extras = []
     for stem, path in report_map.items():
         if stem not in sequence_stems:
@@ -233,8 +241,12 @@ def main() -> int:
         description="Normalize module reports with standard QA sections."
     )
     mode = parser.add_mutually_exclusive_group(required=True)
-    mode.add_argument("--check", action="store_true", help="Validate reports without modifying them")
-    mode.add_argument("--write", action="store_true", help="Insert missing sections and placeholders")
+    mode.add_argument(
+        "--check", action="store_true", help="Validate reports without modifying them"
+    )
+    mode.add_argument(
+        "--write", action="store_true", help="Insert missing sections and placeholders"
+    )
     args = parser.parse_args()
 
     sequence = load_sequence_from_guide()
