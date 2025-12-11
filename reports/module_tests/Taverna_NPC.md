@@ -47,8 +47,9 @@
 - Quiz UI: usa template `ui_templates_quiz_pro` per carte MaxDiff, Pairwise, SJT e status/result. 【F:src/modules/Taverna_NPC.txt†L838-L965】
 
 ## QA templates, helper e formule
-- Echo guard: punteggio minimo 8.5, auto_refine opzionale, blocco export/risposte se score < soglia. 【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L975-L999】
+- Echo guard: punteggio minimo 8.5, auto_refine opzionale, blocco export/risposte se score < soglia, con remediation esplicita (/grade→fix→/refine_npc) prima di salvare o esportare in `taverna_saves`. 【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L996-L1008】
 - Self-check QA su canvas/minmax/ledger/hub. 【F:src/modules/Taverna_NPC.txt†L785-L793】
+- Export/outline e CTA di sblocco: se QA="CHECK" (Canvas/Ledger) o dump disabilitato, l’export viene bloccato con reminder di salvataggio/reallineamento e remediation tramite `/self_check` e rerun di Echo finché il gate non blocca più. 【F:src/modules/Taverna_NPC.txt†L1194-L1208】
 - Gates su immagini: `image_guardrails` con disallowed content e sanitizer (reject/soften). 【F:src/modules/Taverna_NPC.txt†L246-L263】
 - Rate limit ledger: 8 ops/min con errore `E-RATE-LIMIT`. 【F:src/modules/Taverna_NPC.txt†L382-L386】
 - Tagging MDA/Badge trasparenza: badge RAW/RAI/PFS/HR richiesti. 【F:src/modules/Taverna_NPC.txt†L40-L45】
@@ -62,7 +63,7 @@
 - ⚠️ `curl | head` con dump abilitato ritorna errore di write locale, ma il server fornisce `content-length`; nessuna azione necessaria lato server. 【b21fe7†L3-L16】
 
 ## Miglioramenti suggeriti
-- Nessuno: lo storage espone `/storage_meta` con quota residua, pattern di auto-name e marker di troncamento quando `ALLOW_MODULE_DUMP=false`, e i gate QA/Echo forniscono ora CTA esplicite sugli export e sui blocchi QA.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
+- Nessuno: lo storage espone `/storage_meta` con quota residua, pattern di auto-name e marker di troncamento quando `ALLOW_MODULE_DUMP=false`; i gate Echo/QA includono CTA di remediation (ripeti `/grade` o `/self_check` e disattiva Echo in sandbox) prima di sbloccare salvataggi/export.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L996-L1008】【F:src/modules/Taverna_NPC.txt†L1194-L1208】
 
 ## Fix necessari
 - Nessuno: lo storage espone già `/storage_meta` con quota/pattern di auto-name e, con `ALLOW_MODULE_DUMP=false`, i dump vengono tronchi a 4k con marker `[…TRUNCATED ALLOW_MODULE_DUMP=false…]` e risposta standard “⚠️ Output parziale” anche per export plain/markdown, in linea con le policy dichiarate.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L273-L305】【F:src/modules/Taverna_NPC.txt†L1285-L1317】

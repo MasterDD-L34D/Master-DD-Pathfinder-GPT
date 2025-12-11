@@ -30,7 +30,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 - **scheda_pg_markdown_template**
   - ✅ Trigger e policy operative documentati nel meta header (`triggers.*`, `activation.*`, `export_policy.*`) con CTA su export limitati/bloccati e note di sblocco per Ledger/MinMax/VTT.【F:src/modules/scheda_pg_markdown_template.md†L13-L63】
 - **Cartelle di servizio**
-  - 🔧 Aggiungere messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" per chiarire i passi di remediation.【F:src/modules/Taverna_NPC.txt†L279-L305】【F:src/modules/Taverna_NPC.txt†L785-L793】
+  - ✅ Messaggi guida completi quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK", con CTA di remediation (/grade→fix→/refine_npc e `/self_check`/repair) prima di salvare/esportare in `taverna_saves`.【F:src/modules/Taverna_NPC.txt†L996-L1008】【F:src/modules/Taverna_NPC.txt†L1194-L1208】
 
 ## Terza fase · Rifiniture P3, doc e chiusura backlog
 
@@ -43,7 +43,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | minmax_builder | 0 | — | Pronto per sviluppo |
 | Taverna_NPC | 0 | — | Pronto per sviluppo |
 | tavern_hub | 0 | — | Pronto per sviluppo |
-| Cartelle di servizio | 1 | P2 | Pronto per sviluppo |
+| Cartelle di servizio | 0 | — | Pronto per sviluppo |
 | adventurer_ledger | 0 | — | Pronto per sviluppo |
 | archivist | 0 | — | Pronto per sviluppo |
 | base_profile | 0 | — | Pronto per sviluppo |
