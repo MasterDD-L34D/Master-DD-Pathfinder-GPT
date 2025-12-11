@@ -1,77 +1,62 @@
 {
-  "generated_at": "2025-12-11T16:10:58Z",
-  "api_url": "http://localhost:8000",
-  "mode": "extended",
-  "spec_file": "planning/mesmerist_catfolk_spec.yml",
+  "generated_at": "2025-12-11T16:23:26Z",
   "entries": [
     {
-      "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma.json",
+      "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant.json",
       "status": "ok",
-      "output_prefix": "mesmerist_catfolk_vexing_daredevil_enigma",
-      "class": "Mesmerist",
-      "race": "Catfolk",
-      "archetype": "Vexing Daredevil + Enigma",
+      "output_prefix": "occultist_ghoran_battle_host_panoply_savant",
+      "class": "Occultist",
+      "race": "Ghoran",
+      "archetype": "Battle Host + Panoply Savant",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma",
-      "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
+      "spec_id": "occultist_ghoran_battle_host_panoply_savant",
+      "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
       "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "level": 1,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 1
     },
     {
-      "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl05.json",
+      "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl05.json",
       "status": "ok",
-      "output_prefix": "mesmerist_catfolk_vexing_daredevil_enigma",
-      "class": "Mesmerist",
-      "race": "Catfolk",
-      "archetype": "Vexing Daredevil + Enigma",
+      "output_prefix": "occultist_ghoran_battle_host_panoply_savant",
+      "class": "Occultist",
+      "race": "Ghoran",
+      "archetype": "Battle Host + Panoply Savant",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma",
-      "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
+      "spec_id": "occultist_ghoran_battle_host_panoply_savant",
+      "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
       "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "level": 5,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 5
     },
     {
-      "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl10.json",
+      "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl10.json",
       "status": "ok",
-      "output_prefix": "mesmerist_catfolk_vexing_daredevil_enigma",
-      "class": "Mesmerist",
-      "race": "Catfolk",
-      "archetype": "Vexing Daredevil + Enigma",
+      "output_prefix": "occultist_ghoran_battle_host_panoply_savant",
+      "class": "Occultist",
+      "race": "Ghoran",
+      "archetype": "Battle Host + Panoply Savant",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma",
-      "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
+      "spec_id": "occultist_ghoran_battle_host_panoply_savant",
+      "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
       "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "level": 10,
-      "step_total": 16,
-      "expected_step_total": 16,
-      "extended_steps_available": true,
-      "step_total_ok": true
+      "level": 10
     }
   ],
   "checkpoints": {
