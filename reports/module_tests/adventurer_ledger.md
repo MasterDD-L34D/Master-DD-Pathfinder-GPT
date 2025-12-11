@@ -11,7 +11,7 @@
 5. `GET /modules/nonexistent.txt` → `404 Not Found` con body `{"detail":"Module not found"}`.【339dff†L1-L7】
 6. `GET /modules/tavern_hub.json` con `ALLOW_MODULE_DUMP=false` → `403 Forbidden`, download asset non testuale bloccato.【0e8b5a†L1-L7】
 
-- TODO
+- Copertura API completata con health/modules/meta/download su dump on/off, includendo 403 per asset ledger/Taverna e 404 su nomi errati, in linea con la policy di sicurezza sugli asset economici.【fd69a0†L1-L41】【339dff†L1-L7】
 
 ## Metadati, scopo e principi
 - Nome: **Libro Mastro dell’Avventuriero**, versione **1.5**, tipo `economy/loot/crafting`, erede di `base_profile.txt`; export dichiarati: `ledger:api`, `qa:pfs_flags`, `pg_binding`, `vtt_json`.【F:src/modules/adventurer_ledger.txt†L1-L14】

@@ -11,7 +11,7 @@
 5. `GET /modules/nope.txt/meta` con API key → `404 Module not found` confermato.【871928†L1-L8】
 6. `GET /modules/ruling_expert.txt` con `ALLOW_MODULE_DUMP=false` → risposta `200 OK` ma contenuto limitato a ~4000 caratteri seguito da `[contenuto troncato]`.【88122c†L1-L74】
 
-- TODO
+- Copertura API verificata con health/modules/meta/download su dump abilitato/disabilitato, includendo 401/404 e la conferma che il troncamento rispetta la policy `no_raw_dump` del modulo.【c28ff5†L1-L8】【88122c†L1-L74】
 
 ## Metadati / Scopo
 - Nome **Ruling Expert** v3.1 (last_updated 2025-08-20), eredità `base_profile.txt`, integrazioni dichiarate con MinMax Builder, Documentazione, Taverna NPC, Explain, Archivist, trigger per richieste RAW/RAI/PFS e conflitti di regole.【F:src/modules/ruling_expert.txt†L1-L12】
@@ -51,4 +51,4 @@
 - Nessuno.
 
 ## Errori
-- TODO
+- Nessun errore bloccante rilevato dopo i test combinati di autenticazione e troncamento: i comportamenti 401/404/200 sono coerenti con la configurazione e la policy di esposizione limitata.【1aba59†L1-L4】【88122c†L1-L74】

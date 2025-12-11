@@ -66,4 +66,4 @@
 - ✅ Il modulo include ora esempi di errore per `export_doc` (outline mancante, assenza fonti RAW/PFS) e checklist Homebrewery (`/brew_lint`/`/render_brew_example`), coprendo i gate QA previsti: nessun fix aperto su questo fronte.【F:src/modules/meta_doc.txt†L440-L520】【F:src/modules/meta_doc.txt†L820-L829】
 
 ## Fix necessari
-- TODO
+- Nessuno: i gate QA, gli esempi di errore e i template Homebrewery coprono già i casi di export e non risultano difetti pendenti dopo gli ultimi aggiornamenti.【F:src/modules/meta_doc.txt†L440-L520】【F:src/modules/meta_doc.txt†L820-L829】

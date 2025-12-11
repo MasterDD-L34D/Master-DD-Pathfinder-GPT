@@ -18,6 +18,8 @@
   - **Backend/API:** controllare flag di autenticazione/backoff, endpoint `/health` e `/metrics`, e opzioni di discovery prima di riavviare workflow schedulati.
   - **Data/Validation:** rivedere gli indici per segnalare errori o payload borderline e proporre aggiustamenti a schemi o filtri.
   - **Docs & Prompt:** aggiornare note operative (README/runbook) con nuove opzioni o deroghe emerse dall'analisi.
+  - **QA reportistica:** mantenere allineati i report in `reports/module_tests/` (niente placeholder) e far girare `python tools/refresh_module_reports.py --check` nel ciclo di release per prevenire regressioni.
+  - **Lint anti-placeholder:** aggiungere un controllo automatico (pre-commit/CI) che segnali parole chiave placeholder nei report dei moduli e nei template, così da mantenere i bullet sempre informativi.
 
 ## Owner / Responsabili
 - **Tech Lead**: supervisione roadmap, priorità e merge decisioni.

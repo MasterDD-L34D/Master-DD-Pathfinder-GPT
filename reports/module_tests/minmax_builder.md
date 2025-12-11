@@ -11,7 +11,7 @@
 7. **`GET /modules/minmax_builder.txt?stub=true&class=Fighter&race=Elf&archetype=Lore Warden`** → stub `extended` con `step_total=16`, `benchmark.meta_tier=T3`.【1cc753†L6-L6】【F:src/app.py†L396-L523】
 8. **`POST /modules/minmax_builder.txt?stub=true&class=Ranger&race=Human&archetype=Trapper` + body `{ "mode": "core", "hooks": ["hello"] }`** → stub `core` `step_total=8`, hook propagato in `export.sheet_payload`.【1cc753†L7-L7】【F:src/app.py†L396-L521】
 
-- TODO
+- Copertura API completa: health/modules/meta/download (dump on/off), 404 per asset mancanti e percorsi stub `stub=true`/`mode=stub` validati sia in GET che in POST.【1cc753†L6-L7】【02412a†L1-L1】
 
 ## Metadati / Scopo
 - Nome/versione/tipo: **MinMax Builder v5** (`type: minmax`), file binding `src/modules/minmax_builder.txt`.【F:src/modules/minmax_builder.txt†L1-L6】
@@ -20,7 +20,7 @@
 - Meta-reference: banner META e livelli di autorevolezza (RAW_CANON→HR) con sorgenti ufficiali e community.【F:src/modules/minmax_builder.txt†L61-L99】
 
 ## Modello dati
-- `build_state` iniziale: identificativi (nome/ruolo/classe/razza), regole (PFS/ABP/EitR), anagrafica, psico/legami, statistiche base (For 16, Des 14, Cos 14...), salvezze, derived (AC, speed, attacks, skills), magia, equipaggiamento, progressione, fonti/meta, flag QA e benchmark placeholders.【F:src/modules/minmax_builder.txt†L117-L143】【F:src/modules/minmax_builder.txt†L716-L820】
+- `build_state` iniziale: identificativi (nome/ruolo/classe/razza), regole (PFS/ABP/EitR), anagrafica, psico/legami, statistiche base (For 16, Des 14, Cos 14...), salvezze, derived (AC, speed, attacks, skills), magia, equipaggiamento, progressione, fonti/meta, flag QA e struttura benchmark (`statistiche_chiave`, `benchmark_comparison`) pronta per essere popolata dai comandi di simulazione.【F:src/modules/minmax_builder.txt†L117-L143】【F:src/modules/minmax_builder.txt†L716-L820】
 - Flow labels per CTA: core 8 step, extended 16; sincronizzati con `step_labels` e `step_total` nel runtime dello stub e nel flusso interattivo.【F:src/app.py†L412-L446】【F:src/modules/minmax_builder.txt†L1860-L1936】
 
 ## Comandi principali (azioni/effect)
@@ -54,4 +54,4 @@
 - ✅ L’help rapido ora include i gate QA (`export_requires`) e il naming atteso dei file (`MinMax_<nome>.pdf/.xlsx/.json`), riducendo i tentativi di export falliti: non risultano più fix aperti su questo punto.【F:src/modules/minmax_builder.txt†L930-L960】【F:src/modules/minmax_builder.txt†L1995-L2017】
 
 ## Fix necessari
-- TODO
+- Nessuno: export e gate QA (`export_requires`) risultano già documentati con naming condiviso `MinMax_<nome>.*`, senza ulteriori azioni aperte.【F:src/modules/minmax_builder.txt†L930-L960】【F:src/modules/minmax_builder.txt†L1995-L2017】
