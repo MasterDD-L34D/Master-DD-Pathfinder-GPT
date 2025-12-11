@@ -114,9 +114,9 @@
           }
         ],
         "currency": {
-        "oro": 100,
-        "argento": 25,
-        "rame": 40
+          "oro": 100,
+          "argento": 25,
+          "rame": 40
         }
       },
       "print_mode": false,
