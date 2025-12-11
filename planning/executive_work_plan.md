@@ -25,6 +25,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 - **narrative_flow**
   - ✅ **Troncamento vs policy**: l’endpoint espone ora header `x-truncated=true` e `x-original-length=<byte>` quando `ALLOW_MODULE_DUMP=false`, chiarendo dimensione originaria e limite applicato nei dump troncati.【F:tests/test_app.py†L319-L343】【F:src/app.py†L1420-L1492】
 - **ruling_expert**
+  - Nessun task aperto: la policy `no_raw_dump` resta abilitata di default con whitelist per i dump completi, e lo `/status` guida subito a confermare la stagione PFS prima dei ruling.【F:src/modules/ruling_expert.txt†L74-L85】【F:src/modules/ruling_expert.txt†L448-L454】
 - **scheda_pg_markdown_template**
   - ✅ Trigger e policy operative documentati nel meta header (`triggers.*`, `activation.*`, `export_policy.*`) con CTA su export limitati/bloccati e note di sblocco per Ledger/MinMax/VTT.【F:src/modules/scheda_pg_markdown_template.md†L13-L63】
 - **Cartelle di servizio**
