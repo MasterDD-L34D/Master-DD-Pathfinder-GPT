@@ -1,0 +1,22 @@
+# Spec dedicata per la build Gunslinger strix Gun Tank con pipeline potenziata
+mode: extended
+requests:
+  - id: gunslinger_strix_gun_tank
+    class: Gunslinger
+    race: Strix
+    archetype: Gun Tank
+    background_hooks: "Sentinella alata che adatta il Gun Tank al volo planato per difendere i nidi dalle incursioni." 
+    output_prefix: gunslinger_strix_gun_tank
+    query:
+      race: Strix
+      archetype: Gun Tank
+      mode: extended
+      homebrewery_ready: true
+      pipeline: "Ruling Expert → MinMax → Taverna/Narrative"
+      strict: true
+    body:
+      hooks:
+        - "Pattuglia le scogliere di notte, coprendo il party dall'alto"
+        - "Testa armature alleggerite per non perdere la manovrabilità strix"
+        - "Predilige cartucce concussive per rallentare i bersagli volanti"
+      sheet_locale: it-IT
