@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-"""Normalize module reports with the standard checklist.
+"""Normalize module QA reports with standard sections.
 
-The script guarantees that every report in `reports/module_tests/` contains
-the mandatory sections (Ambiente, Esiti API, Metadati, Comandi/Flow, QA,
-Osservazioni, Errori, Miglioramenti, Fix necessari). Use `--check` to validate
-headings/bullets or `--write` to insert missing blocks with placeholders.
+The script reads the module sequence from `planning/module_review_guide.md`
+(via the helper in `tools/generate_module_plan.py`) and ensures that every
+report in `reports/module_tests/` contains the standard headings in order:
+Ambiente, Esiti API, Metadati, Comandi/Flow, QA, Osservazioni, Errori,
+Miglioramenti, Fix necessari.
 
-The module traversal follows the sequence in `planning/module_review_guide.md`
-via `load_sequence_from_guide`, aligning automation with the review order.
+Run with `--check` to validate presence and minimum content (at least one
+bullet per section) or with `--write` to create/update files and inject
+placeholder bullets where sections are missing or empty. If the source
+module file is not found in `src/modules/`, a warning is emitted but the
+report is still processed.
 """
 from __future__ import annotations
 
@@ -16,256 +20,252 @@ import re
 import sys
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Dict, Iterable, List, Optional, Sequence
+
+from tools.generate_module_plan import (
+    ALIASES,
+    REPORT_DIR,
+    find_report,
+    load_sequence_from_guide,
+    map_reports,
+    normalise_name,
+)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
-
-from tools.generate_module_plan import ALIASES, load_sequence_from_guide, normalise_name
-
-REPORT_DIR = REPO_ROOT / "reports" / "module_tests"
+MODULE_DIR = REPO_ROOT / "src" / "modules"
+PLACEHOLDER = "- TODO"
 
 
 @dataclass
 class SectionSpec:
-    label: str
-    heading: str
-    patterns: Tuple[re.Pattern[str], ...]
-    placeholder: str
+    title: str
+    patterns: Sequence[re.Pattern[str]]
 
-
-SECTION_SPECS: Sequence[SectionSpec] = (
-    SectionSpec(
-        label="Ambiente",
-        heading="## Ambiente",
-        patterns=(re.compile(r"ambiente", re.IGNORECASE),),
-        placeholder="- TODO: descrivi l'ambiente di test, flag e variabili.",
-    ),
-    SectionSpec(
-        label="Esiti API",
-        heading="## Esiti API",
-        patterns=(re.compile(r"esiti\s*api", re.IGNORECASE),),
-        placeholder="- TODO: riassumi gli esiti per health/modules/meta/download/404/troncamento.",
-    ),
-    SectionSpec(
-        label="Metadati",
-        heading="## Metadati",
-        patterns=(re.compile(r"metadati", re.IGNORECASE),),
-        placeholder="- TODO: nome modulo, versione, scopo, trigger/policy rilevanti.",
-    ),
-    SectionSpec(
-        label="Comandi/Flow",
-        heading="## Comandi/Flow",
-        patterns=(re.compile(r"comandi", re.IGNORECASE), re.compile(r"flow", re.IGNORECASE)),
-        placeholder="- TODO: elenca comandi principali, auto-invocazioni, CTA e output attesi.",
-    ),
-    SectionSpec(
-        label="QA",
-        heading="## QA",
-        patterns=(re.compile(r"\bqa\b", re.IGNORECASE),),
-        placeholder="- TODO: template QA, gate PF1e, controlli sicurezza e receipt.",
-    ),
-    SectionSpec(
-        label="Osservazioni",
-        heading="## Osservazioni",
-        patterns=(re.compile(r"osservaz", re.IGNORECASE),),
-        placeholder="- TODO: note osservazioni sintetiche con citazioni.",
-    ),
-    SectionSpec(
-        label="Errori",
-        heading="## Errori",
-        patterns=(re.compile(r"errori", re.IGNORECASE),),
-        placeholder="- TODO: errori riscontrati con priorità e citazioni.",
-    ),
-    SectionSpec(
-        label="Miglioramenti",
-        heading="## Miglioramenti",
-        patterns=(re.compile(r"migliorament", re.IGNORECASE),),
-        placeholder="- TODO: miglioramenti e suggerimenti QA/UX.",
-    ),
-    SectionSpec(
-        label="Fix necessari",
-        heading="## Fix necessari",
-        patterns=(re.compile(r"fix\s+necessari", re.IGNORECASE),),
-        placeholder="- TODO: fix da eseguire con priorità P1/P2/P3 e scope.",
-    ),
-)
+    def matches(self, heading: str) -> bool:
+        return any(pattern.search(heading) for pattern in self.patterns)
 
 
 @dataclass
-class Section:
+class SectionBlock:
     heading: str
     start: int
     end: int
-    lines: List[str]
 
 
-def parse_sections(lines: List[str]) -> List[Section]:
-    sections: List[Section] = []
-    heading_re = re.compile(r"^##\s+(.*)$")
-    current: Optional[Tuple[str, int]] = None
+SECTION_SPECS: List[SectionSpec] = [
+    SectionSpec("Ambiente", [re.compile(r"^ambiente", re.IGNORECASE)]),
+    SectionSpec(
+        "Esiti API",
+        [re.compile(r"esiti\s+api", re.IGNORECASE), re.compile(r"api", re.IGNORECASE)],
+    ),
+    SectionSpec(
+        "Metadati",
+        [re.compile(r"metadati", re.IGNORECASE), re.compile(r"scopo", re.IGNORECASE)],
+    ),
+    SectionSpec(
+        "Comandi/Flow",
+        [
+            re.compile(r"comandi", re.IGNORECASE),
+            re.compile(r"flow", re.IGNORECASE),
+            re.compile(r"cta", re.IGNORECASE),
+        ],
+    ),
+    SectionSpec("QA", [re.compile(r"^qa", re.IGNORECASE)]),
+    SectionSpec("Osservazioni", [re.compile(r"osservaz", re.IGNORECASE)]),
+    SectionSpec("Errori", [re.compile(r"errori", re.IGNORECASE)]),
+    SectionSpec("Miglioramenti", [re.compile(r"miglior", re.IGNORECASE)]),
+    SectionSpec("Fix necessari", [re.compile(r"fix", re.IGNORECASE)]),
+]
 
-    for idx, raw_line in enumerate(lines):
-        match = heading_re.match(raw_line.strip())
-        if match:
-            if current is not None:
-                heading, start_idx = current
-                sections.append(
-                    Section(heading=heading, start=start_idx, end=idx, lines=lines[start_idx + 1 : idx])
-                )
-            current = (match.group(1).strip(), idx)
-    if current is not None:
-        heading, start_idx = current
-        sections.append(Section(heading=heading, start=start_idx, end=len(lines), lines=lines[start_idx + 1 :]))
-
-    return sections
+SOURCE_ALIASES: Dict[str, str] = {
+    "service_dirs": "taverna_saves",
+    "cartelle_di_servizio": "taverna_saves",
+}
 
 
-def ensure_trailing_newline(text: str) -> str:
-    return text if text.endswith("\n") else text + "\n"
-
-
-def map_reports() -> Dict[str, Path]:
+def build_source_map() -> Dict[str, Path]:
     mapping: Dict[str, Path] = {}
-    for report in REPORT_DIR.glob("*.md"):
-        mapping[report.stem.lower()] = report
+    for path in MODULE_DIR.iterdir():
+        key = normalise_name(path.stem if path.is_file() else path.name)
+        mapping[key] = path
     return mapping
 
 
-@dataclass
-class ValidationResult:
-    module_label: str
-    report_path: Optional[Path]
-    missing_sections: List[str]
-    empty_sections: List[str]
-
-    @property
-    def ok(self) -> bool:
-        return not self.missing_sections and not self.empty_sections
+def resolve_source_path(module_label: str, source_map: Dict[str, Path]) -> Optional[Path]:
+    stem = normalise_name(module_label)
+    stem = ALIASES.get(stem, stem)
+    stem = SOURCE_ALIASES.get(stem, stem)
+    return source_map.get(stem)
 
 
-def find_matching_section(spec: SectionSpec, sections: Sequence[Section]) -> Optional[Section]:
-    for section in sections:
-        if any(pattern.search(section.heading) for pattern in spec.patterns):
-            return section
+def extract_sections(lines: List[str]) -> List[SectionBlock]:
+    heading_re = re.compile(r"^##\s+(.*)$")
+    positions: List[tuple[int, str]] = []
+
+    for idx, line in enumerate(lines):
+        match = heading_re.match(line.strip())
+        if match:
+            positions.append((idx, match.group(1).strip()))
+
+    blocks: List[SectionBlock] = []
+    for current, (start, heading) in enumerate(positions):
+        end = positions[current + 1][0] if current + 1 < len(positions) else len(lines)
+        blocks.append(SectionBlock(heading=heading, start=start, end=end))
+    return blocks
+
+
+def has_content(lines: List[str], block: SectionBlock) -> bool:
+    for line in lines[block.start + 1 : block.end]:
+        if line.strip():
+            return True
+    return False
+
+
+def has_bullet(lines: Iterable[str]) -> bool:
+    return any(line.strip().startswith("- ") for line in lines)
+
+
+def ensure_placeholder(lines: List[str], block: SectionBlock) -> None:
+    insertion = block.end
+    lines.insert(insertion, PLACEHOLDER)
+    if insertion + 1 < len(lines) and lines[insertion + 1].strip():
+        lines.insert(insertion + 1, "")
+
+
+def ensure_section(lines: List[str], spec: SectionSpec, *, write: bool) -> Optional[str]:
+    blocks = extract_sections(lines)
+    target: Optional[SectionBlock] = None
+    for block in blocks:
+        if spec.matches(block.heading):
+            target = block
+            break
+
+    if target is None:
+        if write:
+            if lines and lines[-1].strip():
+                lines.append("")
+            lines.append(f"## {spec.title}")
+            lines.append(PLACEHOLDER)
+            lines.append("")
+            return None
+        return f"Sezione mancante: {spec.title}"
+
+    if not has_content(lines, target):
+        if write:
+            ensure_placeholder(lines, target)
+            return None
+        return f"Sezione vuota: {target.heading}"
+
+    section_lines = lines[target.start + 1 : target.end]
+    if not has_bullet(section_lines):
+        if write:
+            ensure_placeholder(lines, target)
+            return None
+        return f"Nessun bullet in sezione: {target.heading}"
+
     return None
 
 
-def has_bullet(content_lines: Iterable[str]) -> bool:
-    return any(line.strip().startswith("- ") for line in content_lines)
-
-
-def validate_report(module_label: str, report_path: Optional[Path]) -> ValidationResult:
-    if not report_path or not report_path.exists():
-        return ValidationResult(module_label, report_path, [spec.label for spec in SECTION_SPECS], [])
-
-    lines = report_path.read_text(encoding="utf-8").splitlines()
-    sections = parse_sections(lines)
-
-    missing: List[str] = []
-    empty: List[str] = []
-
+def create_report_skeleton(module_label: str) -> List[str]:
+    lines = [f"# Report modulo `{module_label}`", ""]
     for spec in SECTION_SPECS:
-        section = find_matching_section(spec, sections)
-        if section is None:
-            missing.append(spec.label)
-            continue
-        if not has_bullet(section.lines):
-            empty.append(spec.label)
-
-    return ValidationResult(module_label, report_path, missing, empty)
-
-
-def insert_placeholder(lines: List[str], section: Section, placeholder: str) -> None:
-    insertion_index = section.end
-    lines.insert(insertion_index, placeholder)
-    lines.insert(insertion_index, "")
-
-
-def add_missing_section(lines: List[str], spec: SectionSpec) -> None:
-    if lines and lines[-1].strip():
+        lines.append(f"## {spec.title}")
+        lines.append(PLACEHOLDER)
         lines.append("")
-    lines.append(spec.heading)
-    lines.append("")
-    lines.append(spec.placeholder)
-    lines.append("")
+    return lines
 
 
-def refresh_report(module_label: str, report_path: Path) -> ValidationResult:
-    lines: List[str]
+def process_report(
+    module_label: str,
+    report_map: Dict[str, Path],
+    source_map: Dict[str, Path],
+    *,
+    write: bool,
+) -> List[str]:
+    issues: List[str] = []
+
+    report_path = find_report(module_label, report_map)
+    if not report_path:
+        stem = ALIASES.get(normalise_name(module_label), normalise_name(module_label))
+        report_path = REPORT_DIR / f"{stem}.md"
+
+    source_path = resolve_source_path(module_label, source_map)
+    if not source_path:
+        print(
+            f"[WARN] Sorgente non trovato per '{module_label}' in {MODULE_DIR}",
+            file=sys.stderr,
+        )
+
     if report_path.exists():
         lines = report_path.read_text(encoding="utf-8").splitlines()
+    elif write:
+        lines = create_report_skeleton(module_label)
     else:
-        report_path.parent.mkdir(parents=True, exist_ok=True)
-        lines = [f"# Report modulo `{module_label}`", ""]
+        issues.append(f"Report mancante: {report_path.relative_to(REPO_ROOT)}")
+        return issues
 
-    modified = False
+    original = list(lines)
 
     for spec in SECTION_SPECS:
-        sections = parse_sections(lines)
-        section = find_matching_section(spec, sections)
-        if section is None:
-            add_missing_section(lines, spec)
-            modified = True
-            continue
-        if not has_bullet(section.lines):
-            insert_placeholder(lines, section, spec.placeholder)
-            modified = True
+        issue = ensure_section(lines, spec, write=write)
+        if issue:
+            issues.append(f"{report_path.relative_to(REPO_ROOT)} — {issue}")
 
-    if modified:
-        report_path.write_text(ensure_trailing_newline("\n".join(lines)), encoding="utf-8")
+    if write and lines != original:
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+        print(f"Aggiornato: {report_path.relative_to(REPO_ROOT)}")
 
-    # Re-parse to reflect any additions for validation output
-    final_validation = validate_report(module_label, report_path)
-    return final_validation
+    return issues
 
 
-def resolve_report_path(module_label: str, existing: Dict[str, Path]) -> Path:
-    stem = normalise_name(module_label)
-    stem = ALIASES.get(stem, stem)
-    filename = f"{stem}.md"
-    return existing.get(stem, REPORT_DIR / filename)
+def collect_extra_reports(sequence: Sequence[str], report_map: Dict[str, Path]) -> List[Path]:
+    sequence_stems = {ALIASES.get(normalise_name(label), normalise_name(label)) for label in sequence}
+    extras = []
+    for stem, path in report_map.items():
+        if stem not in sequence_stems:
+            extras.append(path)
+    return extras
 
 
-def run(mode: str) -> int:
+def main() -> int:
+    parser = argparse.ArgumentParser(
+        description="Normalize module reports with standard QA sections."
+    )
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--check", action="store_true", help="Validate reports without modifying them")
+    mode.add_argument("--write", action="store_true", help="Insert missing sections and placeholders")
+    args = parser.parse_args()
+
     sequence = load_sequence_from_guide()
     report_map = map_reports()
+    source_map = build_source_map()
 
-    results: List[ValidationResult] = []
-    for module in sequence:
-        report_path = resolve_report_path(module, report_map)
-        if mode == "check":
-            results.append(validate_report(module, report_path if report_path.exists() else None))
-        else:
-            results.append(refresh_report(module, report_path))
+    all_issues: List[str] = []
+    for label in sequence:
+        all_issues.extend(
+            process_report(
+                label,
+                report_map,
+                source_map,
+                write=args.write,
+            )
+        )
 
-    failures = [res for res in results if not res.ok]
+    for extra in collect_extra_reports(sequence, report_map):
+        label = extra.stem
+        all_issues.extend(
+            process_report(label, report_map, source_map, write=args.write)
+        )
 
-    for res in failures:
-        path_label = "mancante" if not res.report_path else res.report_path.relative_to(REPO_ROOT)
-        if res.missing_sections:
-            print(f"[{res.module_label}] sezioni mancanti ({path_label}): {', '.join(res.missing_sections)}")
-        if res.empty_sections:
-            print(f"[{res.module_label}] sezioni senza bullet ({path_label}): {', '.join(res.empty_sections)}")
-
-    if mode == "check" and failures:
+    if args.check and all_issues:
+        print("\n".join(all_issues), file=sys.stderr)
         return 1
 
-    print(f"Processed {len(results)} report(s) with mode={mode}.")
+    if args.check:
+        print("Tutti i report includono le sezioni obbligatorie con almeno un bullet.")
     return 0
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Verifica o aggiorna i report dei moduli.")
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument("--check", action="store_true", help="Solo verifica: exit 1 se mancano sezioni richieste.")
-    group.add_argument("--write", action="store_true", help="Aggiorna i report aggiungendo sezioni mancanti e placeholder.")
-
-    args = parser.parse_args()
-    mode = "check" if args.check else "write"
-    sys.exit(run(mode))
-
-
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
