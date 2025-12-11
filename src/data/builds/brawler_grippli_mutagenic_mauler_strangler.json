@@ -1,0 +1,774 @@
+{
+  "build_state": {
+    "class": "Brawler",
+    "mode": "extended",
+    "race": "Grippli",
+    "archetype": "Mutagenic Mauler + Strangler",
+    "step": 16,
+    "step_total": 16,
+    "step_labels": {
+      "1": "Profilo Base",
+      "2": "Razza & Classe",
+      "3": "Archetipi & Multiclasse",
+      "4": "Feats & Talenti",
+      "5": "Spell & Power Set",
+      "6": "Equip & Risorse",
+      "7": "Benchmark & Simulazioni",
+      "8": "QA & Export",
+      "9": "Dummies Sheet",
+      "10": "Esportazione",
+      "11": "Fork/Varianti",
+      "12": "Comparativa",
+      "13": "Meta Rating",
+      "14": "Companion",
+      "15": "Report",
+      "16": "Chiusura"
+    },
+    "statistics": {
+      "FOR": 16,
+      "DES": 18,
+      "COS": 12,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 8
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T3",
+    "ruling_badge": "full",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 10,
+        "picco": 16
+      },
+      "livello_5": {
+        "media": 27,
+        "picco": 42
+      },
+      "livello_10": {
+        "media": 55,
+        "picco": 84
+      }
+    },
+    "statistics": {
+      "attacco": "+6",
+      "danni": "1d6+5",
+      "ca": 19
+    }
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Brawler",
+          "livelli": 1,
+          "archetipi": [
+            "Mutagenic Mauler",
+            "Strangler"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 16,
+        "DES": 18,
+        "COS": 12,
+        "INT": 10,
+        "SAG": 12,
+        "CAR": 8,
+        "attacco": "+6",
+        "danni": "1d6+5",
+        "ca": 19,
+        "for": 16,
+        "des": 18,
+        "cos": 12,
+        "int": 10,
+        "sag": 12,
+        "car": 8,
+        "Forza": 16,
+        "Destrezza": 18,
+        "Costituzione": 12,
+        "Intelligenza": 10,
+        "Saggezza": 12,
+        "Carisma": 8,
+        "forza": 16,
+        "destrezza": 18,
+        "costituzione": 12,
+        "intelligenza": 10,
+        "saggezza": 12,
+        "carisma": 8
+      },
+      "statistiche_chiave": {
+        "attacco": "+4",
+        "danni": "1d8+3",
+        "ca": 17
+      },
+      "benchmarks": {
+        "dpr": {
+          "livello_1": {
+            "media": 10,
+            "picco": 16
+          },
+          "livello_5": {
+            "media": 27,
+            "picco": 42
+          },
+          "livello_10": {
+            "media": 55,
+            "picco": 84
+          }
+        },
+        "meta_tier": "T3"
+      },
+      "salvezze": {
+        "Tempra": "n/d (TS Tempra non fornito)",
+        "Riflessi": "n/d (TS Riflessi non fornito)",
+        "Volontà": "n/d (TS Volontà non fornito)",
+        "tempra": "n/d (TS tempra non fornito)",
+        "riflessi": "n/d (TS riflessi non fornito)",
+        "volonta": "n/d (TS volonta non fornito)"
+      },
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 250
+          }
+        ],
+        "currency": {
+          "oro": 100,
+          "argento": 25,
+          "rame": 40
+        }
+      },
+      "print_mode": false,
+      "show_minmax": true,
+      "show_vtt": true,
+      "show_qa": true,
+      "show_explain": true,
+      "show_ledger": true,
+      "decimal_comma": true,
+      "AC_arm": 0,
+      "AC_scudo": 0,
+      "AC_des": 0,
+      "AC_defl": 0,
+      "AC_nat": 0,
+      "AC_dodge": 0,
+      "AC_misc": 0,
+      "AC_base": 10,
+      "AC_tot": 19,
+      "CA_touch": 10,
+      "CA_ff": 10,
+      "velocita": 0,
+      "iniziativa": 0,
+      "pf_totali": "n/d (PF totali non fornito)",
+      "skill_points": 0,
+      "salvezze_breakdown": {
+        "Tempra": {
+          "base": null,
+          "modificatore": null,
+          "misc": null,
+          "totale": "n/d (TS Tempra non fornito)"
+        },
+        "Riflessi": {
+          "base": null,
+          "modificatore": null,
+          "misc": null,
+          "totale": "n/d (TS Riflessi non fornito)"
+        },
+        "Volontà": {
+          "base": null,
+          "modificatore": null,
+          "misc": null,
+          "totale": "n/d (TS Volontà non fornito)"
+        },
+        "tempra": {
+          "base": null,
+          "modificatore": null,
+          "misc": null,
+          "totale": "n/d (TS tempra non fornito)"
+        },
+        "riflessi": {
+          "base": null,
+          "modificatore": null,
+          "misc": null,
+          "totale": "n/d (TS riflessi non fornito)"
+        },
+        "volonta": {
+          "base": null,
+          "modificatore": null,
+          "misc": null,
+          "totale": "n/d (TS volonta non fornito)"
+        }
+      },
+      "BAB": 0,
+      "init": "+5",
+      "speed": "9 m",
+      "razza": "Grippli",
+      "skills": [
+        {
+          "nome": "Percezione",
+          "gradi": 1,
+          "mod_car": 3,
+          "var": 1,
+          "classe": true,
+          "totale": 5
+        },
+        {
+          "nome": "Furtività",
+          "gradi": 1,
+          "mod_car": 3,
+          "var": 0,
+          "classe": true,
+          "totale": 4
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 1,
+          "mod_car": 3,
+          "var": 0,
+          "classe": false,
+          "totale": 4
+        }
+      ],
+      "equipaggiamento": [
+        "Arma semplice",
+        "Armatura leggera",
+        "Strumenti da scasso",
+        "Kit avventuriero"
+      ],
+      "equipment_summary": {
+        "peso_totale": "leggero",
+        "note": "gear essenziale incluso nel kit base"
+      },
+      "ledger_movimenti": [
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150,
+          "oggetto": "Equipaggiamento iniziale",
+          "tot": -150,
+          "delta_gp": -150,
+          "tipo": "spesa",
+          "data": "Sessione 1",
+          "qty": 1,
+          "vu": null
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 250,
+          "oggetto": "Ricompensa missione",
+          "tot": 250,
+          "delta_gp": 250,
+          "tipo": "entrata",
+          "data": "Sessione 1",
+          "qty": 1,
+          "vu": null
+        }
+      ],
+      "ledger_parcels": [
+        {
+          "nome": "Borsa di monete",
+          "val_gp": 50,
+          "assegnatario": "party",
+          "note": "da dividere"
+        }
+      ],
+      "ledger_crafting": [
+        {
+          "item": "Pozione di cura",
+          "dc": 5,
+          "days": 1,
+          "cost": 25,
+          "saving": 0,
+          "status": "in coda"
+        }
+      ],
+      "currency": {
+        "oro": 100,
+        "argento": 25,
+        "rame": 40
+      },
+      "fonti": [
+        "local-refresh",
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+      ],
+      "pf_per_livello": "n/d (PF per livello non fornito)",
+      "modules": {},
+      "sheet_markdown": "",
+      "skills_map": {},
+      "spell_levels": [],
+      "magia": {},
+      "lingue": [],
+      "sensi": [],
+      "condizioni": [],
+      "inventario": [],
+      "talenti": [],
+      "capacita_classe": [],
+      "progressione": [],
+      "ca": 19
+    }
+  },
+  "narrative": "Grippli mutageno strettoio: pattinatore di palude che sfrutta mutageno da rana velenosa e strangolamenti acrobatici.",
+  "sheet": "",
+  "ledger": {
+    "movimenti": [
+      {
+        "voce": "Equipaggiamento iniziale",
+        "importo": -150,
+        "oggetto": "Equipaggiamento iniziale",
+        "tot": -150,
+        "delta_gp": -150,
+        "tipo": "spesa",
+        "data": "Sessione 1",
+        "qty": 1,
+        "vu": null
+      },
+      {
+        "voce": "Ricompensa missione",
+        "importo": 250,
+        "oggetto": "Ricompensa missione",
+        "tot": 250,
+        "delta_gp": 250,
+        "tipo": "entrata",
+        "data": "Sessione 1",
+        "qty": 1,
+        "vu": null
+      }
+    ],
+    "currency": {
+      "oro": 100,
+      "argento": 25,
+      "rame": 40
+    },
+    "parcels": [
+      {
+        "nome": "Borsa di monete",
+        "val_gp": 50,
+        "assegnatario": "party",
+        "note": "da dividere"
+      }
+    ],
+    "crafting": [
+      {
+        "item": "Pozione di cura",
+        "dc": 5,
+        "days": 1,
+        "cost": 25,
+        "saving": 0,
+        "status": "in coda"
+      }
+    ]
+  },
+  "class": "Brawler",
+  "mode": "extended",
+  "composite": {
+    "build": {
+      "build_state": {
+        "class": "Brawler",
+        "mode": "extended",
+        "race": "Grippli",
+        "archetype": "Mutagenic Mauler + Strangler",
+        "step": 16,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 16,
+          "DES": 18,
+          "COS": 12,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8
+        }
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "full",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 10,
+            "picco": 16
+          },
+          "livello_5": {
+            "media": 27,
+            "picco": 42
+          },
+          "livello_10": {
+            "media": 55,
+            "picco": 84
+          }
+        },
+        "statistics": {
+          "attacco": "+6",
+          "danni": "1d6+5",
+          "ca": 19
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Brawler",
+              "livelli": 1,
+              "archetipi": [
+                "Mutagenic Mauler",
+                "Strangler"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 16,
+            "DES": 18,
+            "COS": 12,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 8,
+            "attacco": "+6",
+            "danni": "1d6+5",
+            "ca": 19,
+            "for": 16,
+            "des": 18,
+            "cos": 12,
+            "int": 10,
+            "sag": 12,
+            "car": 8,
+            "Forza": 16,
+            "Destrezza": 18,
+            "Costituzione": 12,
+            "Intelligenza": 10,
+            "Saggezza": 12,
+            "Carisma": 8,
+            "forza": 16,
+            "destrezza": 18,
+            "costituzione": 12,
+            "intelligenza": 10,
+            "saggezza": 12,
+            "carisma": 8
+          },
+          "statistiche_chiave": {
+            "attacco": "+4",
+            "danni": "1d8+3",
+            "ca": 17
+          },
+          "benchmarks": {
+            "dpr": {
+              "livello_1": {
+                "media": 10,
+                "picco": 16
+              },
+              "livello_5": {
+                "media": 27,
+                "picco": 42
+              },
+              "livello_10": {
+                "media": 55,
+                "picco": 84
+              }
+            },
+            "meta_tier": "T3"
+          },
+          "salvezze": {
+            "Tempra": "n/d (TS Tempra non fornito)",
+            "Riflessi": "n/d (TS Riflessi non fornito)",
+            "Volontà": "n/d (TS Volontà non fornito)",
+            "tempra": "n/d (TS tempra non fornito)",
+            "riflessi": "n/d (TS riflessi non fornito)",
+            "volonta": "n/d (TS volonta non fornito)"
+          },
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -150
+              },
+              {
+                "voce": "Ricompensa missione",
+                "importo": 250
+              }
+            ],
+            "currency": {
+              "oro": 100,
+              "argento": 25,
+              "rame": 40
+            }
+          },
+          "print_mode": false,
+          "show_minmax": true,
+          "show_vtt": true,
+          "show_qa": true,
+          "show_explain": true,
+          "show_ledger": true,
+          "decimal_comma": true,
+          "AC_arm": 0,
+          "AC_scudo": 0,
+          "AC_des": 0,
+          "AC_defl": 0,
+          "AC_nat": 0,
+          "AC_dodge": 0,
+          "AC_misc": 0,
+          "AC_base": 10,
+          "AC_tot": 19,
+          "CA_touch": 10,
+          "CA_ff": 10,
+          "velocita": 0,
+          "iniziativa": 0,
+          "pf_totali": "n/d (PF totali non fornito)",
+          "skill_points": 0,
+          "salvezze_breakdown": {
+            "Tempra": {
+              "base": null,
+              "modificatore": null,
+              "misc": null,
+              "totale": "n/d (TS Tempra non fornito)"
+            },
+            "Riflessi": {
+              "base": null,
+              "modificatore": null,
+              "misc": null,
+              "totale": "n/d (TS Riflessi non fornito)"
+            },
+            "Volontà": {
+              "base": null,
+              "modificatore": null,
+              "misc": null,
+              "totale": "n/d (TS Volontà non fornito)"
+            },
+            "tempra": {
+              "base": null,
+              "modificatore": null,
+              "misc": null,
+              "totale": "n/d (TS tempra non fornito)"
+            },
+            "riflessi": {
+              "base": null,
+              "modificatore": null,
+              "misc": null,
+              "totale": "n/d (TS riflessi non fornito)"
+            },
+            "volonta": {
+              "base": null,
+              "modificatore": null,
+              "misc": null,
+              "totale": "n/d (TS volonta non fornito)"
+            }
+          },
+          "BAB": 0,
+          "init": "+5",
+          "speed": "9 m",
+          "razza": "Grippli",
+          "skills": [
+            {
+              "nome": "Percezione",
+              "gradi": 1,
+              "mod_car": 3,
+              "var": 1,
+              "classe": true,
+              "totale": 5
+            },
+            {
+              "nome": "Furtività",
+              "gradi": 1,
+              "mod_car": 3,
+              "var": 0,
+              "classe": true,
+              "totale": 4
+            },
+            {
+              "nome": "Acrobazia",
+              "gradi": 1,
+              "mod_car": 3,
+              "var": 0,
+              "classe": false,
+              "totale": 4
+            }
+          ],
+          "equipaggiamento": [
+            "Arma semplice",
+            "Armatura leggera",
+            "Strumenti da scasso",
+            "Kit avventuriero"
+          ],
+          "equipment_summary": {
+            "peso_totale": "leggero",
+            "note": "gear essenziale incluso nel kit base"
+          },
+          "ledger_movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150,
+              "oggetto": "Equipaggiamento iniziale",
+              "tot": -150,
+              "delta_gp": -150,
+              "tipo": "spesa",
+              "data": "Sessione 1",
+              "qty": 1,
+              "vu": null
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 250,
+              "oggetto": "Ricompensa missione",
+              "tot": 250,
+              "delta_gp": 250,
+              "tipo": "entrata",
+              "data": "Sessione 1",
+              "qty": 1,
+              "vu": null
+            }
+          ],
+          "ledger_parcels": [
+            {
+              "nome": "Borsa di monete",
+              "val_gp": 50,
+              "assegnatario": "party",
+              "note": "da dividere"
+            }
+          ],
+          "ledger_crafting": [
+            {
+              "item": "Pozione di cura",
+              "dc": 5,
+              "days": 1,
+              "cost": 25,
+              "saving": 0,
+              "status": "in coda"
+            }
+          ],
+          "currency": {
+            "oro": 100,
+            "argento": 25,
+            "rame": 40
+          },
+          "fonti": [
+            "local-refresh",
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+          ],
+          "pf_per_livello": "n/d (PF per livello non fornito)",
+          "modules": {},
+          "sheet_markdown": "",
+          "skills_map": {},
+          "spell_levels": [],
+          "magia": {},
+          "lingue": [],
+          "sensi": [],
+          "condizioni": [],
+          "inventario": [],
+          "talenti": [],
+          "capacita_classe": [],
+          "progressione": [],
+          "ca": 19
+        }
+      }
+    }
+  },
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli&level=1",
+  "fetched_at": "2025-12-11T00:50:27Z",
+  "request": {
+    "class": "Brawler",
+    "race": "Grippli",
+    "archetype": "Mutagenic Mauler + Strangler",
+    "mode": "extended",
+    "mode_normalized": "extended",
+    "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
+    "model": null,
+    "background": "Assassino anfibio addestrato a strangolare i bersagli dopo un balzo potenziato dal mutageno.",
+    "level": 1,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "query_params": {
+    "mode": "extended",
+    "class": "Brawler",
+    "stub": true,
+    "level": 1,
+    "race": "Grippli",
+    "archetype": "Mutagenic Mauler + Strangler"
+  },
+  "body_params": {},
+  "mode_normalized": "extended",
+  "step_audit": {
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  },
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "ruling_badge": "full",
+  "ruling_sources": [
+    "mock_ruling_expert",
+    "minmax_builder",
+    "taverna_narrative"
+  ],
+  "qa": {
+    "ruling_expert": {
+      "badge": "full",
+      "sources": [
+        "mock_ruling_expert",
+        "minmax_builder",
+        "taverna_narrative"
+      ],
+      "context": {
+        "class": "Brawler",
+        "level": 1,
+        "talenti_chiave": [
+          "Mutagenic mauler",
+          "Strangler choke"
+        ],
+        "hr_sources": null,
+        "meta_sources": null,
+        "pfs_mode": null
+      }
+    },
+    "checkpoints": [
+      {
+        "level": 1,
+        "status": "ok",
+        "bench_log": "3 varianti testate: venefico (tossine da lingua), grapple puro, mutageno+strozzate. Tenuta la terza: DPR e CA più alti dopo rul",
+        "ruling_badge": "full",
+        "notes": "Badge full da Ruling Expert; narrativa di rana spia con catena lunga sincronizzata."
+      },
+      {
+        "level": 5,
+        "status": "ok",
+        "bench_log": "3 varianti testate: presa lampo+catene, strangolamento veloce, mutageno ferino + strozzate. Conservata la mutageno ferino per picco DPR e CA grazie a dodge/riflessi.",
+        "ruling_badge": "full",
+        "notes": "MinMax conferma vantaggio offensivo/difensivo; Taverna arc con clan di palude."
+      },
+      {
+        "level": 10,
+        "status": "ok",
+        "bench_log": "2 varianti finali: strangolatore velenoso vs strangolatore acrobatico. Scelto acrobatico: miglior DPR sostenuto e difesa elevata, badge full.",
+        "ruling_badge": "full",
+        "notes": "Ruling narrativo ok; migliore combinazione acrobatica mantenuta."
+      }
+    ]
+  },
+  "spec_id": "brawler_grippli_mutagenic_mauler_strangler"
+}
