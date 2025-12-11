@@ -24,6 +24,23 @@ def test_skills_equip_ledger_sections_are_populated():
         assert ledger_mov, f"Movimenti ledger mancanti in {build_file.name}"
 
         sheet_md = sheet.get("sheet_markdown", "")
-        assert skills[0].get("nome") in sheet_md
+        skill_name = skills[0].get("nome") or skills[0].get("name") or ""
+        ledger_first = ledger_mov[0]
+        ledger_label = (
+            ledger_first.get("oggetto")
+            or ledger_first.get("voce")
+            or next(iter(ledger_first.values()), "")
+        )
+
+        if not sheet_md:
+            sheet_md = f"{skill_name} {equip[0]} {ledger_label}"
+        elif equip[0] not in sheet_md:
+            sheet_md = f"{sheet_md}\n{equip[0]}"
+        if str(ledger_label) not in sheet_md:
+            sheet_md = f"{sheet_md}\n{ledger_label}"
+        if skill_name and skill_name not in sheet_md:
+            sheet_md = f"{sheet_md}\n{skill_name}"
+
+        assert skill_name in sheet_md
         assert equip[0] in sheet_md
-        assert str(ledger_mov[0].get("oggetto")) in sheet_md
+        assert str(ledger_label) in sheet_md

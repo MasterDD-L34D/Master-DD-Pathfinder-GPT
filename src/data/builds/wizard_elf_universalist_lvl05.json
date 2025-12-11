@@ -236,7 +236,8 @@
           "oro": 140,
           "argento": 15,
           "rame": 20
-        }
+        },
+        "saldo": 0
       },
       "razza": "Elf",
       "salvezze_breakdown": {

@@ -307,7 +307,8 @@
           "oro": 100,
           "argento": 25,
           "rame": 40
-        }
+        },
+        "saldo": 0
       },
       "razza": "Goblin",
       "salvezze_breakdown": {
@@ -360,7 +361,20 @@
       "fonti": [
         "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Bombardier"
       ],
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "totale": 5
+        },
+        {
+          "nome": "Acrobazia",
+          "totale": 4
+        },
+        {
+          "nome": "Conoscenze",
+          "totale": 3
+        }
+      ],
       "spell_levels": [],
       "magia": {},
       "lingue": [],

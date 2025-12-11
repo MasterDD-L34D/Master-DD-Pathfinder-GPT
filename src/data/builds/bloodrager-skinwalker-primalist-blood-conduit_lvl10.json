@@ -130,7 +130,8 @@
         "inventario": [
           "cintura del gigante +4",
           "elisir elementale"
-        ]
+        ],
+        "saldo": 0
       },
       "pf_totali": 142,
       "hp": {
@@ -281,7 +282,20 @@
       "show_explain": true,
       "show_ledger": true,
       "decimal_comma": true,
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Acrobazia",
+          "totale": 17
+        },
+        {
+          "nome": "Percezione",
+          "totale": 19
+        },
+        {
+          "nome": "Intimidire",
+          "totale": 12
+        }
+      ],
       "spell_levels": [],
       "lingue": [],
       "sensi": [],

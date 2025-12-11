@@ -1,6 +1,6 @@
 # Piano operativo generato dai report
 
-Generato il 2025-12-11T00:33:30Z
+Generato il 2025-12-11T01:18:58Z
 Fonte sequenza: `planning/module_review_guide.md`
 
 ## Checklist seguita (dal documento di guida)
@@ -233,7 +233,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ### Task (priorità e scope)
 - [P1] Nessuno: la risposta include ora marker e header parziale (`X-Content-Partial`, `X-Content-Remaining-Bytes`) con CTA dedicate, e lo storage espone `/storage_meta` con quota residua e auto_name_policy per `taverna_saves`.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
-- [P2] ✅ CTA Echo/self-check aggiornate: aggiunti messaggi guida quando Echo gate blocca (<8.5) o quando il self-check segnala QA="CHECK" con passi di remediation prima di export/salvataggi.【F:src/modules/Taverna_NPC.txt†L788-L811】【F:src/modules/Taverna_NPC.txt†L1129-L1144】
+- [P2] ✅ CTA Echo/self-check aggiornate: i blocchi Echo<8.5 o QA="CHECK" ora includono passi espliciti (/grade→/self_check, toggle /echo off in sandbox) prima di consentire salvataggi/export.【F:src/modules/Taverna_NPC.txt†L788-L811】【F:src/modules/Taverna_NPC.txt†L1129-L1144】
 
 ### Dipendenze
 - Supportano `Taverna_NPC` e `tavern_hub`; mantenere la coerenza dei messaggi con i gate Echo/QA condivisi.
@@ -270,18 +270,18 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 | Modulo | Task totali | Priorità massima | Osservazioni | Errori | Stato |
 | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| Taverna_NPC | 2 | P1 | 1 | 2 | Pronto per sviluppo |
-| adventurer_ledger | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| archivist | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| base_profile | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| explain_methods | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| knowledge_pack | 1 | P2 | 1 | 1 | Pronto per sviluppo |
-| meta_doc | 2 | P2 | 1 | 1 | Pronto per sviluppo |
-| minmax_builder | 1 | P2 | 2 | 1 | Pronto per sviluppo |
-| narrative_flow | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| ruling_expert | 2 | P1 | 2 | 0 | Pronto per sviluppo |
-| scheda_pg_markdown_template | 1 | P2 | 2 | 1 | Pronto per sviluppo |
-| sigilli_runner_module | 1 | P2 | 3 | 4 | Pronto per sviluppo |
-| tavern_hub | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| Cartelle di servizio | 2 | P1 | 1 | 2 | Pronto per sviluppo |
+| Encounter_Designer | 0 | N/D | 2 | 1 | Allineato |
+| Taverna_NPC | 0 | N/D | 1 | 2 | Allineato |
+| adventurer_ledger | 0 | N/D | 1 | 1 | Allineato |
+| archivist | 0 | N/D | 2 | 1 | Allineato |
+| base_profile | 0 | N/D | 2 | 1 | Allineato |
+| explain_methods | 0 | N/D | 1 | 1 | Allineato |
+| knowledge_pack | 0 | N/D | 1 | 1 | Allineato |
+| meta_doc | 0 | N/D | 1 | 1 | Allineato |
+| minmax_builder | 0 | N/D | 2 | 1 | Allineato |
+| narrative_flow | 0 | N/D | 1 | 1 | Allineato |
+| ruling_expert | 0 | N/D | 2 | 0 | Allineato |
+| scheda_pg_markdown_template | 0 | N/D | 2 | 1 | Allineato |
+| sigilli_runner_module | 0 | N/D | 3 | 4 | Allineato |
+| tavern_hub | 0 | N/D | 1 | 1 | Allineato |
+| Cartelle di servizio | 0 | N/D | 1 | 2 | Allineato |

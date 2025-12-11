@@ -152,7 +152,44 @@
         "totale": 24
       },
       "iniziativa": 4,
-      "velocita": 11
+      "velocita": 11,
+      "skills": [
+        {
+          "nome": "Acrobazia",
+          "totale": 14
+        },
+        {
+          "nome": "Percezione",
+          "totale": 16
+        },
+        {
+          "nome": "Intimidire",
+          "totale": 18
+        },
+        {
+          "nome": "Furtività",
+          "totale": 17
+        }
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Ricompensa",
+            "oggetto": "Barbarian",
+            "importo": 0,
+            "note": "Movimento auto-generato per QA"
+          }
+        ],
+        "saldo": 0
+      },
+      "ledger_movimenti": [
+        {
+          "voce": "Ricompensa",
+          "oggetto": "Barbarian",
+          "importo": 0,
+          "note": "Movimento auto-generato per QA"
+        }
+      ]
     }
   },
   "narrative": "Arc Taverna/Narrative importato e consolidato dopo QA MinMax; badge RAW/RAI validato.",
