@@ -1,6 +1,6 @@
 # Piano di lavoro esecutivo
 
-Generato il 2025-12-11T13:56:23Z da `tools/generate_module_plan.py`
+Generato il 2025-12-11T14:36:13Z da `tools/generate_module_plan.py`
 Fonte task: `planning/module_work_plan.md` (priorità P1→P3) e sequenza `planning/module_review_guide.md`.
 Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, con fasi sequenziali e dipendenze esplicite.
 
@@ -70,20 +70,20 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 - Nessun task aperto
 
 ### Tracciamento avanzamento
-| Modulo | Task aperti | Osservazioni | Errori | Priorità massima | Stato |
-| --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | 2 | 2 | 1 | P1 | Pronto per sviluppo |
-| minmax_builder | 1 | 2 | 1 | P2 | Pronto per sviluppo |
-| Taverna_NPC | 2 | 1 | 2 | P1 | Pronto per sviluppo |
-| tavern_hub | 2 | 1 | 1 | P1 | Pronto per sviluppo |
-| Cartelle di servizio | 2 | 1 | 2 | P1 | Pronto per sviluppo |
-| adventurer_ledger | 2 | 1 | 1 | P1 | Pronto per sviluppo |
-| archivist | 2 | 2 | 1 | P1 | Pronto per sviluppo |
-| base_profile | 2 | 2 | 1 | P1 | Pronto per sviluppo |
-| explain_methods | 2 | 1 | 1 | P1 | Pronto per sviluppo |
-| knowledge_pack | 1 | 1 | 1 | P2 | Pronto per sviluppo |
-| meta_doc | 2 | 1 | 1 | P2 | Pronto per sviluppo |
-| narrative_flow | 2 | 1 | 1 | P1 | Pronto per sviluppo |
-| ruling_expert | 2 | 2 | 0 | P1 | Pronto per sviluppo |
-| scheda_pg_markdown_template | 1 | 2 | 1 | P2 | Pronto per sviluppo |
-| sigilli_runner_module | 1 | 3 | 4 | P2 | Pronto per sviluppo |
+| Modulo | Task aperti | Osservazioni | Errori | Dipendenze | Priorità massima | Stato |
+| --- | --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | 2 | 2 | 1 | 0 | P1 | Pronto per sviluppo |
+| minmax_builder | 1 | 2 | 1 | 0 | P2 | Pronto per sviluppo |
+| Taverna_NPC | 2 | 1 | 2 | 0 | P1 | Pronto per sviluppo |
+| tavern_hub | 2 | 1 | 1 | 0 | P1 | Pronto per sviluppo |
+| Cartelle di servizio | 2 | 1 | 2 | 0 | P1 | Pronto per sviluppo |
+| adventurer_ledger | 2 | 1 | 1 | 0 | P1 | Pronto per sviluppo |
+| archivist | 2 | 2 | 1 | 0 | P1 | Pronto per sviluppo |
+| base_profile | 2 | 2 | 1 | 1 | P1 | Pronto per sviluppo |
+| explain_methods | 2 | 1 | 1 | 0 | P1 | Pronto per sviluppo |
+| knowledge_pack | 1 | 1 | 1 | 0 | P2 | Pronto per sviluppo |
+| meta_doc | 2 | 1 | 1 | 0 | P2 | Pronto per sviluppo |
+| narrative_flow | 2 | 1 | 1 | 0 | P1 | Pronto per sviluppo |
+| ruling_expert | 2 | 2 | 0 | 0 | P1 | Pronto per sviluppo |
+| scheda_pg_markdown_template | 1 | 2 | 1 | 0 | P2 | Pronto per sviluppo |
+| sigilli_runner_module | 1 | 3 | 4 | 0 | P2 | Pronto per sviluppo |
