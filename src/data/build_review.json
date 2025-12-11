@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-11T16:33:12Z",
+  "generated_at": "2025-12-11T16:43:47.610228+00:00",
   "builds": {
     "total": 3,
     "valid": 3,
@@ -8,60 +8,106 @@
     "missing": 0,
     "entries": [
       {
-        "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer.json",
-        "class": "Oracle",
-        "mode": "extended",
+        "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant.json",
         "status": "ok",
-        "output_prefix": "oracle_ghoran_spirit_guide_seer",
+        "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
+        "level": 1,
+        "class": "Paladin",
+        "race": "Aasimar",
+        "archetype": "Holy Tactician + Sacred Servant",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
+        "model": null,
+        "background": "Condottiero angelico che usa aura tattica e servitore celestiale",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "spec_id": "oracle_ghoran_spirit_guide_seer",
-        "mode_normalized": "extended",
-        "level": 1
+        "ruling_badge": "RAW/RAI/PFS",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "step_total_ok": true,
+        "extended_steps_available": true
       },
       {
-        "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl05.json",
-        "class": "Oracle",
-        "mode": "extended",
+        "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl05.json",
         "status": "ok",
-        "output_prefix": "oracle_ghoran_spirit_guide_seer",
+        "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
+        "level": 5,
+        "class": "Paladin",
+        "race": "Aasimar",
+        "archetype": "Holy Tactician + Sacred Servant",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
+        "model": null,
+        "background": "Condottiero angelico che usa aura tattica e servitore celestiale",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "spec_id": "oracle_ghoran_spirit_guide_seer",
-        "mode_normalized": "extended",
-        "level": 5
+        "ruling_badge": "RAW/RAI/PFS",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "step_total_ok": true,
+        "extended_steps_available": true
       },
       {
-        "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl10.json",
-        "class": "Oracle",
-        "mode": "extended",
+        "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl10.json",
         "status": "ok",
-        "output_prefix": "oracle_ghoran_spirit_guide_seer",
+        "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
+        "level": 10,
+        "class": "Paladin",
+        "race": "Aasimar",
+        "archetype": "Holy Tactician + Sacred Servant",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
+        "model": null,
+        "background": "Condottiero angelico che usa aura tattica e servitore celestiale",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "spec_id": "oracle_ghoran_spirit_guide_seer",
-        "mode_normalized": "extended",
-        "level": 10
+        "ruling_badge": "RAW/RAI/PFS",
+        "ruling_sources": [
+          "mock_ruling_expert"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "step_total_ok": true,
+        "extended_steps_available": true
       }
     ]
   },
-  "modules": {
-    "total": 0,
-    "valid": 0,
-    "invalid": 0,
-    "errors": 0,
-    "missing": 0,
-    "entries": []
-  },
-  "build_index": "src/data/build_index.json",
-  "module_index": "src/data/module_index.json"
+  "checkpoints": {
+    "1": {
+      "ok": 1,
+      "invalid": 0,
+      "missing": 0,
+      "completeness_errors": 0
+    },
+    "5": {
+      "ok": 1,
+      "invalid": 0,
+      "missing": 0,
+      "completeness_errors": 0
+    },
+    "10": {
+      "ok": 1,
+      "invalid": 0,
+      "missing": 0,
+      "completeness_errors": 0
+    }
+  }
 }

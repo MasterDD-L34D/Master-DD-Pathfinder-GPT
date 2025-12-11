@@ -1,0 +1,12 @@
+mode: extended
+requests:
+  - id: paladin_aasimar_holy_tactician_sacred_servant
+    class: Paladin
+    race: Aasimar
+    archetype: Holy Tactician + Sacred Servant
+    output_prefix: paladin_aasimar_holy_tactician_sacred_servant
+    background_hooks: "Condottiero angelico che usa aura tattica e servitore celestiale"
+    query:
+      race: Aasimar
+      archetype: Holy Tactician + Sacred Servant
+      theme: "teamwork aura + servitore"
