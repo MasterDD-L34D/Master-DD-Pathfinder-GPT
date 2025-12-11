@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-11T20:21:59Z",
+  "generated_at": "2025-12-11T22:11:22Z",
   "api_url": null,
   "mode": null,
   "spec_file": null,
@@ -166,6 +166,184 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "arcanist_tiefling_hexcrafter_+_blood_arcanist",
+      "background": "Studioso infernale che intreccia maledizioni da Hexcrafter e potere di sangue arcanist per controllare il campo e punire chi viola i suoi patti.",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 10,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/archive/brawler_human_base.json",
+      "status": "ok",
+      "output_prefix": "brawler_human_base",
+      "class": "Brawler",
+      "race": "Human",
+      "archetype": "Base",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "brawler_human_base",
+      "background": null,
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 1
+    },
+    {
+      "file": "src/data/builds/archive/brawler_human_base_lvl05.json",
+      "output_prefix": "brawler_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/archive/brawler_human_base_lvl10.json",
+      "output_prefix": "brawler_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/archive/cavalier_human_base.json",
+      "status": "ok",
+      "output_prefix": "cavalier_human_base",
+      "class": "Cavalier",
+      "race": "Human",
+      "archetype": "Base",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "cavalier_human_base",
+      "background": null,
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 1
+    },
+    {
+      "file": "src/data/builds/archive/cavalier_human_base_lvl05.json",
+      "output_prefix": "cavalier_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/archive/cavalier_human_base_lvl10.json",
+      "output_prefix": "cavalier_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/archive/cleric.json",
+      "status": "ok",
+      "output_prefix": "cleric_human_base",
+      "class": "Cleric",
+      "race": "Human",
+      "archetype": "Base",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "cleric_human_base",
+      "background": null,
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 1
+    },
+    {
+      "file": "src/data/builds/archive/cleric_human_warpriest.json",
+      "status": "missing",
+      "output_prefix": "cleric_human_warpriest",
+      "class": "Cleric",
+      "race": "Human",
+      "archetype": "Warpriest",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "cleric_human_warpriest",
+      "background": null,
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 5
+    },
+    {
+      "file": "src/data/builds/archive/cleric_human_warpriest.json",
+      "output_prefix": "cleric_human_warpriest",
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 1 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/archive/cleric_human_warpriest_lvl05.json",
+      "status": "ok",
+      "output_prefix": "cleric_human_warpriest",
+      "class": "Cleric",
+      "race": "Human",
+      "archetype": "Warpriest",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "cleric_human_warpriest",
+      "background": null,
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 5
+    },
+    {
+      "file": "src/data/builds/archive/cleric_human_warpriest_lvl10.json",
+      "status": "ok",
+      "output_prefix": "cleric_human_warpriest",
+      "class": "Cleric",
+      "race": "Human",
+      "archetype": "Warpriest",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "cleric_human_warpriest",
       "background": null,
       "model": null,
       "level_checkpoints": [
@@ -174,6 +352,73 @@
         10
       ],
       "level": 10
+    },
+    {
+      "file": "src/data/builds/archive/cleric_lvl05.json",
+      "output_prefix": "cleric_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/archive/cleric_lvl10.json",
+      "output_prefix": "cleric_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/archive/gunslinger_human_base.json",
+      "status": "ok",
+      "output_prefix": "gunslinger_human_base",
+      "class": "Gunslinger",
+      "race": "Human",
+      "archetype": "Base",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "gunslinger_human_base",
+      "background": null,
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 1
+    },
+    {
+      "file": "src/data/builds/archive/gunslinger_human_base_lvl05.json",
+      "output_prefix": "gunslinger_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/archive/gunslinger_human_base_lvl10.json",
+      "output_prefix": "gunslinger_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
@@ -574,6 +819,30 @@
       "level": 10
     },
     {
+      "file": "src/data/builds/druid_lvl05.json",
+      "output_prefix": "druid_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/druid_lvl10.json",
+      "output_prefix": "druid_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
       "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
       "status": "ok",
       "output_prefix": "druid_wayang_mooncaller_shapeshifter",
@@ -685,12 +954,36 @@
       "level": 10
     },
     {
-      "file": "src/data/builds/gunslinger_strix_gun_tank.json",
-      "status": "ok",
-      "output_prefix": "gunslinger_strix_gun_tank",
-      "class": "Gunslinger",
-      "race": "Strix",
-      "archetype": "Gun Tank",
+      "file": "src/data/builds/fighter_lvl05.json",
+      "output_prefix": "fighter_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/fighter_lvl10.json",
+      "output_prefix": "fighter_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/fighter_weapon_master_human.json",
+      "status": "missing",
+      "output_prefix": "fighter_human_weapon_master",
+      "class": "Fighter",
+      "race": "Human",
+      "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "gunslinger_strix_gun_tank",
@@ -703,7 +996,19 @@
       ]
     },
     {
-      "file": "src/data/builds/gunslinger_strix_gun_tank_lvl05.json",
+      "file": "src/data/builds/fighter_weapon_master_human.json",
+      "output_prefix": "fighter_human_weapon_master",
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 1 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
       "status": "ok",
       "output_prefix": "gunslinger_strix_gun_tank",
       "class": "Gunslinger",
@@ -850,6 +1155,30 @@
       "error": "None is not of type 'object'"
     },
     {
+      "file": "src/data/builds/hunter_lvl05.json",
+      "output_prefix": "hunter_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/hunter_lvl10.json",
+      "output_prefix": "hunter_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
       "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher.json",
       "status": "ok",
       "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",
@@ -923,7 +1252,31 @@
       "level": 1
     },
     {
-      "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl05.json",
+      "file": "src/data/builds/investigator_lvl05.json",
+      "output_prefix": "investigator_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/investigator_lvl10.json",
+      "output_prefix": "investigator_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/kineticist.json",
       "status": "ok",
       "output_prefix": "investigator_catfolk_empiricist_+_psychic_detective_detective_psichico_delle_steppe_felide",
       "class": "Investigator",
@@ -942,7 +1295,31 @@
       "level": 5
     },
     {
-      "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl10.json",
+      "file": "src/data/builds/kineticist_lvl05.json",
+      "output_prefix": "kineticist_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/kineticist_lvl10.json",
+      "output_prefix": "kineticist_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter.json",
       "status": "ok",
       "output_prefix": "investigator_catfolk_empiricist_+_psychic_detective_detective_psichico_delle_steppe_felide",
       "class": "Investigator",
@@ -1018,12 +1395,36 @@
       "error": "{'build_state': {'class': 'Kineticist', 'mode': 'extended', 'race': 'Strix', 'archetype': 'Kinetic Knight + Overwhelming Soul', 'step': 1, 'step_total': 16, 'step_labels': {'1': 'Profilo Base', '2': 'Razza & Classe', '3': 'Archetipi & Multiclasse', '4': 'Feats & Talenti', '5': 'Spell & Power Set', '6': 'Equip & Risorse', '7': 'Benchmark & Simulazioni', '8': 'QA & Export', '9': 'Dummies Sheet', '10': 'Esportazione', '11': 'Fork/Varianti', '12': 'Comparativa', '13': 'Meta Rating', '14': 'Companion', '15': 'Report', '16': 'Chiusura'}, 'statistics': {'FOR': 12, 'DES': 22, 'COS': 14, 'INT': 10, 'SAG': 12, 'CAR': 20}}, 'benchmark': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS', 'dpr_snapshot': {'livello_1': {'media': 12, 'picco': 18}, 'livello_5': {'media': 34, 'picco': 52}, 'livello_10': {'media': 65, 'picco': 98}}, 'statistics': {'attacco': '+19', 'danni': 'blast doppio 6d6+26 (empower + deadly earth)', 'ca': 31}, 'bench_log': ['Ruling Expert → MinMax → Taverna: confermata la linea knight/soul con badge RAW/RAI/PFS; altre varianti scartate per DPR o badge incompleti.', 'Meta_tier T1 mantenuto con log bench in metadati.']}, 'export': {'sheet_payload': {'classi': [{'nome': 'Kineticist', 'livelli': 10, 'archetipi': ['Kinetic Knight', 'Overwhelming Soul']}], 'statistiche': {'FOR': 12, 'DES': 22, 'COS': 14, 'INT': 10, 'SAG': 12, 'CAR': 20, 'attacco': '+19', 'danni': 'blast doppio 6d6+26', 'ca': 31, 'Forza': 12, 'Destrezza': 22, 'Costituzione': 14, 'Intelligenza': 10, 'Saggezza': 12, 'Carisma': 20}, 'statistiche_chiave': {'attacco': '+19', 'danni': '6d6+26', 'ca': 31}, 'benchmarks': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS'}, 'salvezze': {'Tempra': 11, 'Riflessi': 13, 'Volontà': 11}, 'attack_bonus': {'melee': '+19', 'ranged': '+21'}, 'damage': {'ranged': 'blast 6d6+26', 'special': 'deadly earth + cyclone'}, 'bench_log': ['Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati.'], 'rules_status_text': \"Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per cavalieri dell'aria.\"}}, 'bench_log': ['Ruling Expert: confermate infusioni difensive con armatura e scudo cinetico in modalità PFS.', 'MinMax: deadly earth + empower + overflow per picchi sostenuti; volo costante.', 'Narrative: capitana della guarnigione aerea, guida pattuglie di bladestorm.'], 'body_params': {'race': 'Strix', 'archetype_primary': 'Kinetic Knight', 'archetype_secondary': 'Overwhelming Soul', 'focus': 'tank volante a carisma con blast di forza'}, 'build_source': 'local spec', 'class': 'Kineticist', 'completeness': {'errors': [], 'require_complete': True}, 'ruling_badge': 'RAW/RAI/PFS', 'ruling_sources': ['mock_ruling_expert'], 'qa': {'ruling_expert': {'badge': 'RAW/RAI/PFS', 'sources': ['mock_ruling_expert'], 'context': {'class': 'Kineticist', 'archetype': 'Kinetic Knight + Overwhelming Soul', 'race': 'Strix', 'level': 10, 'talenti_chiave': ['Deadly Earth', 'Empower', 'Armor Infusion', 'Wings kinetic flight'], 'hr_sources': None, 'meta_sources': ['Pipeline Ruling Expert -> MinMax -> Taverna'], 'pfs_mode': 'RAW'}}, 'minmax': {'badge': 'validated', 'sources': ['minmax_runner'], 'context': {'key_rotation': 'Deadly earth + cyclone in volo, sustain con overflow', 'nova': 'Empower + gather full per doppio blast', 'safety': 'CA 31, scudo + armatura cinetica'}}, 'taverna': {'badge': 'validated', 'sources': ['tavern_builder'], 'context': {'role': 'Capitana delle guardie alate', 'hook': 'coordina incursioni dal cielo', 'voice': 'ordini rapidi e chiari'}}}, 'checkpoints': [{'level': 1, 'status': 'ok', 'bench_log': 'blast a forza con carica difensiva; badge RAW/RAI/PFS', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 5, 'status': 'ok', 'bench_log': 'Overflow su CHA e empower; DPR medio 34', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 10, 'status': 'ok', 'bench_log': 'Deadly earth + empower; T1 confermato', 'ruling_badge': 'RAW/RAI/PFS'}], 'output_prefix': 'kineticist_strix_kinetic_knight_overwhelming_soul', 'race': 'Strix', 'archetype': 'Kinetic Knight + Overwhelming Soul', 'spec_id': 'kineticist_strix_kinetic_knight_overwhelming_soul', 'background': 'Guardia alata delle cittadelle strix', 'level': 10, 'level_checkpoints': [1, 5, 10]} is not valid under any of the given schemas"
     },
     {
-      "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul.json",
-      "status": "invalid",
-      "output_prefix": "kineticist_suli_kinetic_knight_+_overwhelming_soul_guardia_delle_carovane_dell'oasi_suli",
-      "class": "Kineticist",
-      "race": "Suli",
-      "archetype": "Kinetic Knight + Overwhelming Soul",
+      "file": "src/data/builds/medium_lvl05.json",
+      "output_prefix": "medium_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/medium_lvl10.json",
+      "output_prefix": "medium_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/mesmerist.json",
+      "status": "ok",
+      "output_prefix": "mesmerist_human_base",
+      "class": "Mesmerist",
+      "race": "Human",
+      "archetype": "Base",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "kineticist_suli_kinetic_knight_+_overwhelming_soul_guardia_delle_carovane_dell'oasi_suli",
@@ -1037,17 +1438,84 @@
       "error": "{'build_state': {'class': 'Kineticist', 'mode': 'extended', 'race': 'Suli', 'archetype': 'Kinetic Knight + Overwhelming Soul', 'step': 1, 'step_total': 16, 'step_labels': {'1': 'Profilo Base', '2': 'Razza & Classe', '3': 'Archetipi & Multiclasse', '4': 'Feats & Talenti', '5': 'Spell & Power Set', '6': 'Equip & Risorse', '7': 'Benchmark & Simulazioni', '8': 'QA & Export', '9': 'Dummies Sheet', '10': 'Esportazione', '11': 'Fork/Varianti', '12': 'Comparativa', '13': 'Meta Rating', '14': 'Companion', '15': 'Report', '16': 'Chiusura'}, 'statistics': {'FOR': 14, 'DES': 18, 'COS': 12, 'INT': 8, 'SAG': 12, 'CAR': 18}}, 'benchmark': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS', 'dpr_snapshot': {'livello_1': {'media': 12, 'picco': 18}, 'livello_5': {'media': 32, 'picco': 48}, 'livello_10': {'media': 62, 'picco': 92}}, 'statistics': {'attacco': '+6', 'danni': 'lancia di forza 2d6+6 (empowered infusion)', 'ca': 19}, 'bench_log': ['Varianti testate (Ruling Expert → MinMax → Taverna/Narrative): (1) Suli Kinetic Knight/Overwhelming Soul con carapace di forza, (2) Vishkanya Aero-Kineticist + Kinetic Knight sniper, (3) Oread Elemental Annihilator + Psychokineticist da mischia terrestre.', 'Ruling: confermata la compatibilità tra Overwhelming Soul e Kinetic Knight (nessuna sostituzione in conflitto, focus su CHA e difesa da armatura) con badge RAW/RAI/PFS.', 'Benchmark: la variante 1 mantiene il DPR più alto ai checkpoint sfruttando resistenze elementali suli e potenziamenti di fulmine; promossa e conservata con meta_tier T1 e log di bench allegati.']}, 'export': {'sheet_payload': {'classi': [{'nome': 'Kineticist', 'livelli': 1, 'archetipi': ['Kinetic Knight', 'Overwhelming Soul']}], 'statistiche': {'FOR': 14, 'DES': 18, 'COS': 12, 'INT': 8, 'SAG': 12, 'CAR': 18, 'attacco': '+6', 'danni': 'lancia di forza 2d6+6', 'ca': 19, 'Forza': 14, 'Destrezza': 18, 'Costituzione': 12, 'Intelligenza': 8, 'Saggezza': 12, 'Carisma': 18}, 'statistiche_chiave': {'attacco': '+6', 'danni': '2d6+6', 'ca': 19}, 'benchmarks': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS'}, 'salvezze': {'Tempra': 4, 'Riflessi': 6, 'Volontà': 4}, 'attack_bonus': {'melee': '+6', 'ranged': '+8'}, 'damage': {'ranged': 'blast 2d6+6', 'special': 'blade rush difensivo'}, 'bench_log': ['Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Suli Kinetic Knight/Overwhelming Soul per DPR e badge validati.'], 'rules_status_text': 'Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.'}}, 'bench_log': ['Ruling Expert: validati i replacement Overwhelming Soul (CHA focus) con il carapace armato di Kinetic Knight; nessun overlap con infusions base.', 'MinMax: confronto fra varianti a distanza e mischia; la build knight/soul mantiene DPR e CA migliori grazie a heavy shield + gather difensivo.', \"Narrative/Taverna: ranger nomade suli che presidia gli accessi dell'oasi con scudi di forza e lampi.\"], 'body_params': {'race': 'Suli', 'archetype_primary': 'Kinetic Knight', 'archetype_secondary': 'Overwhelming Soul', 'focus': 'tank elementale a Carisma con blast di forza e fulmine'}, 'build_source': 'local spec', 'class': 'Kineticist', 'completeness': {'errors': [], 'require_complete': True}, 'ruling_badge': 'RAW/RAI/PFS', 'ruling_sources': ['mock_ruling_expert'], 'qa': {'ruling_expert': {'badge': 'RAW/RAI/PFS', 'sources': ['mock_ruling_expert'], 'context': {'class': 'Kineticist', 'archetype': 'Kinetic Knight + Overwhelming Soul', 'race': 'Suli', 'level': 1, 'talenti_chiave': ['Force Blast', 'Kinetic Blade', 'Armatura Elementale', 'Infused Armor Training'], 'hr_sources': None, 'meta_sources': ['Pipeline Ruling Expert -> MinMax -> Taverna'], 'pfs_mode': 'RAW'}}, 'minmax': {'badge': 'validated', 'sources': ['minmax_runner'], 'context': {'key_rotation': 'Gather Power + Force Blast empowered; Kinetic Blade difensiva quando ingaggiato', 'nova': 'Empowered composite blast con infusion specialization', 'safety': 'AC 19 base con heavy shield cinetico e resistenze elementali suli'}}, 'taverna': {'badge': 'validated', 'sources': ['tavern_builder'], 'context': {'role': \"Guardia d'elite delle carovane\", 'hook': \"Custode delle vie dell'oasi che tempra sabbia e vento\", 'voice': 'tono calmo e riverberato'}}}, 'checkpoints': [{'level': 1, 'status': 'ok', 'bench_log': 'blast di forza con carica difensiva; badge RAW/RAI/PFS', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 5, 'status': 'ok', 'bench_log': 'Elemental Overflow su CHA + shield cinetico; DPR medio 32', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 10, 'status': 'ok', 'bench_log': 'Armor infusion + empower composite; controllo area elementale', 'ruling_badge': 'RAW/RAI/PFS'}], 'output_prefix': 'kineticist_suli_kinetic_knight_overwhelming_soul', 'race': 'Suli', 'archetype': 'Kinetic Knight + Overwhelming Soul', 'spec_id': 'kineticist_suli_kinetic_knight_overwhelming_soul', 'background': \"Guardia delle carovane dell'oasi suli\", 'level': 1, 'level_checkpoints': [1, 5, 10]} is not valid under any of the given schemas"
     },
     {
-      "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "kineticist_suli_kinetic_knight_+_overwhelming_soul_guardia_delle_carovane_dell'oasi_suli",
-      "class": "Kineticist",
-      "race": "Suli",
-      "archetype": "Kinetic Knight + Overwhelming Soul",
+      "file": "src/data/builds/mesmerist_lvl05.json",
+      "output_prefix": "mesmerist_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/mesmerist_lvl10.json",
+      "output_prefix": "mesmerist_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/monk.json",
+      "status": "ok",
+      "output_prefix": "monk_human_base",
+      "class": "Monk",
+      "race": "Human",
+      "archetype": "Base",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "kineticist_suli_kinetic_knight_+_overwhelming_soul_guardia_delle_carovane_dell'oasi_suli",
-      "background": "Guardia delle carovane dell'oasi suli",
+      "spec_id": "monk_human_base",
+      "background": null,
       "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 1
+    },
+    {
+      "file": "src/data/builds/monk_lvl05.json",
+      "output_prefix": "monk_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/monk_lvl10.json",
+      "output_prefix": "monk_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
+      "status": "ok",
+      "output_prefix": "monk_vanara_qinggong_master_of_many_styles",
+      "class": "Monk",
+      "race": "Vanara",
+      "archetype": "Qinggong + Master of Many Styles",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
+      "background": null,
+      "model": "gpt-5.1-codex-max",
       "level_checkpoints": [
         1,
         5,
@@ -1064,9 +1532,9 @@
       "archetype": "Kinetic Knight + Overwhelming Soul",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "kineticist_suli_kinetic_knight_+_overwhelming_soul_guardia_delle_carovane_dell'oasi_suli",
-      "background": "Guardia delle carovane dell'oasi suli",
-      "model": null,
+      "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
+      "background": null,
+      "model": "gpt-5.1-codex-max",
       "level_checkpoints": [
         1,
         5,
@@ -1083,7 +1551,7 @@
       "archetype": "Bladebound Hexcrafter",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "magus_kitsune_bladebound_hexcrafter",
+      "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
       "background": null,
       "model": null,
       "level_checkpoints": [
@@ -1111,12 +1579,36 @@
       ]
     },
     {
-      "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl10.json",
+      "file": "src/data/builds/ninja_lvl05.json",
+      "output_prefix": "ninja_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/ninja_lvl10.json",
+      "output_prefix": "ninja_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/occultist.json",
       "status": "ok",
-      "output_prefix": "magus_kitsune_bladebound_hexcrafter",
-      "class": "Magus",
-      "race": "Kitsune",
-      "archetype": "Bladebound Hexcrafter",
+      "output_prefix": "occultist_human_base",
+      "class": "Occultist",
+      "race": "Human",
+      "archetype": "Base",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "magus_kitsune_bladebound_hexcrafter",
@@ -1148,12 +1640,36 @@
       "error": "{'build_state': {'class': 'Medium', 'mode': 'extended', 'race': 'Oread', 'archetype': 'Spirit Dancer + Reanimated Medium', 'step': 1, 'step_total': 16, 'step_labels': {'1': 'Profilo Base', '2': 'Razza & Classe', '3': 'Archetipi & Multiclasse', '4': 'Feats & Talenti', '5': 'Spell & Power Set', '6': 'Equip & Risorse', '7': 'Benchmark & Simulazioni', '8': 'QA & Export', '9': 'Dummies Sheet', '10': 'Esportazione', '11': 'Fork/Varianti', '12': 'Comparativa', '13': 'Meta Rating', '14': 'Companion', '15': 'Report', '16': 'Chiusura'}, 'statistics': {'FOR': 12, 'DES': 14, 'COS': 16, 'INT': 10, 'SAG': 12, 'CAR': 16}}, 'benchmark': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS', 'dpr_snapshot': {'livello_1': {'media': 10, 'picco': 15}, 'livello_5': {'media': 26, 'picco': 38}, 'livello_10': {'media': 44, 'picco': 68}}, 'statistics': {'attacco': '+4', 'danni': 'lancia spirituale 1d8+3 (danza ancestrale)', 'ca': 18}, 'bench_log': ['Varianti testate (Ruling Expert → MinMax → Taverna/Narrative): (1) Oread Spirit Dancer/Reanimated Medium con focus terra e danze di spiriti antichi, (2) Sylph Storyteller + Reanimated Medium orientato al controllo aura, (3) Dhampir Relic Channeler con focus necromantico e supporto undead.', 'Ruling Expert: confermata la compatibilità RAW/RAI tra Spirit Dancer e Reanimated Medium (nessuna sostituzione in conflitto, seance amplificata dalla danza) con badge RAW/RAI/PFS.', 'Benchmark MinMax/Taverna: la variante oread mantiene DPR e utility più alti ai checkpoint grazie alla robustezza elementale e alle performance rituali; promossa come unica istanza salvata con meta_tier T1 e log allegati.']}, 'export': {'sheet_payload': {'classi': [{'nome': 'Medium', 'livelli': 1, 'archetipi': ['Spirit Dancer', 'Reanimated Medium']}], 'statistiche': {'FOR': 12, 'DES': 14, 'COS': 16, 'INT': 10, 'SAG': 12, 'CAR': 16, 'attacco': '+4', 'danni': 'lancia spirituale 1d8+3', 'ca': 18, 'pf_totali': 12, 'iniziativa': 2, 'velocita': 6}, 'benchmarks': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS'}, 'salvezze': {'Tempra': '+4', 'Riflessi': '+2', 'Volontà': '+4'}, 'ledger': {'movimenti': [{'voce': 'Equipaggiamento iniziale', 'importo': -150}, {'voce': 'Spoglie rituali oread', 'importo': 220}], 'currency': {'oro': 70, 'argento': 35, 'rame': 10}, 'saldo': 0}, 'print_mode': False, 'show_minmax': True, 'show_vtt': True, 'show_qa': True, 'show_explain': True, 'show_ledger': True, 'decimal_comma': True, 'context': {'role': 'Oracolo danzante delle radure di quarzo', 'hook': 'Evoca gli antenati della pietra per guidare le spedizioni sotterranee', 'voice': 'tono profondo, ritmico'}}}, 'checkpoints': [{'level': 1, 'status': 'ok', 'bench_log': 'Danza spiritica difensiva, badge RAW/RAI/PFS confermato', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 5, 'status': 'ok', 'bench_log': 'Seance potenziata su CHA, danze di supporto + slam reincarnato', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 10, 'status': 'ok', 'bench_log': 'Doppio spirito coreografato, rituali di possessione rapida', 'ruling_badge': 'RAW/RAI/PFS'}], 'completeness': {'errors': [], 'require_complete': True}, 'output_prefix': 'medium_oread_spirit_dancer_reanimated_medium', 'race': 'Oread', 'archetype': 'Spirit Dancer + Reanimated Medium', 'spec_id': 'medium_oread_spirit_dancer_reanimated_medium', 'background': 'Medium oread danzatore degli spiriti di pietra', 'level': 1, 'level_checkpoints': [1, 5, 10]} is not valid under any of the given schemas"
     },
     {
-      "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "medium_oread_spirit_dancer_+_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
-      "class": "Medium",
-      "race": "Oread",
-      "archetype": "Spirit Dancer + Reanimated Medium",
+      "file": "src/data/builds/occultist_lvl05.json",
+      "output_prefix": "occultist_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/occultist_lvl10.json",
+      "output_prefix": "occultist_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/oracle.json",
+      "status": "ok",
+      "output_prefix": "oracle_human_base",
+      "class": "Oracle",
+      "race": "Human",
+      "archetype": "Base",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "medium_oread_spirit_dancer_+_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
@@ -1167,12 +1683,36 @@
       "error": "{'build_state': {'class': 'Medium', 'mode': 'extended', 'race': 'Oread', 'archetype': 'Spirit Dancer + Reanimated Medium', 'step': 1, 'step_total': 16, 'step_labels': {'1': 'Profilo Base', '2': 'Razza & Classe', '3': 'Archetipi & Multiclasse', '4': 'Feats & Talenti', '5': 'Spell & Power Set', '6': 'Equip & Risorse', '7': 'Benchmark & Simulazioni', '8': 'QA & Export', '9': 'Dummies Sheet', '10': 'Esportazione', '11': 'Fork/Varianti', '12': 'Comparativa', '13': 'Meta Rating', '14': 'Companion', '15': 'Report', '16': 'Chiusura'}, 'statistics': {'FOR': 12, 'DES': 14, 'COS': 18, 'INT': 10, 'SAG': 12, 'CAR': 18}}, 'benchmark': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS', 'dpr_snapshot': {'livello_1': {'media': 10, 'picco': 15}, 'livello_5': {'media': 26, 'picco': 38}, 'livello_10': {'media': 44, 'picco': 68}}, 'statistics': {'attacco': '+9', 'danni': 'slam ectoplasmatico 1d8+7 + seance', 'ca': 22}, 'bench_log': ['Varianti testate (Ruling Expert → MinMax → Taverna/Narrative): (1) Oread Spirit Dancer/Reanimated Medium con focus terra e danze di spiriti antichi, (2) Sylph Storyteller + Reanimated Medium orientato al controllo aura, (3) Dhampir Relic Channeler con focus necromantico e supporto undead.', 'Ruling Expert: confermata la compatibilità RAW/RAI tra Spirit Dancer e Reanimated Medium (nessuna sostituzione in conflitto, seance amplificata dalla danza) con badge RAW/RAI/PFS.', 'Benchmark MinMax/Taverna: la variante oread mantiene DPR e utility più alti ai checkpoint grazie alla robustezza elementale e alle performance rituali; promossa come unica istanza salvata con meta_tier T1 e log allegati.']}, 'export': {'sheet_payload': {'classi': [{'nome': 'Medium', 'livelli': 5, 'archetipi': ['Spirit Dancer', 'Reanimated Medium']}], 'statistiche': {'FOR': 12, 'DES': 14, 'COS': 18, 'INT': 10, 'SAG': 12, 'CAR': 18, 'attacco': '+9', 'danni': 'slam ectoplasmatico 1d8+7', 'ca': 22, 'pf_totali': 48, 'iniziativa': 3, 'velocita': 6}, 'benchmarks': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS'}, 'salvezze': {'Tempra': '+7', 'Riflessi': '+4', 'Volontà': '+7'}, 'ledger': {'movimenti': [{'voce': 'Incensi per seance', 'importo': -200}, {'voce': 'Contributo da guide minerarie', 'importo': 450}], 'currency': {'oro': 1200, 'argento': 10, 'rame': 0}, 'saldo': 0}, 'print_mode': False, 'show_minmax': True, 'show_vtt': True, 'show_qa': True, 'show_explain': True, 'show_ledger': True, 'decimal_comma': True, 'context': {'role': 'Conduttore di seance ambulante', 'hook': 'Guida con tamburi di quarzo le processioni tra canyon e rovine', 'voice': 'ritmo di passi e campanelli'}}}, 'checkpoints': [{'level': 1, 'status': 'ok', 'bench_log': 'Danza spiritica difensiva, badge RAW/RAI/PFS confermato', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 5, 'status': 'ok', 'bench_log': 'Seance potenziata su CHA, danze di supporto + slam reincarnato', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 10, 'status': 'ok', 'bench_log': 'Doppio spirito coreografato, rituali di possessione rapida', 'ruling_badge': 'RAW/RAI/PFS'}], 'completeness': {'errors': [], 'require_complete': True}, 'output_prefix': 'medium_oread_spirit_dancer_reanimated_medium', 'race': 'Oread', 'archetype': 'Spirit Dancer + Reanimated Medium', 'spec_id': 'medium_oread_spirit_dancer_reanimated_medium', 'background': 'Medium oread danzatore degli spiriti di pietra', 'level': 5, 'level_checkpoints': [1, 5, 10]} is not valid under any of the given schemas"
     },
     {
-      "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "medium_oread_spirit_dancer_+_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
-      "class": "Medium",
-      "race": "Oread",
-      "archetype": "Spirit Dancer + Reanimated Medium",
+      "file": "src/data/builds/oracle_lvl05.json",
+      "output_prefix": "oracle_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/oracle_lvl10.json",
+      "output_prefix": "oracle_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/paladin.json",
+      "status": "ok",
+      "output_prefix": "paladin_human_base",
+      "class": "Paladin",
+      "race": "Human",
+      "archetype": "Base",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "medium_oread_spirit_dancer_+_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
@@ -1186,7 +1726,31 @@
       "error": "{'build_state': {'class': 'Medium', 'mode': 'extended', 'race': 'Oread', 'archetype': 'Spirit Dancer + Reanimated Medium', 'step': 1, 'step_total': 16, 'step_labels': {'1': 'Profilo Base', '2': 'Razza & Classe', '3': 'Archetipi & Multiclasse', '4': 'Feats & Talenti', '5': 'Spell & Power Set', '6': 'Equip & Risorse', '7': 'Benchmark & Simulazioni', '8': 'QA & Export', '9': 'Dummies Sheet', '10': 'Esportazione', '11': 'Fork/Varianti', '12': 'Comparativa', '13': 'Meta Rating', '14': 'Companion', '15': 'Report', '16': 'Chiusura'}, 'statistics': {'FOR': 14, 'DES': 14, 'COS': 18, 'INT': 10, 'SAG': 12, 'CAR': 20}}, 'benchmark': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS', 'dpr_snapshot': {'livello_1': {'media': 10, 'picco': 15}, 'livello_5': {'media': 26, 'picco': 38}, 'livello_10': {'media': 44, 'picco': 68}}, 'statistics': {'attacco': '+14', 'danni': 'danza di possessione 2d6+10 + buff di spirito', 'ca': 26}, 'bench_log': ['Varianti testate (Ruling Expert → MinMax → Taverna/Narrative): (1) Oread Spirit Dancer/Reanimated Medium con focus terra e danze di spiriti antichi, (2) Sylph Storyteller + Reanimated Medium orientato al controllo aura, (3) Dhampir Relic Channeler con focus necromantico e supporto undead.', 'Ruling Expert: confermata la compatibilità RAW/RAI tra Spirit Dancer e Reanimated Medium (nessuna sostituzione in conflitto, seance amplificata dalla danza) con badge RAW/RAI/PFS.', 'Benchmark MinMax/Taverna: la variante oread mantiene DPR e utility più alti ai checkpoint grazie alla robustezza elementale e alle performance rituali; promossa come unica istanza salvata con meta_tier T1 e log allegati.']}, 'export': {'sheet_payload': {'classi': [{'nome': 'Medium', 'livelli': 10, 'archetipi': ['Spirit Dancer', 'Reanimated Medium']}], 'statistiche': {'FOR': 14, 'DES': 14, 'COS': 18, 'INT': 10, 'SAG': 12, 'CAR': 20, 'attacco': '+14', 'danni': 'danza di possessione 2d6+10', 'ca': 26, 'pf_totali': 92, 'iniziativa': 4, 'velocita': 6}, 'benchmarks': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS'}, 'salvezze': {'Tempra': '+10', 'Riflessi': '+6', 'Volontà': '+11'}, 'ledger': {'movimenti': [{'voce': 'Reliquie di quarzo animato', 'importo': -4500}, {'voce': 'Commissioni per danze rituali', 'importo': 6200}], 'currency': {'oro': 16500, 'argento': 0, 'rame': 0}, 'saldo': 0}, 'print_mode': False, 'show_minmax': True, 'show_vtt': True, 'show_qa': True, 'show_explain': True, 'show_ledger': True, 'decimal_comma': True, 'context': {'role': 'Vedetta degli spiriti della terra', 'hook': 'Coreografa possessioni rapide per schermare il party da corruzione e terrore', 'voice': 'canto profondo e riverberato'}}}, 'checkpoints': [{'level': 1, 'status': 'ok', 'bench_log': 'Danza spiritica difensiva, badge RAW/RAI/PFS confermato', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 5, 'status': 'ok', 'bench_log': 'Seance potenziata su CHA, danze di supporto + slam reincarnato', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 10, 'status': 'ok', 'bench_log': 'Doppio spirito coreografato, rituali di possessione rapida', 'ruling_badge': 'RAW/RAI/PFS'}], 'completeness': {'errors': [], 'require_complete': True}, 'output_prefix': 'medium_oread_spirit_dancer_reanimated_medium', 'race': 'Oread', 'archetype': 'Spirit Dancer + Reanimated Medium', 'spec_id': 'medium_oread_spirit_dancer_reanimated_medium', 'background': 'Medium oread danzatore degli spiriti di pietra', 'level': 10, 'level_checkpoints': [1, 5, 10]} is not valid under any of the given schemas"
     },
     {
-      "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
+      "file": "src/data/builds/paladin_lvl05.json",
+      "output_prefix": "paladin_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/paladin_lvl10.json",
+      "output_prefix": "paladin_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/psychic.json",
       "status": "ok",
       "output_prefix": "monk_vanara_qinggong_+_master_of_many_styles",
       "class": "Monk",
@@ -1205,7 +1769,31 @@
       "level": 1
     },
     {
-      "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl05.json",
+      "file": "src/data/builds/psychic_lvl05.json",
+      "output_prefix": "psychic_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/psychic_lvl10.json",
+      "output_prefix": "psychic_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/ranger.json",
       "status": "ok",
       "output_prefix": "monk_vanara_qinggong_+_master_of_many_styles",
       "class": "Monk",
@@ -1224,12 +1812,12 @@
       "level": 5
     },
     {
-      "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl10.json",
-      "status": "ok",
-      "output_prefix": "monk_vanara_qinggong_+_master_of_many_styles",
-      "class": "Monk",
-      "race": "Vanara",
-      "archetype": "Qinggong + Master of Many Styles",
+      "file": "src/data/builds/ranger_halfelf_skirmisher.json",
+      "status": "missing",
+      "output_prefix": "ranger_half-elf_skirmisher",
+      "class": "Ranger",
+      "race": "Half-Elf",
+      "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
@@ -1243,12 +1831,24 @@
       "level": 10
     },
     {
-      "file": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl01.json",
-      "status": "invalid",
-      "output_prefix": "paladin_aasimar_holy_tactician_+_sacred_servant",
-      "class": "Paladin",
-      "race": "Aasimar",
-      "archetype": "Holy Tactician + Sacred Servant",
+      "file": "src/data/builds/ranger_halfelf_skirmisher.json",
+      "output_prefix": "ranger_half-elf_skirmisher",
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 1 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
+      "status": "ok",
+      "output_prefix": "ranger_half-elf_skirmisher",
+      "class": "Ranger",
+      "race": "Half-Elf",
+      "archetype": "Skirmisher",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "paladin_aasimar_holy_tactician_+_sacred_servant",
@@ -1281,12 +1881,36 @@
       "error": "22 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 3} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'"
     },
     {
-      "file": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "paladin_aasimar_holy_tactician_+_sacred_servant",
-      "class": "Paladin",
-      "race": "Aasimar",
-      "archetype": "Holy Tactician + Sacred Servant",
+      "file": "src/data/builds/ranger_lvl05.json",
+      "output_prefix": "ranger_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/ranger_lvl10.json",
+      "output_prefix": "ranger_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/rogue.json",
+      "status": "ok",
+      "output_prefix": "rogue_human_base",
+      "class": "Rogue",
+      "race": "Human",
+      "archetype": "Base",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "paladin_aasimar_holy_tactician_+_sacred_servant",
@@ -1357,6 +1981,31 @@
       "level": 10
     },
     {
+      "file": "src/data/builds/rogue_lvl05.json",
+      "output_prefix": "rogue_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/rogue_lvl10.json",
+      "output_prefix": "rogue_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/samurai.json",
       "status": "ok",
       "output_prefix": "cleric_wayang_shadowcaster_separatist",
       "class": "Cleric",
@@ -1376,6 +2025,31 @@
       "level": 1
     },
     {
+      "file": "src/data/builds/samurai_lvl05.json",
+      "output_prefix": "samurai_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/samurai_lvl10.json",
+      "output_prefix": "samurai_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/shaman.json",
       "status": "ok",
       "output_prefix": "cleric_wayang_shadowcaster_separatist",
       "class": "Cleric",
@@ -1395,6 +2069,31 @@
       "level": 5
     },
     {
+      "file": "src/data/builds/shaman_lvl05.json",
+      "output_prefix": "shaman_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/shaman_lvl10.json",
+      "output_prefix": "shaman_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/skald.json",
       "status": "ok",
       "output_prefix": "cleric_wayang_shadowcaster_separatist",
       "class": "Cleric",
@@ -1414,7 +2113,31 @@
       "level": 10
     },
     {
-      "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma.json",
+      "file": "src/data/builds/skald_lvl05.json",
+      "output_prefix": "skald_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/skald_lvl10.json",
+      "output_prefix": "skald_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/slayer.json",
       "status": "ok",
       "output_prefix": "mesmerist_catfolk_vexing_daredevil_+_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
       "class": "Mesmerist",
@@ -1432,7 +2155,31 @@
       ]
     },
     {
-      "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl05.json",
+      "file": "src/data/builds/slayer_lvl05.json",
+      "output_prefix": "slayer_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/slayer_lvl10.json",
+      "output_prefix": "slayer_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/sorcerer.json",
       "status": "ok",
       "output_prefix": "mesmerist_catfolk_vexing_daredevil_+_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
       "class": "Mesmerist",
@@ -1450,7 +2197,31 @@
       ]
     },
     {
-      "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl10.json",
+      "file": "src/data/builds/sorcerer_lvl05.json",
+      "output_prefix": "sorcerer_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/sorcerer_lvl10.json",
+      "output_prefix": "sorcerer_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/spiritualist.json",
       "status": "ok",
       "output_prefix": "mesmerist_catfolk_vexing_daredevil_+_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
       "class": "Mesmerist",
@@ -1468,7 +2239,31 @@
       ]
     },
     {
-      "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant.json",
+      "file": "src/data/builds/spiritualist_lvl05.json",
+      "output_prefix": "spiritualist_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/spiritualist_lvl10.json",
+      "output_prefix": "spiritualist_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/summoner.json",
       "status": "ok",
       "output_prefix": "occultist_ghoran_battle_host_+_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
       "class": "Occultist",
@@ -1486,7 +2281,31 @@
       ]
     },
     {
-      "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl05.json",
+      "file": "src/data/builds/summoner_lvl05.json",
+      "output_prefix": "summoner_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/summoner_lvl10.json",
+      "output_prefix": "summoner_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/swashbuckler.json",
       "status": "ok",
       "output_prefix": "occultist_ghoran_battle_host_+_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
       "class": "Occultist",
@@ -1504,7 +2323,31 @@
       ]
     },
     {
-      "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl10.json",
+      "file": "src/data/builds/swashbuckler_lvl05.json",
+      "output_prefix": "swashbuckler_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/swashbuckler_lvl10.json",
+      "output_prefix": "swashbuckler_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/warpriest.json",
       "status": "ok",
       "output_prefix": "occultist_ghoran_battle_host_+_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
       "class": "Occultist",
@@ -1522,7 +2365,31 @@
       ]
     },
     {
-      "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer.json",
+      "file": "src/data/builds/warpriest_lvl05.json",
+      "output_prefix": "warpriest_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/warpriest_lvl10.json",
+      "output_prefix": "warpriest_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/witch.json",
       "status": "ok",
       "output_prefix": "oracle_ghoran_spirit_guide_+_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
       "class": "Oracle",
@@ -1540,7 +2407,31 @@
       ]
     },
     {
-      "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl05.json",
+      "file": "src/data/builds/witch_lvl05.json",
+      "output_prefix": "witch_human_base",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/witch_lvl10.json",
+      "output_prefix": "witch_human_base",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/wizard.json",
       "status": "ok",
       "output_prefix": "oracle_ghoran_spirit_guide_+_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
       "class": "Oracle",
@@ -1558,12 +2449,12 @@
       ]
     },
     {
-      "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl10.json",
-      "status": "ok",
-      "output_prefix": "oracle_ghoran_spirit_guide_+_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
-      "class": "Oracle",
-      "race": "Ghoran",
-      "archetype": "Spirit Guide + Seer",
+      "file": "src/data/builds/wizard_elf_universalist.json",
+      "status": "missing",
+      "output_prefix": "wizard_elf_universalist",
+      "class": "Wizard",
+      "race": "Elf",
+      "archetype": "Universalist",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "oracle_ghoran_spirit_guide_+_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
@@ -1595,12 +2486,24 @@
       "error": "14 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 2} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'"
     },
     {
-      "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "paladin_aasimar_holy_tactician_+_sacred_servant",
-      "class": "Paladin",
-      "race": "Aasimar",
-      "archetype": "Holy Tactician + Sacred Servant",
+      "file": "src/data/builds/wizard_elf_universalist.json",
+      "output_prefix": "wizard_elf_universalist",
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 1 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
+      "status": "ok",
+      "output_prefix": "wizard_elf_universalist",
+      "class": "Wizard",
+      "race": "Elf",
+      "archetype": "Universalist",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "paladin_aasimar_holy_tactician_+_sacred_servant",
@@ -1633,12 +2536,12 @@
       "error": "32 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 4} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'"
     },
     {
-      "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch.json",
-      "status": "ok",
-      "output_prefix": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
-      "class": "Witch",
-      "race": "Sylph",
-      "archetype": "Gravewalker + Hedge Witch",
+      "file": "src/data/builds/wizard_human_evoker.json",
+      "status": "missing",
+      "output_prefix": "wizard_human_evoker",
+      "class": "Wizard",
+      "race": "Human",
+      "archetype": "Evoker",
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
@@ -1651,7 +2554,19 @@
       ]
     },
     {
-      "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl05.json",
+      "file": "src/data/builds/wizard_human_evoker.json",
+      "output_prefix": "wizard_human_evoker",
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "status": "missing",
+      "error": "Checkpoint livello 1 dichiarato ma file assente"
+    },
+    {
+      "file": "src/data/builds/wizard_human_evoker_lvl05.json",
       "status": "ok",
       "output_prefix": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
       "class": "Witch",
@@ -1703,64 +2618,50 @@
         5,
         10
       ],
-      "error": "{'build_state': {'class': 'Witch', 'mode': 'extended', 'race': 'Sylph', 'archetype': 'Gravewalker + Hedge Witch', 'step': 1, 'step_total': 16, 'step_labels': {'1': 'Profilo Base', '2': 'Razza & Classe', '3': 'Archetipi & Multiclasse', '4': 'Feats & Talenti', '5': 'Spell & Power Set', '6': 'Equip & Risorse', '7': 'Benchmark & Simulazioni', '8': 'QA & Export', '9': 'Dummies Sheet', '10': 'Esportazione', '11': 'Fork/Varianti', '12': 'Comparativa', '13': 'Meta Rating', '14': 'Companion', '15': 'Report', '16': 'Chiusura'}, 'statistics': {'FOR': 8, 'DES': 16, 'COS': 12, 'INT': 18, 'SAG': 12, 'CAR': 14}}, 'benchmark': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS', 'dpr_snapshot': {'livello_1': {'media': 10, 'picco': 16}, 'livello_5': {'media': 24, 'picco': 38}, 'livello_10': {'media': 46, 'picco': 70}}, 'statistics': {'attacco': '+3', 'danni': 'raggio di gelo potenziato da cimitero + hex Evil Eye', 'ca': 16}, 'bench_log': ['Varianti testate (Ruling Expert → MinMax → Taverna/Narrative): (1) Sylph Gravewalker + Hedge Witch T1 con focus debuff/curing, (2) Oread Winter Witch + Havocker per controllo area, (3) Sylph Gravewalker + Seducer orientata a charme.', 'Ruling: confermata compatibilità tra Gravewalker e Hedge Witch (nessuna sostituzione in conflitto); badge RAW/RAI/PFS assegnato con note su possession e healing patron.', \"Benchmark: la variante 1 mantiene il DPR e l'accesso a heal + command undead ai checkpoint; promossa con meta_tier T1 e log di bench nei metadati.\"]}, 'export': {'sheet_payload': {'classi': [{'nome': 'Witch', 'livelli': 1, 'archetipi': ['Gravewalker', 'Hedge Witch']}], 'statistiche': {'FOR': 8, 'DES': 16, 'COS': 12, 'INT': 18, 'SAG': 12, 'CAR': 14, 'attacco': '+3', 'danni': 'raggio di gelo + hex', 'ca': 16, 'Forza': 8, 'Destrezza': 16, 'Costituzione': 12, 'Intelligenza': 18, 'Saggezza': 12, 'Carisma': 14}, 'statistiche_chiave': {'attacco': '+3', 'danni': '1d3+INT', 'ca': 16}, 'benchmarks': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS'}, 'salvezze': {'Tempra': 2, 'Riflessi': 3, 'Volontà': 4}, 'attack_bonus': {'ranged': '+3', 'special': '+5 (touch Hex)'}, 'damage': {'ranged': 'raggio di gelo 1d3+3', 'special': 'Evil Eye / Misfortune'}, 'bench_log': ['Pipeline confermata: variante Sylph Gravewalker + Hedge Witch mantiene badge RAW/RAI/PFS e T1.'], 'rules_status_text': 'Badge RAW/RAI/PFS confermato; necromanzia e healing patron compatibili'}}, 'bench_log': ['Ruling Expert: validata la sovrapposizione di Familiar/Hex fra Gravewalker e Hedge Witch; patron Healing compatibile con spirit binding.', 'MinMax: confronto varianti controllo vs. blast; la Sylph mantiene iniziativa alta e hex full-progression.', 'Narrative/Taverna: mediatrice aerea che lega anime con incensi curativi per il suo coven di sylph.'], 'body_params': {'race': 'Sylph', 'archetype_primary': 'Gravewalker', 'archetype_secondary': 'Hedge Witch', 'focus': 'caster T1 da debuff e supporto curativo con comando dei non morti'}, 'build_source': 'local spec', 'class': 'Witch', 'completeness': {'errors': [], 'require_complete': True}, 'ruling_badge': 'RAW/RAI/PFS', 'ruling_sources': ['mock_ruling_expert'], 'qa': {'ruling_expert': {'badge': 'RAW/RAI/PFS', 'sources': ['mock_ruling_expert'], 'context': {'class': 'Witch', 'archetype': 'Gravewalker + Hedge Witch', 'race': 'Sylph', 'level': 1, 'talenti_chiave': ['Evil Eye', 'Cackle', 'Command Undead', 'Healing Hex'], 'hr_sources': None, 'meta_sources': ['Pipeline Ruling Expert → MinMax → Taverna'], 'pfs_mode': 'RAW'}}, 'minmax': {'badge': 'validated', 'sources': ['minmax_runner'], 'context': {'key_rotation': 'Hex Evil Eye + Cackle per mantenere debuff; Command Undead con save penalizzato', 'nova': 'Snowball/Chill Touch potenziati da Hex', 'safety': 'Familiar volante e misure di occultamento da sylph'}}, 'taverna': {'badge': 'validated', 'sources': ['tavern_builder'], 'context': {'role': 'Mediatrice del coven del vento', 'hook': 'Serve rituali funebri sospesi nel cielo', 'voice': 'sussurri ariosi e profumati di incenso'}}}, 'checkpoints': [{'level': 1, 'status': 'ok', 'bench_log': 'Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 5, 'status': 'ok', 'bench_log': 'Cackle fly-by + Command Undead con +2 DC da Gravewalker', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 10, 'status': 'ok', 'bench_log': 'Major hex Misfortune + Life Giver per supporto e lockdown', 'ruling_badge': 'RAW/RAI/PFS'}], 'output_prefix': 'witch_sylph_gravewalker_hedge_witch', 'race': 'Sylph', 'archetype': 'Gravewalker + Hedge Witch', 'spec_id': 'witch_sylph_gravewalker_hedge_witch', 'background': 'Veggente del vento che guida anime e cura con erbe sospese', 'level': 1, 'level_checkpoints': [1, 5, 10]} is not valid under any of the given schemas"
+      "level": 10
     },
     {
-      "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
-      "class": "Witch",
-      "race": "Sylph",
-      "archetype": "Gravewalker + Hedge Witch",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
-      "background": "Veggente del vento che guida anime e cura con erbe sospese",
-      "model": null,
+      "file": "src/data/builds/wizard_lvl05.json",
+      "output_prefix": "wizard_human_base",
+      "level": 5,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "error": "{'build_state': {'class': 'Witch', 'mode': 'extended', 'race': 'Sylph', 'archetype': 'Gravewalker + Hedge Witch', 'step': 1, 'step_total': 16, 'step_labels': {'1': 'Profilo Base', '2': 'Razza & Classe', '3': 'Archetipi & Multiclasse', '4': 'Feats & Talenti', '5': 'Spell & Power Set', '6': 'Equip & Risorse', '7': 'Benchmark & Simulazioni', '8': 'QA & Export', '9': 'Dummies Sheet', '10': 'Esportazione', '11': 'Fork/Varianti', '12': 'Comparativa', '13': 'Meta Rating', '14': 'Companion', '15': 'Report', '16': 'Chiusura'}, 'statistics': {'FOR': 8, 'DES': 18, 'COS': 12, 'INT': 20, 'SAG': 12, 'CAR': 14}}, 'benchmark': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS', 'dpr_snapshot': {'livello_1': {'media': 10, 'picco': 16}, 'livello_5': {'media': 26, 'picco': 42}}, 'statistics': {'attacco': '+8', 'danni': 'snowball 5d6+5 + Evil Eye su TS', 'ca': 20}, 'bench_log': ['Pipeline Ruling Expert → MinMax → Taverna/Narrative: scartata la variante Havocker per perdita di hex; tenuta la linea Sylph Gravewalker + Hedge Witch per T1.', 'Ruling badge RAW/RAI/PFS confermato con log di bench allegati.']}, 'export': {'sheet_payload': {'classi': [{'nome': 'Witch', 'livelli': 5, 'archetipi': ['Gravewalker', 'Hedge Witch']}], 'statistiche': {'FOR': 8, 'DES': 18, 'COS': 12, 'INT': 20, 'SAG': 12, 'CAR': 14, 'attacco': '+8', 'danni': 'snowball 5d6+5', 'ca': 20, 'Forza': 8, 'Destrezza': 18, 'Costituzione': 12, 'Intelligenza': 20, 'Saggezza': 12, 'Carisma': 14}, 'statistiche_chiave': {'attacco': '+8', 'danni': '5d6+5', 'ca': 20}, 'benchmarks': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS'}, 'salvezze': {'Tempra': 4, 'Riflessi': 5, 'Volontà': 7}, 'attack_bonus': {'ranged': '+8', 'special': '+10 hex touch'}, 'damage': {'ranged': 'snowball 5d6+5', 'special': 'Command Undead / Misfortune'}, 'bench_log': ['Checkpoint 5: hex + fly-by Cackle, healing patron online; badge RAW/RAI/PFS valido'], 'rules_status_text': 'Badge RAW/RAI/PFS confermato; focus debuff/curing mantenuto'}}, 'bench_log': ['Ruling Expert: controllata la progressione di hex e i replacement di Gravewalker; nessun conflitto con il patron Healing.', 'MinMax: rotazione snowball + Evil Eye + Cackle per DPR costante; investimenti in DC necromanzia confermati.', 'Narrative/Taverna: custode dei cimiteri sospesi, guida le anime dei caduti nei cieli di vento.'], 'body_params': {'race': 'Sylph', 'archetype_primary': 'Gravewalker', 'archetype_secondary': 'Hedge Witch', 'focus': 'debuffer/curer volante con controllo dei non morti'}, 'build_source': 'local spec', 'class': 'Witch', 'completeness': {'errors': [], 'require_complete': True}, 'ruling_badge': 'RAW/RAI/PFS', 'ruling_sources': ['mock_ruling_expert'], 'qa': {'ruling_expert': {'badge': 'RAW/RAI/PFS', 'sources': ['mock_ruling_expert'], 'context': {'class': 'Witch', 'archetype': 'Gravewalker + Hedge Witch', 'race': 'Sylph', 'level': 5, 'talenti_chiave': ['Misfortune', 'Cackle', 'Flight Hex', 'Command Undead'], 'hr_sources': None, 'meta_sources': ['Pipeline Ruling Expert → MinMax → Taverna'], 'pfs_mode': 'RAW'}}, 'minmax': {'badge': 'validated', 'sources': ['minmax_runner'], 'context': {'key_rotation': 'Snowball + Evil Eye + Cackle per bloccare TS, undead enthrall come azione di massa', 'nova': 'Misfortune + Command Undead con DC 20', 'safety': 'Flight hex e familiar scout evitano ingaggi diretti'}}, 'taverna': {'badge': 'validated', 'sources': ['tavern_builder'], 'context': {'role': 'Guaritrice necromantica del clan', 'hook': 'Ricuce ferite con erbe aeree mentre comanda spiriti vincolati', 'voice': 'sussurri portati dal vento'}}}, 'checkpoints': [{'level': 1, 'status': 'ok', 'bench_log': 'Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 5, 'status': 'ok', 'bench_log': 'Cackle fly-by + Command Undead con +2 DC da Gravewalker', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 10, 'status': 'ok', 'bench_log': 'Major hex Misfortune + Life Giver per supporto e lockdown', 'ruling_badge': 'RAW/RAI/PFS'}], 'output_prefix': 'witch_sylph_gravewalker_hedge_witch', 'race': 'Sylph', 'archetype': 'Gravewalker + Hedge Witch', 'spec_id': 'witch_sylph_gravewalker_hedge_witch', 'background': 'Veggente del vento che guida anime e cura con erbe sospese', 'level': 5, 'level_checkpoints': [1, 5, 10]} is not valid under any of the given schemas"
+      "status": "missing",
+      "error": "Checkpoint livello 5 dichiarato ma file assente"
     },
     {
-      "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
-      "class": "Witch",
-      "race": "Sylph",
-      "archetype": "Gravewalker + Hedge Witch",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
-      "background": "Veggente del vento che guida anime e cura con erbe sospese",
-      "model": null,
+      "file": "src/data/builds/wizard_lvl10.json",
+      "output_prefix": "wizard_human_base",
+      "level": 10,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "error": "{'build_state': {'class': 'Witch', 'mode': 'extended', 'race': 'Sylph', 'archetype': 'Gravewalker + Hedge Witch', 'step': 1, 'step_total': 16, 'step_labels': {'1': 'Profilo Base', '2': 'Razza & Classe', '3': 'Archetipi & Multiclasse', '4': 'Feats & Talenti', '5': 'Spell & Power Set', '6': 'Equip & Risorse', '7': 'Benchmark & Simulazioni', '8': 'QA & Export', '9': 'Dummies Sheet', '10': 'Esportazione', '11': 'Fork/Varianti', '12': 'Comparativa', '13': 'Meta Rating', '14': 'Companion', '15': 'Report', '16': 'Chiusura'}, 'statistics': {'FOR': 8, 'DES': 18, 'COS': 14, 'INT': 22, 'SAG': 12, 'CAR': 14}}, 'benchmark': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS', 'dpr_snapshot': {'livello_1': {'media': 10, 'picco': 16}, 'livello_5': {'media': 26, 'picco': 42}, 'livello_10': {'media': 48, 'picco': 74}}, 'statistics': {'attacco': '+13', 'danni': 'cone of cold 10d6+10 / slumber+misfortune lockdown', 'ca': 22}, 'bench_log': ['Varianti combo finali: (1) Sylph Gravewalker + Hedge Witch con major hex Misfortune + Life Giver, (2) Sylph Gravewalker + Seducer con focus charme, (3) Oread Winter Witch + Havocker con cold blast. Conservata la variante 1 per badge pieno e meta_tier T1.', 'Log di bench e ruling allegati ai metadati.']}, 'export': {'sheet_payload': {'classi': [{'nome': 'Witch', 'livelli': 10, 'archetipi': ['Gravewalker', 'Hedge Witch']}], 'statistiche': {'FOR': 8, 'DES': 18, 'COS': 14, 'INT': 22, 'SAG': 12, 'CAR': 14, 'attacco': '+13', 'danni': 'cone of cold 10d6+10', 'ca': 22, 'Forza': 8, 'Destrezza': 18, 'Costituzione': 14, 'Intelligenza': 22, 'Saggezza': 12, 'Carisma': 14}, 'statistiche_chiave': {'attacco': '+13', 'danni': '10d6+10', 'ca': 22}, 'benchmarks': {'meta_tier': 'T1', 'ruling_badge': 'RAW/RAI/PFS'}, 'salvezze': {'Tempra': 7, 'Riflessi': 7, 'Volontà': 11}, 'attack_bonus': {'ranged': '+13', 'special': '+15 hex touch'}, 'damage': {'ranged': 'cone of cold 10d6+10', 'special': 'Misfortune + Slumber + Life Giver'}, 'bench_log': ['Checkpoint 10: major hex online, healing top-tier; badge RAW/RAI/PFS mantenuto'], 'rules_status_text': 'Badge RAW/RAI/PFS confermato; meta_tier T1 con log bench salvati'}}, 'bench_log': ['Ruling Expert: major hex e possession confermati legali insieme a Life Giver.', 'MinMax: combo Slumber/Misfortune + Command Undead mantiene lockdown e sustain; DPR stabile con cone of cold.', 'Narrative/Taverna: oracolo volante che trama con gli spiriti del vento e dei defunti.'], 'body_params': {'race': 'Sylph', 'archetype_primary': 'Gravewalker', 'archetype_secondary': 'Hedge Witch', 'focus': 'controllo totale con major hex e supporto curativo T1'}, 'build_source': 'local spec', 'class': 'Witch', 'completeness': {'errors': [], 'require_complete': True}, 'ruling_badge': 'RAW/RAI/PFS', 'ruling_sources': ['mock_ruling_expert'], 'qa': {'ruling_expert': {'badge': 'RAW/RAI/PFS', 'sources': ['mock_ruling_expert'], 'context': {'class': 'Witch', 'archetype': 'Gravewalker + Hedge Witch', 'race': 'Sylph', 'level': 10, 'talenti_chiave': ['Misfortune (major)', 'Life Giver', 'Slumber', 'Command Undead'], 'hr_sources': None, 'meta_sources': ['Pipeline Ruling Expert → MinMax → Taverna'], 'pfs_mode': 'RAW'}}, 'minmax': {'badge': 'validated', 'sources': ['minmax_runner'], 'context': {'key_rotation': 'Misfortune (major) + Cackle perma, Slumber/Command Undead come azioni decisive', 'nova': 'Cone of cold potenziato + debuff stacking', 'safety': 'Life Giver + healing patron mantengono party e undead minion'}}, 'taverna': {'badge': 'validated', 'sources': ['tavern_builder'], 'context': {'role': 'Somma sorella del coven aereo', 'hook': 'Tiene in equilibrio i venti funebri e le anime liberate', 'voice': \"tono calmo, eco di sussurri d'altura\"}}}, 'checkpoints': [{'level': 1, 'status': 'ok', 'bench_log': 'Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 5, 'status': 'ok', 'bench_log': 'Cackle fly-by + Command Undead con +2 DC da Gravewalker', 'ruling_badge': 'RAW/RAI/PFS'}, {'level': 10, 'status': 'ok', 'bench_log': 'Major hex Misfortune + Life Giver per supporto e lockdown', 'ruling_badge': 'RAW/RAI/PFS'}], 'output_prefix': 'witch_sylph_gravewalker_hedge_witch', 'race': 'Sylph', 'archetype': 'Gravewalker + Hedge Witch', 'spec_id': 'witch_sylph_gravewalker_hedge_witch', 'background': 'Veggente del vento che guida anime e cura con erbe sospese', 'level': 10, 'level_checkpoints': [1, 5, 10]} is not valid under any of the given schemas"
+      "status": "missing",
+      "error": "Checkpoint livello 10 dichiarato ma file assente"
     }
   ],
   "checkpoints": {
     "1": {
-      "total": 13,
-      "invalid": 0,
-      "schema_errors": 0,
+      "total": 50,
+      "invalid": 5,
+      "schema_errors": 5,
       "completeness_errors": 0
     },
     "5": {
-      "total": 14,
-      "invalid": 0,
-      "schema_errors": 0,
+      "total": 56,
+      "invalid": 35,
+      "schema_errors": 30,
       "completeness_errors": 0
     },
     "10": {
-      "total": 14,
-      "invalid": 0,
-      "schema_errors": 0,
+      "total": 51,
+      "invalid": 30,
+      "schema_errors": 30,
       "completeness_errors": 0
     }
   }

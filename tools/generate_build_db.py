@@ -10,7 +10,6 @@ import os
 import shutil
 import textwrap
 import re
-from collections import Counter, defaultdict
 from fnmatch import fnmatchcase
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
@@ -66,6 +65,36 @@ PF1E_CLASSES: List[str] = [
     "Witch",
     "Wizard",
 ]
+
+# Pool di razze comuni/featured PF1e usate come fallback quando si vuole
+# evitare duplicati automaticamente (può essere sovrascritto da CLI).
+PF1E_RACES: Sequence[str] = (
+    "Human",
+    "Elf",
+    "Dwarf",
+    "Gnome",
+    "Halfling",
+    "Half-Elf",
+    "Half-Orc",
+    "Aasimar",
+    "Catfolk",
+    "Dhampir",
+    "Fetchling",
+    "Goblin",
+    "Grippli",
+    "Hobgoblin",
+    "Ifrit",
+    "Kitsune",
+    "Kobold",
+    "Nagaji",
+    "Oread",
+    "Suli",
+    "Sylph",
+    "Tengu",
+    "Tiefling",
+    "Undine",
+    "Wayang",
+)
 
 DEFAULT_MODE = "extended"
 DEFAULT_BASE_URL = "http://localhost:8000"
@@ -201,216 +230,97 @@ def normalize_mode(mode: str) -> str:
     return "core" if candidate.startswith("core") else "extended"
 
 
-@dataclass(slots=True)
-class LocalBuildFile:
-    path: Path
-    prefix: str
-    level: int
-    class_name: str
-    race: str
+def normalize_race(race: str | None) -> str | None:
+    if race is None:
+        return None
+    return str(race).strip().lower()
 
 
-def _infer_prefix_and_level(filename: str) -> tuple[str, int]:
-    stem = Path(filename).stem
-    match = re.match(r"^(?P<prefix>.+?)(?:[_-]lvl(?P<level>\d+))?$", stem)
-    if not match:
-        return stem, 1
+def load_race_inventory(path: Path | None) -> list[str]:
+    if not path:
+        return []
 
-    prefix = match.group("prefix")
-    level = match.group("level")
-    return prefix, int(level) if level else 1
-
-
-def _coerce_label(value: object, default: str) -> str:
-    if value is None:
-        return default
     try:
-        text = str(value).strip()
-    except Exception:
-        return default
-    return text or default
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        logging.info("Race inventory non trovato in %s", path)
+        return []
+    except Exception as exc:  # pragma: no cover - log only
+        logging.warning("Impossibile leggere %s: %s", path, exc)
+        return []
+
+    if isinstance(data, list):
+        return [str(item) for item in data]
+
+    races = data.get("races") if isinstance(data, Mapping) else None
+    if isinstance(races, Mapping):
+        return [str(name) for name in races.keys()]
+    if isinstance(races, list):
+        return [str(item.get("name", item)) for item in races]
+
+    return []
 
 
-def _load_local_builds(
-    build_dir: Path, expected_levels: Sequence[int]
-) -> list[LocalBuildFile]:
-    if not build_dir.is_dir():
-        raise ValueError(f"Directory delle build non trovata: {build_dir}")
+def assign_missing_races(
+    requests: Sequence[BuildRequest],
+    race_inventory: Sequence[str],
+    *,
+    prefer_unused_race: bool = False,
+    race_pool: Sequence[str] | None = None,
+) -> list[BuildRequest]:
+    used_normalized = {race for race in (normalize_race(r) for r in race_inventory) if race}
+    pool = [race for race in (race_pool or []) if race]
+    available_pool = [
+        race for race in pool if normalize_race(race) not in used_normalized
+    ]
 
-    build_files: list[LocalBuildFile] = []
-    for json_path in sorted(build_dir.rglob("*.json")):
-        if json_path.is_dir():
+    updated: list[BuildRequest] = []
+    for request in requests:
+        current_race = request.race or request.query_params.get("race")
+        normalized_current = normalize_race(current_race)
+        if normalized_current:
+            used_normalized.add(normalized_current)
+            updated.append(request)
             continue
 
-        prefix, level = _infer_prefix_and_level(json_path.name)
+        if prefer_unused_race and available_pool:
+            next_race = available_pool.pop(0)
+            used_normalized.add(normalize_race(next_race))
+            updated.append(replace(request, race=next_race))
+        else:
+            updated.append(request)
 
-        with json_path.open("r", encoding="utf-8") as fh:
-            payload = json.load(fh)
+    return updated
 
-        build_state = payload.get("build_state") or {}
-        class_name = _coerce_label(
-            build_state.get("class") or payload.get("class"), "Unknown"
+
+def export_race_inventory(build_dir: Path, output_path: Path) -> Mapping[str, object]:
+    from collections import Counter
+
+    counter: Counter[str] = Counter()
+    for json_file in build_dir.rglob("*.json"):
+        try:
+            data = json.loads(json_file.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+
+        race = (
+            data.get("request", {}).get("race")
+            or data.get("metadata", {}).get("race")
+            or data.get("query_params", {}).get("race")
+            or data.get("body_params", {}).get("race")
         )
-        race = _coerce_label(build_state.get("race") or payload.get("race"), "Unknown")
+        if race:
+            counter[str(race).strip()] += 1
 
-        build_files.append(
-            LocalBuildFile(
-                path=json_path,
-                prefix=prefix,
-                level=level if level in set(expected_levels) else level,
-                class_name=class_name,
-                race=race,
-            )
-        )
+    races = [
+        {"name": name, "count": count} for name, count in sorted(counter.items())
+    ]
+    payload = {"generated_at": now_iso_utc(), "races": races}
 
-    return build_files
-
-
-def _summarize_builds(
-    build_files: Sequence[LocalBuildFile],
-    *,
-    expected_levels: Sequence[int],
-    key_name: str,
-    key_fn,
-) -> dict[str, object]:
-    expected_set = set(expected_levels)
-    counters: dict[str, Counter[int]] = defaultdict(Counter)
-    level_sets: dict[str, set[int]] = defaultdict(set)
-    for build_file in build_files:
-        key = key_fn(build_file)
-        counters[key][build_file.level] += 1
-        level_sets[key].add(build_file.level)
-
-    items = []
-    for key, counts in sorted(counters.items()):
-        present = level_sets[key]
-        items.append(
-            {
-                key_name: key,
-                "present_levels": sorted(present),
-                "missing_levels": sorted(expected_set - present),
-                "total_by_level": {
-                    str(level): counts.get(level, 0) for level in expected_levels
-                },
-            }
-        )
-
-    total_counts: Counter[int] = Counter()
-    for counts in counters.values():
-        total_counts.update(counts)
-
-    return {
-        "generated_at": now_iso_utc(),
-        "expected_checkpoints": list(expected_levels),
-        "items": items,
-        "summary": {
-            "total_groups": len(items),
-            "total_by_level": {
-                str(level): total_counts.get(level, 0) for level in expected_levels
-            },
-        },
-    }
-
-
-def _summarize_prefixes(
-    build_files: Sequence[LocalBuildFile],
-    *,
-    expected_levels: Sequence[int],
-) -> dict[str, object]:
-    expected_set = set(expected_levels)
-    prefix_data: dict[str, dict[str, object]] = {}
-    total_counts: Counter[int] = Counter()
-
-    for build_file in build_files:
-        total_counts[build_file.level] += 1
-        bucket = prefix_data.setdefault(
-            build_file.prefix,
-            {
-                "prefix": build_file.prefix,
-                "class": build_file.class_name,
-                "race": build_file.race,
-                "levels": set(),
-                "counts": Counter(),
-                "paths": {},
-            },
-        )
-        bucket["levels"].add(build_file.level)
-        bucket["counts"][build_file.level] += 1
-        bucket["paths"][str(build_file.level)] = str(build_file.path)
-
-    items = []
-    for prefix, bucket in sorted(prefix_data.items()):
-        counts: Counter[int] = bucket["counts"]
-        levels: set[int] = bucket["levels"]
-        items.append(
-            {
-                "prefix": prefix,
-                "class": bucket["class"],
-                "race": bucket["race"],
-                "present_levels": sorted(levels),
-                "missing_levels": sorted(expected_set - levels),
-                "total_by_level": {
-                    str(level): counts.get(level, 0) for level in expected_levels
-                },
-                "paths": bucket["paths"],
-            }
-        )
-
-    return {
-        "generated_at": now_iso_utc(),
-        "expected_checkpoints": list(expected_levels),
-        "items": items,
-        "summary": {
-            "total_prefixes": len(items),
-            "total_by_level": {
-                str(level): total_counts.get(level, 0) for level in expected_levels
-            },
-        },
-    }
-
-
-def export_build_reports(
-    build_dir: Path,
-    reports_dir: Path,
-    *,
-    expected_levels: Sequence[int] = (1, 5, 10),
-) -> dict[str, Path]:
-    build_files = _load_local_builds(build_dir, expected_levels)
-    reports_dir.mkdir(parents=True, exist_ok=True)
-
-    class_report = _summarize_builds(
-        build_files,
-        expected_levels=expected_levels,
-        key_name="class",
-        key_fn=lambda b: b.class_name,
-    )
-    race_report = _summarize_builds(
-        build_files,
-        expected_levels=expected_levels,
-        key_name="race",
-        key_fn=lambda b: b.race,
-    )
-    checkpoint_report = _summarize_prefixes(
-        build_files,
-        expected_levels=expected_levels,
-    )
-
-    outputs = {
-        "build_classes": reports_dir / "build_classes.json",
-        "build_races": reports_dir / "build_races.json",
-        "checkpoint_coverage": reports_dir / "checkpoint_coverage.json",
-    }
-
-    with outputs["build_classes"].open("w", encoding="utf-8") as fh:
-        json.dump(class_report, fh, ensure_ascii=False, indent=2)
-
-    with outputs["build_races"].open("w", encoding="utf-8") as fh:
-        json.dump(race_report, fh, ensure_ascii=False, indent=2)
-
-    with outputs["checkpoint_coverage"].open("w", encoding="utf-8") as fh:
-        json.dump(checkpoint_report, fh, ensure_ascii=False, indent=2)
-
-    return outputs
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    write_json(output_path, payload)
+    logging.info("Inventario razze salvato in %s", output_path)
+    return payload
 
 
 def expected_step_total_for_mode(mode: str) -> int:
@@ -1154,9 +1064,7 @@ def review_local_database(
         entry.setdefault("mode_normalized", index_entry.get("mode_normalized"))
         index_entries.append(index_entry)
 
-        normalized_prefix = _strip_level_suffix(
-            output_prefix or Path(display_path).stem
-        )
+        normalized_prefix = _strip_level_suffix(output_prefix or Path(display_path).stem)
         tracker_entry = prefix_tracker.setdefault(
             normalized_prefix,
             {
@@ -1165,9 +1073,7 @@ def review_local_database(
                 "template_file": display_path,
             },
         )
-        tracker_entry["expected"].update(
-            _normalize_levels(level_checkpoints, (1, 5, 10))
-        )
+        tracker_entry["expected"].update(_normalize_levels(level_checkpoints, (1, 5, 10)))
         level_from_entry = index_entry.get("level")
         if level_from_entry is None:
             level_from_entry = _deduce_level_from_filename(Path(display_path))
@@ -1184,15 +1090,8 @@ def review_local_database(
 
         template_path = Path(str(tracker.get("template_file") or build_dir / prefix))
         for missing_level in missing_levels:
-            suffix = (
-                ""
-                if missing_level == min(expected_levels or {1})
-                else f"_lvl{missing_level:02d}"
-            )
-            missing_path = (
-                template_path.parent
-                / f"{_strip_level_suffix(template_path.stem)}{suffix}.json"
-            )
+            suffix = "" if missing_level == min(expected_levels or {1}) else f"_lvl{missing_level:02d}"
+            missing_path = template_path.parent / f"{_strip_level_suffix(template_path.stem)}{suffix}.json"
             entry = {
                 "file": str(missing_path),
                 "output_prefix": prefix,
@@ -1556,6 +1455,28 @@ def parse_args() -> argparse.Namespace:
         nargs="*",
         default=[],
         help="Elenco di razze da combinare con le classi target (prodotto cartesiano)",
+    )
+    parser.add_argument(
+        "--race-inventory",
+        type=Path,
+        default=Path("reports/build_races.json"),
+        help="File JSON con l'inventario delle razze già usate; se esiste può essere usato per evitare duplicati",
+    )
+    parser.add_argument(
+        "--race-pool",
+        nargs="*",
+        default=list(PF1E_RACES),
+        help="Pool di razze candidate per l'assegnazione automatica quando manca la razza nella request",
+    )
+    parser.add_argument(
+        "--prefer-unused-race",
+        action="store_true",
+        help="Quando la razza non è specificata assegna la prima razza non ancora presente nell'inventario",
+    )
+    parser.add_argument(
+        "--export-races",
+        action="store_true",
+        help="Esporta l'elenco delle razze effettivamente usate nei build JSON e termina",
     )
     parser.add_argument(
         "--archetypes",
@@ -3894,8 +3815,15 @@ async def run_harvest(
 
 
 def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
-    requests = filter_requests(
+    race_inventory = load_race_inventory(args.race_inventory)
+    requests = assign_missing_races(
         build_requests_from_args(args),
+        race_inventory,
+        prefer_unused_race=args.prefer_unused_race,
+        race_pool=args.race_pool,
+    )
+    requests = filter_requests(
+        requests,
         args.filter_classes,
         args.filter_levels,
     )
@@ -4027,6 +3955,10 @@ def main() -> None:
     if args.dual_pass and args.validate_db:
         raise ValueError("--dual-pass non è compatibile con --validate-db")
 
+    if args.export_races:
+        export_race_inventory(args.output_dir, args.race_inventory)
+        return
+
     if not args.ruling_expert_url and not args.validate_db:
         raise ValueError(
             "--ruling-expert-url è obbligatorio per salvare nuovi snapshot"
@@ -4036,8 +3968,16 @@ def main() -> None:
         run_dual_pass_harvest(args)
         return
 
-    requests = filter_requests(
+    race_inventory = load_race_inventory(args.race_inventory)
+    requests = assign_missing_races(
         build_requests_from_args(args),
+        race_inventory,
+        prefer_unused_race=args.prefer_unused_race,
+        race_pool=args.race_pool,
+    )
+
+    requests = filter_requests(
+        requests,
         args.filter_classes,
         args.filter_levels,
     )
