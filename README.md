@@ -116,6 +116,33 @@ Quando generi il piano operativo (`python tools/generate_module_plan.py --output
 `python tools/refresh_module_reports.py --write` (o `--check` nei workflow) così il piano si basa su report già normalizzati e
 con tutte le intestazioni/template applicati.
 
+### Workflow QA quotidiano
+
+Usa questo mini-flusso per mantenere allineati report e piano di lavoro lungo la giornata.
+
+- **Mattina**
+  - Normalizza i report in [`reports/module_tests/`](reports/module_tests/) con le sezioni obbligatorie: `python tools/refresh_module_reports.py --write`. Se lo script stampa
+    `Aggiornato: reports/module_tests/<modulo>.md` e termina con exit code `0`, sei pronto a compilare; se ricevi messaggi
+    `[WARN]` o l'uscita è `1`, rilancia con `--write` finché non scompaiono le segnalazioni di sezioni mancanti.
+  - Genera il piano operativo completo: `python tools/generate_module_plan.py --output planning/module_work_plan.md`. L'output
+    atteso chiude con `Work plan written to planning/module_work_plan.md` (exit code `0`); in caso di errore interrompi la
+    sessione e controlla che i report siano stati aggiornati prima di rilanciare.
+  - Annota i task emersi o le dipendenze in `planning/roadmap.md` (es. nuove verifiche, blocker tecnici) per tenerli tracciati.
+
+- **Durante la lettura**
+  - Compila le sezioni dei report applicando le lenti PF1e (coerenza con regole, scaling e build) e sicurezza/observability
+    (risposte API, backoff, metriche, logging) quando aggiorni `QA`, `Osservazioni`, `Errori` e `Miglioramenti` in
+    [`reports/module_tests/`](reports/module_tests/).
+  - Mantieni almeno un bullet per sezione; se lo script precedente ha inserito `- TODO`, sostituiscilo con l'esito reale prima
+    di procedere oltre.
+
+- **Fine giornata**
+  - Verifica che i report compilati siano completi: `python tools/refresh_module_reports.py --check`. L'uscita attesa è
+    `Tutti i report includono le sezioni obbligatorie con almeno un bullet.` e exit code `0`; se esce `1` con elenco delle
+    sezioni mancanti/ vuote, riapri i file indicati e sistemali prima di ripetere il comando.
+  - Rigenera (se necessario) il piano di lavoro con `python tools/generate_module_plan.py --output planning/module_work_plan.md`
+    per riflettere gli ultimi aggiornamenti e sincronizza i task residui in `planning/roadmap.md`.
+
 Per i moduli, il dump completo è **disattivato di default** (`ALLOW_MODULE_DUMP=false`).
 `/modules/{name}` restituisce solo estratti (4000 caratteri + marcatore finale) e blocca
 gli asset non testuali: la risposta include `X-Content-Partial: true` e `206 Partial Content`
