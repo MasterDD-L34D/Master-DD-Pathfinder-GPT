@@ -253,11 +253,11 @@ Fonte sequenza: `planning/module_review_guide.md`
 ## Riepilogo osservazioni ed errori
 | Modulo | Osservazioni | Errori | Totale note |
 | --- | --- | --- | --- |
-| sigilli_runner_module | 3 | 4 | 7 |
+| 🔶 sigilli_runner_module | 3 | 4 | 7 |
 | Encounter_Designer | 2 | 1 | 3 |
 | Taverna_NPC | 1 | 2 | 3 |
 | archivist | 2 | 1 | 3 |
-| base_profile | 2 | 1 | 3 |
+| 🔗 base_profile | 2 | 1 | 3 |
 | minmax_builder | 2 | 1 | 3 |
 | ruling_expert | 2 | 1 | 3 |
 | scheda_pg_markdown_template | 2 | 1 | 3 |
@@ -276,20 +276,20 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Compila il sommario sprint con numero task, priorità massima e blocchi per modulo usando la tabella seguente, con owner
   assegnati e checkpoint giornalieri a partire da **2025-12-12**.
 
-| Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Stato | #Osservazioni | #Errori | Checkpoint |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | Alice Bianchi | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-12 |
-| minmax_builder | Marco Conti | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-13 |
-| Taverna_NPC | Elisa Romano | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-14 |
-| tavern_hub | Paolo Greco | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-15 |
-| Cartelle di servizio | Sara De Luca | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-16 |
-| adventurer_ledger | Luca Ferri | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-17 |
-| archivist | Martina Gallo | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-18 |
-| base_profile | Andrea Rizzi | 2 | P1 | 1 | Pronto per sviluppo | 2 | 1 | 2025-12-19 |
-| explain_methods | Francesca Vitale | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-20 |
-| knowledge_pack | Gianni Moretti | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-21 |
-| meta_doc | Chiara Esposito | 3 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-22 |
-| narrative_flow | Davide Serra | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-23 |
-| ruling_expert | Valentina Riva | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-24 |
-| scheda_pg_markdown_template | Matteo Leone | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-25 |
-| sigilli_runner_module | Fabio Marchetti | 2 | P1 | 0 | Pronto per sviluppo | 3 | 4 | 2025-12-26 |
+| Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Stato | #Osservazioni | #Errori | Checkpoint | Note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | Alice Bianchi | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-12 | Nessuna dipendenza esplicita |
+| minmax_builder | Marco Conti | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-13 | Nessuna dipendenza esplicita |
+| Taverna_NPC | Elisa Romano | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-14 | Nessuna dipendenza esplicita |
+| tavern_hub | Paolo Greco | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-15 | Nessuna dipendenza esplicita |
+| Cartelle di servizio | Sara De Luca | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-16 | Nessuna dipendenza esplicita |
+| adventurer_ledger | Luca Ferri | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-17 | Nessuna dipendenza esplicita |
+| archivist | Martina Gallo | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-18 | Nessuna dipendenza esplicita |
+| 🔗 base_profile | Andrea Rizzi | 2 | P1 | 1 | Pronto per sviluppo | 2 | 1 | 2025-12-19 | Router vincolato ai moduli core e preload tramite `preload_all_modules` con API key |
+| explain_methods | Francesca Vitale | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-20 | Nessuna dipendenza esplicita |
+| knowledge_pack | Gianni Moretti | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-21 | Nessuna dipendenza esplicita |
+| meta_doc | Chiara Esposito | 3 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-22 | Nessuna dipendenza esplicita |
+| narrative_flow | Davide Serra | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-23 | Nessuna dipendenza esplicita |
+| ruling_expert | Valentina Riva | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-24 | Nessuna dipendenza esplicita |
+| scheda_pg_markdown_template | Matteo Leone | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-25 | Nessuna dipendenza esplicita |
+| 🔶 sigilli_runner_module | Fabio Marchetti | 2 | P1 | 0 | Pronto per sviluppo | 3 | 4 | 2025-12-26 | Nessuna dipendenza esplicita; osservazioni elevate su finestra raro/portale |
