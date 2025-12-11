@@ -78,7 +78,7 @@ Esempio di risposta:
 ```
 
 ### `GET /modules/taverna_saves/meta`
-Restituisce quota e metadati della cartella di servizio `taverna_saves`, inclusi path, `max_files`, slot residui, spazio disco libero e policy di naming/overflow. Quando `ALLOW_MODULE_DUMP=false` il payload espone anche `module_dump_allowed: false` e `partial_dump_notice` per ricordare che i dump testuali sono parziali. Il payload include un campo `remediation` con istruzioni per sbloccare Echo gate sotto soglia (<8.5) o errori di QA CHECK (ripeti /grade o avvia /self_check e la routine QA CHECK/repair prima di rieseguire salvataggi/export).
+Restituisce quota e metadati della cartella di servizio `taverna_saves`, inclusi path, `max_files`, slot residui, spazio disco libero e policy di naming/overflow. Quando `ALLOW_MODULE_DUMP=false` il payload espone anche `module_dump_allowed: false` e `partial_dump_notice` per ricordare che i dump testuali sono parziali. Il payload include un campo `remediation` con istruzioni per sbloccare Echo gate sotto soglia (<8.5) ripetendo /grade o usando /refine_npc (in sandbox puoi disattivare temporaneamente Echo con /echo off) e per chiudere i QA CHECK bloccanti eseguendo /self_check e la routine QA CHECK/repair prima di salvare/esportare.
 
 ### `GET /modules/taverna_saves/quota`
 Espone solo i numeri di quota/occupazione (`current_files`, `remaining_files`, spazio disco, dimensione totale dei JSON salvati).
