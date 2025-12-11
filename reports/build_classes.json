@@ -1,0 +1,547 @@
+{
+  "generated_at": "2025-12-11T20:02:49Z",
+  "expected_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "items": [
+    {
+      "class": "Alchemist",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "class": "Arcanist",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Barbarian",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Bard",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Bloodrager",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Brawler",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Cavalier",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Cleric",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Druid",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 3,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "class": "Fighter",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 3,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "class": "Gunslinger",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "class": "Hunter",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Inquisitor",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Investigator",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Kineticist",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "class": "Magus",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Medium",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Mesmerist",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Monk",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Ninja",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Occultist",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Oracle",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Paladin",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 3,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "class": "Psychic",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Ranger",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Rogue",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "class": "Samurai",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Shaman",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Skald",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Slayer",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Sorcerer",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Spiritualist",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Summoner",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Swashbuckler",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Warpriest",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      }
+    },
+    {
+      "class": "Witch",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 4,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "class": "Wizard",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 3,
+        "5": 2,
+        "10": 2
+      }
+    }
+  ],
+  "summary": {
+    "total_groups": 37,
+    "total_by_level": {
+      "1": 55,
+      "5": 34,
+      "10": 34
+    }
+  }
+}

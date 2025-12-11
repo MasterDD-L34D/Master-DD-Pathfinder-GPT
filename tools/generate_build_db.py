@@ -10,6 +10,7 @@ import os
 import shutil
 import textwrap
 import re
+from collections import Counter, defaultdict
 from fnmatch import fnmatchcase
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
@@ -198,6 +199,206 @@ def slugify(name: str) -> str:
 def normalize_mode(mode: str) -> str:
     candidate = str(mode or DEFAULT_MODE).strip().lower()
     return "core" if candidate.startswith("core") else "extended"
+
+
+@dataclass(slots=True)
+class LocalBuildFile:
+    path: Path
+    prefix: str
+    level: int
+    class_name: str
+    race: str
+
+
+def _infer_prefix_and_level(filename: str) -> tuple[str, int]:
+    stem = Path(filename).stem
+    match = re.match(r"^(?P<prefix>.+?)(?:[_-]lvl(?P<level>\d+))?$", stem)
+    if not match:
+        return stem, 1
+
+    prefix = match.group("prefix")
+    level = match.group("level")
+    return prefix, int(level) if level else 1
+
+
+def _coerce_label(value: object, default: str) -> str:
+    if value is None:
+        return default
+    try:
+        text = str(value).strip()
+    except Exception:
+        return default
+    return text or default
+
+
+def _load_local_builds(build_dir: Path, expected_levels: Sequence[int]) -> list[LocalBuildFile]:
+    if not build_dir.is_dir():
+        raise ValueError(f"Directory delle build non trovata: {build_dir}")
+
+    build_files: list[LocalBuildFile] = []
+    for json_path in sorted(build_dir.rglob("*.json")):
+        if json_path.is_dir():
+            continue
+
+        prefix, level = _infer_prefix_and_level(json_path.name)
+
+        with json_path.open("r", encoding="utf-8") as fh:
+            payload = json.load(fh)
+
+        build_state = payload.get("build_state") or {}
+        class_name = _coerce_label(build_state.get("class") or payload.get("class"), "Unknown")
+        race = _coerce_label(build_state.get("race") or payload.get("race"), "Unknown")
+
+        build_files.append(
+            LocalBuildFile(
+                path=json_path,
+                prefix=prefix,
+                level=level if level in set(expected_levels) else level,
+                class_name=class_name,
+                race=race,
+            )
+        )
+
+    return build_files
+
+
+def _summarize_builds(
+    build_files: Sequence[LocalBuildFile],
+    *,
+    expected_levels: Sequence[int],
+    key_name: str,
+    key_fn,
+) -> dict[str, object]:
+    expected_set = set(expected_levels)
+    counters: dict[str, Counter[int]] = defaultdict(Counter)
+    level_sets: dict[str, set[int]] = defaultdict(set)
+    for build_file in build_files:
+        key = key_fn(build_file)
+        counters[key][build_file.level] += 1
+        level_sets[key].add(build_file.level)
+
+    items = []
+    for key, counts in sorted(counters.items()):
+        present = level_sets[key]
+        items.append(
+            {
+                key_name: key,
+                "present_levels": sorted(present),
+                "missing_levels": sorted(expected_set - present),
+                "total_by_level": {str(level): counts.get(level, 0) for level in expected_levels},
+            }
+        )
+
+    total_counts: Counter[int] = Counter()
+    for counts in counters.values():
+        total_counts.update(counts)
+
+    return {
+        "generated_at": now_iso_utc(),
+        "expected_checkpoints": list(expected_levels),
+        "items": items,
+        "summary": {
+            "total_groups": len(items),
+            "total_by_level": {str(level): total_counts.get(level, 0) for level in expected_levels},
+        },
+    }
+
+
+def _summarize_prefixes(
+    build_files: Sequence[LocalBuildFile],
+    *,
+    expected_levels: Sequence[int],
+) -> dict[str, object]:
+    expected_set = set(expected_levels)
+    prefix_data: dict[str, dict[str, object]] = {}
+    total_counts: Counter[int] = Counter()
+
+    for build_file in build_files:
+        total_counts[build_file.level] += 1
+        bucket = prefix_data.setdefault(
+            build_file.prefix,
+            {
+                "prefix": build_file.prefix,
+                "class": build_file.class_name,
+                "race": build_file.race,
+                "levels": set(),
+                "counts": Counter(),
+                "paths": {},
+            },
+        )
+        bucket["levels"].add(build_file.level)
+        bucket["counts"][build_file.level] += 1
+        bucket["paths"][str(build_file.level)] = str(build_file.path)
+
+    items = []
+    for prefix, bucket in sorted(prefix_data.items()):
+        counts: Counter[int] = bucket["counts"]
+        levels: set[int] = bucket["levels"]
+        items.append(
+            {
+                "prefix": prefix,
+                "class": bucket["class"],
+                "race": bucket["race"],
+                "present_levels": sorted(levels),
+                "missing_levels": sorted(expected_set - levels),
+                "total_by_level": {str(level): counts.get(level, 0) for level in expected_levels},
+                "paths": bucket["paths"],
+            }
+        )
+
+    return {
+        "generated_at": now_iso_utc(),
+        "expected_checkpoints": list(expected_levels),
+        "items": items,
+        "summary": {
+            "total_prefixes": len(items),
+            "total_by_level": {str(level): total_counts.get(level, 0) for level in expected_levels},
+        },
+    }
+
+
+def export_build_reports(
+    build_dir: Path,
+    reports_dir: Path,
+    *,
+    expected_levels: Sequence[int] = (1, 5, 10),
+) -> dict[str, Path]:
+    build_files = _load_local_builds(build_dir, expected_levels)
+    reports_dir.mkdir(parents=True, exist_ok=True)
+
+    class_report = _summarize_builds(
+        build_files,
+        expected_levels=expected_levels,
+        key_name="class",
+        key_fn=lambda b: b.class_name,
+    )
+    race_report = _summarize_builds(
+        build_files,
+        expected_levels=expected_levels,
+        key_name="race",
+        key_fn=lambda b: b.race,
+    )
+    checkpoint_report = _summarize_prefixes(
+        build_files,
+        expected_levels=expected_levels,
+    )
+
+    outputs = {
+        "build_classes": reports_dir / "build_classes.json",
+        "build_races": reports_dir / "build_races.json",
+        "checkpoint_coverage": reports_dir / "checkpoint_coverage.json",
+    }
+
+    with outputs["build_classes"].open("w", encoding="utf-8") as fh:
+        json.dump(class_report, fh, ensure_ascii=False, indent=2)
+
+    with outputs["build_races"].open("w", encoding="utf-8") as fh:
+        json.dump(race_report, fh, ensure_ascii=False, indent=2)
+
+    with outputs["checkpoint_coverage"].open("w", encoding="utf-8") as fh:
+        json.dump(checkpoint_report, fh, ensure_ascii=False, indent=2)
+
+    return outputs
 
 
 def expected_step_total_for_mode(mode: str) -> int:
@@ -1223,6 +1424,12 @@ def parse_args() -> argparse.Namespace:
         help="Percorso del file indice per i moduli scaricati",
     )
     parser.add_argument(
+        "--reports-dir",
+        type=Path,
+        default=Path("reports"),
+        help="Directory di output per i report di copertura build (default: %(default)s)",
+    )
+    parser.add_argument(
         "--concurrency",
         type=int,
         default=5,
@@ -1390,6 +1597,11 @@ def parse_args() -> argparse.Namespace:
             "Dimensione della pagina da usare con --page; se omessa, usa --max-items come"
             " valore di riferimento"
         ),
+    )
+    parser.add_argument(
+        "--export-lists",
+        action="store_true",
+        help="Esporta i report di copertura delle build locali e termina senza chiamare l'API",
     )
     parser.add_argument(
         "classes",
@@ -3761,6 +3973,13 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
+
+    if args.export_lists:
+        outputs = export_build_reports(args.output_dir, args.reports_dir)
+        for key, path in outputs.items():
+            logging.info("Report %s esportato in %s", key, path)
+        return
+
     if args.dual_pass and args.validate_db:
         raise ValueError("--dual-pass non è compatibile con --validate-db")
 

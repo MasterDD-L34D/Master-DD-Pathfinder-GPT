@@ -245,6 +245,16 @@ python tools/generate_build_db.py --api-url http://localhost:8000 --mode extende
 python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --keep-invalid
 ```
 
+Per verificare rapidamente la copertura dei checkpoint (1/5/10) delle build già presenti nel repository senza contattare l'API, puoi esportare tre report JSON sotto `reports/` con la flag `--export-lists`:
+
+```bash
+python tools/generate_build_db.py --export-lists
+# opzionale: cambia cartella di destinazione dei report
+python tools/generate_build_db.py --export-lists --reports-dir reports/build_coverage
+```
+
+I file generati (`build_classes.json`, `build_races.json`, `checkpoint_coverage.json`) riepilogano le classi, le razze e i prefissi di filename con i checkpoint disponibili, quelli mancanti e il totale di file per livello.
+
 #### Selezione moduli: statici o via discovery
 
 - Con `--modules` puoi continuare a pinnare manualmente i file da scaricare (default: i 5 moduli critici per scheda/narrativa).

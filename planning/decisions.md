@@ -31,3 +31,8 @@ Formato: contesto → decisione → conseguenze.
 - **Contesto**: l'ultimo ciclo `generate_build_db` extended è andato a buon fine con discovery moduli e validazione strict; servono follow-up rapidi prima di un nuovo run.
 - **Decisione**: organizzare un handoff operativo con ruoli espliciti: Tech Lead riallinea priorità e merge, Backend/API rivede flag di discovery/validazione e endpoint (`/health`, `/metrics`, `/modules`), Data/Validation analizza `build_index.json`/`module_index.json` per errori o payload borderline, Docs aggiorna note operative/README e canali di comunicazione.
 - **Conseguenze**: garantisce checklist condivisa e correzioni mirate prima del prossimo ciclo di build, evitando regressioni su autenticazione, filtri e schemi; le note risultanti devono essere riportate in `docs/run_logs.md` e nella roadmap.
+
+## ADR 007 — Report di copertura build locali
+- **Contesto**: servono elenchi aggiornati di classi/razze/prefissi disponibili in `src/data/builds/` per capire rapidamente i checkpoint presenti o mancanti senza interrogare l'API.
+- **Decisione**: aggiungere la flag CLI `--export-lists` a `tools/generate_build_db.py` (con `--reports-dir` personalizzabile) che scansiona i JSON locali e genera i report `reports/build_classes.json`, `reports/build_races.json` e `reports/checkpoint_coverage.json` con livelli presenti/mancanti.
+- **Conseguenze**: i report possono essere rigenerati offline in pochi secondi e committati nel repository per allineare il team sulla copertura corrente delle build.
