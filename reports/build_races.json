@@ -1,0 +1,368 @@
+{
+  "generated_at": "2025-12-11T20:02:49Z",
+  "expected_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "items": [
+    {
+      "race": "Aasimar",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "race": "Catfolk",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "race": "Dwarf",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Elf",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Fetchling",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Ghoran",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "race": "Goblin",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "race": "Grippli",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Half-Elf",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Half-Orc",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Halfling",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Human",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 23,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "race": "Kasatha",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Kitsune",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "race": "Oread",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Samsaran",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Shabti",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Strix",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 3,
+        "5": 3,
+        "10": 3
+      }
+    },
+    {
+      "race": "Suli",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Sylph",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      }
+    },
+    {
+      "race": "Tengu",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Tiefling",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Vanara",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Vishkanya",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    },
+    {
+      "race": "Wayang",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      }
+    }
+  ],
+  "summary": {
+    "total_groups": 25,
+    "total_by_level": {
+      "1": 55,
+      "5": 34,
+      "10": 34
+    }
+  }
+}
