@@ -55,9 +55,16 @@ richieste prive di chiave.
 2. Installa le dipendenze: `pip install -r requirements.txt`.
 3. Esegui il controllo di formattazione e sintassi: `tools/run_static_analysis.sh`.
 4. Avvia l'API: `uvicorn src.app:app --reload --port 8000`.
-5. Verifica che risponda: `curl http://localhost:8000/health`.
+5. Verifica che risponda:
 
-Se incontri errori `401` o `429`, regola il [backoff di autenticazione](#backoff-autenticazione-auth_backoff_) tramite le variabili `AUTH_BACKOFF_*` per gestire ritardi e blocchi temporanei.
+```bash
+curl http://localhost:8000/health
+curl -H "x-api-key:$API_KEY" http://localhost:8000/modules/minmax_builder
+curl http://localhost:8000/modules/minmax_builder        # 401 se la chiave è obbligatoria
+curl -H "x-api-key:chiave-sbagliata" http://localhost:8000/modules/minmax_builder  # 429 dopo i tentativi falliti
+```
+
+Se incontri errori `401` o `429`, ricordati che il blocco/backoff sullo header `x-api-key` è controllato da `AUTH_BACKOFF_THRESHOLD` e `AUTH_BACKOFF_SECONDS`: aumentali o disattiva la chiave per verificare se gli esiti derivano dalla soglia di tentativi o dal timer di blocco. Consulta il [backoff di autenticazione](#backoff-autenticazione-auth_backoff_) per i dettagli.
 
 #### Backoff autenticazione (`AUTH_BACKOFF_*`)
 
@@ -85,6 +92,85 @@ Lo script lancia `black --check` sui file Python e compila i moduli con
 Su push e pull request, il workflow GitHub Actions **Static Analysis** esegue
 lo stesso script per garantire che il codice resti formattato e privo di errori
 di sintassi prima del merge.
+
+### Policy PR e controlli CI
+
+Ogni pull request deve includere report normalizzati in `reports/module_tests/`
+e passare entrambi i job CI:
+
+- **report-check**: valida i report con `python tools/refresh_module_reports.py --check` (exit code 1 blocca il merge).
+- **static-analysis**: esegue `./tools/run_static_analysis.sh` per verificare formattazione e compilazione dei moduli.
+
+Per verificare in locale:
+
+```bash
+python tools/refresh_module_reports.py --check
+./tools/run_static_analysis.sh
+```
+
+### Aggiornare le sezioni dei report dei moduli
+
+Per allineare i report QA in `reports/module_tests/` alla checklist standard
+(Ambiente, Esiti API, Metadati, Comandi/Flow, QA, Osservazioni, Errori,
+Miglioramenti suggeriti, Fix necessari) puoi usare lo script
+`tools/refresh_module_reports.py`, che legge automaticamente la sequenza moduli
+da `planning/module_review_guide.md` e applica i placeholder `- TODO` nelle
+sezioni obbligatorie (creando i report mancanti quando serve):
+
+```bash
+# Verifica che ogni report contenga tutte le sezioni richieste con almeno un bullet
+python tools/refresh_module_reports.py --check
+
+# Aggiunge le sezioni mancanti con bullet placeholder "- TODO"
+python tools/refresh_module_reports.py --write
+```
+
+Usa `--check` nei workflow CI per bloccare report con heading mancanti o senza
+contenuto; `--write` aggiorna in loco i file mancanti senza toccare il
+contenuto esistente. Se il file sorgente di un modulo non è presente in
+`src/modules/`, lo script mostra un warning ma prosegue la normalizzazione del
+report.
+
+Nota operativa: prima di avviare una revisione manuale dei report esegui `python tools/refresh_module_reports.py --write` per
+allineare i file locali; nelle pipeline CI aggiungi un passaggio dedicato (o un target equivalente) che lanci `python
+tools/refresh_module_reports.py --check` per impedire il merge di report senza tutte le sezioni.
+Quando generi il piano operativo (`python tools/generate_module_plan.py --output planning/module_work_plan.md`) esegui prima
+`python tools/refresh_module_reports.py --write` (o `--check` nei workflow) così il piano si basa su report già normalizzati e
+con tutte le intestazioni/template applicati.
+
+### Workflow QA quotidiano
+
+Usa questo mini-flusso per mantenere allineati report e piano di lavoro lungo la giornata. Il comando
+`bash tools/daily_workflow.sh` orchestra in sequenza i passaggi già elencati (normalizzazione dei
+report, generazione del piano, analisi statica) producendo/validando i file
+`reports/module_tests/*.md` e `planning/module_work_plan.md` (più l'eventuale executive plan). Per
+una corsa solo di validazione lancia `bash tools/daily_workflow.sh --check-only`, che mantiene i
+report immutati e si limita a verificare che il piano sia generabile. Se ti servono percorsi
+alternativi per i piani, passa `--plan-path` e/o `--exec-plan-path` (es. per salvare una copia
+temporanea durante gli esperimenti).
+
+- **Mattina**
+  - Normalizza i report in [`reports/module_tests/`](reports/module_tests/) con le sezioni obbligatorie: `python tools/refresh_module_reports.py --write`. Se lo script stampa
+    `Aggiornato: reports/module_tests/<modulo>.md` e termina con exit code `0`, sei pronto a compilare; se ricevi messaggi
+    `[WARN]` o l'uscita è `1`, rilancia con `--write` finché non scompaiono le segnalazioni di sezioni mancanti.
+  - Genera il piano operativo completo: `python tools/generate_module_plan.py --output planning/module_work_plan.md`. L'output
+    atteso chiude con `Work plan written to planning/module_work_plan.md` (exit code `0`); in caso di errore interrompi la
+    sessione e controlla che i report siano stati aggiornati prima di rilanciare.
+  - Annota i task emersi o le dipendenze in `planning/roadmap.md` (es. nuove verifiche, blocker tecnici) per tenerli tracciati.
+
+- **Durante la lettura**
+  - Compila le sezioni dei report applicando le lenti PF1e (coerenza con regole, scaling e build) e sicurezza/observability
+    (risposte API, backoff, metriche, logging) quando aggiorni `QA`, `Osservazioni`, `Errori` e `Miglioramenti` in
+    [`reports/module_tests/`](reports/module_tests/).
+  - Mantieni almeno un bullet per sezione; se lo script precedente ha inserito `- TODO`, sostituiscilo con l'esito reale prima
+    di procedere oltre.
+
+- **Fine giornata**
+  - Verifica che i report compilati siano completi: `python tools/refresh_module_reports.py --check`. L'uscita attesa è
+    `Tutti i report includono le sezioni obbligatorie con almeno un bullet.` e exit code `0`; se esce `1` con elenco delle
+    sezioni mancanti/ vuote, riapri i file indicati e sistemali prima di ripetere il comando.
+  - Rigenera (se necessario) il piano di lavoro con `python tools/generate_module_plan.py --output planning/module_work_plan.md`
+    per riflettere gli ultimi aggiornamenti e sincronizza i task residui in `planning/roadmap.md`.
 
 Per i moduli, il dump completo è **disattivato di default** (`ALLOW_MODULE_DUMP=false`).
 `/modules/{name}` restituisce solo estratti (4000 caratteri + marcatore finale) e blocca
@@ -172,6 +258,16 @@ python tools/generate_build_db.py --api-url http://localhost:8000 --mode extende
 # Mantiene i payload non validi per analisi successive
 python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --keep-invalid
 ```
+
+Per verificare rapidamente la copertura dei checkpoint (1/5/10) delle build già presenti nel repository senza contattare l'API, puoi esportare tre report JSON sotto `reports/` con la flag `--export-lists`:
+
+```bash
+python tools/generate_build_db.py --export-lists
+# opzionale: cambia cartella di destinazione dei report
+python tools/generate_build_db.py --export-lists --reports-dir reports/build_coverage
+```
+
+I file generati (`build_classes.json`, `build_races.json`, `checkpoint_coverage.json`) riepilogano le classi, le razze e i prefissi di filename con i checkpoint disponibili, quelli mancanti e il totale di file per livello.
 
 #### Selezione moduli: statici o via discovery
 

@@ -1,0 +1,1110 @@
+{
+  "generated_at": "2025-12-11T20:02:49Z",
+  "expected_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "items": [
+    {
+      "prefix": "alchemist-goblin-vivisectionist",
+      "class": "Alchemist",
+      "race": "Goblin",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/alchemist-goblin-vivisectionist.json",
+        "5": "src/data/builds/alchemist-goblin-vivisectionist_lvl05.json",
+        "10": "src/data/builds/alchemist-goblin-vivisectionist_lvl10.json"
+      }
+    },
+    {
+      "prefix": "alchemist_goblin_bombardier",
+      "class": "Alchemist",
+      "race": "Goblin",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/alchemist_goblin_bombardier.json",
+        "5": "src/data/builds/alchemist_goblin_bombardier_lvl05.json",
+        "10": "src/data/builds/alchemist_goblin_bombardier_lvl10.json"
+      }
+    },
+    {
+      "prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
+      "class": "Arcanist",
+      "race": "Tiefling",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json",
+        "5": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl05.json",
+        "10": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl10.json"
+      }
+    },
+    {
+      "prefix": "barbarian_fetchling_invulnerable_rager",
+      "class": "Barbarian",
+      "race": "Fetchling",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
+        "5": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
+        "10": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json"
+      }
+    },
+    {
+      "prefix": "bard_kitsune_sound_striker_sandman",
+      "class": "Bard",
+      "race": "Kitsune",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/bard_kitsune_sound_striker_sandman.json",
+        "5": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl05.json",
+        "10": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json"
+      }
+    },
+    {
+      "prefix": "bloodrager-shabti-steelblood-metamagic-rager",
+      "class": "Bloodrager",
+      "race": "Shabti",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager.json",
+        "5": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json",
+        "10": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json"
+      }
+    },
+    {
+      "prefix": "brawler_grippli_mutagenic_mauler_strangler",
+      "class": "Brawler",
+      "race": "Grippli",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json",
+        "5": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl05.json",
+        "10": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl10.json"
+      }
+    },
+    {
+      "prefix": "cavalier_strix_strategist_honor_guard",
+      "class": "Cavalier",
+      "race": "Strix",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/cavalier_strix_strategist_honor_guard.json",
+        "5": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl05.json",
+        "10": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl10.json"
+      }
+    },
+    {
+      "prefix": "cleric_samsaran_cloistered_evangelist",
+      "class": "Cleric",
+      "race": "Samsaran",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/cleric_samsaran_cloistered_evangelist.json",
+        "5": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl05.json",
+        "10": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl10.json"
+      }
+    },
+    {
+      "prefix": "druid",
+      "class": "Druid",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/druid.json"
+      }
+    },
+    {
+      "prefix": "druid_half_orc_feral",
+      "class": "Druid",
+      "race": "Half-Orc",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/druid_half_orc_feral.json",
+        "5": "src/data/builds/druid_half_orc_feral_lvl05.json",
+        "10": "src/data/builds/druid_half_orc_feral_lvl10.json"
+      }
+    },
+    {
+      "prefix": "druid_wayang_mooncaller_shapeshifter",
+      "class": "Druid",
+      "race": "Wayang",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
+        "5": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
+        "10": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json"
+      }
+    },
+    {
+      "prefix": "fighter",
+      "class": "Fighter",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/fighter.json"
+      }
+    },
+    {
+      "prefix": "fighter_dwarf_shielded",
+      "class": "Fighter",
+      "race": "Dwarf",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/fighter_dwarf_shielded.json",
+        "5": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
+        "10": "src/data/builds/fighter_dwarf_shielded_lvl10.json"
+      }
+    },
+    {
+      "prefix": "fighter_weapon_master_human",
+      "class": "Fighter",
+      "race": "Human",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/fighter_weapon_master_human.json",
+        "5": "src/data/builds/fighter_weapon_master_human_lvl05.json",
+        "10": "src/data/builds/fighter_weapon_master_human_lvl10.json"
+      }
+    },
+    {
+      "prefix": "gunslinger_strix_gun_tank",
+      "class": "Gunslinger",
+      "race": "Strix",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/gunslinger_strix_gun_tank.json",
+        "5": "src/data/builds/gunslinger_strix_gun_tank_lvl05.json",
+        "10": "src/data/builds/gunslinger_strix_gun_tank_lvl10.json"
+      }
+    },
+    {
+      "prefix": "gunslinger_tengu_pistolero_bolt_ace",
+      "class": "Gunslinger",
+      "race": "Tengu",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace.json",
+        "5": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl05.json",
+        "10": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl10.json"
+      }
+    },
+    {
+      "prefix": "hunter_kasatha_packmaster",
+      "class": "Hunter",
+      "race": "Kasatha",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/hunter_kasatha_packmaster.json",
+        "5": "src/data/builds/hunter_kasatha_packmaster_lvl05.json",
+        "10": "src/data/builds/hunter_kasatha_packmaster_lvl10.json"
+      }
+    },
+    {
+      "prefix": "inquisitor_vishkanya_tactical_leader_preacher",
+      "class": "Inquisitor",
+      "race": "Vishkanya",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher.json",
+        "5": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl05.json",
+        "10": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl10.json"
+      }
+    },
+    {
+      "prefix": "investigator_catfolk_empiricist_psychic_detective",
+      "class": "Investigator",
+      "race": "Catfolk",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/investigator_catfolk_empiricist_psychic_detective.json",
+        "5": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl05.json",
+        "10": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl10.json"
+      }
+    },
+    {
+      "prefix": "kineticist_strix_kinetic_knight_overwhelming_soul",
+      "class": "Kineticist",
+      "race": "Strix",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul.json",
+        "5": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl05.json",
+        "10": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl10.json"
+      }
+    },
+    {
+      "prefix": "kineticist_suli_kinetic_knight_overwhelming_soul",
+      "class": "Kineticist",
+      "race": "Suli",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul.json",
+        "5": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl05.json",
+        "10": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl10.json"
+      }
+    },
+    {
+      "prefix": "magus_kitsune_bladebound_hexcrafter",
+      "class": "Magus",
+      "race": "Kitsune",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/magus_kitsune_bladebound_hexcrafter.json",
+        "5": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl05.json",
+        "10": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl10.json"
+      }
+    },
+    {
+      "prefix": "medium_oread_spirit_dancer_reanimated_medium",
+      "class": "Medium",
+      "race": "Oread",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
+        "5": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json",
+        "10": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json"
+      }
+    },
+    {
+      "prefix": "mesmerist_catfolk_vexing_daredevil_enigma",
+      "class": "Mesmerist",
+      "race": "Catfolk",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma.json",
+        "5": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl05.json",
+        "10": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl10.json"
+      }
+    },
+    {
+      "prefix": "monk",
+      "class": "Monk",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/monk.json"
+      }
+    },
+    {
+      "prefix": "monk_vanara_qinggong_master_of_many_styles",
+      "class": "Monk",
+      "race": "Vanara",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
+        "5": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl05.json",
+        "10": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl10.json"
+      }
+    },
+    {
+      "prefix": "ninja",
+      "class": "Ninja",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/ninja.json"
+      }
+    },
+    {
+      "prefix": "occultist_ghoran_battle_host_panoply_savant",
+      "class": "Occultist",
+      "race": "Ghoran",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant.json",
+        "5": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl05.json",
+        "10": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl10.json"
+      }
+    },
+    {
+      "prefix": "oracle",
+      "class": "Oracle",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/oracle.json"
+      }
+    },
+    {
+      "prefix": "oracle_ghoran_spirit_guide_seer",
+      "class": "Oracle",
+      "race": "Ghoran",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer.json",
+        "5": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl05.json",
+        "10": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl10.json"
+      }
+    },
+    {
+      "prefix": "paladin",
+      "class": "Paladin",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/paladin.json"
+      }
+    },
+    {
+      "prefix": "paladin_aasimar_holy_tactician_sacred_servant",
+      "class": "Paladin",
+      "race": "Aasimar",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      },
+      "paths": {
+        "1": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant.json",
+        "5": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl05.json",
+        "10": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl10.json"
+      }
+    },
+    {
+      "prefix": "psychic",
+      "class": "Psychic",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/psychic.json"
+      }
+    },
+    {
+      "prefix": "ranger",
+      "class": "Ranger",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/ranger.json"
+      }
+    },
+    {
+      "prefix": "ranger_halfelf_skirmisher",
+      "class": "Ranger",
+      "race": "Half-Elf",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/ranger_halfelf_skirmisher.json",
+        "5": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
+        "10": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json"
+      }
+    },
+    {
+      "prefix": "rogue",
+      "class": "Rogue",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/rogue.json"
+      }
+    },
+    {
+      "prefix": "rogue_halfling_cutpurse",
+      "class": "Rogue",
+      "race": "Halfling",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/rogue_halfling_cutpurse.json",
+        "5": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
+        "10": "src/data/builds/rogue_halfling_cutpurse_lvl10.json"
+      }
+    },
+    {
+      "prefix": "samurai",
+      "class": "Samurai",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/samurai.json"
+      }
+    },
+    {
+      "prefix": "shaman",
+      "class": "Shaman",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/shaman.json"
+      }
+    },
+    {
+      "prefix": "skald",
+      "class": "Skald",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/skald.json"
+      }
+    },
+    {
+      "prefix": "slayer",
+      "class": "Slayer",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/slayer.json"
+      }
+    },
+    {
+      "prefix": "sorcerer",
+      "class": "Sorcerer",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/sorcerer.json"
+      }
+    },
+    {
+      "prefix": "spiritualist",
+      "class": "Spiritualist",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/spiritualist.json"
+      }
+    },
+    {
+      "prefix": "summoner",
+      "class": "Summoner",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/summoner.json"
+      }
+    },
+    {
+      "prefix": "swashbuckler",
+      "class": "Swashbuckler",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/swashbuckler.json"
+      }
+    },
+    {
+      "prefix": "warpriest",
+      "class": "Warpriest",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/warpriest.json"
+      }
+    },
+    {
+      "prefix": "witch",
+      "class": "Witch",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/witch.json"
+      }
+    },
+    {
+      "prefix": "witch_human_base",
+      "class": "Witch",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/archive/witch_human_base.json"
+      }
+    },
+    {
+      "prefix": "witch_sylph_gravewalker_hedge_witch",
+      "class": "Witch",
+      "race": "Sylph",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 2,
+        "5": 2,
+        "10": 2
+      },
+      "paths": {
+        "1": "src/data/builds/witch_sylph_gravewalker_hedge_witch.json",
+        "5": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl05.json",
+        "10": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl10.json"
+      }
+    },
+    {
+      "prefix": "wizard",
+      "class": "Wizard",
+      "race": "Human",
+      "present_levels": [
+        1
+      ],
+      "missing_levels": [
+        5,
+        10
+      ],
+      "total_by_level": {
+        "1": 1,
+        "5": 0,
+        "10": 0
+      },
+      "paths": {
+        "1": "src/data/builds/wizard.json"
+      }
+    },
+    {
+      "prefix": "wizard_elf_universalist",
+      "class": "Wizard",
+      "race": "Elf",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/wizard_elf_universalist.json",
+        "5": "src/data/builds/wizard_elf_universalist_lvl05.json",
+        "10": "src/data/builds/wizard_elf_universalist_lvl10.json"
+      }
+    },
+    {
+      "prefix": "wizard_human_evoker",
+      "class": "Wizard",
+      "race": "Human",
+      "present_levels": [
+        1,
+        5,
+        10
+      ],
+      "missing_levels": [],
+      "total_by_level": {
+        "1": 1,
+        "5": 1,
+        "10": 1
+      },
+      "paths": {
+        "1": "src/data/builds/wizard_human_evoker.json",
+        "5": "src/data/builds/wizard_human_evoker_lvl05.json",
+        "10": "src/data/builds/wizard_human_evoker_lvl10.json"
+      }
+    }
+  ],
+  "summary": {
+    "total_prefixes": 53,
+    "total_by_level": {
+      "1": 55,
+      "5": 34,
+      "10": 34
+    }
+  }
+}

@@ -1346,6 +1346,12 @@ def parse_args() -> argparse.Namespace:
         help="Percorso del file indice per i moduli scaricati",
     )
     parser.add_argument(
+        "--reports-dir",
+        type=Path,
+        default=Path("reports"),
+        help="Directory di output per i report di copertura build (default: %(default)s)",
+    )
+    parser.add_argument(
         "--concurrency",
         type=int,
         default=5,
@@ -1535,6 +1541,11 @@ def parse_args() -> argparse.Namespace:
             "Dimensione della pagina da usare con --page; se omessa, usa --max-items come"
             " valore di riferimento"
         ),
+    )
+    parser.add_argument(
+        "--export-lists",
+        action="store_true",
+        help="Esporta i report di copertura delle build locali e termina senza chiamare l'API",
     )
     parser.add_argument(
         "classes",
@@ -3398,7 +3409,9 @@ async def run_harvest(
                 if skip_unchanged and destination.exists():
                     try:
                         payload = json.loads(destination.read_text(encoding="utf-8"))
-                    except Exception as exc:  # pragma: no cover - defensive logging only
+                    except (
+                        Exception
+                    ) as exc:  # pragma: no cover - defensive logging only
                         logging.warning(
                             "Impossibile caricare payload esistente %s: %s, procedo con la fetch",
                             destination,
@@ -3412,7 +3425,9 @@ async def run_harvest(
                             f"build {request.output_name()} (cached)",
                             strict=strict,
                         )
-                        sheet_context = payload.get("export", {}).get("sheet_payload") or payload.get("sheet_payload")
+                        sheet_context = payload.get("export", {}).get(
+                            "sheet_payload"
+                        ) or payload.get("sheet_payload")
                         sheet_validation = None
                         if sheet_context is not None:
                             sheet_validation = validate_with_schema(
@@ -3456,10 +3471,22 @@ async def run_harvest(
                                 destination,
                                 status,
                                 validation_error,
-                                payload.get("step_audit") if isinstance(payload, Mapping) else None,
+                                (
+                                    payload.get("step_audit")
+                                    if isinstance(payload, Mapping)
+                                    else None
+                                ),
                                 completeness_errors,
-                                payload.get("ruling_badge") if isinstance(payload, Mapping) else None,
-                                payload.get("ruling_sources") if isinstance(payload, Mapping) else None,
+                                (
+                                    payload.get("ruling_badge")
+                                    if isinstance(payload, Mapping)
+                                    else None
+                                ),
+                                (
+                                    payload.get("ruling_sources")
+                                    if isinstance(payload, Mapping)
+                                    else None
+                                ),
                             )
 
                 method = request.http_method()
@@ -3512,7 +3539,9 @@ async def run_harvest(
                         f"build {request.output_name()}",
                         strict=strict,
                     )
-                    sheet_context = payload.get("export", {}).get("sheet_payload") or payload.get("sheet_payload")
+                    sheet_context = payload.get("export", {}).get(
+                        "sheet_payload"
+                    ) or payload.get("sheet_payload")
                     sheet_validation = None
                     if sheet_context is not None:
                         sheet_validation = validate_with_schema(
@@ -3533,7 +3562,9 @@ async def run_harvest(
                     completeness_errors = list(completeness_ctx.get("errors") or [])
                     completeness_text: str | None = None
                     if completeness_errors:
-                        completeness_text = "; ".join(str(error) for error in completeness_errors)
+                        completeness_text = "; ".join(
+                            str(error) for error in completeness_errors
+                        )
                         validation_error = (
                             completeness_text
                             if validation_error is None
@@ -3686,6 +3717,7 @@ async def run_harvest(
                             else None
                         ),
                     )
+
         for task_request, output_file, base_level in planned_snapshots:
             build_tasks.append(
                 asyncio.create_task(
@@ -3913,6 +3945,13 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
+
+    if args.export_lists:
+        outputs = export_build_reports(args.output_dir, args.reports_dir)
+        for key, path in outputs.items():
+            logging.info("Report %s esportato in %s", key, path)
+        return
+
     if args.dual_pass and args.validate_db:
         raise ValueError("--dual-pass non è compatibile con --validate-db")
 

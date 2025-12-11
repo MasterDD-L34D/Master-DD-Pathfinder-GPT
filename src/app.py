@@ -226,7 +226,8 @@ def _parse_json_module_metadata(
         parsed = json.loads(text)
     except json.JSONDecodeError:
         logging.warning(
-            "Impossibile analizzare il modulo JSON", extra={"path": str(source or "<inline>")}
+            "Impossibile analizzare il modulo JSON",
+            extra={"path": str(source or "<inline>")},
         )
         return {}
 
@@ -432,13 +433,18 @@ async def list_modules(_: None = Depends(require_api_key)) -> List[Dict]:
     """Return the list of available module files (txt/md/json)."""
     return _list_files(MODULES_DIR)
 
-def _parse_front_matter_metadata(text: str, *, source: Path | None = None) -> Dict[str, object]:
+
+def _parse_front_matter_metadata(
+    text: str, *, source: Path | None = None
+) -> Dict[str, object]:
     """Extract `version` and `compatibility` from YAML-like headers."""
 
     metadata: Dict[str, object] = {}
-    version_match = re.search(r"^version:\s*\"?(?P<version>[^\n#]+)\"?\s*$", text, re.MULTILINE)
+    version_match = re.search(
+        r"^version:\s*\"?(?P<version>[^\n#]+)\"?\s*$", text, re.MULTILINE
+    )
     if version_match:
-        metadata["version"] = version_match.group("version").strip().strip("\"")
+        metadata["version"] = version_match.group("version").strip().strip('"')
 
     lines = text.splitlines()
     for idx, line in enumerate(lines):
@@ -447,7 +453,7 @@ def _parse_front_matter_metadata(text: str, *, source: Path | None = None) -> Di
 
         inline_value = line.partition(":")[2].strip()
         if inline_value:
-            metadata["compatibility"] = inline_value.strip(" \"")
+            metadata["compatibility"] = inline_value.strip(' "')
             break
 
         block_lines: List[str] = []
@@ -461,7 +467,9 @@ def _parse_front_matter_metadata(text: str, *, source: Path | None = None) -> Di
             snippet = "compatibility:\n" + "\n".join(block_lines)
             try:
                 parsed = yaml.safe_load(snippet)
-                compatibility = parsed.get("compatibility") if isinstance(parsed, dict) else None
+                compatibility = (
+                    parsed.get("compatibility") if isinstance(parsed, dict) else None
+                )
                 if compatibility is not None:
                     metadata["compatibility"] = compatibility
             except yaml.YAMLError:
@@ -936,7 +944,14 @@ async def get_module_content(
         cutpurse_progression_plan: list[dict[str, object]] = [
             {
                 "livello": 1,
-                "stats": {"FOR": 12, "DES": 18, "COS": 12, "INT": 14, "SAG": 10, "CAR": 8},
+                "stats": {
+                    "FOR": 12,
+                    "DES": 18,
+                    "COS": 12,
+                    "INT": 14,
+                    "SAG": 10,
+                    "CAR": 8,
+                },
                 "talenti": ["Arma accurata"],
                 "pf": 11,
                 "attacco": "+6 (pugnale) / +5 (fionda)",
@@ -999,7 +1014,13 @@ async def get_module_content(
                     "Acrobazia": 10,
                     "Intimidire": 5,
                 },
-                "ca": {"totale": 19, "armatura": 3, "destrezza": 4, "schivare": 1, "misc": 1},
+                "ca": {
+                    "totale": 19,
+                    "armatura": 3,
+                    "destrezza": 4,
+                    "schivare": 1,
+                    "misc": 1,
+                },
                 "equip": ["Pugnale masterwork", "Anello di protezione +1"],
                 "privilegi": [
                     "Attacco furtivo +2d6",
@@ -1021,7 +1042,13 @@ async def get_module_content(
                     "Acrobazia": 11,
                     "Diplomazia": 5,
                 },
-                "ca": {"totale": 20, "armatura": 4, "destrezza": 4, "schivare": 1, "misc": 1},
+                "ca": {
+                    "totale": 20,
+                    "armatura": 4,
+                    "destrezza": 4,
+                    "schivare": 1,
+                    "misc": 1,
+                },
                 "equip": ["Giaco di maglia ombreggiato", "Guanti da ladro"],
                 "privilegi": [
                     "Talento ladresco: Arma improvvisata",
@@ -1043,7 +1070,13 @@ async def get_module_content(
                     "Acrobazia": 12,
                     "Disattivare Congegni": 13,
                 },
-                "ca": {"totale": 21, "armatura": 4, "destrezza": 4, "schivare": 1, "misc": 2},
+                "ca": {
+                    "totale": 21,
+                    "armatura": 4,
+                    "destrezza": 4,
+                    "schivare": 1,
+                    "misc": 2,
+                },
                 "equip": ["Pugnale +1", "Cintura dell'agilità +2"],
                 "privilegi": [
                     "Attacco furtivo +3d6",
@@ -1065,7 +1098,13 @@ async def get_module_content(
                     "Acrobazia": 13,
                     "Raggirare": 9,
                 },
-                "ca": {"totale": 22, "armatura": 4, "destrezza": 5, "schivare": 1, "misc": 2},
+                "ca": {
+                    "totale": 22,
+                    "armatura": 4,
+                    "destrezza": 5,
+                    "schivare": 1,
+                    "misc": 2,
+                },
                 "equip": ["Stivali dell'agilità", "Mantello della resistenza +2"],
                 "privilegi": [
                     "Talento ladresco: Furtività leggendaria",
@@ -1087,7 +1126,13 @@ async def get_module_content(
                     "Acrobazia": 14,
                     "Disattivare Congegni": 15,
                 },
-                "ca": {"totale": 23, "armatura": 5, "destrezza": 5, "schivare": 1, "misc": 2},
+                "ca": {
+                    "totale": 23,
+                    "armatura": 5,
+                    "destrezza": 5,
+                    "schivare": 1,
+                    "misc": 2,
+                },
                 "equip": ["Pugnale +2 bilanciato", "Bracciali dell'armatura +1"],
                 "privilegi": [
                     "Attacco furtivo +4d6",
@@ -1097,8 +1142,18 @@ async def get_module_content(
             },
             {
                 "livello": 8,
-                "stats": {"FOR": 12, "DES": 20, "COS": 12, "INT": 14, "SAG": 10, "CAR": 8},
-                "talenti": ["Arma focalizzata superiore (pugnale)", "Talento ladresco: Opportunista"],
+                "stats": {
+                    "FOR": 12,
+                    "DES": 20,
+                    "COS": 12,
+                    "INT": 14,
+                    "SAG": 10,
+                    "CAR": 8,
+                },
+                "talenti": [
+                    "Arma focalizzata superiore (pugnale)",
+                    "Talento ladresco: Opportunista",
+                ],
                 "pf": 66,
                 "attacco": "+17/+17 (pugnali)",
                 "danni": "1d4+6 (pugnale) +4d6 furtivo",
@@ -1110,7 +1165,13 @@ async def get_module_content(
                     "Acrobazia": 15,
                     "Intuizione": 11,
                 },
-                "ca": {"totale": 24, "armatura": 5, "destrezza": 6, "schivare": 1, "misc": 2},
+                "ca": {
+                    "totale": 24,
+                    "armatura": 5,
+                    "destrezza": 6,
+                    "schivare": 1,
+                    "misc": 2,
+                },
                 "equip": ["Cintura dell'agilità +4", "Pugnale agile +2"],
                 "privilegi": [
                     "Schivare prodigioso migliorato",
@@ -1132,7 +1193,13 @@ async def get_module_content(
                     "Acrobazia": 16,
                     "Diplomazia": 8,
                 },
-                "ca": {"totale": 25, "armatura": 5, "destrezza": 6, "schivare": 1, "misc": 3},
+                "ca": {
+                    "totale": 25,
+                    "armatura": 5,
+                    "destrezza": 6,
+                    "schivare": 1,
+                    "misc": 3,
+                },
                 "equip": ["Pugnale velocità +2", "Anello di protezione +2"],
                 "privilegi": [
                     "Attacco furtivo +5d6",
@@ -1154,8 +1221,17 @@ async def get_module_content(
                     "Acrobazia": 17,
                     "Disattivare Congegni": 19,
                 },
-                "ca": {"totale": 26, "armatura": 6, "destrezza": 6, "schivare": 1, "misc": 3},
-                "equip": ["Giaco di maglia ombreggiato +2", "Guanti della destrezza +4"],
+                "ca": {
+                    "totale": 26,
+                    "armatura": 6,
+                    "destrezza": 6,
+                    "schivare": 1,
+                    "misc": 3,
+                },
+                "equip": [
+                    "Giaco di maglia ombreggiato +2",
+                    "Guanti della destrezza +4",
+                ],
                 "privilegi": [
                     "Attacco furtivo +5d6",
                     "Talento ladresco: Bleeding Attack",
@@ -1200,7 +1276,9 @@ async def get_module_content(
                     }
                 )
             if progression:
-                base_hp = wizard_snapshot.get("pf", base_hp) if wizard_snapshot else base_hp
+                base_hp = (
+                    wizard_snapshot.get("pf", base_hp) if wizard_snapshot else base_hp
+                )
         elif is_cutpurse:
             for entry in cutpurse_levels:
                 progression.append(
@@ -1306,20 +1384,20 @@ async def get_module_content(
         stats_block = (
             snapshot.get("stats")
             if snapshot and isinstance(snapshot.get("stats"), Mapping)
-            else base_cutpurse_stats
-            if base_cutpurse_stats is not None
-            else {
-                "FOR": 16,
-                "DES": 14,
-                "COS": 14,
-                "INT": 10,
-                "SAG": 12,
-                "CAR": 8,
-            }
+            else (
+                base_cutpurse_stats
+                if base_cutpurse_stats is not None
+                else {
+                    "FOR": 16,
+                    "DES": 14,
+                    "COS": 14,
+                    "INT": 10,
+                    "SAG": 12,
+                    "CAR": 8,
+                }
+            )
         )
-        attack_text = (
-            snapshot.get("attacco") if snapshot else "+4"
-        )
+        attack_text = snapshot.get("attacco") if snapshot else "+4"
         damage_text = snapshot.get("danni") if snapshot else "1d8+3"
         initiative_bonus = 4 if is_cutpurse else 2
         speed_value = 6 if is_cutpurse else 9

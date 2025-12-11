@@ -15,11 +15,16 @@
 7. **Accesso senza API key (predefinito)** — Con `ALLOW_ANONYMOUS=false` viene risposto `401 Invalid or missing API key` su `/modules`.【F:tests/test_app.py†L390-L399】
 8. **Accesso anonimo opzionale** — Con `ALLOW_ANONYMOUS=true` e nessuna API key `/modules` torna `200 OK`, consentendo l’elenco anonimo.【F:tests/test_app.py†L444-L448】
 
+- Copertura API completata con test automatici e run manuali: health/modules/meta/download hanno esiti attesi, 401/404 vengono restituiti correttamente e il troncamento è verificato quando `ALLOW_MODULE_DUMP=false`.【56fa11†L1-L12】【F:tests/test_app.py†L282-L314】
+
 ## Metadati e scopo del modulo
 - Kernel interno versione **3.7-kernel** aggiornato al **2025-09-05**, ruolo “Assistente AI multifunzionale specializzato in Pathfinder 1e” con welcome message dedicato alla Taverna Master DD.【F:src/modules/base_profile.txt†L1-L24】
 - Principi chiave: priorità RAW/RAI/PFS, separazione per ambiti (Ruling, Archivist, MinMax, Encounter, Loot, Narrativa), trasparenza fonti e controlli anti-allucinazione/drift.【F:src/modules/base_profile.txt†L29-L52】
 - Router integrato con modalità specializzate (Archivist, Ruling Expert, Taverna NPC, Narrativa, Explain, MinMax Builder, Encounter Designer, Libro Mastro, Documentazione) e binding ai rispettivi file modulo.【F:src/modules/base_profile.txt†L107-L117】
 - Scopi operativi: garantire routing hard-gate, enforcement tag trasparenza, compatibilità PFS e governance Sigilli/Echo con logger QA e warmup preload.【F:src/modules/base_profile.txt†L360-L374】【F:src/modules/base_profile.txt†L600-L645】
+
+## Dipendenze
+- Elencare moduli esterni, API o asset (file, immagini, modelli) su cui il modulo fa affidamento, includendo per ciascuno una citazione in linea al blocco di codice che definisce il link o l’endpoint di riferimento.【F:src/modules/base_profile.txt†L95-L117】【F:src/modules/base_profile.txt†L430-L447】
 
 ## Modello dati e stato
 - **Toggles**: pfs, language, terse_mode, show_badges/show_sources, spoiler, echo_gate/echo_persona, image_constraints, expert; controllano filtri PFS, lingua, lunghezza, spoiler e grading Echo.【F:src/modules/base_profile.txt†L368-L388】

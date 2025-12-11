@@ -1,0 +1,12 @@
+mode: extended
+requests:
+  - id: mesmerist_catfolk_vexing_daredevil_enigma
+    class: Mesmerist
+    race: Catfolk
+    archetype: Vexing Daredevil + Enigma
+    background_hooks: "Acrobata da arena che usa lo sguardo ipnotico per coprire blitz furtivi felini."
+    output_prefix: mesmerist_catfolk_vexing_daredevil_enigma
+    query:
+      race: Catfolk
+      archetype: Vexing Daredevil + Enigma
+      theme: "dirty trick + psychic feint"

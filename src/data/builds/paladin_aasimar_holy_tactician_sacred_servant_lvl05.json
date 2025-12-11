@@ -1,0 +1,243 @@
+{
+  "build_state": {
+    "class": "Paladin",
+    "mode": "extended",
+    "race": "Aasimar",
+    "archetype": "Holy Tactician + Sacred Servant",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 18,
+      "DES": 14,
+      "COS": 16,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 20
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 12,
+        "picco": 18
+      },
+      "livello_5": {
+        "media": 30,
+        "picco": 46
+      },
+      "livello_10": {
+        "media": 54,
+        "picco": 82
+      }
+    },
+    "statistics": {
+      "attacco": "+11",
+      "danni": "spada lunga sacra 1d8+10 smite + teamwork",
+      "ca": 23
+    },
+    "bench_log": [
+      "Checkpoint 5: valutate 3 combinazioni pipeline, mantenuta la variante T1 con aura teamwork estesa e servitore celestiale in formato direzione tattica.",
+      "Ruling Expert conferma badge RAW/RAI/PFS; MinMax registra picchi con Coordinated Charge + Litany of Righteousness.",
+      "Narrativa allineata: crociata angelica con squadre coordinate."
+    ]
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Paladin",
+          "livelli": 5,
+          "archetipi": [
+            "Holy Tactician",
+            "Sacred Servant"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 18,
+        "DES": 14,
+        "COS": 16,
+        "INT": 10,
+        "SAG": 12,
+        "CAR": 20,
+        "attacco": "+11",
+        "danni": "1d8+10 smite",
+        "ca": 23
+      },
+      "statistiche_chiave": {
+        "attacco": "+11",
+        "danni": "1d8+10",
+        "ca": 23
+      },
+      "benchmarks": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS"
+      },
+      "salvezze": {
+        "Tempra": 7,
+        "Riflessi": 4,
+        "Volontà": 7
+      },
+      "attack_bonus": {
+        "melee": "+11",
+        "smite": "+13"
+      },
+      "damage": {
+        "melee": "1d8+10",
+        "smite": "1d8+13 vs malvagi"
+      },
+      "bench_log": [
+        "Checkpoint 5 validato: Coordinated Charge + Blessing domain online"
+      ],
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; meta_tier T1 mantenuto",
+      "pf_totali": 22,
+      "hp": 22,
+      "skill_points": 4,
+      "skills_map": {
+        "Diplomacy": 9,
+        "Perception": 7,
+        "Knowledge (religion)": 5
+      },
+      "talenti": [
+        "Power Attack",
+        "Weapon Focus (longsword)",
+        "Coordinated Charge"
+      ],
+      "capacita_classe": [
+        "Smite Evil",
+        "Lay on Hands",
+        "Aura of Courage",
+        "Tactician"
+      ],
+      "equipaggiamento": [
+        "Full plate benedetta",
+        "Spada lunga sacra"
+      ],
+      "inventario": [
+        "Simbolo sacro",
+        "Pozioni di cura"
+      ],
+      "spell_levels": {
+        "1": [
+          "Bless Weapon",
+          "Divine Favor"
+        ]
+      },
+      "magia": [
+        {
+          "livello": 1,
+          "lista": [
+            "Bless Weapon",
+            "Divine Favor"
+          ]
+        }
+      ],
+      "slot_incantesimi": {
+        "1": 3
+      },
+      "ac_breakdown": {
+        "base": 10,
+        "armatura": 8,
+        "scudo": 0,
+        "des": 2,
+        "defl": 1,
+        "varie": 0
+      },
+      "iniziativa": 2,
+      "velocita": 6
+    }
+  },
+  "bench_log": [
+    "Ruling Expert: nessuna sovrapposizione fra teamwork e domini del servitore.",
+    "MinMax: DPR stabile T1 con supporto di Coordinated Charge.",
+    "Narrative: guida tattica a squadre di angeli crusader."
+  ],
+  "body_params": {
+    "race": "Aasimar",
+    "archetype_primary": "Holy Tactician",
+    "archetype_secondary": "Sacred Servant",
+    "focus": "supporto T1 con teamwork aura e servitore celestiale"
+  },
+  "build_source": "local spec",
+  "class": "Paladin",
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    "mock_ruling_expert"
+  ],
+  "qa": {
+    "ruling_expert": {
+      "badge": "RAW/RAI/PFS",
+      "sources": [
+        "mock_ruling_expert"
+      ],
+      "context": {
+        "class": "Paladin",
+        "archetype": "Holy Tactician + Sacred Servant",
+        "race": "Aasimar",
+        "level": 5,
+        "talenti_chiave": [
+          "Coordinated Charge",
+          "Aura Tactician",
+          "Servitore celestiale"
+        ],
+        "pfs_mode": "RAW"
+      }
+    },
+    "minmax": {
+      "badge": "validated",
+      "sources": [
+        "minmax_runner"
+      ],
+      "context": {
+        "key_rotation": "Smite Evil + Coordinated Charge + teamwork condivisi",
+        "nova": "Litany of Righteousness + smite",
+        "safety": "Lay on Hands swift + aura"
+      }
+    },
+    "taverna": {
+      "badge": "validated",
+      "sources": [
+        "tavern_builder"
+      ],
+      "context": {
+        "role": "Condottiero angelico",
+        "hook": "Porta ordini celestiali con aurora tattica",
+        "voice": "calma e ferma"
+      }
+    }
+  },
+  "narrative": "Condottiero angelico che orchestra cariche coordinate e benedizioni.",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "ok",
+      "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 5,
+      "status": "ok",
+      "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 10,
+      "status": "ok",
+      "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+      "ruling_badge": "RAW/RAI/PFS"
+    }
+  ],
+  "level": 5,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "mode": "extended"
+}

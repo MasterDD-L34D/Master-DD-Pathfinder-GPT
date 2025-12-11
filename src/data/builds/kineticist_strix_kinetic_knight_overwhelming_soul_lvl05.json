@@ -1,0 +1,215 @@
+{
+  "build_state": {
+    "class": "Kineticist",
+    "mode": "extended",
+    "race": "Strix",
+    "archetype": "Kinetic Knight + Overwhelming Soul",
+    "step": 1,
+    "step_total": 16,
+    "step_labels": {
+      "1": "Profilo Base",
+      "2": "Razza & Classe",
+      "3": "Archetipi & Multiclasse",
+      "4": "Feats & Talenti",
+      "5": "Spell & Power Set",
+      "6": "Equip & Risorse",
+      "7": "Benchmark & Simulazioni",
+      "8": "QA & Export",
+      "9": "Dummies Sheet",
+      "10": "Esportazione",
+      "11": "Fork/Varianti",
+      "12": "Comparativa",
+      "13": "Meta Rating",
+      "14": "Companion",
+      "15": "Report",
+      "16": "Chiusura"
+    },
+    "statistics": {
+      "FOR": 12,
+      "DES": 20,
+      "COS": 14,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 18
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 12,
+        "picco": 18
+      },
+      "livello_5": {
+        "media": 34,
+        "picco": 52
+      }
+    },
+    "statistics": {
+      "attacco": "+13",
+      "danni": "blast composito 4d6+16 (empowered)",
+      "ca": 25
+    },
+    "bench_log": [
+      "Pipeline Ruling Expert → MinMax → Taverna: scartata la variante sniper e la mischia annihilator; conservata la knight/soul per badge completo e DPR più alto.",
+      "Ruling badge RAW/RAI/PFS mantenuto con log di bench allegati."
+    ]
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Kineticist",
+          "livelli": 5,
+          "archetipi": [
+            "Kinetic Knight",
+            "Overwhelming Soul"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 12,
+        "DES": 20,
+        "COS": 14,
+        "INT": 10,
+        "SAG": 12,
+        "CAR": 18,
+        "attacco": "+13",
+        "danni": "blast composito 4d6+16",
+        "ca": 25,
+        "Forza": 12,
+        "Destrezza": 20,
+        "Costituzione": 14,
+        "Intelligenza": 10,
+        "Saggezza": 12,
+        "Carisma": 18
+      },
+      "statistiche_chiave": {
+        "attacco": "+13",
+        "danni": "4d6+16",
+        "ca": 25
+      },
+      "benchmarks": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS"
+      },
+      "salvezze": {
+        "Tempra": 8,
+        "Riflessi": 10,
+        "Volontà": 8
+      },
+      "attack_bonus": {
+        "melee": "+13",
+        "ranged": "+15"
+      },
+      "damage": {
+        "ranged": "blast 4d6+16",
+        "special": "blade whirlwind in volo"
+      },
+      "bench_log": [
+        "Confermata la variante knight/soul con meta_tier T1 e log bench integrati."
+      ],
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; overflow su CHA registrato."
+    }
+  },
+  "bench_log": [
+    "Overwhelming Soul evita burn su CHA e mantiene tempra alta; note PFS annotate.",
+    "MinMax: overflow+infusion specialization per DPR di picco; CA 25 con scudo cinetico e volo.",
+    "Narrative: pattuglia d'assalto aerea per difesa di roccaforti."
+  ],
+  "body_params": {
+    "race": "Strix",
+    "archetype_primary": "Kinetic Knight",
+    "archetype_secondary": "Overwhelming Soul",
+    "focus": "tank volante a carisma con blast di forza"
+  },
+  "build_source": "local spec",
+  "class": "Kineticist",
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    "mock_ruling_expert"
+  ],
+  "qa": {
+    "ruling_expert": {
+      "badge": "RAW/RAI/PFS",
+      "sources": [
+        "mock_ruling_expert"
+      ],
+      "context": {
+        "class": "Kineticist",
+        "archetype": "Kinetic Knight + Overwhelming Soul",
+        "race": "Strix",
+        "level": 5,
+        "talenti_chiave": [
+          "Empower Spell-like",
+          "Kinetic Blade",
+          "Infusion Specialization",
+          "Elemental Overflow"
+        ],
+        "hr_sources": null,
+        "meta_sources": [
+          "Pipeline Ruling Expert -> MinMax -> Taverna"
+        ],
+        "pfs_mode": "RAW"
+      }
+    },
+    "minmax": {
+      "badge": "validated",
+      "sources": [
+        "minmax_runner"
+      ],
+      "context": {
+        "key_rotation": "Empowered composite blast con gather + blade rush",
+        "nova": "Empower + Weapon Finesse CHA synergy",
+        "safety": "CA 25, volo e scudo cinetico"
+      }
+    },
+    "taverna": {
+      "badge": "validated",
+      "sources": [
+        "tavern_builder"
+      ],
+      "context": {
+        "role": "Guardia volante d'assalto",
+        "hook": "patuglia notturna sopra i picchi",
+        "voice": "comandi brevi e secchi"
+      }
+    }
+  },
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "ok",
+      "bench_log": "blast a forza con carica difensiva; badge RAW/RAI/PFS",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 5,
+      "status": "ok",
+      "bench_log": "Overflow su CHA e empower; DPR medio 34",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 10,
+      "status": "ok",
+      "bench_log": "Composite a due elementi con volo tattico",
+      "ruling_badge": "RAW/RAI/PFS"
+    }
+  ],
+  "output_prefix": "kineticist_strix_kinetic_knight_overwhelming_soul",
+  "race": "Strix",
+  "archetype": "Kinetic Knight + Overwhelming Soul",
+  "spec_id": "kineticist_strix_kinetic_knight_overwhelming_soul",
+  "background": "Guardia alata delle cittadelle strix",
+  "level": 5,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ]
+}

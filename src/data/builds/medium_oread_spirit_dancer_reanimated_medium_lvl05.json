@@ -1,0 +1,166 @@
+{
+  "build_state": {
+    "class": "Medium",
+    "mode": "extended",
+    "race": "Oread",
+    "archetype": "Spirit Dancer + Reanimated Medium",
+    "step": 1,
+    "step_total": 16,
+    "step_labels": {
+      "1": "Profilo Base",
+      "2": "Razza & Classe",
+      "3": "Archetipi & Multiclasse",
+      "4": "Feats & Talenti",
+      "5": "Spell & Power Set",
+      "6": "Equip & Risorse",
+      "7": "Benchmark & Simulazioni",
+      "8": "QA & Export",
+      "9": "Dummies Sheet",
+      "10": "Esportazione",
+      "11": "Fork/Varianti",
+      "12": "Comparativa",
+      "13": "Meta Rating",
+      "14": "Companion",
+      "15": "Report",
+      "16": "Chiusura"
+    },
+    "statistics": {
+      "FOR": 12,
+      "DES": 14,
+      "COS": 18,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 18
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 10,
+        "picco": 15
+      },
+      "livello_5": {
+        "media": 26,
+        "picco": 38
+      },
+      "livello_10": {
+        "media": 44,
+        "picco": 68
+      }
+    },
+    "statistics": {
+      "attacco": "+9",
+      "danni": "slam ectoplasmatico 1d8+7 + seance",
+      "ca": 22
+    },
+    "bench_log": [
+      "Varianti testate (Ruling Expert → MinMax → Taverna/Narrative): (1) Oread Spirit Dancer/Reanimated Medium con focus terra e danze di spiriti antichi, (2) Sylph Storyteller + Reanimated Medium orientato al controllo aura, (3) Dhampir Relic Channeler con focus necromantico e supporto undead.",
+      "Ruling Expert: confermata la compatibilità RAW/RAI tra Spirit Dancer e Reanimated Medium (nessuna sostituzione in conflitto, seance amplificata dalla danza) con badge RAW/RAI/PFS.",
+      "Benchmark MinMax/Taverna: la variante oread mantiene DPR e utility più alti ai checkpoint grazie alla robustezza elementale e alle performance rituali; promossa come unica istanza salvata con meta_tier T1 e log allegati."
+    ]
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Medium",
+          "livelli": 5,
+          "archetipi": [
+            "Spirit Dancer",
+            "Reanimated Medium"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 12,
+        "DES": 14,
+        "COS": 18,
+        "INT": 10,
+        "SAG": 12,
+        "CAR": 18,
+        "attacco": "+9",
+        "danni": "slam ectoplasmatico 1d8+7",
+        "ca": 22,
+        "pf_totali": 48,
+        "iniziativa": 3,
+        "velocita": 6
+      },
+      "benchmarks": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS"
+      },
+      "salvezze": {
+        "Tempra": "+7",
+        "Riflessi": "+4",
+        "Volontà": "+7"
+      },
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Incensi per seance",
+            "importo": -200
+          },
+          {
+            "voce": "Contributo da guide minerarie",
+            "importo": 450
+          }
+        ],
+        "currency": {
+          "oro": 1200,
+          "argento": 10,
+          "rame": 0
+        },
+        "saldo": 0
+      },
+      "print_mode": false,
+      "show_minmax": true,
+      "show_vtt": true,
+      "show_qa": true,
+      "show_explain": true,
+      "show_ledger": true,
+      "decimal_comma": true,
+      "context": {
+        "role": "Conduttore di seance ambulante",
+        "hook": "Guida con tamburi di quarzo le processioni tra canyon e rovine",
+        "voice": "ritmo di passi e campanelli"
+      }
+    }
+  },
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "ok",
+      "bench_log": "Danza spiritica difensiva, badge RAW/RAI/PFS confermato",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 5,
+      "status": "ok",
+      "bench_log": "Seance potenziata su CHA, danze di supporto + slam reincarnato",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 10,
+      "status": "ok",
+      "bench_log": "Doppio spirito coreografato, rituali di possessione rapida",
+      "ruling_badge": "RAW/RAI/PFS"
+    }
+  ],
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
+  "race": "Oread",
+  "archetype": "Spirit Dancer + Reanimated Medium",
+  "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+  "background": "Medium oread danzatore degli spiriti di pietra",
+  "level": 5,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ]
+}

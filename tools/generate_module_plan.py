@@ -67,6 +67,7 @@ class ModuleSummary:
     tasks: List[Tuple[int, str]]
     errors: List[str]
     observations: List[str]
+    dependencies: List[str]
 
     @property
     def status(self) -> str:
@@ -176,19 +177,27 @@ def collect_section_lines(
     """
     Return the concatenated content lines for all sections whose heading matches
     any of the provided patterns (case-insensitive, supports combined headings
-    and emoji). The order of matching sections is preserved.
+    and emoji). The order of matching sections is preserved and multiple
+    matching sections are combined.
     """
 
-    merged_lines: List[str] = []
+    matching_sections: List[List[str]] = []
     for heading, content in sections:
         if any(pattern.search(heading) for pattern in patterns):
-            merged_lines.extend(content)
+            matching_sections.append(content)
+
+    merged_lines: List[str] = []
+    for idx, content in enumerate(matching_sections):
+        if idx:
+            merged_lines.append("")
+        merged_lines.extend(content)
+
     return merged_lines
 
 
 def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSummary:
     if not report_path or not report_path.exists():
-        return ModuleSummary(module_label, report_path, [], [], [])
+        return ModuleSummary(module_label, report_path, [], [], [], [])
 
     lines = report_path.read_text(encoding="utf-8").splitlines()
     sections = parse_sections(lines)
@@ -202,20 +211,25 @@ def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSu
         re.compile(r"osservazion", re.IGNORECASE),
         re.compile(r"note\s+e\s+osservazioni", re.IGNORECASE),
     ]
+    dependency_patterns = [re.compile(r"dipendenze", re.IGNORECASE)]
     fix_patterns = [re.compile(r"fix\s+necessari", re.IGNORECASE)]
 
     fix_lines = collect_section_lines(sections, fix_patterns)
     improvement_lines = collect_section_lines(sections, improvement_patterns)
     error_lines = collect_section_lines(sections, error_patterns)
     observation_lines = collect_section_lines(sections, observation_patterns)
+    dependency_lines = collect_section_lines(sections, dependency_patterns)
 
     fixes = parse_prioritised_tasks(fix_lines, default_priority=1)
     improvements = parse_prioritised_tasks(improvement_lines, default_priority=2)
     errors = parse_bullets(error_lines)
     observations = parse_bullets(observation_lines)
+    dependencies = parse_bullets(dependency_lines)
 
     tasks: List[Tuple[int, str]] = fixes + improvements
-    return ModuleSummary(module_label, report_path, tasks, errors, observations)
+    return ModuleSummary(
+        module_label, report_path, tasks, errors, observations, dependencies
+    )
 
 
 def format_module_block(summary: ModuleSummary) -> str:
@@ -237,6 +251,12 @@ def format_module_block(summary: ModuleSummary) -> str:
             parts.append(f"- [P{priority}] {text}")
     else:
         parts.append("- Nessun task rilevato")
+
+    parts.extend(["", "### Dipendenze"])
+    if summary.dependencies:
+        parts.extend([f"- {item}" for item in summary.dependencies])
+    else:
+        parts.append("- Nessuna dipendenza esplicita")
 
     parts.extend(["", "### Note (Osservazioni/Errori)"])
     if summary.observations or summary.errors:
@@ -325,8 +345,8 @@ def build_executive_plan(
 
     tracking = [
         "### Tracciamento avanzamento",
-        "| Modulo | Task aperti | Osservazioni | Errori | Priorità massima | Stato |",
-        "| --- | --- | --- | --- | --- | --- |",
+        "| Modulo | Task aperti | Osservazioni | Errori | Dipendenze | Priorità massima | Stato |",
+        "| --- | --- | --- | --- | --- | --- | --- |",
     ]
     for summary in sorted(
         summaries,
@@ -335,7 +355,7 @@ def build_executive_plan(
         tracking.append(
             "| "
             f"{summary.label} | {len(summary.tasks)} | {len(summary.observations)} | "
-            f"{len(summary.errors)} | {summary.highest_priority} | {summary.status} |"
+            f"{len(summary.errors)} | {len(summary.dependencies)} | {summary.highest_priority} | {summary.status} |"
         )
 
     executive_output.parent.mkdir(parents=True, exist_ok=True)
@@ -346,6 +366,7 @@ def build_executive_plan(
 
 def build_plan(output_path: Path, executive_output: Path) -> None:
     sequence = load_sequence_from_guide()
+    sequence_index = _sequence_index_map(sequence)
     report_map = map_reports()
 
     summaries: List[ModuleSummary] = []
@@ -397,16 +418,33 @@ def build_plan(output_path: Path, executive_output: Path) -> None:
         "",
     ]
 
-    summary_rows = [
-        "| Modulo | Task totali | Priorità massima | Osservazioni | Errori | Stato |",
-        "| --- | --- | --- | --- | --- | --- |",
+    summary_columns = [
+        "Modulo",
+        "Task totali",
+        "Priorità massima",
+        "#Dipendenze",
+        "Stato",
+        "#Osservazioni",
+        "#Errori",
     ]
-    for summary in summaries:
-        summary_rows.append(
-            "| "
-            f"{summary.label} | {len(summary.tasks)} | {summary.highest_priority} | "
-            f"{len(summary.observations)} | {len(summary.errors)} | {summary.status} |"
-        )
+    summary_rows = [
+        "| " + " | ".join(summary_columns) + " |",
+        "| " + " | ".join(["---"] * len(summary_columns)) + " |",
+    ]
+    for summary in sorted(
+        summaries,
+        key=lambda s: _module_sort_key(s.label, sequence_index=sequence_index),
+    ):
+        row_cells = [
+            summary.label,
+            str(len(summary.tasks)),
+            summary.highest_priority,
+            str(len(summary.dependencies)),
+            summary.status,
+            str(len(summary.observations)),
+            str(len(summary.errors)),
+        ]
+        summary_rows.append("| " + " | ".join(row_cells) + " |")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(

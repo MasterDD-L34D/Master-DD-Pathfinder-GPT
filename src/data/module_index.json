@@ -1,146 +1,31 @@
 {
-  "generated_at": "2025-12-11T02:08:42Z",
+  "generated_at": "2025-12-11T16:42:09Z",
   "api_url": "http://localhost:8000",
   "entries": [
     {
-      "module": "Encounter_Designer.txt",
-      "file": "src/data/modules/Encounter_Designer.txt",
-      "status": "ok",
-      "meta": {
-        "name": "Encounter_Designer.txt",
-        "size_bytes": 34933,
-        "suffix": ".txt"
-      }
-    },
-    {
       "module": "Taverna_NPC.txt",
       "file": "src/data/modules/Taverna_NPC.txt",
-      "status": "ok",
-      "meta": {
-        "name": "Taverna_NPC.txt",
-        "size_bytes": 124135,
-        "suffix": ".txt"
-      }
+      "status": "ok"
     },
     {
       "module": "adventurer_ledger.txt",
       "file": "src/data/modules/adventurer_ledger.txt",
-      "status": "ok",
-      "meta": {
-        "name": "adventurer_ledger.txt",
-        "size_bytes": 78592,
-        "suffix": ".txt"
-      }
-    },
-    {
-      "module": "archivist.txt",
-      "file": "src/data/modules/archivist.txt",
-      "status": "ok",
-      "meta": {
-        "name": "archivist.txt",
-        "size_bytes": 31533,
-        "suffix": ".txt"
-      }
+      "status": "ok"
     },
     {
       "module": "base_profile.txt",
       "file": "src/data/modules/base_profile.txt",
-      "status": "ok",
-      "meta": {
-        "name": "base_profile.txt",
-        "size_bytes": 36078,
-        "suffix": ".txt"
-      }
-    },
-    {
-      "module": "explain_methods.txt",
-      "file": "src/data/modules/explain_methods.txt",
-      "status": "ok",
-      "meta": {
-        "name": "explain_methods.txt",
-        "size_bytes": 13842,
-        "suffix": ".txt"
-      }
-    },
-    {
-      "module": "knowledge_pack.md",
-      "file": "src/data/modules/knowledge_pack.md",
-      "status": "ok",
-      "meta": {
-        "name": "knowledge_pack.md",
-        "size_bytes": 12306,
-        "suffix": ".md"
-      }
-    },
-    {
-      "module": "meta_doc.txt",
-      "file": "src/data/modules/meta_doc.txt",
-      "status": "ok",
-      "meta": {
-        "name": "meta_doc.txt",
-        "size_bytes": 31380,
-        "suffix": ".txt"
-      }
-    },
-    {
-      "module": "minmax_builder.txt",
-      "file": "src/data/modules/minmax_builder.txt",
-      "status": "ok",
-      "meta": {
-        "name": "minmax_builder.txt",
-        "size_bytes": 82907,
-        "suffix": ".txt"
-      }
+      "status": "ok"
     },
     {
       "module": "narrative_flow.txt",
       "file": "src/data/modules/narrative_flow.txt",
-      "status": "ok",
-      "meta": {
-        "name": "narrative_flow.txt",
-        "size_bytes": 35089,
-        "suffix": ".txt"
-      }
-    },
-    {
-      "module": "ruling_expert.txt",
-      "file": "src/data/modules/ruling_expert.txt",
-      "status": "ok",
-      "meta": {
-        "name": "ruling_expert.txt",
-        "size_bytes": 23658,
-        "suffix": ".txt"
-      }
+      "status": "ok"
     },
     {
       "module": "scheda_pg_markdown_template.md",
       "file": "src/data/modules/scheda_pg_markdown_template.md",
-      "status": "ok",
-      "meta": {
-        "name": "scheda_pg_markdown_template.md",
-        "size_bytes": 23497,
-        "suffix": ".md"
-      }
-    },
-    {
-      "module": "sigilli_runner_module.txt",
-      "file": "src/data/modules/sigilli_runner_module.txt",
-      "status": "ok",
-      "meta": {
-        "name": "sigilli_runner_module.txt",
-        "size_bytes": 5431,
-        "suffix": ".txt"
-      }
-    },
-    {
-      "module": "tavern_hub.json",
-      "file": "src/data/modules/tavern_hub.json",
-      "status": "ok",
-      "meta": {
-        "name": "tavern_hub.json",
-        "size_bytes": 740,
-        "suffix": ".json"
-      }
+      "status": "ok"
     }
   ],
   "module_plan": [

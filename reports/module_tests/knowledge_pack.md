@@ -14,6 +14,8 @@
 7. **Visibilità knowledge base** — `GET /knowledge` → `200 OK`; 7 asset (4 PDF, 3 JSON) mostrati con dimensioni e suffissi.【81a2a8†L1-L5】
 8. **Metadati asset knowledge** — `GET /knowledge/Items%20Master%20List.pdf/meta` → `200 OK`; 256.148 B, suffisso `.pdf`.【e6a24f†L1-L2】
 
+- Copertura completa: le chiamate includono health/modules/meta/download con e senza dump, 404 per nomi errati e visibilità/metadati della knowledge base di supporto.【9dc6d0†L1-L4】【7645d7†L1-L8】【812a8†L1-L5】
+
 ## Metadati e scopo del modulo
 - **Identità:** Knowledge Pack v2 (2025-09-04), compatibilità Core 3.3+, badge [RAW][RAI][PFS] 🧠 META [HR].【F:src/modules/knowledge_pack.md†L1-L6】
 - **Scopo:** guida d’uso del kernel con flusso di recupero (`GET /modules/{name}` con `x-api-key`), prompt rapidi e indice delle modalità principali.【F:src/modules/knowledge_pack.md†L45-L66】
@@ -50,3 +52,6 @@
 
 ## Note di verifica
 - ✅ L’endpoint `/modules/{name}/meta` ora espone `version` e `compatibility` estratti dall’header del modulo, allineandosi con la documentazione e senza richiedere parsing manuale lato client.【F:src/app.py†L392-L458】【F:src/modules/knowledge_pack.md†L1-L6】
+
+## Fix necessari
+- Nessuno: l’API espone già version/compatibility nei metadati e il modulo è allineato al percorso `.txt` documentato, senza ulteriori difetti aperti.【F:src/app.py†L392-L458】【F:src/modules/knowledge_pack.md†L1-L6】

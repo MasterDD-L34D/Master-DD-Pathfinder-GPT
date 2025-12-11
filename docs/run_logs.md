@@ -1,5 +1,53 @@
 # Command run log
 
+## generate_module_plan smoke (heading combinati)
+- **Prep:** creato un report temporaneo con heading duplicati/combinati per Fix/Errori/Osservazioni e popolato con bullet distinti per verificare l'aggregazione.
+- **Command:**
+  ```bash
+  python - <<'PY'
+  from pathlib import Path
+  from tools.generate_module_plan import summarise_module
+
+  report = Path("/tmp/combined_headings.md")
+  report.write_text(
+      "\n".join(
+          [
+              "## Fix necessari",
+              "- [P1] Primo fix",
+              "",
+              "## Fix necessari (API)",
+              "- Secondo fix API",
+              "",
+              "## Note e miglioramenti",
+              "- [P3] Ritocco opzionale",
+              "",
+              "## Errori",
+              "- Errore nelle API",
+              "",
+              "## Errori replicati",
+              "- Errore di copia",
+              "",
+              "## Osservazioni e note",
+              "- Nota combinata uno",
+              "",
+              "## Note e osservazioni",
+              "- Nota combinata due",
+              "",
+          ]
+      ),
+      encoding="utf-8",
+  )
+
+  summary = summarise_module("Smoke test", report)
+
+  print("Tasks", summary.tasks)
+  print("Errors", summary.errors)
+  print("Observations", summary.observations)
+  PY
+  ```
+- **Result:** l'output contiene 3 task (due P1, un P3), 2 errori e 2 osservazioni, confermando che i contenuti provenienti da heading multipli vengono unificati.
+- **Timestamp:** 2025-12-11T13:54:01Z
+
 ## Handoff operativo post-build
 - **Contesto:** ultimo ciclo `generate_build_db` in modalità extended completato con discovery moduli e validazione strict.
 - **Azioni:**

@@ -1,0 +1,203 @@
+{
+  "build_state": {
+    "class": "Cleric",
+    "mode": "extended",
+    "race": "Wayang (Umbral)",
+    "archetype": "Shadowcaster + Separatist",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 10,
+      "DES": 16,
+      "COS": 12,
+      "INT": 12,
+      "SAG": 20,
+      "CAR": 14
+    },
+    "level": 5,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 9,
+        "picco": 15
+      },
+      "livello_5": {
+        "media": 26,
+        "picco": 42
+      },
+      "livello_10": {
+        "media": 50,
+        "picco": 75
+      }
+    },
+    "statistics": {
+      "attacco": "+9",
+      "danni": "1d6+5 (colpo d'ombra) + controllo area",
+      "ca": 21
+    },
+    "bench_log": [
+      "Checkpoint 5: confermata pipeline Ruling Expert → MinMax → Taverna/Narrative con log di bench/ruling salvati.",
+      "Ruling Expert: domini disallineati e shadow conjuration rispettano RAW/RAI/PFS.",
+      "MinMax: preferita rotazione debuff + summons d'ombra per mantenere T1 con safety canali selettivi."
+    ]
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Cleric",
+          "livelli": 5,
+          "archetipi": [
+            "Shadowcaster",
+            "Separatist"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 10,
+        "DES": 16,
+        "COS": 12,
+        "INT": 12,
+        "SAG": 20,
+        "CAR": 14,
+        "attacco": "+9",
+        "danni": "1d6+5 ombra",
+        "ca": 21
+      },
+      "statistiche_chiave": {
+        "attacco": "+9 con scimitarra d'ombra",
+        "danni": "Shadow conjuration + channel control",
+        "ca": 21
+      },
+      "benchmarks": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS"
+      },
+      "salvezze": {
+        "Tempra": 5,
+        "Riflessi": 5,
+        "Volontà": 9
+      },
+      "attack_bonus": {
+        "melee": "+9",
+        "ranged": "+6",
+        "special": "+11 (touch d'ombra)"
+      },
+      "damage": {
+        "melee": "1d6+5",
+        "special": "Evocazioni d'ombra e channel selettivo"
+      },
+      "bench_log": [
+        "Checkpoint 5 validato: domini disallineati + shadow conjuration stabili"
+      ],
+      "rules_status_text": "Badge RAW/RAI/PFS confermato a lvl5; pipeline strict ok"
+    }
+  },
+  "narrative": "Litanista d'ombra che guida confraternite clandestine, bilanciando domini opposti con conjuration oscure per proteggere i suoi." ,
+  "bench_log": [
+    "Ruling Expert: mantenuta legalità PFS con domini separati e incanti d'ombra.",
+    "MinMax: affinate le metamagie reach/persistent sulle benedizioni.",
+    "Taverna/Narrative: sacerdote errante che illumina con lanterne nere." 
+  ],
+  "body_params": {
+    "race": "Wayang (Umbral)",
+    "archetype_primary": "Shadowcaster",
+    "archetype_secondary": "Separatist",
+    "focus": "caster T1 di controllo ombra con canali selettivi"
+  },
+  "build_source": "local spec",
+  "class": "Cleric",
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    "mock_ruling_expert"
+  ],
+  "qa": {
+    "ruling_expert": {
+      "badge": "RAW/RAI/PFS",
+      "sources": [
+        "mock_ruling_expert"
+      ],
+      "context": {
+        "class": "Cleric",
+        "archetype": "Shadowcaster + Separatist",
+        "race": "Wayang (Umbral)",
+        "level": 5,
+        "talenti_chiave": [
+          "Spell Penetration",
+          "Selective Channeling",
+          "Shadow Projection"
+        ],
+        "hr_sources": null,
+        "meta_sources": [
+          "Pipeline Ruling Expert → MinMax → Taverna/Narrative"
+        ],
+        "pfs_mode": "RAW"
+      }
+    },
+    "minmax": {
+      "badge": "validated",
+      "sources": [
+        "minmax_runner"
+      ],
+      "context": {
+        "key_rotation": "Shadow conjuration/evocation + benedizioni reach",
+        "nova": "Shadow Evocation + channel empowered",
+        "safety": "Aura d'ombra e invisibilità"
+      }
+    },
+    "narrative": {
+      "badge": "tavern_ok",
+      "sources": [
+        "tavern_builder"
+      ],
+      "context": {
+        "role": "Sacerdote clandestino",
+        "hook": "Offre protezione invisibile ai ribelli wayang",
+        "voice": "sussurri riverberanti"
+      }
+    }
+  },
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "ok",
+      "bench_log": "Shadow debuff + channel selettivo stabili",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 5,
+      "status": "ok",
+      "bench_log": "Conjuration d'ombra e domini separati promossi T1",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 10,
+      "status": "ok",
+      "bench_log": "Preparazione per shadow miracle e bless permanenti",
+      "ruling_badge": "RAW/RAI/PFS"
+    }
+  ],
+  "output_prefix": "cleric_wayang_shadowcaster_separatist",
+  "race": "Wayang (Umbral)",
+  "archetype": "Shadowcaster + Separatist",
+  "spec_id": "cleric_wayang_shadowcaster_separatist",
+  "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
+  "level": 5,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ]
+}

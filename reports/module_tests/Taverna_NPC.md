@@ -68,3 +68,5 @@
 ## Fix necessari
 - Nessuno: lo storage espone già `/storage_meta` con quota/pattern di auto-name e, con `ALLOW_MODULE_DUMP=false`, i dump vengono tronchi a 4k con marker `[…TRUNCATED ALLOW_MODULE_DUMP=false…]` e risposta standard “⚠️ Output parziale” anche per export plain/markdown, in linea con le policy dichiarate.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L273-L305】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 
+## Esiti API
+- Coperti gli endpoint principali con dump attivo/disattivo: health/modules/meta/download restituiscono i 200 attesi, gli asset inesistenti danno 404 e il troncamento applica marker espliciti quando `ALLOW_MODULE_DUMP=false`.【671fb7†L1-L9】【f250d4†L1-L76】

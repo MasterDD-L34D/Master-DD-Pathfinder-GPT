@@ -1,0 +1,243 @@
+{
+  "build_state": {
+    "class": "Paladin",
+    "mode": "extended",
+    "race": "Aasimar",
+    "archetype": "Holy Tactician + Sacred Servant",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 16,
+      "DES": 14,
+      "COS": 14,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 18
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 12,
+        "picco": 18
+      },
+      "livello_5": {
+        "media": 28,
+        "picco": 42
+      },
+      "livello_10": {
+        "media": 52,
+        "picco": 80
+      }
+    },
+    "statistics": {
+      "attacco": "+6",
+      "danni": "spada lunga sacra 1d8+6 con smite",
+      "ca": 19
+    },
+    "bench_log": [
+      "Pipeline Ruling Expert → MinMax → Taverna/Narrative: tre varianti combo generate ai checkpoint 1/5/10.",
+      "Varianti testate: (1) Aasimar Sacred Servant + Holy Tactician con teamwork aura/servitore celestiale (T1), (2) Aasimar Hospitaler + Divine Hunter per ranged smite, (3) Oath of Vengeance + Sacred Servant orientata a nova.",
+      "Conservata solo la variante (1) con meta_tier T1, badge RAW/RAI/PFS e log di bench preservato nei metadati."
+    ]
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Paladin",
+          "livelli": 1,
+          "archetipi": [
+            "Holy Tactician",
+            "Sacred Servant"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 16,
+        "DES": 14,
+        "COS": 14,
+        "INT": 10,
+        "SAG": 12,
+        "CAR": 18,
+        "attacco": "+6",
+        "danni": "1d8+6 smite",
+        "ca": 19
+      },
+      "statistiche_chiave": {
+        "attacco": "+6",
+        "danni": "1d8+6",
+        "ca": 19
+      },
+      "benchmarks": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS"
+      },
+      "salvezze": {
+        "Tempra": 4,
+        "Riflessi": 2,
+        "Volontà": 4
+      },
+      "attack_bonus": {
+        "melee": "+6",
+        "smite": "+8"
+      },
+      "damage": {
+        "melee": "1d8+6",
+        "smite": "1d8+8 vs malvagi"
+      },
+      "bench_log": [
+        "Badge RAW/RAI/PFS confermato; Holy Tactician + Sacred Servant compatibili"
+      ],
+      "rules_status_text": "Ruling Expert con badge RAW/RAI/PFS; sinergia teamwork aura e servitore celestiale",
+      "pf_totali": 14,
+      "hp": 14,
+      "skill_points": 4,
+      "skills_map": {
+        "Diplomacy": 9,
+        "Perception": 7,
+        "Knowledge (religion)": 5
+      },
+      "talenti": [
+        "Power Attack",
+        "Weapon Focus (longsword)",
+        "Coordinated Charge"
+      ],
+      "capacita_classe": [
+        "Smite Evil",
+        "Lay on Hands",
+        "Aura of Courage",
+        "Tactician"
+      ],
+      "equipaggiamento": [
+        "Full plate benedetta",
+        "Spada lunga sacra"
+      ],
+      "inventario": [
+        "Simbolo sacro",
+        "Pozioni di cura"
+      ],
+      "spell_levels": {
+        "1": [
+          "Bless Weapon",
+          "Divine Favor"
+        ]
+      },
+      "magia": [
+        {
+          "livello": 1,
+          "lista": [
+            "Bless Weapon",
+            "Divine Favor"
+          ]
+        }
+      ],
+      "slot_incantesimi": {
+        "1": 2
+      },
+      "ac_breakdown": {
+        "base": 10,
+        "armatura": 8,
+        "scudo": 0,
+        "des": 2,
+        "defl": 1,
+        "varie": 0
+      },
+      "iniziativa": 2,
+      "velocita": 6
+    }
+  },
+  "bench_log": [
+    "Ruling Expert: validata compatibilità Holy Tactician + Sacred Servant con domini e aura teamwork.",
+    "MinMax: testate combo smite + tactician aura, mantenendo DPR T1 ai checkpoint.",
+    "Narrative/Taverna: campione aasimar che guida una compagnia di angeli tactician."
+  ],
+  "body_params": {
+    "race": "Aasimar",
+    "archetype_primary": "Holy Tactician",
+    "archetype_secondary": "Sacred Servant",
+    "focus": "supporto T1 con teamwork aura e servitore celestiale"
+  },
+  "build_source": "local spec",
+  "class": "Paladin",
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    "mock_ruling_expert"
+  ],
+  "qa": {
+    "ruling_expert": {
+      "badge": "RAW/RAI/PFS",
+      "sources": [
+        "mock_ruling_expert"
+      ],
+      "context": {
+        "class": "Paladin",
+        "archetype": "Holy Tactician + Sacred Servant",
+        "race": "Aasimar",
+        "level": 1,
+        "talenti_chiave": [
+          "Smite Evil",
+          "Aura Tactician",
+          "Servitore celestiale"
+        ],
+        "pfs_mode": "RAW"
+      }
+    },
+    "minmax": {
+      "badge": "validated",
+      "sources": [
+        "minmax_runner"
+      ],
+      "context": {
+        "key_rotation": "Smite Evil + Teamwork aura + Channel energy del servitore",
+        "nova": "Litany + smite a due mani",
+        "safety": "Lay on Hands e aura di coraggio"
+      }
+    },
+    "taverna": {
+      "badge": "validated",
+      "sources": [
+        "tavern_builder"
+      ],
+      "context": {
+        "role": "Stratega sacro",
+        "hook": "Guida squadriglie angeliche in crociata",
+        "voice": "tono autorevole e ispirato"
+      }
+    }
+  },
+  "narrative": "Stratega aasimar che coordina paladini e celestiali tramite aura tactician e servitore angelico.",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "ok",
+      "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 5,
+      "status": "ok",
+      "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 10,
+      "status": "ok",
+      "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+      "ruling_badge": "RAW/RAI/PFS"
+    }
+  ],
+  "level": 1,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "mode": "extended"
+}

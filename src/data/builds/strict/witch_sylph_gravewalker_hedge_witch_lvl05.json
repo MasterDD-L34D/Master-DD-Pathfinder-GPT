@@ -1,0 +1,216 @@
+{
+  "build_state": {
+    "class": "Witch",
+    "mode": "extended",
+    "race": "Sylph",
+    "archetype": "Gravewalker + Hedge Witch",
+    "step": 1,
+    "step_total": 16,
+    "step_labels": {
+      "1": "Profilo Base",
+      "2": "Razza & Classe",
+      "3": "Archetipi & Multiclasse",
+      "4": "Feats & Talenti",
+      "5": "Spell & Power Set",
+      "6": "Equip & Risorse",
+      "7": "Benchmark & Simulazioni",
+      "8": "QA & Export",
+      "9": "Dummies Sheet",
+      "10": "Esportazione",
+      "11": "Fork/Varianti",
+      "12": "Comparativa",
+      "13": "Meta Rating",
+      "14": "Companion",
+      "15": "Report",
+      "16": "Chiusura"
+    },
+    "statistics": {
+      "FOR": 8,
+      "DES": 18,
+      "COS": 12,
+      "INT": 20,
+      "SAG": 12,
+      "CAR": 14
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 10,
+        "picco": 16
+      },
+      "livello_5": {
+        "media": 26,
+        "picco": 42
+      }
+    },
+    "statistics": {
+      "attacco": "+8",
+      "danni": "snowball 5d6+5 + Evil Eye su TS",
+      "ca": 20
+    },
+    "bench_log": [
+      "Pipeline Ruling Expert → MinMax → Taverna/Narrative: scartata la variante Havocker per perdita di hex; tenuta la linea Sylph Gravewalker + Hedge Witch per T1.",
+      "Ruling badge RAW/RAI/PFS confermato con log di bench allegati."
+    ]
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Witch",
+          "livelli": 5,
+          "archetipi": [
+            "Gravewalker",
+            "Hedge Witch"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 8,
+        "DES": 18,
+        "COS": 12,
+        "INT": 20,
+        "SAG": 12,
+        "CAR": 14,
+        "attacco": "+8",
+        "danni": "snowball 5d6+5",
+        "ca": 20,
+        "Forza": 8,
+        "Destrezza": 18,
+        "Costituzione": 12,
+        "Intelligenza": 20,
+        "Saggezza": 12,
+        "Carisma": 14
+      },
+      "statistiche_chiave": {
+        "attacco": "+8",
+        "danni": "5d6+5",
+        "ca": 20
+      },
+      "benchmarks": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS"
+      },
+      "salvezze": {
+        "Tempra": 4,
+        "Riflessi": 5,
+        "Volontà": 7
+      },
+      "attack_bonus": {
+        "ranged": "+8",
+        "special": "+10 hex touch"
+      },
+      "damage": {
+        "ranged": "snowball 5d6+5",
+        "special": "Command Undead / Misfortune"
+      },
+      "bench_log": [
+        "Checkpoint 5: hex + fly-by Cackle, healing patron online; badge RAW/RAI/PFS valido"
+      ],
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; focus debuff/curing mantenuto"
+    }
+  },
+  "bench_log": [
+    "Ruling Expert: controllata la progressione di hex e i replacement di Gravewalker; nessun conflitto con il patron Healing.",
+    "MinMax: rotazione snowball + Evil Eye + Cackle per DPR costante; investimenti in DC necromanzia confermati.",
+    "Narrative/Taverna: custode dei cimiteri sospesi, guida le anime dei caduti nei cieli di vento."
+  ],
+  "body_params": {
+    "race": "Sylph",
+    "archetype_primary": "Gravewalker",
+    "archetype_secondary": "Hedge Witch",
+    "focus": "debuffer/curer volante con controllo dei non morti"
+  },
+  "build_source": "local spec",
+  "class": "Witch",
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    "mock_ruling_expert"
+  ],
+  "qa": {
+    "ruling_expert": {
+      "badge": "RAW/RAI/PFS",
+      "sources": [
+        "mock_ruling_expert"
+      ],
+      "context": {
+        "class": "Witch",
+        "archetype": "Gravewalker + Hedge Witch",
+        "race": "Sylph",
+        "level": 5,
+        "talenti_chiave": [
+          "Misfortune",
+          "Cackle",
+          "Flight Hex",
+          "Command Undead"
+        ],
+        "hr_sources": null,
+        "meta_sources": [
+          "Pipeline Ruling Expert → MinMax → Taverna"
+        ],
+        "pfs_mode": "RAW"
+      }
+    },
+    "minmax": {
+      "badge": "validated",
+      "sources": [
+        "minmax_runner"
+      ],
+      "context": {
+        "key_rotation": "Snowball + Evil Eye + Cackle per bloccare TS, undead enthrall come azione di massa",
+        "nova": "Misfortune + Command Undead con DC 20",
+        "safety": "Flight hex e familiar scout evitano ingaggi diretti"
+      }
+    },
+    "taverna": {
+      "badge": "validated",
+      "sources": [
+        "tavern_builder"
+      ],
+      "context": {
+        "role": "Guaritrice necromantica del clan",
+        "hook": "Ricuce ferite con erbe aeree mentre comanda spiriti vincolati",
+        "voice": "sussurri portati dal vento"
+      }
+    }
+  },
+  "narrative": "Aggiornamento del coven: tattiche di volo e comando non morti annotate per Taverna/Narrative.",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "ok",
+      "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 5,
+      "status": "ok",
+      "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    {
+      "level": 10,
+      "status": "ok",
+      "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+      "ruling_badge": "RAW/RAI/PFS"
+    }
+  ],
+  "output_prefix": "witch_sylph_gravewalker_hedge_witch",
+  "race": "Sylph",
+  "archetype": "Gravewalker + Hedge Witch",
+  "spec_id": "witch_sylph_gravewalker_hedge_witch",
+  "background": "Veggente del vento che guida anime e cura con erbe sospese",
+  "level": 5,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ]
+}

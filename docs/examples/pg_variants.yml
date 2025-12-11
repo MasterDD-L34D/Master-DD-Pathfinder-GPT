@@ -109,3 +109,12 @@ requests:
     query:
       race: Shabti
       archetype: Steelblood Metamagic Rager
+  - id: medium_oread_spirit_dancer_reanimated_medium
+    class: Medium
+    race: Oread
+    archetype: Spirit Dancer + Reanimated Medium
+    background_hooks: "Medium oread che danza con le anime pietrose dei canyon"
+    output_prefix: medium_oread_spirit_dancer_reanimated_medium
+    query:
+      race: Oread
+      archetype: Spirit Dancer + Reanimated Medium

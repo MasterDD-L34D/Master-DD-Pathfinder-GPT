@@ -12,6 +12,8 @@
 5. `ALLOW_MODULE_DUMP=false` produce `200` con 4k char, header preservato e suffisso `[contenuto troncato]`.【300994†L1-L4】
 6. `GET /modules/missing_file.md` → `404 Module not found` su nome errato.【bff25f†L6-L6】
 
+- Copertura API completata con run dump on/off e stub opzionale, verificando 200/404 attesi e il marker di troncamento quando `ALLOW_MODULE_DUMP=false`.【bff25f†L4-L6】【300994†L1-L4】
+
 ## Metadati / Scopo
 - Template markdown PF1e con macro di setup (print mode, toggle MINMAX/VTT/QA/EXPLAIN/LEDGER, separatore decimale, fallback descrizioni) e helper per mod, firma, badge.【F:src/modules/scheda_pg_markdown_template.md†L5-L33】
 - Header anagrafico con classi/archetipi, allineamento/divinità, ruolo consigliato e stile interpretativo; include background breve e indicatori opzionali su taglia/età ecc.【F:src/modules/scheda_pg_markdown_template.md†L95-L111】
@@ -37,7 +39,7 @@
 - Output checklist vincola la consegna finale a header con toggle attivi, tag RAW/PFS/HR/META e formattazione numerica coerente.【F:src/modules/scheda_pg_markdown_template.md†L485-L490】
 
 ## QA templates e helper
-- **Gates:** tabelle armi/skill/incantesimi non vuote o placeholder, valute normalizzate con `fmt_gp`, Δ WBL loggato, badge lingua/PFS.【F:src/modules/scheda_pg_markdown_template.md†L475-L482】
+- **Gates:** tabelle armi/skill/incantesimi devono essere popolate (rifiuta stub vuoti), valute normalizzate con `fmt_gp`, Δ WBL loggato, badge lingua/PFS.【F:src/modules/scheda_pg_markdown_template.md†L475-L482】
 - **Errori comuni:** sezione Explain prevede “Errori comuni (e come evitarli)” e RAW vs RAI per edge case, con quiz rapido e fonti citate.【F:src/modules/scheda_pg_markdown_template.md†L423-L439】
 - **Formule chiave:** CA ricostruita (10 + mod), CMD base con scelta For/Des, conversioni valutarie `to_gp`/`fmt_gp`, benchmark Δ% e heatmap rischi.【F:src/modules/scheda_pg_markdown_template.md†L70-L160】【F:src/modules/scheda_pg_markdown_template.md†L24-L33】【F:src/modules/scheda_pg_markdown_template.md†L445-L471】
 - **Export:** filename/JSON implicito via CTA `/export_pg_sheet` e `_json`, con sezioni ledger/vtt_json e tagging MDA/Foundry (map/token/grid/safe/bleed).【F:src/modules/scheda_pg_markdown_template.md†L355-L403】
@@ -54,3 +56,6 @@
 
 ## Note di verifica
 - ✅ L’header del template ora espone `version` e `compatibility` (core_min, integrazioni) insieme al meta payload esempio, abilitando il QA automatico uniforme e allineato agli altri moduli.【F:src/modules/scheda_pg_markdown_template.md†L1-L37】
+
+## Fix necessari
+- Nessuno: il meta header e le CTA di export/QA sono già allineati e non emergono difetti aperti dopo i test di download e stub.【F:src/modules/scheda_pg_markdown_template.md†L13-L63】【bff25f†L4-L6】

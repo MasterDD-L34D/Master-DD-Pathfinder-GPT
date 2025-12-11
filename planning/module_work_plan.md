@@ -1,6 +1,6 @@
 # Piano operativo generato dai report
 
-Generato il 2025-12-11T02:15:12Z
+Generato il 2025-12-11T21:48:49Z
 Fonte sequenza: `planning/module_review_guide.md`
 
 ## Checklist seguita (dal documento di guida)
@@ -19,11 +19,10 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessun miglioramento aperto dopo l’estensione dei gate QA (pacing/loot/balance_snapshot) e dei messaggi di correzione verso i comandi di setup/bilanciamento.【F:src/modules/Encounter_Designer.txt†L380-L404】
 
 ### Dipendenze
-- Coordina con `minmax_builder` per mantenere coerenza tra export/QA e condivisione di nomenclatura file.
-- Allinea le ricompense e le tabelle WBL con `adventurer_ledger` prima di aggiornare gli export.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
-- [Osservazione] Il modello dati evita riferimenti a testi protetti: stat e DC sono placeholder numerici astratti, mentre badge e gate PFS delimitano eventuali HR.【F:src/modules/Encounter_Designer.txt†L92-L140】【F:src/modules/Encounter_Designer.txt†L357-L419】
+- [Osservazione] Il modello dati evita riferimenti a testi protetti: stat e DC sono valori numerici astratti, mentre badge e gate PFS delimitano eventuali HR.【F:src/modules/Encounter_Designer.txt†L92-L140】【F:src/modules/Encounter_Designer.txt†L357-L419】
 - [Osservazione] Il flusso incorporato consente pipeline completa: setup → generazione/auto-bilanciamento → QA → export VTT/MD/PDF, con CTA che richiamano i comandi chiave e auto-validate prima dell’export.【F:src/modules/Encounter_Designer.txt†L486-L523】【F:src/modules/Encounter_Designer.txt†L400-L419】
 - [Errore] Nessun errore bloccante sul calcolo CR/QA dopo l’allineamento al singolo helper clampato.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L777-L788】
 
@@ -36,8 +35,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessuno: lo storage espone `/storage_meta` con quota residua, pattern di auto-name e marker di troncamento quando `ALLOW_MODULE_DUMP=false`; i gate Echo/QA includono CTA di remediation (ripeti `/grade` o `/self_check` e disattiva Echo in sandbox) prima di sbloccare salvataggi/export.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L996-L1008】【F:src/modules/Taverna_NPC.txt†L1194-L1208】
 
 ### Dipendenze
-- Condividere policy di storage/quarantena con `tavern_hub` e con le cartelle di servizio (`taverna_saves`).
-- Sincronizzare CTA di export con `adventurer_ledger` per preservare coerenza inventari WBL.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flusso guidato accompagna l’utente da onboarding lingua/universo/ritratto alle fasi di quiz e generazione PNG, con CTA e template UI dedicati per ogni step.【F:src/modules/Taverna_NPC.txt†L282-L518】【F:src/modules/Taverna_NPC.txt†L838-L974】
@@ -53,12 +51,11 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessuno: il `cta_guard` mantiene una CTA sintetica nelle call principali e `vendor_cap_gp` ora parte da default 2000 gp con QA che segnala WARN solo se configurato a `null`.【F:src/modules/adventurer_ledger.txt†L29-L68】【F:src/modules/adventurer_ledger.txt†L1672-L1693】
 
 ### Dipendenze
-- Allineare con `Encounter_Designer` per ricompense WBL e loot distribuiti.
-- Integrare con `tavern_hub` per l’interscambio di inventari condivisi e salvataggi hub.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il welcome e il flow guidato coprono cinque passi (policy, stile giocatore, profilo WBL, roll loot, export) con CTA e template Markdown/VTT per ledger, buylist e scheda PG pronti all’uso.【F:src/modules/adventurer_ledger.txt†L29-L45】【F:src/modules/adventurer_ledger.txt†L686-L750】【F:src/modules/adventurer_ledger.txt†L1760-L1772】
-- [Errore] **Download con ALLOW_MODULE_DUMP=false:** asset JSON viene bloccato come previsto, ma i moduli `.txt` restano scaricabili; confermare se la policy deve valere solo per non testuali o se occorre estenderla ai moduli testuali (oggi non coperti).【0e8b5a†L1-L7】【fd69a0†L1-L41】
+- [Errore] Nessuno: il blocco del download in modalità `ALLOW_MODULE_DUMP=false` si applica ora anche al ledger testuale.【fd69a0†L1-L41】
 
 ## archivist
 - Report: `reports/module_tests/archivist.md`
@@ -69,8 +66,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessuno aperto: la UX di troncamento include già i metadati di lunghezza residua richiesti.【F:src/modules/archivist.txt†L118-L177】
 
 ### Dipendenze
-- Coordinare con `base_profile` per applicare in modo uniforme la policy `no_raw_dump`.
-- Allineare marker e header di troncamento con le cartelle di servizio (`taverna_saves`).
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] I dump seguono ora la policy `no_raw_dump`: con `ALLOW_MODULE_DUMP=false` i moduli testuali vengono troncati, marcati con `[…TRUNCATED ALLOW_MODULE_DUMP=false…]` e corredati da header/JSON `x-original-length`, `x-served-length` e `x-served-percent`, mentre asset non testuali restano bloccati; gli endpoint proteggono comunque l’accesso senza API key con 401 esplicito.【F:src/modules/archivist.txt†L118-L177】【F:src/modules/archivist.txt†L280-L332】
@@ -86,8 +82,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessuno: la documentazione copre ora health/404 e la distinzione dump/troncamento, in linea con la policy Documentazione.【F:tests/test_app.py†L282-L314】【F:tests/test_app.py†L547-L591】
 
 ### Dipendenze
-- Dipende da `meta_doc` per l’elenco comandi e deve restare allineato con `archivist` e `knowledge_pack` sulle policy di dump.
-- Coordina preset e CTA di onboarding con `knowledge_pack` per l’esperienza guidata.
+- Elencare moduli esterni, API o asset (file, immagini, modelli) su cui il modulo fa affidamento, includendo per ciascuno una citazione in linea al blocco di codice che definisce il link o l’endpoint di riferimento.【F:src/modules/base_profile.txt†L95-L117】【F:src/modules/base_profile.txt†L430-L447】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il router centralizza CTA e preset per le modalità specializzate (MinMax, Encounter, Taverna, Narrativa) guidando l’utente con flow e quiz sequenziali e welcome dedicato.【F:src/modules/base_profile.txt†L95-L176】【F:src/modules/base_profile.txt†L452-L560】
@@ -103,8 +98,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] **Deleghe/quiz**: il modulo documenta deleghe ma ne delega enforcement al kernel; quiz teach-back e auto-suggest follow-up già descritti e coerenti con UI hints.【F:src/modules/explain_methods.txt†L30-L48】【F:src/modules/explain_methods.txt†L94-L117】
 
 ### Dipendenze
-- Integra con `knowledge_pack` per discovery/CTA e con `base_profile` per il routing dei preset.
-- Coordinare esempi di quiz con `meta_doc` per mantenere allineate le reference di documentazione.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flusso guidato con header/CTA seleziona metodo, profondità e speed, propone follow-up/quiz e fornisce template dedicati (ELI5, First Principles, Storytelling, Visualization, Analogies, Technical) con supporto ASCII per la resa visuale.【F:src/modules/explain_methods.txt†L42-L200】【F:src/modules/explain_methods.txt†L149-L171】【F:src/modules/explain_methods.txt†L231-L248】
@@ -115,11 +109,11 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] Nessuno: l’API espone già version/compatibility nei metadati e il modulo è allineato al percorso `.txt` documentato, senza ulteriori difetti aperti.【F:src/app.py†L392-L458】【F:src/modules/knowledge_pack.md†L1-L6】
 - [P2] Nessuno aperto: la documentazione/client fa già riferimento ai percorsi `.txt` e l’API di metadata restituisce `version`/`compatibility` dal modulo senza necessità di parsing aggiuntivo.【F:docs/api_usage.md†L20-L27】【F:src/app.py†L392-L458】【F:src/modules/knowledge_pack.md†L1-L6】
 
 ### Dipendenze
-- Fornisce CTA centralizzate verso `Encounter_Designer`, `minmax_builder`, `Taverna_NPC` e `adventurer_ledger`; mantenere coerenza con gli export dei rispettivi moduli.
-- Allineare con `base_profile` per i link di documentazione e i preset di onboarding.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il quick start orchestra i moduli principali (quiz PG → MinMax → Encounter → Ledger) e fornisce prompt “copia/incolla” parametrizzati per Taverna, Ruling, Archivist, Narrativa, Explain, semplificando CTA e integrazione UI.【F:src/modules/knowledge_pack.md†L45-L92】【F:src/modules/knowledge_pack.md†L126-L237】
@@ -130,12 +124,12 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] Nessuno: i gate QA, gli esempi di errore e i template Homebrewery coprono già i casi di export e non risultano difetti pendenti dopo gli ultimi aggiornamenti.【F:src/modules/meta_doc.txt†L440-L520】【F:src/modules/meta_doc.txt†L820-L829】
 - [P2] ✅ L’elenco `/modules` ora documenta che, con `ALLOW_MODULE_DUMP=false`, i file possono comparire con size ridotta e suffix `-partial`, chiarendo il comportamento in ambienti a dump limitato.【F:src/modules/meta_doc.txt†L1-L18】
 - [P2] ✅ `/render_brew_example` include snippet aggiuntivi HR/Primary (anche combinati) e una CTA di export Homebrewery pronta all’uso.【F:src/modules/meta_doc.txt†L504-L562】【F:src/modules/meta_doc.txt†L614-L640】
 
 ### Dipendenze
-- Alimenta la documentazione di `base_profile` e deve restare allineato con le policy di dump applicate in `archivist` e `knowledge_pack`.
-- Coordinare le CTA di export con `tavern_hub`/`Taverna_NPC` per evitare divergence sulle note di troncamento.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flusso documentale segue le fasi Draft → PeerReview → QA → Publish con CTA esplicite e tool di editing/export (outline, patch suggestion, mappe ASCII, generatori di manuale/how-to) per coprire sia documentazione interna sia bundle Homebrewery.【F:src/modules/meta_doc.txt†L678-L724】【F:src/modules/meta_doc.txt†L831-L835】【F:src/modules/meta_doc.txt†L470-L539】
@@ -146,11 +140,11 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] Nessuno: export e gate QA (`export_requires`) risultano già documentati con naming condiviso `MinMax_<nome>.*`, senza ulteriori azioni aperte.【F:src/modules/minmax_builder.txt†L930-L960】【F:src/modules/minmax_builder.txt†L1995-L2017】
 - [P2] Nessuno aperto: le CTA di export riportano ora il nome file previsto (`MinMax_<nome>.pdf/.xlsx/.json`) allineato con la nomenclatura condivisa di Encounter_Designer, riducendo gli equivoci sull’output.【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1070-L1088】
 
 ### Dipendenze
-- Allineare con `Encounter_Designer` per la pipeline di bilanciamento e per le CTA di export condivise.
-- Coordinare onboarding e preset con `knowledge_pack` per evitare duplicazioni.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Lo stub builder è validato contro schema `build_core`/`build_extended`; in caso di errore restituisce `500 Stub payload non valido ...` (testato in commit precedente, logica stabile).【F:src/app.py†L556-L570】
@@ -166,8 +160,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessuno aperto: l’API fornisce ora header `x-truncated` e `x-original-length` per i dump troncati, chiarendo dimensione originaria e limite applicato.【F:tests/test_app.py†L319-L343】【F:src/app.py†L1420-L1492】
 
 ### Dipendenze
-- Integra con `Taverna_NPC` e `tavern_hub` per riutilizzare seed e conversazioni.
-- Condivide hook narrativi con `Encounter_Designer`; ordinare eventuali fix per evitare regressioni sui ganci di trama.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flow narrativo in 11 step guida genere, tono, protagonisti, conflitto e arc/tema con retry e cache, integrando template per scene/outline/bible e interfacce con Taverna, Encounter e Ledger tramite seed condivisi; il QA ora fornisce checklist dettagliata, flag export e CTA su arc/tema/hook/pacing/stile.【F:src/modules/narrative_flow.txt†L465-L658】【F:src/modules/narrative_flow.txt†L320-L404】
@@ -182,22 +175,23 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessuno: lo stub builder è già documentato con payload di esempio e mapping dei campi, e il `status_example` include CTA esplicito per confermare la stagione PFS prima dei rulings.【F:docs/api_usage.md†L99-L129】【F:src/modules/ruling_expert.txt†L448-L455】
 
 ### Dipendenze
-- Dipende da `knowledge_pack` e `base_profile` per la discovery API e la documentazione condivisa.
-- Condivide la policy `no_raw_dump` con `archivist`; verificare coerenza dei marker di troncamento.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il flow guidato RAW→FAQ→PFS applica guardrail anti-injection, disambiguazione con soglia 0.65 e CTA post-risposta, offrendo template UI per sezioni RAW/RAI/PFS/HR e strumenti di diagnostica per cache/offline e arithmetic_guard.【F:src/modules/ruling_expert.txt†L284-L356】【F:src/modules/ruling_expert.txt†L331-L410】
 - [Osservazione] La policy `exposure_policy: no_raw_dump` è applicata di default con `ALLOW_MODULE_DUMP=false` e whitelist opzionale: i dump testuali vengono troncati salvo opt-in esplicito.【F:src/modules/ruling_expert.txt†L80-L85】【F:src/config.py†L17-L28】
+- [Errore] Nessun errore bloccante rilevato dopo i test combinati di autenticazione e troncamento: i comportamenti 401/404/200 sono coerenti con la configurazione e la policy di esposizione limitata.【1aba59†L1-L4】【88122c†L1-L74】
 
 ## scheda_pg_markdown_template
 - Report: `reports/module_tests/scheda_pg_markdown_template.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] Nessuno: il meta header e le CTA di export/QA sono già allineati e non emergono difetti aperti dopo i test di download e stub.【F:src/modules/scheda_pg_markdown_template.md†L13-L63】【bff25f†L4-L6】
 - [P2] Nessuno aperto: i trigger/policy operative sono documentati nel meta header con CTA di export e note di sblocco.【F:src/modules/scheda_pg_markdown_template.md†L13-L63】【F:src/modules/scheda_pg_markdown_template.md†L35-L63】
 
 ### Dipendenze
-- Può essere richiamato da `knowledge_pack` e `base_profile`; allineare i trigger con i preset di `adventurer_ledger` per export coerenti.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il troncamento mantiene il titolo e il marker finale, utile per audit in ambienti con dump limitato; la lunghezza compatta (4k) preserva contesto iniziale.【300994†L1-L4】
@@ -209,11 +203,11 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Stato: Pronto per sviluppo
 
 ### Task (priorità e scope)
+- [P1] Nessuno: la logica di sigilli, cooldown e tagging MDA/CTA è già descritta e non risultano bug aperti dopo gli ultimi test di dump troncato e autenticazione.【F:src/modules/sigilli_runner_module.txt†L106-L159】【5c31d3†L11-L18】
 - [P2] Nessuno: logica di assegnazione sigilli e motivazioni MDA/CTA risultano allineate alla checklist.
 
 ### Dipendenze
-- Coordinare con `base_profile` per l’esposizione dei sigilli nei log QA.
-- Allineare con `Cartelle di servizio` se i sigilli vengono salvati in `taverna_saves` o condivisi con `tavern_hub`.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il raro può attivarsi solo da indice 14 con stato di default; documentare la finestra di attivazione per evitare percezione di malfunzionamento iniziale.【F:src/modules/sigilli_runner_module.txt†L116-L148】
@@ -233,8 +227,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessuno: i gate QA di `/export_tavern`/`/adventure_outline` bloccono su QA fail con CTA univoca verso `/save_hub` o `/check_conversation`, e lo storage hub/ledger è validato con `schema_min` e quarantena attiva.【F:src/modules/Taverna_NPC.txt†L1285-L1317】【F:src/modules/Taverna_NPC.txt†L1225-L1247】
 
 ### Dipendenze
-- Condividere le policy di storage e quarantena con `Taverna_NPC` e `Cartelle di servizio`.
-- Sincronizzare export hub e outline con `adventurer_ledger` ed `Encounter_Designer` per coerenza di inventari e hook narrativi.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] L’Hub aggrega quest/rumor/bounty/eventi con flow GameMode, CTA di salvataggio e export, mantenendo storage con rate limit/quarantena e integrazioni con Encounter/Ledger per outline e inventari WBL.【F:src/modules/Taverna_NPC.txt†L1133-L1256】【F:src/modules/Taverna_NPC.txt†L365-L386】【F:src/modules/Taverna_NPC.txt†L789-L802】
@@ -249,8 +242,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] ✅ CTA Echo/self-check aggiornate: i blocchi Echo<8.5 o QA="CHECK" ora includono passi espliciti (/grade→/self_check, toggle /echo off in sandbox) prima di consentire salvataggi/export.【F:src/modules/Taverna_NPC.txt†L788-L811】【F:src/modules/Taverna_NPC.txt†L1129-L1144】
 
 ### Dipendenze
-- Condividere marker di troncamento e policy quota con `Taverna_NPC` e `tavern_hub` per evitare differenze tra storage principali e cartelle di servizio.
-- Allineare le CTA Echo/QA con `base_profile` per messaging coerente nei flussi di onboarding.
+- Nessuna dipendenza esplicita
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Le directory di servizio aggregano i template e i workflow Taverna (onboarding, quiz MaxDiff/Pairwise/SJT, export `taverna_saves`) garantendo naming coerente, guardrail Echo e CTA guidate per generazione e salvataggio PNG/quest/rumor.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L428-L965】
@@ -266,6 +258,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | archivist | 2 | 1 | 3 |
 | base_profile | 2 | 1 | 3 |
 | minmax_builder | 2 | 1 | 3 |
+| ruling_expert | 2 | 1 | 3 |
 | scheda_pg_markdown_template | 2 | 1 | 3 |
 | Cartelle di servizio | 1 | 2 | 3 |
 | adventurer_ledger | 1 | 1 | 2 |
@@ -273,7 +266,6 @@ Fonte sequenza: `planning/module_review_guide.md`
 | knowledge_pack | 1 | 1 | 2 |
 | meta_doc | 1 | 1 | 2 |
 | narrative_flow | 1 | 1 | 2 |
-| ruling_expert | 2 | 0 | 2 |
 | tavern_hub | 1 | 1 | 2 |
 ## Cross-cutting e dipendenze
 - Builder/Bilanciamento (Encounter_Designer, minmax_builder): usare i task sopra per valutare epic condivise su export/QA o flow di bilanciamento; ordinare i fix P1 prima dei miglioramenti.
@@ -282,20 +274,20 @@ Fonte sequenza: `planning/module_review_guide.md`
 ## Chiusura
 - Compila il sommario sprint con numero task, priorità massima e blocchi per modulo usando la tabella seguente.
 
-| Modulo | Task totali | Priorità massima | Osservazioni | Errori | Stato |
-| --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| Taverna_NPC | 2 | P1 | 1 | 2 | Pronto per sviluppo |
-| adventurer_ledger | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| archivist | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| base_profile | 2 | P1 | 2 | 1 | Pronto per sviluppo |
-| explain_methods | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| knowledge_pack | 1 | P2 | 1 | 1 | Pronto per sviluppo |
-| meta_doc | 2 | P2 | 1 | 1 | Pronto per sviluppo |
-| minmax_builder | 1 | P2 | 2 | 1 | Pronto per sviluppo |
-| narrative_flow | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| ruling_expert | 2 | P1 | 2 | 0 | Pronto per sviluppo |
-| scheda_pg_markdown_template | 1 | P2 | 2 | 1 | Pronto per sviluppo |
-| sigilli_runner_module | 1 | P2 | 3 | 4 | Pronto per sviluppo |
-| tavern_hub | 2 | P1 | 1 | 1 | Pronto per sviluppo |
-| Cartelle di servizio | 2 | P1 | 1 | 2 | Pronto per sviluppo |
+| Modulo | Task totali | Priorità massima | #Dipendenze | Stato | #Osservazioni | #Errori |
+| --- | --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| minmax_builder | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| Taverna_NPC | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 |
+| tavern_hub | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| Cartelle di servizio | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 |
+| adventurer_ledger | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| archivist | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| base_profile | 2 | P1 | 1 | Pronto per sviluppo | 2 | 1 |
+| explain_methods | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| knowledge_pack | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| meta_doc | 3 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| narrative_flow | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| ruling_expert | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| scheda_pg_markdown_template | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| sigilli_runner_module | 2 | P1 | 0 | Pronto per sviluppo | 3 | 4 |

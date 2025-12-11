@@ -19,7 +19,11 @@ def list_module_files(modules_dir: Path) -> set[str]:
 
 def load_json_module_index(index_path: Path) -> set[str]:
     content = json.loads(index_path.read_text(encoding="utf-8"))
-    return {entry.get("module") for entry in content.get("entries", []) if entry.get("module")}
+    return {
+        entry.get("module")
+        for entry in content.get("entries", [])
+        if entry.get("module")
+    }
 
 
 def test_module_index_matches_filesystem():
