@@ -350,6 +350,7 @@ def build_executive_plan(
 
 def build_plan(output_path: Path, executive_output: Path) -> None:
     sequence = load_sequence_from_guide()
+    sequence_index = _sequence_index_map(sequence)
     report_map = map_reports()
 
     summaries: List[ModuleSummary] = []
@@ -402,10 +403,12 @@ def build_plan(output_path: Path, executive_output: Path) -> None:
     ]
 
     summary_rows = [
-        "| Modulo | Task totali | Priorità massima | Osservazioni | Errori | Stato |",
+        "| Modulo | Task totali | Priorità massima | #Osservazioni | #Errori | Stato |",
         "| --- | --- | --- | --- | --- | --- |",
     ]
-    for summary in summaries:
+    for summary in sorted(
+        summaries, key=lambda s: _module_sort_key(s.label, sequence_index=sequence_index)
+    ):
         summary_rows.append(
             "| "
             f"{summary.label} | {len(summary.tasks)} | {summary.highest_priority} | "
