@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-11T00:35:22Z",
+  "generated_at": "2025-12-11T02:08:42Z",
   "api_url": "http://localhost:8000",
   "entries": [
     {
@@ -15,24 +15,12 @@
     {
       "module": "Taverna_NPC.txt",
       "file": "src/data/modules/Taverna_NPC.txt",
-      "status": "ok",
-      "meta": {
-        "name": "Taverna_NPC.txt",
-        "size_bytes": 130023,
-        "suffix": ".txt",
-        "version": "3.5"
-      }
+      "status": "ok"
     },
     {
       "module": "adventurer_ledger.txt",
       "file": "src/data/modules/adventurer_ledger.txt",
-      "status": "ok",
-      "meta": {
-        "name": "adventurer_ledger.txt",
-        "size_bytes": 78592,
-        "suffix": ".txt",
-        "version": "1.5"
-      }
+      "status": "ok"
     },
     {
       "module": "archivist.txt",
@@ -47,13 +35,7 @@
     {
       "module": "base_profile.txt",
       "file": "src/data/modules/base_profile.txt",
-      "status": "ok",
-      "meta": {
-        "name": "base_profile.txt",
-        "size_bytes": 36129,
-        "suffix": ".txt",
-        "version": "3.7-kernel"
-      }
+      "status": "ok"
     },
     {
       "module": "explain_methods.txt",
@@ -98,14 +80,7 @@
     {
       "module": "narrative_flow.txt",
       "file": "src/data/modules/narrative_flow.txt",
-      "status": "ok",
-      "meta": {
-        "name": "narrative_flow.txt",
-        "size_bytes": 37950,
-        "suffix": ".txt",
-        "version": "2.3",
-        "compatibility": "Compatibile con MinMax, Taverna NPC, Encounter Designer, Ledger, Explain e Ruling Expert."
-      }
+      "status": "ok"
     },
     {
       "module": "ruling_expert.txt",
@@ -120,23 +95,7 @@
     {
       "module": "scheda_pg_markdown_template.md",
       "file": "src/data/modules/scheda_pg_markdown_template.md",
-      "status": "ok",
-      "meta": {
-        "name": "scheda_pg_markdown_template.md",
-        "size_bytes": 26242,
-        "suffix": ".md",
-        "version": "1.1",
-        "compatibility": {
-          "core_min": "3.3",
-          "integrates_with": [
-            "MinMax Builder",
-            "Adventurer Ledger",
-            "Explain Methods",
-            "Ruling Expert",
-            "Hook VTT"
-          ]
-        }
-      }
+      "status": "ok"
     },
     {
       "module": "sigilli_runner_module.txt",
