@@ -92,18 +92,20 @@ Per allineare i report QA in `reports/module_tests/` alla checklist standard
 (Ambiente, Esiti API, Metadati, Comandi/Flow, QA, Osservazioni, Errori,
 Miglioramenti suggeriti, Fix necessari) puoi usare lo script
 `tools/refresh_module_reports.py`, che legge automaticamente la sequenza moduli
-da `planning/module_review_guide.md`:
+da `planning/module_review_guide.md` e precompila i blocchi Metadati/Comandi con
+nome, versione, trigger e comandi estratti dal sorgente del modulo:
 
 ```bash
 # Verifica che ogni report contenga le sezioni richieste (exit 1 se ne manca una)
 python tools/refresh_module_reports.py --check
 
-# Aggiunge le sezioni mancanti con bullet placeholder "- TODO"
+# Aggiunge le sezioni mancanti con bullet placeholder "- TODO" (Metadati/Comandi già valorizzati)
 python tools/refresh_module_reports.py --write
 ```
 
-Usa `--check` nei workflow CI per bloccare report incompleti; `--write` aggiorna
-in loco i file mancanti senza toccare il contenuto esistente.
+Usa `--check` nei workflow CI per bloccare report con heading mancanti o senza
+contenuto; `--write` aggiorna in loco i file mancanti senza toccare il
+contenuto esistente.
 
 Nota operativa: prima di avviare una revisione manuale dei report esegui `python tools/refresh_module_reports.py --write` per
 allineare i file locali; nelle pipeline CI aggiungi un passaggio dedicato (o un target equivalente) che lanci `python
