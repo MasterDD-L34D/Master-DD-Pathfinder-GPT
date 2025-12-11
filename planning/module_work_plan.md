@@ -1,6 +1,6 @@
 # Piano operativo generato dai report
 
-Generato il 2025-12-11T16:03:45Z
+Generato il 2025-12-11T16:23:58Z
 Fonte sequenza: `planning/module_review_guide.md`
 
 ## Checklist seguita (dal documento di guida)
@@ -274,20 +274,20 @@ Fonte sequenza: `planning/module_review_guide.md`
 ## Chiusura
 - Compila il sommario sprint con numero task, priorità massima e blocchi per modulo usando la tabella seguente.
 
-| Modulo | Task totali | Priorità massima | #Osservazioni | #Errori | #Dipendenze | Stato | Osservazioni (n) | Errori (n) | N. osservazioni | N. errori |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo | 2 | 1 | 2 | 1 |
-| minmax_builder | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo | 2 | 1 | 2 | 1 |
-| Taverna_NPC | 2 | P1 | 1 | 2 | 0 | Pronto per sviluppo | 1 | 2 | 1 | 2 |
-| tavern_hub | 2 | P1 | 1 | 1 | 0 | Pronto per sviluppo | 1 | 1 | 1 | 1 |
-| Cartelle di servizio | 2 | P1 | 1 | 2 | 0 | Pronto per sviluppo | 1 | 2 | 1 | 2 |
-| adventurer_ledger | 2 | P1 | 1 | 1 | 0 | Pronto per sviluppo | 1 | 1 | 1 | 1 |
-| archivist | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo | 2 | 1 | 2 | 1 |
-| base_profile | 2 | P1 | 2 | 1 | 1 | Pronto per sviluppo | 2 | 1 | 2 | 1 |
-| explain_methods | 2 | P1 | 1 | 1 | 0 | Pronto per sviluppo | 1 | 1 | 1 | 1 |
-| knowledge_pack | 2 | P1 | 1 | 1 | 0 | Pronto per sviluppo | 1 | 1 | 1 | 1 |
-| meta_doc | 3 | P1 | 1 | 1 | 0 | Pronto per sviluppo | 1 | 1 | 1 | 1 |
-| narrative_flow | 2 | P1 | 1 | 1 | 0 | Pronto per sviluppo | 1 | 1 | 1 | 1 |
-| ruling_expert | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo | 2 | 1 | 2 | 1 |
-| scheda_pg_markdown_template | 2 | P1 | 2 | 1 | 0 | Pronto per sviluppo | 2 | 1 | 2 | 1 |
-| sigilli_runner_module | 2 | P1 | 3 | 4 | 0 | Pronto per sviluppo | 3 | 4 | 3 | 4 |
+| Modulo | Task totali | Priorità massima | #Dipendenze | Stato | #Osservazioni | #Errori |
+| --- | --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| minmax_builder | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| Taverna_NPC | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 |
+| tavern_hub | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| Cartelle di servizio | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 |
+| adventurer_ledger | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| archivist | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| base_profile | 2 | P1 | 1 | Pronto per sviluppo | 2 | 1 |
+| explain_methods | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| knowledge_pack | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| meta_doc | 3 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| narrative_flow | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
+| ruling_expert | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| scheda_pg_markdown_template | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
+| sigilli_runner_module | 2 | P1 | 0 | Pronto per sviluppo | 3 | 4 |
