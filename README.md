@@ -86,6 +86,21 @@ Su push e pull request, il workflow GitHub Actions **Static Analysis** esegue
 lo stesso script per garantire che il codice resti formattato e privo di errori
 di sintassi prima del merge.
 
+### Policy PR e controlli CI
+
+Ogni pull request deve includere report normalizzati in `reports/module_tests/`
+e passare entrambi i job CI:
+
+- **report-check**: valida i report con `python tools/refresh_module_reports.py --check` (exit code 1 blocca il merge).
+- **static-analysis**: esegue `./tools/run_static_analysis.sh` per verificare formattazione e compilazione dei moduli.
+
+Per verificare in locale:
+
+```bash
+python tools/refresh_module_reports.py --check
+./tools/run_static_analysis.sh
+```
+
 ### Aggiornare le sezioni dei report dei moduli
 
 Per allineare i report QA in `reports/module_tests/` alla checklist standard
