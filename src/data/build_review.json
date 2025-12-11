@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-11T15:38:08Z",
+  "generated_at": "2025-12-11T15:54:02Z",
   "builds": {
     "total": 3,
     "valid": 3,
@@ -8,15 +8,16 @@
     "missing": 0,
     "entries": [
       {
-        "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
-        "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
-        "class": "Medium",
-        "race": "Oread",
-        "archetype": "Spirit Dancer + Reanimated Medium",
+        "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch.json",
+        "status": "ok",
+        "output_prefix": "witch_sylph_gravewalker_hedge_witch",
+        "class": "Witch",
+        "race": "Sylph",
+        "archetype": "Gravewalker + Hedge Witch",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
-        "background": "Medium oread che danza con le anime pietrose dei canyon",
+        "spec_id": "witch_sylph_gravewalker_hedge_witch",
+        "background": "Veggente del vento che guida anime e cura con erbe sospese",
         "model": null,
         "level_checkpoints": [
           1,
@@ -27,19 +28,19 @@
         "step_total": 16,
         "expected_step_total": 16,
         "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "step_total_ok": true
       },
       {
-        "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json",
-        "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
-        "class": "Medium",
-        "race": "Oread",
-        "archetype": "Spirit Dancer + Reanimated Medium",
+        "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl05.json",
+        "status": "ok",
+        "output_prefix": "witch_sylph_gravewalker_hedge_witch",
+        "class": "Witch",
+        "race": "Sylph",
+        "archetype": "Gravewalker + Hedge Witch",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
-        "background": "Medium oread che danza con le anime pietrose dei canyon",
+        "spec_id": "witch_sylph_gravewalker_hedge_witch",
+        "background": "Veggente del vento che guida anime e cura con erbe sospese",
         "model": null,
         "level_checkpoints": [
           1,
@@ -50,19 +51,19 @@
         "step_total": 16,
         "expected_step_total": 16,
         "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "step_total_ok": true
       },
       {
-        "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json",
-        "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
-        "class": "Medium",
-        "race": "Oread",
-        "archetype": "Spirit Dancer + Reanimated Medium",
+        "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl10.json",
+        "status": "ok",
+        "output_prefix": "witch_sylph_gravewalker_hedge_witch",
+        "class": "Witch",
+        "race": "Sylph",
+        "archetype": "Gravewalker + Hedge Witch",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
-        "background": "Medium oread che danza con le anime pietrose dei canyon",
+        "spec_id": "witch_sylph_gravewalker_hedge_witch",
+        "background": "Veggente del vento che guida anime e cura con erbe sospese",
         "model": null,
         "level_checkpoints": [
           1,
@@ -73,8 +74,7 @@
         "step_total": 16,
         "expected_step_total": 16,
         "extended_steps_available": true,
-        "step_total_ok": true,
-        "status": "ok"
+        "step_total_ok": true
       }
     ],
     "checkpoints": {
@@ -99,97 +99,12 @@
     }
   },
   "modules": {
-    "total": 14,
-    "valid": 14,
+    "total": 0,
+    "valid": 0,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
-    "entries": [
-      {
-        "module": "Encounter_Designer.txt",
-        "file": "src/data/modules/Encounter_Designer.txt",
-        "status": "ok",
-        "size_bytes": 34933
-      },
-      {
-        "module": "Taverna_NPC.txt",
-        "file": "src/data/modules/Taverna_NPC.txt",
-        "status": "ok",
-        "size_bytes": 124135
-      },
-      {
-        "module": "adventurer_ledger.txt",
-        "file": "src/data/modules/adventurer_ledger.txt",
-        "status": "ok",
-        "size_bytes": 78592
-      },
-      {
-        "module": "archivist.txt",
-        "file": "src/data/modules/archivist.txt",
-        "status": "ok",
-        "size_bytes": 31533
-      },
-      {
-        "module": "base_profile.txt",
-        "file": "src/data/modules/base_profile.txt",
-        "status": "ok",
-        "size_bytes": 36078
-      },
-      {
-        "module": "explain_methods.txt",
-        "file": "src/data/modules/explain_methods.txt",
-        "status": "ok",
-        "size_bytes": 13842
-      },
-      {
-        "module": "knowledge_pack.md",
-        "file": "src/data/modules/knowledge_pack.md",
-        "status": "ok",
-        "size_bytes": 12306
-      },
-      {
-        "module": "meta_doc.txt",
-        "file": "src/data/modules/meta_doc.txt",
-        "status": "ok",
-        "size_bytes": 31380
-      },
-      {
-        "module": "minmax_builder.txt",
-        "file": "src/data/modules/minmax_builder.txt",
-        "status": "ok",
-        "size_bytes": 82907
-      },
-      {
-        "module": "narrative_flow.txt",
-        "file": "src/data/modules/narrative_flow.txt",
-        "status": "ok",
-        "size_bytes": 35089
-      },
-      {
-        "module": "ruling_expert.txt",
-        "file": "src/data/modules/ruling_expert.txt",
-        "status": "ok",
-        "size_bytes": 23658
-      },
-      {
-        "module": "scheda_pg_markdown_template.md",
-        "file": "src/data/modules/scheda_pg_markdown_template.md",
-        "status": "ok",
-        "size_bytes": 23497
-      },
-      {
-        "module": "sigilli_runner_module.txt",
-        "file": "src/data/modules/sigilli_runner_module.txt",
-        "status": "ok",
-        "size_bytes": 5431
-      },
-      {
-        "module": "tavern_hub.json",
-        "file": "src/data/modules/tavern_hub.json",
-        "status": "ok",
-        "size_bytes": 740
-      }
-    ]
+    "entries": []
   },
   "build_index": "src/data/build_index.json",
   "module_index": "src/data/module_index.json"
