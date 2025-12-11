@@ -32,6 +32,9 @@ def test_summarise_module_merges_duplicate_sections(tmp_path: Path):
                 "## Fix necessari (API)",
                 "- Secondo fix API",
                 "",
+                "## Miglioramenti",
+                "- Copertura test aggiuntiva",
+                "",
                 "## Note e miglioramenti",
                 "- [P3] Ritocco opzionale",
                 "",
@@ -40,6 +43,12 @@ def test_summarise_module_merges_duplicate_sections(tmp_path: Path):
                 "",
                 "## Errori replicati",
                 "- Errore di copia",
+                "",
+                "## Errori e log",
+                "- Errore terzo",
+                "",
+                "## Osservazioni",
+                "- Nota separata",
                 "",
                 "## Osservazioni e note",
                 "- Nota combinata uno",
@@ -57,7 +66,8 @@ def test_summarise_module_merges_duplicate_sections(tmp_path: Path):
     assert [(priority, text) for priority, text in summary.tasks] == [
         (1, "Primo fix"),
         (1, "Secondo fix API"),
+        (2, "Copertura test aggiuntiva"),
         (3, "Ritocco opzionale"),
     ]
-    assert summary.errors == ["Errore nelle API", "Errore di copia"]
-    assert summary.observations == ["Nota combinata uno", "Nota combinata due"]
+    assert summary.errors == ["Errore nelle API", "Errore di copia", "Errore terzo"]
+    assert summary.observations == ["Nota separata", "Nota combinata uno", "Nota combinata due"]
