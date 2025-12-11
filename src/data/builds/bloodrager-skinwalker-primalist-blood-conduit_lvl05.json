@@ -130,7 +130,8 @@
         "inventario": [
           "Kit del gladiatore",
           "mantello del leone"
-        ]
+        ],
+        "saldo": 0
       },
       "pf_totali": 68,
       "hp": {
@@ -269,7 +270,20 @@
       "show_explain": true,
       "show_ledger": true,
       "decimal_comma": true,
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Acrobazia",
+          "totale": 10
+        },
+        {
+          "nome": "Percezione",
+          "totale": 11
+        },
+        {
+          "nome": "Riflessi",
+          "totale": 7
+        }
+      ],
       "spell_levels": [],
       "lingue": [],
       "sensi": [],

@@ -298,7 +298,8 @@
           "oro": 100,
           "argento": 25,
           "rame": 40
-        }
+        },
+        "saldo": 0
       },
       "razza": "Half-Orc",
       "salvezze_breakdown": {

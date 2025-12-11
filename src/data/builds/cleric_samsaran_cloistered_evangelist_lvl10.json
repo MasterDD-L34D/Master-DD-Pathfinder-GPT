@@ -361,7 +361,8 @@
           "oro": 300,
           "argento": 40,
           "rame": 80
-        }
+        },
+        "saldo": 0
       },
       "razza": "Human",
       "salvezze_breakdown": {
@@ -422,7 +423,28 @@
       "fonti": [
         "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=10&race=Samsaran&archetype=Cloistered+Evangelist"
       ],
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "totale": 13
+        },
+        {
+          "nome": "Conoscenze (religioni)",
+          "totale": 12
+        },
+        {
+          "nome": "Guarire",
+          "totale": 11
+        },
+        {
+          "nome": "Diplomazia",
+          "totale": 10
+        },
+        {
+          "nome": "Conoscenze (piani)",
+          "totale": 9
+        }
+      ],
       "spell_levels": [],
       "lingue": [],
       "sensi": [],

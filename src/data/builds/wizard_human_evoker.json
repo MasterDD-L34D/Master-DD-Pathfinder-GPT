@@ -251,7 +251,8 @@
           "oro": 100,
           "argento": 25,
           "rame": 40
-        }
+        },
+        "saldo": 0
       },
       "razza": "Human",
       "salvezze_breakdown": {
@@ -303,7 +304,20 @@
       "show_explain": true,
       "show_ledger": true,
       "decimal_comma": true,
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Conoscenze (arcana)",
+          "totale": 12
+        },
+        {
+          "nome": "Sapienza Magica",
+          "totale": 12
+        },
+        {
+          "nome": "Percezione",
+          "totale": 8
+        }
+      ],
       "spell_levels": [],
       "magia": {},
       "lingue": [],

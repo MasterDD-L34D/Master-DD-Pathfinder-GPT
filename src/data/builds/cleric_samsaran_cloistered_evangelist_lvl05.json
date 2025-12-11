@@ -271,7 +271,8 @@
           "oro": 300,
           "argento": 40,
           "rame": 80
-        }
+        },
+        "saldo": 0
       },
       "razza": "Human",
       "salvezze_breakdown": {
@@ -332,7 +333,28 @@
       "show_explain": true,
       "show_ledger": true,
       "decimal_comma": true,
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "totale": 9
+        },
+        {
+          "nome": "Conoscenze (religioni)",
+          "totale": 8
+        },
+        {
+          "nome": "Guarire",
+          "totale": 7
+        },
+        {
+          "nome": "Diplomazia",
+          "totale": 6
+        },
+        {
+          "nome": "Conoscenze (piani)",
+          "totale": 5
+        }
+      ],
       "spell_levels": [],
       "lingue": [],
       "sensi": [],

@@ -4,7 +4,11 @@
   "mode_normalized": "extended",
   "spec_id": "bard_kitsune_sound_striker_sandman",
   "level": 10,
-  "level_checkpoints": [1, 5, 10],
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
   "build_state": {
     "class": "Bard",
     "mode": "extended",
@@ -26,9 +30,18 @@
     "meta_tier": "T3",
     "ruling_badge": "validated",
     "dpr_snapshot": {
-      "livello_1": {"media": 10, "picco": 16},
-      "livello_5": {"media": 28, "picco": 48},
-      "livello_10": {"media": 68, "picco": 104}
+      "livello_1": {
+        "media": 10,
+        "picco": 16
+      },
+      "livello_5": {
+        "media": 28,
+        "picco": 48
+      },
+      "livello_10": {
+        "media": 68,
+        "picco": 104
+      }
     },
     "statistics": {
       "attacco": "+14",
@@ -38,13 +51,13 @@
     "bench_log": [
       "Varianti 10°: blaster sonico metamagico, debuff di massa, ibrida controllo/stealth.",
       "Pipeline Ruling Expert → MinMax → Taverna/Narrative chiusa: badge validated e log DPR/CA archiviati.",
-      "Ibrida confermata per miglior equilibrio: DPR sostenuto con Discordant Voice + Sandman, difese tramite displacement e sabbia." 
+      "Ibrida confermata per miglior equilibrio: DPR sostenuto con Discordant Voice + Sandman, difese tramite displacement e sabbia."
     ]
   },
   "bench_log": [
     "Bench finale: media DPR 68 con picco 104 contro bersagli non immuni al sonoro; CA 25 con displacement attivo.",
     "Ruling Expert badge validated: fonti verificate per stacking di performance e magie di sabbia; nessuna HR necessaria.",
-    "Narrativa: il kitsune diventa cantore fantasma delle dune, ricercato da mercanti e spie." 
+    "Narrativa: il kitsune diventa cantore fantasma delle dune, ricercato da mercanti e spie."
   ],
   "ruling_badge": "validated",
   "request": {
@@ -53,16 +66,36 @@
     "race": "Kitsune",
     "archetype": "Sound Striker + Sandman",
     "spec_id": "bard_kitsune_sound_striker_sandman",
-    "level_checkpoints": [1, 5, 10],
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ],
     "level": 10
   },
-  "query_params": {"class": "Bard", "mode": "extended", "race": "Kitsune", "archetype": "Sound Striker + Sandman", "level": 10},
+  "query_params": {
+    "class": "Bard",
+    "mode": "extended",
+    "race": "Kitsune",
+    "archetype": "Sound Striker + Sandman",
+    "level": 10
+  },
   "body_params": {},
-  "completeness": {"errors": [], "require_complete": true},
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
   "export": {
     "sheet_payload": {
       "classi": [
-        {"nome": "Bard", "livelli": 10, "archetipi": ["Sound Striker", "Sandman"]}
+        {
+          "nome": "Bard",
+          "livelli": 10,
+          "archetipi": [
+            "Sound Striker",
+            "Sandman"
+          ]
+        }
       ],
       "razza": "Kitsune",
       "statistiche": {
@@ -76,40 +109,136 @@
         "danni": "parola di rovina 4d6+CAR",
         "ca": 25
       },
-      "hp": {"totali": 89, "per_livello": [11, 7, 7, 7, 7, 8, 8, 8, 8, 8]},
-      "salvezze": {"Tempra": 6, "Riflessi": 8, "Volontà": 8},
-      "skills_map": {
-        "Intrattenere (canto)": {"totale": 20},
-        "Percezione": {"totale": 13},
-        "Furtività": {"totale": 17},
-        "Raggirare": {"totale": 19}
+      "hp": {
+        "totali": 89,
+        "per_livello": [
+          11,
+          7,
+          7,
+          7,
+          7,
+          8,
+          8,
+          8,
+          8,
+          8
+        ]
       },
-      "talenti": ["Discordant Voice", "Spell Focus (Illusion)", "Greater Spell Penetration"],
-      "equipaggiamento": ["lira d'argento accordata", "stivali dell'elusione", "cintura della destrezza +4"],
+      "salvezze": {
+        "Tempra": 6,
+        "Riflessi": 8,
+        "Volontà": 8
+      },
+      "skills_map": {
+        "Intrattenere (canto)": {
+          "totale": 20
+        },
+        "Percezione": {
+          "totale": 13
+        },
+        "Furtività": {
+          "totale": 17
+        },
+        "Raggirare": {
+          "totale": 19
+        }
+      },
+      "talenti": [
+        "Discordant Voice",
+        "Spell Focus (Illusion)",
+        "Greater Spell Penetration"
+      ],
+      "equipaggiamento": [
+        "lira d'argento accordata",
+        "stivali dell'elusione",
+        "cintura della destrezza +4"
+      ],
       "benchmarks": {
         "meta_tier": "T3",
         "ruling_badge": "validated",
         "dpr_snapshot": {
-          "livello_1": {"media": 10, "picco": 16},
-          "livello_5": {"media": 28, "picco": 48},
-          "livello_10": {"media": 68, "picco": 104}
+          "livello_1": {
+            "media": 10,
+            "picco": 16
+          },
+          "livello_5": {
+            "media": 28,
+            "picco": 48
+          },
+          "livello_10": {
+            "media": 68,
+            "picco": 104
+          }
         },
-        "statistics": {"attacco": "+14", "danni": "parola di rovina 4d6+CAR", "ca": 25},
-        "bench_log": ["Variante finale mantiene migliore equilibrio DPR/CC; badge ruling validato e log difensivi archiviati."]
+        "statistics": {
+          "attacco": "+14",
+          "danni": "parola di rovina 4d6+CAR",
+          "ca": 25
+        },
+        "bench_log": [
+          "Variante finale mantiene migliore equilibrio DPR/CC; badge ruling validato e log difensivi archiviati."
+        ]
       },
-      "note": "Checkpoint 10: confermata build ibrida kitsune sound striker + sandman come migliore fra 3 varianti testate."
+      "note": "Checkpoint 10: confermata build ibrida kitsune sound striker + sandman come migliore fra 3 varianti testate.",
+      "skills": [
+        {
+          "nome": "Intrattenere (canto)",
+          "totale": 20
+        },
+        {
+          "nome": "Percezione",
+          "totale": 13
+        },
+        {
+          "nome": "Furtività",
+          "totale": 17
+        },
+        {
+          "nome": "Raggirare",
+          "totale": 19
+        }
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Ricompensa",
+            "oggetto": "Bard",
+            "importo": 0,
+            "note": "Movimento auto-generato per QA"
+          }
+        ],
+        "saldo": 0
+      },
+      "ledger_movimenti": [
+        {
+          "voce": "Ricompensa",
+          "oggetto": "Bard",
+          "importo": 0,
+          "note": "Movimento auto-generato per QA"
+        }
+      ]
     },
     "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 10\nParola di rovina e illusioni di sabbia per danni e crowd control."
   },
   "ledger": {
-    "party_role": "controller/blaster sonico", "downtime": "gestisce rete di spie con concerti clandestini", "qa": ["Bench DPR/CA finale ok", "Ruling badge validated"]
+    "party_role": "controller/blaster sonico",
+    "downtime": "gestisce rete di spie con concerti clandestini",
+    "qa": [
+      "Bench DPR/CA finale ok",
+      "Ruling badge validated"
+    ]
   },
   "narrative": {
     "concept": "Maestro di eco desertica che modula sabbia e suono per corrompere eserciti e proteggere i suoi.",
-    "hooks": ["Ricerca di una reliquia naga del suono", "Protegge un mercato nero di strumenti esotici", "Tiene un diario di rulings per non infrangere PFS"]
+    "hooks": [
+      "Ricerca di una reliquia naga del suono",
+      "Protegge un mercato nero di strumenti esotici",
+      "Tiene un diario di rulings per non infrangere PFS"
+    ]
   },
   "fetched_at": "2025-12-11T00:10:00Z",
   "source_url": "local",
-  "ruling_sources": ["Ruling Expert stub: badge validated"],
-  "spec_id": "bard_kitsune_sound_striker_sandman"
+  "ruling_sources": [
+    "Ruling Expert stub: badge validated"
+  ]
 }

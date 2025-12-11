@@ -23,7 +23,7 @@ def test_review_local_database_reports_status(tmp_path):
     build_dir.mkdir()
 
     valid_payload = json.loads(
-        Path("src/data/builds/alchemist.json").read_text(encoding="utf-8")
+        Path("src/data/builds/fighter.json").read_text(encoding="utf-8")
     )
     (build_dir / "valid.json").write_text(json.dumps(valid_payload), encoding="utf-8")
     completeness_payload = dict(valid_payload)
@@ -203,6 +203,10 @@ async def _run_core_harvest(
             return httpx.Response(200, json={"status": "ok"})
         if request.url.path == "/modules/minmax_builder.txt":
             return httpx.Response(200, json=sample_payload)
+        if request.url.path == "/ruling":
+            return httpx.Response(
+                200, json={"ruling_badge": "validated", "sources": ["mock"]}
+            )
         return httpx.Response(404)
 
     transport = httpx.MockTransport(handler)
@@ -243,6 +247,7 @@ async def _run_core_harvest(
         skip_health_check=False,
         skip_unchanged=skip_unchanged,
         max_items=max_items,
+        ruling_expert_url="http://mock.api/ruling",
     )
 
     return output_dir, index_path
@@ -322,6 +327,10 @@ async def _run_incomplete_harvest(tmp_path, monkeypatch):
             return httpx.Response(200, json={"status": "ok"})
         if request.url.path == "/modules/minmax_builder.txt":
             return httpx.Response(200, json=incomplete_payload)
+        if request.url.path == "/ruling":
+            return httpx.Response(
+                200, json={"ruling_badge": "validated", "sources": ["mock"]}
+            )
         return httpx.Response(404)
 
     transport = httpx.MockTransport(handler)
@@ -360,6 +369,7 @@ async def _run_incomplete_harvest(tmp_path, monkeypatch):
         keep_invalid=True,
         require_complete=False,
         skip_health_check=False,
+        ruling_expert_url="http://mock.api/ruling",
     )
 
     return output_dir, index_path

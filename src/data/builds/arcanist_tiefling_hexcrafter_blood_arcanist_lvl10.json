@@ -189,7 +189,36 @@
         "totale": 18
       },
       "iniziativa": 2,
-      "velocita": 9
+      "velocita": 9,
+      "skills": [
+        {
+          "nome": "Conoscenze (arcane)",
+          "totale": 14
+        },
+        {
+          "nome": "Linguistica",
+          "totale": 7
+        },
+        {
+          "nome": "Percezione",
+          "totale": 4
+        }
+      ],
+      "ledger": {
+        "saldo": 0
+      },
+      "ledger_movimenti": [
+        {
+          "voce": "Componenti magiche",
+          "importo": -150,
+          "note": "Acquisti recenti"
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 600,
+          "note": "Pago in oro"
+        }
+      ]
     }
   },
   "narrative": {

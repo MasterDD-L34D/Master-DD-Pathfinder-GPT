@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 import re
 
@@ -14,6 +15,11 @@ def list_module_files(modules_dir: Path) -> set[str]:
         f"src/modules/{path.name}/" for path in modules_dir.iterdir() if path.is_dir()
     }
     return files | directories
+
+
+def load_json_module_index(index_path: Path) -> set[str]:
+    content = json.loads(index_path.read_text(encoding="utf-8"))
+    return {entry.get("module") for entry in content.get("entries", []) if entry.get("module")}
 
 
 def test_module_index_matches_filesystem():
@@ -35,6 +41,31 @@ def test_module_index_matches_filesystem():
     if missing_on_disk:
         messages.append(
             "Voci in docs/module_index.md senza file corrispondente in src/modules: "
+            + ", ".join(sorted(missing_on_disk))
+        )
+
+    assert not messages, "; ".join(messages)
+
+
+def test_data_module_index_matches_filesystem():
+    index_path = Path("src/data/module_index.json")
+    modules_dir = Path("src/data/modules")
+
+    documented_modules = load_json_module_index(index_path)
+    filesystem_modules = {path.name for path in modules_dir.iterdir() if path.is_file()}
+
+    missing_in_index = filesystem_modules - documented_modules
+    missing_on_disk = documented_modules - filesystem_modules
+
+    messages = []
+    if missing_in_index:
+        messages.append(
+            "File presenti in src/data/modules non elencati in src/data/module_index.json: "
+            + ", ".join(sorted(missing_in_index))
+        )
+    if missing_on_disk:
+        messages.append(
+            "Voci in src/data/module_index.json senza file corrispondente in src/data/modules: "
             + ", ".join(sorted(missing_on_disk))
         )
 

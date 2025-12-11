@@ -178,7 +178,40 @@
         "totale": 17
       },
       "iniziativa": 2,
-      "velocita": 9
+      "velocita": 9,
+      "skills": [
+        {
+          "nome": "Conoscenze (arcane)",
+          "totale": 9
+        },
+        {
+          "nome": "Linguistica",
+          "totale": 4
+        },
+        {
+          "nome": "Percezione",
+          "totale": 2
+        }
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Ricompensa",
+            "oggetto": "Arcanist",
+            "importo": 0,
+            "note": "Movimento auto-generato per QA"
+          }
+        ],
+        "saldo": 0
+      },
+      "ledger_movimenti": [
+        {
+          "voce": "Ricompensa",
+          "oggetto": "Arcanist",
+          "importo": 0,
+          "note": "Movimento auto-generato per QA"
+        }
+      ]
     }
   },
   "narrative": {

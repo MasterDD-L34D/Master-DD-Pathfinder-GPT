@@ -130,7 +130,8 @@
         "inventario": [
           "Kit avventuriero",
           "corda di seta"
-        ]
+        ],
+        "saldo": 0
       },
       "pf_totali": 15,
       "hp": {
@@ -257,7 +258,16 @@
       "fonti": [
         "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=1&race=Skinwalker&archetype=Primalist+Blood+Conduit"
       ],
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Acrobazia",
+          "totale": 5
+        },
+        {
+          "nome": "Percezione",
+          "totale": 6
+        }
+      ],
       "spell_levels": [],
       "lingue": [],
       "sensi": [],

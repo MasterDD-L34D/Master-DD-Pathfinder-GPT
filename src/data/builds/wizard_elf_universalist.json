@@ -218,7 +218,8 @@
           "oro": 100,
           "argento": 25,
           "rame": 40
-        }
+        },
+        "saldo": 0
       },
       "razza": "Elf",
       "salvezze_breakdown": {
@@ -270,7 +271,20 @@
       "show_explain": true,
       "show_ledger": true,
       "decimal_comma": true,
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "totale": 5
+        },
+        {
+          "nome": "Acrobazia",
+          "totale": 4
+        },
+        {
+          "nome": "Conoscenze",
+          "totale": 3
+        }
+      ],
       "spell_levels": [],
       "magia": {},
       "lingue": [],

@@ -260,7 +260,8 @@
           "oro": 100,
           "argento": 25,
           "rame": 40
-        }
+        },
+        "saldo": 0
       },
       "razza": "Halfling",
       "salvezze_breakdown": {
@@ -308,7 +309,28 @@
       "show_explain": true,
       "show_ledger": true,
       "decimal_comma": true,
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Furtività",
+          "totale": 13
+        },
+        {
+          "nome": "Rapidità di mano",
+          "totale": 13
+        },
+        {
+          "nome": "Percezione",
+          "totale": 10
+        },
+        {
+          "nome": "Acrobazia",
+          "totale": 12
+        },
+        {
+          "nome": "Disattivare Congegni",
+          "totale": 13
+        }
+      ],
       "spell_levels": [],
       "magia": {},
       "lingue": [],
