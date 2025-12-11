@@ -1,0 +1,169 @@
+{
+  "class": "Hunter",
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "spec_id": "hunter_kasatha_packmaster",
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster",
+  "request": {
+    "path": "/modules/minmax_builder.txt",
+    "method": "GET"
+  },
+  "query_params": {
+    "mode": "extended",
+    "class": "Hunter",
+    "stub": "true",
+    "level": 1,
+    "race": "Kasatha",
+    "archetype": "Packmaster"
+  },
+  "body_params": null,
+  "fetched_at": "2025-01-12T00:00:00Z",
+  "build_state": {
+    "class": "Hunter",
+    "race": "Kasatha",
+    "archetype": "Packmaster",
+    "step": 16,
+    "step_total": 16,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ],
+    "checkpoint": 1,
+    "statistics": {
+      "FOR": 16,
+      "DES": 14,
+      "COS": 12,
+      "INT": 10,
+      "SAG": 14,
+      "CAR": 8
+    }
+  },
+  "ruling_badge": "validated",
+  "ruling_sources": [
+    "Advanced Class Guide — Packmaster",
+    "Inner Sea Races — Kasatha",
+    "Pipeline strict Ruling Expert → MinMax → Taverna/Narrative"
+  ],
+  "benchmark": {
+    "meta_tier": "T3",
+    "bench_log": "Pipeline strict Ruling Expert → MinMax → Taverna/Narrative: badge RAW/RAI/PFS verificato su Packmaster kasatha, DPR/CA simulati e narrativa di carovana stellare allineata ai checkpoint 1/5/10.",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 8,
+        "picco": 12
+      },
+      "livello_5": {
+        "media": 28,
+        "picco": 44
+      },
+      "livello_10": {
+        "media": 63,
+        "picco": 92
+      }
+    },
+    "statistics": {
+      "attacco": "+5",
+      "danni": "1d8+4",
+      "ca": 18
+    }
+  },
+  "qa": {
+    "notes": [
+      "Ruling Expert ha confermato che le mani extra kasatha non violano le limitazioni di Packmaster sulle impugnature condivise.",
+      "MinMax ha preferito l'archetipo Packmaster con compagno dinosauro leggero per massimizzare flanking e azioni di aiuto.",
+      "Taverna/Narrative ha sigillato l'identità da esploratrice delle sabbie stellari con legami tribali e gesta di caravan guard."
+    ],
+    "checkpoints": {
+      "1": "ok",
+      "5": "ok",
+      "10": "ok"
+    }
+  },
+  "narrative": "Kasatha delle dune stellari che guida una muta di rapaci addestrati. Il Ruling Expert ha convalidato l'uso di braccia multiple per alternare lancia composita e falcata con le redini del compagno. Il pass MinMax ha scelto Teamwork precoci (Outflank, Pack Flanking) per valorizzare i compagni aggiuntivi del Packmaster, mentre la Taverna intreccia l'immagine di una scorta carovaniera che legge le stelle per prevedere le imboscate.",
+  "sheet": "### 🧙 Scheda Personaggio in Markdown\n\n---\n\n# Hunter — Liv. 1 (Kasatha · Packmaster)\n\n**Background rapido:** Carovaniera kasatha partita dalle Steppe Solari, guida una muta di rapaci addestrati come scorta.\n\n**Stile di gioco:** arco composito e falcata corta intercambiabili grazie alle quattro braccia; il compagno raptor flanka per abilitare Outflank.\n\n**Pipeline strict:** Ruling Expert → MinMax → Taverna/Narrative (badge RAW/RAI/PFS ok).\n\n**Benchmark DPR/CA:** 1d8+4 con arco composito (FOR), DPR medio/picco 8/12, CA 18.\n\n**Risorse chiave:** Animal Focus (falcone), teamwork precoci via Packmaster, tratto Sandstepper per terreno desertico.\n",
+  "ledger": {
+    "entries": [
+      {
+        "voce": "Equipaggiamento iniziale",
+        "importo": -150,
+        "note": "kit deserto + arco composito"
+      },
+      {
+        "voce": "Ricompensa scouting",
+        "importo": 200,
+        "note": "scorta di carovana"
+      }
+    ],
+    "currency": {
+      "oro": 50,
+      "argento": 30,
+      "rame": 80
+    }
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Hunter",
+          "livelli": 1,
+          "archetipi": [
+            "Packmaster"
+          ]
+        }
+      ],
+      "razza": "Kasatha",
+      "statistiche": {
+        "FOR": 16,
+        "DES": 14,
+        "COS": 12,
+        "INT": 10,
+        "SAG": 14,
+        "CAR": 8,
+        "attacco": "+5",
+        "danni": "1d8+4",
+        "ca": 18
+      },
+      "teamwork": [
+        "Outflank",
+        "Pack Flanking"
+      ],
+      "compagni_animali": [
+        "Velociraptor addestrato (ridotto)"
+      ],
+      "modules": {
+        "pipeline": [
+          "Ruling Expert",
+          "MinMax",
+          "Taverna/Narrative"
+        ]
+      },
+      "benchmarks": {
+        "meta_tier": "T3",
+        "dpr_snapshot": {
+          "1": 8,
+          "5": 28,
+          "10": 63
+        }
+      }
+    },
+    "fonti": [
+      "local-refresh",
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster"
+    ]
+  },
+  "completeness": {
+    "status": "complete",
+    "missing": [],
+    "checklist": {},
+    "require_complete": true
+  },
+  "step_audit": {
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true,
+    "normalized_mode": "extended"
+  }
+}
