@@ -9,6 +9,7 @@ import logging
 import os
 import shutil
 import textwrap
+import re
 from fnmatch import fnmatchcase
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
@@ -693,6 +694,24 @@ def _requested_level(payload: Mapping[str, object] | None) -> int | None:
     return coerced if coerced > 0 else None
 
 
+def _strip_level_suffix(name: str) -> str:
+    match = re.match(r"^(?P<prefix>.+)_lvl\d+$", name)
+    return match.group("prefix") if match else name
+
+
+def _deduce_level_from_filename(path: Path) -> int | None:
+    match = re.match(r"^.+_lvl(?P<level>\d+)\.json$", path.name)
+    if match:
+        try:
+            return int(match.group("level"))
+        except ValueError:
+            return None
+    if path.suffix == ".json":
+        # Per convenzione il file senza suffisso corrisponde al livello base
+        return 1
+    return None
+
+
 def review_local_database(
     build_dir: Path,
     module_dir: Path,
@@ -734,6 +753,8 @@ def review_local_database(
             resolved_path,
             str(build_index_entries[resolved_path].get("file") or resolved_path),
         )
+
+    prefix_tracker: dict[str, dict[str, Any]] = {}
 
     for path, display_path in sorted(build_files.items(), key=lambda item: item[1]):
         entry: dict[str, Any] = {"file": display_path}
@@ -919,6 +940,52 @@ def review_local_database(
         entry.setdefault("spec_id", index_entry.get("spec_id"))
         entry.setdefault("mode_normalized", index_entry.get("mode_normalized"))
         index_entries.append(index_entry)
+
+        normalized_prefix = _strip_level_suffix(output_prefix or Path(display_path).stem)
+        tracker_entry = prefix_tracker.setdefault(
+            normalized_prefix,
+            {
+                "expected": set(_normalize_levels(level_checkpoints, (1, 5, 10))),
+                "present": set(),
+                "template_file": display_path,
+            },
+        )
+        tracker_entry["expected"].update(_normalize_levels(level_checkpoints, (1, 5, 10)))
+        level_from_entry = index_entry.get("level")
+        if level_from_entry is None:
+            level_from_entry = _deduce_level_from_filename(Path(display_path))
+        if level_from_entry:
+            tracker_entry["present"].add(int(level_from_entry))
+
+    # Segnala eventuali checkpoint di livello dichiarati ma senza file presenti sul disco
+    for prefix, tracker in sorted(prefix_tracker.items()):
+        expected_levels = sorted(tracker.get("expected", set()))
+        present_levels = tracker.get("present", set())
+        missing_levels = [lvl for lvl in expected_levels if lvl not in present_levels]
+        if not missing_levels:
+            continue
+
+        template_path = Path(str(tracker.get("template_file") or build_dir / prefix))
+        for missing_level in missing_levels:
+            suffix = "" if missing_level == min(expected_levels or {1}) else f"_lvl{missing_level:02d}"
+            missing_path = template_path.parent / f"{_strip_level_suffix(template_path.stem)}{suffix}.json"
+            entry = {
+                "file": str(missing_path),
+                "output_prefix": prefix,
+                "level": missing_level,
+                "level_checkpoints": expected_levels,
+                "status": "missing",
+                "error": f"Checkpoint livello {missing_level} dichiarato ma file assente",
+            }
+            builds_section["entries"].append(entry)
+            index_entries.append(entry)
+            _bump_review(builds_section, "missing")
+            _bump_checkpoint(
+                checkpoints,
+                missing_level,
+                "missing",
+                completeness_error=True,
+            )
 
     module_entries: Sequence[Mapping[str, Any]] = []
     if module_index_path and module_index_path.is_file():
