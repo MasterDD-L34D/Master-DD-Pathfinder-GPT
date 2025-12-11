@@ -179,14 +179,10 @@ def collect_section_lines(
     and emoji). The order of matching sections is preserved.
     """
 
-    matched_sections: List[List[str]] = []
+    merged_lines: List[str] = []
     for heading, content in sections:
         if any(pattern.search(heading) for pattern in patterns):
-            matched_sections.append(content)
-
-    merged_lines: List[str] = []
-    for content in matched_sections:
-        merged_lines.extend(content)
+            merged_lines.extend(content)
     return merged_lines
 
 
@@ -208,16 +204,15 @@ def summarise_module(module_label: str, report_path: Optional[Path]) -> ModuleSu
     ]
     fix_patterns = [re.compile(r"fix\s+necessari", re.IGNORECASE)]
 
-    fixes = parse_prioritised_tasks(
-        collect_section_lines(sections, fix_patterns),
-        default_priority=1,
-    )
-    improvements = parse_prioritised_tasks(
-        collect_section_lines(sections, improvement_patterns),
-        default_priority=2,
-    )
-    errors = parse_bullets(collect_section_lines(sections, error_patterns))
-    observations = parse_bullets(collect_section_lines(sections, observation_patterns))
+    fix_lines = collect_section_lines(sections, fix_patterns)
+    improvement_lines = collect_section_lines(sections, improvement_patterns)
+    error_lines = collect_section_lines(sections, error_patterns)
+    observation_lines = collect_section_lines(sections, observation_patterns)
+
+    fixes = parse_prioritised_tasks(fix_lines, default_priority=1)
+    improvements = parse_prioritised_tasks(improvement_lines, default_priority=2)
+    errors = parse_bullets(error_lines)
+    observations = parse_bullets(observation_lines)
 
     tasks: List[Tuple[int, str]] = fixes + improvements
     return ModuleSummary(module_label, report_path, tasks, errors, observations)
