@@ -144,6 +144,10 @@ class BuildRequest:
     archetype: str | None = None
     model: str | None = None
     background: str | None = None
+    combo_id: str | None = None
+    feat_plan: Sequence[str] | None = None
+    raw_citations: Sequence[str] | None = None
+    stacking_limits: Sequence[str] | None = None
     query_params: Mapping[str, object] = field(default_factory=dict)
     body_params: Mapping[str, object] = field(default_factory=dict)
     level_checkpoints: Sequence[int] = field(default_factory=lambda: (1, 5, 10))
@@ -207,6 +211,17 @@ class BuildRequest:
             "level": self.level,
             "level_checkpoints": list(self.level_checkpoints),
         }
+
+        if self.combo_id:
+            metadata["combo_id"] = self.combo_id
+        if self.feat_plan:
+            metadata["feat_plan"] = list(self.feat_plan)
+        if self.raw_citations:
+            metadata["raw_citations"] = list(self.raw_citations)
+        if self.stacking_limits:
+            metadata["stacking_limits"] = list(self.stacking_limits)
+
+        return metadata
 
 
 class BuildFetchError(Exception):
@@ -1228,6 +1243,131 @@ def apply_glob_filters(
     return filtered
 
 
+def _combo_string_list(value: object) -> list[str]:
+    normalized = _stringify_sequence(value)
+    return normalized if normalized else []
+
+
+def _combo_archetype_value(archetypes: object) -> str | None:
+    if isinstance(archetypes, str):
+        return archetypes.strip() or None
+    if isinstance(archetypes, Sequence) and not isinstance(archetypes, (str, bytes)):
+        candidates = [
+            str(item).strip() for item in archetypes if str(item).strip()
+        ]
+        if candidates:
+            return " + ".join(candidates)
+    return None
+
+
+def load_combo_matrix(matrix_path: Path, default_mode: str) -> list[BuildRequest]:
+    """Carica la matrice di archetipi/talenti e costruisce le richieste."""
+
+    raw_data = yaml.safe_load(matrix_path.read_text(encoding="utf-8"))
+    if not isinstance(raw_data, Mapping):
+        raise ValueError(f"combo_matrix non valida: atteso mapping, trovato {type(raw_data)}")
+
+    default_mode = str(raw_data.get("mode", default_mode))
+    default_levels = _normalize_levels(
+        raw_data.get("level_checkpoints"), (1, 5, 10)
+    )
+    class_matrix = raw_data.get("classes")
+    if not isinstance(class_matrix, Mapping):
+        raise ValueError("combo_matrix mancante della sezione 'classes'")
+
+    requests: list[BuildRequest] = []
+    for class_name, class_entry in class_matrix.items():
+        if not isinstance(class_entry, Mapping):
+            continue
+
+        class_race = class_entry.get("race") or class_entry.get("default_race")
+        class_background = class_entry.get("background")
+        class_mode = str(class_entry.get("mode", default_mode))
+        class_levels = _normalize_levels(
+            class_entry.get("level_checkpoints"), default_levels
+        )
+
+        combos = class_entry.get("combos") or class_entry.get("variants")
+        if not isinstance(combos, Sequence) or isinstance(combos, (str, bytes)):
+            continue
+
+        for combo in combos:
+            if not isinstance(combo, Mapping):
+                continue
+
+            archetype_value = _combo_archetype_value(
+                combo.get("archetypes") or combo.get("archetype")
+            )
+            feat_plan = _combo_string_list(combo.get("feats") or combo.get("talents"))
+            raw_citations = _combo_string_list(
+                combo.get("raw_citations") or combo.get("citations")
+            )
+            stacking_limits = _combo_string_list(
+                combo.get("stacking_limits") or combo.get("limits")
+            )
+            combo_id = combo.get("id") or combo.get("name")
+            if not combo_id:
+                fragments = [class_name, archetype_value or "base"]
+                if feat_plan:
+                    fragments.append(feat_plan[0])
+                combo_id = slugify("-".join(fragments))
+
+            race = combo.get("race") or class_race
+            background = (
+                combo.get("background")
+                or combo.get("background_hooks")
+                or class_background
+            )
+
+            output_prefix = combo.get("output_prefix") or slugify(
+                "-".join(
+                    part
+                    for part in (
+                        class_name,
+                        race,
+                        archetype_value,
+                        combo_id,
+                    )
+                    if part
+                )
+            )
+
+            level_checkpoints = _normalize_levels(
+                combo.get("level_checkpoints"), class_levels
+            )
+
+            requests.append(
+                BuildRequest(
+                    class_name=str(class_name),
+                    mode=str(combo.get("mode", class_mode)),
+                    filename_prefix=output_prefix,
+                    spec_id=combo_id,
+                    race=race,
+                    archetype=archetype_value,
+                    background=background,
+                    combo_id=combo_id,
+                    feat_plan=feat_plan,
+                    raw_citations=raw_citations,
+                    stacking_limits=stacking_limits,
+                    query_params=_normalize_mapping(
+                        {"race": race, "archetype": archetype_value}
+                    ),
+                    body_params=_normalize_mapping(
+                        {
+                            "background_hooks": background,
+                            "feat_matrix": feat_plan,
+                            "raw_citations": raw_citations,
+                            "stacking_limits": stacking_limits,
+                            "combo_id": combo_id,
+                        }
+                    ),
+                    level_checkpoints=level_checkpoints,
+                )
+            )
+
+    return requests
+
+
 def load_spec_requests(spec_path: Path, default_mode: str) -> list[BuildRequest]:
     """Carica un file YAML/JSON e restituisce le richieste strutturate."""
 
@@ -1266,6 +1406,14 @@ def load_spec_requests(spec_path: Path, default_mode: str) -> list[BuildRequest]
             archetype=entry.get("archetype") or entry.get("model"),
             model=entry.get("model"),
             background=entry.get("background") or entry.get("background_hooks"),
+            combo_id=entry.get("combo_id") or entry.get("combo"),
+            feat_plan=_stringify_sequence(entry.get("feats") or entry.get("talents")),
+            raw_citations=_stringify_sequence(
+                entry.get("raw_citations") or entry.get("citations")
+            ),
+            stacking_limits=_stringify_sequence(
+                entry.get("stacking_limits") or entry.get("limits")
+            ),
             query_params=_normalize_mapping(
                 entry.get("query") or entry.get("query_params") or entry.get("params")
             ),
@@ -1463,6 +1611,14 @@ def parse_args() -> argparse.Namespace:
         help="File YAML/JSON con le richieste da processare (override di --mode/--classes)",
     )
     parser.add_argument(
+        "--combo-matrix",
+        type=Path,
+        default=Path("config/combo_matrix.yml"),
+        help=(
+            "Matrice YAML di archetipi/talenti per classe: genera richieste basate sulle combo"
+        ),
+    )
+    parser.add_argument(
         "--races",
         nargs="*",
         default=[],
@@ -1501,6 +1657,11 @@ def parse_args() -> argparse.Namespace:
         nargs="*",
         default=[],
         help="Hook di background da includere nel prodotto cartesiano",
+    )
+    parser.add_argument(
+        "--keep-all-combos",
+        action="store_true",
+        help="Non scarta le varianti peggiori quando la combo matrix è attiva",
     )
     parser.add_argument(
         "--classes",
@@ -1610,9 +1771,12 @@ def build_variant_matrix_requests(
     return requests
 
 
-def build_requests_from_args(args: argparse.Namespace) -> list[BuildRequest]:
+def build_requests_from_args(
+    args: argparse.Namespace,
+) -> tuple[list[BuildRequest], bool]:
+    combo_matrix_used = False
     if args.spec_file:
-        return load_spec_requests(args.spec_file, args.mode)
+        return load_spec_requests(args.spec_file, args.mode), combo_matrix_used
 
     if args.races or args.archetypes or args.background_hooks:
         return build_variant_matrix_requests(
@@ -1621,16 +1785,26 @@ def build_requests_from_args(args: argparse.Namespace) -> list[BuildRequest]:
             args.races,
             args.archetypes,
             args.background_hooks,
-        )
+        ), combo_matrix_used
+
+    if args.combo_matrix and args.combo_matrix.is_file():
+        try:
+            combo_requests = load_combo_matrix(args.combo_matrix, args.mode)
+            combo_matrix_used = True
+            return combo_requests, combo_matrix_used
+        except Exception as exc:
+            logging.warning(
+                "Impossibile caricare combo_matrix %s: %s", args.combo_matrix, exc
+            )
 
     if DEFAULT_SPEC_FILE.is_file():
         logging.info("Uso il file spec predefinito %s", DEFAULT_SPEC_FILE)
-        return load_spec_requests(DEFAULT_SPEC_FILE, args.mode)
+        return load_spec_requests(DEFAULT_SPEC_FILE, args.mode), combo_matrix_used
 
     return [
         BuildRequest(class_name=class_name, mode=args.mode)
         for class_name in args.classes
-    ]
+    ], combo_matrix_used
 
 
 def filter_requests(
@@ -3439,6 +3613,7 @@ async def run_harvest(
     ruling_max_retries: int | None = None,
     t1_filter: bool = False,
     t1_variants: int = 3,
+    combo_best_only: bool = False,
 ) -> None:
     requests = list(requests)
     max_items = int(max_items) if max_items is not None else None
@@ -3515,6 +3690,32 @@ async def run_harvest(
     level_filter_set = (
         {int(level) for level in level_filters} if level_filters else None
     )
+
+    best_combo_scores: dict[
+        tuple[str, int], tuple[tuple[float, float, float, float], Path | None]
+    ] = {}
+    best_combo_lock = asyncio.Lock()
+
+    def _tier_priority(meta_tier: str | None) -> int:
+        if not meta_tier:
+            return 0
+        tier_match = re.search(r"t(\d+)", str(meta_tier).lower())
+        if tier_match:
+            try:
+                return max(0, 6 - int(tier_match.group(1)))
+            except ValueError:
+                return 0
+        return 1
+
+    def _combo_score(
+        meta_tier: str | None, offense: float | None, defense: float | None, badge: str | None
+    ) -> tuple[float, float, float, float]:
+        return (
+            1.0 if badge else 0.0,
+            float(_tier_priority(meta_tier)),
+            float(offense or 0.0),
+            float(defense or 0.0),
+        )
 
     snapshots_planned = 0
     skipped_for_limit = 0
@@ -3802,6 +4003,10 @@ async def run_harvest(
                         else None
                     )
                     meta_data = _index_meta_from_payload(payload)
+                    combo_score: tuple[float, float, float, float] | None = None
+                    previous_best_path: Path | None = None
+                    combo_key: tuple[str, int] | None = None
+                    is_combo_candidate = combo_best_only and bool(request.combo_id)
                     if incomplete_payload:
                         status = "invalid"
                         logging.warning(
@@ -3812,55 +4017,101 @@ async def run_harvest(
                         if destination.exists():
                             destination.unlink()
                         output_path: Path | None = None
-                    elif status == "ok" or keep_invalid:
-                        if skip_unchanged and destination.exists():
-                            try:
-                                existing_payload = json.loads(
-                                    destination.read_text(encoding="utf-8")
+                    else:
+                        if is_combo_candidate:
+                            combo_key = (
+                                slugify(request.class_name),
+                                int(request.level or base_level),
+                            )
+                            if status == "ok" and ruling_badge:
+                                combo_score = _combo_score(
+                                    meta_data.get("meta_tier"),
+                                    meta_data.get("benchmark_offense"),
+                                    meta_data.get("benchmark_defense"),
+                                    ruling_badge,
                                 )
-                            except Exception:
-                                existing_payload = None
+                                async with best_combo_lock:
+                                    best_entry = best_combo_scores.get(combo_key)
+                                    if best_entry is None or combo_score > best_entry[0]:
+                                        previous_best_path = (
+                                            best_entry[1] if best_entry else None
+                                        )
+                                        best_combo_scores[combo_key] = (
+                                            combo_score,
+                                            destination,
+                                        )
+                                    else:
+                                        status = "pruned"
+                                        validation_error = (
+                                            validation_error
+                                            or (
+                                                f"Scartato dalla combo matrix: score {combo_score} <= {best_entry[0]}"
+                                            )
+                                        )
+                            else:
+                                status = "invalid"
+                                validation_error = validation_error or (
+                                    "Badge Ruling Expert mancante per combo matrix"
+                                )
 
-                            comparison_payload: object = payload
-                            if isinstance(payload, Mapping):
-                                comparison_payload = dict(payload)
-                                if isinstance(existing_payload, Mapping):
-                                    comparison_payload["fetched_at"] = (
-                                        existing_payload.get("fetched_at")
+                        should_write = status == "ok" or keep_invalid
+                        output_path: Path | None = None
+                        if should_write and status != "pruned":
+                            if skip_unchanged and destination.exists():
+                                try:
+                                    existing_payload = json.loads(
+                                        destination.read_text(encoding="utf-8")
+                                    )
+                                except Exception:
+                                    existing_payload = None
+
+                                comparison_payload: object = payload
+                                if isinstance(payload, Mapping):
+                                    comparison_payload = dict(payload)
+                                    if isinstance(existing_payload, Mapping):
+                                        comparison_payload["fetched_at"] = (
+                                            existing_payload.get("fetched_at")
+                                        )
+
+                                if existing_payload == comparison_payload:
+                                    logging.info(
+                                        "Payload invariato per %s, salto la scrittura",
+                                        request.output_name(),
+                                    )
+                                    output_path = destination
+                                    return destination.name, build_index_entry(
+                                        request,
+                                        output_path,
+                                        status,
+                                        validation_error,
+                                        payload.get("step_audit"),
+                                        completeness_errors,
+                                        ruling_badge,
+                                        ruling_sources,
+                                        **meta_data,
                                     )
 
-                            if existing_payload == comparison_payload:
-                                logging.info(
-                                    "Payload invariato per %s, salto la scrittura",
+                            destination.write_text(
+                                json.dumps(payload, indent=2, ensure_ascii=False),
+                                encoding="utf-8",
+                            )
+                            output_path = destination
+                            if (
+                                previous_best_path
+                                and previous_best_path != destination
+                                and previous_best_path.exists()
+                            ):
+                                previous_best_path.unlink()
+                        else:
+                            if destination.exists():
+                                destination.unlink()
+                            if status != "pruned":
+                                logging.warning(
+                                    "Payload per %s scartato per invalidazione: %s",
                                     request.output_name(),
-                                )
-                                output_path = destination
-                                return destination.name, build_index_entry(
-                                    request,
-                                    output_path,
-                                    status,
                                     validation_error,
-                                    payload.get("step_audit"),
-                                    completeness_errors,
-                                    ruling_badge,
-                                    ruling_sources,
-                                    **meta_data,
                                 )
-
-                        destination.write_text(
-                            json.dumps(payload, indent=2, ensure_ascii=False),
-                            encoding="utf-8",
-                        )
-                        output_path = destination
-                    else:
-                        if destination.exists():
-                            destination.unlink()
-                        logging.warning(
-                            "Payload per %s scartato per invalidazione: %s",
-                            request.output_name(),
-                            validation_error,
-                        )
-                        output_path = None
+                            output_path = None
                     return destination.name, build_index_entry(
                         request,
                         output_path,
@@ -4008,7 +4259,26 @@ async def run_harvest(
 
     new_build_entries: dict[str, Mapping] = {}
     for _, entry in sorted(build_results, key=lambda item: item[0]):
-        key = entry.get("file") or f"{entry.get('output_prefix')}@{entry.get('level')}"
+        combo_id = entry.get("combo_id") if isinstance(entry, Mapping) else None
+        if combo_best_only and combo_id:
+            class_slug = slugify(str(entry.get("class") or ""))
+            try:
+                combo_level = int(entry.get("level")) if entry.get("level") else 0
+            except (TypeError, ValueError):
+                combo_level = 0
+            combo_key = (class_slug, combo_level)
+            best_entry = best_combo_scores.get(combo_key)
+            best_path = best_entry[1] if best_entry else None
+            key = f"{class_slug}@{combo_level}"
+            if best_path:
+                candidate_path = entry.get("file")
+                if not candidate_path or Path(candidate_path).resolve() != best_path.resolve():
+                    continue
+            elif key in new_build_entries:
+                continue
+        else:
+            key = entry.get("file") or f"{entry.get('output_prefix')}@{entry.get('level')}"
+
         if key:
             new_build_entries[str(key)] = entry
 
@@ -4042,12 +4312,15 @@ async def run_harvest(
 
 def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
     race_inventory = load_race_inventory(args.race_inventory)
+    requests, combo_matrix_used = build_requests_from_args(args)
     requests = assign_missing_races(
-        build_requests_from_args(args),
+        requests,
         race_inventory,
         prefer_unused_race=args.prefer_unused_race,
         race_pool=args.race_pool,
     )
+
+    combo_best_only = combo_matrix_used and not args.keep_all_combos
     requests = filter_requests(
         requests,
         args.filter_classes,
@@ -4111,6 +4384,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 ruling_max_retries=args.ruling_max_retries,
                 t1_filter=args.t1_filter,
                 t1_variants=args.t1_variants,
+                combo_best_only=combo_best_only,
             )
         )
         report["strict"]["status"] = "ok"
@@ -4149,6 +4423,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 ruling_max_retries=args.ruling_max_retries,
                 t1_filter=args.t1_filter,
                 t1_variants=args.t1_variants,
+                combo_best_only=combo_best_only,
             )
         )
         report["tolerant"]["status"] = "ok"
@@ -4199,8 +4474,9 @@ def main() -> None:
         return
 
     race_inventory = load_race_inventory(args.race_inventory)
+    requests, combo_matrix_used = build_requests_from_args(args)
     requests = assign_missing_races(
-        build_requests_from_args(args),
+        requests,
         race_inventory,
         prefer_unused_race=args.prefer_unused_race,
         race_pool=args.race_pool,
@@ -4220,6 +4496,7 @@ def main() -> None:
     )
     log_request_batch(requests, window)
     strict_mode = args.strict and not args.warn_only
+    combo_best_only = combo_matrix_used and not args.keep_all_combos
 
     if args.validate_db:
         review_local_database(
@@ -4260,6 +4537,7 @@ def main() -> None:
             args.ruling_max_retries,
             args.t1_filter,
             args.t1_variants,
+            combo_best_only,
         )
     )
 

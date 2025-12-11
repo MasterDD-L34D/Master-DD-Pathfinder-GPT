@@ -1,0 +1,72 @@
+# Matrice di archetipi/talenti PF1e per generare snapshot automatizzati
+mode: extended
+level_checkpoints: [1, 5, 10]
+classes:
+  Barbarian:
+    race: Fetchling
+    background: "Guardiano delle ombre che sfrutta armi sovradimensionate e DR aumentata."
+    combos:
+      - id: barbarian_invulnerable_titan
+        archetypes: ["Invulnerable Rager", "Titan Mauler"]
+        feats:
+          - Power Attack
+          - Raging Vitality
+          - Furious Focus
+        raw_citations:
+          - "Invulnerable Rager — Advanced Player's Guide p.80"
+          - "Titan Mauler — Ultimate Combat p.32"
+          - "Raging Vitality — Ultimate Combat p.120"
+        stacking_limits:
+          - "Compatibile solo con archetipi che non sostituiscono la DR da rage."
+          - "Evita combinazioni che rimuovono i Rage Powers di base."
+  Fighter:
+    race: Human
+    background: "Veterano forgiato nei tornei cittadini, specialista di archi lunghi."
+    combos:
+      - id: fighter_weapon_master_longbow
+        archetypes: ["Weapon Master"]
+        feats:
+          - Point-Blank Shot
+          - Precise Shot
+          - Weapon Focus (Longbow)
+        raw_citations:
+          - "Weapon Master — Ultimate Combat p.49"
+          - "Point-Blank Shot — Core Rulebook p.131"
+          - "Precise Shot — Core Rulebook p.131"
+        stacking_limits:
+          - "Non sovrapporre archetipi che modificano Weapon Training."
+          - "Mantieni lo stesso focus d'arma per i talenti a catena."
+  Inquisitor:
+    race: Human
+    background: "Coordinatore tattico di pattuglie sacre, sempre pronto a condividere teamwork feats."
+    combos:
+      - id: inquisitor_tactical_preacher
+        archetypes: ["Tactical Leader", "Preacher"]
+        feats:
+          - Outflank
+          - Precise Strike (Teamwork)
+          - Shake It Off
+        raw_citations:
+          - "Tactical Leader — Advanced Player's Guide p.48"
+          - "Preacher — Ultimate Combat p.42"
+          - "Outflank — Advanced Player's Guide p.166"
+        stacking_limits:
+          - "Solo archetipi che non rimuovono Solo Tactics."
+          - "Allinea i talenti di squadra condivisi con il party."
+  Wizard:
+    race: Elf
+    background: "Erudita universale focalizzata su metamagia controllata e controllo da evocatore."
+    combos:
+      - id: wizard_universalist_metamagic
+        archetypes: ["Universalist"]
+        feats:
+          - Spell Focus (Evocation)
+          - Intensified Spell
+          - Spell Penetration
+        raw_citations:
+          - "Universalist School — Core Rulebook p.78"
+          - "Spell Focus — Core Rulebook p.131"
+          - "Intensified Spell — Ultimate Magic p.150"
+        stacking_limits:
+          - "Evita archetipi che sostituiscono Arcane School o Bond se già scelti."
+          - "Rispetta i limiti di stacking delle metamagie sullo stesso incantesimo."
