@@ -77,3 +77,6 @@
 - Con `ALLOW_MODULE_DUMP=false` i dump vengono troncati con marker espliciti e header di parzialità, preservando la policy di sicurezza per directory di servizio e CTA di remediation sugli export bloccati.【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 - Le CTA di esportazione guidano verso `/self_check`, `/save_hub` o `/check_conversation` quando i gate QA/Echo bloccano l’output, confermando l’aggiornamento del flusso di interazione.【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 - Validazione automatica 2025-12-11: `pytest` (62 test) conferma che con `ALLOW_MODULE_DUMP=false` i moduli testuali servono un estratto iniziale, mentre `adventurer_ledger.txt` e `narrative_flow.txt` usano troncamento stretto con `X-Content-Served-Bytes=0` grazie a `STRICT_TRUNCATION_MODULES`.【F:src/app.py†L1451-L1499】【77e656†L1-L12】
+
+## Esiti API
+- TODO

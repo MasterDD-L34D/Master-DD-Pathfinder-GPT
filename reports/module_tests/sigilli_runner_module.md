@@ -55,3 +55,6 @@
 
 ## Miglioramenti suggeriti
 - Nessuno: logica di assegnazione sigilli e motivazioni MDA/CTA risultano allineate alla checklist.
+
+## Fix necessari
+- TODO

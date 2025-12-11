@@ -54,3 +54,6 @@
 
 ## Note di verifica
 - ✅ L’header del template ora espone `version` e `compatibility` (core_min, integrazioni) insieme al meta payload esempio, abilitando il QA automatico uniforme e allineato agli altri moduli.【F:src/modules/scheda_pg_markdown_template.md†L1-L37】
+
+## Fix necessari
+- TODO

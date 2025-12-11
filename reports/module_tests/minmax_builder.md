@@ -50,3 +50,6 @@
 
 ## Note di verifica
 - ✅ L’help rapido ora include i gate QA (`export_requires`) e il naming atteso dei file (`MinMax_<nome>.pdf/.xlsx/.json`), riducendo i tentativi di export falliti: non risultano più fix aperti su questo punto.【F:src/modules/minmax_builder.txt†L930-L960】【F:src/modules/minmax_builder.txt†L1995-L2017】
+
+## Fix necessari
+- TODO

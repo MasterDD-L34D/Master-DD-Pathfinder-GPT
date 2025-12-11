@@ -47,3 +47,6 @@
 
 ## Fix necessari
 - Nessuno.
+
+## Errori
+- TODO
