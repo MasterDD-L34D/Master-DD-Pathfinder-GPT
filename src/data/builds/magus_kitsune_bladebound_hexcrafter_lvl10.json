@@ -1,0 +1,157 @@
+{
+  "build_state": {
+    "class": "Magus",
+    "mode": "extended",
+    "race": "Kitsune",
+    "archetype": "Bladebound Hexcrafter",
+    "step": 16,
+    "step_total": 16,
+    "step_labels": {
+      "1": "Profilo Base",
+      "2": "Razza & Classe",
+      "3": "Archetipi & Multiclasse",
+      "4": "Feats & Talenti",
+      "5": "Spell & Power Set",
+      "6": "Equip & Risorse",
+      "7": "Benchmark & Simulazioni",
+      "8": "QA & Export",
+      "9": "Dummies Sheet",
+      "10": "Esportazione",
+      "11": "Fork/Varianti",
+      "12": "Comparativa",
+      "13": "Meta Rating",
+      "14": "Companion",
+      "15": "Report",
+      "16": "Chiusura"
+    },
+    "statistics": {
+      "FOR": 18,
+      "DES": 20,
+      "COS": 16,
+      "INT": 18,
+      "SAG": 10,
+      "CAR": 12,
+      "level": 10
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 14,
+        "picco": 24
+      },
+      "livello_5": {
+        "media": 44,
+        "picco": 74
+      },
+      "livello_10": {
+        "media": 118,
+        "picco": 186
+      }
+    },
+    "statistics": {
+      "attacco": "+17/+17/+12 con Arcane Pool e crit 15-20x2",
+      "danni": "falchion 2d4+10 + 8d6 Shocking Grasp Intensified, Spell Critical su Empowered Frostbite",
+      "ca": 30,
+      "difese": "Mirror Image, Displacement, Hex Ward + Fortune; SR 18 dalla Black Blade"
+    }
+  },
+  "build_source": "local spec",
+  "class": "Magus",
+  "race": "Kitsune",
+  "archetypes": [
+    "Bladebound",
+    "Hexcrafter"
+  ],
+  "archetype_primary": "Bladebound",
+  "archetype_secondary": "Hexcrafter",
+  "focus": "crit-fishing spellstrike con debuff arcani e reroll difensivi",
+  "completeness": {
+    "status": "complete",
+    "missing": [],
+    "checklist": {}
+  },
+  "export": {
+    "modules": [
+      "base_profile.txt",
+      "Taverna_NPC.txt",
+      "narrative_flow.txt"
+    ],
+    "sheet_payload": {
+      "output_prefix": "magus_kitsune_bladebound_hexcrafter",
+      "class": "Magus",
+      "race": "Kitsune",
+      "level": 10,
+      "archetype": "Bladebound Hexcrafter"
+    }
+  },
+  "ledger": "Black Blade a +4, Arcane Pool speso su Furious Focus e Accurate; Magus Arcana: Accurate Strike, Spell Blending (Dimension Door), Hasted Assault. Hex attivi: Ward, Fortune, Misfortune. Equip: cinture FOR/DEST, anello di protezione +2, Displacement come routine difensiva.",
+  "narrative": "Il legame con la Black Blade diventa quasi simbiotico: la kitsune incanala fulmini e malocchi in un unico colpo, confermato RAW dal Ruling Expert. Il pass MinMax premia la combo Spell Critical con Empowered Frostbite per tenere gli avversari rallentati, mentre la Taverna conclude con la leggenda della 'Volpe Tempestosa' che difende le vie commerciali di Minkai.",
+  "metadata": {
+    "pipeline_logs": {
+      "ruling_expert": [
+        "Spell Critical con Empowered Frostbite compatibile con Black Blade; nessun conflitto con Arcane Accuracy.",
+        "Uso di Dimension Door via Spell Blending mantenendo RAW la preparazione da magus."
+      ],
+      "minmax": [
+        "Confronto Empower vs Intensified: Empower Frostbite + crit sfrutta meglio il moltiplicatore del falchion.",
+        "Difese ottimizzate: Displacement + Mirror Image + Ward per CA effettiva alta senza perdere output.",
+        "Bench offensivo/difensivo più alto per variante falchion rispetto a katana DES o build reach."
+      ],
+      "taverna": [
+        "Epilogo narrativo: la Black Blade parla in sussurri di tempesta, guida i mercanti e spaventa i banditi.",
+        "Rituali kitsune di tre notti per ricaricare l'hex Fortune prima delle missioni."
+      ]
+    },
+    "benchmarks": [
+      {
+        "variant": "Falchion empower + Spell Critical",
+        "offense_score": 0.94,
+        "defense_score": 0.88
+      },
+      {
+        "variant": "Katana DES + Dervish Dance",
+        "offense_score": 0.78,
+        "defense_score": 0.84
+      },
+      {
+        "variant": "Lancia lunga reach + control",
+        "offense_score": 0.75,
+        "defense_score": 0.86
+      }
+    ],
+    "selected_variant": "Falchion empower + Spell Critical",
+    "ruling_badge": "RAW/RAI/PFS",
+    "selected_variant_notes": "Miglior DPR sostenuto e difese magiche consolidate con hex Ward/Fortune."
+  },
+  "level": 10,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "output_prefix": "magus_kitsune_bladebound_hexcrafter",
+  "query_params": {
+    "race": "Kitsune",
+    "archetype": "Bladebound Hexcrafter"
+  },
+  "request": {
+    "class": "Magus",
+    "mode": "extended",
+    "race": "Kitsune",
+    "archetype": "Bladebound Hexcrafter",
+    "spec_id": "magus_kitsune_bladebound_hexcrafter"
+  },
+  "step_audit": {
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  }
+}
