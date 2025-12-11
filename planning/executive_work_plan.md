@@ -38,18 +38,18 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 ### Tracciamento avanzamento
 | Modulo | Task aperti | Priorità massima | Stato |
 | --- | --- | --- | --- |
-| Encounter_Designer | 0 | — | Pronto per sviluppo |
-| minmax_builder | 0 | — | Pronto per sviluppo |
-| Taverna_NPC | 0 | — | Pronto per sviluppo |
-| tavern_hub | 0 | — | Pronto per sviluppo |
-| Cartelle di servizio | 0 | — | Pronto per sviluppo |
-| adventurer_ledger | 0 | — | Pronto per sviluppo |
-| archivist | 0 | — | Pronto per sviluppo |
-| base_profile | 0 | — | Pronto per sviluppo |
-| explain_methods | 0 | — | Pronto per sviluppo |
-| knowledge_pack | 0 | — | Pronto per sviluppo |
-| meta_doc | 0 | — | Pronto per sviluppo |
-| narrative_flow | 0 | — | Pronto per sviluppo |
+| Encounter_Designer | 0 | — | Completato |
+| minmax_builder | 0 | — | Completato |
+| Taverna_NPC | 0 | — | Completato |
+| tavern_hub | 0 | — | Completato |
+| Cartelle di servizio | 0 | — | Completato |
+| adventurer_ledger | 0 | — | Completato |
+| archivist | 0 | — | Completato |
+| base_profile | 0 | — | Completato |
+| explain_methods | 0 | — | Completato |
+| knowledge_pack | 0 | — | Completato |
+| meta_doc | 0 | — | Completato |
+| narrative_flow | 0 | — | Completato |
 | ruling_expert | 0 | — | Completato |
-| scheda_pg_markdown_template | 0 | — | Pronto per sviluppo |
-| sigilli_runner_module | 0 | — | Pronto per sviluppo |
+| scheda_pg_markdown_template | 0 | — | Completato |
+| sigilli_runner_module | 0 | — | Completato |
