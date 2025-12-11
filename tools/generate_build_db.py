@@ -276,7 +276,11 @@ def assign_missing_races(
 
     updated: list[BuildRequest] = []
     for request in requests:
-        current_race = request.race or request.query_params.get("race")
+        current_race = (
+            request.race
+            or request.query_params.get("race")
+            or request.body_params.get("race")
+        )
         normalized_current = normalize_race(current_race)
         if normalized_current:
             used_normalized.add(normalized_current)
