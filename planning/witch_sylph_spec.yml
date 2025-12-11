@@ -1,0 +1,11 @@
+mode: extended
+requests:
+  - id: witch_sylph_gravewalker_hedge_witch
+    class: Witch
+    race: Sylph
+    archetype: Gravewalker + Hedge Witch
+    background_hooks: "Veggente dell'aria che intreccia necromanzia e guarigione da campo per il coven dei cieli."
+    output_prefix: witch_sylph_gravewalker_hedge_witch
+    query:
+      race: Sylph
+      archetype: Gravewalker + Hedge Witch
