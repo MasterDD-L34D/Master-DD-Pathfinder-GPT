@@ -13,6 +13,7 @@ Apri il report corrispondente in `reports/module_tests/<nome>.md` e compila tutt
 - **Comandi principali**: per setup, ambiente/obiettivi, nemici/bilanciamento, simulazione, pacing/loot, QA/export, narrazione/lifecycle. Indica parametri, effetti sullo stato, auto-invocazioni e output.
 - **Flow guidato/CTA**: template UI e narrativi, con eventuali call-to-action per l’utente.
 - **QA templates e helper**: gates, errori, resolution tips, formule chiave (XP/CR, rischi, badge/PFS), export filename/JSON, ondate, tagging MDA.
+- **Controlli di sicurezza AI**: verifica protezioni anti prompt injection e adesione alle policy di fonti; controlla l'uso corretto dei log `qa_logging` e dei receipt con hash SHA256, e l'applicazione dei gate Echo/Sigilli e della `image_policy`. Documenta nel report se i comandi e le policy del modulo rispettano questi vincoli, prendendo come riferimento i blocchi `qa_logging`, `output_contract` e `interaction_protocol` in `src/modules/base_profile.txt`.
 - **Osservazioni / Errori / Miglioramenti / Fix necessari**: elenca problemi e suggerimenti. Ogni item deve puntare alle linee di sorgente coinvolte usando citazioni `【F:percorso†Lx-Ly】` e indicare priorità (“P1” bug/ambiguità funzionali, “P2” QA/completezza, “P3” UX/copy). Converte subito gli errori e i fix in task con scope e file precisi.
 
 Mantieni la checklist ordinata come sopra per tutti i moduli, riutilizzando il formato già mostrato in `base_profile` e aggiornando le priorità nel momento in cui emergono dai report.
