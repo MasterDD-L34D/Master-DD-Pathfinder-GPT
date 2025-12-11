@@ -1538,5 +1538,151 @@
     ]
   },
   "build_index": "src/data/build_index.json",
-  "module_index": "src/data/module_index.json"
+  "module_index": "src/data/module_index.json",
+  "entries": [
+    {
+      "file": "src/data/builds/cleric_samsaran_cloistered_evangelist.json",
+      "output_prefix": "cleric_samsaran_cloistered_evangelist",
+      "spec_id": "cleric_samsaran_cloistered_evangelist",
+      "class": "Cleric",
+      "race": "Samsaran",
+      "archetype": "Cloistered Evangelist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "ruling_badge": "validated-rai-pfs",
+      "qa": {
+        "ruling_expert": {
+          "badge": "validated-rai-pfs",
+          "sources": null,
+          "context": {
+            "class": "Cleric",
+            "level": 5,
+            "talenti_chiave": [
+              "Colpo possente",
+              "Iniziativa migliorata"
+            ],
+            "hr_sources": null,
+            "meta_sources": null,
+            "pfs_mode": null
+          }
+        }
+      },
+      "completeness": {
+        "errors": [],
+        "require_complete": true
+      },
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "step_total": 16,
+      "expected_step_total": 16
+    },
+    {
+      "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl05.json",
+      "output_prefix": "cleric_samsaran_cloistered_evangelist",
+      "spec_id": "cleric_samsaran_cloistered_evangelist",
+      "class": "Cleric",
+      "race": "Samsaran",
+      "archetype": "Cloistered Evangelist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "ruling_badge": "validated-rai-pfs",
+      "qa": {
+        "ruling_expert": {
+          "badge": "validated-rai-pfs",
+          "sources": null,
+          "context": {
+            "class": "Cleric",
+            "level": 5,
+            "talenti_chiave": [
+              "Colpo possente",
+              "Iniziativa migliorata"
+            ],
+            "hr_sources": null,
+            "meta_sources": null,
+            "pfs_mode": null
+          }
+        }
+      },
+      "completeness": {
+        "errors": [],
+        "require_complete": true
+      },
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "step_total": 16,
+      "expected_step_total": 16
+    },
+    {
+      "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl10.json",
+      "output_prefix": "cleric_samsaran_cloistered_evangelist",
+      "spec_id": "cleric_samsaran_cloistered_evangelist",
+      "class": "Cleric",
+      "race": "Samsaran",
+      "archetype": "Cloistered Evangelist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "ruling_badge": "validated-rai-pfs",
+      "qa": {
+        "ruling_expert": {
+          "badge": "validated-rai-pfs",
+          "sources": null,
+          "context": {
+            "class": "Cleric",
+            "level": 10,
+            "talenti_chiave": [
+              "Colpo possente",
+              "Iniziativa migliorata"
+            ],
+            "hr_sources": null,
+            "meta_sources": null,
+            "pfs_mode": null
+          }
+        }
+      },
+      "completeness": {
+        "errors": [],
+        "require_complete": true
+      },
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "step_total": 16,
+      "expected_step_total": 16
+    }
+  ]
 }
