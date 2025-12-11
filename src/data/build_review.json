@@ -1,8 +1,8 @@
 {
   "generated_at": "2025-12-11T13:37:36Z",
   "builds": {
-    "total": 95,
-    "valid": 95,
+    "total": 88,
+    "valid": 88,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
@@ -212,139 +212,6 @@
         "expected_step_total": 16,
         "extended_steps_available": true,
         "step_total_ok": true,
-        "status": "ok"
-      },
-      {
-        "file": "src/data/builds/archive/brawler_human_base.json",
-        "output_prefix": "brawler_human_base",
-        "class": "Brawler",
-        "race": "Human",
-        "archetype": "Base",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "brawler_human_base",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "status": "ok"
-      },
-      {
-        "file": "src/data/builds/archive/cavalier_human_base.json",
-        "output_prefix": "cavalier_human_base",
-        "class": "Cavalier",
-        "race": "Human",
-        "archetype": "Base",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cavalier_human_base",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "status": "ok"
-      },
-      {
-        "file": "src/data/builds/archive/cleric.json",
-        "output_prefix": "cleric_human_base",
-        "class": "Cleric",
-        "race": "Human",
-        "archetype": "Base",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_base",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "status": "ok"
-      },
-      {
-        "file": "src/data/builds/archive/cleric_human_warpriest.json",
-        "output_prefix": "cleric_human_warpriest",
-        "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "status": "ok"
-      },
-      {
-        "file": "src/data/builds/archive/cleric_human_warpriest_lvl05.json",
-        "output_prefix": "cleric_human_warpriest",
-        "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "status": "ok"
-      },
-      {
-        "file": "src/data/builds/archive/cleric_human_warpriest_lvl10.json",
-        "output_prefix": "cleric_human_warpriest",
-        "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 10,
-        "status": "ok"
-      },
-      {
-        "file": "src/data/builds/archive/gunslinger_human_base.json",
-        "output_prefix": "gunslinger_human_base",
-        "class": "Gunslinger",
-        "race": "Human",
-        "archetype": "Base",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "gunslinger_human_base",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
         "status": "ok"
       },
       {
