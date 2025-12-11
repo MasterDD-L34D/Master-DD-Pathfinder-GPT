@@ -9,6 +9,7 @@ import logging
 import os
 import shutil
 import textwrap
+import re
 from fnmatch import fnmatchcase
 from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
@@ -64,6 +65,36 @@ PF1E_CLASSES: List[str] = [
     "Witch",
     "Wizard",
 ]
+
+# Pool di razze comuni/featured PF1e usate come fallback quando si vuole
+# evitare duplicati automaticamente (può essere sovrascritto da CLI).
+PF1E_RACES: Sequence[str] = (
+    "Human",
+    "Elf",
+    "Dwarf",
+    "Gnome",
+    "Halfling",
+    "Half-Elf",
+    "Half-Orc",
+    "Aasimar",
+    "Catfolk",
+    "Dhampir",
+    "Fetchling",
+    "Goblin",
+    "Grippli",
+    "Hobgoblin",
+    "Ifrit",
+    "Kitsune",
+    "Kobold",
+    "Nagaji",
+    "Oread",
+    "Suli",
+    "Sylph",
+    "Tengu",
+    "Tiefling",
+    "Undine",
+    "Wayang",
+)
 
 DEFAULT_MODE = "extended"
 DEFAULT_BASE_URL = "http://localhost:8000"
@@ -197,6 +228,99 @@ def slugify(name: str) -> str:
 def normalize_mode(mode: str) -> str:
     candidate = str(mode or DEFAULT_MODE).strip().lower()
     return "core" if candidate.startswith("core") else "extended"
+
+
+def normalize_race(race: str | None) -> str | None:
+    if race is None:
+        return None
+    return str(race).strip().lower()
+
+
+def load_race_inventory(path: Path | None) -> list[str]:
+    if not path:
+        return []
+
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        logging.info("Race inventory non trovato in %s", path)
+        return []
+    except Exception as exc:  # pragma: no cover - log only
+        logging.warning("Impossibile leggere %s: %s", path, exc)
+        return []
+
+    if isinstance(data, list):
+        return [str(item) for item in data]
+
+    races = data.get("races") if isinstance(data, Mapping) else None
+    if isinstance(races, Mapping):
+        return [str(name) for name in races.keys()]
+    if isinstance(races, list):
+        return [str(item.get("name", item)) for item in races]
+
+    return []
+
+
+def assign_missing_races(
+    requests: Sequence[BuildRequest],
+    race_inventory: Sequence[str],
+    *,
+    prefer_unused_race: bool = False,
+    race_pool: Sequence[str] | None = None,
+) -> list[BuildRequest]:
+    used_normalized = {race for race in (normalize_race(r) for r in race_inventory) if race}
+    pool = [race for race in (race_pool or []) if race]
+    available_pool = [
+        race for race in pool if normalize_race(race) not in used_normalized
+    ]
+
+    updated: list[BuildRequest] = []
+    for request in requests:
+        current_race = request.race or request.query_params.get("race")
+        normalized_current = normalize_race(current_race)
+        if normalized_current:
+            used_normalized.add(normalized_current)
+            updated.append(request)
+            continue
+
+        if prefer_unused_race and available_pool:
+            next_race = available_pool.pop(0)
+            used_normalized.add(normalize_race(next_race))
+            updated.append(replace(request, race=next_race))
+        else:
+            updated.append(request)
+
+    return updated
+
+
+def export_race_inventory(build_dir: Path, output_path: Path) -> Mapping[str, object]:
+    from collections import Counter
+
+    counter: Counter[str] = Counter()
+    for json_file in build_dir.rglob("*.json"):
+        try:
+            data = json.loads(json_file.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+
+        race = (
+            data.get("request", {}).get("race")
+            or data.get("metadata", {}).get("race")
+            or data.get("query_params", {}).get("race")
+            or data.get("body_params", {}).get("race")
+        )
+        if race:
+            counter[str(race).strip()] += 1
+
+    races = [
+        {"name": name, "count": count} for name, count in sorted(counter.items())
+    ]
+    payload = {"generated_at": now_iso_utc(), "races": races}
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    write_json(output_path, payload)
+    logging.info("Inventario razze salvato in %s", output_path)
+    return payload
 
 
 def expected_step_total_for_mode(mode: str) -> int:
@@ -693,6 +817,24 @@ def _requested_level(payload: Mapping[str, object] | None) -> int | None:
     return coerced if coerced > 0 else None
 
 
+def _strip_level_suffix(name: str) -> str:
+    match = re.match(r"^(?P<prefix>.+)_lvl\d+$", name)
+    return match.group("prefix") if match else name
+
+
+def _deduce_level_from_filename(path: Path) -> int | None:
+    match = re.match(r"^.+_lvl(?P<level>\d+)\.json$", path.name)
+    if match:
+        try:
+            return int(match.group("level"))
+        except ValueError:
+            return None
+    if path.suffix == ".json":
+        # Per convenzione il file senza suffisso corrisponde al livello base
+        return 1
+    return None
+
+
 def review_local_database(
     build_dir: Path,
     module_dir: Path,
@@ -734,6 +876,8 @@ def review_local_database(
             resolved_path,
             str(build_index_entries[resolved_path].get("file") or resolved_path),
         )
+
+    prefix_tracker: dict[str, dict[str, Any]] = {}
 
     for path, display_path in sorted(build_files.items(), key=lambda item: item[1]):
         entry: dict[str, Any] = {"file": display_path}
@@ -919,6 +1063,52 @@ def review_local_database(
         entry.setdefault("spec_id", index_entry.get("spec_id"))
         entry.setdefault("mode_normalized", index_entry.get("mode_normalized"))
         index_entries.append(index_entry)
+
+        normalized_prefix = _strip_level_suffix(output_prefix or Path(display_path).stem)
+        tracker_entry = prefix_tracker.setdefault(
+            normalized_prefix,
+            {
+                "expected": set(_normalize_levels(level_checkpoints, (1, 5, 10))),
+                "present": set(),
+                "template_file": display_path,
+            },
+        )
+        tracker_entry["expected"].update(_normalize_levels(level_checkpoints, (1, 5, 10)))
+        level_from_entry = index_entry.get("level")
+        if level_from_entry is None:
+            level_from_entry = _deduce_level_from_filename(Path(display_path))
+        if level_from_entry:
+            tracker_entry["present"].add(int(level_from_entry))
+
+    # Segnala eventuali checkpoint di livello dichiarati ma senza file presenti sul disco
+    for prefix, tracker in sorted(prefix_tracker.items()):
+        expected_levels = sorted(tracker.get("expected", set()))
+        present_levels = tracker.get("present", set())
+        missing_levels = [lvl for lvl in expected_levels if lvl not in present_levels]
+        if not missing_levels:
+            continue
+
+        template_path = Path(str(tracker.get("template_file") or build_dir / prefix))
+        for missing_level in missing_levels:
+            suffix = "" if missing_level == min(expected_levels or {1}) else f"_lvl{missing_level:02d}"
+            missing_path = template_path.parent / f"{_strip_level_suffix(template_path.stem)}{suffix}.json"
+            entry = {
+                "file": str(missing_path),
+                "output_prefix": prefix,
+                "level": missing_level,
+                "level_checkpoints": expected_levels,
+                "status": "missing",
+                "error": f"Checkpoint livello {missing_level} dichiarato ma file assente",
+            }
+            builds_section["entries"].append(entry)
+            index_entries.append(entry)
+            _bump_review(builds_section, "missing")
+            _bump_checkpoint(
+                checkpoints,
+                missing_level,
+                "missing",
+                completeness_error=True,
+            )
 
     module_entries: Sequence[Mapping[str, Any]] = []
     if module_index_path and module_index_path.is_file():
@@ -1259,6 +1449,28 @@ def parse_args() -> argparse.Namespace:
         nargs="*",
         default=[],
         help="Elenco di razze da combinare con le classi target (prodotto cartesiano)",
+    )
+    parser.add_argument(
+        "--race-inventory",
+        type=Path,
+        default=Path("reports/build_races.json"),
+        help="File JSON con l'inventario delle razze già usate; se esiste può essere usato per evitare duplicati",
+    )
+    parser.add_argument(
+        "--race-pool",
+        nargs="*",
+        default=list(PF1E_RACES),
+        help="Pool di razze candidate per l'assegnazione automatica quando manca la razza nella request",
+    )
+    parser.add_argument(
+        "--prefer-unused-race",
+        action="store_true",
+        help="Quando la razza non è specificata assegna la prima razza non ancora presente nell'inventario",
+    )
+    parser.add_argument(
+        "--export-races",
+        action="store_true",
+        help="Esporta l'elenco delle razze effettivamente usate nei build JSON e termina",
     )
     parser.add_argument(
         "--archetypes",
@@ -3571,8 +3783,15 @@ async def run_harvest(
 
 
 def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
-    requests = filter_requests(
+    race_inventory = load_race_inventory(args.race_inventory)
+    requests = assign_missing_races(
         build_requests_from_args(args),
+        race_inventory,
+        prefer_unused_race=args.prefer_unused_race,
+        race_pool=args.race_pool,
+    )
+    requests = filter_requests(
+        requests,
         args.filter_classes,
         args.filter_levels,
     )
@@ -3697,6 +3916,10 @@ def main() -> None:
     if args.dual_pass and args.validate_db:
         raise ValueError("--dual-pass non è compatibile con --validate-db")
 
+    if args.export_races:
+        export_race_inventory(args.output_dir, args.race_inventory)
+        return
+
     if not args.ruling_expert_url and not args.validate_db:
         raise ValueError(
             "--ruling-expert-url è obbligatorio per salvare nuovi snapshot"
@@ -3706,8 +3929,16 @@ def main() -> None:
         run_dual_pass_harvest(args)
         return
 
-    requests = filter_requests(
+    race_inventory = load_race_inventory(args.race_inventory)
+    requests = assign_missing_races(
         build_requests_from_args(args),
+        race_inventory,
+        prefer_unused_race=args.prefer_unused_race,
+        race_pool=args.race_pool,
+    )
+
+    requests = filter_requests(
+        requests,
         args.filter_classes,
         args.filter_levels,
     )

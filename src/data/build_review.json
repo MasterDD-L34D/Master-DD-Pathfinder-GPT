@@ -1,11 +1,11 @@
 {
-  "generated_at": "2025-12-11T13:37:36Z",
+  "generated_at": "2025-12-11T17:01:07Z",
   "builds": {
-    "total": 95,
-    "valid": 95,
+    "total": 161,
+    "valid": 96,
     "invalid": 0,
     "errors": 0,
-    "missing": 0,
+    "missing": 65,
     "entries": [
       {
         "file": "src/data/builds/alchemist-goblin-vivisectionist.json",
@@ -1282,6 +1282,21 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/monk.json",
+        "class": "Monk",
+        "mode": "extended",
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "monk_human_base",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "spec_id": "monk_human_base",
+        "mode_normalized": "extended"
+      },
+      {
         "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
         "output_prefix": "monk_vanara_qinggong_master_of_many_styles",
         "class": "Monk",
@@ -1919,26 +1934,806 @@
         ],
         "level": 10,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/archive/brawler_human_base_lvl05.json",
+        "output_prefix": "brawler_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/archive/brawler_human_base_lvl10.json",
+        "output_prefix": "brawler_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/archive/cavalier_human_base_lvl05.json",
+        "output_prefix": "cavalier_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/archive/cavalier_human_base_lvl10.json",
+        "output_prefix": "cavalier_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/archive/cleric_lvl05.json",
+        "output_prefix": "cleric_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/archive/cleric_lvl10.json",
+        "output_prefix": "cleric_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/archive/cleric_human_warpriest.json",
+        "output_prefix": "cleric_human_warpriest",
+        "level": 1,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 1 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/druid_lvl05.json",
+        "output_prefix": "druid_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/druid_lvl10.json",
+        "output_prefix": "druid_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/fighter_lvl05.json",
+        "output_prefix": "fighter_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/fighter_lvl10.json",
+        "output_prefix": "fighter_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/fighter_weapon_master_human.json",
+        "output_prefix": "fighter_human_weapon_master",
+        "level": 1,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 1 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/archive/gunslinger_human_base_lvl05.json",
+        "output_prefix": "gunslinger_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/archive/gunslinger_human_base_lvl10.json",
+        "output_prefix": "gunslinger_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/hunter_lvl05.json",
+        "output_prefix": "hunter_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/hunter_lvl10.json",
+        "output_prefix": "hunter_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/investigator_lvl05.json",
+        "output_prefix": "investigator_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/investigator_lvl10.json",
+        "output_prefix": "investigator_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/kineticist_lvl05.json",
+        "output_prefix": "kineticist_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/kineticist_lvl10.json",
+        "output_prefix": "kineticist_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/medium_lvl05.json",
+        "output_prefix": "medium_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/medium_lvl10.json",
+        "output_prefix": "medium_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/mesmerist_lvl05.json",
+        "output_prefix": "mesmerist_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/mesmerist_lvl10.json",
+        "output_prefix": "mesmerist_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/monk_lvl05.json",
+        "output_prefix": "monk_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/monk_lvl10.json",
+        "output_prefix": "monk_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/ninja_lvl05.json",
+        "output_prefix": "ninja_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/ninja_lvl10.json",
+        "output_prefix": "ninja_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/occultist_lvl05.json",
+        "output_prefix": "occultist_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/occultist_lvl10.json",
+        "output_prefix": "occultist_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/oracle_lvl05.json",
+        "output_prefix": "oracle_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/oracle_lvl10.json",
+        "output_prefix": "oracle_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/paladin_lvl05.json",
+        "output_prefix": "paladin_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/paladin_lvl10.json",
+        "output_prefix": "paladin_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/psychic_lvl05.json",
+        "output_prefix": "psychic_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/psychic_lvl10.json",
+        "output_prefix": "psychic_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/ranger_halfelf_skirmisher.json",
+        "output_prefix": "ranger_half-elf_skirmisher",
+        "level": 1,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 1 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/ranger_lvl05.json",
+        "output_prefix": "ranger_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/ranger_lvl10.json",
+        "output_prefix": "ranger_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/rogue_lvl05.json",
+        "output_prefix": "rogue_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/rogue_lvl10.json",
+        "output_prefix": "rogue_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/samurai_lvl05.json",
+        "output_prefix": "samurai_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/samurai_lvl10.json",
+        "output_prefix": "samurai_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/shaman_lvl05.json",
+        "output_prefix": "shaman_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/shaman_lvl10.json",
+        "output_prefix": "shaman_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/skald_lvl05.json",
+        "output_prefix": "skald_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/skald_lvl10.json",
+        "output_prefix": "skald_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/slayer_lvl05.json",
+        "output_prefix": "slayer_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/slayer_lvl10.json",
+        "output_prefix": "slayer_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/sorcerer_lvl05.json",
+        "output_prefix": "sorcerer_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/sorcerer_lvl10.json",
+        "output_prefix": "sorcerer_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/spiritualist_lvl05.json",
+        "output_prefix": "spiritualist_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/spiritualist_lvl10.json",
+        "output_prefix": "spiritualist_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/summoner_lvl05.json",
+        "output_prefix": "summoner_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/summoner_lvl10.json",
+        "output_prefix": "summoner_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/swashbuckler_lvl05.json",
+        "output_prefix": "swashbuckler_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/swashbuckler_lvl10.json",
+        "output_prefix": "swashbuckler_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/warpriest_lvl05.json",
+        "output_prefix": "warpriest_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/warpriest_lvl10.json",
+        "output_prefix": "warpriest_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/witch_lvl05.json",
+        "output_prefix": "witch_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/witch_lvl10.json",
+        "output_prefix": "witch_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/wizard_elf_universalist.json",
+        "output_prefix": "wizard_elf_universalist",
+        "level": 1,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 1 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/wizard_lvl05.json",
+        "output_prefix": "wizard_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 5 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/wizard_lvl10.json",
+        "output_prefix": "wizard_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 10 dichiarato ma file assente"
+      },
+      {
+        "file": "src/data/builds/wizard_human_evoker.json",
+        "output_prefix": "wizard_human_evoker",
+        "level": 1,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "status": "missing",
+        "error": "Checkpoint livello 1 dichiarato ma file assente"
       }
     ],
     "checkpoints": {
       "1": {
-        "total": 44,
-        "invalid": 0,
+        "total": 50,
+        "invalid": 5,
         "schema_errors": 0,
-        "completeness_errors": 0
+        "completeness_errors": 5
       },
       "5": {
-        "total": 26,
-        "invalid": 0,
+        "total": 56,
+        "invalid": 30,
         "schema_errors": 0,
-        "completeness_errors": 0
+        "completeness_errors": 30
       },
       "10": {
-        "total": 21,
-        "invalid": 0,
+        "total": 51,
+        "invalid": 30,
         "schema_errors": 0,
-        "completeness_errors": 0
+        "completeness_errors": 30
       }
     }
   },
