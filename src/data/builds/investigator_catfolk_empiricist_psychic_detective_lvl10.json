@@ -2,8 +2,8 @@
   "build_state": {
     "class": "Investigator",
     "mode": "extended",
-    "race": "Human",
-    "archetype": "Base",
+    "race": "Catfolk",
+    "archetype": "Empiricist + Psychic Detective",
     "step": 1,
     "step_total": 16,
     "step_labels": {
@@ -25,54 +25,60 @@
       "16": "Chiusura"
     },
     "statistics": {
-      "FOR": 16,
-      "DES": 14,
-      "COS": 14,
-      "INT": 10,
+      "FOR": 12,
+      "DES": 22,
+      "COS": 16,
+      "INT": 22,
       "SAG": 12,
-      "CAR": 8
+      "CAR": 10
     }
   },
   "benchmark": {
-    "meta_tier": "T3",
+    "meta_tier": "T1",
     "ruling_badge": "validated",
     "dpr_snapshot": {
       "livello_1": {
-        "media": 6,
-        "picco": 9
+        "media": 10,
+        "picco": 16
       },
       "livello_5": {
-        "media": 18,
-        "picco": 26
+        "media": 28,
+        "picco": 42
+      },
+      "livello_10": {
+        "media": 55,
+        "picco": 78
       }
     },
     "statistics": {
-      "attacco": "+4",
-      "danni": "1d8+3",
-      "ca": 17
-    }
+      "attacco": "+18",
+      "danni": "1d6+14",
+      "ca": 28
+    },
+    "bench_log": "Pipeline Ruling Expert -> MinMax -> Taverna: selezionate tre varianti (skill-slinger, telepatia da detective, supporto tattico). Conservata la linea Empiricist/Psychic Detective per badge valido e meta_tier T1 con log DPR allegati."
   },
   "export": {
     "sheet_payload": {
       "classi": [
         {
           "nome": "Investigator",
-          "livelli": 1,
+          "livelli": 10,
           "archetipi": [
-            "Base"
+            "Empiricist",
+            "Psychic Detective"
           ]
         }
       ],
       "statistiche": {
-        "FOR": 16,
-        "DES": 14,
-        "COS": 14,
-        "INT": 10,
+        "FOR": 12,
+        "DES": 22,
+        "COS": 16,
+        "INT": 22,
         "SAG": 12,
-        "CAR": 8,
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 17,
+        "CAR": 10,
+        "attacco": "+18",
+        "danni": "1d6+14",
+        "ca": 28,
         "Forza": 16,
         "forza": 16,
         "Destrezza": 14,
@@ -87,20 +93,26 @@
         "carisma": 8
       },
       "statistiche_chiave": {
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 17
+        "attacco": "+18",
+        "danni": "1d6+14",
+        "ca": 28,
+        "FOR": 12,
+        "DES": 22,
+        "COS": 16,
+        "INT": 22,
+        "SAG": 12,
+        "CAR": 10
       },
       "benchmarks": {
-        "meta_tier": "T3"
+        "meta_tier": "T1"
       },
       "salvezze": {
-        "Tempra": "n/d (TS Tempra non fornito)",
-        "Riflessi": "n/d (TS Riflessi non fornito)",
-        "Volontà": "n/d (TS Volontà non fornito)",
-        "tempra": "n/d (TS tempra non fornito)",
-        "riflessi": "n/d (TS riflessi non fornito)",
-        "volonta": "n/d (TS volonta non fornito)"
+        "Tempra": "+4",
+        "Riflessi": "+6",
+        "Volontà": "+5",
+        "tempra": "+4",
+        "riflessi": "+6",
+        "volonta": "+5"
       },
       "ledger": {
         "movimenti": [
@@ -114,8 +126,8 @@
           }
         ],
         "currency": {
-          "oro": 100,
-          "argento": 25,
+          "oro": 150,
+          "argento": 35,
           "rame": 40
         },
         "saldo": 0
@@ -140,50 +152,50 @@
       "CA_ff": 10,
       "velocita": 0,
       "iniziativa": 0,
-      "pf_totali": "n/d (PF totali non fornito)",
-      "skill_points": 0,
+      "pf_totali": 120,
+      "skill_points": 16,
       "salvezze_breakdown": {
         "Tempra": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": "n/d (TS Tempra non fornito)"
+          "totale": "+4"
         },
         "Riflessi": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": "n/d (TS Riflessi non fornito)"
+          "totale": "+6"
         },
         "Volontà": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": "n/d (TS Volontà non fornito)"
+          "totale": "+5"
         },
         "tempra": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": "n/d (TS tempra non fornito)"
+          "totale": "+4"
         },
         "riflessi": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": "n/d (TS riflessi non fornito)"
+          "totale": "+6"
         },
         "volonta": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": "n/d (TS volonta non fornito)"
+          "totale": "+5"
         }
       },
       "BAB": 0,
       "init": 0,
       "speed": 0,
-      "razza": "Human",
+      "razza": "Catfolk",
       "skills": [
         {
           "nome": "Percezione",
@@ -285,8 +297,21 @@
       "inventario": [],
       "talenti": [],
       "capacita_classe": [],
-      "progressione": []
-    }
+      "progressione": [],
+      "ac_breakdown": {
+        "armatura": 6,
+        "scudo": 0,
+        "destrezza": 5,
+        "taglia": 0,
+        "naturale": 1,
+        "deflessione": 1,
+        "schivare": 1,
+        "misc": 0,
+        "totale": 28
+      }
+    },
+    "sheet": "### 🐾 Investigator Catfolk Empiricist/Psychic Detective (livello 10)\n- Setup investigativo con ispirazione empiricist e telepatia da detective.\n- Linea scelta dopo tre benchmark (skill-slinger, supporto tattico, psiche).\n- Badge Ruling Expert validato e note di benchmark annesse.",
+    "narrative": "Tracciante catfolk che fonde ragionamento empirico e indagini psichiche per seguire piste urbane e dungeon, mantenendo comunicazione telepatica con il party."
   },
   "narrative": "Human Base pronta/o per il campo, specializzata/o in tattiche da Investigator.",
   "sheet": "### 🧙 Scheda Personaggio in Markdown\n\n---\n\n\n\n\n\n\n\n\n\n\n\n\n\n# — — Liv. 1 (Human · Investigator (1) — Base)\n\n**Allineamento:**   \n**Divinità:**   \n**Taglia:**  | **Età:**  | **Sesso:**  | **Altezza/Peso:**  /   \n**Ruolo consigliato:**   \n**Stile interpretativo:**  — —\n**Background breve (5–10 righe):** \n\n---\n## Toggle & riepilogo rapido\n- 🟢 MINMAX | 🟢 VTT | 🟢 QA | 🟢 EXPLAIN | 🟢 LEDGER\n- **Meta tier / DPR:** T3 · / DPR\n- **CA ricostruita:** 17 (touch 10, ff 10)\n- **Ledger flash:** PP 0 • GP 0 • SP 0 • CP 0 ⇒ 0 gp liquidi · Investiti 0 gp · Δ WBL 0.0 gp\n- **VTT hook:** Map  · Token  · Grid \n- **QA ready:** valuta tabelle popolate e coerenza valute (PP 0 • GP 0 • SP 0 • CP 0)\n- **Explain (tldr):** \n\n---\n\n## Statistiche fondamentali\n- **For** 16 (mod 3)\n- **Des** 14 (mod 2)\n- **Cos** 14 (mod 2)\n- **Int** 10 (mod 0)\n- **Sag** 12 (mod 1)\n- **Car** 8 (mod -1)\n\n- **PF (HP):**  | **CA:**   \n- **CA (breakdown):** 17 = 10 + Arm 0 + Scudo 0 + Des 0 + Defl 0 + Nat 0 + Dodge 0 + Altro 0  \n- **CA Var.:** Contatto 10 · Colto alla sprovvista 10  \n- **Tiri Salvezza:** Temp n/d (TS Tempra non fornito) / Riflessi n/d (TS Riflessi non fornito) / Volontà n/d (TS Volontà non fornito)  \n- **BAB:** 0 | **Iniziativa:** 0 | **Velocità:** 0\n- **CMB/CMD:** 0 / 0\n\n- **CMD (dettaglio):** 0 = 10 + BAB 0 + For/Des 3 + Des 2 + Taglia 0 + Altro 0\n\n- **PE (XP):**  / \n\n---\n\n## Breakdown avanzato (PF/CA)\n- **PF totali:** 0 | **PF per livello:** 0\n_Nessun breakdown CA dettagliato nel payload._\n\n---\n\n## Difese Speciali\n- **RD/Res/Imm:**   \n- **RS:**  | **Guarigione rapida/Rigenerazione:**   \n- **Sensi:**  | **Percezione (tot):** \n\n---\n\n## Combattimento\n### Armi e attacchi\n| Arma | Tipo | Attacco | Danni | Critico | Portata | Note |\n|---|---|---:|---|---|---|---|\n_(Nessuna arma strutturata: derivabile da `equipaggiamento` o aggiungerla qui.)_\n- **Attacchi naturali:**   \n- **Capacità speciali:** \n\n### Manovre CMB\n| Manovra | Bonus |\n|---|---:|\n| Disarm |  |\n| Trip   |  |\n| Grapple|  |\n| Bull Rush |  |\n| Sunder |  |\n\n---\n\n## Economia d’Azione\n- **AoO/round:**   \n- **Swift usata?:**   \n- **Immediate pronte?:** \n\n---\n\n## Armatura (tecnica)\n- **ACP:**  | **Max Des:**  | **ASF:** % | **Velocità ridotta:** \n\n---\n\n## Abilità (Skills)\n| Abilità | Gradi | Mod Car | Var | Classe? | Totale |\n|---|---:|---:|---:|:--:|---:|\n| Percezione | 1 | 3 | 1 | ✓ | 5 |\n| Furtività | 1 | 3 | 0 | ✓ | 4 |\n| Acrobazia | 1 | 3 | 0 |  | 4 |\n\n---\n\n## Talenti, Tratti & Difetti\n- **Talenti:** —\n- **Tratti:** —- **Difetti:** \n\n---\n\n## Poteri di Classe / Archetipi\n\n\n**Usi/giorno chiave:** \n\n---\n\n## Incantesimi / Capacità Magiche\n- **Classe da incantatore:**   \n- **CD base incantesimi:**  | **LI:**   \n- **Slot per giorno:** \n\n**Conosciuti/Preparati**\n_Nessun incantesimo conosciuto o preparato specificato._\n_Nessuna tabella incantesimi disponibile._\n\n### Incantatore (tecnico)\n- **Concentrazione:** \n- **Penetrazione Magica:**   \n- **CD per Scuola:** \n\n---\n\n## Routine di Round (rapida)\n1) **Buff chiave:**   \n2) **Posizionamento:**   \n3) **Output:**   \n**Priorità reattive:** \n\n---\n\n## Risorse Giornaliere\n| Risorsa | Max | Usate | Rimaste | Reset |\n|---|---:|---:|---:|---|\n| Rage / Ki / Panache / Grit / Arcane Pool / Performance |  |  | 0 |  |\n\n---\n\n## Consumabili\n- **Pozioni:**   \n- **Pergamene:**   \n- **Bacchette (cariche):** \n\n---\n\n## WBL & Shopping\n- **Budget attuale:** 0 gp | **Breakpoint prossimo:** 0 gp\n- **Priorità acquisti:** \n\n---\n\n## Equipaggiamento\n| Oggetto | Note |\n|---|---|\n| Arma semplice | gear essenziale incluso nel kit base || Armatura leggera | gear essenziale incluso nel kit base || Strumenti da scasso | gear essenziale incluso nel kit base || Kit avventuriero | gear essenziale incluso nel kit base |\n- **Armi/Armature/Oggetti:** \n- **Peso totale trasportato:** \n- **Capacità di trasporto:** L  / M  / P \n- **Valute:**\n  - **PP:** 0\n  - **GP:** 0\n  - **SP:** 0\n  - **CP:** 0\n\n---\n\n## Lingue & Varie\n- **Lingue:** —  \n- **Punti Eroe (opz.):**   \n- **Altre note:** \n\n---\n\n## Companion / Famigli\n\n\n---\n\n## Psicologia & Roleplay\n- **Sinergie**: \n- **Teoria dominante**: \n- **Comportamento prevalente**: \n- **Stile decisionale**: \n- **Motto/Frase tipica/Modi di dire/Accento**: \n- **Spunti per interpretazione**: \n- **Background Narrativo**: \n\n---\n\n## 💰 Adventurer Ledger — KPI & Movimenti\n- **Cassa (liquidi):** PP 0 • GP 0 • SP 0 • CP 0 = **0 gp**\n- **Valore investito (gear):** **0 gp** · **Wealth totale:** **0 gp**\n- **WBL target (liv 1):** 0 gp · **Δ vs WBL:** 0.0 gp\n- **Encumbrance hint:** \n\n### Movimenti (ultimi / sessione)\n| Data | Tipo | Oggetto/Voce | Q.tà | Val. unit | Totale | Δ GP | Fonte (AP/SX) | PFS |\n|---|---|---|---:|---:|---:|---:|---|:--:|\n| Sessione 1 | spesa | Equipaggiamento iniziale | 1 |  | -150 | -150 |  |  || Sessione 1 | entrata | Ricompensa missione | 1 |  | 250 | 250 |  |  |\n### Loot Parcels (non ancora liquidati)\n| Parcella | Stima gp | Assegnatario | Note |\n|---|---:|---|---|\n| Borsa di monete | 50 | party | da dividere |\n### Coda Crafting\n| Item | DC | Giorni | Costo materie | Risparmio | Stato |\n|---|---:|---:|---:|---:|---|\n| Pozione di cura | 5 | 1 | 25 | 0 | in coda |\n### Audit & PFS\n- **Flag non PFS-legal:** \n- **Note GM/Audit:** \n\n\n---\n## Hook VTT / Export\n- **Map ID:**  | **Bundle asset:** \n- **Preset luci:**  | **Token scale:** \n- **Grid consigliata:**  | **Safe/Bleed:** % / %\n- **Note GM:**   <!-- 2–3 POI, percorsi, consigli Foundry/Roll20 -->\n- **Formati supportati:** Markdown strutturato, JSON ledger/vtt_json, blocchi compatibili con VTT.\n- **Note localizzazione numerica:** separatore ,, unità in gp.\n- **CTA export:** /export_pg_sheet • /export_pg_sheet_json\n\n---\n\n---\n## Explain – Regola & Procedura (multi‑metodo)\n- **Regola (in una riga):** \n- **Contesto & Scopo:** \n\n### Procedura passo‑passo\n\n\n### Metodo 2 – Algoritmico / Flow\n\n\n### Metodo 3 – Analogia / Metafora\n\n\n### Errori comuni (e come evitarli)\n\n\n### RAW vs RAI (edge cases)\n\n\n### Esempio numerico rapido\n\n\n### Verifica / Quiz lampo (3 domande)\n\n\n### Checklist di applicazione al tavolo\n- \n\n### Fonti didattiche (puntuali)\n-   \n---\n## Analisi MinMax\n- **DPR medio (base/nova):**  / \n- **Sostenibilità difensiva:**  %\n- **Meta Tier:** T3\n\n**Benchmark (auto) — Ref: **\n| Parametro | Stato | Δ vs Ref |\n|---|---:|---:|\n| DPR 1–3 |  | % |\n| DPR 4+  |  | % |\n| Difesa  |  | % |\n| Buff    |  | – |\n| Azioni  |  | – |\n| Scaling |  | – |\n\n🔥 **Risk Heatmap (≥2):** Feat →  · Spell →   \n🏷 **Origine suggerimenti:** None\n\n\n---\n## QA rapido\n- **Tabelle popolate?:** armi/skill/incantesimi non vuote o placeholder indicato.\n- **Valute normalizzate:** PP 0 • GP 0 • SP 0 • CP 0 (usa fmt_gp per export).\n- **Coerenza WBL:** Δ vs target 0.0 gp; vendite/acquisti loggati nel ledger.\n- **Badge/Lingua:** tag PFS/RAW se noti; lingua coerente con prompt.\n\n---\n## Output checklist (inserire nel render finale)\n- Header con toggle attivi (MINMAX/VTT/QA/EXPLAIN/LEDGER) e lingua.\n- Fonti/tag: RAW/PFS/HR/META e richiami al Ledger/Explain/MinMax usati.\n- Struttura minima: sommario PG, blocchi statistici, economia (ledger/WBL), eventuale sezione Explain/MinMax.\n- Dati numerici formattati con , come separatore decimale e unità gp/%.\n- Sezioni vuote: sostituire con placeholder espliciti per evitare header orfani.\n\n---\n## Suggerimenti interpretativi\n- \n\n---\n> 📎 Fonti Meta (badge sintetico): —\n\n---\n## Profilo ruolistico (“alla Locanda”)\n- **Modello psicologico:**  (es. Jung/OCEAN/Enneagramma)  \n- **Stile decisionale:**   \n- **Storia personale (perché in avventura):**   \n- **Relazioni & legami:**  *(un PNG caro, una rivalità, un giuramento)*  \n- **Ganci di campagna:**  *(per restare nel party)*  \n- **Flavor RP:**  *(tic, frasi tipiche, feticci/ricordi)*\n\n---\n## Canone & Fonti\n- **Edizione di riferimento:** PF1e  \n- **Fonti primarie (📗):**   \n- **Secondarie (🔎):**   \n- **Varianti PFS-Lore (🧭):**   \n- **Dev Insight (🧪):**   \n- **House Lore (❗):**   \n- **Citazioni brevi (≤25 parole):**\n\n---\n## Collegamenti di Campagna\n- **SX00 (dashboard):** \n- **AV corrente:**  | **SX correlate:** \n- **Fazioni (NC) collegate:** \n- **Thread aperti / milestone:** \n---\n## QA & Spoiler\n- **spoiler_mode:**   \n- **AP warning:**   \n- **Confidence:**  | **Uncertainty flags:** \n\n\n---\n## Canone & Fonti META\n- **Fonti (RAW/PFS se presenti):** local-refresh, http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human\n- **Fonti META (ord. autorità):** \n---\n## Regole & QA\n- **Regole attive:** None  \n- **QA export gate:** Core=—, Feats=—, Sim=—",
@@ -557,23 +582,27 @@
   "fetched_at": "2025-12-08T17:15:41Z",
   "request": {
     "class": "Investigator",
-    "race": "Human",
-    "archetype": "Base",
+    "race": "Catfolk",
+    "archetype": "Empiricist + Psychic Detective",
     "mode": "extended",
     "mode_normalized": "extended",
-    "spec_id": "Investigator::Human::Base",
+    "spec_id": "investigator_catfolk_empiricist_psychic_detective",
     "model": null,
-    "background": null,
-    "level": 1,
+    "background": "Detective psichico delle steppe felide",
+    "level": 10,
     "level_checkpoints": [
-      1
+      1,
+      5,
+      10
     ]
   },
   "query_params": {
     "mode": "extended",
     "class": "Investigator",
     "stub": true,
-    "race": "Human"
+    "level": 10,
+    "race": "Catfolk",
+    "archetype": "Empiricist + Psychic Detective"
   },
   "body_params": {},
   "mode_normalized": "extended",
@@ -588,5 +617,64 @@
   "completeness": {
     "errors": [],
     "require_complete": true
-  }
+  },
+  "ruling_badge": "validated",
+  "ruling_sources": [
+    "mock_ruling_expert"
+  ],
+  "qa": {
+    "ruling_expert": {
+      "badge": "validated",
+      "sources": [
+        "mock_ruling_expert"
+      ],
+      "context": {
+        "class": "Investigator",
+        "archetype": "Empiricist + Psychic Detective",
+        "race": "Catfolk",
+        "level": 10,
+        "talenti_chiave": [
+          "Ispirazione Empiricist",
+          "Studia Bersaglio",
+          "Detect Thoughts investigativo",
+          "Mutageno leggero da ricerca"
+        ],
+        "hr_sources": null,
+        "meta_sources": [
+          "Pipeline Ruling Expert -> MinMax -> Taverna"
+        ],
+        "pfs_mode": "RAI"
+      }
+    },
+    "checkpoints": [
+      {
+        "level": 1,
+        "status": "ok",
+        "bench_log": "analisi forense + ispirazione empiricist; prove di lettura aura psichica per scouting",
+        "ruling_badge": "validated"
+      },
+      {
+        "level": 5,
+        "status": "ok",
+        "bench_log": "telepatia detective + studia bersaglio con ispirazione gratuita; combo estratti alchemici",
+        "ruling_badge": "validated"
+      },
+      {
+        "level": 10,
+        "status": "ok",
+        "bench_log": "catena di discoveri e divinazioni rapide con pistolero da analisi mentale; DPR costante T1",
+        "ruling_badge": "validated"
+      }
+    ]
+  },
+  "race": "Catfolk",
+  "archetype": "Empiricist + Psychic Detective",
+  "spec_id": "investigator_catfolk_empiricist_psychic_detective",
+  "background": "Detective psichico delle steppe felide",
+  "level": 10,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ]
 }
