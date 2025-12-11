@@ -27,6 +27,12 @@ compatibility:
 >   vtt_hand-off: "Per mappe/token con licenze sensibili o grid custom, chiedi conferma VTT e evita export automatici."
 >   export_limits: "Niente export completo (PDF/JSON) se QA non è passato o se ledger_limits/minmax_blocks sono attivi."
 >   explain_scope: "Se explain.* contiene rulings controversi, passa da Ruling Expert prima di pubblicare."
+> activation:
+>   ledger: "auto (default) ⇒ attiva quando trigger. Usa force_on per includere ledger_invested_gp anche senza valute; force_off per test sandbox."
+>   minmax: "auto (default) ⇒ attiva su benchmarks/statistiche_chiave. Usa force_on per review anticipata, force_off per build narrative."
+> export_policy:
+>   mode: "full|limited|block: usa limited se dati incompleti, block quando export_limits scatta o manca fmt_gp."
+>   notes: "CTA breve per il master su cosa sbloccare (es. aggiungi benchmark_comparison o normalizza valute)."
 > defaults:
 >   show_minmax: true
 >   show_vtt: true
@@ -35,7 +41,11 @@ compatibility:
 >   show_ledger: true
 > ```
 
-> **Uso rapido:** includi sempre `module`, `version` e `compatibility` nel meta; abilita i toggle rilevanti in base ai trigger sopra per evitare QA incompleti. Se scatta una policy (ledger_limits/minmax_blocks/export_limits) sospendi l’export e chiedi conferma al master o al referente Ledger/MinMax.
+> **Uso rapido / CTA:**
+> - Compila sempre `module`, `version` e `compatibility` nel meta header.
+> - Usa `triggers.*` per dichiarare cosa attiva Ledger/MinMax/VTT/QA e `activation.*` per forzare/evitare i flussi auto.
+> - Se una policy scatta (ledger_limits/minmax_blocks/export_limits) imposta `export_policy.mode` su `block`/`limited` e scrivi in `export_policy.notes` cosa sbloccare prima di procedere (es. normalizzare `fmt_gp` o aggiungere `benchmark_comparison`).
+> - Conferma sempre con il master o con i referenti Ledger/MinMax prima di esportare quando `export_policy.mode` non è `full`.
 
 > **Esempio di payload (stub):**
 > ```yaml
@@ -48,12 +58,21 @@ compatibility:
 >   ledger: true   # valuta + Δ WBL ⇒ Ledger
 >   minmax: true   # DPR/benchmark richiesti
 >   vtt: true      # export Foundry/Roll20
+>   qa: true       # QA finale prima dell'export
+>   explain: true  # note didattiche per rulings
+> activation:
+>   ledger: force_on   # includi ledger_invested_gp anche se non hai valute live
+>   minmax: auto       # attiva review solo se campi compilati
 > operational_policies:
 >   ledger_exports: "Annota Δ WBL e cap investimento prima del PDF."
 >   ledger_limits: "Blocca export se manca fmt_gp o se cap investimenti non è autorizzato."
 >   minmax_reviews: "Richiedi review: archetipi homebrew presenti."
 >   minmax_blocks: "Non esportare build finché manca benchmark_comparison."
+>   vtt_hand-off: "Serve check licenza token prima di pubblicare."
 >   export_limits: "QA bloccante se Δ WBL > +20% o mancano tabelle popolari."
+> export_policy:
+>   mode: limited   # passa a full solo dopo check QA/Ledger/MinMax
+>   notes: "Aggiungi benchmark_comparison + fmt_gp normalizzato per sblocco full."
 > print_mode: false
 > show_ledger: true
 > show_minmax: true
