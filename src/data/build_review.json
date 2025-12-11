@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-12-11T00:35:28Z",
+  "generated_at": "2025-12-11T00:56:22Z",
   "builds": {
-    "total": 77,
-    "valid": 77,
+    "total": 81,
+    "valid": 81,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
@@ -215,6 +215,40 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/archive/bloodrager_human_base.json",
+        "output_prefix": "bloodrager_human_base",
+        "class": "Bloodrager",
+        "race": "Human",
+        "archetype": "Base",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "bloodrager_human_base",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 1,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/archive/brawler_human_base.json",
+        "class": "Brawler",
+        "mode": "extended",
+        "status": "ok",
+        "level": 1,
+        "output_prefix": "brawler_human_base",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "spec_id": "brawler_human_base",
+        "mode_normalized": "extended"
+      },
+      {
         "file": "src/data/builds/archive/cleric.json",
         "output_prefix": "cleric_human_base",
         "class": "Cleric",
@@ -418,26 +452,20 @@
       {
         "file": "src/data/builds/bloodrager-skinwalker-primalist-blood-conduit.json",
         "output_prefix": "bloodrager-skinwalker-primalist-blood-conduit",
-        "level": 1,
         "class": "Bloodrager",
         "race": "Skinwalker",
         "archetype": "Primalist Blood Conduit",
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "bloodrager_skinwalker_primalist_blood_conduit",
-        "model": null,
         "background": "Totemista skinwalker che canalizza il sangue elementale come araldo tribale.",
+        "model": null,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "ruling_badge": "full",
-        "ruling_sources": [
-          "mock_ruling_expert",
-          "minmax_builder",
-          "taverna_narrative"
-        ],
+        "level": 1,
         "step_total": 16,
         "expected_step_total": 16,
         "extended_steps_available": true,
@@ -447,26 +475,20 @@
       {
         "file": "src/data/builds/bloodrager-skinwalker-primalist-blood-conduit_lvl05.json",
         "output_prefix": "bloodrager-skinwalker-primalist-blood-conduit",
-        "level": 5,
         "class": "Bloodrager",
         "race": "Skinwalker",
         "archetype": "Primalist Blood Conduit",
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "bloodrager_skinwalker_primalist_blood_conduit",
-        "model": null,
         "background": "Totemista skinwalker che canalizza il sangue elementale come araldo tribale.",
+        "model": null,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "ruling_badge": "full",
-        "ruling_sources": [
-          "mock_ruling_expert",
-          "minmax_builder",
-          "taverna_narrative"
-        ],
+        "level": 5,
         "step_total": 16,
         "expected_step_total": 16,
         "extended_steps_available": true,
@@ -476,26 +498,20 @@
       {
         "file": "src/data/builds/bloodrager-skinwalker-primalist-blood-conduit_lvl10.json",
         "output_prefix": "bloodrager-skinwalker-primalist-blood-conduit",
-        "level": 10,
         "class": "Bloodrager",
         "race": "Skinwalker",
         "archetype": "Primalist Blood Conduit",
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "bloodrager_skinwalker_primalist_blood_conduit",
-        "model": null,
         "background": "Totemista skinwalker che canalizza il sangue elementale come araldo tribale.",
+        "model": null,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "ruling_badge": "full",
-        "ruling_sources": [
-          "mock_ruling_expert",
-          "minmax_builder",
-          "taverna_narrative"
-        ],
+        "level": 10,
         "step_total": 16,
         "expected_step_total": 16,
         "extended_steps_available": true,
@@ -503,15 +519,15 @@
         "status": "ok"
       },
       {
-        "file": "src/data/builds/brawler.json",
-        "output_prefix": "brawler_human_base",
+        "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json",
+        "output_prefix": "brawler_grippli_mutagenic_mauler_strangler",
         "class": "Brawler",
-        "race": "Human",
-        "archetype": "Base",
+        "race": "Grippli",
+        "archetype": "Mutagenic Mauler + Strangler",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "brawler_human_base",
-        "background": null,
+        "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
+        "background": "Assassino anfibio addestrato a strangolare i bersagli dopo un balzo potenziato dal mutageno.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -519,6 +535,56 @@
           10
         ],
         "level": 1,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl05.json",
+        "output_prefix": "brawler_grippli_mutagenic_mauler_strangler",
+        "class": "Brawler",
+        "race": "Grippli",
+        "archetype": "Mutagenic Mauler + Strangler",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
+        "background": "Assassino anfibio addestrato a strangolare i bersagli dopo un balzo potenziato dal mutageno.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 5,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl10.json",
+        "output_prefix": "brawler_grippli_mutagenic_mauler_strangler",
+        "class": "Brawler",
+        "race": "Grippli",
+        "archetype": "Mutagenic Mauler + Strangler",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
+        "background": "Assassino anfibio addestrato a strangolare i bersagli dopo un balzo potenziato dal mutageno.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 10,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
@@ -1563,19 +1629,19 @@
     "checkpoints": {
       "1": {
         "total": 43,
-        "invalid": 1,
+        "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "5": {
         "total": 21,
-        "invalid": 1,
+        "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "10": {
         "total": 16,
-        "invalid": 1,
+        "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
       }
