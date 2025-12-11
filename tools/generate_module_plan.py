@@ -325,8 +325,8 @@ def build_executive_plan(
 
     tracking = [
         "### Tracciamento avanzamento",
-        "| Modulo | Task aperti | Priorità massima | Stato |",
-        "| --- | --- | --- | --- |",
+        "| Modulo | Task aperti | Osservazioni | Errori | Priorità massima | Stato |",
+        "| --- | --- | --- | --- | --- | --- |",
     ]
     for summary in sorted(
         summaries,
@@ -334,7 +334,8 @@ def build_executive_plan(
     ):
         tracking.append(
             "| "
-            f"{summary.label} | {len(summary.tasks)} | {summary.highest_priority} | {summary.status} |"
+            f"{summary.label} | {len(summary.tasks)} | {len(summary.observations)} | "
+            f"{len(summary.errors)} | {summary.highest_priority} | {summary.status} |"
         )
 
     executive_output.parent.mkdir(parents=True, exist_ok=True)
