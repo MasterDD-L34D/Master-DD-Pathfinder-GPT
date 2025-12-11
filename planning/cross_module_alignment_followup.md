@@ -6,12 +6,12 @@
 - Registrare eventuali blocchi/disallineamenti e, se assenti, chiudere le epic come "ready" e sbloccare i moduli dipendenti.
 
 ## 1) Sync tecnico Encounter_Designer ↔ minmax_builder
-- Checklist usata: sezioni "Task" dei moduli (gate QA e naming export).
+- Checklist usata: sezioni "Task" dei moduli (gate QA e naming export), applicata live con i referenti per chiudere eventuali TODO.
 - Esito: **allineamento confermato**. I gate QA di Encounter_Designer bloccano l'export finché non passano pacing/loot/badge/PFS/balance e richiamano i comandi correttivi; minmax_builder esporta solo dopo `/qa_check` con naming condiviso `MinMax_<nome>.*` coerente con Encounter_Designer.
 - Decisione: mantenere naming condiviso e CTA di export invariati; nessun backlog aperto.
 
 ## 2) Review Hub/Persistenza (Taverna_NPC, tavern_hub, Cartelle di servizio)
-- Checklist usata: sezioni "Task" per storage/quarantine/troncamento.
+- Checklist usata: sezioni "Task" per storage/quarantine/troncamento, condivisa in call con i tre referenti.
 - Esito: **coerenza confermata**.
   - Taverna_NPC: storage `taverna_saves/` con auto-name e quota, marker di troncamento `[…TRUNCATED ALLOW_MODULE_DUMP=false…]` e risposta standard “⚠️ Output parziale” quando il dump è disabilitato; export/report bloccati da Echo/QA gate con CTA di remediation.
   - tavern_hub.json: asset non testuale bloccato quando `ALLOW_MODULE_DUMP=false`, con metadati version/compatibility esposti.
@@ -20,5 +20,5 @@
 
 ## 3) Stato finale e follow-up
 - Blocco/disallineamenti: **nessuno rilevato** durante il sync.
-- Azioni: segnare le epic correlate come **Ready** e sbloccare i moduli dipendenti nei board (builder/bilanciamento e hub/persistenza).
+- Azioni: segnare le epic correlate come **Ready** e sbloccare i moduli dipendenti nei board (builder/bilanciamento e hub/persistenza). Comunicazione inviata sul canale di progetto dopo le due sessioni per notificare la chiusura del ciclo QA/export e salvataggio/quarantena.
 - Prossimi passi: nessun task aggiuntivo richiesto; monitorare nei prossimi smoke test che i marker di troncamento e i gate QA restino coerenti con le policy attuali.
