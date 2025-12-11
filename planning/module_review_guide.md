@@ -11,6 +11,7 @@ Apri il report corrispondente in `reports/module_tests/<nome>.md` e compila tutt
 - **Ambiente di test**: server, flag, variabili e qualsiasi setup speciale (es. ALLOW_MODULE_DUMP) attivo durante la prova.
 - **Esiti API**: risultati per `/health`, `/modules`, `/modules/<file>/meta`, download completo, 404 su nome errato e comportamento con `ALLOW_MODULE_DUMP=false` (troncamento atteso).
 - **Metadati/Scopo**: nome e versione del modulo, principi/trigger/policy, integrazioni previste.
+- **Dipendenze esterne**: moduli/API/asset usati (es. MinMax, Taverna, storage), con indicazione della fonte e citazioni alle sezioni che li dichiarano.
 - **Modello dati**: campi principali dello state e loro ruolo.
 - **Comandi principali**: per setup, ambiente/obiettivi, nemici/bilanciamento, simulazione, pacing/loot, QA/export, narrazione/lifecycle. Indica parametri, effetti sullo stato, auto-invocazioni e output.
 - **Flow guidato/CTA**: template UI e narrativi, con eventuali call-to-action per l’utente.
