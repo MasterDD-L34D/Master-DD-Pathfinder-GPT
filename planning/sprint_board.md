@@ -24,6 +24,24 @@ Tabella di chiusura riportata da `planning/module_work_plan.md` con evidenza del
 - Tutti i moduli risultano marcati "Pronto per sviluppo".
 - Non ci sono P1 o P2 aperti per alcun modulo nel perimetro attuale.
 
+## Chiusura Sprint
+| Modulo | Stato | Priorità max | Dipendenze | Owner | Checkpoint | Note |
+| --- | --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | Pronto per sviluppo | P1 | 0 | Alice Bianchi | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| minmax_builder | Pronto per sviluppo | P1 | 0 | Marco Conti | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| Taverna_NPC | Pronto per sviluppo | P1 | 0 | Elisa Romano | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| tavern_hub | Pronto per sviluppo | P1 | 0 | Paolo Greco | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| Cartelle di servizio | Pronto per sviluppo | P1 | 0 | Sara De Luca | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| adventurer_ledger | Pronto per sviluppo | P1 | 0 | Luca Ferri | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| archivist | Pronto per sviluppo | P1 | 0 | Martina Gallo | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| base_profile | Pronto per sviluppo | P1 | 1 | Andrea Rizzi | Mercoledì 15:00 CET | Allineare schema profilo condiviso |
+| explain_methods | Pronto per sviluppo | P1 | 0 | Francesca Vitale | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| knowledge_pack | Pronto per sviluppo | P1 | 0 | Gianni Moretti | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| meta_doc | Pronto per sviluppo | P1 | 0 | Chiara Esposito | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| narrative_flow | Pronto per sviluppo | P1 | 0 | Davide Serra | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| ruling_expert | Pronto per sviluppo | P1 | 0 | Valentina Riva | Mercoledì 15:00 CET | Nessuna criticità aperta |
+| scheda_pg_markdown_template | Pronto per sviluppo | P1 | 0 | Matteo Leone | Mercoledì 15:00 CET | Nessuna criticità aperta |
+
 ## Kickoff e checkpoint
 - Messaggio da condividere nel canale del team: "Kickoff completato: tutti i moduli sono **Pronto per sviluppo** e non restano P1 aperti. Gli owner indicati nel board sono allineati sulle attività prioritarie".
 - Primo checkpoint di avanzamento pianificato per **mercoledì ore 15:00 CET** (sync sviluppo/QA, verifica dipendenze operative su base_profile).
