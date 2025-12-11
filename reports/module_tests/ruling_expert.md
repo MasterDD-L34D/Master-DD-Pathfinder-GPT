@@ -1,8 +1,7 @@
 # Verifica API e analisi modulo `ruling_expert.txt`
 
 ## Ambiente di test
-- FastAPI locale avviato con `API_KEY=testing` e dump completo abilitato (default `ALLOW_MODULE_DUMP=true`).【1aba59†L1-L4】
-- Secondo run con `ALLOW_MODULE_DUMP=false` per verificare il troncamento server-side e l'impatto del flag di sicurezza previsto in `settings.allow_module_dump`.【c08648†L20-L28】【c0fb0d†L1-L4】
+- FastAPI locale avviato con `API_KEY=testing`; default `ALLOW_MODULE_DUMP=false` (no raw dump) secondo config, con run mirati che hanno abilitato/disabilitato il dump completo per verificare entrambi i comportamenti.【1aba59†L1-L4】【c08648†L20-L28】【c0fb0d†L1-L4】【F:src/config.py†L17-L28】
 
 ## Esiti API
 1. `GET /health` → `200 OK` con stato `ok` e directories/modules requisiti presenti.【c28ff5†L1-L8】
@@ -41,13 +40,10 @@
 
 ## Osservazioni
 - Il flow guidato RAW→FAQ→PFS applica guardrail anti-injection, disambiguazione con soglia 0.65 e CTA post-risposta, offrendo template UI per sezioni RAW/RAI/PFS/HR e strumenti di diagnostica per cache/offline e arithmetic_guard.【F:src/modules/ruling_expert.txt†L284-L356】【F:src/modules/ruling_expert.txt†L331-L410】
-
-## Errori
-- **Allineare policy di esposizione**: il modulo dichiara `exposure_policy: no_raw_dump`, ma l’API di default (`ALLOW_MODULE_DUMP=true`) serve il file completo; solo con `ALLOW_MODULE_DUMP=false` avviene il troncamento.【F:src/modules/ruling_expert.txt†L80-L85】【c08648†L20-L28】【88122c†L1-L74】
+- La policy `exposure_policy: no_raw_dump` è applicata di default con `ALLOW_MODULE_DUMP=false` e whitelist opzionale: i dump testuali vengono troncati salvo opt-in esplicito.【F:src/modules/ruling_expert.txt†L80-L85】【F:src/config.py†L17-L28】
 
 ## Miglioramenti suggeriti
-- **Documentare payload stub builder**: l’endpoint `/modules/minmax_builder.txt` in modalità `stub` costruisce state compositi con `build_state`, `sheet`, `benchmark`, `ledger`, `export` e `composite` coerenti con lo schema del builder; chiarire nel modulo come questi campi si mappano su rulings/QA potrebbe agevolare l’integrazione.【F:src/app.py†L366-L572】
-- **Rafforzare CTA per PFS**: il flow indica season awareness e priorità PFS ma il `status_example` non mostra esplicitamente il badge/season derivato; aggiungere un prompt CTA per confermare la stagione PFS potrebbe ridurre ambiguità di giurisdizione.【F:src/modules/ruling_expert.txt†L300-L317】【F:src/modules/ruling_expert.txt†L417-L424】
+- Nessuno: lo stub builder è già documentato con payload di esempio e mapping dei campi, e il `status_example` include CTA esplicito per confermare la stagione PFS prima dei rulings.【F:docs/api_usage.md†L99-L129】【F:src/modules/ruling_expert.txt†L448-L455】
 
 ## Fix necessari
-- Nessuno: la policy `exposure_policy: no_raw_dump` è già rispettata lato server con `ALLOW_MODULE_DUMP=false` come default e con supporto a whitelist esplicita, garantendo troncamento e marker coerenti con il modulo.【F:src/modules/ruling_expert.txt†L80-L85】【F:src/config.py†L21-L21】【c08648†L20-L28】
+- Nessuno.
