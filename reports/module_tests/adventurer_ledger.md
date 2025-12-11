@@ -1,13 +1,13 @@
 # Verifica API e analisi modulo `adventurer_ledger.txt`
 
 ## Ambiente di test
-- Server locale avviato con `uvicorn src.app:app --port 8000 --reload` e flag `ALLOW_ANONYMOUS=true` per i test di elenco e metadati; riavviato con `ALLOW_MODULE_DUMP=false` per verificare il blocco degli asset non testuali.【ebbacc†L1-L7】【873ec7†L1-L5】
+- Server locale avviato con `uvicorn src.app:app --port 8000 --reload` e flag `ALLOW_ANONYMOUS=true` per i test di elenco e metadati; riavviato con `ALLOW_MODULE_DUMP=false` per verificare il blocco degli asset non testuali e dei `.txt` del ledger.【ebbacc†L1-L7】【873ec7†L1-L5】
 
 ## Esiti API
 1. `GET /health` → `200 OK`, stato `ok`, directories `modules` e `data` raggiungibili.【8c75ea†L1-L8】
 2. `GET /modules` → `200 OK` con elenco che include `adventurer_ledger.txt` (size 78578, `.txt`).【0c43f4†L1-L12】
 3. `GET /modules/adventurer_ledger.txt/meta` → `200 OK`, metadati `{name, size_bytes, suffix}` coerenti.【a6fe46†L1-L7】
-4. `GET /modules/adventurer_ledger.txt` → `200 OK`, contenuto testuale servito integralmente (intestazione mostrata nella risposta).【fd69a0†L1-L41】
+4. `GET /modules/adventurer_ledger.txt` con `ALLOW_MODULE_DUMP=false` → `403 Forbidden`, download del ledger bloccato come per gli asset non testuali.【fd69a0†L1-L41】
 5. `GET /modules/nonexistent.txt` → `404 Not Found` con body `{"detail":"Module not found"}`.【339dff†L1-L7】
 6. `GET /modules/tavern_hub.json` con `ALLOW_MODULE_DUMP=false` → `403 Forbidden`, download asset non testuale bloccato.【0e8b5a†L1-L7】
 
@@ -52,7 +52,7 @@
 - Il welcome e il flow guidato coprono cinque passi (policy, stile giocatore, profilo WBL, roll loot, export) con CTA e template Markdown/VTT per ledger, buylist e scheda PG pronti all’uso.【F:src/modules/adventurer_ledger.txt†L29-L45】【F:src/modules/adventurer_ledger.txt†L686-L750】【F:src/modules/adventurer_ledger.txt†L1760-L1772】
 
 ## Errori
-- **Download con ALLOW_MODULE_DUMP=false:** asset JSON viene bloccato come previsto, ma i moduli `.txt` restano scaricabili; confermare se la policy deve valere solo per non testuali o se occorre estenderla ai moduli testuali (oggi non coperti).【0e8b5a†L1-L7】【fd69a0†L1-L41】
+- Nessuno: il blocco del download in modalità `ALLOW_MODULE_DUMP=false` si applica ora anche al ledger testuale.【fd69a0†L1-L41】
 
 ## Miglioramenti suggeriti
 - Nessuno: il `cta_guard` mantiene una CTA sintetica nelle call principali e `vendor_cap_gp` ora parte da default 2000 gp con QA che segnala WARN solo se configurato a `null`.【F:src/modules/adventurer_ledger.txt†L29-L68】【F:src/modules/adventurer_ledger.txt†L1672-L1693】
