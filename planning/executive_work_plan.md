@@ -1,6 +1,6 @@
 # Piano di lavoro esecutivo
 
-Generato il 2025-12-11T15:17:59Z da `tools/generate_module_plan.py`
+Generato il 2025-12-11T15:43:21Z da `tools/generate_module_plan.py`
 Fonte task: `planning/module_work_plan.md` (priorità P1→P3) e sequenza `planning/module_review_guide.md`.
 Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, con fasi sequenziali e dipendenze esplicite.
 
