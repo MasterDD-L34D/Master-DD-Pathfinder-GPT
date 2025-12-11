@@ -15,12 +15,22 @@
     {
       "module": "Taverna_NPC.txt",
       "file": "src/data/modules/Taverna_NPC.txt",
-      "status": "ok"
+      "status": "ok",
+      "meta": {
+        "name": "Taverna_NPC.txt",
+        "size_bytes": 124135,
+        "suffix": ".txt"
+      }
     },
     {
       "module": "adventurer_ledger.txt",
       "file": "src/data/modules/adventurer_ledger.txt",
-      "status": "ok"
+      "status": "ok",
+      "meta": {
+        "name": "adventurer_ledger.txt",
+        "size_bytes": 78592,
+        "suffix": ".txt"
+      }
     },
     {
       "module": "archivist.txt",
@@ -35,7 +45,12 @@
     {
       "module": "base_profile.txt",
       "file": "src/data/modules/base_profile.txt",
-      "status": "ok"
+      "status": "ok",
+      "meta": {
+        "name": "base_profile.txt",
+        "size_bytes": 36078,
+        "suffix": ".txt"
+      }
     },
     {
       "module": "explain_methods.txt",
@@ -80,7 +95,12 @@
     {
       "module": "narrative_flow.txt",
       "file": "src/data/modules/narrative_flow.txt",
-      "status": "ok"
+      "status": "ok",
+      "meta": {
+        "name": "narrative_flow.txt",
+        "size_bytes": 35089,
+        "suffix": ".txt"
+      }
     },
     {
       "module": "ruling_expert.txt",
@@ -95,7 +115,12 @@
     {
       "module": "scheda_pg_markdown_template.md",
       "file": "src/data/modules/scheda_pg_markdown_template.md",
-      "status": "ok"
+      "status": "ok",
+      "meta": {
+        "name": "scheda_pg_markdown_template.md",
+        "size_bytes": 23497,
+        "suffix": ".md"
+      }
     },
     {
       "module": "sigilli_runner_module.txt",

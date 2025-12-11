@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-12-11T12:09:55Z",
+  "generated_at": "2025-12-11T13:24:55Z",
   "builds": {
-    "total": 91,
-    "valid": 91,
+    "total": 93,
+    "valid": 93,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
@@ -1175,14 +1175,14 @@
         "status": "ok"
       },
       {
-        "file": "src/data/builds/magus.json",
-        "output_prefix": "magus_human_base",
+        "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter.json",
+        "output_prefix": "magus_kitsune_bladebound_hexcrafter",
         "class": "Magus",
-        "race": "Human",
-        "archetype": "Base",
+        "race": "Kitsune",
+        "archetype": "Bladebound Hexcrafter",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "magus_human_base",
+        "spec_id": "magus_kitsune_bladebound_hexcrafter",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -1191,6 +1191,56 @@
           10
         ],
         "level": 1,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl05.json",
+        "output_prefix": "magus_kitsune_bladebound_hexcrafter",
+        "class": "Magus",
+        "race": "Kitsune",
+        "archetype": "Bladebound Hexcrafter",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "magus_kitsune_bladebound_hexcrafter",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 5,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl10.json",
+        "output_prefix": "magus_kitsune_bladebound_hexcrafter",
+        "class": "Magus",
+        "race": "Kitsune",
+        "archetype": "Bladebound Hexcrafter",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "magus_kitsune_bladebound_hexcrafter",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 10,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
@@ -1829,13 +1879,13 @@
         "completeness_errors": 0
       },
       "5": {
-        "total": 24,
+        "total": 25,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "10": {
-        "total": 19,
+        "total": 20,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
@@ -1844,8 +1894,8 @@
   },
   "modules": {
     "total": 14,
-    "valid": 9,
-    "invalid": 5,
+    "valid": 14,
+    "invalid": 0,
     "errors": 0,
     "missing": 0,
     "entries": [
@@ -1858,15 +1908,13 @@
       {
         "module": "Taverna_NPC.txt",
         "file": "src/data/modules/Taverna_NPC.txt",
-        "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
-        "status": "invalid",
+        "status": "ok",
         "size_bytes": 124135
       },
       {
         "module": "adventurer_ledger.txt",
         "file": "src/data/modules/adventurer_ledger.txt",
-        "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
-        "status": "invalid",
+        "status": "ok",
         "size_bytes": 78592
       },
       {
@@ -1878,8 +1926,7 @@
       {
         "module": "base_profile.txt",
         "file": "src/data/modules/base_profile.txt",
-        "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
-        "status": "invalid",
+        "status": "ok",
         "size_bytes": 36078
       },
       {
@@ -1909,8 +1956,7 @@
       {
         "module": "narrative_flow.txt",
         "file": "src/data/modules/narrative_flow.txt",
-        "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
-        "status": "invalid",
+        "status": "ok",
         "size_bytes": 35089
       },
       {
@@ -1922,8 +1968,7 @@
       {
         "module": "scheda_pg_markdown_template.md",
         "file": "src/data/modules/scheda_pg_markdown_template.md",
-        "error": "'name' is a required property; 'size_bytes' is a required property; 'suffix' is a required property",
-        "status": "invalid",
+        "status": "ok",
         "size_bytes": 23497
       },
       {
