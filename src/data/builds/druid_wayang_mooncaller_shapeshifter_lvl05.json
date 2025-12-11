@@ -153,7 +153,27 @@
             "base_profile.txt",
             "Taverna_NPC.txt",
             "narrative_flow.txt"
-          ]
+          ],
+          "skills": [
+            {"nome": "Percezione", "totale": 12},
+            {"nome": "Furtività", "totale": 14}
+          ],
+          "equipaggiamento": [
+            "Talismano lunare",
+            "Pelle d'ombra"
+          ],
+          "ledger_movimenti": [
+            {"voce": "Equipaggiamento iniziale", "importo": -150},
+            {"voce": "Ricompensa missione", "importo": 200}
+          ],
+          "ledger": {
+            "movimenti": [
+              {"voce": "Equipaggiamento iniziale", "importo": -150},
+              {"voce": "Ricompensa missione", "importo": 200}
+            ],
+            "currency": {"oro": 120, "argento": 22, "rame": 55}
+          },
+          "sheet_markdown": "Percezione +12, Furtività +14, Talismano lunare, Ricompensa missione"
         }
       }
     },
@@ -208,7 +228,27 @@
         "base_profile.txt",
         "Taverna_NPC.txt",
         "narrative_flow.txt"
-      ]
+      ],
+      "skills": [
+        {"nome": "Percezione", "totale": 12},
+        {"nome": "Furtività", "totale": 14}
+      ],
+      "equipaggiamento": [
+        "Talismano lunare",
+        "Pelle d'ombra"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Equipaggiamento iniziale", "importo": -150},
+        {"voce": "Ricompensa missione", "importo": 200}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Equipaggiamento iniziale", "importo": -150},
+          {"voce": "Ricompensa missione", "importo": 200}
+        ],
+        "currency": {"oro": 120, "argento": 22, "rame": 55}
+      },
+      "sheet_markdown": "Percezione +12, Furtività +14, Talismano lunare, Ricompensa missione"
     }
   },
   "fetched_at": "2026-02-10T12:05:00Z",

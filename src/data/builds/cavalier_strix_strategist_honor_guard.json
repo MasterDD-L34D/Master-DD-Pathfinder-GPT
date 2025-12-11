@@ -145,7 +145,27 @@
             "base_profile.txt",
             "Taverna_NPC.txt",
             "narrative_flow.txt"
-          ]
+          ],
+          "skills": [
+            {"nome": "Percezione", "totale": 6},
+            {"nome": "Volare", "totale": 9}
+          ],
+          "equipaggiamento": [
+            "Lancia da cavalleria",
+            "Armatura lamellare"
+          ],
+          "ledger_movimenti": [
+            {"voce": "Equipaggiamento iniziale", "importo": -150},
+            {"voce": "Ricompensa pattuglia aerea", "importo": 180}
+          ],
+          "ledger": {
+            "movimenti": [
+              {"voce": "Equipaggiamento iniziale", "importo": -150},
+              {"voce": "Ricompensa pattuglia aerea", "importo": 180}
+            ],
+            "currency": {"oro": 140, "argento": 28, "rame": 60}
+          },
+          "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea"
         }
       }
     },
@@ -199,7 +219,27 @@
         "base_profile.txt",
         "Taverna_NPC.txt",
         "narrative_flow.txt"
-      ]
+      ],
+      "skills": [
+        {"nome": "Percezione", "totale": 6},
+        {"nome": "Volare", "totale": 9}
+      ],
+      "equipaggiamento": [
+        "Lancia da cavalleria",
+        "Armatura lamellare"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Equipaggiamento iniziale", "importo": -150},
+        {"voce": "Ricompensa pattuglia aerea", "importo": 180}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Equipaggiamento iniziale", "importo": -150},
+          {"voce": "Ricompensa pattuglia aerea", "importo": 180}
+        ],
+        "currency": {"oro": 140, "argento": 28, "rame": 60}
+      },
+      "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea"
     }
   },
   "fetched_at": "2025-12-11T01:14:21Z",

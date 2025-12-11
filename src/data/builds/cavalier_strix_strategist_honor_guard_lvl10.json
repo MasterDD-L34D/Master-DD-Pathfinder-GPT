@@ -145,7 +145,27 @@
             "base_profile.txt",
             "Taverna_NPC.txt",
             "narrative_flow.txt"
-          ]
+          ],
+          "skills": [
+            {"nome": "Percezione", "totale": 15},
+            {"nome": "Volare", "totale": 18}
+          ],
+          "equipaggiamento": [
+            "Lancia pesante volante",
+            "Armatura a scaglie strix"
+          ],
+          "ledger_movimenti": [
+            {"voce": "Equipaggiamento iniziale", "importo": -300},
+            {"voce": "Ricompensa pattuglia aerea", "importo": 450}
+          ],
+          "ledger": {
+            "movimenti": [
+              {"voce": "Equipaggiamento iniziale", "importo": -300},
+              {"voce": "Ricompensa pattuglia aerea", "importo": 450}
+            ],
+            "currency": {"oro": 310, "argento": 60, "rame": 90}
+          },
+          "sheet_markdown": "Percezione +15, Volare +18, Lancia pesante volante, Ricompensa pattuglia aerea"
         }
       }
     },
@@ -199,7 +219,27 @@
         "base_profile.txt",
         "Taverna_NPC.txt",
         "narrative_flow.txt"
-      ]
+      ],
+      "skills": [
+        {"nome": "Percezione", "totale": 15},
+        {"nome": "Volare", "totale": 18}
+      ],
+      "equipaggiamento": [
+        "Lancia pesante volante",
+        "Armatura a scaglie strix"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Equipaggiamento iniziale", "importo": -300},
+        {"voce": "Ricompensa pattuglia aerea", "importo": 450}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Equipaggiamento iniziale", "importo": -300},
+          {"voce": "Ricompensa pattuglia aerea", "importo": 450}
+        ],
+        "currency": {"oro": 310, "argento": 60, "rame": 90}
+      },
+      "sheet_markdown": "Percezione +15, Volare +18, Lancia pesante volante, Ricompensa pattuglia aerea"
     }
   },
   "fetched_at": "2025-12-11T01:14:21Z",

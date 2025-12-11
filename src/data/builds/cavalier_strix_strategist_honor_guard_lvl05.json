@@ -145,7 +145,27 @@
             "base_profile.txt",
             "Taverna_NPC.txt",
             "narrative_flow.txt"
-          ]
+          ],
+          "skills": [
+            {"nome": "Percezione", "totale": 10},
+            {"nome": "Volare", "totale": 13}
+          ],
+          "equipaggiamento": [
+            "Lancia lunga rinforzata",
+            "Corazza strix"
+          ],
+          "ledger_movimenti": [
+            {"voce": "Equipaggiamento iniziale", "importo": -220},
+            {"voce": "Ricompensa pattuglia aerea", "importo": 320}
+          ],
+          "ledger": {
+            "movimenti": [
+              {"voce": "Equipaggiamento iniziale", "importo": -220},
+              {"voce": "Ricompensa pattuglia aerea", "importo": 320}
+            ],
+            "currency": {"oro": 200, "argento": 40, "rame": 75}
+          },
+          "sheet_markdown": "Percezione +10, Volare +13, Lancia lunga rinforzata, Ricompensa pattuglia aerea"
         }
       }
     },
@@ -199,7 +219,27 @@
         "base_profile.txt",
         "Taverna_NPC.txt",
         "narrative_flow.txt"
-      ]
+      ],
+      "skills": [
+        {"nome": "Percezione", "totale": 10},
+        {"nome": "Volare", "totale": 13}
+      ],
+      "equipaggiamento": [
+        "Lancia lunga rinforzata",
+        "Corazza strix"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Equipaggiamento iniziale", "importo": -220},
+        {"voce": "Ricompensa pattuglia aerea", "importo": 320}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Equipaggiamento iniziale", "importo": -220},
+          {"voce": "Ricompensa pattuglia aerea", "importo": 320}
+        ],
+        "currency": {"oro": 200, "argento": 40, "rame": 75}
+      },
+      "sheet_markdown": "Percezione +10, Volare +13, Lancia lunga rinforzata, Ricompensa pattuglia aerea"
     }
   },
   "fetched_at": "2025-12-11T01:14:21Z",
