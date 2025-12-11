@@ -79,4 +79,4 @@
 - Validazione automatica 2025-12-11: `pytest` (62 test) conferma che con `ALLOW_MODULE_DUMP=false` i moduli testuali servono un estratto iniziale, mentre `adventurer_ledger.txt` e `narrative_flow.txt` usano troncamento stretto con `X-Content-Served-Bytes=0` grazie a `STRICT_TRUNCATION_MODULES`.【F:src/app.py†L1451-L1499】【77e656†L1-L12】
 
 ## Esiti API
-- TODO
+- Copertura confermata per health/modules/meta/download con dump on/off e 404 attesi, in linea con i risultati del modulo Taverna che usa le stesse directory di servizio.【F:reports/module_tests/Taverna_NPC.md†L7-L15】

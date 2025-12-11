@@ -13,7 +13,7 @@
 5. **Dump disabilitato (`ALLOW_MODULE_DUMP=false`)** — file testuali restano accessibili ma troncati a 4000 caratteri con marker finale `[contenuto troncato]` e header aggiuntivi `x-truncated=true` / `x-original-length=<byte>` che riportano dimensione originaria e limite di troncamento; asset binari/PDF restituiscono `403 Module download not allowed`.【F:tests/test_app.py†L252-L295】【F:tests/test_app.py†L319-L343】【F:src/app.py†L1420-L1492】
 6. **Errori standard** — path traversal → `400 Invalid module path`; nome errato → `404 Module not found`; knowledge traversal → `404 Knowledge file not found`.【F:tests/test_app.py†L214-L340】
 
-- TODO
+- Copertura API verificata con health/modules/meta/download e scenari di troncamento/403, confermando che la policy di streaming è rispettata anche per moduli testuali e asset binari.【F:tests/test_app.py†L252-L295】【F:src/app.py†L1420-L1492】
 
 ## Metadati, scopo e integrazioni
 - Profilo: Modalità **Narrativa** v2.3, erede di `base_profile.txt`, focalizzata su storie/ambientazioni/roleplay con Story Bible, Outline/Beats, Scene Tracker, guard-rail immagini, mappa ASCII e ponti verso moduli tattici.【F:src/modules/narrative_flow.txt†L1-L35】
@@ -29,7 +29,7 @@
 
 ## Comandi principali e impatto sullo stato
 - **Setup/Storia**: `/create_story`, `/generate_scene`, `/continue_story`+alias `/load_story`, `/save_story`, `/list_saved_stories`, `/check_conversation` — settano `genre/tone`, caricano/salvano `story_state`, serializzano sessioni con chiave `story_<titolo>`.【F:src/modules/narrative_flow.txt†L190-L262】
-- **Personaggi**: `/save_character`, `/list_saved_characters` aggiornano `protagonists`; `/visualize` produce placeholder visual con art_style/seed correnti.【F:src/modules/narrative_flow.txt†L238-L258】
+- **Personaggi**: `/save_character`, `/list_saved_characters` aggiornano `protagonists`; `/visualize` restituisce un’anteprima testuale con descrizione, stile artistico e seed correnti (non genera immagini reali).【F:src/modules/narrative_flow.txt†L238-L258】
 - **Stile/Sicurezza**: `/set_art_style`, `/style_lock` (autogenera seed se ON), `/content_safety` aggiornano `story_state.style` e `safety`; output conferma lock/seed e livello filtro.【F:src/modules/narrative_flow.txt†L263-L288】
 - **Outline/Bible/Tracker**: `/outline`, `/beat`, `/bible`, `/scene_tracker`, `/explain_theme` gestiscono timeline/hook e inoltri didattici (emit event).【F:src/modules/narrative_flow.txt†L290-L318】
 - **QA/Arc/Theme/Motif/Metrics/Export**: `/qa_story` calcola preview e lancia i validator reali, setta flag QA e blocca gli export se non tutti `ok`; `/arc`, `/theme`, `/motif_add`/`/register_chekhov`, `/plot_curve`, export MD/CSV/PDF con filename espliciti (`story_bible.md`, `story_beats.csv`, `narrative_story.md/.pdf`) e nota “partial preview” se il QA è stato troncato.【F:src/modules/narrative_flow.txt†L320-L404】

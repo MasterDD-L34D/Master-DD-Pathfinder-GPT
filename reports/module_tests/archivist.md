@@ -16,7 +16,7 @@
 9. **`GET /knowledge/doesnotexist/meta`** — `404 Not Found`; dettaglio `Knowledge file not found`.【ef67b0†L1-L7】
 10. **Errore autenticazione** — `GET /modules/archivist.txt/meta` senza API key → `401 Invalid or missing API key`.【d95840†L1-L7】
 
-- TODO
+- Copertura API completata su health/modules/meta/download con e senza API key, includendo 403/404 attesi e la visibilità della knowledge base e dei relativi metadati.【9757cf†L1-L9】【d95840†L1-L7】【580f0e†L1-L10】
 
 ## Metadati / Scopo del modulo
 - Nome **Archivist** v3.6.1 (last_updated 2025-08-20); eredità `base_profile.txt`; tipo `lore+qa+vtt`; descrizione: modulo monolitico per lore PF1e con QA citazioni, gestione campagne (AV/NC/SX/SX00/SX10) e generatore mappe VTT gridless.【F:src/modules/archivist.txt†L1-L19】

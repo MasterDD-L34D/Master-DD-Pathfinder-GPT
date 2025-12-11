@@ -12,7 +12,7 @@
 6. **`GET /modules/explain_methods.txt` con `ALLOW_MODULE_DUMP=false`** — risposta testuale con marker `[contenuto troncato]` dopo ~4000 caratteri, come previsto dal fallback streaming.【981c3b†L1-L6】【F:src/app.py†L543-L563】
 7. **Parametri `mode`/`stub`** — endpoint `/modules/{name}` accetta `mode` (default `extended`) e `stub`/`mode=stub` per servire payload builder validato solo su `minmax_builder.txt`; per `explain_methods.txt` l'effetto è neutro e viene servito il file.【F:src/app.py†L367-L533】
 
-- TODO
+- Copertura API completa per health/modules/meta/download con e senza troncamento, inclusi 404 su file mancanti e il rispetto del router `mode/stub` previsto dall'applicazione.【f222e6†L1-L8】【981c3b†L1-L6】【c4e48f†L1-L7】
 
 ## Metadati e scopo del modulo
 - Modalità **Explain** v3.2-hybrid (last_updated 2025-08-20), erede di `base_profile.txt`; fornisce multi-metodo di spiegazione, quiz/teach-back, diagrammi ASCII e rubriche QA/MDA, con deleghe documentate verso Ruling/Archivist/MinMax gestite dal kernel.【F:src/modules/explain_methods.txt†L1-L34】
