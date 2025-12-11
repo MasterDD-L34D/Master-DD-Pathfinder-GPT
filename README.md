@@ -133,7 +133,14 @@ con tutte le intestazioni/template applicati.
 
 ### Workflow QA quotidiano
 
-Usa questo mini-flusso per mantenere allineati report e piano di lavoro lungo la giornata.
+Usa questo mini-flusso per mantenere allineati report e piano di lavoro lungo la giornata. Il comando
+`bash tools/daily_workflow.sh` orchestra in sequenza i passaggi già elencati (normalizzazione dei
+report, generazione del piano, analisi statica) producendo/validando i file
+`reports/module_tests/*.md` e `planning/module_work_plan.md` (più l'eventuale executive plan). Per
+una corsa solo di validazione lancia `bash tools/daily_workflow.sh --check-only`, che mantiene i
+report immutati e si limita a verificare che il piano sia generabile. Se ti servono percorsi
+alternativi per i piani, passa `--plan-path` e/o `--exec-plan-path` (es. per salvare una copia
+temporanea durante gli esperimenti).
 
 - **Mattina**
   - Normalizza i report in [`reports/module_tests/`](reports/module_tests/) con le sezioni obbligatorie: `python tools/refresh_module_reports.py --write`. Se lo script stampa
