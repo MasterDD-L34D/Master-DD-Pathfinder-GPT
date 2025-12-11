@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-11T16:23:26Z",
+  "generated_at": "2025-12-11T16:33:12Z",
   "builds": {
     "total": 3,
     "valid": 3,
@@ -8,47 +8,47 @@
     "missing": 0,
     "entries": [
       {
-        "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant.json",
-        "class": "Occultist",
+        "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer.json",
+        "class": "Oracle",
         "mode": "extended",
         "status": "ok",
-        "output_prefix": "occultist_ghoran_battle_host_panoply_savant",
+        "output_prefix": "oracle_ghoran_spirit_guide_seer",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "spec_id": "occultist_ghoran_battle_host_panoply_savant",
+        "spec_id": "oracle_ghoran_spirit_guide_seer",
         "mode_normalized": "extended",
         "level": 1
       },
       {
-        "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl05.json",
-        "class": "Occultist",
+        "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl05.json",
+        "class": "Oracle",
         "mode": "extended",
         "status": "ok",
-        "output_prefix": "occultist_ghoran_battle_host_panoply_savant",
+        "output_prefix": "oracle_ghoran_spirit_guide_seer",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "spec_id": "occultist_ghoran_battle_host_panoply_savant",
+        "spec_id": "oracle_ghoran_spirit_guide_seer",
         "mode_normalized": "extended",
         "level": 5
       },
       {
-        "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl10.json",
-        "class": "Occultist",
+        "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl10.json",
+        "class": "Oracle",
         "mode": "extended",
         "status": "ok",
-        "output_prefix": "occultist_ghoran_battle_host_panoply_savant",
+        "output_prefix": "oracle_ghoran_spirit_guide_seer",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "spec_id": "occultist_ghoran_battle_host_panoply_savant",
+        "spec_id": "oracle_ghoran_spirit_guide_seer",
         "mode_normalized": "extended",
         "level": 10
       }

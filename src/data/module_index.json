@@ -1,5 +1,38 @@
 {
-  "generated_at": "2025-12-11T15:54:10Z",
+  "generated_at": "2025-12-11T16:32:38Z",
   "api_url": "http://localhost:8000",
-  "entries": []
+  "entries": [
+    {
+      "module": "Taverna_NPC.txt",
+      "file": "src/data/modules/Taverna_NPC.txt",
+      "status": "ok"
+    },
+    {
+      "module": "adventurer_ledger.txt",
+      "file": "src/data/modules/adventurer_ledger.txt",
+      "status": "ok"
+    },
+    {
+      "module": "base_profile.txt",
+      "file": "src/data/modules/base_profile.txt",
+      "status": "ok"
+    },
+    {
+      "module": "narrative_flow.txt",
+      "file": "src/data/modules/narrative_flow.txt",
+      "status": "ok"
+    },
+    {
+      "module": "scheda_pg_markdown_template.md",
+      "file": "src/data/modules/scheda_pg_markdown_template.md",
+      "status": "ok"
+    }
+  ],
+  "module_plan": [
+    "base_profile.txt",
+    "Taverna_NPC.txt",
+    "narrative_flow.txt",
+    "scheda_pg_markdown_template.md",
+    "adventurer_ledger.txt"
+  ]
 }
