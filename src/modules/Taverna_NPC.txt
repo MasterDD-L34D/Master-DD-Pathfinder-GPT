@@ -301,7 +301,7 @@ policies:
     echo_guard:
       enforce_min_score: "${runtime.echo_min_score}"
       auto_refine_if_below: "${runtime.auto_refine}"
-      remediation_guidance: "Se Echo < soglia: esegui /grade per note puntuali, applica /refine_npc e ripeti /grade fino a ≥${runtime.echo_min_score}; in sandbox puoi disattivare il gate con /echo off."
+      remediation_guidance: "Se Echo < soglia: esegui /grade per note puntuali, applica /refine_npc e ripeti /grade finché non superi ≥${runtime.echo_min_score}; prima di salvare o esportare rifai /self_check e, solo in sandbox, puoi disattivare il gate con /echo off."
   exposure_guard:
     no_internal_dump: true
     allowed_outputs: ["parafrasi con citazione","estratti brevi","tabelle riassuntive"]
@@ -800,7 +800,7 @@ commands:
         then:
           - if: "{{ not _canvas_ok }}": { output: "📑 Canvas mancante/incompleto: usa /canvas_set o rigenera la card finché i campi richiesti sono coperti." }
           - if: "{{ not _ledger_ok }}": { output: "💾 Ledger non montato: inizializza con /ledger_init o importa con /ledger_append per riprendere un salvataggio." }
-          - output: "ℹ️ QA CHECK: completa i punti sopra, applica /grade o /refine_npc se Echo < {{runtime.echo_min_score}}, poi riesegui /self_check. Export e salvataggi restano bloccati finché QA=CHECK o Echo < soglia."
+          - output: "ℹ️ QA CHECK: completa i punti sopra, poi riesegui /self_check. Se Echo < {{runtime.echo_min_score}} esegui /grade (ripeti finché ≥soglia) o /refine_npc; in sandbox puoi disattivare temporaneamente con /echo off. Export e salvataggi restano bloccati finché QA=CHECK o Echo < soglia."
 
   /echo <on|off>:
     description: "Abilita/disabilita il grading+gate Echo locale (rispetta anche i toggles globali)."
@@ -1116,9 +1116,27 @@ commands:
       - set: _allow_dump, value: "{{ env.ALLOW_MODULE_DUMP or runtime.allow_module_dump or false }}"
       - set: _dump_marker, value: "{{ policies.exposure_guard.dump_policy.marker }}"
       - set: _dump_warning, value: "{{ policies.exposure_guard.dump_policy.standard_response }}"
+      - set: _canvas_ok, value: "{{ (export.canvas_schema.npc_card.fields_map and export.canvas_schema.required_keys) and (set(export.canvas_schema.required_keys) - set(export.canvas_schema.npc_card.fields_map.keys()))|length == 0 }}"
+      - set: _ledger_ok, value: "{{ ledger_storage.path is not none }}"
+      - set: _qa_status, value: "{{ 'OK' if (_canvas_ok and _ledger_ok) else 'CHECK' }}"
+      - set: _echo_score, value: "{{ (current_npc and (current_npc.quality_report or {})).get('score', 10) }}"
+      - set: _echo_gate_on, value: "{{ feature_flags.echo_gate=='on' }}"
+      - set: _gate_reason, value: "{{ 'QA=' ~ _qa_status ~ ' (Canvas=' ~ ('OK' if _canvas_ok else 'FAIL') ~ ', Ledger=' ~ ('OK' if _ledger_ok else 'FAIL') ~ ')' }}"
+      - set: _blocked, value: "{{ _qa_status != 'OK' or (_echo_gate_on and (_echo_score < runtime.echo_min_score)) }}"
+      - if: "{{ _echo_gate_on and (_echo_score < runtime.echo_min_score) }}"
+        then:
+          - set: _gate_reason, value: "{{ _gate_reason ~ '; Echo=' ~ _echo_score ~ '/10 (< ' ~ runtime.echo_min_score ~ ')' }}"
       - set: _storage_used, value: "{{ storage_metrics.taverna_saves.count | default(0) }}"
       - set: _storage_max, value: "{{ storage.auto_name_policy.max_files }}"
       - set: _storage_remaining, value: "{{ (_storage_max|int) - (_storage_used|int) }}"
+      - if: "{{ _blocked }}"
+        then:
+          - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
+          - output: "⛔ Export bloccato: {{ _gate_reason }}."
+          - output: "➡️ CTA: riesegui /self_check finché QA=OK, poi /grade (ripeti) o /refine_npc se Echo < {{runtime.echo_min_score}}; in sandbox puoi disattivare Echo con /echo off prima di ritentare."
+          - goto_state: READY
+        else:
+          - continue
       - if: "{{ _fmt in ['txt','md'] and not _allow_dump }}"
         then:
           - output: "{{ _dump_warning }}"
@@ -1281,8 +1299,13 @@ commands:
       - set: _canvas_ok, value: "{{ (export.canvas_schema.npc_card.fields_map and export.canvas_schema.required_keys) and (set(export.canvas_schema.required_keys) - set(export.canvas_schema.npc_card.fields_map.keys()))|length == 0 }}"
       - set: _ledger_ok, value: "{{ ledger_storage.path is not none }}"
       - set: _qa_status, value: "{{ 'OK' if (_canvas_ok and _ledger_ok) else 'CHECK' }}"
+      - set: _echo_score, value: "{{ (current_npc and (current_npc.quality_report or {})).get('score', 10) }}"
+      - set: _echo_gate_on, value: "{{ feature_flags.echo_gate=='on' }}"
       - set: _gate_reason, value: "{{ 'QA=' ~ _qa_status ~ ' (Canvas=' ~ ('OK' if _canvas_ok else 'FAIL') ~ ', Ledger=' ~ ('OK' if _ledger_ok else 'FAIL') ~ ')' }}"
-      - set: _blocked, value: "{{ _qa_status != 'OK' }}"
+      - set: _blocked, value: "{{ _qa_status != 'OK' or (_echo_gate_on and (_echo_score < runtime.echo_min_score)) }}"
+      - if: "{{ _echo_gate_on and (_echo_score < runtime.echo_min_score) }}"
+        then:
+          - set: _gate_reason, value: "{{ _gate_reason ~ '; Echo=' ~ _echo_score ~ '/10 (< ' ~ runtime.echo_min_score ~ ')' }}"
       - set: _storage_used, value: "{{ storage_metrics.taverna_saves.count | default(0) }}"
       - set: _storage_max, value: "{{ storage.auto_name_policy.max_files }}"
       - set: _storage_remaining, value: "{{ (_storage_max|int) - (_storage_used|int) }}"
@@ -1296,8 +1319,8 @@ commands:
         then:
           - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
           - output: "⛔ Export bloccato: {{ _gate_reason }}."
-          - output: "➡️ CTA: riesegui /self_check (QA CHECK/repair), completa Canvas+Ledger, poi salva con /save_hub o riallinea la chat con /check_conversation prima di riprovare."
-          - output: "🛠️ Remediation: se Echo < {{runtime.echo_min_score}} ripeti /grade o /refine_npc finché supera la soglia; in sandbox puoi disattivare temporaneamente il gate con /echo off dopo aver chiuso la QA checklist con /self_check."
+          - output: "➡️ CTA: riesegui /self_check finché QA=OK, poi /grade (ripeti) o /refine_npc se Echo < {{runtime.echo_min_score}}; in sandbox puoi disattivare Echo con /echo off. Salva con /save_hub o riallinea la chat con /check_conversation prima di riprovare."
+          - output: "🛠️ Remediation: assicurati che Canvas+Ledger siano OK, porta Echo ≥ {{runtime.echo_min_score}} o disattiva il gate (solo sandbox) e ripeti /self_check prima di esportare."
           - goto_state: READY
         else:
           - continue
