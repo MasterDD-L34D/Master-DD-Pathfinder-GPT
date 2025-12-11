@@ -25,8 +25,6 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 - **narrative_flow**
   - ✅ **Troncamento vs policy**: l’endpoint espone ora header `x-truncated=true` e `x-original-length=<byte>` quando `ALLOW_MODULE_DUMP=false`, chiarendo dimensione originaria e limite applicato nei dump troncati.【F:tests/test_app.py†L319-L343】【F:src/app.py†L1420-L1492】
 - **ruling_expert**
-  - **Documentare payload stub builder**: chiarire nel modulo come i campi `build_state`/`sheet`/`benchmark`/`ledger`/`export`/`composite` si mappano su rulings/QA per agevolare l’integrazione con il builder.【F:src/app.py†L366-L572】
-  - **Rafforzare CTA per PFS**: aggiungere un prompt CTA per confermare la stagione PFS nel `status_example`, riducendo ambiguità di giurisdizione.【F:src/modules/ruling_expert.txt†L300-L317】【F:src/modules/ruling_expert.txt†L417-L424】
 - **scheda_pg_markdown_template**
   - ✅ Trigger e policy operative documentati nel meta header (`triggers.*`, `activation.*`, `export_policy.*`) con CTA su export limitati/bloccati e note di sblocco per Ledger/MinMax/VTT.【F:src/modules/scheda_pg_markdown_template.md†L13-L63】
 - **Cartelle di servizio**
@@ -51,6 +49,6 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | knowledge_pack | 0 | — | Pronto per sviluppo |
 | meta_doc | 0 | — | Pronto per sviluppo |
 | narrative_flow | 0 | — | Pronto per sviluppo |
-| ruling_expert | 2 | P2 | Pronto per sviluppo |
+| ruling_expert | 0 | — | Completato |
 | scheda_pg_markdown_template | 0 | — | Pronto per sviluppo |
 | sigilli_runner_module | 0 | — | Pronto per sviluppo |
