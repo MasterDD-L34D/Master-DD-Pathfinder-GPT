@@ -34,7 +34,7 @@ from tools.generate_module_plan import (
     map_reports,
     normalise_name,
 )
- 
+
 MODULE_DIR = REPO_ROOT / "src" / "modules"
 PLACEHOLDER = "- TODO"
 
