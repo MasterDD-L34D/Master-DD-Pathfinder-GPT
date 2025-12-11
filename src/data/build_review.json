@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-12-11T13:24:55Z",
+  "generated_at": "2025-12-11T13:37:36Z",
   "builds": {
-    "total": 93,
-    "valid": 93,
+    "total": 95,
+    "valid": 95,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
@@ -1282,22 +1282,72 @@
         "status": "ok"
       },
       {
-        "file": "src/data/builds/monk.json",
-        "output_prefix": "monk_human_base",
+        "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
+        "output_prefix": "monk_vanara_qinggong_master_of_many_styles",
         "class": "Monk",
-        "race": "Human",
-        "archetype": "Base",
+        "race": "Vanara",
+        "archetype": "Qinggong + Master of Many Styles",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "monk_human_base",
+        "spec_id": "monk_vanara_qinggong_master_of_many_styles",
         "background": null,
-        "model": null,
+        "model": "gpt-5.1-codex-max",
         "level_checkpoints": [
           1,
           5,
           10
         ],
         "level": 1,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl05.json",
+        "output_prefix": "monk_vanara_qinggong_master_of_many_styles",
+        "class": "Monk",
+        "race": "Vanara",
+        "archetype": "Qinggong + Master of Many Styles",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "monk_vanara_qinggong_master_of_many_styles",
+        "background": null,
+        "model": "gpt-5.1-codex-max",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 5,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl10.json",
+        "output_prefix": "monk_vanara_qinggong_master_of_many_styles",
+        "class": "Monk",
+        "race": "Vanara",
+        "archetype": "Qinggong + Master of Many Styles",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "monk_vanara_qinggong_master_of_many_styles",
+        "background": null,
+        "model": "gpt-5.1-codex-max",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 10,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
@@ -1879,13 +1929,13 @@
         "completeness_errors": 0
       },
       "5": {
-        "total": 25,
+        "total": 26,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "10": {
-        "total": 20,
+        "total": 21,
         "invalid": 0,
         "schema_errors": 0,
         "completeness_errors": 0

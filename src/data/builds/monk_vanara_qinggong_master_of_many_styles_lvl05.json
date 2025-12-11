@@ -1,0 +1,250 @@
+{
+  "build_state": {
+    "class": "Monk",
+    "mode": "extended",
+    "race": "Vanara",
+    "archetype": "Qinggong + Master of Many Styles",
+    "step": 1,
+    "step_total": 16,
+    "step_labels": {
+      "1": "Profilo Base",
+      "2": "Razza & Classe",
+      "3": "Archetipi & Multiclasse",
+      "4": "Feats & Talenti",
+      "5": "Spell & Power Set",
+      "6": "Equip & Risorse",
+      "7": "Benchmark & Simulazioni",
+      "8": "QA & Export",
+      "9": "Dummies Sheet",
+      "10": "Esportazione",
+      "11": "Fork/Varianti",
+      "12": "Comparativa",
+      "13": "Meta Rating",
+      "14": "Companion",
+      "15": "Report",
+      "16": "Chiusura"
+    },
+    "statistics": {
+      "FOR": 16,
+      "DES": 18,
+      "COS": 12,
+      "INT": 10,
+      "SAG": 16,
+      "CAR": 8
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T3",
+    "ruling_badge": "validated",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 11,
+        "picco": 16
+      },
+      "livello_5": {
+        "media": 27,
+        "picco": 42
+      },
+      "livello_10": {
+        "media": 50,
+        "picco": 76
+      }
+    },
+    "statistics": {
+      "attacco": "+11",
+      "danni": "2d6+8",
+      "ca": 22,
+      "tempra": 6,
+      "riflessi": 8,
+      "volonta": 7
+    }
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Monk",
+          "livelli": 5,
+          "archetipi": [
+            "Qinggong",
+            "Master of Many Styles"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 16,
+        "DES": 18,
+        "COS": 12,
+        "INT": 10,
+        "SAG": 16,
+        "CAR": 8,
+        "attacco": "+11",
+        "danni": "2d6+8",
+        "ca": 22
+      },
+      "statistiche_chiave": {
+        "attacco": "+11",
+        "danni": "2d6+8",
+        "ca": 22
+      },
+      "pf_totali": 45,
+      "hp": {
+        "totali": 45,
+        "per_livello": [
+          11,
+          9,
+          9,
+          8,
+          8
+        ]
+      },
+      "salvezze": {
+        "Tempra": 6,
+        "Riflessi": 8,
+        "Volontà": 7
+      },
+      "skills_map": {
+        "Acrobazia": {
+          "totale": 13
+        },
+        "Furtività": {
+          "totale": 13
+        },
+        "Percezione": {
+          "totale": 11
+        },
+        "Sapienza Magica": {
+          "totale": 9
+        }
+      },
+      "equipaggiamento": [
+        "Amuleto dell'armatura naturale +1",
+        "Stivali del salto del vento",
+        "Handwraps +1 con Furious Focus"
+      ],
+      "talenti": [
+        "Tiger Claws",
+        "Dragon Style",
+        "Crane Wing",
+        "Mobility"
+      ],
+      "capacita_classe": [
+        "High Jump",
+        "Style Strike (Flying Kick)",
+        "Ki power: Barkskin",
+        "Evasion"
+      ],
+      "progressione": [
+        {
+          "talento": "Tiger Style + Crane Style",
+          "privilegi": [
+            "Flurry of Blows",
+            "Ki Pool"
+          ]
+        },
+        {
+          "talento": "Dodge + Mobility",
+          "privilegi": [
+            "Evasion"
+          ]
+        },
+        {
+          "talento": "Tiger Claws",
+          "privilegi": [
+            "High Jump"
+          ]
+        },
+        {
+          "talento": "Dragon Style",
+          "privilegi": [
+            "Style Strike (Flying Kick)"
+          ]
+        },
+        {
+          "talento": "Crane Wing",
+          "privilegi": [
+            "Ki power: Barkskin"
+          ]
+        }
+      ],
+      "skill_points": 20,
+      "iniziativa": 6,
+      "velocita": 12,
+      "ac_breakdown": {
+        "base": 10,
+        "des": 4,
+        "sag": 3,
+        "dodge": 2,
+        "armatura": 3
+      },
+      "magia": {
+        "ki_powers": [
+          "barkskin",
+          "feather step"
+        ]
+      }
+    }
+  },
+  "narrative": "Checkpoint 5: il vanara alterna Tiger/Dragon per il burst, Crane per difesa e usa Flying Kick per entrare/uscire dalle minacce. Ki Barkskin e stivali del vento gli danno CA 22 e mobilità verticale, mantenendo i debuff ai bersagli con Stun Fist.",
+  "ledger": {
+    "movimenti": [
+      {
+        "voce": "Acquisto handwraps +1",
+        "importo": -2000
+      },
+      {
+        "voce": "Taglia su cultisti",
+        "importo": 2400
+      }
+    ],
+    "currency": {
+      "oro": 600,
+      "argento": 40,
+      "rame": 0
+    },
+    "saldo": 600
+  },
+  "sheet": "### 🧙 Scheda Personaggio in Markdown\n\n---\n\n# Monk — Liv. 5 (Vanara · Qinggong + Master of Many Styles)\n\n**Checkpoint 5:** Flying Kick + Tiger Claws per entrare in mischia, attiva Barkskin (Qinggong) e passa a Crane Wing quando il boss reagisce. Usa debuff mirati con Stunning Fist e dirty trick da Panther Style se serve controllo.\n\n**Linee iterate:**\n- Combo Stance: Tiger/Dragon con Furious Focus per DPR alto.\n- Difese/Mobilità: Crane Wing + Mobility e Feather Step per negare AoO.\n- Debuff: Stunning Fist mirato alle gambe, Dirty Trick (prone) post-Flying Kick.\n\n**Benchmark DPR/CA:** 3 attacchi 2d6+8, CA 22; DPR medio/picco 27/42 nel run con badge convalidato.\n",
+  "class": "Monk",
+  "mode": "extended",
+  "race": "Vanara",
+  "archetype": "Qinggong + Master of Many Styles",
+  "output_prefix": "monk_vanara_qinggong_master_of_many_styles",
+  "level": 5,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "bench_log": [
+    "Ruling Expert → MinMax → Taverna: confrontate le linee Tiger/Dragon (burst), Crane difensiva e debuff Panther. Tiger/Dragon mantiene il DPR più alto con Barkskin attivo senza perdere conformità RAW/RAI/PFS.",
+    "Variante mobilità: Crane Wing + Wind Jump ha retto CA 23 ma ha perso ~10% DPR medio.",
+    "Variante debuff: Panther + Vicious Stomp ha migliorato il controllo ma DPR medio 22; scartata.",
+    "Linea selezionata: Flying Kick + Tiger/Dragon con Barkskin e swap a Crane Wing dopo il primo flurry."
+  ],
+  "ruling_log": [
+    "Ruling Expert: confermata compatibilità tra Style Strike e swap di stili gratuiti del Master of Many Styles.",
+    "RAW/RAI/PFS: Barkskin da Qinggong sostituisce abilità standard senza stacking improprio; legal in PFS.",
+    "MinMax: Tiger/Dragon + Flying Kick fornisce DPR migliore ai livelli 5/10 rispetto alle varianti difesa/debuff, mantenendo CA >21."
+  ],
+  "request": {
+    "class": "Monk",
+    "mode": "extended",
+    "race": "Vanara",
+    "archetype": "Qinggong + Master of Many Styles",
+    "spec_id": "monk_vanara_qinggong_master_of_many_styles",
+    "model": "gpt-5.1-codex-max",
+    "level": 5,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "completeness": {
+    "status": "complete",
+    "missing": [],
+    "checklist": {},
+    "require_complete": true
+  }
+}
