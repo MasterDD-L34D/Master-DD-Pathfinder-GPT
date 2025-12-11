@@ -114,11 +114,10 @@
           }
         ],
         "currency": {
-          "oro": 100,
-          "argento": 25,
-          "rame": 40
-        },
-        "saldo": 0
+        "oro": 100,
+        "argento": 25,
+        "rame": 40
+        }
       },
       "print_mode": false,
       "show_minmax": true,
