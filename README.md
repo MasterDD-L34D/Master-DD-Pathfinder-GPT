@@ -105,6 +105,10 @@ python tools/refresh_module_reports.py --write
 Usa `--check` nei workflow CI per bloccare report incompleti; `--write` aggiorna
 in loco i file mancanti senza toccare il contenuto esistente.
 
+Nota operativa: prima di avviare una revisione manuale dei report esegui `python tools/refresh_module_reports.py --write` per
+allineare i file locali; nelle pipeline CI aggiungi un passaggio dedicato (o un target equivalente) che lanci `python
+tools/refresh_module_reports.py --check` per impedire il merge di report senza tutte le sezioni.
+
 Per i moduli, il dump completo è **disattivato di default** (`ALLOW_MODULE_DUMP=false`).
 `/modules/{name}` restituisce solo estratti (4000 caratteri + marcatore finale) e blocca
 gli asset non testuali: la risposta include `X-Content-Partial: true` e `206 Partial Content`
