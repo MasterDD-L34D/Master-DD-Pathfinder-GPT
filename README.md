@@ -55,9 +55,16 @@ richieste prive di chiave.
 2. Installa le dipendenze: `pip install -r requirements.txt`.
 3. Esegui il controllo di formattazione e sintassi: `tools/run_static_analysis.sh`.
 4. Avvia l'API: `uvicorn src.app:app --reload --port 8000`.
-5. Verifica che risponda: `curl http://localhost:8000/health`.
+5. Verifica che risponda:
 
-Se incontri errori `401` o `429`, regola il [backoff di autenticazione](#backoff-autenticazione-auth_backoff_) tramite le variabili `AUTH_BACKOFF_*` per gestire ritardi e blocchi temporanei.
+```bash
+curl http://localhost:8000/health
+curl -H "x-api-key:$API_KEY" http://localhost:8000/modules/minmax_builder
+curl http://localhost:8000/modules/minmax_builder        # 401 se la chiave è obbligatoria
+curl -H "x-api-key:chiave-sbagliata" http://localhost:8000/modules/minmax_builder  # 429 dopo i tentativi falliti
+```
+
+Se incontri errori `401` o `429`, ricordati che il blocco/backoff sullo header `x-api-key` è controllato da `AUTH_BACKOFF_THRESHOLD` e `AUTH_BACKOFF_SECONDS`: aumentali o disattiva la chiave per verificare se gli esiti derivano dalla soglia di tentativi o dal timer di blocco. Consulta il [backoff di autenticazione](#backoff-autenticazione-auth_backoff_) per i dettagli.
 
 #### Backoff autenticazione (`AUTH_BACKOFF_*`)
 
