@@ -21,6 +21,9 @@
 - Router integrato con modalità specializzate (Archivist, Ruling Expert, Taverna NPC, Narrativa, Explain, MinMax Builder, Encounter Designer, Libro Mastro, Documentazione) e binding ai rispettivi file modulo.【F:src/modules/base_profile.txt†L107-L117】
 - Scopi operativi: garantire routing hard-gate, enforcement tag trasparenza, compatibilità PFS e governance Sigilli/Echo con logger QA e warmup preload.【F:src/modules/base_profile.txt†L360-L374】【F:src/modules/base_profile.txt†L600-L645】
 
+## Dipendenze
+- Elencare moduli esterni, API o asset (file, immagini, modelli) su cui il modulo fa affidamento, includendo per ciascuno una citazione in linea al blocco di codice che definisce il link o l’endpoint di riferimento.【F:src/modules/base_profile.txt†L95-L117】【F:src/modules/base_profile.txt†L430-L447】
+
 ## Modello dati e stato
 - **Toggles**: pfs, language, terse_mode, show_badges/show_sources, spoiler, echo_gate/echo_persona, image_constraints, expert; controllano filtri PFS, lingua, lunghezza, spoiler e grading Echo.【F:src/modules/base_profile.txt†L368-L388】
 - **Session state**: reset ad ogni nuova chat, default output_mode `tldr`, seasonal e user_tone disattivati, QA log interno attivo; `/state reset` ripristina i default.【F:src/modules/base_profile.txt†L382-L401】【F:src/modules/base_profile.txt†L469-L472】
