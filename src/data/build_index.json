@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-11T20:11:44Z",
+  "generated_at": "2025-12-11T20:21:59Z",
   "api_url": null,
   "mode": null,
   "spec_file": null,
@@ -1354,6 +1354,63 @@
         5,
         10
       ],
+      "level": 10
+    },
+    {
+      "status": "ok",
+      "output_prefix": "cleric_wayang_shadowcaster_separatist",
+      "class": "Cleric",
+      "race": "Wayang (Umbral)",
+      "archetype": "Shadowcaster + Separatist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "cleric_wayang_shadowcaster_separatist",
+      "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist.json",
+      "level": 1
+    },
+    {
+      "status": "ok",
+      "output_prefix": "cleric_wayang_shadowcaster_separatist",
+      "class": "Cleric",
+      "race": "Wayang (Umbral)",
+      "archetype": "Shadowcaster + Separatist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "cleric_wayang_shadowcaster_separatist",
+      "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl05.json",
+      "level": 5
+    },
+    {
+      "status": "ok",
+      "output_prefix": "cleric_wayang_shadowcaster_separatist",
+      "class": "Cleric",
+      "race": "Wayang (Umbral)",
+      "archetype": "Shadowcaster + Separatist",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "cleric_wayang_shadowcaster_separatist",
+      "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl10.json",
       "level": 10
     },
     {
