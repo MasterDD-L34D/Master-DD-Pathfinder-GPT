@@ -37,15 +37,15 @@ requests:
     query:
       race: Human
       archetype: Evoker
-  - id: cleric_human_warpriest
+  - id: cleric_samsaran_cloistered_evangelist
     class: Cleric
-    race: Human
-    archetype: Warpriest
-    background_hooks: "Seguace zelota che bilancia liturgia e combattimento sacro."
-    output_prefix: cleric_human_warpriest
+    race: Samsaran
+    archetype: Cloistered Evangelist
+    background_hooks: "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo."
+    output_prefix: cleric_samsaran_cloistered_evangelist
     query:
-      race: Human
-      archetype: Warpriest
+      race: Samsaran
+      archetype: Cloistered Evangelist
   - id: rogue_halfling_cutpurse
     class: Rogue
     race: Halfling
