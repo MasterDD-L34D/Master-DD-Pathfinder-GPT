@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-02-25T00:00:00Z",
-  "api_url": null,
+  "generated_at": "2025-12-11T15:38:08Z",
+  "api_url": "http://localhost:8000",
   "mode": "extended",
-  "spec_file": "custom:kineticist_suli_kinetic_knight_overwhelming_soul",
+  "spec_file": "docs/examples/pg_variants.yml",
   "entries": [
     {
-      "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul.json",
+      "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
       "status": "ok",
-      "output_prefix": "kineticist_suli_kinetic_knight_overwhelming_soul",
-      "class": "Kineticist",
-      "race": "Suli",
-      "archetype": "Kinetic Knight + Overwhelming Soul",
+      "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
+      "class": "Medium",
+      "race": "Oread",
+      "archetype": "Spirit Dancer + Reanimated Medium",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "kineticist_suli_kinetic_knight_overwhelming_soul",
-      "background": "Guardia delle carovane dell'oasi suli",
+      "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+      "background": "Medium oread che danza con le anime pietrose dei canyon",
       "model": null,
       "level_checkpoints": [
         1,
@@ -28,16 +28,16 @@
       "step_total_ok": true
     },
     {
-      "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl05.json",
+      "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json",
       "status": "ok",
-      "output_prefix": "kineticist_suli_kinetic_knight_overwhelming_soul",
-      "class": "Kineticist",
-      "race": "Suli",
-      "archetype": "Kinetic Knight + Overwhelming Soul",
+      "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
+      "class": "Medium",
+      "race": "Oread",
+      "archetype": "Spirit Dancer + Reanimated Medium",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "kineticist_suli_kinetic_knight_overwhelming_soul",
-      "background": "Guardia delle carovane dell'oasi suli",
+      "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+      "background": "Medium oread che danza con le anime pietrose dei canyon",
       "model": null,
       "level_checkpoints": [
         1,
@@ -51,16 +51,16 @@
       "step_total_ok": true
     },
     {
-      "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl10.json",
+      "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json",
       "status": "ok",
-      "output_prefix": "kineticist_suli_kinetic_knight_overwhelming_soul",
-      "class": "Kineticist",
-      "race": "Suli",
-      "archetype": "Kinetic Knight + Overwhelming Soul",
+      "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
+      "class": "Medium",
+      "race": "Oread",
+      "archetype": "Spirit Dancer + Reanimated Medium",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "kineticist_suli_kinetic_knight_overwhelming_soul",
-      "background": "Guardia delle carovane dell'oasi suli",
+      "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+      "background": "Medium oread che danza con le anime pietrose dei canyon",
       "model": null,
       "level_checkpoints": [
         1,
@@ -77,21 +77,24 @@
   "checkpoints": {
     "1": {
       "total": 1,
+      "valid": 1,
       "invalid": 0,
-      "schema_errors": 0,
-      "completeness_errors": 0
+      "errors": 0,
+      "missing": 0
     },
     "5": {
       "total": 1,
+      "valid": 1,
       "invalid": 0,
-      "schema_errors": 0,
-      "completeness_errors": 0
+      "errors": 0,
+      "missing": 0
     },
     "10": {
       "total": 1,
+      "valid": 1,
       "invalid": 0,
-      "schema_errors": 0,
-      "completeness_errors": 0
+      "errors": 0,
+      "missing": 0
     }
   }
 }

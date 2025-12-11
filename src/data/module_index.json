@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-11T02:08:42Z",
+  "generated_at": "2025-12-11T15:37:36Z",
   "api_url": "http://localhost:8000",
   "entries": [
     {
@@ -15,22 +15,12 @@
     {
       "module": "Taverna_NPC.txt",
       "file": "src/data/modules/Taverna_NPC.txt",
-      "status": "ok",
-      "meta": {
-        "name": "Taverna_NPC.txt",
-        "size_bytes": 124135,
-        "suffix": ".txt"
-      }
+      "status": "ok"
     },
     {
       "module": "adventurer_ledger.txt",
       "file": "src/data/modules/adventurer_ledger.txt",
-      "status": "ok",
-      "meta": {
-        "name": "adventurer_ledger.txt",
-        "size_bytes": 78592,
-        "suffix": ".txt"
-      }
+      "status": "ok"
     },
     {
       "module": "archivist.txt",
@@ -45,12 +35,7 @@
     {
       "module": "base_profile.txt",
       "file": "src/data/modules/base_profile.txt",
-      "status": "ok",
-      "meta": {
-        "name": "base_profile.txt",
-        "size_bytes": 36078,
-        "suffix": ".txt"
-      }
+      "status": "ok"
     },
     {
       "module": "explain_methods.txt",
@@ -95,12 +80,7 @@
     {
       "module": "narrative_flow.txt",
       "file": "src/data/modules/narrative_flow.txt",
-      "status": "ok",
-      "meta": {
-        "name": "narrative_flow.txt",
-        "size_bytes": 35089,
-        "suffix": ".txt"
-      }
+      "status": "ok"
     },
     {
       "module": "ruling_expert.txt",
@@ -115,12 +95,7 @@
     {
       "module": "scheda_pg_markdown_template.md",
       "file": "src/data/modules/scheda_pg_markdown_template.md",
-      "status": "ok",
-      "meta": {
-        "name": "scheda_pg_markdown_template.md",
-        "size_bytes": 23497,
-        "suffix": ".md"
-      }
+      "status": "ok"
     },
     {
       "module": "sigilli_runner_module.txt",
