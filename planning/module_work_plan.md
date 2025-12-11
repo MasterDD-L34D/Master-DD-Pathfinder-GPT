@@ -82,7 +82,8 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessuno: la documentazione copre ora health/404 e la distinzione dump/troncamento, in linea con la policy Documentazione.【F:tests/test_app.py†L282-L314】【F:tests/test_app.py†L547-L591】
 
 ### Dipendenze
-- Elencare moduli esterni, API o asset (file, immagini, modelli) su cui il modulo fa affidamento, includendo per ciascuno una citazione in linea al blocco di codice che definisce il link o l’endpoint di riferimento.【F:src/modules/base_profile.txt†L95-L117】【F:src/modules/base_profile.txt†L430-L447】
+- Router e meta header vincolano base_profile ai moduli core caricati da file locali: archivist (`src/modules/archivist.txt`), ruling_expert (`src/modules/ruling_expert.txt`), Taverna_NPC (`src/modules/Taverna_NPC.txt`), narrative_flow (`src/modules/narrative_flow.txt`), explain_methods (`src/modules/explain_methods.txt`), minmax_builder (`src/modules/minmax_builder.txt`), Encounter_Designer (`src/modules/Encounter_Designer.txt`), adventurer_ledger (`src/modules/adventurer_ledger.txt`) e meta_doc (`src/modules/meta_doc.txt`). Stato: disponibili in repo, nessun blocco noto.【F:src/modules/base_profile.txt†L107-L116】
+- Preload obbligatorio dei moduli tramite lettura del bundle `src/modules/preload_all_modules.txt` o endpoint `GET /modules/preload_all_modules` protetto da `x-api-key`; necessario per inizializzare il router prima di rispondere. Stato: endpoint e file presenti, accesso subordinato alla chiave API.【F:src/modules/base_profile.txt†L252-L305】
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il router centralizza CTA e preset per le modalità specializzate (MinMax, Encounter, Taverna, Narrativa) guidando l’utente con flow e quiz sequenziali e welcome dedicato.【F:src/modules/base_profile.txt†L95-L176】【F:src/modules/base_profile.txt†L452-L560】
