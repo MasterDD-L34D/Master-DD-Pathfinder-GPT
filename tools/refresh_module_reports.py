@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
-"""Ensure module test reports contain standard sections.
+"""Bootstrap and validate standard sections in module test reports.
 
-The script reads the module sequence from `planning/module_review_guide.md`
-(via :func:`load_sequence_from_guide`) and maps report filenames in
-`reports/module_tests/` (via :func:`map_reports`). It can either verify the
-presence of the standard headings or append missing sections with placeholder
-bullets.
+The script reuses the utilities from :mod:`tools.generate_module_plan` to keep
+coverage aligned with the planning guide:
+
+- :func:`load_sequence_from_guide` to read the canonical module order from
+  ``planning/module_review_guide.md``.
+- :func:`map_reports` to resolve all reports under ``reports/module_tests/``.
+
+With ``--check`` it fails when a report lacks mandatory sections; with
+``--write`` it appends missing headings (and basic placeholders for metadata
+and comandi) to every report in the sequence.
 """
 from __future__ import annotations
 
@@ -51,24 +56,39 @@ SECTION_SPECS: Sequence[SectionSpec] = (
     ),
     SectionSpec(
         name="metadati",
-        heading="Metadati",
+        heading="Metadati e scopo del modulo",
         patterns=(
             re.compile(r"metadati", re.IGNORECASE),
             re.compile(r"scopo\s+del\s+modulo", re.IGNORECASE),
         ),
     ),
     SectionSpec(
+        name="dipendenze",
+        heading="Dipendenze",
+        patterns=(re.compile(r"dipendenze", re.IGNORECASE),),
+    ),
+    SectionSpec(
+        name="modello_dati",
+        heading="Modello dati e stato",
+        patterns=(re.compile(r"modello\s+dati", re.IGNORECASE),),
+    ),
+    SectionSpec(
         name="comandi",
-        heading="Comandi/Flow",
+        heading="Comandi principali",
+        patterns=(re.compile(r"comandi", re.IGNORECASE),),
+    ),
+    SectionSpec(
+        name="flow_guidato",
+        heading="Flow guidato, CTA e template",
         patterns=(
-            re.compile(r"comandi", re.IGNORECASE),
             re.compile(r"flow", re.IGNORECASE),
+            re.compile(r"cta", re.IGNORECASE),
         ),
     ),
     SectionSpec(
         name="qa",
-        heading="QA",
-        patterns=(re.compile(r"qa", re.IGNORECASE),),
+        heading="QA templates e helper",
+        patterns=(re.compile(r"qa\s+templates?", re.IGNORECASE), re.compile(r"helper", re.IGNORECASE)),
     ),
     SectionSpec(
         name="osservazioni",
@@ -185,7 +205,7 @@ def build_section_content(spec: SectionSpec, info: Optional[ModuleInfo]) -> List
     if spec.name == "comandi":
         commands = info.commands if info else []
         command_text = ", ".join(commands) if commands else "TODO"
-        return [f"- Comandi principali: {command_text}"]
+        return [f"- Comandi rilevati nel modulo: {command_text}"]
     return ["- TODO"]
 
 
@@ -277,6 +297,7 @@ def main() -> int:
     report_map = map_reports()
 
     missing_overall: dict[str, list[str]] = {}
+    processed_stems: set[str] = set()
     for module in sequence:
         report_path = find_report(module, report_map)
         if not report_path:
@@ -285,11 +306,24 @@ def main() -> int:
             continue
         module_info = load_module_info(report_path)
         missing = refresh_report(report_path, write=args.write, info=module_info)
+        processed_stems.add(report_path.stem.lower())
         if missing:
             missing_overall[module] = missing
             print(f"[MISSING] {module}: {', '.join(missing)}")
         else:
             print(f"[OK] {module}")
+
+    for stem, report_path in sorted(report_map.items()):
+        if stem in processed_stems:
+            continue
+        module_info = load_module_info(report_path)
+        missing = refresh_report(report_path, write=args.write, info=module_info)
+        label = report_path.stem
+        if missing:
+            missing_overall[label] = missing
+            print(f"[MISSING] {label}: {', '.join(missing)} (fuori sequenza)")
+        else:
+            print(f"[OK] {label} (fuori sequenza)")
 
     if args.check:
         if missing_overall:
