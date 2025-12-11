@@ -562,11 +562,7 @@
     "mode_normalized": "extended",
     "spec_id": "Cavalier::Human::Base",
     "model": null,
-    "background": null,
-    "level": 1,
-    "level_checkpoints": [
-      1
-    ]
+    "background": null
   },
   "query_params": {
     "mode": "extended",
