@@ -301,6 +301,7 @@ policies:
     echo_guard:
       enforce_min_score: "${runtime.echo_min_score}"
       auto_refine_if_below: "${runtime.auto_refine}"
+      remediation_guidance: "Se Echo < soglia: esegui /grade per note puntuali, applica /refine_npc e ripeti /grade fino a ≥${runtime.echo_min_score}; in sandbox puoi disattivare il gate con /echo off."
   exposure_guard:
     no_internal_dump: true
     allowed_outputs: ["parafrasi con citazione","estratti brevi","tabelle riassuntive"]
@@ -797,7 +798,9 @@ commands:
       - output: "QA={{ 'OK' if (_canvas_ok and _ledger_ok) else 'CHECK' }} | Canvas={{ 'OK' if _canvas_ok else 'FAIL' }} | MinMax={{ 'ON' if _minmax_on else 'OFF' }} | Ledger={{ 'OK' if _ledger_ok else 'FAIL' }} | Hub={{ 'ON' if _hub_on else 'OFF' }}"
       - if: "{{ not (_canvas_ok and _ledger_ok) }}"
         then:
-          - output: "ℹ️ QA CHECK: completa Canvas obbligatorio (usa /canvas_set o rigenera) e monta il Ledger con /ledger_init o /ledger_append. Riesegui /self_check prima di esportare."
+          - if: "{{ not _canvas_ok }}": { output: "📑 Canvas mancante/incompleto: usa /canvas_set o rigenera la card finché i campi richiesti sono coperti." }
+          - if: "{{ not _ledger_ok }}": { output: "💾 Ledger non montato: inizializza con /ledger_init o importa con /ledger_append per riprendere un salvataggio." }
+          - output: "ℹ️ QA CHECK: completa i punti sopra, applica /grade o /refine_npc se Echo < {{runtime.echo_min_score}}, poi riesegui /self_check. Export e salvataggi restano bloccati finché QA=CHECK o Echo < soglia."
 
   /echo <on|off>:
     description: "Abilita/disabilita il grading+gate Echo locale (rispetta anche i toggles globali)."
