@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-12-10T23:50:14Z",
+  "generated_at": "2025-12-11T00:35:28Z",
   "builds": {
-    "total": 72,
-    "valid": 72,
+    "total": 77,
+    "valid": 77,
     "invalid": 0,
     "errors": 0,
     "missing": 0,
@@ -215,6 +215,82 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/archive/cleric.json",
+        "output_prefix": "cleric_human_base",
+        "class": "Cleric",
+        "race": "Human",
+        "archetype": "Base",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "cleric_human_base",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 1,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/archive/cleric_human_warpriest.json",
+        "output_prefix": "cleric_human_warpriest",
+        "class": "Cleric",
+        "race": "Human",
+        "archetype": "Warpriest",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "cleric_human_warpriest",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 5,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/archive/cleric_human_warpriest_lvl05.json",
+        "output_prefix": "cleric_human_warpriest",
+        "class": "Cleric",
+        "race": "Human",
+        "archetype": "Warpriest",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "cleric_human_warpriest",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 5,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/archive/cleric_human_warpriest_lvl10.json",
+        "output_prefix": "cleric_human_warpriest",
+        "class": "Cleric",
+        "race": "Human",
+        "archetype": "Warpriest",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "cleric_human_warpriest",
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 10,
+        "status": "ok"
+      },
+      {
         "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
         "output_prefix": "barbarian_fetchling_invulnerable_rager",
         "class": "Barbarian",
@@ -340,22 +416,90 @@
         "status": "ok"
       },
       {
-        "file": "src/data/builds/bloodrager.json",
-        "output_prefix": "bloodrager_human_base",
+        "file": "src/data/builds/bloodrager-skinwalker-primalist-blood-conduit.json",
+        "output_prefix": "bloodrager-skinwalker-primalist-blood-conduit",
+        "level": 1,
         "class": "Bloodrager",
-        "race": "Human",
-        "archetype": "Base",
+        "race": "Skinwalker",
+        "archetype": "Primalist Blood Conduit",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "bloodrager_human_base",
-        "background": null,
+        "spec_id": "bloodrager_skinwalker_primalist_blood_conduit",
         "model": null,
+        "background": "Totemista skinwalker che canalizza il sangue elementale come araldo tribale.",
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 1,
+        "ruling_badge": "full",
+        "ruling_sources": [
+          "mock_ruling_expert",
+          "minmax_builder",
+          "taverna_narrative"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/bloodrager-skinwalker-primalist-blood-conduit_lvl05.json",
+        "output_prefix": "bloodrager-skinwalker-primalist-blood-conduit",
+        "level": 5,
+        "class": "Bloodrager",
+        "race": "Skinwalker",
+        "archetype": "Primalist Blood Conduit",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "bloodrager_skinwalker_primalist_blood_conduit",
+        "model": null,
+        "background": "Totemista skinwalker che canalizza il sangue elementale come araldo tribale.",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "full",
+        "ruling_sources": [
+          "mock_ruling_expert",
+          "minmax_builder",
+          "taverna_narrative"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/bloodrager-skinwalker-primalist-blood-conduit_lvl10.json",
+        "output_prefix": "bloodrager-skinwalker-primalist-blood-conduit",
+        "level": 10,
+        "class": "Bloodrager",
+        "race": "Skinwalker",
+        "archetype": "Primalist Blood Conduit",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "bloodrager_skinwalker_primalist_blood_conduit",
+        "model": null,
+        "background": "Totemista skinwalker che canalizza il sangue elementale come araldo tribale.",
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "ruling_badge": "full",
+        "ruling_sources": [
+          "mock_ruling_expert",
+          "minmax_builder",
+          "taverna_narrative"
+        ],
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
@@ -397,15 +541,15 @@
         "status": "ok"
       },
       {
-        "file": "src/data/builds/cleric.json",
-        "output_prefix": "cleric_human_base",
+        "file": "src/data/builds/cleric_samsaran_cloistered_evangelist.json",
+        "output_prefix": "cleric_samsaran_cloistered_evangelist",
         "class": "Cleric",
-        "race": "Human",
-        "archetype": "Base",
+        "race": "Samsaran",
+        "archetype": "Cloistered Evangelist",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "cleric_human_base",
-        "background": null,
+        "spec_id": "cleric_samsaran_cloistered_evangelist",
+        "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -413,18 +557,22 @@
           10
         ],
         "level": 1,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
-        "file": "src/data/builds/cleric_human_warpriest.json",
-        "output_prefix": "cleric_human_warpriest",
+        "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl05.json",
+        "output_prefix": "cleric_samsaran_cloistered_evangelist",
         "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
+        "race": "Samsaran",
+        "archetype": "Cloistered Evangelist",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": null,
+        "spec_id": "cleric_samsaran_cloistered_evangelist",
+        "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -432,37 +580,22 @@
           10
         ],
         "level": 5,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
-        "file": "src/data/builds/cleric_human_warpriest_lvl05.json",
-        "output_prefix": "cleric_human_warpriest",
+        "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl10.json",
+        "output_prefix": "cleric_samsaran_cloistered_evangelist",
         "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
+        "race": "Samsaran",
+        "archetype": "Cloistered Evangelist",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "status": "ok"
-      },
-      {
-        "file": "src/data/builds/cleric_human_warpriest_lvl10.json",
-        "output_prefix": "cleric_human_warpriest",
-        "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": null,
+        "spec_id": "cleric_samsaran_cloistered_evangelist",
+        "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -470,6 +603,10 @@
           10
         ],
         "level": 10,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "status": "ok"
       },
       {
@@ -1425,20 +1562,20 @@
     ],
     "checkpoints": {
       "1": {
-        "total": 40,
-        "invalid": 0,
+        "total": 43,
+        "invalid": 1,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "5": {
-        "total": 18,
-        "invalid": 0,
+        "total": 21,
+        "invalid": 1,
         "schema_errors": 0,
         "completeness_errors": 0
       },
       "10": {
-        "total": 13,
-        "invalid": 0,
+        "total": 16,
+        "invalid": 1,
         "schema_errors": 0,
         "completeness_errors": 0
       }
@@ -1538,151 +1675,5 @@
     ]
   },
   "build_index": "src/data/build_index.json",
-  "module_index": "src/data/module_index.json",
-  "entries": [
-    {
-      "file": "src/data/builds/cleric_samsaran_cloistered_evangelist.json",
-      "output_prefix": "cleric_samsaran_cloistered_evangelist",
-      "spec_id": "cleric_samsaran_cloistered_evangelist",
-      "class": "Cleric",
-      "race": "Samsaran",
-      "archetype": "Cloistered Evangelist",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "level": 1,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "ruling_badge": "validated-rai-pfs",
-      "qa": {
-        "ruling_expert": {
-          "badge": "validated-rai-pfs",
-          "sources": null,
-          "context": {
-            "class": "Cleric",
-            "level": 5,
-            "talenti_chiave": [
-              "Colpo possente",
-              "Iniziativa migliorata"
-            ],
-            "hr_sources": null,
-            "meta_sources": null,
-            "pfs_mode": null
-          }
-        }
-      },
-      "completeness": {
-        "errors": [],
-        "require_complete": true
-      },
-      "step_audit": {
-        "normalized_mode": "extended",
-        "expected_step_total": 16,
-        "observed_step_total": 16,
-        "step_total_ok": true,
-        "step_labels_count": 16,
-        "has_extended_steps": true
-      },
-      "step_total": 16,
-      "expected_step_total": 16
-    },
-    {
-      "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl05.json",
-      "output_prefix": "cleric_samsaran_cloistered_evangelist",
-      "spec_id": "cleric_samsaran_cloistered_evangelist",
-      "class": "Cleric",
-      "race": "Samsaran",
-      "archetype": "Cloistered Evangelist",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "level": 5,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "ruling_badge": "validated-rai-pfs",
-      "qa": {
-        "ruling_expert": {
-          "badge": "validated-rai-pfs",
-          "sources": null,
-          "context": {
-            "class": "Cleric",
-            "level": 5,
-            "talenti_chiave": [
-              "Colpo possente",
-              "Iniziativa migliorata"
-            ],
-            "hr_sources": null,
-            "meta_sources": null,
-            "pfs_mode": null
-          }
-        }
-      },
-      "completeness": {
-        "errors": [],
-        "require_complete": true
-      },
-      "step_audit": {
-        "normalized_mode": "extended",
-        "expected_step_total": 16,
-        "observed_step_total": 16,
-        "step_total_ok": true,
-        "step_labels_count": 16,
-        "has_extended_steps": true
-      },
-      "step_total": 16,
-      "expected_step_total": 16
-    },
-    {
-      "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl10.json",
-      "output_prefix": "cleric_samsaran_cloistered_evangelist",
-      "spec_id": "cleric_samsaran_cloistered_evangelist",
-      "class": "Cleric",
-      "race": "Samsaran",
-      "archetype": "Cloistered Evangelist",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "level": 10,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "ruling_badge": "validated-rai-pfs",
-      "qa": {
-        "ruling_expert": {
-          "badge": "validated-rai-pfs",
-          "sources": null,
-          "context": {
-            "class": "Cleric",
-            "level": 10,
-            "talenti_chiave": [
-              "Colpo possente",
-              "Iniziativa migliorata"
-            ],
-            "hr_sources": null,
-            "meta_sources": null,
-            "pfs_mode": null
-          }
-        }
-      },
-      "completeness": {
-        "errors": [],
-        "require_complete": true
-      },
-      "step_audit": {
-        "normalized_mode": "extended",
-        "expected_step_total": 16,
-        "observed_step_total": 16,
-        "step_total_ok": true,
-        "step_labels_count": 16,
-        "has_extended_steps": true
-      },
-      "step_total": 16,
-      "expected_step_total": 16
-    }
-  ]
+  "module_index": "src/data/module_index.json"
 }
