@@ -1,6 +1,6 @@
 # Piano di lavoro esecutivo
 
-Generato il 2025-12-11T01:18:58Z da `tools/generate_module_plan.py`
+Generato il 2025-12-11T02:15:12Z da `tools/generate_module_plan.py`
 Fonte task: `planning/module_work_plan.md` (priorità P1→P3) e sequenza `planning/module_review_guide.md`.
 Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, con fasi sequenziali e dipendenze esplicite.
 
@@ -72,18 +72,18 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 ### Tracciamento avanzamento
 | Modulo | Task aperti | Priorità massima | Stato |
 | --- | --- | --- | --- |
-| Encounter_Designer | 0 | N/D | Allineato |
-| minmax_builder | 0 | N/D | Allineato |
-| Taverna_NPC | 0 | N/D | Allineato |
-| tavern_hub | 0 | N/D | Allineato |
-| Cartelle di servizio | 0 | N/D | Allineato |
-| adventurer_ledger | 0 | N/D | Allineato |
-| archivist | 0 | N/D | Allineato |
-| base_profile | 0 | N/D | Allineato |
-| explain_methods | 0 | N/D | Allineato |
-| knowledge_pack | 0 | N/D | Allineato |
-| meta_doc | 0 | N/D | Allineato |
-| narrative_flow | 0 | N/D | Allineato |
-| ruling_expert | 0 | N/D | Allineato |
-| scheda_pg_markdown_template | 0 | N/D | Allineato |
-| sigilli_runner_module | 0 | N/D | Allineato |
+| Encounter_Designer | 2 | P1 | Pronto per sviluppo |
+| minmax_builder | 1 | P2 | Pronto per sviluppo |
+| Taverna_NPC | 2 | P1 | Pronto per sviluppo |
+| tavern_hub | 2 | P1 | Pronto per sviluppo |
+| Cartelle di servizio | 2 | P1 | Pronto per sviluppo |
+| adventurer_ledger | 2 | P1 | Pronto per sviluppo |
+| archivist | 2 | P1 | Pronto per sviluppo |
+| base_profile | 2 | P1 | Pronto per sviluppo |
+| explain_methods | 2 | P1 | Pronto per sviluppo |
+| knowledge_pack | 1 | P2 | Pronto per sviluppo |
+| meta_doc | 2 | P2 | Pronto per sviluppo |
+| narrative_flow | 2 | P1 | Pronto per sviluppo |
+| ruling_expert | 2 | P1 | Pronto per sviluppo |
+| scheda_pg_markdown_template | 1 | P2 | Pronto per sviluppo |
+| sigilli_runner_module | 1 | P2 | Pronto per sviluppo |
