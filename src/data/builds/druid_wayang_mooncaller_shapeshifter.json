@@ -153,7 +153,27 @@
             "base_profile.txt",
             "Taverna_NPC.txt",
             "narrative_flow.txt"
-          ]
+          ],
+          "skills": [
+            {"nome": "Percezione", "totale": 8},
+            {"nome": "Furtività", "totale": 10}
+          ],
+          "equipaggiamento": [
+            "Bastone lunare scolpito",
+            "Mantello d'ombra wayang"
+          ],
+          "ledger_movimenti": [
+            {"voce": "Equipaggiamento iniziale", "importo": -120},
+            {"voce": "Ricompensa missione", "importo": 180}
+          ],
+          "ledger": {
+            "movimenti": [
+              {"voce": "Equipaggiamento iniziale", "importo": -120},
+              {"voce": "Ricompensa missione", "importo": 180}
+            ],
+            "currency": {"oro": 75, "argento": 18, "rame": 40}
+          },
+          "sheet_markdown": "Percezione +8, Furtività +10, Bastone lunare scolpito, Ricompensa missione"
         }
       }
     },
@@ -208,7 +228,27 @@
         "base_profile.txt",
         "Taverna_NPC.txt",
         "narrative_flow.txt"
-      ]
+      ],
+      "skills": [
+        {"nome": "Percezione", "totale": 8},
+        {"nome": "Furtività", "totale": 10}
+      ],
+      "equipaggiamento": [
+        "Bastone lunare scolpito",
+        "Mantello d'ombra wayang"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Equipaggiamento iniziale", "importo": -120},
+        {"voce": "Ricompensa missione", "importo": 180}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Equipaggiamento iniziale", "importo": -120},
+          {"voce": "Ricompensa missione", "importo": 180}
+        ],
+        "currency": {"oro": 75, "argento": 18, "rame": 40}
+      },
+      "sheet_markdown": "Percezione +8, Furtività +10, Bastone lunare scolpito, Ricompensa missione"
     }
   },
   "fetched_at": "2026-02-10T12:00:00Z",

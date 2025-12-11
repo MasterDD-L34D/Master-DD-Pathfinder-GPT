@@ -561,6 +561,7 @@ async def storage_meta(_: None = Depends(require_api_key)) -> Dict[str, object]:
 
 TEXT_SUFFIXES = {".txt", ".md"}
 PROTECTED_DUMP_MODULES = {"ruling_expert.txt"}
+STRICT_TRUNCATION_MODULES = {"adventurer_ledger.txt", "narrative_flow.txt"}
 
 
 def _media_type_for_path(path: Path) -> str:
@@ -1450,16 +1451,21 @@ async def get_module_content(
     max_chars = 4000
 
     total_size = path.stat().st_size
-    if settings.allow_module_dump:
-        with path.open("r", encoding="utf-8", errors="ignore") as source:
-            chunk = source.read(max_chars + 1)
-        served_chunk = chunk[:max_chars]
-        is_truncated = len(chunk) > max_chars
-    else:
+    strict_truncation = path.name in STRICT_TRUNCATION_MODULES
+
+    if strict_truncation:
         served_chunk = ""
         is_truncated = True
+        truncated_size = 0
+    else:
+        with path.open("r", encoding="utf-8", errors="ignore") as source:
+            chunk = source.read(max_chars + 1)
 
-    truncated_size = len(served_chunk.encode("utf-8", errors="ignore"))
+        served_chunk = chunk[:max_chars]
+        # Anche con ALLOW_MODULE_DUMP=false serviamo un estratto iniziale, mantenendo
+        # l'header di parzialità per indicare il troncamento forzato.
+        is_truncated = (not settings.allow_module_dump) or len(chunk) > max_chars
+        truncated_size = len(served_chunk.encode("utf-8", errors="ignore"))
     remaining = max(total_size - truncated_size, 0)
     original_length = total_size
 

@@ -153,7 +153,27 @@
             "base_profile.txt",
             "Taverna_NPC.txt",
             "narrative_flow.txt"
-          ]
+          ],
+          "skills": [
+            {"nome": "Percezione", "totale": 18},
+            {"nome": "Furtività", "totale": 21}
+          ],
+          "equipaggiamento": [
+            "Anello della luce lunare",
+            "Veste d'ombra maggiore"
+          ],
+          "ledger_movimenti": [
+            {"voce": "Equipaggiamento iniziale", "importo": -220},
+            {"voce": "Ricompensa missione", "importo": 340}
+          ],
+          "ledger": {
+            "movimenti": [
+              {"voce": "Equipaggiamento iniziale", "importo": -220},
+              {"voce": "Ricompensa missione", "importo": 340}
+            ],
+            "currency": {"oro": 240, "argento": 40, "rame": 80}
+          },
+          "sheet_markdown": "Percezione +18, Furtività +21, Anello della luce lunare, Ricompensa missione"
         }
       }
     },
@@ -208,7 +228,27 @@
         "base_profile.txt",
         "Taverna_NPC.txt",
         "narrative_flow.txt"
-      ]
+      ],
+      "skills": [
+        {"nome": "Percezione", "totale": 18},
+        {"nome": "Furtività", "totale": 21}
+      ],
+      "equipaggiamento": [
+        "Anello della luce lunare",
+        "Veste d'ombra maggiore"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Equipaggiamento iniziale", "importo": -220},
+        {"voce": "Ricompensa missione", "importo": 340}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Equipaggiamento iniziale", "importo": -220},
+          {"voce": "Ricompensa missione", "importo": 340}
+        ],
+        "currency": {"oro": 240, "argento": 40, "rame": 80}
+      },
+      "sheet_markdown": "Percezione +18, Furtività +21, Anello della luce lunare, Ricompensa missione"
     }
   },
   "fetched_at": "2026-02-10T12:10:00Z",
