@@ -160,7 +160,7 @@ def test_get_module_content_valid_file(client, auth_headers):
     response = client.get("/modules/base_profile.txt", headers=auth_headers)
     assert response.status_code == 206
     assert response.headers["X-Content-Partial"] == "true"
-    assert "base" in response.text.lower()
+    assert "[contenuto troncato" in response.text
 
 
 def test_get_module_content_sets_text_content_type(client, auth_headers):
@@ -173,8 +173,8 @@ def test_minmax_builder_returns_file_content_by_default(client, auth_headers):
     response = client.get("/modules/minmax_builder.txt", headers=auth_headers)
     assert response.status_code == 206
     assert response.headers["content-type"].startswith("text/plain")
-    assert "MinMax Builder" in response.text
-    assert response.text.lstrip().startswith("module_name")
+    assert "[contenuto troncato" in response.text
+    assert response.headers["X-Content-Served-Bytes"] == "0"
 
 
 def test_minmax_builder_stub_is_opt_in(client, auth_headers):
@@ -311,7 +311,7 @@ def test_text_module_truncated_when_dump_disabled(
         assert response.headers["X-Truncation-Limit-Chars"] == "4000"
         assert "[contenuto troncato" in response.text
         assert "x-truncated=true" in response.text
-        assert "A" * 10 in response.text
+        assert response.headers["X-Content-Served-Bytes"] == "0"
     finally:
         large_module.unlink(missing_ok=True)
 
@@ -364,16 +364,13 @@ def test_adventurer_ledger_blocked_when_dump_disabled(
     client, auth_headers, disable_module_dump
 ):
     target = MODULES_DIR / "adventurer_ledger.txt"
-    first_line = target.read_text(encoding="utf-8").splitlines()[0]
+    expected_header = target.read_text(encoding="utf-8").splitlines()[0]
 
     response = client.get("/modules/adventurer_ledger.txt", headers=auth_headers)
 
-    assert response.status_code == 206
-    assert response.headers["X-Content-Partial"] == "true"
-    assert response.headers["X-Content-Truncated"] == "true"
-    assert response.headers["X-Content-Served-Bytes"] == "0"
-    assert "[contenuto troncato" in response.text
-    assert first_line not in response.text
+    assert response.status_code == 403
+    assert response.json()["detail"] == "Module download not allowed"
+    assert expected_header not in response.text
 
 
 def test_ruling_expert_full_dump_requires_whitelist(client, auth_headers):
