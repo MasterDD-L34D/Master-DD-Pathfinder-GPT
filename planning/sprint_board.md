@@ -2,45 +2,52 @@
 
 Tabella di chiusura riportata da `planning/module_work_plan.md` con evidenza delle priorità P1 e stato "Pronto per sviluppo" per tutti i moduli, includendo owner e checkpoint giornalieri a partire da **2025-12-12**.
 
-| Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Dipendenze operative | Stato | #Osservazioni | #Errori | Checkpoint |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | Alice Bianchi | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-12 |
-| minmax_builder | Marco Conti | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-13 |
-| Taverna_NPC | Elisa Romano | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 2 | 2025-12-14 |
-| tavern_hub | Paolo Greco | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-15 |
-| Cartelle di servizio | Sara De Luca | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 2 | 2025-12-16 |
-| adventurer_ledger | Luca Ferri | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-17 |
-| archivist | Martina Gallo | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-18 |
-| base_profile | Andrea Rizzi | 2 | **P1** | 1 | Allineare schema profilo condiviso (dipendenza core) | Pronto per sviluppo | 2 | 1 | 2025-12-19 |
-| explain_methods | Francesca Vitale | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-20 |
-| knowledge_pack | Gianni Moretti | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-21 |
-| meta_doc | Chiara Esposito | 3 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-22 |
-| narrative_flow | Davide Serra | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-23 |
-| ruling_expert | Valentina Riva | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-24 |
-| scheda_pg_markdown_template | Matteo Leone | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-25 |
-| sigilli_runner_module | Fabio Marchetti | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 3 | 4 | 2025-12-26 |
+## Rituale di aggiornamento quotidiano
+- **Frequenza (15:00 CET, daily)**: aggiornare la tabella come fonte di verità durante il checkpoint.
+- **Aggiornamento campi chiave**: per ogni modulo aggiornare `Stato` (o note di blocco), compilare `Ultimo update` con data/ora del checkpoint e popolare `Rischi` con dipendenze, blocchi o regressioni emerse.
+- **Segnalazione blocchi**: evidenziare dipendenze aperte nei campi `Dipendenze operative` e `Rischi`; se bloccanti, aggiungere nota sintetica nella colonna `Note` (tabella di chiusura) e nel registro riassuntivo.
+- **Avanzamento**: registrare nuovi progressi nelle colonne di osservazioni/errori e aggiornare i checkpoint programmati se slittano.
+- **Esito checkpoint**: chiudere ogni rituale confermando i rischi attivi e gli owner responsabili della rimozione.
+
+| Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Dipendenze operative | Stato | #Osservazioni | #Errori | Checkpoint | Ultimo update | Rischi |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | Alice Bianchi | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-12 | 2025-12-12 | Nessuno |
+| minmax_builder | Marco Conti | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-13 | 2025-12-13 | Nessuno |
+| Taverna_NPC | Elisa Romano | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 2 | 2025-12-14 | 2025-12-14 | Nessuno |
+| tavern_hub | Paolo Greco | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-15 | 2025-12-15 | Nessuno |
+| Cartelle di servizio | Sara De Luca | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 2 | 2025-12-16 | 2025-12-16 | Nessuno |
+| adventurer_ledger | Luca Ferri | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-17 | 2025-12-17 | Nessuno |
+| archivist | Martina Gallo | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-18 | 2025-12-18 | Nessuno |
+| base_profile | Andrea Rizzi | 2 | **P1** | 1 | Allineare schema profilo condiviso (dipendenza core) | Pronto per sviluppo | 2 | 1 | 2025-12-19 | 2025-12-19 | Allineamento schema core in attesa di conferma |
+| explain_methods | Francesca Vitale | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-20 | 2025-12-20 | Nessuno |
+| knowledge_pack | Gianni Moretti | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-21 | 2025-12-21 | Nessuno |
+| meta_doc | Chiara Esposito | 3 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-22 | 2025-12-22 | Nessuno |
+| narrative_flow | Davide Serra | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-23 | 2025-12-23 | Nessuno |
+| ruling_expert | Valentina Riva | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-24 | 2025-12-24 | Nessuno |
+| scheda_pg_markdown_template | Matteo Leone | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-25 | 2025-12-25 | Nessuno |
+| sigilli_runner_module | Fabio Marchetti | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 3 | 4 | 2025-12-26 | 2025-12-26 | Validazione sigilli con QA in sospeso |
 
 ## Sommario per referenti Sviluppo/QA
 - Tutti i moduli risultano marcati "Pronto per sviluppo".
 - Non ci sono P1 o P2 aperti per alcun modulo nel perimetro attuale.
 
 ## Chiusura Sprint
-| Modulo | Stato | Priorità max | Dipendenze | Owner | Checkpoint | Note |
-| --- | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | Pronto per sviluppo | P1 | 0 | Alice Bianchi | 2025-12-12 | Nessuna criticità aperta |
-| minmax_builder | Pronto per sviluppo | P1 | 0 | Marco Conti | 2025-12-13 | Nessuna criticità aperta |
-| Taverna_NPC | Pronto per sviluppo | P1 | 0 | Elisa Romano | 2025-12-14 | Nessuna criticità aperta |
-| tavern_hub | Pronto per sviluppo | P1 | 0 | Paolo Greco | 2025-12-15 | Nessuna criticità aperta |
-| Cartelle di servizio | Pronto per sviluppo | P1 | 0 | Sara De Luca | 2025-12-16 | Nessuna criticità aperta |
-| adventurer_ledger | Pronto per sviluppo | P1 | 0 | Luca Ferri | 2025-12-17 | Nessuna criticità aperta |
-| archivist | Pronto per sviluppo | P1 | 0 | Martina Gallo | 2025-12-18 | Nessuna criticità aperta |
-| base_profile | Pronto per sviluppo | P1 | 1 | Andrea Rizzi | 2025-12-19 | Allineare schema profilo condiviso |
-| explain_methods | Pronto per sviluppo | P1 | 0 | Francesca Vitale | 2025-12-20 | Nessuna criticità aperta |
-| knowledge_pack | Pronto per sviluppo | P1 | 0 | Gianni Moretti | 2025-12-21 | Nessuna criticità aperta |
-| meta_doc | Pronto per sviluppo | P1 | 0 | Chiara Esposito | 2025-12-22 | Nessuna criticità aperta |
-| narrative_flow | Pronto per sviluppo | P1 | 0 | Davide Serra | 2025-12-23 | Nessuna criticità aperta |
-| ruling_expert | Pronto per sviluppo | P1 | 0 | Valentina Riva | 2025-12-24 | Nessuna criticità aperta |
-| scheda_pg_markdown_template | Pronto per sviluppo | P1 | 0 | Matteo Leone | 2025-12-25 | Nessuna criticità aperta |
+| Modulo | Stato | Priorità max | Dipendenze | Owner | Checkpoint | Ultimo update | Rischi | Note |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | Pronto per sviluppo | P1 | 0 | Alice Bianchi | 2025-12-12 | 2025-12-12 | Nessuno | Nessuna criticità aperta |
+| minmax_builder | Pronto per sviluppo | P1 | 0 | Marco Conti | 2025-12-13 | 2025-12-13 | Nessuno | Nessuna criticità aperta |
+| Taverna_NPC | Pronto per sviluppo | P1 | 0 | Elisa Romano | 2025-12-14 | 2025-12-14 | Nessuno | Nessuna criticità aperta |
+| tavern_hub | Pronto per sviluppo | P1 | 0 | Paolo Greco | 2025-12-15 | 2025-12-15 | Nessuno | Nessuna criticità aperta |
+| Cartelle di servizio | Pronto per sviluppo | P1 | 0 | Sara De Luca | 2025-12-16 | 2025-12-16 | Nessuno | Nessuna criticità aperta |
+| adventurer_ledger | Pronto per sviluppo | P1 | 0 | Luca Ferri | 2025-12-17 | 2025-12-17 | Nessuno | Nessuna criticità aperta |
+| archivist | Pronto per sviluppo | P1 | 0 | Martina Gallo | 2025-12-18 | 2025-12-18 | Nessuno | Nessuna criticità aperta |
+| base_profile | Pronto per sviluppo | P1 | 1 | Andrea Rizzi | 2025-12-19 | 2025-12-19 | Allineamento schema core in attesa di conferma | Allineare schema profilo condiviso |
+| explain_methods | Pronto per sviluppo | P1 | 0 | Francesca Vitale | 2025-12-20 | 2025-12-20 | Nessuno | Nessuna criticità aperta |
+| knowledge_pack | Pronto per sviluppo | P1 | 0 | Gianni Moretti | 2025-12-21 | 2025-12-21 | Nessuno | Nessuna criticità aperta |
+| meta_doc | Pronto per sviluppo | P1 | 0 | Chiara Esposito | 2025-12-22 | 2025-12-22 | Nessuno | Nessuna criticità aperta |
+| narrative_flow | Pronto per sviluppo | P1 | 0 | Davide Serra | 2025-12-23 | 2025-12-23 | Nessuno | Nessuna criticità aperta |
+| ruling_expert | Pronto per sviluppo | P1 | 0 | Valentina Riva | 2025-12-24 | 2025-12-24 | Nessuno | Nessuna criticità aperta |
+| scheda_pg_markdown_template | Pronto per sviluppo | P1 | 0 | Matteo Leone | 2025-12-25 | 2025-12-25 | Nessuno | Nessuna criticità aperta |
 
 ## Kickoff e checkpoint
 - Messaggio da condividere nel canale del team: "Kickoff completato: tutti i moduli sono **Pronto per sviluppo** e non restano P1 aperti. Gli owner indicati nel board sono allineati sulle attività prioritarie".
