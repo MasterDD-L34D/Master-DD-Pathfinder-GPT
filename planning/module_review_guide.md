@@ -16,15 +16,19 @@ Apri il report corrispondente in `reports/module_tests/<nome>.md` e compila tutt
 - **Comandi principali**: per setup, ambiente/obiettivi, nemici/bilanciamento, simulazione, pacing/loot, QA/export, narrazione/lifecycle. Indica parametri, effetti sullo stato, auto-invocazioni e output.
 - **Flow guidato/CTA**: template UI e narrativi, con eventuali call-to-action per l’utente.
 - **QA templates e helper**: gates, errori, resolution tips, formule chiave (XP/CR, rischi, badge/PFS), export filename/JSON, ondate, tagging MDA.
-- **Controlli di sicurezza AI**: verifica protezioni anti prompt injection e adesione alle policy di fonti; controlla l'uso corretto dei log `qa_logging` e dei receipt con hash SHA256, e l'applicazione dei gate Echo/Sigilli e della `image_policy`. Documenta nel report se i comandi e le policy del modulo rispettano questi vincoli, prendendo come riferimento i blocchi `qa_logging`, `output_contract` e `interaction_protocol` in `src/modules/base_profile.txt`.
 - **Osservazioni / Errori / Miglioramenti / Fix necessari**: elenca problemi e suggerimenti. Ogni item deve puntare alle linee di sorgente coinvolte usando citazioni `【F:percorso†Lx-Ly】` e indicare priorità (“P1” bug/ambiguità funzionali, “P2” QA/completezza, “P3” UX/copy). Converte subito gli errori e i fix in task con scope e file precisi.
 
-Mantieni la checklist ordinata come sopra per tutti i moduli, riutilizzando il formato già mostrato in `base_profile` e aggiornando le priorità nel momento in cui emergono dai report.
+### Controlli PF1e (CR/XP, PFS e stacking)
+- Esegui un controllo dedicato ai bilanciamenti PF1e: conferma CR/XP e budget rispetto al contesto del modulo, verificando stacking dei bonus e prerequisiti (rispecchia i check `sanity_check` e `rules_consistency` della `qa_pipeline` di `src/modules/base_profile.txt`). Cita nel report le linee del modulo che indicano CR, XP o vincoli di stacking, ad esempio `【F:src/modules/encounter_designer.txt†L120-L134】`.
+- Con PFS attivo, passa esplicitamente dal gate di legalità (fonti allowed, cronache, boons, obedience) come nel check `pfs_gate`; se OFF, annota comunque eventuali deviazioni PFS con la fonte violata e il riferimento alle linee del modulo. Evidenzia le violazioni in “Errori/Fix necessari” come P1 con testo tipo “P1 – PFS: fonte non consentita (Inner Sea Magic) usata in feat X)”.
+- Nei report modulo cita le tre tappe QA di riferimento (`sanity_check`, `rules_consistency`, `pfs_gate`) per tracciare l’avvenuto controllo e aggiungi i risultati puntuali (OK/violazione) vicino alle citazioni di linea.
 
-### Passaggio specialistico PF1e (QA numerico e legale)
-- Esegui un controllo dedicato ai bilanciamenti PF1e: conferma CR/XP e budget rispetto al contesto del modulo, verificando stacking dei bonus e prerequisiti (rispecchia i check `sanity_check` e `rules_consistency` della `qa_pipeline` di `src/modules/base_profile.txt`).
-- Con PFS attivo, passa esplicitamente dal gate di legalità (fonti allowed, cronache, boons, obedience) come nel check `pfs_gate`; se OFF, annota comunque eventuali deviazioni PFS.
-- Nei report modulo cita le tre tappe QA di riferimento (`sanity_check`, `rules_consistency`, `pfs_gate`) per tracciare l’avvenuto controllo.
+### Sicurezza e osservability AI
+- Verifica protezioni anti prompt injection e adesione alle policy di fonti; controlla l'uso corretto dei log `qa_logging` e dei receipt con hash SHA256, e l'applicazione dei gate Echo/Sigilli e della `image_policy`. Documenta nel report se i comandi e le policy del modulo rispettano questi vincoli, prendendo come riferimento i blocchi `qa_logging`, `output_contract` e `interaction_protocol` in `src/modules/base_profile.txt`.
+- Quando trovi un punto debole (es. mancanza di `qa_logging` su un comando di import/export, assenza di receipt o di note su Echo/Sigilli), annota l’esempio citando le linee del modulo (`【F:src/modules/<nome>.txt†Lx-Ly】`) e aggiungi un item in “Errori/Fix necessari” con priorità P1/P2 e proposta di correzione (“Aggiungere receipt con hash per export loot”).
+- Ricorda di citare anche le protezioni di prompt injection eventualmente già presenti per mostrare copertura completa, includendo i riferimenti alle linee del sorgente che mostrano filtri o istruzioni di sanitizzazione.
+
+Mantieni la checklist ordinata come sopra per tutti i moduli, riutilizzando il formato già mostrato in `base_profile` e aggiornando le priorità nel momento in cui emergono dai report.
 
 ## Output di pianificazione per ogni modulo
 Crea un elenco conciso di task (idealmente 1–5 per modulo), ciascuno con: titolo, file/section, sintesi della modifica, blocking/priority e dipendenze da altri moduli.
@@ -44,6 +48,6 @@ Quando tutti i report sono stati processati, compila un sommario unico (modulo �
 - Integra nel piano i task derivati dalla checklist standard e aggiorna priorità/dependenze dopo la lettura manuale.
 
 ## Come usarla giorno per giorno
-- **Mattina**: scegli il prossimo modulo in sequenza, apri il relativo report e applica la checklist; registra i task in `planning/roadmap.md` o in uno strumento di tracking.
-- **Durante la lettura**: per ogni issue crea subito il task con priorità e stato; se servono chiarimenti, annota le domande nel report con un tag TODO.
-- **Fine giornata**: aggiorna lo stato del modulo (Pronto/In attesa) e aggiungi al sommario finale le nuove evidenze; programma il modulo successivo.
+- **Mattina**: scegli il prossimo modulo in sequenza, apri il relativo report e applica la checklist includendo le lenti PF1e e sicurezza/observability AI; registra i task in `planning/roadmap.md` o in uno strumento di tracking.
+- **Durante la lettura**: per ogni issue crea subito il task con priorità e stato; se servono chiarimenti, annota le domande nel report con un tag TODO. Segna sempre quali controlli specialistici (PF1e e sicurezza AI) hai applicato e con quali esiti.
+- **Fine giornata**: aggiorna lo stato del modulo (Pronto/In attesa) e aggiungi al sommario finale le nuove evidenze; programma il modulo successivo, assicurandoti che ogni modulo già letto riporti chiaramente i risultati dei controlli PF1e e di sicurezza.
