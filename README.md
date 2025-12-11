@@ -108,6 +108,9 @@ in loco i file mancanti senza toccare il contenuto esistente.
 Nota operativa: prima di avviare una revisione manuale dei report esegui `python tools/refresh_module_reports.py --write` per
 allineare i file locali; nelle pipeline CI aggiungi un passaggio dedicato (o un target equivalente) che lanci `python
 tools/refresh_module_reports.py --check` per impedire il merge di report senza tutte le sezioni.
+Quando generi il piano operativo (`python tools/generate_module_plan.py --output planning/module_work_plan.md`) esegui prima
+`python tools/refresh_module_reports.py --write` (o `--check` nei workflow) così il piano si basa su report già normalizzati e
+con tutte le intestazioni/template applicati.
 
 Per i moduli, il dump completo è **disattivato di default** (`ALLOW_MODULE_DUMP=false`).
 `/modules/{name}` restituisce solo estratti (4000 caratteri + marcatore finale) e blocca
