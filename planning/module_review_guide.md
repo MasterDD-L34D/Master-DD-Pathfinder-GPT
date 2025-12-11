@@ -4,13 +4,23 @@
 Procedi nell’ordine dell’indice moduli: Encounter_Designer → Taverna_NPC → adventurer_ledger → archivist → base_profile → explain_methods → knowledge_pack → meta_doc → minmax_builder → narrative_flow → ruling_expert → scheda_pg_markdown_template → sigilli_runner_module → tavern_hub, chiudendo con le cartelle di servizio. Questo assicura che tutti i 15 moduli del kernel e le directory di supporto siano coperti una sola volta.
 
 ## Metodo di analisi per ogni report
-Apri il report corrispondente in `reports/module_tests/<nome>.md`. Usa la struttura standard (Ambiente di test → Esiti API → Metadati → Comandi/Flow → QA → Errori → Miglioramenti → Fix necessari) come checklist; l’esempio di Encounter_Designer mostra tutte le sezioni attese.
+Apri il report corrispondente in `reports/module_tests/<nome>.md` e compila tutte le sottosezioni seguenti (il modello completo è già applicato al report di `base_profile` con riferimenti inline e la stessa sequenza di titoli):
 
-Nel blocco Errori e Fix necessari, estrai ogni issue e converti immediatamente in uno o più task con scope e file precisi (seguendo il modello già usato per Encounter_Designer, che ora documenta l’helper CR unico clampato e l’estensione dei gate QA).
+- **Ambiente di test**: server, flag, variabili e qualsiasi setup speciale (es. ALLOW_MODULE_DUMP) attivo durante la prova.
+- **Esiti API**: risultati per `/health`, `/modules`, `/modules/<file>/meta`, download completo, 404 su nome errato e comportamento con `ALLOW_MODULE_DUMP=false` (troncamento atteso).
+- **Metadati/Scopo**: nome e versione del modulo, principi/trigger/policy, integrazioni previste.
+- **Modello dati**: campi principali dello state e loro ruolo.
+- **Comandi principali**: per setup, ambiente/obiettivi, nemici/bilanciamento, simulazione, pacing/loot, QA/export, narrazione/lifecycle. Indica parametri, effetti sullo stato, auto-invocazioni e output.
+- **Flow guidato/CTA**: template UI e narrativi, con eventuali call-to-action per l’utente.
+- **QA templates e helper**: gates, errori, resolution tips, formule chiave (XP/CR, rischi, badge/PFS), export filename/JSON, ondate, tagging MDA.
+- **Osservazioni / Errori / Miglioramenti / Fix necessari**: elenca problemi e suggerimenti. Ogni item deve puntare alle linee di sorgente coinvolte usando citazioni `【F:percorso†Lx-Ly】` e indicare priorità (“P1” bug/ambiguità funzionali, “P2” QA/completezza, “P3” UX/copy). Converte subito gli errori e i fix in task con scope e file precisi.
 
-Se il report elenca Miglioramenti non bloccanti, valuta priorità: etichetta “P1” per bug/ambiguità funzionali, “P2” per QA/completezza, “P3” per UX/copy. Documenta la priorità accanto al task.
+Mantieni la checklist ordinata come sopra per tutti i moduli, riutilizzando il formato già mostrato in `base_profile` e aggiornando le priorità nel momento in cui emergono dai report.
 
-Collega ogni task alle linee del modulo sorgente citate nel report (es. helper CR e gate QA per Encounter_Designer) per facilitare l’implementazione.
+### Passaggio specialistico PF1e (QA numerico e legale)
+- Esegui un controllo dedicato ai bilanciamenti PF1e: conferma CR/XP e budget rispetto al contesto del modulo, verificando stacking dei bonus e prerequisiti (rispecchia i check `sanity_check` e `rules_consistency` della `qa_pipeline` di `src/modules/base_profile.txt`).
+- Con PFS attivo, passa esplicitamente dal gate di legalità (fonti allowed, cronache, boons, obedience) come nel check `pfs_gate`; se OFF, annota comunque eventuali deviazioni PFS.
+- Nei report modulo cita le tre tappe QA di riferimento (`sanity_check`, `rules_consistency`, `pfs_gate`) per tracciare l’avvenuto controllo.
 
 ## Output di pianificazione per ogni modulo
 Crea un elenco conciso di task (idealmente 1–5 per modulo), ciascuno con: titolo, file/section, sintesi della modifica, blocking/priority e dipendenze da altri moduli.
