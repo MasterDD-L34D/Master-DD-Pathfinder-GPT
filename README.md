@@ -86,6 +86,25 @@ Su push e pull request, il workflow GitHub Actions **Static Analysis** esegue
 lo stesso script per garantire che il codice resti formattato e privo di errori
 di sintassi prima del merge.
 
+### Aggiornare le sezioni dei report dei moduli
+
+Per allineare i report QA in `reports/module_tests/` alla checklist standard
+(Ambiente, Esiti API, Metadati, Comandi/Flow, QA, Osservazioni, Errori,
+Miglioramenti suggeriti, Fix necessari) puoi usare lo script
+`tools/refresh_module_reports.py`, che legge automaticamente la sequenza moduli
+da `planning/module_review_guide.md`:
+
+```bash
+# Verifica che ogni report contenga le sezioni richieste (exit 1 se ne manca una)
+python tools/refresh_module_reports.py --check
+
+# Aggiunge le sezioni mancanti con bullet placeholder "- TODO"
+python tools/refresh_module_reports.py --write
+```
+
+Usa `--check` nei workflow CI per bloccare report incompleti; `--write` aggiorna
+in loco i file mancanti senza toccare il contenuto esistente.
+
 Per i moduli, il dump completo è **disattivato di default** (`ALLOW_MODULE_DUMP=false`).
 `/modules/{name}` restituisce solo estratti (4000 caratteri + marcatore finale) e blocca
 gli asset non testuali: la risposta include `X-Content-Partial: true` e `206 Partial Content`
