@@ -419,6 +419,8 @@ def build_plan(output_path: Path, executive_output: Path) -> None:
         "Stato",
         "Osservazioni (n)",
         "Errori (n)",
+        "N. osservazioni",
+        "N. errori",
     ]
     summary_rows = [
         "| " + " | ".join(summary_columns) + " |",
@@ -435,6 +437,8 @@ def build_plan(output_path: Path, executive_output: Path) -> None:
             str(len(summary.errors)),
             str(len(summary.dependencies)),
             summary.status,
+            str(len(summary.observations)),
+            str(len(summary.errors)),
             str(len(summary.observations)),
             str(len(summary.errors)),
         ]
