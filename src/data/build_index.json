@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-11T17:01:07Z",
+  "generated_at": "2025-12-11T22:11:22Z",
   "api_url": null,
   "mode": "mixed",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -318,7 +318,7 @@
     },
     {
       "file": "src/data/builds/archive/cleric_human_warpriest.json",
-      "status": "ok",
+      "status": "missing",
       "output_prefix": "cleric_human_warpriest",
       "class": "Cleric",
       "race": "Human",
@@ -1104,7 +1104,7 @@
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human.json",
-      "status": "ok",
+      "status": "missing",
       "output_prefix": "fighter_human_weapon_master",
       "class": "Fighter",
       "race": "Human",
@@ -1914,7 +1914,7 @@
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher.json",
-      "status": "ok",
+      "status": "missing",
       "output_prefix": "ranger_half-elf_skirmisher",
       "class": "Ranger",
       "race": "Half-Elf",
@@ -2556,7 +2556,7 @@
     },
     {
       "file": "src/data/builds/wizard_elf_universalist.json",
-      "status": "ok",
+      "status": "missing",
       "output_prefix": "wizard_elf_universalist",
       "class": "Wizard",
       "race": "Elf",
@@ -2625,7 +2625,7 @@
     },
     {
       "file": "src/data/builds/wizard_human_evoker.json",
-      "status": "ok",
+      "status": "missing",
       "output_prefix": "wizard_human_evoker",
       "class": "Wizard",
       "race": "Human",
@@ -2726,7 +2726,7 @@
     },
     "5": {
       "total": 56,
-      "invalid": 30,
+      "invalid": 35,
       "schema_errors": 30,
       "completeness_errors": 0
     },

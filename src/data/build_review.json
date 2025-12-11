@@ -1,11 +1,11 @@
 {
-  "generated_at": "2025-12-11T17:01:07Z",
+  "generated_at": "2025-12-11T22:11:22Z",
   "builds": {
-    "total": 161,
-    "valid": 96,
+    "total": 221,
+    "valid": 91,
     "invalid": 0,
     "errors": 0,
-    "missing": 65,
+    "missing": 130,
     "entries": [
       {
         "file": "src/data/builds/alchemist-goblin-vivisectionist.json",
@@ -234,6 +234,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/archive/brawler_human_base_lvl05.json",
+        "output_prefix": "brawler_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/archive/brawler_human_base_lvl10.json",
+        "output_prefix": "brawler_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/archive/cavalier_human_base.json",
         "output_prefix": "cavalier_human_base",
         "class": "Cavalier",
@@ -251,6 +275,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/archive/cavalier_human_base_lvl05.json",
+        "output_prefix": "cavalier_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/archive/cavalier_human_base_lvl10.json",
+        "output_prefix": "cavalier_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/archive/cleric.json",
@@ -274,21 +322,18 @@
       {
         "file": "src/data/builds/archive/cleric_human_warpriest.json",
         "output_prefix": "cleric_human_warpriest",
-        "class": "Cleric",
-        "race": "Human",
-        "archetype": "Warpriest",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "cleric_human_warpriest",
-        "background": null,
-        "model": null,
+        "level": 5,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "error": "Checkpoint livello 1 dichiarato ma file assente",
+        "class": "Cleric",
+        "mode": "extended",
+        "status": "missing",
+        "spec_id": "cleric_human_warpriest",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/archive/cleric_human_warpriest_lvl05.json",
@@ -329,6 +374,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/archive/cleric_lvl05.json",
+        "output_prefix": "cleric_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/archive/cleric_lvl10.json",
+        "output_prefix": "cleric_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/archive/gunslinger_human_base.json",
         "output_prefix": "gunslinger_human_base",
         "class": "Gunslinger",
@@ -346,6 +415,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/archive/gunslinger_human_base_lvl05.json",
+        "output_prefix": "gunslinger_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/archive/gunslinger_human_base_lvl10.json",
+        "output_prefix": "gunslinger_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
@@ -813,6 +906,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/druid_lvl05.json",
+        "output_prefix": "druid_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/druid_lvl10.json",
+        "output_prefix": "druid_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
         "output_prefix": "druid_wayang_mooncaller_shapeshifter",
         "class": "Druid",
@@ -950,23 +1067,44 @@
         "status": "ok"
       },
       {
-        "file": "src/data/builds/fighter_weapon_master_human.json",
-        "output_prefix": "fighter_human_weapon_master",
-        "class": "Fighter",
-        "race": "Human",
-        "archetype": "Weapon Master",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "fighter_human_weapon_master",
-        "background": null,
-        "model": null,
+        "file": "src/data/builds/fighter_lvl05.json",
+        "output_prefix": "fighter_human_base",
+        "level": 5,
         "level_checkpoints": [
           1,
           5,
           10
         ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/fighter_lvl10.json",
+        "output_prefix": "fighter_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/fighter_weapon_master_human.json",
+        "output_prefix": "fighter_human_weapon_master",
         "level": 5,
-        "status": "ok"
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "Checkpoint livello 1 dichiarato ma file assente",
+        "class": "Fighter",
+        "mode": "extended",
+        "status": "missing",
+        "spec_id": "fighter_human_weapon_master",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
@@ -1083,6 +1221,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/hunter_lvl05.json",
+        "output_prefix": "hunter_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/hunter_lvl10.json",
+        "output_prefix": "hunter_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher.json",
         "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",
         "class": "Inquisitor",
@@ -1156,6 +1318,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/investigator_lvl05.json",
+        "output_prefix": "investigator_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/investigator_lvl10.json",
+        "output_prefix": "investigator_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/kineticist.json",
         "output_prefix": "kineticist_human_base",
         "class": "Kineticist",
@@ -1173,6 +1359,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/kineticist_lvl05.json",
+        "output_prefix": "kineticist_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/kineticist_lvl10.json",
+        "output_prefix": "kineticist_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter.json",
@@ -1263,6 +1473,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/medium_lvl05.json",
+        "output_prefix": "medium_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/medium_lvl10.json",
+        "output_prefix": "medium_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/mesmerist.json",
         "output_prefix": "mesmerist_human_base",
         "class": "Mesmerist",
@@ -1282,19 +1516,71 @@
         "status": "ok"
       },
       {
-        "file": "src/data/builds/monk.json",
-        "class": "Monk",
-        "mode": "extended",
-        "status": "ok",
-        "level": 1,
-        "output_prefix": "monk_human_base",
+        "file": "src/data/builds/mesmerist_lvl05.json",
+        "output_prefix": "mesmerist_human_base",
+        "level": 5,
         "level_checkpoints": [
           1,
           5,
           10
         ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/mesmerist_lvl10.json",
+        "output_prefix": "mesmerist_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/monk.json",
+        "output_prefix": "monk_human_base",
+        "class": "Monk",
+        "race": "Human",
+        "archetype": "Base",
+        "mode": "extended",
+        "mode_normalized": "extended",
         "spec_id": "monk_human_base",
-        "mode_normalized": "extended"
+        "background": null,
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 1,
+        "status": "ok"
+      },
+      {
+        "file": "src/data/builds/monk_lvl05.json",
+        "output_prefix": "monk_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/monk_lvl10.json",
+        "output_prefix": "monk_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
@@ -1304,7 +1590,7 @@
         "archetype": "Qinggong + Master of Many Styles",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "monk_vanara_qinggong_master_of_many_styles",
+        "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
         "background": null,
         "model": "gpt-5.1-codex-max",
         "level_checkpoints": [
@@ -1327,7 +1613,7 @@
         "archetype": "Qinggong + Master of Many Styles",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "monk_vanara_qinggong_master_of_many_styles",
+        "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
         "background": null,
         "model": "gpt-5.1-codex-max",
         "level_checkpoints": [
@@ -1350,7 +1636,7 @@
         "archetype": "Qinggong + Master of Many Styles",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "monk_vanara_qinggong_master_of_many_styles",
+        "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
         "background": null,
         "model": "gpt-5.1-codex-max",
         "level_checkpoints": [
@@ -1385,6 +1671,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/ninja_lvl05.json",
+        "output_prefix": "ninja_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/ninja_lvl10.json",
+        "output_prefix": "ninja_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/occultist.json",
         "output_prefix": "occultist_human_base",
         "class": "Occultist",
@@ -1402,6 +1712,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/occultist_lvl05.json",
+        "output_prefix": "occultist_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/occultist_lvl10.json",
+        "output_prefix": "occultist_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/oracle.json",
@@ -1423,6 +1757,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/oracle_lvl05.json",
+        "output_prefix": "oracle_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/oracle_lvl10.json",
+        "output_prefix": "oracle_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/paladin.json",
         "output_prefix": "paladin_human_base",
         "class": "Paladin",
@@ -1442,6 +1800,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/paladin_lvl05.json",
+        "output_prefix": "paladin_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/paladin_lvl10.json",
+        "output_prefix": "paladin_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/psychic.json",
         "output_prefix": "psychic_human_base",
         "class": "Psychic",
@@ -1459,6 +1841,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/psychic_lvl05.json",
+        "output_prefix": "psychic_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/psychic_lvl10.json",
+        "output_prefix": "psychic_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/ranger.json",
@@ -1482,21 +1888,18 @@
       {
         "file": "src/data/builds/ranger_halfelf_skirmisher.json",
         "output_prefix": "ranger_half-elf_skirmisher",
-        "class": "Ranger",
-        "race": "Half-Elf",
-        "archetype": "Skirmisher",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "ranger_half-elf_skirmisher",
-        "background": null,
-        "model": null,
+        "level": 5,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "error": "Checkpoint livello 1 dichiarato ma file assente",
+        "class": "Ranger",
+        "mode": "extended",
+        "status": "missing",
+        "spec_id": "ranger_half-elf_skirmisher",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
@@ -1535,6 +1938,30 @@
         ],
         "level": 10,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/ranger_lvl05.json",
+        "output_prefix": "ranger_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/ranger_lvl10.json",
+        "output_prefix": "ranger_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/rogue.json",
@@ -1613,6 +2040,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/rogue_lvl05.json",
+        "output_prefix": "rogue_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/rogue_lvl10.json",
+        "output_prefix": "rogue_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/samurai.json",
         "output_prefix": "samurai_human_base",
         "class": "Samurai",
@@ -1630,6 +2081,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/samurai_lvl05.json",
+        "output_prefix": "samurai_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/samurai_lvl10.json",
+        "output_prefix": "samurai_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/shaman.json",
@@ -1651,6 +2126,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/shaman_lvl05.json",
+        "output_prefix": "shaman_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/shaman_lvl10.json",
+        "output_prefix": "shaman_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/skald.json",
         "output_prefix": "skald_human_base",
         "class": "Skald",
@@ -1668,6 +2167,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/skald_lvl05.json",
+        "output_prefix": "skald_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/skald_lvl10.json",
+        "output_prefix": "skald_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/slayer.json",
@@ -1689,6 +2212,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/slayer_lvl05.json",
+        "output_prefix": "slayer_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/slayer_lvl10.json",
+        "output_prefix": "slayer_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/sorcerer.json",
         "output_prefix": "sorcerer_human_base",
         "class": "Sorcerer",
@@ -1706,6 +2253,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/sorcerer_lvl05.json",
+        "output_prefix": "sorcerer_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/sorcerer_lvl10.json",
+        "output_prefix": "sorcerer_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/spiritualist.json",
@@ -1727,6 +2298,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/spiritualist_lvl05.json",
+        "output_prefix": "spiritualist_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/spiritualist_lvl10.json",
+        "output_prefix": "spiritualist_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/summoner.json",
         "output_prefix": "summoner_human_base",
         "class": "Summoner",
@@ -1744,6 +2339,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/summoner_lvl05.json",
+        "output_prefix": "summoner_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/summoner_lvl10.json",
+        "output_prefix": "summoner_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/swashbuckler.json",
@@ -1765,6 +2384,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/swashbuckler_lvl05.json",
+        "output_prefix": "swashbuckler_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/swashbuckler_lvl10.json",
+        "output_prefix": "swashbuckler_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/warpriest.json",
         "output_prefix": "warpriest_human_base",
         "class": "Warpriest",
@@ -1784,6 +2427,30 @@
         "status": "ok"
       },
       {
+        "file": "src/data/builds/warpriest_lvl05.json",
+        "output_prefix": "warpriest_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/warpriest_lvl10.json",
+        "output_prefix": "warpriest_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
         "file": "src/data/builds/witch.json",
         "output_prefix": "witch_human_base",
         "class": "Witch",
@@ -1801,6 +2468,30 @@
         ],
         "level": 1,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/witch_lvl05.json",
+        "output_prefix": "witch_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/witch_lvl10.json",
+        "output_prefix": "witch_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/wizard.json",
@@ -1824,21 +2515,18 @@
       {
         "file": "src/data/builds/wizard_elf_universalist.json",
         "output_prefix": "wizard_elf_universalist",
-        "class": "Wizard",
-        "race": "Elf",
-        "archetype": "Universalist",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_elf_universalist",
-        "background": null,
-        "model": null,
+        "level": 5,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "error": "Checkpoint livello 1 dichiarato ma file assente",
+        "class": "Wizard",
+        "mode": "extended",
+        "status": "missing",
+        "spec_id": "wizard_elf_universalist",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
@@ -1881,21 +2569,18 @@
       {
         "file": "src/data/builds/wizard_human_evoker.json",
         "output_prefix": "wizard_human_evoker",
-        "class": "Wizard",
-        "race": "Human",
-        "archetype": "Evoker",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_human_evoker",
-        "background": null,
-        "model": null,
+        "level": 5,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "level": 5,
-        "status": "ok"
+        "error": "Checkpoint livello 1 dichiarato ma file assente",
+        "class": "Wizard",
+        "mode": "extended",
+        "status": "missing",
+        "spec_id": "wizard_human_evoker",
+        "mode_normalized": "extended"
       },
       {
         "file": "src/data/builds/wizard_human_evoker_lvl05.json",
@@ -1934,6 +2619,30 @@
         ],
         "level": 10,
         "status": "ok"
+      },
+      {
+        "file": "src/data/builds/wizard_lvl05.json",
+        "output_prefix": "wizard_human_base",
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
+      },
+      {
+        "file": "src/data/builds/wizard_lvl10.json",
+        "output_prefix": "wizard_human_base",
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "error": "File mancante",
+        "status": "missing"
       },
       {
         "file": "src/data/builds/archive/brawler_human_base_lvl05.json",
@@ -2724,14 +3433,14 @@
         "completeness_errors": 5
       },
       "5": {
-        "total": 56,
-        "invalid": 30,
+        "total": 86,
+        "invalid": 65,
         "schema_errors": 0,
         "completeness_errors": 30
       },
       "10": {
-        "total": 51,
-        "invalid": 30,
+        "total": 81,
+        "invalid": 60,
         "schema_errors": 0,
         "completeness_errors": 30
       }
