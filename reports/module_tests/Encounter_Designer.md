@@ -13,6 +13,8 @@
 5. **`GET /modules/DoesNotExist.txt`** — `404 Not Found` con body `{ "detail": "Module not found" }`.
 6. **`GET /modules/Encounter_Designer.txt`** con `ALLOW_MODULE_DUMP=false` — `200 OK`; risposta troncata con marcatore finale `[contenuto troncato]`.
 
+- TODO
+
 ## Metadati e scopo del modulo
 - `module_name`: **Encounter Designer**, versione **1.0**, ultimo aggiornamento **2025-08-21**, eredita da `base_profile.txt`. Descrive un designer di incontri PF1e con benchmark MinMax, export VTT e gating QA.【F:src/modules/Encounter_Designer.txt†L1-L60】
 - Trigger supportati: `encounter`, `genera_incontro`, `bilancia_incontro`, `encounter designer`, `crea_nemici`. Messaggio di benvenuto dedicato con identità “Maestro di Guerra e Stratega Narrativo” e doppio tono tecnico/narrativo, attivabile via `/narrativo {on|off}`.【F:src/modules/Encounter_Designer.txt†L12-L29】

@@ -231,7 +231,9 @@ def _coerce_label(value: object, default: str) -> str:
     return text or default
 
 
-def _load_local_builds(build_dir: Path, expected_levels: Sequence[int]) -> list[LocalBuildFile]:
+def _load_local_builds(
+    build_dir: Path, expected_levels: Sequence[int]
+) -> list[LocalBuildFile]:
     if not build_dir.is_dir():
         raise ValueError(f"Directory delle build non trovata: {build_dir}")
 
@@ -246,7 +248,9 @@ def _load_local_builds(build_dir: Path, expected_levels: Sequence[int]) -> list[
             payload = json.load(fh)
 
         build_state = payload.get("build_state") or {}
-        class_name = _coerce_label(build_state.get("class") or payload.get("class"), "Unknown")
+        class_name = _coerce_label(
+            build_state.get("class") or payload.get("class"), "Unknown"
+        )
         race = _coerce_label(build_state.get("race") or payload.get("race"), "Unknown")
 
         build_files.append(
@@ -285,7 +289,9 @@ def _summarize_builds(
                 key_name: key,
                 "present_levels": sorted(present),
                 "missing_levels": sorted(expected_set - present),
-                "total_by_level": {str(level): counts.get(level, 0) for level in expected_levels},
+                "total_by_level": {
+                    str(level): counts.get(level, 0) for level in expected_levels
+                },
             }
         )
 
@@ -299,7 +305,9 @@ def _summarize_builds(
         "items": items,
         "summary": {
             "total_groups": len(items),
-            "total_by_level": {str(level): total_counts.get(level, 0) for level in expected_levels},
+            "total_by_level": {
+                str(level): total_counts.get(level, 0) for level in expected_levels
+            },
         },
     }
 
@@ -341,7 +349,9 @@ def _summarize_prefixes(
                 "race": bucket["race"],
                 "present_levels": sorted(levels),
                 "missing_levels": sorted(expected_set - levels),
-                "total_by_level": {str(level): counts.get(level, 0) for level in expected_levels},
+                "total_by_level": {
+                    str(level): counts.get(level, 0) for level in expected_levels
+                },
                 "paths": bucket["paths"],
             }
         )
@@ -352,7 +362,9 @@ def _summarize_prefixes(
         "items": items,
         "summary": {
             "total_prefixes": len(items),
-            "total_by_level": {str(level): total_counts.get(level, 0) for level in expected_levels},
+            "total_by_level": {
+                str(level): total_counts.get(level, 0) for level in expected_levels
+            },
         },
     }
 
@@ -1142,7 +1154,9 @@ def review_local_database(
         entry.setdefault("mode_normalized", index_entry.get("mode_normalized"))
         index_entries.append(index_entry)
 
-        normalized_prefix = _strip_level_suffix(output_prefix or Path(display_path).stem)
+        normalized_prefix = _strip_level_suffix(
+            output_prefix or Path(display_path).stem
+        )
         tracker_entry = prefix_tracker.setdefault(
             normalized_prefix,
             {
@@ -1151,7 +1165,9 @@ def review_local_database(
                 "template_file": display_path,
             },
         )
-        tracker_entry["expected"].update(_normalize_levels(level_checkpoints, (1, 5, 10)))
+        tracker_entry["expected"].update(
+            _normalize_levels(level_checkpoints, (1, 5, 10))
+        )
         level_from_entry = index_entry.get("level")
         if level_from_entry is None:
             level_from_entry = _deduce_level_from_filename(Path(display_path))
@@ -1168,8 +1184,15 @@ def review_local_database(
 
         template_path = Path(str(tracker.get("template_file") or build_dir / prefix))
         for missing_level in missing_levels:
-            suffix = "" if missing_level == min(expected_levels or {1}) else f"_lvl{missing_level:02d}"
-            missing_path = template_path.parent / f"{_strip_level_suffix(template_path.stem)}{suffix}.json"
+            suffix = (
+                ""
+                if missing_level == min(expected_levels or {1})
+                else f"_lvl{missing_level:02d}"
+            )
+            missing_path = (
+                template_path.parent
+                / f"{_strip_level_suffix(template_path.stem)}{suffix}.json"
+            )
             entry = {
                 "file": str(missing_path),
                 "output_prefix": prefix,
@@ -3465,7 +3488,9 @@ async def run_harvest(
                 if skip_unchanged and destination.exists():
                     try:
                         payload = json.loads(destination.read_text(encoding="utf-8"))
-                    except Exception as exc:  # pragma: no cover - defensive logging only
+                    except (
+                        Exception
+                    ) as exc:  # pragma: no cover - defensive logging only
                         logging.warning(
                             "Impossibile caricare payload esistente %s: %s, procedo con la fetch",
                             destination,
@@ -3479,7 +3504,9 @@ async def run_harvest(
                             f"build {request.output_name()} (cached)",
                             strict=strict,
                         )
-                        sheet_context = payload.get("export", {}).get("sheet_payload") or payload.get("sheet_payload")
+                        sheet_context = payload.get("export", {}).get(
+                            "sheet_payload"
+                        ) or payload.get("sheet_payload")
                         sheet_validation = None
                         if sheet_context is not None:
                             sheet_validation = validate_with_schema(
@@ -3523,10 +3550,22 @@ async def run_harvest(
                                 destination,
                                 status,
                                 validation_error,
-                                payload.get("step_audit") if isinstance(payload, Mapping) else None,
+                                (
+                                    payload.get("step_audit")
+                                    if isinstance(payload, Mapping)
+                                    else None
+                                ),
                                 completeness_errors,
-                                payload.get("ruling_badge") if isinstance(payload, Mapping) else None,
-                                payload.get("ruling_sources") if isinstance(payload, Mapping) else None,
+                                (
+                                    payload.get("ruling_badge")
+                                    if isinstance(payload, Mapping)
+                                    else None
+                                ),
+                                (
+                                    payload.get("ruling_sources")
+                                    if isinstance(payload, Mapping)
+                                    else None
+                                ),
                             )
 
                 method = request.http_method()
@@ -3579,7 +3618,9 @@ async def run_harvest(
                         f"build {request.output_name()}",
                         strict=strict,
                     )
-                    sheet_context = payload.get("export", {}).get("sheet_payload") or payload.get("sheet_payload")
+                    sheet_context = payload.get("export", {}).get(
+                        "sheet_payload"
+                    ) or payload.get("sheet_payload")
                     sheet_validation = None
                     if sheet_context is not None:
                         sheet_validation = validate_with_schema(
@@ -3600,7 +3641,9 @@ async def run_harvest(
                     completeness_errors = list(completeness_ctx.get("errors") or [])
                     completeness_text: str | None = None
                     if completeness_errors:
-                        completeness_text = "; ".join(str(error) for error in completeness_errors)
+                        completeness_text = "; ".join(
+                            str(error) for error in completeness_errors
+                        )
                         validation_error = (
                             completeness_text
                             if validation_error is None
@@ -3753,6 +3796,7 @@ async def run_harvest(
                             else None
                         ),
                     )
+
         for task_request, output_file, base_level in planned_snapshots:
             build_tasks.append(
                 asyncio.create_task(

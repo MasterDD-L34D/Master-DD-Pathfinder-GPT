@@ -1,6 +1,6 @@
 # Piano operativo generato dai report
 
-Generato il 2025-12-11T16:23:58Z
+Generato il 2025-12-11T20:20:26Z
 Fonte sequenza: `planning/module_review_guide.md`
 
 ## Checklist seguita (dal documento di guida)

@@ -15,6 +15,8 @@
 7. **Accesso senza API key (predefinito)** — Con `ALLOW_ANONYMOUS=false` viene risposto `401 Invalid or missing API key` su `/modules`.【F:tests/test_app.py†L390-L399】
 8. **Accesso anonimo opzionale** — Con `ALLOW_ANONYMOUS=true` e nessuna API key `/modules` torna `200 OK`, consentendo l’elenco anonimo.【F:tests/test_app.py†L444-L448】
 
+- TODO
+
 ## Metadati e scopo del modulo
 - Kernel interno versione **3.7-kernel** aggiornato al **2025-09-05**, ruolo “Assistente AI multifunzionale specializzato in Pathfinder 1e” con welcome message dedicato alla Taverna Master DD.【F:src/modules/base_profile.txt†L1-L24】
 - Principi chiave: priorità RAW/RAI/PFS, separazione per ambiti (Ruling, Archivist, MinMax, Encounter, Loot, Narrativa), trasparenza fonti e controlli anti-allucinazione/drift.【F:src/modules/base_profile.txt†L29-L52】

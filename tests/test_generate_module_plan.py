@@ -10,7 +10,10 @@ from tools.generate_module_plan import collect_section_lines, summarise_module
 def test_collect_section_lines_merges_all_matches():
     sections = [
         ("Fix necessari", ["- primo fix", ""]),
-        ("Note e miglioramenti", ["- miglioramento"],),
+        (
+            "Note e miglioramenti",
+            ["- miglioramento"],
+        ),
         ("Fix necessari (API)", ["- secondo fix"]),
     ]
 
@@ -70,4 +73,8 @@ def test_summarise_module_merges_duplicate_sections(tmp_path: Path):
         (3, "Ritocco opzionale"),
     ]
     assert summary.errors == ["Errore nelle API", "Errore di copia", "Errore terzo"]
-    assert summary.observations == ["Nota separata", "Nota combinata uno", "Nota combinata due"]
+    assert summary.observations == [
+        "Nota separata",
+        "Nota combinata uno",
+        "Nota combinata due",
+    ]

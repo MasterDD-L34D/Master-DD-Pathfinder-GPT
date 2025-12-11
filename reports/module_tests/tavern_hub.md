@@ -13,6 +13,8 @@
 5. `GET /modules/not_exists.json` → `404 Not Found`, body `{ "detail": "Module not found" }`.【94c18a†L1-L8】
 6. `GET /modules/tavern_hub.json` (`ALLOW_MODULE_DUMP=false`) → `403 Forbidden`; download asset non testuale bloccato (nessun troncamento parziale).【3bedc0†L1-L8】
 
+- TODO
+
 ## Metadati, scopo e principi
 - Nome modulo: `tavern_hub.json`, versione **1.0**, aggiornato **2025-08-23**, core **3.3**; raccoglie stato Hub con flag PFS/ABP/EitR, router, run quiz, personaggi, build, incontri, ledger, export e log di handoff.【F:src/modules/tavern_hub.json†L1-L44】
 - Integrazione dichiarata dal modulo Taverna: ledger storage punta a `src/modules/tavern_hub.json` con schema di riferimento `adventurer_ledger.txt` e rate limit 8 op/min; il modulo serve da storage condiviso per Hub/ledger.【F:src/modules/Taverna_NPC.txt†L382-L386】

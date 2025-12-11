@@ -11,6 +11,8 @@
 5. `GET /modules/nonexistent.txt` → `404 Not Found` con body `{"detail":"Module not found"}`.【339dff†L1-L7】
 6. `GET /modules/tavern_hub.json` con `ALLOW_MODULE_DUMP=false` → `403 Forbidden`, download asset non testuale bloccato.【0e8b5a†L1-L7】
 
+- TODO
+
 ## Metadati, scopo e principi
 - Nome: **Libro Mastro dell’Avventuriero**, versione **1.5**, tipo `economy/loot/crafting`, erede di `base_profile.txt`; export dichiarati: `ledger:api`, `qa:pfs_flags`, `pg_binding`, `vtt_json`.【F:src/modules/adventurer_ledger.txt†L1-L14】
 - Scopo: gestione economica/loot/WBL/PFS/MIC con integrazione scheda PG/MinMax e stile giocatore; descrizione sintetica in linea con questi obiettivi.【F:src/modules/adventurer_ledger.txt†L15-L27】

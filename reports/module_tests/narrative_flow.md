@@ -13,6 +13,8 @@
 5. **Dump disabilitato (`ALLOW_MODULE_DUMP=false`)** — file testuali restano accessibili ma troncati a 4000 caratteri con marker finale `[contenuto troncato]` e header aggiuntivi `x-truncated=true` / `x-original-length=<byte>` che riportano dimensione originaria e limite di troncamento; asset binari/PDF restituiscono `403 Module download not allowed`.【F:tests/test_app.py†L252-L295】【F:tests/test_app.py†L319-L343】【F:src/app.py†L1420-L1492】
 6. **Errori standard** — path traversal → `400 Invalid module path`; nome errato → `404 Module not found`; knowledge traversal → `404 Knowledge file not found`.【F:tests/test_app.py†L214-L340】
 
+- TODO
+
 ## Metadati, scopo e integrazioni
 - Profilo: Modalità **Narrativa** v2.3, erede di `base_profile.txt`, focalizzata su storie/ambientazioni/roleplay con Story Bible, Outline/Beats, Scene Tracker, guard-rail immagini, mappa ASCII e ponti verso moduli tattici.【F:src/modules/narrative_flow.txt†L1-L35】
 - Trigger e tools: frasi naturali per storie/salvataggi/visualizzazioni e compat con tool legacy `dall-e`, `memory`, `interactive_flow` più router hint per intent Narrativa/Explain/Archivist/MinMax.【F:src/modules/narrative_flow.txt†L15-L34】
