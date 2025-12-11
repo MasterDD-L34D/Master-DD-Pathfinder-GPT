@@ -100,12 +100,12 @@ requests:
     query:
       race: Goblin
       archetype: Bombardier
-  - id: bloodrager_skinwalker_primalist_blood_conduit
+  - id: bloodrager_shabti_steelblood_metamagic_rager
     class: Bloodrager
-    race: Skinwalker
-    archetype: Primalist Blood Conduit
-    background_hooks: "Totemista skinwalker che canalizza il sangue elementale come araldo tribale."
-    output_prefix: bloodrager-skinwalker-primalist-blood-conduit
+    race: Shabti
+    archetype: Steelblood Metamagic Rager
+    background_hooks: "Costrutto celestiale forgiato come guardia reale, ora incanala la furia metamagica protetto da piastre d'oricalco."
+    output_prefix: bloodrager-shabti-steelblood-metamagic-rager
     query:
-      race: Skinwalker
-      archetype: Primalist Blood Conduit
+      race: Shabti
+      archetype: Steelblood Metamagic Rager
