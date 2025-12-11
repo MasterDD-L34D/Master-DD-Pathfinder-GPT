@@ -1,77 +1,54 @@
 {
-  "generated_at": "2025-12-11T22:11:26Z",
+  "generated_at": "2025-12-12T00:50:00Z",
   "races": [
-    {
-      "name": "Dwarf",
-      "count": 3
-    },
-    {
-      "name": "Elf",
-      "count": 3
-    },
-    {
-      "name": "Fetchling",
-      "count": 3
-    },
-    {
-      "name": "Goblin",
-      "count": 6
-    },
-    {
-      "name": "Grippli",
-      "count": 3
-    },
-    {
-      "name": "Half-Elf",
-      "count": 3
-    },
-    {
-      "name": "Half-Orc",
-      "count": 3
-    },
-    {
-      "name": "Halfling",
-      "count": 3
-    },
-    {
-      "name": "Human",
-      "count": 39
-    },
-    {
-      "name": "Kitsune",
-      "count": 6
-    },
-    {
-      "name": "Samsaran",
-      "count": 3
-    },
-    {
-      "name": "Shabti",
-      "count": 3
-    },
-    {
-      "name": "Strix",
-      "count": 3
-    },
-    {
-      "name": "Tengu",
-      "count": 3
-    },
-    {
-      "name": "Vanara",
-      "count": 3
-    },
-    {
-      "name": "Vishkanya",
-      "count": 3
-    },
-    {
-      "name": "Wayang",
-      "count": 3
-    },
-    {
-      "name": "tiefling",
-      "count": 3
-    }
+    { "name": "Human", "count": 0 },
+    { "name": "Elf", "count": 0 },
+    { "name": "Dwarf", "count": 3 },
+    { "name": "Halfling", "count": 3 },
+    { "name": "Gnome", "count": 0 },
+    { "name": "Half-Elf", "count": 0 },
+    { "name": "Half-Orc", "count": 3 },
+    { "name": "Half-Orc (Rebuilt)", "count": 0 },
+    { "name": "Half-Elf (Rebuilt)", "count": 0 },
+    { "name": "Catfolk", "count": 6 },
+    { "name": "Dhampir", "count": 0 },
+    { "name": "Drow", "count": 0 },
+    { "name": "Grippli", "count": 3 },
+    { "name": "Svirfneblin", "count": 0 },
+    { "name": "Aasimar", "count": 6 },
+    { "name": "Tiefling", "count": 3 },
+    { "name": "Ifrit", "count": 0 },
+    { "name": "Oread", "count": 0 },
+    { "name": "Sylph", "count": 6 },
+    { "name": "Undine", "count": 0 },
+    { "name": "Nagaji", "count": 0 },
+    { "name": "Vanara", "count": 3 },
+    { "name": "Hobgoblin", "count": 9 },
+    { "name": "Goloma", "count": 0 },
+    { "name": "Tengu", "count": 3 },
+    { "name": "Suli", "count": 3 },
+    { "name": "Skinwalker", "count": 0 },
+    { "name": "Samsaran", "count": 3 },
+    { "name": "Wayang", "count": 3 },
+    { "name": "Kitsune", "count": 6 },
+    { "name": "Ratfolk", "count": 0 },
+    { "name": "Changeling", "count": 0 },
+    { "name": "Merfolk", "count": 0 },
+    { "name": "Strix", "count": 9 },
+    { "name": "Gillman", "count": 0 },
+    { "name": "Wyvaran", "count": 0 },
+    { "name": "Advanced Nagaji", "count": 0 },
+    { "name": "Lashunta", "count": 0 },
+    { "name": "Trox", "count": 0 },
+    { "name": "Minotaur", "count": 0 },
+    { "name": "Centaur", "count": 0 },
+    { "name": "Oni-Spawn", "count": 0 },
+    { "name": "Fetchling", "count": 3 },
+    { "name": "Ghoran", "count": 6 },
+    { "name": "Goblin", "count": 6 },
+    { "name": "Kasatha", "count": 3 },
+    { "name": "Shabti", "count": 3 },
+    { "name": "Vishkanya", "count": 3 },
+    { "name": "Wayang (Umbral)", "count": 3 }
   ]
 }
