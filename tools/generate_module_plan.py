@@ -177,13 +177,20 @@ def collect_section_lines(
     """
     Return the concatenated content lines for all sections whose heading matches
     any of the provided patterns (case-insensitive, supports combined headings
-    and emoji). The order of matching sections is preserved.
+    and emoji). The order of matching sections is preserved and multiple
+    matching sections are combined.
     """
 
-    merged_lines: List[str] = []
+    matching_sections: List[List[str]] = []
     for heading, content in sections:
         if any(pattern.search(heading) for pattern in patterns):
-            merged_lines.extend(content)
+            matching_sections.append(content)
+
+    merged_lines: List[str] = []
+    for idx, content in enumerate(matching_sections):
+        if idx:
+            merged_lines.append("")
+        merged_lines.extend(content)
 
     return merged_lines
 
