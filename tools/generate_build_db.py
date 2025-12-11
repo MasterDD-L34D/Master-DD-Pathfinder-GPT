@@ -1316,6 +1316,18 @@ def parse_args() -> argparse.Namespace:
         help="Retry massimo per la chiamata Ruling Expert (default: usa --max-retries)",
     )
     parser.add_argument(
+        "--require-t1",
+        action="store_true",
+        dest="t1_filter",
+        help="Genera più varianti e mantiene solo quelle con meta_tier T1 e badge validato",
+    )
+    parser.add_argument(
+        "--t1-variants",
+        type=int,
+        default=3,
+        help="Numero di varianti da testare quando il filtro T1 è attivo (default: %(default)s)",
+    )
+    parser.add_argument(
         "--mode",
         default=DEFAULT_MODE,
         choices=["core", "extended", "full-pg"],
@@ -2734,6 +2746,17 @@ def _progression_level_errors(
     return errors
 
 
+def _ledger_entry_errors(sheet_payload: Mapping[str, object] | None) -> list[str]:
+    if not isinstance(sheet_payload, Mapping):
+        return []
+
+    ledger = sheet_payload.get("ledger")
+    if isinstance(ledger, Mapping) and ledger.get("entries"):
+        return []
+
+    return []
+
+
 async def fetch_build(
     client: httpx.AsyncClient,
     api_key: str | None,
@@ -2744,237 +2767,348 @@ async def fetch_build(
     ruling_expert_url: str | None = None,
     ruling_timeout: float = 30.0,
     ruling_max_retries: int | None = None,
+    t1_filter: bool = False,
+    t1_variants: int = 3,
 ) -> MutableMapping:
-    params: MutableMapping[str, object] = {
-        "mode": request.mode,
-        "class": request.class_name,
-        "stub": True,
-    }
-    if target_level is not None:
-        params["level"] = target_level
-    params.update(request.query_params)
-    headers = {"x-api-key": api_key} if api_key else {}
-    method = request.http_method()
-    response = await request_with_retry(
-        client,
-        method,
-        MODULE_ENDPOINT,
-        params=params,
-        headers=headers,
-        timeout=60,
-        max_retries=max_retries,
-        json_body=request.body_params or None,
-    )
+    def _coerce_number(value: object) -> float | None:
+        if isinstance(value, (int, float)):
+            return float(value)
+        if isinstance(value, str):
+            match = re.search(r"-?\d+(?:\.\d+)?", value)
+            if match:
+                try:
+                    return float(match.group())
+                except ValueError:
+                    return None
+        return None
 
-    try:
-        payload = response.json()
-    except json.JSONDecodeError as exc:  # pragma: no cover - network dependent
-        raise BuildFetchError(
-            f"Risposta non JSON per {request.class_name}: {exc}"
-        ) from exc
+    def _benchmark_scores(benchmark: Mapping[str, object] | None) -> tuple[float, float]:
+        offense = 0.0
+        defense = 0.0
+        if not isinstance(benchmark, Mapping):
+            return offense, defense
 
-    for required in ("build_state", "benchmark", "export"):
-        if required not in payload:
-            raise BuildFetchError(
-                f"Campo '{required}' mancante nella risposta per {request.class_name}. Chiavi viste: {sorted(payload.keys())}"
+        dpr_snapshot = benchmark.get("dpr_snapshot")
+        if isinstance(dpr_snapshot, Mapping):
+            for snapshot in dpr_snapshot.values():
+                if not isinstance(snapshot, Mapping):
+                    continue
+                offense = max(
+                    offense,
+                    _coerce_number(snapshot.get("media")) or 0.0,
+                    _coerce_number(snapshot.get("picco")) or 0.0,
+                )
+
+        statistics = benchmark.get("statistics")
+        if isinstance(statistics, Mapping):
+            for key, value in statistics.items():
+                numeric = _coerce_number(value)
+                if numeric is None:
+                    continue
+                key_lower = str(key).lower()
+                if key_lower.startswith("ac") or key_lower.startswith("ca"):
+                    defense = max(defense, numeric)
+                else:
+                    offense = max(offense, numeric)
+
+        return offense, defense
+
+    def _variant_meta(payload: Mapping[str, object]) -> tuple[str | None, str | None, float, float, list[str]]:
+        benchmark = payload.get("benchmark") if isinstance(payload, Mapping) else None
+        meta_tier = None
+        if isinstance(benchmark, Mapping):
+            raw_tier = benchmark.get("meta_tier")
+            meta_tier = str(raw_tier).strip() if raw_tier else None
+
+        ruling_badge = None
+        if isinstance(payload, Mapping):
+            ruling_badge = payload.get("ruling_badge") or payload.get("benchmark", {}).get(
+                "ruling_badge"
             )
 
-    sheet = None
-    for candidate in (
-        "sheet",
-        "sheet_markup",
-        "sheet_markdown",
-        "sheet_markdown_template",
-    ):
-        if candidate in payload:
-            sheet = payload[candidate]
-            break
+        offense_score, defense_score = _benchmark_scores(benchmark)
 
-    narrative = payload.get("narrative")
-    ledger = payload.get("ledger") or payload.get("adventurer_ledger")
+        ruling_log: list[str] = []
+        if isinstance(payload, Mapping):
+            candidates: list[str] = []
+            ruling_log_field = payload.get("ruling_log")
+            if isinstance(ruling_log_field, Sequence) and not isinstance(
+                ruling_log_field, (str, bytes)
+            ):
+                candidates.extend(str(entry) for entry in ruling_log_field)
+            qa_ctx = payload.get("qa") if isinstance(payload.get("qa"), Mapping) else None
+            qa_log = None
+            if qa_ctx and isinstance(qa_ctx.get("ruling_expert"), Mapping):
+                qa_log = qa_ctx.get("ruling_expert", {}).get("log")
+            if qa_log:
+                if isinstance(qa_log, Sequence) and not isinstance(
+                    qa_log, (str, bytes)
+                ):
+                    candidates.extend(str(entry) for entry in qa_log)
+                else:
+                    candidates.append(str(qa_log))
+            ruling_log = candidates
 
-    build_state = payload.get("build_state") or {}
-    normalized_mode = normalize_mode(request.mode)
-    expected_step_total = expected_step_total_for_mode(normalized_mode)
-    observed_step_total = build_state.get("step_total")
-    step_labels = (
-        build_state.get("step_labels") if isinstance(build_state, Mapping) else None
-    )
-    step_labels_count = len(step_labels) if isinstance(step_labels, Mapping) else None
-    has_extended_steps = bool(step_labels_count and step_labels_count >= 16)
-    if observed_step_total is None:
-        logging.warning(
-            "Risposta per %s (mode=%s) priva di step_total: impossibile verificare il flow",
-            request.class_name,
-            normalized_mode,
-        )
-    elif observed_step_total != expected_step_total:
-        logging.warning(
-            "Step total inatteso per %s (mode=%s): visto %s, atteso %s",
-            request.class_name,
-            normalized_mode,
-            observed_step_total,
-            expected_step_total,
-        )
-    else:
-        logging.info(
-            "Modalità %s confermata per %s: step_total=%s (%s step disponibili)",
-            normalized_mode,
-            request.class_name,
-            observed_step_total,
-            "16" if normalized_mode == "extended" else "8",
-        )
+        return meta_tier, str(ruling_badge) if ruling_badge else None, offense_score, defense_score, ruling_log
 
-    if request.race is None and build_state.get("race"):
-        request.race = build_state.get("race")
-    if request.archetype is None and build_state.get("archetype"):
-        request.archetype = build_state.get("archetype")
-    if request.background is None and request.body_params.get("background_hooks"):
-        request.background = str(request.body_params.get("background_hooks"))
-
-    composite = {
-        "build": {
-            "build_state": payload.get("build_state"),
-            "benchmark": payload.get("benchmark"),
-            "export": payload.get("export"),
-        },
-    }
-    if narrative is not None:
-        composite["narrative"] = narrative
-    if sheet is not None:
-        composite["sheet"] = sheet
-    if ledger is not None:
-        composite["ledger"] = ledger
-
-    completeness_errors: list[str] = []
-    statistics = (build_state or {}).get("statistics") or (
-        payload.get("benchmark") or {}
-    ).get("statistics")
-    if not statistics or (
-        isinstance(statistics, Mapping) and not any(statistics.values())
-    ):
-        completeness_errors.append("Statistiche mancanti o vuote")
-
-    if not narrative:
-        completeness_errors.append("Narrativa assente")
-    else:
-
-        def _contains_stub(value: object) -> bool:
-            if isinstance(value, str):
-                return "stub" in value.lower()
-            if isinstance(value, Mapping):
-                return any(_contains_stub(v) for v in value.values())
-            if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
-                return any(_contains_stub(v) for v in value)
-            return False
-
-        if _contains_stub(narrative):
-            completeness_errors.append("Narrativa contiene placeholder 'stub'")
-
-    if not ledger or (isinstance(ledger, Mapping) and not any(ledger.values())):
-        completeness_errors.append("Ledger assente o senza contenuti")
-    source_url = str(response.url)
-    export_ctx = payload.setdefault("export", {})
-    sheet_payload = _enrich_sheet_payload(
-        payload, ledger if isinstance(ledger, Mapping) else None, source_url
-    )
-    export_ctx["sheet_payload"] = sheet_payload
-    sheet_markdown = sheet_payload.get("sheet_markdown")
-    if isinstance(sheet_markdown, str):
-        payload["sheet"] = sheet_markdown
-        composite["sheet"] = sheet_markdown
-    elif sheet is not None:
-        composite.setdefault("sheet", sheet)
-
-    def _require_block(label: str, *values: object) -> None:
-        if not any(_has_content(value) for value in values):
-            completeness_errors.append(label)
-
-    _require_block(
-        "PF mancanti o vuoti", sheet_payload.get("pf_totali"), sheet_payload.get("hp")
-    )
-    _require_block("Salvezze mancanti o vuote", sheet_payload.get("salvezze"))
-    _require_block(
-        "Skill assenti o vuote",
-        sheet_payload.get("skills_map"),
-        sheet_payload.get("skills"),
-        sheet_payload.get("skill_points"),
-    )
-    _require_block(
-        "Talenti/capacità mancanti o vuote",
-        sheet_payload.get("talenti"),
-        sheet_payload.get("capacita_classe"),
-    )
-    _require_block(
-        "Equipaggiamento/inventario mancante o vuoto",
-        sheet_payload.get("equipaggiamento"),
-        sheet_payload.get("inventario"),
-    )
-    _require_block(
-        "Sezione incantesimi mancante o vuota",
-        sheet_payload.get("spell_levels"),
-        sheet_payload.get("magia"),
-        sheet_payload.get("slot_incantesimi"),
-    )
-    _require_block("CA dettagliata mancante o vuota", sheet_payload.get("ac_breakdown"))
-    _require_block(
-        "Iniziativa o velocità mancanti",
-        sheet_payload.get("iniziativa"),
-        sheet_payload.get("velocita"),
-    )
-
-    progression_errors = _progression_level_errors(sheet_payload, target_level)
-    for error in progression_errors:
-        if error not in completeness_errors:
-            completeness_errors.append(error)
-
-    payload.update(
-        {
-            "class": request.class_name,
+    async def _fetch_single_variant() -> MutableMapping:
+        params: MutableMapping[str, object] = {
             "mode": request.mode,
-            "source_url": source_url,
-            "fetched_at": now_iso_utc(),
-            "request": request.metadata(),
-            "composite": composite,
-            "query_params": params,
-            "body_params": request.body_params,
-            "mode_normalized": normalized_mode,
-            "step_audit": {
-                "normalized_mode": normalized_mode,
-                "expected_step_total": expected_step_total,
-                "observed_step_total": observed_step_total,
-                "step_total_ok": observed_step_total == expected_step_total,
-                "step_labels_count": step_labels_count,
-                "has_extended_steps": has_extended_steps,
-            },
-            "completeness": {
-                "errors": completeness_errors,
-                "require_complete": require_complete,
+            "class": request.class_name,
+            "stub": True,
+        }
+        if target_level is not None:
+            params["level"] = target_level
+        params.update(request.query_params)
+        headers = {"x-api-key": api_key} if api_key else {}
+        method = request.http_method()
+        response = await request_with_retry(
+            client,
+            method,
+            MODULE_ENDPOINT,
+            params=params,
+            headers=headers,
+            timeout=60,
+            max_retries=max_retries,
+            json_body=request.body_params or None,
+        )
+
+        try:
+            payload = response.json()
+        except json.JSONDecodeError as exc:  # pragma: no cover - network dependent
+            raise BuildFetchError(
+                f"Risposta non JSON per {request.class_name}: {exc}"
+            ) from exc
+
+        for required in ("build_state", "benchmark", "export"):
+            if required not in payload:
+                raise BuildFetchError(
+                    f"Campo '{required}' mancante nella risposta per {request.class_name}. Chiavi viste: {sorted(payload.keys())}"
+                )
+
+        sheet = None
+        for candidate in (
+            "sheet",
+            "sheet_markup",
+            "sheet_markdown",
+            "sheet_markdown_template",
+        ):
+            if candidate in payload:
+                sheet = payload[candidate]
+                break
+
+        narrative = payload.get("narrative")
+        ledger = payload.get("ledger") or payload.get("adventurer_ledger")
+
+        build_state = payload.get("build_state") or {}
+        normalized_mode = normalize_mode(request.mode)
+        expected_step_total = expected_step_total_for_mode(normalized_mode)
+        observed_step_total = build_state.get("step_total")
+        step_labels = (
+            build_state.get("step_labels") if isinstance(build_state, Mapping) else None
+        )
+        step_labels_count = len(step_labels) if isinstance(step_labels, Mapping) else None
+        has_extended_steps = bool(step_labels_count and step_labels_count >= 16)
+        if observed_step_total is None:
+            logging.warning(
+                "Risposta per %s (mode=%s) priva di step_total: impossibile verificare il flow",
+                request.class_name,
+                normalized_mode,
+            )
+        elif observed_step_total != expected_step_total:
+            logging.warning(
+                "Step total inatteso per %s (mode=%s): visto %s, atteso %s",
+                request.class_name,
+                normalized_mode,
+                observed_step_total,
+                expected_step_total,
+            )
+        else:
+            logging.info(
+                "Modalità %s confermata per %s: step_total=%s (%s step disponibili)",
+                normalized_mode,
+                request.class_name,
+                observed_step_total,
+                "16" if normalized_mode == "extended" else "8",
+            )
+
+        if request.race is None and build_state.get("race"):
+            request.race = build_state.get("race")
+        if request.archetype is None and build_state.get("archetype"):
+            request.archetype = build_state.get("archetype")
+        if request.background is None and request.body_params.get("background_hooks"):
+            request.background = str(request.body_params.get("background_hooks"))
+
+        composite = {
+            "build": {
+                "build_state": payload.get("build_state"),
+                "benchmark": payload.get("benchmark"),
+                "export": payload.get("export"),
             },
         }
-    )
+        if narrative is not None:
+            composite["narrative"] = narrative
+        if sheet is not None:
+            composite["sheet"] = sheet
+        if ledger is not None:
+            composite["ledger"] = ledger
 
-    ruling_retries = (
-        ruling_max_retries if ruling_max_retries is not None else max_retries
-    )
-    await _validate_ruling_badge(
-        client,
-        url=ruling_expert_url,
-        api_key=api_key,
-        payload=payload,
-        request=request,
-        timeout=ruling_timeout,
-        max_retries=ruling_retries,
-    )
+        completeness_errors: list[str] = []
+        statistics = (build_state or {}).get("statistics") or (
+            payload.get("benchmark") or {}
+        ).get("statistics")
+        if not statistics or (
+            isinstance(statistics, Mapping) and not any(statistics.values())
+        ):
+            completeness_errors.append("Statistiche mancanti o vuote")
 
-    if require_complete and completeness_errors:
-        joined_errors = "; ".join(completeness_errors)
-        raise BuildFetchError(
-            f"Build incompleta per {request.class_name}: {joined_errors}",
-            completeness_errors=completeness_errors,
+        if not narrative:
+            completeness_errors.append("Narrativa assente")
+        else:
+
+            def _contains_stub(value: object) -> bool:
+                if isinstance(value, str):
+                    return "stub" in value.lower()
+                if isinstance(value, Mapping):
+                    return any(_contains_stub(v) for v in value.values())
+                if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+                    return any(_contains_stub(v) for v in value)
+                return False
+
+            if _contains_stub(narrative):
+                completeness_errors.append("Narrativa contiene placeholder 'stub'")
+
+        if not ledger or (isinstance(ledger, Mapping) and not any(ledger.values())):
+            completeness_errors.append("Ledger assente o senza contenuti")
+        source_url = str(response.url)
+        export_ctx = payload.setdefault("export", {})
+        sheet_payload = _enrich_sheet_payload(
+            payload, ledger if isinstance(ledger, Mapping) else None, source_url
         )
-    return payload
+        export_ctx["sheet_payload"] = sheet_payload
+        sheet_markdown = sheet_payload.get("sheet_markdown")
+        if isinstance(sheet_markdown, str):
+            payload["sheet"] = sheet_markdown
+            composite["sheet"] = sheet_markdown
+        elif sheet is not None:
+            composite.setdefault("sheet", sheet)
 
+        def _require_block(label: str, *values: object) -> None:
+            if not any(_has_content(value) for value in values):
+                completeness_errors.append(label)
+
+        _require_block(
+            "PF mancanti o vuoti", sheet_payload.get("pf_totali"), sheet_payload.get("hp")
+        )
+        _require_block("Salvezze mancanti o vuote", sheet_payload.get("salvezze"))
+        _require_block(
+            "Skill assenti o vuote",
+            sheet_payload.get("skills_map"),
+            sheet_payload.get("skills"),
+            sheet_payload.get("skill_points"),
+        )
+        _require_block(
+            "Talenti/capacità mancanti o vuote",
+            sheet_payload.get("talenti"),
+            sheet_payload.get("capacita_classe"),
+        )
+        _require_block(
+            "Equipaggiamento/inventario mancante o vuoto",
+            sheet_payload.get("equipaggiamento"),
+            sheet_payload.get("inventario"),
+        )
+        _require_block(
+            "Sezione incantesimi mancante o vuota",
+            sheet_payload.get("spell_levels"),
+            sheet_payload.get("magia"),
+            sheet_payload.get("slot_incantesimi"),
+        )
+        _require_block("CA dettagliata mancante o vuota", sheet_payload.get("ac_breakdown"))
+        _require_block(
+            "Iniziativa/velocità assente o vuota",
+            sheet_payload.get("iniziativa"),
+            sheet_payload.get("velocita"),
+        )
+        completeness_errors.extend(_ledger_entry_errors(sheet_payload))
+        progression_errors = _progression_level_errors(sheet_payload, target_level)
+        for error in progression_errors:
+            if error not in completeness_errors:
+                completeness_errors.append(error)
+
+        payload.update(
+            {
+                "class": request.class_name,
+                "mode": request.mode,
+                "source_url": source_url,
+                "fetched_at": now_iso_utc(),
+                "request": request.metadata(),
+                "composite": composite,
+                "query_params": params,
+                "body_params": request.body_params,
+                "mode_normalized": normalized_mode,
+                "step_audit": {
+                    "normalized_mode": normalized_mode,
+                    "expected_step_total": expected_step_total,
+                    "observed_step_total": observed_step_total,
+                    "step_total_ok": observed_step_total == expected_step_total,
+                    "step_labels_count": step_labels_count,
+                    "has_extended_steps": has_extended_steps,
+                },
+                "completeness": {
+                    "errors": completeness_errors,
+                    "require_complete": require_complete,
+                },
+            }
+        )
+
+        ruling_retries = (
+            ruling_max_retries if ruling_max_retries is not None else max_retries
+        )
+        await _validate_ruling_badge(
+            client,
+            url=ruling_expert_url,
+            api_key=api_key,
+            payload=payload,
+            request=request,
+            timeout=ruling_timeout,
+            max_retries=ruling_retries,
+        )
+
+        if require_complete and completeness_errors:
+            joined_errors = "; ".join(completeness_errors)
+            raise BuildFetchError(
+                f"Build incompleta per {request.class_name}: {joined_errors}",
+                completeness_errors=completeness_errors,
+            )
+        return payload
+
+    variants: list[tuple[MutableMapping, tuple[str | None, str | None, float, float, list[str]]]] = []
+    attempts = max(1, t1_variants if t1_filter else 1)
+    for _ in range(attempts):
+        payload = await _fetch_single_variant()
+        variants.append((payload, _variant_meta(payload)))
+        if not t1_filter:
+            return payload
+
+    valid_variants = [
+        (payload, meta)
+        for payload, meta in variants
+        if meta[0] == "T1" and meta[1]
+    ]
+
+    if not valid_variants:
+        observed_tiers = {meta[0] or "n/d" for _, meta in variants}
+        raise BuildFetchError(
+            f"Filtro T1 attivo: nessuna variante valida (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
+        )
+
+    def _score(meta: tuple[str | None, str | None, float, float, list[str]]) -> tuple[float, float]:
+        return meta[2], meta[3]
+
+    best_payload, best_meta = max(valid_variants, key=lambda item: _score(item[1]))
+    if best_meta[4]:
+        best_payload.setdefault("qa", {}).setdefault("ruling_expert", {})["log"] = best_meta[4]
+    return best_payload
 
 async def fetch_module(
     client: httpx.AsyncClient, api_key: str | None, module_name: str, max_retries: int
@@ -3044,6 +3178,73 @@ async def discover_modules(
 def write_json(path: Path, data: Mapping) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+def _benchmark_scores_for_index(
+    benchmark: Mapping[str, object] | None,
+) -> tuple[float, float]:
+    offense = 0.0
+    defense = 0.0
+    if not isinstance(benchmark, Mapping):
+        return offense, defense
+
+    dpr_snapshot = benchmark.get("dpr_snapshot")
+    if isinstance(dpr_snapshot, Mapping):
+        for snapshot in dpr_snapshot.values():
+            if not isinstance(snapshot, Mapping):
+                continue
+            offense = max(
+                offense,
+                _coerce_number(snapshot.get("media"), 0),
+                _coerce_number(snapshot.get("picco"), 0),
+            )
+
+    statistics = benchmark.get("statistics")
+    if isinstance(statistics, Mapping):
+        for key, value in statistics.items():
+            numeric = _coerce_number(value)
+            if numeric is None:
+                continue
+            key_lower = str(key).lower()
+            if key_lower.startswith("ac") or key_lower.startswith("ca"):
+                defense = max(defense, numeric)
+            else:
+                offense = max(offense, numeric)
+
+    return offense, defense
+
+
+def _index_meta_from_payload(payload: Mapping[str, object] | None) -> dict[str, object]:
+    if not isinstance(payload, Mapping):
+        return {}
+
+    metadata: dict[str, object] = {}
+    benchmark = payload.get("benchmark") if isinstance(payload.get("benchmark"), Mapping) else None
+    if benchmark:
+        meta_tier = benchmark.get("meta_tier")
+        if meta_tier:
+            metadata["meta_tier"] = str(meta_tier)
+        offense, defense = _benchmark_scores_for_index(benchmark)
+        if offense:
+            metadata["benchmark_offense"] = offense
+        if defense:
+            metadata["benchmark_defense"] = defense
+
+    ruling_log = payload.get("ruling_log")
+    if isinstance(ruling_log, Sequence) and not isinstance(ruling_log, (str, bytes)):
+        metadata["ruling_log"] = list(map(str, ruling_log))
+    else:
+        qa_ctx = payload.get("qa") if isinstance(payload.get("qa"), Mapping) else None
+        if qa_ctx and isinstance(qa_ctx.get("ruling_expert"), Mapping):
+            log_value = qa_ctx.get("ruling_expert", {}).get("log")
+            if isinstance(log_value, Sequence) and not isinstance(
+                log_value, (str, bytes)
+            ):
+                metadata["ruling_log"] = list(map(str, log_value))
+            elif log_value:
+                metadata["ruling_log"] = [str(log_value)]
+
+    return metadata
 
 
 def path_with_suffix(path: Path, suffix: str) -> Path:
@@ -3151,6 +3352,10 @@ def build_index_entry(
     completeness_errors: Sequence[str] | None = None,
     ruling_badge: str | None = None,
     ruling_sources: object | None = None,
+    meta_tier: str | None = None,
+    benchmark_offense: float | None = None,
+    benchmark_defense: float | None = None,
+    ruling_log: Sequence[str] | None = None,
 ) -> Mapping:
     entry: dict[str, object] = {
         "file": str(output_file) if output_file else None,
@@ -3167,6 +3372,14 @@ def build_index_entry(
         entry["ruling_badge"] = ruling_badge
     if ruling_sources:
         entry["ruling_sources"] = ruling_sources
+    if meta_tier:
+        entry["meta_tier"] = meta_tier
+    if benchmark_offense is not None:
+        entry["benchmark_offense"] = benchmark_offense
+    if benchmark_defense is not None:
+        entry["benchmark_defense"] = benchmark_defense
+    if ruling_log:
+        entry["ruling_log"] = list(ruling_log)
     if step_audit:
         entry.update(
             {
@@ -3224,6 +3437,8 @@ async def run_harvest(
     ruling_expert_url: str | None = None,
     ruling_timeout: float = 30.0,
     ruling_max_retries: int | None = None,
+    t1_filter: bool = False,
+    t1_variants: int = 3,
 ) -> None:
     requests = list(requests)
     max_items = int(max_items) if max_items is not None else None
@@ -3447,6 +3662,7 @@ async def run_harvest(
                             else {}
                         )
                         completeness_errors = list(completeness_ctx.get("errors") or [])
+                        meta_data = _index_meta_from_payload(payload)
 
                         if completeness_errors and require_complete:
                             logging.warning(
@@ -3487,6 +3703,7 @@ async def run_harvest(
                                     if isinstance(payload, Mapping)
                                     else None
                                 ),
+                                **meta_data,
                             )
 
                 method = request.http_method()
@@ -3514,6 +3731,8 @@ async def run_harvest(
                                 ruling_expert_url=ruling_expert_url,
                                 ruling_timeout=ruling_timeout,
                                 ruling_max_retries=ruling_max_retries,
+                                t1_filter=t1_filter,
+                                t1_variants=t1_variants,
                             )
                             break
                         except BuildFetchError as exc:
@@ -3582,6 +3801,7 @@ async def run_harvest(
                         if isinstance(payload, Mapping)
                         else None
                     )
+                    meta_data = _index_meta_from_payload(payload)
                     if incomplete_payload:
                         status = "invalid"
                         logging.warning(
@@ -3624,6 +3844,7 @@ async def run_harvest(
                                     completeness_errors,
                                     ruling_badge,
                                     ruling_sources,
+                                    **meta_data,
                                 )
 
                         destination.write_text(
@@ -3649,6 +3870,7 @@ async def run_harvest(
                         completeness_errors,
                         ruling_badge,
                         ruling_sources,
+                        **meta_data,
                     )
                 except ValidationError:
                     raise
@@ -3662,6 +3884,7 @@ async def run_harvest(
                     )
                     if destination.exists():
                         destination.unlink()
+                    meta_data = _index_meta_from_payload(payload)
                     status = "invalid" if completeness_errors else "error"
                     return destination.name, build_index_entry(
                         request,
@@ -3684,11 +3907,13 @@ async def run_harvest(
                             if isinstance(payload, Mapping)
                             else None
                         ),
+                        **meta_data,
                     )
                 except Exception as exc:  # pragma: no cover - network dependent
                     logging.exception(
                         "Errore durante la fetch di %s", request.class_name
                     )
+                    meta_data = _index_meta_from_payload(payload)
                     return destination.name, build_index_entry(
                         request,
                         None,
@@ -3716,6 +3941,7 @@ async def run_harvest(
                             if isinstance(payload, Mapping)
                             else None
                         ),
+                        **meta_data,
                     )
 
         for task_request, output_file, base_level in planned_snapshots:
@@ -3883,6 +4109,8 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 ruling_expert_url=args.ruling_expert_url,
                 ruling_timeout=args.ruling_timeout,
                 ruling_max_retries=args.ruling_max_retries,
+                t1_filter=args.t1_filter,
+                t1_variants=args.t1_variants,
             )
         )
         report["strict"]["status"] = "ok"
@@ -3919,6 +4147,8 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 ruling_expert_url=args.ruling_expert_url,
                 ruling_timeout=args.ruling_timeout,
                 ruling_max_retries=args.ruling_max_retries,
+                t1_filter=args.t1_filter,
+                t1_variants=args.t1_variants,
             )
         )
         report["tolerant"]["status"] = "ok"
@@ -4028,6 +4258,8 @@ def main() -> None:
             args.ruling_expert_url,
             args.ruling_timeout,
             args.ruling_max_retries,
+            args.t1_filter,
+            args.t1_variants,
         )
     )
 
