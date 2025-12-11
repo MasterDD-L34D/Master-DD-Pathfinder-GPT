@@ -299,8 +299,8 @@ def _taverna_saves_metadata() -> Dict[str, object]:
                 else None
             ),
             "remediation": {
-                "echo_gate": "Echo gate <8.5 blocca export/salvataggi: applica i fix suggeriti da /grade o /refine_npc e ripeti /grade finché il punteggio non supera la soglia (in sandbox puoi usare /echo off).",
-                "qa_check": "QA CHECK bloccante: esegui /self_check o la routine QA CHECK/repair per completare Canvas e Ledger, poi riprova /save_hub o l'export verso taverna_saves.",
+                "echo_gate": "Echo gate <8.5 blocca export/salvataggi: ripeti /grade finché lo score non supera la soglia, applica /refine_npc e in sandbox puoi disattivare temporaneamente con /echo off.",
+                "qa_check": "QA CHECK bloccante: esegui /self_check (o la routine QA CHECK/repair), poi se Echo resta sotto soglia ripeti /grade e riprova /save_hub o l'export verso taverna_saves.",
             },
         }
     )

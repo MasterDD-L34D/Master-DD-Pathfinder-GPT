@@ -1207,7 +1207,7 @@ commands:
           - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
           - output: "⛔ Export bloccato: {{ _gate_reason }}."
           - output: "➡️ CTA: prima esegui /save_hub o /check_conversation, poi riprova."
-          - output: "🛠️ Remediation: esegui /self_check per forzare il QA CHECK/repair (Canvas+Ledger) e, se Echo < {{runtime.echo_min_score}}, ripeti /grade o /refine_npc finché il gate non blocca più."
+          - output: "🛠️ Remediation: esegui /self_check per forzare il QA CHECK/repair (Canvas+Ledger); se Echo < {{runtime.echo_min_score}} ripeti /grade o /refine_npc finché non superi la soglia oppure, in sandbox, disattiva temporaneamente con /echo off prima di riprovare."
           - goto_state: READY
         else:
           - output: "🗺️ (stub) Outline avventura generato da seed/quest selezionato."
@@ -1297,6 +1297,7 @@ commands:
           - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
           - output: "⛔ Export bloccato: {{ _gate_reason }}."
           - output: "➡️ CTA: riesegui /self_check (QA CHECK/repair), completa Canvas+Ledger, poi salva con /save_hub o riallinea la chat con /check_conversation prima di riprovare."
+          - output: "🛠️ Remediation: se Echo < {{runtime.echo_min_score}} ripeti /grade o /refine_npc finché supera la soglia; in sandbox puoi disattivare temporaneamente il gate con /echo off dopo aver chiuso la QA checklist con /self_check."
           - goto_state: READY
         else:
           - continue
