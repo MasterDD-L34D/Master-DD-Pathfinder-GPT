@@ -334,7 +334,9 @@ def test_narrative_flow_exposes_truncation_headers(
             value.strip() for value in response.headers["x-original-length"].split(",")
         }
         assert str(expected_length) in length_header_values
-        assert "x-truncated=true" in response.text
+        assert response.headers["X-Content-Served-Bytes"] == "0"
+        assert "[contenuto troncato" in response.text
+        assert original.splitlines()[0] not in response.text
     finally:
         target.write_text(original, encoding="utf-8")
 
@@ -356,6 +358,22 @@ def test_ruling_expert_truncated_when_dump_enabled_without_whitelist(
     finally:
         settings.allow_module_dump = original_allow
         settings.module_dump_whitelist = original_whitelist
+
+
+def test_adventurer_ledger_blocked_when_dump_disabled(
+    client, auth_headers, disable_module_dump
+):
+    target = MODULES_DIR / "adventurer_ledger.txt"
+    first_line = target.read_text(encoding="utf-8").splitlines()[0]
+
+    response = client.get("/modules/adventurer_ledger.txt", headers=auth_headers)
+
+    assert response.status_code == 206
+    assert response.headers["X-Content-Partial"] == "true"
+    assert response.headers["X-Content-Truncated"] == "true"
+    assert response.headers["X-Content-Served-Bytes"] == "0"
+    assert "[contenuto troncato" in response.text
+    assert first_line not in response.text
 
 
 def test_ruling_expert_full_dump_requires_whitelist(client, auth_headers):

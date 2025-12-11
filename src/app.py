@@ -1450,24 +1450,27 @@ async def get_module_content(
     max_chars = 4000
 
     total_size = path.stat().st_size
-    with path.open("r", encoding="utf-8", errors="ignore") as source:
-        chunk = source.read(max_chars + 1)
+    if settings.allow_module_dump:
+        with path.open("r", encoding="utf-8", errors="ignore") as source:
+            chunk = source.read(max_chars + 1)
+        served_chunk = chunk[:max_chars]
+        is_truncated = len(chunk) > max_chars
+    else:
+        served_chunk = ""
+        is_truncated = True
 
-    truncated_size = len(chunk[:max_chars].encode("utf-8", errors="ignore"))
+    truncated_size = len(served_chunk.encode("utf-8", errors="ignore"))
     remaining = max(total_size - truncated_size, 0)
-    is_truncated = len(chunk) > max_chars
     original_length = total_size
 
     def _truncated_text():
-        if is_truncated:
-            yield chunk[:max_chars]
-            yield (
-                "\n\n[contenuto troncato — restano circa "
-                f"{remaining} byte su {total_size}; x-truncated=true; "
-                f"original-length={original_length}]"
-            )
-        else:
-            yield chunk
+        if served_chunk:
+            yield served_chunk
+        yield (
+            "\n\n[contenuto troncato — restano circa "
+            f"{remaining} byte su {total_size}; x-truncated=true; "
+            f"original-length={original_length}]"
+        )
 
     headers = {
         "X-Content-Partial": "true",
