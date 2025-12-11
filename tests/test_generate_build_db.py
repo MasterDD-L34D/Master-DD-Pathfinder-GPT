@@ -1,4 +1,5 @@
 import asyncio
+import copy
 import json
 from pathlib import Path
 import sys
@@ -16,6 +17,65 @@ from tools.generate_build_db import (
     review_local_database,
     run_harvest,
 )
+
+
+def _make_sample_payload() -> dict:
+    sheet_payload = {
+        "nome": "Alchemist Sample",
+        "razza": "Human",
+        "classi": [{"nome": "Alchemist", "livelli": 1, "archetipi": []}],
+        "statistiche": {
+            "FOR": 12,
+            "DES": 14,
+            "COS": 13,
+            "INT": 16,
+            "SAG": 10,
+            "CAR": 8,
+        },
+        "statistiche_chiave": {"PF": 10, "CA": 12},
+        "pf_totali": 10,
+        "salvezze": {},
+        "skills": [{"name": "Perception", "value": 5}],
+        "skills_map": {"Perception": 5},
+        "skill_points": 1,
+        "talenti": ["Alertness"],
+        "capacita_classe": ["Bombs"],
+        "equipaggiamento": ["Starter kit"],
+        "inventario": {"items": ["Potion"]},
+        "spell_levels": {"0": [{"name": "Light"}]},
+        "magia": {"spells_known": 1},
+        "slot_incantesimi": {"1": 2},
+        "ac_breakdown": {},
+    }
+
+    return {
+        "build_state": {
+            "class": "Alchemist",
+            "race": "Human",
+            "archetype": "Base",
+            "step_total": 8,
+            "step_labels": {f"step_{i}": {} for i in range(8)},
+            "statistics": {"forza": 12, "destrezza": 12},
+            "bab": 3,
+            "initiative": 4,
+            "speed": 9,
+            "ac": {
+                "AC_base": 10,
+                "AC_arm": 4,
+                "AC_des": 2,
+                "AC_tot": 17,
+            },
+            "saves": {"Tempra": 5, "Riflessi": 2, "Volontà": 1},
+        },
+        "benchmark": {"statistics": {"forza": 12}},
+        "export": {"sheet_payload": sheet_payload},
+        "narrative": {"backstory": "Test narrative"},
+        "ledger": {"entries": [{"label": "gold", "value": 10}]},
+        "progressione": [
+            {"livello": level, "privilegi": [f"Feature {level}"]}
+            for level in range(1, 11)
+        ],
+    }
 
 
 def test_review_local_database_reports_status(tmp_path):
@@ -139,64 +199,16 @@ def test_enrich_sheet_payload_template_error_indicator():
 
 
 async def _run_core_harvest(
-    tmp_path, monkeypatch, *, skip_unchanged: bool = False, max_items: int | None = None
+    tmp_path,
+    monkeypatch,
+    *,
+    skip_unchanged: bool = False,
+    max_items: int | None = None,
+    t1_filter: bool = False,
+    t1_variants: int = 3,
 ):
-    sheet_payload = {
-        "nome": "Alchemist Sample",
-        "razza": "Human",
-        "classi": [{"nome": "Alchemist", "livelli": 1, "archetipi": []}],
-        "statistiche": {
-            "FOR": 12,
-            "DES": 14,
-            "COS": 13,
-            "INT": 16,
-            "SAG": 10,
-            "CAR": 8,
-        },
-        "statistiche_chiave": {"PF": 10, "CA": 12},
-        "pf_totali": 10,
-        "salvezze": {},
-        "skills": [{"name": "Perception", "value": 5}],
-        "skills_map": {"Perception": 5},
-        "skill_points": 1,
-        "talenti": ["Alertness"],
-        "capacita_classe": ["Bombs"],
-        "equipaggiamento": ["Starter kit"],
-        "inventario": {"items": ["Potion"]},
-        "spell_levels": {"0": [{"name": "Light"}]},
-        "magia": {"spells_known": 1},
-        "slot_incantesimi": {"1": 2},
-        "ac_breakdown": {},
-    }
-
-    sample_payload = {
-        "build_state": {
-            "class": "Alchemist",
-            "race": "Human",
-            "archetype": "Base",
-            "step_total": 8,
-            "step_labels": {f"step_{i}": {} for i in range(8)},
-            "statistics": {"forza": 12, "destrezza": 12},
-            "bab": 3,
-            "initiative": 4,
-            "speed": 9,
-            "ac": {
-                "AC_base": 10,
-                "AC_arm": 4,
-                "AC_des": 2,
-                "AC_tot": 17,
-            },
-            "saves": {"Tempra": 5, "Riflessi": 2, "Volontà": 1},
-        },
-        "benchmark": {"statistics": {"forza": 12}},
-        "export": {"sheet_payload": sheet_payload},
-        "narrative": {"backstory": "Test narrative"},
-        "ledger": {"entries": [{"label": "gold", "value": 10}]},
-        "progressione": [
-            {"livello": level, "privilegi": [f"Feature {level}"]}
-            for level in range(1, 11)
-        ],
-    }
+    sample_payload = _make_sample_payload()
+    sheet_payload = sample_payload["export"]["sheet_payload"]
 
     def handler(request: httpx.Request) -> httpx.Response:
         if request.url.path == "/health":
@@ -248,6 +260,8 @@ async def _run_core_harvest(
         skip_unchanged=skip_unchanged,
         max_items=max_items,
         ruling_expert_url="http://mock.api/ruling",
+        t1_filter=t1_filter,
+        t1_variants=t1_variants,
     )
 
     return output_dir, index_path
@@ -305,6 +319,161 @@ def test_run_harvest_honors_max_items(tmp_path, monkeypatch):
     index_payload = json.loads(index_path.read_text(encoding="utf-8"))
     assert len(index_payload["entries"]) == 2
     assert {entry["level"] for entry in index_payload["entries"]} == {1, 5}
+
+
+def test_run_harvest_t1_filter_selects_best_variant(tmp_path, monkeypatch):
+    base_payload = _make_sample_payload()
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/health":
+            return httpx.Response(200, json={"status": "ok"})
+        if request.url.path == "/modules/minmax_builder.txt":
+            call_no = handler.calls
+            handler.calls += 1
+            meta_tier = "T1" if call_no == 1 else "T2"
+            offense = 10 + call_no * 2
+            defense = 15 + call_no
+            payload = copy.deepcopy(base_payload)
+            payload["benchmark"]["meta_tier"] = meta_tier
+            payload["benchmark"]["ruling_badge"] = "validated"
+            payload["benchmark"]["statistics"].update(
+                {"DPR_Base": offense, "ca": defense}
+            )
+            payload["ruling_log"] = [f"variante {call_no + 1}"]
+            return httpx.Response(200, json=payload)
+        if request.url.path == "/ruling":
+            return httpx.Response(
+                200, json={"ruling_badge": "validated", "sources": ["mock"]}
+            )
+        return httpx.Response(404)
+
+    handler.calls = 0
+    transport = httpx.MockTransport(handler)
+    real_async_client = httpx.AsyncClient
+
+    def client_factory(*args, **kwargs):
+        kwargs.setdefault("transport", transport)
+        return real_async_client(*args, **kwargs)
+
+    monkeypatch.setattr("tools.generate_build_db.httpx.AsyncClient", client_factory)
+    monkeypatch.setattr(
+        "tools.generate_build_db.validate_with_schema", lambda *args, **kwargs: None
+    )
+
+    output_dir = tmp_path / "builds"
+    modules_dir = tmp_path / "modules"
+    index_path = tmp_path / "build_index.json"
+    module_index_path = tmp_path / "module_index.json"
+
+    asyncio.run(
+        run_harvest(
+            [BuildRequest(class_name="Alchemist", mode="core")],
+            api_url="http://mock.api",
+            api_key="mock-key",
+            output_dir=output_dir,
+            index_path=index_path,
+            modules=[],
+            modules_output_dir=modules_dir,
+            module_index_path=module_index_path,
+            concurrency=1,
+            max_retries=1,
+            spec_path=None,
+            discover=False,
+            include_filters=[],
+            exclude_filters=[],
+            strict=False,
+            keep_invalid=True,
+            require_complete=True,
+            skip_health_check=False,
+            skip_unchanged=False,
+            max_items=None,
+            ruling_expert_url="http://mock.api/ruling",
+            t1_filter=True,
+            t1_variants=3,
+        )
+    )
+
+    saved_build = json.loads((output_dir / "alchemist.json").read_text(encoding="utf-8"))
+    assert saved_build["benchmark"]["meta_tier"] == "T1"
+    assert saved_build["benchmark"]["statistics"]["DPR_Base"] == 12
+    assert saved_build["benchmark"]["statistics"]["ca"] == 16
+
+    index_payload = json.loads(index_path.read_text(encoding="utf-8"))
+    entry = index_payload["entries"][0]
+    assert entry["meta_tier"] == "T1"
+    assert entry["benchmark_offense"] == 12
+    assert entry["benchmark_defense"] == 16
+    assert "variante 2" in entry["ruling_log"]
+
+
+def test_run_harvest_t1_filter_errors_without_tier(tmp_path, monkeypatch):
+    base_payload = _make_sample_payload()
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path == "/health":
+            return httpx.Response(200, json={"status": "ok"})
+        if request.url.path == "/modules/minmax_builder.txt":
+            payload = copy.deepcopy(base_payload)
+            payload["benchmark"]["meta_tier"] = "T2"
+            payload["benchmark"]["ruling_badge"] = "validated"
+            payload["ruling_log"] = ["t1 mancante"]
+            return httpx.Response(200, json=payload)
+        if request.url.path == "/ruling":
+            return httpx.Response(
+                200, json={"ruling_badge": "validated", "sources": ["mock"]}
+            )
+        return httpx.Response(404)
+
+    transport = httpx.MockTransport(handler)
+    real_async_client = httpx.AsyncClient
+
+    def client_factory(*args, **kwargs):
+        kwargs.setdefault("transport", transport)
+        return real_async_client(*args, **kwargs)
+
+    monkeypatch.setattr("tools.generate_build_db.httpx.AsyncClient", client_factory)
+    monkeypatch.setattr(
+        "tools.generate_build_db.validate_with_schema", lambda *args, **kwargs: None
+    )
+
+    output_dir = tmp_path / "builds"
+    modules_dir = tmp_path / "modules"
+    index_path = tmp_path / "build_index.json"
+    module_index_path = tmp_path / "module_index.json"
+
+    asyncio.run(
+        run_harvest(
+            [BuildRequest(class_name="Alchemist", mode="core")],
+            api_url="http://mock.api",
+            api_key="mock-key",
+            output_dir=output_dir,
+            index_path=index_path,
+            modules=[],
+            modules_output_dir=modules_dir,
+            module_index_path=module_index_path,
+            concurrency=1,
+            max_retries=1,
+            spec_path=None,
+            discover=False,
+            include_filters=[],
+            exclude_filters=[],
+            strict=False,
+            keep_invalid=True,
+            require_complete=True,
+            skip_health_check=False,
+            skip_unchanged=False,
+            max_items=None,
+            ruling_expert_url="http://mock.api/ruling",
+            t1_filter=True,
+            t1_variants=2,
+        )
+    )
+
+    assert not (output_dir / "alchemist.json").exists()
+    index_payload = json.loads(index_path.read_text(encoding="utf-8"))
+    entry = index_payload["entries"][0]
+    assert entry["status"] == "error"
+    assert "Filtro T1" in entry["error"]
 
 
 async def _run_incomplete_harvest(tmp_path, monkeypatch):
