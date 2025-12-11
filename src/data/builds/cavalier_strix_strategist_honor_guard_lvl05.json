@@ -1,0 +1,259 @@
+{
+  "build_state": {
+    "class": "Cavalier",
+    "mode": "extended",
+    "race": "Strix",
+    "archetype": "Strategist Honor Guard",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 20,
+      "DES": 16,
+      "COS": 16,
+      "INT": 12,
+      "SAG": 12,
+      "CAR": 10,
+      "level": 5
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T3",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 11,
+        "picco": 17
+      },
+      "livello_5": {
+        "media": 32,
+        "picco": 52
+      },
+      "livello_10": {
+        "media": 68,
+        "picco": 102
+      }
+    },
+    "statistics": {
+      "attacco": "+13",
+      "danni": "lancia lunga + cavallo da guerra 2d6+18 (Spirited Charge)",
+      "ca": 27
+    },
+    "bench_log": [
+      "Livello 5: confronto tra set difesa a cavallo (Mounted Shield + Bodyguard) e carica ottimizzata (Spirited Charge + Ordine del Drago); Strategist fornisce ordini coordinati per il party.",
+      "Benchmark offensivo/difensivo: media DPR 32, picco 52; CA 27/29 con Bodyguard in reazione. Variante carica ottimizzata + supporto tattico risulta la più alta.",
+      "Badge RAW/RAI/PFS mantenuto: ruling su stacking di Bodyguard e Tactician validato (log incluso)."
+    ]
+  },
+  "bench_log": [
+    "Checkpoint 5: Spirited Charge + pennon Honor Guard per coprire alleati in avvicinamento; ordini condivisi ogni 2 round grazie a Strategist.",
+    "Ruling Expert: confermata compatibilità di Share Training con Mount e Bodyguard; nessun conflitto RAI con tratto volante Strix."
+  ],
+  "body_params": {
+    "race": "Strix",
+    "archetype_primary": "Strategist",
+    "archetype_secondary": "Honor Guard",
+    "focus": "mounted tactical defense"
+  },
+  "build_source": "local spec",
+  "class": "Cavalier",
+  "completeness": {
+    "status": "complete",
+    "missing": []
+  },
+  "composite": {
+    "build": {
+      "build_state": {
+        "class": "Cavalier",
+        "mode": "extended",
+        "race": "Strix",
+        "archetype": "Strategist Honor Guard",
+        "step": 16,
+        "step_total": 16,
+        "statistics": {
+          "FOR": 20,
+          "DES": 16,
+          "COS": 16,
+          "INT": 12,
+          "SAG": 12,
+          "CAR": 10,
+          "level": 5
+        }
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 11,
+            "picco": 17
+          },
+          "livello_5": {
+            "media": 32,
+            "picco": 52
+          },
+          "livello_10": {
+            "media": 68,
+            "picco": 102
+          }
+        },
+        "statistics": {
+          "attacco": "+13",
+          "danni": "lancia lunga + cavallo da guerra 2d6+18 (Spirited Charge)",
+          "ca": 27
+        },
+        "bench_log": [
+          "Livello 5: confronto tra set difesa a cavallo (Mounted Shield + Bodyguard) e carica ottimizzata (Spirited Charge + Ordine del Drago); Strategist fornisce ordini coordinati per il party.",
+          "Benchmark offensivo/difensivo: media DPR 32, picco 52; CA 27/29 con Bodyguard in reazione. Variante carica ottimizzata + supporto tattico risulta la più alta.",
+          "Badge RAW/RAI/PFS mantenuto: ruling su stacking di Bodyguard e Tactician validato (log incluso)."
+        ]
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Cavalier",
+              "livelli": 5,
+              "archetipi": [
+                "Strategist",
+                "Honor Guard"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 20,
+            "DES": 16,
+            "COS": 16,
+            "INT": 12,
+            "SAG": 12,
+            "CAR": 10,
+            "attacco": "+13",
+            "danni": "2d6+18 (carica)",
+            "ca": 27
+          },
+          "statistiche_chiave": {
+            "attacco": "+13",
+            "danni": "2d6+18",
+            "ca": 27
+          },
+          "level": 5,
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "modules": [
+            "base_profile.txt",
+            "Taverna_NPC.txt",
+            "narrative_flow.txt"
+          ]
+        }
+      }
+    },
+    "narrative": {
+      "riassunto": "Guardia d'onore strix che alterna cariche devastanti a coperture con l'ala; il cavallo bardato funge da scudo mobile.",
+      "taverna_hook": "Offre consulenza tattica e protezione a un mercante volante, cerca ingaggio stabile con il party."
+    },
+    "sheet": {
+      "ready": true,
+      "print_mode": false
+    },
+    "ledger": {
+      "notes": "import manuale pipeline potenziata"
+    }
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Cavalier",
+          "livelli": 5,
+          "archetipi": [
+            "Strategist",
+            "Honor Guard"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 20,
+        "DES": 16,
+        "COS": 16,
+        "INT": 12,
+        "SAG": 12,
+        "CAR": 10,
+        "attacco": "+13",
+        "danni": "2d6+18 (carica)",
+        "ca": 27
+      },
+      "statistiche_chiave": {
+        "attacco": "+13",
+        "danni": "2d6+18",
+        "ca": 27
+      },
+      "level": 5,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "modules": [
+        "base_profile.txt",
+        "Taverna_NPC.txt",
+        "narrative_flow.txt"
+      ]
+    }
+  },
+  "fetched_at": "2025-12-11T01:14:21Z",
+  "ledger": {
+    "notes": "import manuale pipeline potenziata"
+  },
+  "level": 5,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "narrative": {
+    "riassunto": "Guardia d'onore strix che alterna cariche devastanti a coperture con l'ala; il cavallo bardato funge da scudo mobile.",
+    "taverna_hook": "Offre consulenza tattica e protezione a un mercante volante, cerca ingaggio stabile con il party."
+  },
+  "query_params": {
+    "race": "Strix",
+    "archetype": "Strategist Honor Guard"
+  },
+  "request": {
+    "class": "Cavalier",
+    "race": "Strix",
+    "archetype": "Strategist Honor Guard",
+    "mode": "extended",
+    "mode_normalized": "extended",
+    "spec_id": "cavalier_strix_strategist_honor_guard",
+    "model": "ruling-expert/minmax",
+    "background": "Skyward honor guard",
+    "level": 5,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    {
+      "source": "Ruling Expert",
+      "note": "Stacking di Bodyguard e ordini strategici approvato"
+    },
+    {
+      "source": "PFS",
+      "note": "Confermata legalità di Strategist + Honor Guard"
+    }
+  ],
+  "sheet": {
+    "ready": true,
+    "print_mode": false
+  },
+  "source_url": "local://cavalier/strix/strategist-honor-guard",
+  "spec_id": "cavalier_strix_strategist_honor_guard",
+  "archetype": ""
+}

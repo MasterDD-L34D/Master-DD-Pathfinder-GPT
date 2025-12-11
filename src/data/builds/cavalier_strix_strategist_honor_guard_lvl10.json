@@ -1,0 +1,259 @@
+{
+  "build_state": {
+    "class": "Cavalier",
+    "mode": "extended",
+    "race": "Strix",
+    "archetype": "Strategist Honor Guard",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 22,
+      "DES": 16,
+      "COS": 18,
+      "INT": 12,
+      "SAG": 12,
+      "CAR": 10,
+      "level": 10
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T3",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 11,
+        "picco": 17
+      },
+      "livello_5": {
+        "media": 32,
+        "picco": 52
+      },
+      "livello_10": {
+        "media": 68,
+        "picco": 102
+      }
+    },
+    "statistics": {
+      "attacco": "+21",
+      "danni": "lancia lunga + destriero feroce 3d8+30 (Valiant Steed, pounce volante)",
+      "ca": 34
+    },
+    "bench_log": [
+      "Livello 10: combinazione difesa a cavallo (Mounted Skirmisher + Bodyguard) vs. carica volante ottimizzata (Valiant Steed + Cavalier's Banner) e supporto tattico (Greater Tactician).",
+      "Bench finale: DPR medio 68 picco 102 con carica volante, CA 34/36 con Bodyguard e ordini di protezione; mantiene best score offensivo/difensivo del lotto.",
+      "Badge RAW/RAI/PFS confermato dal ruling log: interazione Mounted Skirmisher + Spirited Charge concessa per cariche in volo Strix secondo RAI."
+    ]
+  },
+  "bench_log": [
+    "Checkpoint 10: Greater Tactician e banner aumentano i buff condivisi; il destriero ottiene Evasion tramite Share Training per mitigare AoE.",
+    "Ruling Expert: carica in volo con lancia lunga consentita con angolo di discesa <45°, conforme a RAW e note PFS."
+  ],
+  "body_params": {
+    "race": "Strix",
+    "archetype_primary": "Strategist",
+    "archetype_secondary": "Honor Guard",
+    "focus": "mounted tactical defense"
+  },
+  "build_source": "local spec",
+  "class": "Cavalier",
+  "completeness": {
+    "status": "complete",
+    "missing": []
+  },
+  "composite": {
+    "build": {
+      "build_state": {
+        "class": "Cavalier",
+        "mode": "extended",
+        "race": "Strix",
+        "archetype": "Strategist Honor Guard",
+        "step": 16,
+        "step_total": 16,
+        "statistics": {
+          "FOR": 22,
+          "DES": 16,
+          "COS": 18,
+          "INT": 12,
+          "SAG": 12,
+          "CAR": 10,
+          "level": 10
+        }
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 11,
+            "picco": 17
+          },
+          "livello_5": {
+            "media": 32,
+            "picco": 52
+          },
+          "livello_10": {
+            "media": 68,
+            "picco": 102
+          }
+        },
+        "statistics": {
+          "attacco": "+21",
+          "danni": "lancia lunga + destriero feroce 3d8+30 (Valiant Steed, pounce volante)",
+          "ca": 34
+        },
+        "bench_log": [
+          "Livello 10: combinazione difesa a cavallo (Mounted Skirmisher + Bodyguard) vs. carica volante ottimizzata (Valiant Steed + Cavalier's Banner) e supporto tattico (Greater Tactician).",
+          "Bench finale: DPR medio 68 picco 102 con carica volante, CA 34/36 con Bodyguard e ordini di protezione; mantiene best score offensivo/difensivo del lotto.",
+          "Badge RAW/RAI/PFS confermato dal ruling log: interazione Mounted Skirmisher + Spirited Charge concessa per cariche in volo Strix secondo RAI."
+        ]
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Cavalier",
+              "livelli": 10,
+              "archetipi": [
+                "Strategist",
+                "Honor Guard"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 22,
+            "DES": 16,
+            "COS": 18,
+            "INT": 12,
+            "SAG": 12,
+            "CAR": 10,
+            "attacco": "+21",
+            "danni": "3d8+30 (carica volante)",
+            "ca": 34
+          },
+          "statistiche_chiave": {
+            "attacco": "+21",
+            "danni": "3d8+30",
+            "ca": 34
+          },
+          "level": 10,
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "modules": [
+            "base_profile.txt",
+            "Taverna_NPC.txt",
+            "narrative_flow.txt"
+          ]
+        }
+      }
+    },
+    "narrative": {
+      "riassunto": "Guardia d'onore strix veterana: carica volante devastante, banner tattico e protezione costante per il party.",
+      "taverna_hook": "Cerca un ingaggio d'élite come cavalleria aerea, porta con sé un manuale di regole PFS annotate."
+    },
+    "sheet": {
+      "ready": true,
+      "print_mode": false
+    },
+    "ledger": {
+      "notes": "import manuale pipeline potenziata"
+    }
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Cavalier",
+          "livelli": 10,
+          "archetipi": [
+            "Strategist",
+            "Honor Guard"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 22,
+        "DES": 16,
+        "COS": 18,
+        "INT": 12,
+        "SAG": 12,
+        "CAR": 10,
+        "attacco": "+21",
+        "danni": "3d8+30 (carica volante)",
+        "ca": 34
+      },
+      "statistiche_chiave": {
+        "attacco": "+21",
+        "danni": "3d8+30",
+        "ca": 34
+      },
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "modules": [
+        "base_profile.txt",
+        "Taverna_NPC.txt",
+        "narrative_flow.txt"
+      ]
+    }
+  },
+  "fetched_at": "2025-12-11T01:14:21Z",
+  "ledger": {
+    "notes": "import manuale pipeline potenziata"
+  },
+  "level": 10,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "narrative": {
+    "riassunto": "Guardia d'onore strix veterana: carica volante devastante, banner tattico e protezione costante per il party.",
+    "taverna_hook": "Cerca un ingaggio d'élite come cavalleria aerea, porta con sé un manuale di regole PFS annotate."
+  },
+  "query_params": {
+    "race": "Strix",
+    "archetype": "Strategist Honor Guard"
+  },
+  "request": {
+    "class": "Cavalier",
+    "race": "Strix",
+    "archetype": "Strategist Honor Guard",
+    "mode": "extended",
+    "mode_normalized": "extended",
+    "spec_id": "cavalier_strix_strategist_honor_guard",
+    "model": "ruling-expert/minmax",
+    "background": "Skyward honor guard",
+    "level": 10,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    {
+      "source": "Ruling Expert",
+      "note": "Mounted Skirmisher + carica volante validati"
+    },
+    {
+      "source": "PFS",
+      "note": "Badge RAI/RAW conforme per uso in society"
+    }
+  ],
+  "sheet": {
+    "ready": true,
+    "print_mode": false
+  },
+  "source_url": "local://cavalier/strix/strategist-honor-guard",
+  "spec_id": "cavalier_strix_strategist_honor_guard",
+  "archetype": ""
+}
