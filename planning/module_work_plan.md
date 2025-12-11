@@ -273,22 +273,23 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Hub/Persistenza (Taverna_NPC, tavern_hub, Cartelle di servizio): verificare coerenza delle policy di salvataggio/quarantena e annotare eventuali blocchi prima di procedere con altri moduli dipendenti.
 
 ## Chiusura
-- Compila il sommario sprint con numero task, priorità massima e blocchi per modulo usando la tabella seguente.
+- Compila il sommario sprint con numero task, priorità massima e blocchi per modulo usando la tabella seguente, con owner
+  assegnati e checkpoint giornalieri a partire da **2025-12-12**.
 
-| Modulo | Task totali | Priorità massima | #Dipendenze | Stato | #Osservazioni | #Errori |
-| --- | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
-| minmax_builder | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
-| Taverna_NPC | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 |
-| tavern_hub | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
-| Cartelle di servizio | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 |
-| adventurer_ledger | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
-| archivist | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
-| base_profile | 2 | P1 | 1 | Pronto per sviluppo | 2 | 1 |
-| explain_methods | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
-| knowledge_pack | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
-| meta_doc | 3 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
-| narrative_flow | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 |
-| ruling_expert | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
-| scheda_pg_markdown_template | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 |
-| sigilli_runner_module | 2 | P1 | 0 | Pronto per sviluppo | 3 | 4 |
+| Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Stato | #Osservazioni | #Errori | Checkpoint |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | Alice Bianchi | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-12 |
+| minmax_builder | Marco Conti | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-13 |
+| Taverna_NPC | Elisa Romano | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-14 |
+| tavern_hub | Paolo Greco | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-15 |
+| Cartelle di servizio | Sara De Luca | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-16 |
+| adventurer_ledger | Luca Ferri | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-17 |
+| archivist | Martina Gallo | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-18 |
+| base_profile | Andrea Rizzi | 2 | P1 | 1 | Pronto per sviluppo | 2 | 1 | 2025-12-19 |
+| explain_methods | Francesca Vitale | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-20 |
+| knowledge_pack | Gianni Moretti | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-21 |
+| meta_doc | Chiara Esposito | 3 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-22 |
+| narrative_flow | Davide Serra | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-23 |
+| ruling_expert | Valentina Riva | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-24 |
+| scheda_pg_markdown_template | Matteo Leone | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-25 |
+| sigilli_runner_module | Fabio Marchetti | 2 | P1 | 0 | Pronto per sviluppo | 3 | 4 | 2025-12-26 |
