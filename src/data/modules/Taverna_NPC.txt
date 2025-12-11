@@ -995,6 +995,7 @@ commands:
             then:
               - output: "🧪 Echo gate: score {{QR.score}}/10 (< {{runtime.echo_min_score}}) → applico micro-refine (card più compatta/equip/feats coerenti)."
               - # (eventuale micro-refine qui; lasciamo nota)
+              - output: "➡️ Remediation: applica i fix suggeriti da /grade, riesegui /grade finché Echo ≥ {{runtime.echo_min_score}} o usa /refine_npc; i salvataggi/export su taverna_saves restano bloccati finché Echo < soglia (in sandbox puoi disattivare il gate con /echo off)."
             else:
               - output: "✅ Echo gate: OK ({{QR.score}}/10)."
       - output_template: ui_templates.npc_card_compact
@@ -1177,6 +1178,7 @@ commands:
           - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
           - output: "⛔ Export bloccato: {{ _gate_reason }}."
           - output: "➡️ CTA: prima esegui /save_hub o /check_conversation, poi riprova."
+          - output: "🛠️ Remediation: esegui /self_check per forzare il QA CHECK/repair (Canvas+Ledger) e, se Echo < {{runtime.echo_min_score}}, ripeti /grade o /refine_npc finché il gate non blocca più."
         else:
           - output: "🗺️ (stub) Outline avventura generato da seed/quest selezionato."
 
@@ -1261,7 +1263,7 @@ commands:
         then:
           - set: logs.export_gate.last_failure, value: "{{ _gate_reason }}"
           - output: "⛔ Export bloccato: {{ _gate_reason }}."
-          - output: "➡️ CTA: prima esegui /save_hub o /check_conversation, poi riprova."
+          - output: "➡️ CTA: riesegui /self_check (QA CHECK/repair), completa Canvas+Ledger, poi salva con /save_hub o riallinea la chat con /check_conversation prima di riprovare."
         else:
           - output: "📤 (stub) Export Hub {{_fmt}} generato."
 

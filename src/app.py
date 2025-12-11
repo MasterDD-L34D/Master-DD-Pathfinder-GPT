@@ -298,6 +298,10 @@ def _taverna_saves_metadata() -> Dict[str, object]:
                 if not settings.allow_module_dump
                 else None
             ),
+            "remediation": {
+                "echo_gate": "Echo gate <8.5 blocca export/salvataggi: applica i fix suggeriti da /grade o /refine_npc e ripeti /grade finché il punteggio non supera la soglia (in sandbox puoi usare /echo off).",
+                "qa_check": "QA CHECK bloccante: esegui /self_check o la routine QA CHECK/repair per completare Canvas e Ledger, poi riprova /save_hub o l'export verso taverna_saves.",
+            },
         }
     )
 
