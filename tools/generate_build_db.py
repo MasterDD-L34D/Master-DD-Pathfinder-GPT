@@ -3073,11 +3073,79 @@ async def run_harvest(
 
     semaphore = asyncio.Semaphore(max(1, concurrency))
 
+    planned_snapshots: list[tuple[BuildRequest, Path, int]] = []
+    level_filter_set = (
+        {int(level) for level in level_filters} if level_filters else None
+    )
+
+    snapshots_planned = 0
+    skipped_for_limit = 0
+    limit_reached = False
+    for build_request in requests:
+        if limit_reached:
+            break
+        seen_levels: set[int] = set()
+        level_plan: list[int] = []
+        levels_to_process = [1, *build_request.level_checkpoints]
+
+        for level in levels_to_process:
+            try:
+                coerced = int(level)
+            except (TypeError, ValueError):
+                continue
+            if level_filter_set is not None and coerced not in level_filter_set:
+                continue
+            if coerced <= 0 or coerced in seen_levels:
+                continue
+            seen_levels.add(coerced)
+            level_plan.append(coerced)
+
+        if not level_plan:
+            logging.info(
+                "Nessun livello selezionato per %s, salto la richiesta",
+                build_request.output_name(),
+            )
+            continue
+
+        base_level = level_plan[0] if level_plan else 1
+
+        for idx, level in enumerate(level_plan):
+            if max_items is not None and snapshots_planned >= max_items:
+                skipped_for_limit += len(level_plan) - idx
+                limit_reached = True
+                break
+            task_request = replace(
+                build_request,
+                level=level,
+                level_checkpoints=tuple(level_plan),
+            )
+            suffix = "" if level == base_level else f"_lvl{level:02d}"
+            output_file = output_dir / f"{task_request.output_name()}{suffix}.json"
+            planned_snapshots.append((task_request, output_file, base_level))
+            snapshots_planned += 1
+
+    if skipped_for_limit:
+        logging.info(
+            "Limite max-items=%s raggiunto: scartati %s snapshot aggiuntivi",
+            max_items,
+            skipped_for_limit,
+        )
+
+    all_cached = bool(
+        skip_unchanged
+        and planned_snapshots
+        and all(destination.exists() for _, destination, _ in planned_snapshots)
+    )
+
     async with httpx.AsyncClient(
         base_url=api_url.rstrip("/"), follow_redirects=True
     ) as client:
-        if skip_health_check:
-            logging.warning("Salto il controllo di health check richiesto dall'utente")
+        if skip_health_check or all_cached:
+            logging.warning(
+                "Salto il controllo di health check %s%s",
+                "(skip-unchanged: cache completa) " if all_cached else "",
+                "su richiesta dell'utente" if skip_health_check else "",
+            )
         else:
             await assert_api_reachable(client, api_key)
         if discover:
@@ -3109,297 +3177,308 @@ async def run_harvest(
 
         modules_index["module_plan"] = module_plan
 
-        level_filter_set = (
-            {int(level) for level in level_filters} if level_filters else None
-        )
-
         build_tasks = []
-        snapshots_planned = 0
-        skipped_for_limit = 0
-        limit_reached = False
-        for build_request in requests:
-            if limit_reached:
-                break
-            seen_levels: set[int] = set()
-            level_plan: list[int] = []
-            levels_to_process = [1, *build_request.level_checkpoints]
 
-            for level in levels_to_process:
-                try:
-                    coerced = int(level)
-                except (TypeError, ValueError):
-                    continue
-                if level_filter_set is not None and coerced not in level_filter_set:
-                    continue
-                if coerced <= 0 or coerced in seen_levels:
-                    continue
-                seen_levels.add(coerced)
-                level_plan.append(coerced)
-
-            if not level_plan:
-                logging.info(
-                    "Nessun livello selezionato per %s, salto la richiesta",
-                    build_request.output_name(),
-                )
-                continue
-
-            base_level = level_plan[0] if level_plan else 1
-
-            async def process_class(
-                request: BuildRequest, destination: Path
-            ) -> tuple[str, Mapping]:
-                async with semaphore:
-                    method = request.http_method()
-                    logging.info(
-                        "Recupero build per %s (mode=%s, race=%s, archetype=%s, level=%s) via %s",
-                        request.class_name,
-                        request.mode,
-                        request.race,
-                        request.archetype,
-                        request.level or base_level,
-                        method,
-                    )
+        async def process_class(
+            request: BuildRequest, destination: Path, base_level: int
+        ) -> tuple[str, Mapping]:
+            async with semaphore:
+                if skip_unchanged and destination.exists():
                     try:
-                        payload: MutableMapping | None = None
-                        for attempt in range(max_retries + 1):
-                            try:
-                                payload = await fetch_build(
-                                    client,
-                                    api_key,
-                                    request,
-                                    max_retries,
-                                    require_complete=require_complete,
-                                    target_level=request.level,
-                                    ruling_expert_url=ruling_expert_url,
-                                    ruling_timeout=ruling_timeout,
-                                    ruling_max_retries=ruling_max_retries,
-                                )
-                                break
-                            except BuildFetchError as exc:
-                                if attempt >= max_retries:
-                                    raise
-                                delay = 1 + attempt
-                                logging.warning(
-                                    "Payload incompleto per %s (%s). Retry in %ss...",
-                                    request.class_name,
-                                    exc,
-                                    delay,
-                                )
-                                await asyncio.sleep(delay)
-
-                        if payload is None:
-                            raise BuildFetchError(
-                                f"Impossibile recuperare payload per {request.class_name}"
-                            )
+                        payload = json.loads(destination.read_text(encoding="utf-8"))
+                    except Exception as exc:  # pragma: no cover - defensive logging only
+                        logging.warning(
+                            "Impossibile caricare payload esistente %s: %s, procedo con la fetch",
+                            destination,
+                            exc,
+                        )
+                    else:
                         _apply_level_checkpoint(payload, request.level)
                         validation_error = validate_with_schema(
                             schema_for_mode(request.mode),
                             payload,
-                            f"build {request.output_name()}",
+                            f"build {request.output_name()} (cached)",
                             strict=strict,
                         )
-                        sheet_context = payload.get("export", {}).get(
-                            "sheet_payload"
-                        ) or payload.get("sheet_payload")
+                        sheet_context = payload.get("export", {}).get("sheet_payload") or payload.get("sheet_payload")
                         sheet_validation = None
                         if sheet_context is not None:
                             sheet_validation = validate_with_schema(
                                 "scheda_pg.schema.json",
                                 sheet_context,
-                                f"sheet payload {request.output_name()}",
+                                f"sheet payload {request.output_name()} (cached)",
                                 strict=strict,
                             )
                         if validation_error and sheet_validation:
                             validation_error = f"{validation_error}; {sheet_validation}"
                         elif validation_error is None:
                             validation_error = sheet_validation
+
                         completeness_ctx = (
                             payload.get("completeness")
                             if isinstance(payload.get("completeness"), Mapping)
                             else {}
                         )
                         completeness_errors = list(completeness_ctx.get("errors") or [])
-                        completeness_text: str | None = None
-                        if completeness_errors:
-                            completeness_text = "; ".join(
-                                str(error) for error in completeness_errors
-                            )
-                            validation_error = (
-                                completeness_text
-                                if validation_error is None
-                                else f"{validation_error}; {completeness_text}"
-                            )
-                        incomplete_payload = bool(completeness_errors)
-                        status = "ok" if validation_error is None else "invalid"
-                        ruling_badge = (
-                            payload.get("ruling_badge")
-                            if isinstance(payload, Mapping)
-                            else None
-                        )
-                        ruling_sources = (
-                            payload.get("ruling_sources")
-                            if isinstance(payload, Mapping)
-                            else None
-                        )
-                        if incomplete_payload:
-                            status = "invalid"
+
+                        if completeness_errors and require_complete:
                             logging.warning(
-                                "Payload per %s scartato per incompletezza: %s",
+                                "Payload esistente per %s incompleto (%s): forza refetch",
                                 request.output_name(),
-                                completeness_text or "dati mancanti",
+                                "; ".join(str(err) for err in completeness_errors),
                             )
-                            if destination.exists():
-                                destination.unlink()
-                            output_path: Path | None = None
-                        elif status == "ok" or keep_invalid:
-                            if skip_unchanged and destination.exists():
-                                try:
-                                    existing_payload = json.loads(
-                                        destination.read_text(encoding="utf-8")
-                                    )
-                                except Exception:
-                                    existing_payload = None
-
-                                comparison_payload: object = payload
-                                if isinstance(payload, Mapping):
-                                    comparison_payload = dict(payload)
-                                    if isinstance(existing_payload, Mapping):
-                                        comparison_payload["fetched_at"] = (
-                                            existing_payload.get("fetched_at")
-                                        )
-
-                                if existing_payload == comparison_payload:
-                                    logging.info(
-                                        "Payload invariato per %s, salto la scrittura",
-                                        request.output_name(),
-                                    )
-                                    output_path = destination
-                                    return destination.name, build_index_entry(
-                                        request,
-                                        output_path,
-                                        status,
-                                        validation_error,
-                                        payload.get("step_audit"),
-                                        completeness_errors,
-                                        ruling_badge,
-                                        ruling_sources,
-                                    )
-
-                            destination.write_text(
-                                json.dumps(payload, indent=2, ensure_ascii=False),
-                                encoding="utf-8",
-                            )
-                            output_path = destination
-                        else:
-                            if destination.exists():
-                                destination.unlink()
+                        elif validation_error and not keep_invalid:
                             logging.warning(
-                                "Payload per %s scartato per invalidazione: %s",
+                                "Payload esistente per %s non valido (%s): forza refetch",
                                 request.output_name(),
                                 validation_error,
                             )
-                            output_path = None
-                        return destination.name, build_index_entry(
-                            request,
-                            output_path,
-                            status,
-                            validation_error,
-                            payload.get("step_audit"),
-                            completeness_errors,
-                            ruling_badge,
-                            ruling_sources,
+                        else:
+                            status = "ok" if validation_error is None else "invalid"
+                            logging.info(
+                                "Riutilizzo payload esistente per %s (skip-unchanged)",
+                                request.output_name(),
+                            )
+                            return destination.name, build_index_entry(
+                                request,
+                                destination,
+                                status,
+                                validation_error,
+                                payload.get("step_audit") if isinstance(payload, Mapping) else None,
+                                completeness_errors,
+                                payload.get("ruling_badge") if isinstance(payload, Mapping) else None,
+                                payload.get("ruling_sources") if isinstance(payload, Mapping) else None,
+                            )
+
+                method = request.http_method()
+                logging.info(
+                    "Recupero build per %s (mode=%s, race=%s, archetype=%s, level=%s) via %s",
+                    request.class_name,
+                    request.mode,
+                    request.race,
+                    request.archetype,
+                    request.level or base_level,
+                    method,
+                )
+
+                try:
+                    payload: MutableMapping | None = None
+                    for attempt in range(max_retries + 1):
+                        try:
+                            payload = await fetch_build(
+                                client,
+                                api_key,
+                                request,
+                                max_retries,
+                                require_complete=require_complete,
+                                target_level=request.level,
+                                ruling_expert_url=ruling_expert_url,
+                                ruling_timeout=ruling_timeout,
+                                ruling_max_retries=ruling_max_retries,
+                            )
+                            break
+                        except BuildFetchError as exc:
+                            if attempt >= max_retries:
+                                raise
+                            delay = 1 + attempt
+                            logging.warning(
+                                "Payload incompleto per %s (%s). Retry in %ss...",
+                                request.class_name,
+                                exc,
+                                delay,
+                            )
+                            await asyncio.sleep(delay)
+
+                    if payload is None:
+                        raise BuildFetchError(
+                            f"Impossibile recuperare payload per {request.class_name}"
                         )
-                    except ValidationError:
-                        raise
-                    except BuildFetchError as exc:
-                        completeness_errors = getattr(exc, "completeness_errors", None)
-                        logging.error(
-                            "Build %s marcata come %s: %s",
-                            request.class_name,
-                            "incompleta" if completeness_errors else "errore",
-                            exc,
+                    _apply_level_checkpoint(payload, request.level)
+                    validation_error = validate_with_schema(
+                        schema_for_mode(request.mode),
+                        payload,
+                        f"build {request.output_name()}",
+                        strict=strict,
+                    )
+                    sheet_context = payload.get("export", {}).get("sheet_payload") or payload.get("sheet_payload")
+                    sheet_validation = None
+                    if sheet_context is not None:
+                        sheet_validation = validate_with_schema(
+                            "scheda_pg.schema.json",
+                            sheet_context,
+                            f"sheet payload {request.output_name()}",
+                            strict=strict,
+                        )
+                    if validation_error and sheet_validation:
+                        validation_error = f"{validation_error}; {sheet_validation}"
+                    elif validation_error is None:
+                        validation_error = sheet_validation
+                    completeness_ctx = (
+                        payload.get("completeness")
+                        if isinstance(payload.get("completeness"), Mapping)
+                        else {}
+                    )
+                    completeness_errors = list(completeness_ctx.get("errors") or [])
+                    completeness_text: str | None = None
+                    if completeness_errors:
+                        completeness_text = "; ".join(str(error) for error in completeness_errors)
+                        validation_error = (
+                            completeness_text
+                            if validation_error is None
+                            else f"{validation_error}; {completeness_text}"
+                        )
+                    incomplete_payload = bool(completeness_errors)
+                    status = "ok" if validation_error is None else "invalid"
+                    ruling_badge = (
+                        payload.get("ruling_badge")
+                        if isinstance(payload, Mapping)
+                        else None
+                    )
+                    ruling_sources = (
+                        payload.get("ruling_sources")
+                        if isinstance(payload, Mapping)
+                        else None
+                    )
+                    if incomplete_payload:
+                        status = "invalid"
+                        logging.warning(
+                            "Payload per %s scartato per incompletezza: %s",
+                            request.output_name(),
+                            completeness_text or "dati mancanti",
                         )
                         if destination.exists():
                             destination.unlink()
-                        status = "invalid" if completeness_errors else "error"
-                        return destination.name, build_index_entry(
-                            request,
-                            None,
-                            status,
-                            str(exc),
-                            (
-                                payload.get("step_audit")
-                                if isinstance(payload, Mapping)
-                                else None
-                            ),
-                            completeness_errors,
-                            (
-                                payload.get("ruling_badge")
-                                if isinstance(payload, Mapping)
-                                else None
-                            ),
-                            (
-                                payload.get("ruling_sources")
-                                if isinstance(payload, Mapping)
-                                else None
-                            ),
-                        )
-                    except Exception as exc:  # pragma: no cover - network dependent
-                        logging.exception(
-                            "Errore durante la fetch di %s", request.class_name
-                        )
-                        return destination.name, build_index_entry(
-                            request,
-                            None,
-                            "error",
-                            str(exc),
-                            (
-                                payload.get("step_audit")
-                                if isinstance(payload, Mapping)
-                                else None
-                            ),
-                            (
-                                (
-                                    completeness_errors
-                                    if "completeness_errors" in locals()
-                                    else None
-                                ),
-                            ),
-                            (
-                                payload.get("ruling_badge")
-                                if isinstance(payload, Mapping)
-                                else None
-                            ),
-                            (
-                                payload.get("ruling_sources")
-                                if isinstance(payload, Mapping)
-                                else None
-                            ),
-                        )
+                        output_path: Path | None = None
+                    elif status == "ok" or keep_invalid:
+                        if skip_unchanged and destination.exists():
+                            try:
+                                existing_payload = json.loads(
+                                    destination.read_text(encoding="utf-8")
+                                )
+                            except Exception:
+                                existing_payload = None
 
-            for idx, level in enumerate(level_plan):
-                if max_items is not None and snapshots_planned >= max_items:
-                    skipped_for_limit += len(level_plan) - idx
-                    limit_reached = True
-                    break
-                task_request = replace(
-                    build_request,
-                    level=level,
-                    level_checkpoints=tuple(level_plan),
+                            comparison_payload: object = payload
+                            if isinstance(payload, Mapping):
+                                comparison_payload = dict(payload)
+                                if isinstance(existing_payload, Mapping):
+                                    comparison_payload["fetched_at"] = (
+                                        existing_payload.get("fetched_at")
+                                    )
+
+                            if existing_payload == comparison_payload:
+                                logging.info(
+                                    "Payload invariato per %s, salto la scrittura",
+                                    request.output_name(),
+                                )
+                                output_path = destination
+                                return destination.name, build_index_entry(
+                                    request,
+                                    output_path,
+                                    status,
+                                    validation_error,
+                                    payload.get("step_audit"),
+                                    completeness_errors,
+                                    ruling_badge,
+                                    ruling_sources,
+                                )
+
+                        destination.write_text(
+                            json.dumps(payload, indent=2, ensure_ascii=False),
+                            encoding="utf-8",
+                        )
+                        output_path = destination
+                    else:
+                        if destination.exists():
+                            destination.unlink()
+                        logging.warning(
+                            "Payload per %s scartato per invalidazione: %s",
+                            request.output_name(),
+                            validation_error,
+                        )
+                        output_path = None
+                    return destination.name, build_index_entry(
+                        request,
+                        output_path,
+                        status,
+                        validation_error,
+                        payload.get("step_audit"),
+                        completeness_errors,
+                        ruling_badge,
+                        ruling_sources,
+                    )
+                except ValidationError:
+                    raise
+                except BuildFetchError as exc:
+                    completeness_errors = getattr(exc, "completeness_errors", None)
+                    logging.error(
+                        "Build %s marcata come %s: %s",
+                        request.class_name,
+                        "incompleta" if completeness_errors else "errore",
+                        exc,
+                    )
+                    if destination.exists():
+                        destination.unlink()
+                    status = "invalid" if completeness_errors else "error"
+                    return destination.name, build_index_entry(
+                        request,
+                        None,
+                        status,
+                        str(exc),
+                        (
+                            payload.get("step_audit")
+                            if isinstance(payload, Mapping)
+                            else None
+                        ),
+                        completeness_errors,
+                        (
+                            payload.get("ruling_badge")
+                            if isinstance(payload, Mapping)
+                            else None
+                        ),
+                        (
+                            payload.get("ruling_sources")
+                            if isinstance(payload, Mapping)
+                            else None
+                        ),
+                    )
+                except Exception as exc:  # pragma: no cover - network dependent
+                    logging.exception(
+                        "Errore durante la fetch di %s", request.class_name
+                    )
+                    return destination.name, build_index_entry(
+                        request,
+                        None,
+                        "error",
+                        str(exc),
+                        (
+                            payload.get("step_audit")
+                            if isinstance(payload, Mapping)
+                            else None
+                        ),
+                        (
+                            (
+                                completeness_errors
+                                if "completeness_errors" in locals()
+                                else None
+                            ),
+                        ),
+                        (
+                            payload.get("ruling_badge")
+                            if isinstance(payload, Mapping)
+                            else None
+                        ),
+                        (
+                            payload.get("ruling_sources")
+                            if isinstance(payload, Mapping)
+                            else None
+                        ),
+                    )
+        for task_request, output_file, base_level in planned_snapshots:
+            build_tasks.append(
+                asyncio.create_task(
+                    process_class(task_request, output_file, base_level)
                 )
-                suffix = "" if level == base_level else f"_lvl{level:02d}"
-                output_file = output_dir / f"{task_request.output_name()}{suffix}.json"
-
-                build_tasks.append(
-                    asyncio.create_task(process_class(task_request, output_file))
-                )
-                snapshots_planned += 1
-
-        if skipped_for_limit:
-            logging.info(
-                "Limite max-items=%s raggiunto: scartati %s snapshot aggiuntivi",
-                max_items,
-                skipped_for_limit,
             )
 
         module_tasks = []
@@ -3410,6 +3489,12 @@ async def run_harvest(
                 name: str, destination: Path
             ) -> tuple[str, Mapping]:
                 async with semaphore:
+                    if skip_unchanged and destination.exists():
+                        logging.info(
+                            "Riutilizzo modulo locale %s (skip-unchanged)", name
+                        )
+                        return name, module_index_entry(name, destination, "ok")
+
                     logging.info("Scarico modulo raw %s", name)
                     try:
                         content, meta = await fetch_module(

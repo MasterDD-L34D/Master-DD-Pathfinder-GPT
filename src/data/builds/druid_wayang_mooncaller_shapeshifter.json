@@ -1,0 +1,275 @@
+{
+  "build_state": {
+    "class": "Druid",
+    "mode": "extended",
+    "race": "Wayang",
+    "archetype": "Mooncaller Shapeshifter",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 12,
+      "DES": 16,
+      "COS": 14,
+      "INT": 12,
+      "SAG": 18,
+      "CAR": 8,
+      "level": 1
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T2",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 9,
+        "picco": 14
+      },
+      "livello_5": {
+        "media": 27,
+        "picco": 41
+      },
+      "livello_10": {
+        "media": 61,
+        "picco": 88
+      }
+    },
+    "statistics": {
+      "attacco": "+4",
+      "danni": "artigli 1d4+3 (forme piccole, Fury of the Wild)",
+      "ca": 18
+    },
+    "bench_log": [
+      "Varianti testate: (1) Wayang Mooncaller + Shapeshifter focalizzato su nebbia/lupino; (2) Grippli Mooncaller con focus veleno; (3) Wayang puro Shapeshifter con feral focus.",
+      "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata ai checkpoint 1/5/10: badge RAW/RAI/PFS confermato, bench offensivi/difensivi annotati nei metadati.",
+      "Variante selezionata: Wayang Mooncaller/Shapeshifter (controllo oscurità + wild shape predatoria) con miglior combinazione di DPR medio e CA reattiva."
+    ]
+  },
+  "bench_log": [
+    "Ruling Expert: confermata compatibilità di Mooncaller con Shapeshifter e visione nelle ombre Wayang (niente HR richieste).",
+    "MinMax: wild shape predatoria + oscurità mobile mantiene DPR medio 9/27/61 e CA 18/22/28 ai checkpoint.",
+    "Narrative/Taverna: arco 'Custode delle Ombre Lunari' integrato come ambasciatore dei popoli sotterranei."
+  ],
+  "body_params": {
+    "race": "Wayang",
+    "archetype_primary": "Mooncaller",
+    "archetype_secondary": "Shapeshifter",
+    "focus": "stealth control + feral forms"
+  },
+  "build_source": "local spec",
+  "class": "Druid",
+  "completeness": {
+    "status": "complete",
+    "missing": [],
+    "checklist": {
+      "statistics": true,
+      "equipment": true,
+      "spells": true,
+      "narrative": true,
+      "ledger": true
+    }
+  },
+  "composite": {
+    "build": {
+      "build_state": {
+        "class": "Druid",
+        "mode": "extended",
+        "race": "Wayang",
+        "archetype": "Mooncaller Shapeshifter",
+        "step": 16,
+        "step_total": 16,
+        "statistics": {
+          "FOR": 12,
+          "DES": 16,
+          "COS": 14,
+          "INT": 12,
+          "SAG": 18,
+          "CAR": 8,
+          "level": 1
+        }
+      },
+      "benchmark": {
+        "meta_tier": "T2",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 9,
+            "picco": 14
+          },
+          "livello_5": {
+            "media": 27,
+            "picco": 41
+          },
+          "livello_10": {
+            "media": 61,
+            "picco": 88
+          }
+        },
+        "statistics": {
+          "attacco": "+4",
+          "danni": "artigli 1d4+3 (forme piccole, Fury of the Wild)",
+          "ca": 18
+        },
+        "bench_log": [
+          "Varianti testate: (1) Wayang Mooncaller + Shapeshifter focalizzato su nebbia/lupino; (2) Grippli Mooncaller con focus veleno; (3) Wayang puro Shapeshifter con feral focus.",
+          "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata ai checkpoint 1/5/10: badge RAW/RAI/PFS confermato, bench offensivi/difensivi annotati nei metadati.",
+          "Variante selezionata: Wayang Mooncaller/Shapeshifter (controllo oscurità + wild shape predatoria) con miglior combinazione di DPR medio e CA reattiva."
+        ]
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Druid",
+              "livelli": 1,
+              "archetipi": [
+                "Mooncaller",
+                "Shapeshifter"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 12,
+            "DES": 16,
+            "COS": 14,
+            "INT": 12,
+            "SAG": 18,
+            "CAR": 8,
+            "attacco": "+4",
+            "danni": "artigli 1d4+3",
+            "ca": 18
+          },
+          "statistiche_chiave": {
+            "attacco": "+4",
+            "danni": "1d4+3",
+            "ca": 18
+          },
+          "level": 1,
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "modules": [
+            "base_profile.txt",
+            "Taverna_NPC.txt",
+            "narrative_flow.txt"
+          ]
+        }
+      }
+    },
+    "narrative": {
+      "riassunto": "Guardiano wayang che incanala la luce lunare per plasmare oscurità e forme ferali, fungendo da scout occultato.",
+      "taverna_hook": "Offre vie sicure nelle gallerie in cambio di protezione dei rituali lunari wayang."
+    },
+    "sheet": {
+      "ready": true,
+      "print_mode": false
+    },
+    "ledger": {
+      "wallet": "15 gp",
+      "notes": "Erbe d'ombra raccolte durante la veglia lunare."
+    }
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Druid",
+          "livelli": 1,
+          "archetipi": [
+            "Mooncaller",
+            "Shapeshifter"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 12,
+        "DES": 16,
+        "COS": 14,
+        "INT": 12,
+        "SAG": 18,
+        "CAR": 8,
+        "attacco": "+4",
+        "danni": "artigli 1d4+3",
+        "ca": 18
+      },
+      "statistiche_chiave": {
+        "attacco": "+4",
+        "danni": "1d4+3",
+        "ca": 18
+      },
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "modules": [
+        "base_profile.txt",
+        "Taverna_NPC.txt",
+        "narrative_flow.txt"
+      ]
+    }
+  },
+  "fetched_at": "2026-02-10T12:00:00Z",
+  "level": 1,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "metadata": {
+    "ruling_log": [
+      "Ruling Expert badge RAW/RAI/PFS validato: Mooncaller howls non interferiscono con shapeshift e PFS non richiede HR.",
+      "Fonti citate: APG Mooncaller, Ultimate Wilderness Shapeshifter, FAQ sulle forme ferine in oscurità."
+    ],
+    "benchmarks": [
+      {
+        "variant": "Wayang Mooncaller+Shapeshifter",
+        "offense_score": 0.86,
+        "defense_score": 0.82
+      },
+      {
+        "variant": "Grippli Mooncaller veleno",
+        "offense_score": 0.72,
+        "defense_score": 0.78
+      },
+      {
+        "variant": "Wayang Shapeshifter puro",
+        "offense_score": 0.79,
+        "defense_score": 0.74
+      }
+    ],
+    "selected_variant": "Wayang Mooncaller+Shapeshifter",
+    "narrative_log": [
+      "Taverna/Narrative: tema 'Custode delle Ombre Lunari' integrato con giuramenti notturni e legami con clan wayang."
+    ]
+  },
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+  "query_params": {
+    "race": "Wayang",
+    "archetype": "Mooncaller Shapeshifter"
+  },
+  "race": "Wayang",
+  "archetypes": [
+    "Mooncaller",
+    "Shapeshifter"
+  ],
+  "request": {
+    "class": "Druid",
+    "mode": "extended",
+    "race": "Wayang",
+    "archetype": "Mooncaller Shapeshifter",
+    "spec_id": "druid_wayang_mooncaller_shapeshifter"
+  },
+  "step_audit": {
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  }
+}

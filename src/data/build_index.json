@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-11T01:16:44Z",
+  "generated_at": "2025-12-11T02:08:42Z",
   "api_url": null,
   "mode": "mixed",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -727,34 +727,15 @@
       "step_total_ok": true
     },
     {
-      "file": "src/data/builds/druid.json",
-      "status": "ok",
-      "output_prefix": "druid_human_base",
-      "class": "Druid",
-      "race": "Human",
-      "archetype": "Base",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "druid_human_base",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1
-    },
-    {
       "file": "src/data/builds/druid_half_orc_feral.json",
       "status": "ok",
-      "output_prefix": "druid_half-orc_feral_shifter",
+      "output_prefix": "druid_half_orc_feral",
       "class": "Druid",
-      "race": "Half-Orc",
-      "archetype": "Feral Shifter",
+      "race": "Half Orc",
+      "archetype": "Feral",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "druid_half-orc_feral_shifter",
+      "spec_id": "druid_half_orc_feral",
       "background": null,
       "model": null,
       "level_checkpoints": [
@@ -767,13 +748,13 @@
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
       "status": "ok",
-      "output_prefix": "druid_half-orc_feral_shifter",
+      "output_prefix": "druid_half_orc_feral",
       "class": "Druid",
-      "race": "Half-Orc",
-      "archetype": "Feral Shifter",
+      "race": "Half Orc",
+      "archetype": "Feral",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "druid_half-orc_feral_shifter",
+      "spec_id": "druid_half_orc_feral",
       "background": null,
       "model": null,
       "level_checkpoints": [
@@ -786,14 +767,75 @@
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
       "status": "ok",
-      "output_prefix": "druid_half-orc_feral_shifter",
+      "output_prefix": "druid_half_orc_feral",
       "class": "Druid",
-      "race": "Half-Orc",
-      "archetype": "Feral Shifter",
+      "race": "Half Orc",
+      "archetype": "Feral",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "druid_half-orc_feral_shifter",
+      "spec_id": "druid_half_orc_feral",
       "background": null,
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 10
+    },
+    {
+      "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
+      "status": "ok",
+      "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+      "level": 1,
+      "class": "Druid",
+      "race": "Wayang",
+      "archetype": "Mooncaller Shapeshifter",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "druid_wayang_mooncaller_shapeshifter",
+      "model": null,
+      "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità.",
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true
+    },
+    {
+      "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
+      "status": "ok",
+      "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+      "class": "Druid",
+      "race": "Wayang",
+      "archetype": "Mooncaller Shapeshifter",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "druid_wayang_mooncaller_shapeshifter",
+      "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità.",
+      "model": null,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "level": 5
+    },
+    {
+      "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
+      "status": "ok",
+      "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+      "class": "Druid",
+      "race": "Wayang",
+      "archetype": "Mooncaller Shapeshifter",
+      "mode": "extended",
+      "mode_normalized": "extended",
+      "spec_id": "druid_wayang_mooncaller_shapeshifter",
+      "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -1679,19 +1721,19 @@
   ],
   "checkpoints": {
     "1": {
-      "total": 44,
+      "total": 43,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "5": {
-      "total": 22,
+      "total": 23,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0
     },
     "10": {
-      "total": 17,
+      "total": 18,
       "invalid": 0,
       "schema_errors": 0,
       "completeness_errors": 0

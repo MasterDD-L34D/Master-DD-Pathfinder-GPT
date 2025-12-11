@@ -66,13 +66,22 @@ requests:
       archetype: Skirmisher
   - id: druid_half_orc_feral
     class: Druid
-    race: Half-Orc
-    archetype: Feral Shifter
+    race: Half Orc
+    archetype: Feral
     background_hooks: "Guardiano selvaggio delle foreste, incline a forme ferine aggressive."
     output_prefix: druid_half_orc_feral
     query:
-      race: Half-Orc
-      archetype: Feral Shifter
+      race: Half Orc
+      archetype: Feral
+  - id: druid_wayang_mooncaller_shapeshifter
+    class: Druid
+    race: Wayang
+    archetype: Mooncaller Shapeshifter
+    background_hooks: "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità."
+    output_prefix: druid_wayang_mooncaller_shapeshifter
+    query:
+      race: Wayang
+      archetype: Mooncaller Shapeshifter
   - id: barbarian_fetchling_invulnerable_rager
     class: Barbarian
     race: Fetchling
