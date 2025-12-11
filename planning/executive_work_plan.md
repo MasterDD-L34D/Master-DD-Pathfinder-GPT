@@ -1,6 +1,6 @@
 # Piano di lavoro esecutivo
 
-Generato il 2025-12-11T14:36:13Z da `tools/generate_module_plan.py`
+Generato il 2025-12-11T15:17:59Z da `tools/generate_module_plan.py`
 Fonte task: `planning/module_work_plan.md` (priorità P1→P3) e sequenza `planning/module_review_guide.md`.
 Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, con fasi sequenziali e dipendenze esplicite.
 
@@ -12,6 +12,8 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 
 - **Encounter_Designer**
   - Nessuno: i gate QA coprono ora pacing, loot e snapshot di bilanciamento e bloccano l’export con CTA esplicite verso `/auto_balance`, `/simulate_encounter`, `/set_pacing` e `/set_loot_policy`.【F:src/modules/Encounter_Designer.txt†L380-L404】
+- **minmax_builder**
+  - TODO
 - **Taverna_NPC**
   - Nessuno: lo storage espone già `/storage_meta` con quota/pattern di auto-name e, con `ALLOW_MODULE_DUMP=false`, i dump vengono tronchi a 4k con marker `[…TRUNCATED ALLOW_MODULE_DUMP=false…]` e risposta standard “⚠️ Output parziale” anche per export plain/markdown, in linea con le policy dichiarate.【F:src/modules/Taverna_NPC.txt†L364-L386】【F:src/modules/Taverna_NPC.txt†L273-L305】【F:src/modules/Taverna_NPC.txt†L1285-L1317】
 - **tavern_hub**
@@ -26,10 +28,18 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
   - Nessuno: l’endpoint di documentazione (`/doc`/`/help`/`/manuale`) è instradato nel router di base_profile e rimanda al modulo `meta_doc.txt` per l’elenco comandi principali.【F:src/modules/base_profile.txt†L140-L175】【F:src/modules/base_profile.txt†L430-L472】
 - **explain_methods**
   - Nessuno: l’header del modulo riporta già la versione **3.3-hybrid-kernel** in linea con il changelog e i requisiti QA, senza altre azioni pendenti.【F:src/modules/explain_methods.txt†L1-L4】【F:src/modules/explain_methods.txt†L318-L325】
+- **knowledge_pack**
+  - TODO
+- **meta_doc**
+  - TODO
 - **narrative_flow**
   - Nessuno aperto: `/qa_story` usa validator concreti e blocca export finché arc/tema/thread/pacing/stile non sono tutti OK, includendo preview troncato e CTA dedicate.【F:src/modules/narrative_flow.txt†L320-L404】
 - **ruling_expert**
   - Nessuno.
+- **scheda_pg_markdown_template**
+  - TODO
+- **sigilli_runner_module**
+  - TODO
 
 ## Seconda fase · P1 residui e P2 cooperativi
 
@@ -73,7 +83,7 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | Modulo | Task aperti | Osservazioni | Errori | Dipendenze | Priorità massima | Stato |
 | --- | --- | --- | --- | --- | --- | --- |
 | Encounter_Designer | 2 | 2 | 1 | 0 | P1 | Pronto per sviluppo |
-| minmax_builder | 1 | 2 | 1 | 0 | P2 | Pronto per sviluppo |
+| minmax_builder | 2 | 2 | 1 | 0 | P1 | Pronto per sviluppo |
 | Taverna_NPC | 2 | 1 | 2 | 0 | P1 | Pronto per sviluppo |
 | tavern_hub | 2 | 1 | 1 | 0 | P1 | Pronto per sviluppo |
 | Cartelle di servizio | 2 | 1 | 2 | 0 | P1 | Pronto per sviluppo |
@@ -81,9 +91,9 @@ Obiettivo: coprire tutte le azioni fino al completamento del piano operativo, co
 | archivist | 2 | 2 | 1 | 0 | P1 | Pronto per sviluppo |
 | base_profile | 2 | 2 | 1 | 1 | P1 | Pronto per sviluppo |
 | explain_methods | 2 | 1 | 1 | 0 | P1 | Pronto per sviluppo |
-| knowledge_pack | 1 | 1 | 1 | 0 | P2 | Pronto per sviluppo |
-| meta_doc | 2 | 1 | 1 | 0 | P2 | Pronto per sviluppo |
+| knowledge_pack | 2 | 1 | 1 | 0 | P1 | Pronto per sviluppo |
+| meta_doc | 3 | 1 | 1 | 0 | P1 | Pronto per sviluppo |
 | narrative_flow | 2 | 1 | 1 | 0 | P1 | Pronto per sviluppo |
-| ruling_expert | 2 | 2 | 0 | 0 | P1 | Pronto per sviluppo |
-| scheda_pg_markdown_template | 1 | 2 | 1 | 0 | P2 | Pronto per sviluppo |
-| sigilli_runner_module | 1 | 3 | 4 | 0 | P2 | Pronto per sviluppo |
+| ruling_expert | 2 | 2 | 1 | 0 | P1 | Pronto per sviluppo |
+| scheda_pg_markdown_template | 2 | 2 | 1 | 0 | P1 | Pronto per sviluppo |
+| sigilli_runner_module | 2 | 3 | 4 | 0 | P1 | Pronto per sviluppo |
