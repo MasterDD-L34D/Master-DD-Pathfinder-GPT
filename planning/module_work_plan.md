@@ -344,6 +344,8 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 ## Kanban e log test (To Do → In Review → Done)
 
+- Riesecuzione QA del 2025-12-11: suite `pytest` completa (73 pass) utilizzata come log unico di regressione per tutte le storie chiuse riportate nelle tabelle sottostanti.【2fd912†L1-L11】
+
 ### Moduli critici
 | Story | Origine piano | Stato | Evidenza test |
 | --- | --- | --- | --- |

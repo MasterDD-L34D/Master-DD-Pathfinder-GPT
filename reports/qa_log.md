@@ -20,6 +20,9 @@
 - L'accesso a risorse bloccate o directory non permesse restituisce 403 coerenti con la policy di dump/whitelist.【F:tests/test_app.py†L270-L298】
 - `/knowledge` replica la stessa policy: 401 senza chiave, 200 solo con API key valida, con protezione 403 sulle metriche se la chiave è errata.【F:tests/test_app.py†L574-L618】
 
+## Regression pass e burn-down
+- Riesecuzione completa `pytest` (73 test) il 2025-12-11: log integrato【2fd912†L1-L11】 usato come evidenza per chiudere le storie ENC-*, SIG-*, BAS-* e i moduli satellite (TAV, LED, ARC, RUL, SCH). Nessuna nota aperta residua nel burn-down.
+
 ## Chiusura note per moduli con storie aperte
 - **Encounter_Designer** — ENC-OBS-01/02, ENC-ERR-01 chiusi: data model resta numerico/astratto e le CTA QA guidano il flow fino all'export.【F:src/modules/Encounter_Designer.txt†L90-L140】【F:src/modules/Encounter_Designer.txt†L505-L514】【F:src/modules/Encounter_Designer.txt†L515-L524】
 - **base_profile** — BAS-OBS-01/BAS-ERR-01 chiusi: router e binding moduli/documentazione restano attivi e coperti dai gate API key/dump.【F:src/modules/base_profile.txt†L107-L139】【F:src/app.py†L1546-L1580】【F:tests/test_app.py†L542-L589】
