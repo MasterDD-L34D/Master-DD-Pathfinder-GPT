@@ -5,6 +5,11 @@
 - Naming export e CTA QA stabili: MinMax Builder continua a produrre `MinMax_<nome>.pdf/.xlsx/.json` dietro il gate `export_requires`, e l’Encounter Designer mantiene il flow QA→export vincolato alle CTA guidate (validate→export).【F:src/modules/minmax_builder.txt†L940-L942】【F:src/modules/Encounter_Designer.txt†L505-L514】
 - Endpoint protetti verificati: `/modules` e `/knowledge` rifiutano chiamate senza/errata API key con 401/429, mentre `/metrics` respinge accessi non autorizzati con 403 e accetta solo chiave valida.【F:tests/test_app.py†L542-L618】
 
+## QA 2025-12-13 — Dump disabilitato, naming export, 401/403
+- **Dump con `ALLOW_MODULE_DUMP=false` su moduli aperti** — Confermato il troncamento con marker `[contenuto troncato …]` e header `X-Content-*` via handler di streaming: binari/PDF vengono bloccati 403 e i `.txt` servono estratti con `X-Content-Partial-Reason: ALLOW_MODULE_DUMP=false`. Evidenze dai test su binari/PDF/text e header di `narrative_flow`/`ruling_expert`, oltre alla logica di streaming che imposta i marker di parzialità.【F:src/app.py†L1538-L1585】【F:tests/test_app.py†L265-L360】
+- **Naming export e CTA QA** — I comandi `/export_build` e `/export_vtt` del MinMax Builder mantengono la nomenclatura condivisa `MinMax_<nome>.*` e restano dietro il gate QA `export_requires`; le CTA dell’Encounter Designer continuano a forzare `/validate_encounter` prima dell’export JSON/PDF (flow step 6).【F:src/modules/minmax_builder.txt†L462-L475】【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/Encounter_Designer.txt†L508-L550】
+- **401/403 sugli endpoint protetti** — `/modules` e `/knowledge` rifiutano accessi senza o con chiave errata (401 + 429 su backoff), mentre `/metrics` richiede API key dedicata e risponde 403 in caso di chiave sbagliata; accesso riuscito solo con chiavi valide o `ALLOW_ANONYMOUS` esplicito.【F:tests/test_app.py†L542-L618】
+
 ## Test eseguiti
 - `pytest tests/test_app.py -q` (50 pass; solo warning jsonschema).【ff0839†L1-L10】
 
