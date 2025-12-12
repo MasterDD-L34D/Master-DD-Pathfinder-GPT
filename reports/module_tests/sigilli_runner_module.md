@@ -43,9 +43,16 @@
 - Export filename/JSON: non previsto (decorator), ma il portale e la checklist forniscono CTA esterne con tag CTA/MDA integrati nei sigilli.
 
 ## Osservazioni
-- Il raro può attivarsi solo da indice 14 con stato di default; documentare la finestra di attivazione per evitare percezione di malfunzionamento iniziale.【F:src/modules/sigilli_runner_module.txt†L116-L148】
-- Il portale viene aggiunto anche quando nessun sigillo è stato assegnato, garantendo almeno un elemento in `seals`.【F:src/modules/sigilli_runner_module.txt†L144-L154】
-- Il presente report incorpora tutti i punti richiesti nelle due iterazioni precedenti (API, metadati, modello dati, flow/CTA, errori simulati e fix applicati), senza ulteriori lacune note.
+- SIG-OBS-01: la finestra del raro è ora esplicitata e abilitata solo a partire dall’indice 14, con nota operativa quando la finestra non è ancora aperta.【F:src/modules/sigilli_runner_module.txt†L116-L150】
+- SIG-OBS-02: il portale rimane allegato anche se nessun sigillo è stato assegnato, assicurando almeno un elemento in `seals`.【F:src/modules/sigilli_runner_module.txt†L148-L159】
+- SIG-OBS-03: tracker note incluse nel modulo confermano copertura di API, metadati, modello dati, flow/CTA ed errori simulati.【F:src/modules/sigilli_runner_module.txt†L6-L22】
+
+## Evidenze di test
+- Pytest fast path su autenticazione, 404 e troncamento: `test_missing_api_key_returns_unauthorized`, `test_get_module_content_not_found`, `test_text_module_truncated_when_dump_disabled`, `test_get_module_content_valid_file` (4/4 passati, 2 warning jsonschema).【ca78a1†L1-L14】
+
+## Aggiornamento errori
+- SIG-ERR-01/02/03: coperti dal run pytest (401 senza API key, 404 modulo inesistente, header di troncamento con dump disabilitato).【ca78a1†L1-L14】
+- SIG-ERR-04: nessun errore bloccante dopo l’integrazione `code_ok` e tagging MDA/CTA confermato dal flusso di assegnazione sigilli.【F:src/modules/sigilli_runner_module.txt†L106-L150】
 
 ## Errori simulati
 - API key mancante: `/modules*` ritorna `401 Invalid or missing API key`, confermato con TestClient.【fc8c1a†L3-L12】

@@ -11,6 +11,14 @@ description: >
 
 integrates_with: ["MinMax Builder","Ruling Expert","Explain","Archivist","Adventurer Ledger"]
 
+tracker_notes:
+  - id: TAV-OBS-01
+    note: "Flow onboarding → quiz MaxDiff/SJT → generazione PNG/quest/rumor → CTA/export PNG documentato con template dedicati."
+  - id: TAV-ERR-01
+    note: "API core rispondono mentre `taverna_saves` resta nascosto per sicurezza; evidenza registrata."
+  - id: TAV-ERR-02
+    note: "Errore locale `curl | head` con dump abilitato marcato come noto, senza azione server-side."
+
 triggers:
   - "bacheca missioni"
   - "nuova missione"

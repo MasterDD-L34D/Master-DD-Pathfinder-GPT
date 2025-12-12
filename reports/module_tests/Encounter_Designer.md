@@ -58,8 +58,9 @@
 - **Simulazione e rischi**: `estimate_party_benchmarks` produce DPR/CA/saves da profilo MinMax o livello medio (DPR 12/16 + 2×lvl, CA 16+lvl, saves 4+lvl//2); `estimate_enemy_benchmarks` deduce DPR/Atk/DC medi dal CR e quantità; `detect_risks` etichetta rischi se atk supera CA di ≥6, DPR t1-3 eccede di ≥10 o il gap saves vs DC è ≤-4 (alpha-strike, high-accuracy, save-or-suck).【F:src/modules/Encounter_Designer.txt†L710-L744】
 - **Export, ondate e MDA**: `export_filename` sanifica il titolo (regex non alfanumerici → `_`, max 40 char) e aggiunge livello medio e timestamp UTC; `materialize_wave` clona nemici base secondo le addizioni per ondate; `map_mda_tags` trasforma hint di composizione in etichette Timmy/Johnny/Spike senza duplicati.【F:src/modules/Encounter_Designer.txt†L745-L798】
 ## Osservazioni
-- Il modello dati evita riferimenti a testi protetti: stat e DC sono valori numerici astratti, mentre badge e gate PFS delimitano eventuali HR.【F:src/modules/Encounter_Designer.txt†L92-L140】【F:src/modules/Encounter_Designer.txt†L357-L419】
-- Il flusso incorporato consente pipeline completa: setup → generazione/auto-bilanciamento → QA → export VTT/MD/PDF, con CTA che richiamano i comandi chiave e auto-validate prima dell’export.【F:src/modules/Encounter_Designer.txt†L486-L523】【F:src/modules/Encounter_Designer.txt†L400-L419】
+- ENC-OBS-01: modello dati e policy rimangono numerici/astratti senza testo protetto, con badge PFS/RAW che delimitano HR.【F:src/modules/Encounter_Designer.txt†L92-L140】
+- ENC-OBS-02: pipeline e CTA guidate tracciate (setup → auto-bilanciamento → QA → export) con gate obbligatorio prima dell’export.【F:src/modules/Encounter_Designer.txt†L486-L523】【F:src/modules/Encounter_Designer.txt†L400-L419】【F:src/modules/Encounter_Designer.txt†L520-L528】
+- ENC-ERR-01: helper clampato e QA rerun segnano “nessun errore bloccante” dopo l’allineamento CR/QA.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L777-L788】
 
 ## Errori
 - Nessun errore bloccante sul calcolo CR/QA dopo l’allineamento al singolo helper clampato.【F:src/modules/Encounter_Designer.txt†L293-L314】【F:src/modules/Encounter_Designer.txt†L777-L788】

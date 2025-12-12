@@ -63,4 +63,5 @@
 - Nessuno: la documentazione copre ora health/404 e la distinzione dump/troncamento, in linea con la policy Documentazione.【F:tests/test_app.py†L282-L314】【F:tests/test_app.py†L547-L591】
 
 ## Fix necessari
-- Nessuno: l’endpoint di documentazione (`/doc`/`/help`/`/manuale`) è instradato nel router di base_profile e rimanda al modulo `meta_doc.txt` per l’elenco comandi principali.【F:src/modules/base_profile.txt†L140-L175】【F:src/modules/base_profile.txt†L430-L472】
+- BAS-OBS-01: confermato l’instradamento `/doc`/`/help`/`/manuale` verso `meta_doc.txt` nel router base_profile, con nota nel modulo.【F:src/modules/base_profile.txt†L130-L176】【F:src/modules/base_profile.txt†L430-L472】
+- BAS-ERR-01: nessun errore bloccante dopo l’allineamento documentazione/dump; validato dal run pytest sugli endpoint `/modules*` (401, 404, troncamento, download valido).【ca78a1†L1-L14】【F:src/modules/base_profile.txt†L356-L366】

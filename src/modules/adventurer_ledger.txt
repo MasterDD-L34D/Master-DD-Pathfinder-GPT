@@ -12,6 +12,10 @@ provides: ["WBL tracking","ledger","buylist+craft","PFS audit","MIC safe"]
 requires: ["base_profile.txt"]
 exports: ["ledger:api","qa:pfs_flags","pg_binding","vtt_json"]
 
+tracker_notes:
+  - id: LED-OBS-01
+    note: "Welcome/flow in 5 passi (policy → stile giocatore → profilo WBL → roll loot → export) documentato con CTA/template per ledger/buylist/scheda PG."
+
 description: >
   Modulo completo per la gestione economica e magica in Pathfinder 1E.  
   Integra in un unico strumento:
