@@ -212,7 +212,40 @@
         "base_profile.txt",
         "Taverna_NPC.txt",
         "narrative_flow.txt"
-      ]
+      ],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "gradi": 10,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 18
+        },
+        {
+          "nome": "Diplomazia",
+          "gradi": 10,
+          "mod_car": 0,
+          "classe": true,
+          "totale": 13
+        }
+      ],
+      "equipaggiamento": [
+        "Kukri benedetto", 
+        "Armatura di cuoio borchiato +2",
+        "Fiaschette di antitoxin superiore"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Decima del tempio", "importo": -200},
+        {"voce": "Ricompensa missione campo", "importo": 350}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Decima del tempio", "importo": -200},
+          {"voce": "Ricompensa missione campo", "importo": 350}
+        ],
+        "currency": {"oro": 150, "argento": 25, "rame": 10}
+      },
+      "sheet_markdown": "Percezione\nKukri benedetto\nDecima del tempio"
     }
   },
   "mode": "extended",

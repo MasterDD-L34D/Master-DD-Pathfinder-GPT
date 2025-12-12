@@ -3,6 +3,11 @@
   "api_url": "http://localhost:8000",
   "entries": [
     {
+      "module": "Encounter_Designer.txt",
+      "file": "src/data/modules/Encounter_Designer.txt",
+      "status": "ok"
+    },
+    {
       "module": "Taverna_NPC.txt",
       "file": "src/data/modules/Taverna_NPC.txt",
       "status": "ok"
@@ -13,8 +18,33 @@
       "status": "ok"
     },
     {
+      "module": "archivist.txt",
+      "file": "src/data/modules/archivist.txt",
+      "status": "ok"
+    },
+    {
       "module": "base_profile.txt",
       "file": "src/data/modules/base_profile.txt",
+      "status": "ok"
+    },
+    {
+      "module": "explain_methods.txt",
+      "file": "src/data/modules/explain_methods.txt",
+      "status": "ok"
+    },
+    {
+      "module": "knowledge_pack.md",
+      "file": "src/data/modules/knowledge_pack.md",
+      "status": "ok"
+    },
+    {
+      "module": "meta_doc.txt",
+      "file": "src/data/modules/meta_doc.txt",
+      "status": "ok"
+    },
+    {
+      "module": "minmax_builder.txt",
+      "file": "src/data/modules/minmax_builder.txt",
       "status": "ok"
     },
     {
@@ -23,17 +53,41 @@
       "status": "ok"
     },
     {
+      "module": "ruling_expert.txt",
+      "file": "src/data/modules/ruling_expert.txt",
+      "status": "ok"
+    },
+    {
       "module": "scheda_pg_markdown_template.md",
       "file": "src/data/modules/scheda_pg_markdown_template.md",
+      "status": "ok"
+    },
+    {
+      "module": "sigilli_runner_module.txt",
+      "file": "src/data/modules/sigilli_runner_module.txt",
+      "status": "ok"
+    },
+    {
+      "module": "tavern_hub.json",
+      "file": "src/data/modules/tavern_hub.json",
       "status": "ok"
     }
   ],
   "module_plan": [
-    "base_profile.txt",
+    "Encounter_Designer.txt",
     "Taverna_NPC.txt",
+    "adventurer_ledger.txt",
+    "archivist.txt",
+    "base_profile.txt",
+    "explain_methods.txt",
+    "knowledge_pack.md",
+    "meta_doc.txt",
+    "minmax_builder.txt",
     "narrative_flow.txt",
+    "ruling_expert.txt",
     "scheda_pg_markdown_template.md",
-    "adventurer_ledger.txt"
+    "sigilli_runner_module.txt",
+    "tavern_hub.json"
   ],
   "reference_catalog": [
     "data/reference/spells.json",

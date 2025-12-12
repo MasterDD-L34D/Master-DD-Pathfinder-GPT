@@ -124,6 +124,18 @@
         "peso_totale": "medio",
         "note": "Build tanky ma mobile: harness alare per mantenere glide nonostante la corazza."
       },
+      "ledger_movimenti": [
+        {"voce": "Upgrade scudo torre", "importo": -320},
+        {"voce": "Contratto guardia aerea", "importo": 500}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Upgrade scudo torre", "importo": -320},
+          {"voce": "Contratto guardia aerea", "importo": 500}
+        ],
+        "currency": {"oro": 210, "argento": 22, "rame": 14}
+      },
+      "sheet_markdown": "Percezione\nMusket pesante in mithral con baionetta a scatto\nUpgrade scudo torre",
       "pf_per_livello": "d10 (Gun Tank + COS)",
       "fonti": [
         "local-refresh"

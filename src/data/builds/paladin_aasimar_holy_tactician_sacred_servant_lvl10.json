@@ -100,6 +100,27 @@
         "Perception": 7,
         "Knowledge (religion)": 5
       },
+      "skills": [
+        {"nome": "Diplomazia", "gradi": 10, "mod_car": 6, "classe": true, "totale": 23},
+        {"nome": "Conoscenze (religioni)", "gradi": 10, "mod_car": 1, "classe": true, "totale": 18}
+      ],
+      "equipaggiamento": [
+        "Spada lunga consacrata +2", 
+        "Armatura completa benedetta",
+        "Emblema sacro dorato"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Dono annuale al tempio", "importo": -200},
+        {"voce": "Ricompensa crociata", "importo": 420}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Dono annuale al tempio", "importo": -200},
+          {"voce": "Ricompensa crociata", "importo": 420}
+        ],
+        "currency": {"oro": 180, "argento": 30, "rame": 14}
+      },
+      "sheet_markdown": "Diplomazia\nSpada lunga consacrata +2\nDono annuale al tempio",
       "talenti": [
         "Power Attack",
         "Weapon Focus (longsword)",

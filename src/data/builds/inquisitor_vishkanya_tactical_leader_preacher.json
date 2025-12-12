@@ -153,7 +153,28 @@
             "base_profile.txt",
             "Taverna_NPC.txt",
             "narrative_flow.txt"
-          ]
+          ],
+          "skills": [
+            {"nome": "Percezione", "gradi": 1, "mod_car": 3, "classe": true, "totale": 7},
+            {"nome": "Intimidire", "gradi": 1, "mod_car": 0, "classe": true, "totale": 5}
+          ],
+          "equipaggiamento": [
+            "Kukri rituale", 
+            "Giaco di maglia", 
+            "Santino del tempio"
+          ],
+          "ledger_movimenti": [
+            {"voce": "Donazione al tempio", "importo": -40},
+            {"voce": "Incarico tattico", "importo": 80}
+          ],
+          "ledger": {
+            "movimenti": [
+              {"voce": "Donazione al tempio", "importo": -40},
+              {"voce": "Incarico tattico", "importo": 80}
+            ],
+            "currency": {"oro": 45, "argento": 8, "rame": 4}
+          },
+          "sheet_markdown": "Percezione\nKukri rituale\nDonazione al tempio"
         }
       }
     },
@@ -204,13 +225,34 @@
         5,
         10
       ],
-      "modules": [
-        "base_profile.txt",
-        "Taverna_NPC.txt",
-        "narrative_flow.txt"
-      ]
-    }
-  },
+        "modules": [
+          "base_profile.txt",
+          "Taverna_NPC.txt",
+          "narrative_flow.txt"
+        ],
+        "skills": [
+          {"nome": "Percezione", "gradi": 1, "mod_car": 3, "classe": true, "totale": 7},
+          {"nome": "Intimidire", "gradi": 1, "mod_car": 0, "classe": true, "totale": 5}
+        ],
+        "equipaggiamento": [
+          "Kukri rituale", 
+          "Giaco di maglia", 
+          "Santino del tempio"
+        ],
+        "ledger_movimenti": [
+          {"voce": "Donazione al tempio", "importo": -40},
+          {"voce": "Incarico tattico", "importo": 80}
+        ],
+        "ledger": {
+          "movimenti": [
+            {"voce": "Donazione al tempio", "importo": -40},
+            {"voce": "Incarico tattico", "importo": 80}
+          ],
+          "currency": {"oro": 45, "argento": 8, "rame": 4}
+        },
+        "sheet_markdown": "Percezione\nKukri rituale\nDonazione al tempio"
+      }
+    },
   "mode": "extended",
   "mode_normalized": "extended",
   "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",

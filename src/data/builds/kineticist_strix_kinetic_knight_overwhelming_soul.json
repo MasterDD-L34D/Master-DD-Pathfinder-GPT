@@ -115,7 +115,48 @@
       "bench_log": [
         "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Strix Kinetic Knight/Overwhelming Soul per DPR e badge validati."
       ],
-      "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese."
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
+      "skills": [
+        {
+          "nome": "Acrobazia",
+          "gradi": 4,
+          "bonus": "+7"
+        },
+        {
+          "nome": "Volare",
+          "gradi": 4,
+          "bonus": "+9"
+        }
+      ],
+      "equipaggiamento": [
+        "Lancia di forza cinetica",
+        "Corazza di piastre leggermente rinforzata",
+        "Scudo pesante in adamantio"
+      ],
+      "ledger_movimenti": [
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
+        },
+        {
+          "voce": "Ricompensa pattuglia strix",
+          "importo": 250
+        }
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa pattuglia strix",
+            "importo": 250
+          }
+        ],
+        "currency": {"oro": 120, "argento": 35, "rame": 10}
+      },
+      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale"
     }
   },
   "bench_log": [

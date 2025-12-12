@@ -100,6 +100,27 @@
         "Perception": 7,
         "Knowledge (religion)": 5
       },
+      "skills": [
+        {"nome": "Diplomazia", "gradi": 1, "mod_car": 4, "classe": true, "totale": 9},
+        {"nome": "Conoscenze (religioni)", "gradi": 1, "mod_car": 1, "classe": true, "totale": 5}
+      ],
+      "equipaggiamento": [
+        "Spada lunga benedetta",
+        "Armatura a scaglie lucidata",
+        "Sacro simbolo d'argento"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Decima al tempio", "importo": -50},
+        {"voce": "Stipendio da scorta sacra", "importo": 120}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Decima al tempio", "importo": -50},
+          {"voce": "Stipendio da scorta sacra", "importo": 120}
+        ],
+        "currency": {"oro": 60, "argento": 15, "rame": 8}
+      },
+      "sheet_markdown": "Diplomazia\nSpada lunga benedetta\nDecima al tempio",
       "talenti": [
         "Power Attack",
         "Weapon Focus (longsword)",

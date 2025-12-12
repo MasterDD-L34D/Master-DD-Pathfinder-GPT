@@ -96,6 +96,31 @@
         "Riflessi": "+6",
         "Volontà": "+11"
       },
+      "skills": [
+        {
+          "nome": "Conoscenze (religioni)",
+          "gradi": 10,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 18
+        },
+        {
+          "nome": "Diplomazia",
+          "gradi": 10,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 22
+        }
+      ],
+      "equipaggiamento": [
+        "Tamburo di quarzo rituale maggiore",
+        "Corazza di pietra scolpita +2",
+        "Diadema dei sussurri ancestrali"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Reliquie di quarzo animato", "importo": -4500},
+        {"voce": "Commissioni per danze rituali", "importo": 6200}
+      ],
       "ledger": {
         "movimenti": [
           {
@@ -114,6 +139,7 @@
         },
         "saldo": 0
       },
+      "sheet_markdown": "Conoscenze (religioni)\nTamburo di quarzo rituale maggiore\nReliquie di quarzo animato",
       "print_mode": false,
       "show_minmax": true,
       "show_vtt": true,

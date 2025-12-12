@@ -150,7 +150,40 @@
           "5": 28,
           "10": 63
         }
-      }
+      },
+      "skills": [
+        {
+          "nome": "Percezione",
+          "gradi": 10,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 21
+        },
+        {
+          "nome": "Sopravvivenza",
+          "gradi": 10,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 20
+        }
+      ],
+      "equipaggiamento": [
+        "Lancia lunga tribale maestro",
+        "Cotta di maglia leggera rinforzata",
+        "Kit di comando da carovana"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Addestramento branchia di dinosauri alpha", "importo": -360},
+        {"voce": "Comando convoglio stellare", "importo": 620}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Addestramento branchia di dinosauri alpha", "importo": -360},
+          {"voce": "Comando convoglio stellare", "importo": 620}
+        ],
+        "currency": {"oro": 260, "argento": 40, "rame": 18}
+      },
+      "sheet_markdown": "Percezione\nLancia lunga tribale maestro\nAddestramento branchia di dinosauri alpha"
     },
     "fonti": [
       "local-refresh",

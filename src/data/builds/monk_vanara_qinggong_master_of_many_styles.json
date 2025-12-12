@@ -110,11 +110,27 @@
           "totale": 8
         }
       },
+      "skills": [
+        {"nome": "Acrobazia", "gradi": 1, "mod_car": 4, "classe": true, "totale": 7},
+        {"nome": "Furtività", "gradi": 1, "mod_car": 4, "classe": true, "totale": 7}
+      ],
       "equipaggiamento": [
         "Kama bilanciati",
         "Corazza di seta",
         "Cintura dell'agilità"
       ],
+      "ledger_movimenti": [
+        {"voce": "Donazione al monastero", "importo": -60},
+        {"voce": "Ricompensa duello rituale", "importo": 120}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Donazione al monastero", "importo": -60},
+          {"voce": "Ricompensa duello rituale", "importo": 120}
+        ],
+        "currency": {"oro": 55, "argento": 10, "rame": 4}
+      },
+      "sheet_markdown": "Acrobazia\nKama bilanciati\nDonazione al monastero",
       "talenti": [
         "Tiger Style",
         "Crane Style",

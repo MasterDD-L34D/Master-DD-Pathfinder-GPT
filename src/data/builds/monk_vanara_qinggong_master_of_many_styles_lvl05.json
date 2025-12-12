@@ -117,11 +117,27 @@
           "totale": 9
         }
       },
+      "skills": [
+        {"nome": "Acrobazia", "gradi": 5, "mod_car": 4, "classe": true, "totale": 13},
+        {"nome": "Furtività", "gradi": 5, "mod_car": 4, "classe": true, "totale": 13}
+      ],
       "equipaggiamento": [
         "Amuleto dell'armatura naturale +1",
         "Stivali del salto del vento",
         "Handwraps +1 con Furious Focus"
       ],
+      "ledger_movimenti": [
+        {"voce": "Offerte ai maestri del monastero", "importo": -100},
+        {"voce": "Dimostrazione marziale", "importo": 180}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Offerte ai maestri del monastero", "importo": -100},
+          {"voce": "Dimostrazione marziale", "importo": 180}
+        ],
+        "currency": {"oro": 90, "argento": 15, "rame": 6}
+      },
+      "sheet_markdown": "Acrobazia\nAmuleto dell'armatura naturale +1\nOfferte ai maestri del monastero",
       "talenti": [
         "Tiger Claws",
         "Dragon Style",

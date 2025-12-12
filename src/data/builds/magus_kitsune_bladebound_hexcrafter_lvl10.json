@@ -84,7 +84,40 @@
       "class": "Magus",
       "race": "Kitsune",
       "level": 10,
-      "archetype": "Bladebound Hexcrafter"
+      "archetype": "Bladebound Hexcrafter",
+      "skills": [
+        {
+          "nome": "Conoscenze (arcana)",
+          "gradi": 10,
+          "mod_car": 3,
+          "classe": true,
+          "totale": 18
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 10,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 17
+        }
+      ],
+      "equipaggiamento": [
+        "Falchion Black Blade", 
+        "Cintura della forza +4",
+        "Anello di protezione +2"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Manutenzione Black Blade", "importo": -500},
+        {"voce": "Ingaggio mercantile protetto", "importo": 750}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Manutenzione Black Blade", "importo": -500},
+          {"voce": "Ingaggio mercantile protetto", "importo": 750}
+        ],
+        "currency": {"oro": 420, "argento": 30, "rame": 12}
+      },
+      "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nManutenzione Black Blade"
     }
   },
   "ledger": "Black Blade a +4, Arcane Pool speso su Furious Focus e Accurate; Magus Arcana: Accurate Strike, Spell Blending (Dimension Door), Hasted Assault. Hex attivi: Ward, Fortune, Misfortune. Equip: cinture FOR/DEST, anello di protezione +2, Displacement come routine difensiva.",

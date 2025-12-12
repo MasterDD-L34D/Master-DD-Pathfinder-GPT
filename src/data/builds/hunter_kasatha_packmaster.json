@@ -145,7 +145,40 @@
           "5": 28,
           "10": 63
         }
-      }
+      },
+      "skills": [
+        {
+          "nome": "Percezione",
+          "gradi": 1,
+          "mod_car": 2,
+          "classe": true,
+          "totale": 7
+        },
+        {
+          "nome": "Sopravvivenza",
+          "gradi": 1,
+          "mod_car": 2,
+          "classe": true,
+          "totale": 6
+        }
+      ],
+      "equipaggiamento": [
+        "Lancia lunga tribale",
+        "Armatura di cuoio rinforzata",
+        "Kit da esploratore del deserto"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Approvvigionamenti carovana", "importo": -180},
+        {"voce": "Contratto di scorta", "importo": 320}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Approvvigionamenti carovana", "importo": -180},
+          {"voce": "Contratto di scorta", "importo": 320}
+        ],
+        "currency": {"oro": 140, "argento": 20, "rame": 5}
+      },
+      "sheet_markdown": "Percezione\nLancia lunga tribale\nApprovvigionamenti carovana"
     },
     "fonti": [
       "local-refresh",

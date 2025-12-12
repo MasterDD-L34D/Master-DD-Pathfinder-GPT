@@ -114,7 +114,28 @@
       "bench_log": [
         "Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati."
       ],
-      "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per guardie dell'oasi."
+      "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per guardie dell'oasi.",
+      "skills": [
+        {"nome": "Acrobazia", "gradi": 10, "bonus": "+15"},
+        {"nome": "Percezione", "gradi": 10, "bonus": "+14"}
+      ],
+      "equipaggiamento": [
+        "Lancia di forza cinetica",
+        "Scudo pesante in adamantio",
+        "Mantello resistente +3"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Manutenzione scudi e mantello", "importo": -420},
+        {"voce": "Ricompensa guardia oasi", "importo": 640}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Manutenzione scudi e mantello", "importo": -420},
+          {"voce": "Ricompensa guardia oasi", "importo": 640}
+        ],
+        "currency": {"oro": 310, "argento": 45, "rame": 18}
+      },
+      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudi e mantello"
     }
   },
   "bench_log": [

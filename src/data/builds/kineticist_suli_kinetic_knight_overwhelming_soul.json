@@ -115,7 +115,28 @@
       "bench_log": [
         "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Suli Kinetic Knight/Overwhelming Soul per DPR e badge validati."
       ],
-      "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese."
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
+      "skills": [
+        {"nome": "Acrobazia", "gradi": 1, "bonus": "+6"},
+        {"nome": "Percezione", "gradi": 1, "bonus": "+5"}
+      ],
+      "equipaggiamento": [
+        "Lancia di forza cinetica",
+        "Scudo pesante in adamantio",
+        "Corazza rinforzata"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Affilatura scudo", "importo": -120},
+        {"voce": "Ricompensa pattuglia oasis", "importo": 180}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Affilatura scudo", "importo": -120},
+          {"voce": "Ricompensa pattuglia oasis", "importo": 180}
+        ],
+        "currency": {"oro": 90, "argento": 15, "rame": 6}
+      },
+      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo"
     }
   },
   "bench_log": [

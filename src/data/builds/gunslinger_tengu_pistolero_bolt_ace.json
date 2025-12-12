@@ -125,6 +125,18 @@
         "peso_totale": "leggero",
         "note": "Setup bilanciato per crit/dirty trick; spazio per bomb grade e cartucce alchemiche"
       },
+      "ledger_movimenti": [
+        {"voce": "Equipaggiamento iniziale", "importo": -250},
+        {"voce": "Ricompensa missione di scorta", "importo": 150}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Equipaggiamento iniziale", "importo": -250},
+          {"voce": "Ricompensa missione di scorta", "importo": 150}
+        ],
+        "currency": {"oro": 80, "argento": 12, "rame": 5}
+      },
+      "sheet_markdown": "Percezione\nDueling pistol forgiata per critico\nEquipaggiamento iniziale",
       "pf_per_livello": "d10 (media + COS)",
       "fonti": [
         "local-refresh"

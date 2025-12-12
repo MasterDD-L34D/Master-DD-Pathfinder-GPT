@@ -124,6 +124,18 @@
         "peso_totale": "medio",
         "note": "Build tanky ma mobile: harness alare per mantenere glide nonostante la corazza."
       },
+      "ledger_movimenti": [
+        {"voce": "Manutenzione moschetto", "importo": -220},
+        {"voce": "Contratto sentinella", "importo": 300}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Manutenzione moschetto", "importo": -220},
+          {"voce": "Contratto sentinella", "importo": 300}
+        ],
+        "currency": {"oro": 95, "argento": 18, "rame": 12}
+      },
+      "sheet_markdown": "Percezione\nMusket pesante forgiato in mithral\nManutenzione moschetto",
       "pf_per_livello": "d10 (Gun Tank + COS)",
       "fonti": [
         "local-refresh"

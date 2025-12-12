@@ -124,6 +124,18 @@
         "peso_totale": "medio",
         "note": "Build tanky ma mobile: harness alare per mantenere glide nonostante la corazza."
       },
+      "ledger_movimenti": [
+        {"voce": "Upgrade moschetto e harness", "importo": -520},
+        {"voce": "Ingaggio pattuglie volanti", "importo": 800}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Upgrade moschetto e harness", "importo": -520},
+          {"voce": "Ingaggio pattuglie volanti", "importo": 800}
+        ],
+        "currency": {"oro": 360, "argento": 24, "rame": 18}
+      },
+      "sheet_markdown": "Percezione\nMusket pesante +2 con mirino a cristallo nero\nUpgrade moschetto e harness",
       "pf_per_livello": "d10 (Gun Tank + COS)",
       "fonti": [
         "local-refresh"
