@@ -15,6 +15,7 @@
 7. **Accesso senza API key (predefinito)** — Con `ALLOW_ANONYMOUS=false` viene risposto `401 Invalid or missing API key` su `/modules`.【F:tests/test_app.py†L390-L399】
 8. **Accesso anonimo opzionale** — Con `ALLOW_ANONYMOUS=true` e nessuna API key `/modules` torna `200 OK`, consentendo l’elenco anonimo.【F:tests/test_app.py†L444-L448】
 9. **`GET /modules/preload_all_modules.txt`** — Senza API key risponde `401 Invalid or missing API key`; con header `x-api-key` valido ritorna il bundle di preload (status `206` per troncamento con `ALLOW_MODULE_DUMP=false`), confermando l’endpoint protetto e pronto al warmup.【3ae972†L1-L4】【F:src/modules/preload_all_modules.txt†L1-L15】
+10. **Verifica BAS-CHK-19 (API key + preload)** — Esecuzione manuale con `TestClient` e `API_KEY=test-api-key`: `/modules/preload_all_modules.txt` restituisce `206` con header `X-Content-Partial=true`, `ALLOW_MODULE_DUMP` disattivo e guard `runtime.preload_done` attiva nel router.【4fce5c†L1-L7】【F:src/modules/base_profile.txt†L148-L156】
 
 - Copertura API completata con test automatici e run manuali: health/modules/meta/download hanno esiti attesi, 401/404 vengono restituiti correttamente e il troncamento è verificato quando `ALLOW_MODULE_DUMP=false`.【56fa11†L1-L12】【F:tests/test_app.py†L282-L314】
 
@@ -27,6 +28,7 @@
 ## Dipendenze
 - Elencare moduli esterni, API o asset (file, immagini, modelli) su cui il modulo fa affidamento, includendo per ciascuno una citazione in linea al blocco di codice che definisce il link o l’endpoint di riferimento.【F:src/modules/base_profile.txt†L95-L117】【F:src/modules/base_profile.txt†L430-L447】
 - Preload silente: la regola iniziale del router imposta `runtime.preload_done` e richiama `Preload_Warmup`/`Ingest` usando il bundle `preload_all_modules.txt` o l’endpoint omonimo protetto da API key.【F:src/modules/base_profile.txt†L142-L150】【F:src/modules/base_profile.txt†L252-L262】【F:src/modules/preload_all_modules.txt†L1-L15】
+- Controllo file binding: tutti i `file_binding` del router puntano a moduli core presenti su disco; nessun riferimento mancante rilevato.【b133c4†L14-L15】【F:src/modules/base_profile.txt†L114-L122】
 
 ## Modello dati e stato
 - **Toggles**: pfs, language, terse_mode, show_badges/show_sources, spoiler, echo_gate/echo_persona, image_constraints, expert; controllano filtri PFS, lingua, lunghezza, spoiler e grading Echo.【F:src/modules/base_profile.txt†L368-L388】
