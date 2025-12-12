@@ -1,0 +1,46 @@
+name: PR checklist guardrail
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  validate-pr-template:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verifica checklist ed evidenze obbligatorie
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const body = (context.payload.pull_request?.body || '').trim();
+            if (!body) {
+              core.setFailed('Il corpo della PR è vuoto: compila la checklist e le evidenze prima di procedere.');
+              return;
+            }
+
+            const requiredChecks = [
+              'Test con dump disabilitato (marker/header)',
+              'Naming export corretto',
+              'CTA QA presenti',
+              '401/403 per endpoint protetti',
+            ];
+
+            const missingChecks = requiredChecks.filter((label) => !body.includes(`- [x] ${label}`));
+            if (missingChecks.length) {
+              core.setFailed(`Segna come completati tutti i controlli obbligatori: manca ${missingChecks.join(', ')}.`);
+            }
+
+            const placeholderPattern = /<[^>]+>/;
+            if (placeholderPattern.test(body)) {
+              core.setFailed('Sostituisci tutti i placeholder (<...>) con informazioni reali nelle evidenze di test.');
+            }
+
+            const escape = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const missingEvidence = requiredChecks.filter((label) => {
+              const rowPattern = new RegExp(`\\|\\s*${escape(label)}\\s*\\|([^|<>]*\\|){2}[^|<>]*\\|`, 'i');
+              return !rowPattern.test(body);
+            });
+
+            if (missingEvidence.length) {
+              core.setFailed(`Aggiungi una riga di evidenza per ogni controllo: manca ${missingEvidence.join(', ')}.`);
+            }
