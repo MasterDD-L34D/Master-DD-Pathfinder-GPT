@@ -5,6 +5,7 @@
 - `adventurer_ledger.txt`: modulo economia/loot/crafting con ledger transazioni, WBL audit e supporto PFS.【F:src/modules/adventurer_ledger.txt†L1-L34】
 - `archivist.txt`: archivio canone PF1e con QA citazioni, badge canone e generatore mappe VTT gridless.【F:src/modules/archivist.txt†L1-L19】
 - `base_profile.txt`: kernel base interno che definisce tono, vincoli, router e identità dell’assistente PF1e.【F:src/modules/base_profile.txt†L1-L25】
+- `preload_all_modules.txt`: endpoint di warmup protetto da API key che precarica i moduli core locali prima del routing.【F:src/modules/preload_all_modules.txt†L1-L15】
 - `explain_methods.txt`: modalità Explain multi-metodo con rubriche didattiche, quiz e deleghe verso Ruling/Archivist/MinMax.【F:src/modules/explain_methods.txt†L1-L21】
 - `knowledge_pack.md`: knowledge pack/guida d’uso con risorse ufficiali e istruzioni di recupero moduli via API protetta.【F:src/modules/knowledge_pack.md†L1-L16】
 - `meta_doc.txt`: modulo Documenti per blueprint di spec/README/changelog, peer review e pacchetti ZIP finali dei moduli.【F:src/modules/meta_doc.txt†L1-L18】

@@ -28,6 +28,11 @@
       "status": "ok"
     },
     {
+      "module": "preload_all_modules.txt",
+      "file": "src/data/modules/preload_all_modules.txt",
+      "status": "ok"
+    },
+    {
       "module": "explain_methods.txt",
       "file": "src/data/modules/explain_methods.txt",
       "status": "ok"
@@ -79,6 +84,7 @@
     "adventurer_ledger.txt",
     "archivist.txt",
     "base_profile.txt",
+    "preload_all_modules.txt",
     "explain_methods.txt",
     "knowledge_pack.md",
     "meta_doc.txt",

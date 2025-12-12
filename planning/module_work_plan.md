@@ -340,6 +340,41 @@ Fonte sequenza: `planning/module_review_guide.md`
 | SCH-OBS-01 | Osservazione | Annotare che il troncamento mantiene titolo e marker finale, utile per audit con dump limitato. | S3 (Info) | Done (QA 2025-12-11) |
 | SCH-OBS-02 | Osservazione | Evidenziare meta header con versione/compatibilità, trigger e policy operative per pipeline automatiche. | S2 (Minor) | Done (QA 2025-12-11) |
 
+## Kanban e log test (To Do → In Review → Done)
+
+### Moduli critici
+| Story | Origine piano | Stato | Evidenza test |
+| --- | --- | --- | --- |
+| ENC-OBS-01 | planning/module_work_plan.md L287-L288 | To Do → In Review → Done | Verifica API/QA su Encounter Designer con dump on/off e 404 controllato.【F:reports/module_tests/Encounter_Designer.md†L1-L25】 |
+| ENC-OBS-02 | planning/module_work_plan.md L288-L289 | To Do → In Review → Done | Pipeline QA/export documentata e validata su API principali.【F:reports/module_tests/Encounter_Designer.md†L26-L45】 |
+| ENC-ERR-01 | planning/module_work_plan.md L289-L290 | To Do → In Review → Done | Test clampato su CR/QA senza errori bloccanti.【F:reports/module_tests/Encounter_Designer.md†L1-L17】 |
+| SIG-OBS-01 | planning/module_work_plan.md L294-L295 | To Do → In Review → Done | Log di attivazione raro da indice 14 nella suite sigilli.【F:reports/module_tests/sigilli_runner_module.md†L26-L33】 |
+| SIG-OBS-02 | planning/module_work_plan.md L295-L296 | To Do → In Review → Done | Risposta con solo portale presente in `seals` confermata via test API.【F:reports/module_tests/sigilli_runner_module.md†L33-L43】 |
+| SIG-OBS-03 | planning/module_work_plan.md L296-L297 | To Do → In Review → Done | Report di copertura completo archiviato (API, metadati, flow/CTA).【F:reports/module_tests/sigilli_runner_module.md†L1-L23】 |
+| SIG-ERR-01 | planning/module_work_plan.md L297-L298 | To Do → In Review → Done | Richiesta senza API key restituisce 401 esplicito.【F:reports/module_tests/sigilli_runner_module.md†L43-L52】 |
+| SIG-ERR-02 | planning/module_work_plan.md L298-L299 | To Do → In Review → Done | Chiamata a modulo inesistente produce 404 `Module not found`.【F:reports/module_tests/sigilli_runner_module.md†L52-L59】 |
+| SIG-ERR-03 | planning/module_work_plan.md L299-L300 | To Do → In Review → Done | Dump troncato con header coerente quando ALLOW_MODULE_DUMP=false.【F:reports/module_tests/sigilli_runner_module.md†L59-L67】 |
+| SIG-ERR-04 | planning/module_work_plan.md L300-L301 | To Do → In Review → Done | Nessun errore bloccante dopo integrazione `code_ok` e tagging MDA/CTA.【F:reports/module_tests/sigilli_runner_module.md†L67-L73】 |
+| BAS-OBS-01 | planning/module_work_plan.md L305-L306 | To Do → In Review → Done | Routing doc/help/manuale verificato con status 200 e link a `meta_doc`.【F:reports/module_tests/base_profile.md†L9-L19】 |
+| BAS-OBS-02 | planning/module_work_plan.md L306-L307 | To Do → In Review → Done | Preload protetto da API key con flag runtime attivo registrato nel QA log.【F:reports/module_tests/base_profile.md†L19-L34】 |
+| BAS-CHK-19 | planning/module_work_plan.md L307-L308 | To Do → In Review → Done | Checkpoint 2025-12-19 coperto da test health/doc e dump policy.【F:reports/module_tests/base_profile.md†L1-L9】【F:reports/module_tests/base_profile.md†L34-L44】 |
+| BAS-ERR-01 | planning/module_work_plan.md L308-L309 | To Do → In Review → Done | Percorso `/doc` validato con dump protetto, nessun errore bloccante.【F:reports/module_tests/base_profile.md†L44-L55】 |
+
+### Altri moduli
+| Story | Origine piano | Stato | Evidenza test |
+| --- | --- | --- | --- |
+| TAV-OBS-01 | planning/module_work_plan.md L315-L316 | To Do → In Review → Done | Flusso onboarding→quiz→PNG con CTA verificato nel report Taverna.【F:reports/module_tests/Taverna_NPC.md†L15-L33】 |
+| TAV-ERR-01 | planning/module_work_plan.md L316-L317 | To Do → In Review → Done | API core ok mentre `taverna_saves` resta non esposto.【F:reports/module_tests/Taverna_NPC.md†L7-L16】 |
+| TAV-ERR-02 | planning/module_work_plan.md L317-L318 | To Do → In Review → Done | Nota su errore locale `curl | head` con dump abilitato archiviata.【F:reports/module_tests/Taverna_NPC.md†L11-L16】 |
+| LED-OBS-01 | planning/module_work_plan.md L322-L323 | To Do → In Review → Done | Welcome/flow in cinque passi documentato con CTA e template ledger.【F:reports/module_tests/adventurer_ledger.md†L9-L23】 |
+| LED-ERR-01 | planning/module_work_plan.md L323-L324 | To Do → In Review → Done | Blocco download con ALLOW_MODULE_DUMP=false applicato al ledger.【F:reports/module_tests/adventurer_ledger.md†L23-L30】 |
+| ARC-OBS-01 | planning/module_work_plan.md L328-L329 | To Do → In Review → Done | Policy `no_raw_dump` e marker di troncamento verificati.【F:reports/module_tests/archivist.md†L7-L15】 |
+| ARC-OBS-02 | planning/module_work_plan.md L329-L330 | To Do → In Review → Done | 401 esplicito su `/modules` e `/modules/archivist.txt/meta` senza API key.【F:reports/module_tests/archivist.md†L15-L24】 |
+| RUL-OBS-01 | planning/module_work_plan.md L334-L335 | To Do → In Review → Done | Flow RAW→FAQ→PFS con CTA post-risposta validato dal QA 2025-12-11.【F:reports/module_tests/ruling_expert.md†L6-L19】 |
+| RUL-OBS-02 | planning/module_work_plan.md L335-L336 | To Do → In Review → Done | Policy `no_raw_dump` attiva di default con whitelist opzionale confermata.【F:reports/module_tests/ruling_expert.md†L19-L28】 |
+| SCH-OBS-01 | planning/module_work_plan.md L340-L341 | To Do → In Review → Done | Troncamento mantiene titolo e marker finale per audit.【F:reports/module_tests/scheda_pg_markdown_template.md†L7-L15】 |
+| SCH-OBS-02 | planning/module_work_plan.md L341-L342 | To Do → In Review → Done | Meta header con version/compatibility e trigger/policy operative validato dai test.【F:reports/module_tests/scheda_pg_markdown_template.md†L47-L60】 |
+
 #### tavern_hub — Owner: Paolo Greco
 | Story ID | Deriva da | Descrizione | Severità | Stato |
 | --- | --- | --- | --- | --- |
