@@ -467,41 +467,76 @@ def _collect_ledger_entries(
 
 
 def catalog_combo_candidates(
-    catalog: Mapping[str, Mapping[str, Mapping[str, object]]], *, max_entries: int = 2
+    catalog: Mapping[str, Mapping[str, Mapping[str, object]]],
+    *,
+    max_entries: int = 2,
+    class_name: str | None = None,
+    archetype: str | None = None,
 ) -> list[dict[str, object]]:
+    """Estrae combinazioni dal catalogo dando precedenza a tag rilevanti.
+
+    I talenti e gli oggetti vengono ordinati privilegiando tag che matchano
+    la classe o l'archetipo richiesto, seguiti da tag granulari come slot e
+    tipo di danno. Questo consente a ``--suggest-combos`` di proporre varianti
+    più aderenti al ruolo (es. un ranger con talenti da tiro e oggetti da slot
+    corretti).
+    """
+
+    def _score_entry(entry: Mapping[str, object]) -> tuple[int, str]:
+        tags = entry.get("tags") if isinstance(entry.get("tags"), Sequence) else []
+        normalized_tags = [str(tag).strip().lower() for tag in tags if isinstance(tag, str)]
+        score = 0
+        if class_name:
+            class_tag = f"class:{class_name.strip().lower()}"
+            if class_tag in normalized_tags:
+                score += 3
+        if archetype:
+            archetype_tag = f"archetype:{str(archetype).strip().lower()}"
+            if archetype_tag in normalized_tags:
+                score += 2
+        if any(tag.startswith("damage:") for tag in normalized_tags):
+            score += 1
+        if any(tag.startswith("slot:") for tag in normalized_tags):
+            score += 1
+        name = _string_name(entry.get("name")) or ""
+        return score, name
+
+    def _top_entries(catalog_entries: Mapping[str, Mapping[str, object]]) -> list[str]:
+        scored: list[tuple[int, str]] = []
+        for entry in catalog_entries.values():
+            if not isinstance(entry, Mapping):
+                continue
+            name = _string_name(entry.get("name"))
+            if not name:
+                continue
+            score, normalized_name = _score_entry(entry)
+            scored.append((score, normalized_name))
+        scored.sort(key=lambda item: (-item[0], item[1]))
+        return [name for _, name in scored[:max_entries] if name]
+
     feats_catalog = catalog.get("feats", {})
     items_catalog = catalog.get("items", {})
-    feat_names = [
-        entry.get("name")
-        for entry in islice(feats_catalog.values(), max_entries)
-        if isinstance(entry, Mapping) and _string_name(entry.get("name"))
-    ]
-    feat_names = [_string_name(name) for name in feat_names if _string_name(name)]
-    item_names = [
-        entry.get("name")
-        for entry in islice(items_catalog.values(), max_entries)
-        if isinstance(entry, Mapping) and _string_name(entry.get("name"))
-    ]
-    item_names = [_string_name(name) for name in item_names if _string_name(name)]
+    feat_names = _top_entries(feats_catalog)
+    item_names = _top_entries(items_catalog)
 
-    archetype_candidates: list[str | None] = [None]
+    archetype_candidates: list[str | None] = [archetype] if archetype else [None]
     for entry in feats_catalog.values():
         tags = entry.get("tags") if isinstance(entry.get("tags"), Sequence) else []
         for tag in tags:
             if isinstance(tag, str) and tag.startswith("archetype:"):
                 archetype_candidates.append(tag.split(":", 1)[1])
     archetype_candidates = [
-        archetype
-        for archetype in archetype_candidates
-        if archetype is None or _string_name(archetype)
+        candidate
+        for candidate in archetype_candidates
+        if candidate is None or _string_name(candidate)
     ][: max_entries + 1]
 
     combos: list[dict[str, object]] = []
     for feat_name, item_name in product(feat_names or [None], item_names or [None]):
-        for archetype in archetype_candidates:
+        for archetype_candidate in archetype_candidates:
             combos.append(
                 {
-                    "archetype": _string_name(archetype),
+                    "archetype": _string_name(archetype_candidate),
                     "feats": [name for name in (feat_name,) if name],
                     "items": [name for name in (item_name,) if name],
                 }
@@ -3351,7 +3386,12 @@ async def fetch_build(
             return base_payload
 
         suggested: list[Mapping[str, object]] = []
-        for combo in catalog_combo_candidates(reference_catalog):
+        archetype_hint = request.archetype or request.query_params.get("archetype")
+        for combo in catalog_combo_candidates(
+            reference_catalog,
+            class_name=request.class_name,
+            archetype=archetype_hint,
+        ):
             combo_id_parts = [request.class_name]
             archetype_value = combo.get("archetype") or request.archetype
             if archetype_value:

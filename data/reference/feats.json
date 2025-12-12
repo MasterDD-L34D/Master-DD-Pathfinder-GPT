@@ -97,5 +97,54 @@
     "tags": ["general", "initiative"],
     "references": ["d20PFSRD: Improved Initiative"],
     "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/improved-initiative-combat/"]
+  },
+  {
+    "name": "Deadly Aim",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": ["Dexterity 13", "Point-Blank Shot"],
+    "tags": [
+      "combat",
+      "ranged",
+      "damage:precision",
+      "class:ranger",
+      "class:rogue"
+    ],
+    "references": ["d20PFSRD: Deadly Aim"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/deadly-aim-combat/"]
+  },
+  {
+    "name": "Slashing Grace (Longsword)",
+    "source": "Advanced Class Guide",
+    "source_id": "ACG",
+    "prerequisites": [
+      "Dexterity 13",
+      "Weapon Finesse",
+      "Weapon Focus (longsword)",
+      "No off-hand or shield use"
+    ],
+    "tags": [
+      "combat",
+      "finesse",
+      "melee",
+      "class:swashbuckler",
+      "archetype:swashbuckler"
+    ],
+    "references": ["d20PFSRD: Slashing Grace"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/slashing-grace-combat/"]
+  },
+  {
+    "name": "Extra Hex",
+    "source": "Advanced Player's Guide",
+    "source_id": "APG",
+    "prerequisites": ["Hex class feature"],
+    "tags": [
+      "magic",
+      "class:witch",
+      "class:shaman",
+      "archetype:hex"
+    ],
+    "references": ["d20PFSRD: Extra Hex"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/general-feats/extra-hex/"]
   }
 ]
