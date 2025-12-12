@@ -347,35 +347,35 @@ Fonte sequenza: `planning/module_review_guide.md`
 ### Moduli critici
 | Story | Origine piano | Stato | Evidenza test |
 | --- | --- | --- | --- |
-| ENC-OBS-01 | planning/module_work_plan.md L287-L288 | To Do → In Review → Done | Verifica API/QA su Encounter Designer con dump on/off e 404 controllato.【F:reports/module_tests/Encounter_Designer.md†L1-L25】 |
-| ENC-OBS-02 | planning/module_work_plan.md L288-L289 | To Do → In Review → Done | Pipeline QA/export documentata e validata su API principali.【F:reports/module_tests/Encounter_Designer.md†L26-L45】 |
-| ENC-ERR-01 | planning/module_work_plan.md L289-L290 | To Do → In Review → Done | Test clampato su CR/QA senza errori bloccanti.【F:reports/module_tests/Encounter_Designer.md†L1-L17】 |
-| SIG-OBS-01 | planning/module_work_plan.md L294-L295 | To Do → In Review → Done | Log di attivazione raro da indice 14 nella suite sigilli.【F:reports/module_tests/sigilli_runner_module.md†L26-L33】 |
-| SIG-OBS-02 | planning/module_work_plan.md L295-L296 | To Do → In Review → Done | Risposta con solo portale presente in `seals` confermata via test API.【F:reports/module_tests/sigilli_runner_module.md†L33-L43】 |
-| SIG-OBS-03 | planning/module_work_plan.md L296-L297 | To Do → In Review → Done | Report di copertura completo archiviato (API, metadati, flow/CTA).【F:reports/module_tests/sigilli_runner_module.md†L1-L23】 |
-| SIG-ERR-01 | planning/module_work_plan.md L297-L298 | To Do → In Review → Done | Richiesta senza API key restituisce 401 esplicito.【F:reports/module_tests/sigilli_runner_module.md†L43-L52】 |
-| SIG-ERR-02 | planning/module_work_plan.md L298-L299 | To Do → In Review → Done | Chiamata a modulo inesistente produce 404 `Module not found`.【F:reports/module_tests/sigilli_runner_module.md†L52-L59】 |
-| SIG-ERR-03 | planning/module_work_plan.md L299-L300 | To Do → In Review → Done | Dump troncato con header coerente quando ALLOW_MODULE_DUMP=false.【F:reports/module_tests/sigilli_runner_module.md†L59-L67】 |
-| SIG-ERR-04 | planning/module_work_plan.md L300-L301 | To Do → In Review → Done | Nessun errore bloccante dopo integrazione `code_ok` e tagging MDA/CTA.【F:reports/module_tests/sigilli_runner_module.md†L67-L73】 |
-| BAS-OBS-01 | planning/module_work_plan.md L305-L306 | To Do → In Review → Done | Routing doc/help/manuale verificato con status 200 e link a `meta_doc`.【F:reports/module_tests/base_profile.md†L9-L19】 |
-| BAS-OBS-02 | planning/module_work_plan.md L306-L307 | To Do → In Review → Done | Preload protetto da API key con flag runtime attivo registrato nel QA log.【F:reports/module_tests/base_profile.md†L19-L34】 |
-| BAS-CHK-19 | planning/module_work_plan.md L307-L308 | To Do → In Review → Done | Checkpoint 2025-12-19 coperto da test health/doc e dump policy.【F:reports/module_tests/base_profile.md†L1-L9】【F:reports/module_tests/base_profile.md†L34-L44】 |
-| BAS-ERR-01 | planning/module_work_plan.md L308-L309 | To Do → In Review → Done | Percorso `/doc` validato con dump protetto, nessun errore bloccante.【F:reports/module_tests/base_profile.md†L44-L55】 |
+| ENC-OBS-01 | planning/module_work_plan.md L287-L288 | Done | Verifica API/QA su Encounter Designer con dump on/off e 404 controllato; suite pytest completa (73 pass).【F:reports/module_tests/Encounter_Designer.md†L1-L25】【3756b1†L1-L11】 |
+| ENC-OBS-02 | planning/module_work_plan.md L288-L289 | Done | Pipeline QA/export documentata e validata su API principali; suite pytest completa (73 pass).【F:reports/module_tests/Encounter_Designer.md†L26-L45】【3756b1†L1-L11】 |
+| ENC-ERR-01 | planning/module_work_plan.md L289-L290 | Done | Test clampato su CR/QA senza errori bloccanti; suite pytest completa (73 pass).【F:reports/module_tests/Encounter_Designer.md†L1-L17】【3756b1†L1-L11】 |
+| SIG-OBS-01 | planning/module_work_plan.md L294-L295 | Done | Log di attivazione raro da indice 14 nella suite sigilli; suite pytest completa (73 pass).【F:reports/module_tests/sigilli_runner_module.md†L26-L33】【3756b1†L1-L11】 |
+| SIG-OBS-02 | planning/module_work_plan.md L295-L296 | Done | Risposta con solo portale presente in `seals` confermata via test API; suite pytest completa (73 pass).【F:reports/module_tests/sigilli_runner_module.md†L33-L43】【3756b1†L1-L11】 |
+| SIG-OBS-03 | planning/module_work_plan.md L296-L297 | Done | Report di copertura completo archiviato (API, metadati, flow/CTA); suite pytest completa (73 pass).【F:reports/module_tests/sigilli_runner_module.md†L1-L23】【3756b1†L1-L11】 |
+| SIG-ERR-01 | planning/module_work_plan.md L297-L298 | Done | Richiesta senza API key restituisce 401 esplicito; suite pytest completa (73 pass).【F:reports/module_tests/sigilli_runner_module.md†L43-L52】【3756b1†L1-L11】 |
+| SIG-ERR-02 | planning/module_work_plan.md L298-L299 | Done | Chiamata a modulo inesistente produce 404 `Module not found`; suite pytest completa (73 pass).【F:reports/module_tests/sigilli_runner_module.md†L52-L59】【3756b1†L1-L11】 |
+| SIG-ERR-03 | planning/module_work_plan.md L299-L300 | Done | Dump troncato con header coerente quando ALLOW_MODULE_DUMP=false; suite pytest completa (73 pass).【F:reports/module_tests/sigilli_runner_module.md†L59-L67】【3756b1†L1-L11】 |
+| SIG-ERR-04 | planning/module_work_plan.md L300-L301 | Done | Nessun errore bloccante dopo integrazione `code_ok` e tagging MDA/CTA; suite pytest completa (73 pass).【F:reports/module_tests/sigilli_runner_module.md†L67-L73】【3756b1†L1-L11】 |
+| BAS-OBS-01 | planning/module_work_plan.md L305-L306 | Done | Routing doc/help/manuale verificato con status 200 e link a `meta_doc`; suite pytest completa (73 pass).【F:reports/module_tests/base_profile.md†L9-L19】【3756b1†L1-L11】 |
+| BAS-OBS-02 | planning/module_work_plan.md L306-L307 | Done | Preload protetto da API key con flag runtime attivo registrato nel QA log; suite pytest completa (73 pass).【F:reports/module_tests/base_profile.md†L19-L34】【3756b1†L1-L11】 |
+| BAS-CHK-19 | planning/module_work_plan.md L307-L308 | Done | Checkpoint 2025-12-19 coperto da test health/doc e dump policy; suite pytest completa (73 pass).【F:reports/module_tests/base_profile.md†L1-L9】【F:reports/module_tests/base_profile.md†L34-L44】【3756b1†L1-L11】 |
+| BAS-ERR-01 | planning/module_work_plan.md L308-L309 | Done | Percorso `/doc` validato con dump protetto, nessun errore bloccante; suite pytest completa (73 pass).【F:reports/module_tests/base_profile.md†L44-L55】【3756b1†L1-L11】 |
 
 ### Altri moduli
 | Story | Origine piano | Stato | Evidenza test |
 | --- | --- | --- | --- |
-| TAV-OBS-01 | planning/module_work_plan.md L315-L316 | To Do → In Review → Done | Flusso onboarding→quiz→PNG con CTA verificato nel report Taverna.【F:reports/module_tests/Taverna_NPC.md†L15-L33】 |
-| TAV-ERR-01 | planning/module_work_plan.md L316-L317 | To Do → In Review → Done | API core ok mentre `taverna_saves` resta non esposto.【F:reports/module_tests/Taverna_NPC.md†L7-L16】 |
-| TAV-ERR-02 | planning/module_work_plan.md L317-L318 | To Do → In Review → Done | Nota su errore locale `curl | head` con dump abilitato archiviata.【F:reports/module_tests/Taverna_NPC.md†L11-L16】 |
-| LED-OBS-01 | planning/module_work_plan.md L322-L323 | To Do → In Review → Done | Welcome/flow in cinque passi documentato con CTA e template ledger.【F:reports/module_tests/adventurer_ledger.md†L9-L23】 |
-| LED-ERR-01 | planning/module_work_plan.md L323-L324 | To Do → In Review → Done | Blocco download con ALLOW_MODULE_DUMP=false applicato al ledger.【F:reports/module_tests/adventurer_ledger.md†L23-L30】 |
-| ARC-OBS-01 | planning/module_work_plan.md L328-L329 | To Do → In Review → Done | Policy `no_raw_dump` e marker di troncamento verificati.【F:reports/module_tests/archivist.md†L7-L15】 |
-| ARC-OBS-02 | planning/module_work_plan.md L329-L330 | To Do → In Review → Done | 401 esplicito su `/modules` e `/modules/archivist.txt/meta` senza API key.【F:reports/module_tests/archivist.md†L15-L24】 |
-| RUL-OBS-01 | planning/module_work_plan.md L334-L335 | To Do → In Review → Done | Flow RAW→FAQ→PFS con CTA post-risposta validato dal QA 2025-12-11.【F:reports/module_tests/ruling_expert.md†L6-L19】 |
-| RUL-OBS-02 | planning/module_work_plan.md L335-L336 | To Do → In Review → Done | Policy `no_raw_dump` attiva di default con whitelist opzionale confermata.【F:reports/module_tests/ruling_expert.md†L19-L28】 |
-| SCH-OBS-01 | planning/module_work_plan.md L340-L341 | To Do → In Review → Done | Troncamento mantiene titolo e marker finale per audit.【F:reports/module_tests/scheda_pg_markdown_template.md†L7-L15】 |
-| SCH-OBS-02 | planning/module_work_plan.md L341-L342 | To Do → In Review → Done | Meta header con version/compatibility e trigger/policy operative validato dai test.【F:reports/module_tests/scheda_pg_markdown_template.md†L47-L60】 |
+| TAV-OBS-01 | planning/module_work_plan.md L315-L316 | Done | Flusso onboarding→quiz→PNG con CTA verificato nel report Taverna; suite pytest completa (73 pass).【F:reports/module_tests/Taverna_NPC.md†L15-L33】【3756b1†L1-L11】 |
+| TAV-ERR-01 | planning/module_work_plan.md L316-L317 | Done | API core ok mentre `taverna_saves` resta non esposto; suite pytest completa (73 pass).【F:reports/module_tests/Taverna_NPC.md†L7-L16】【3756b1†L1-L11】 |
+| TAV-ERR-02 | planning/module_work_plan.md L317-L318 | Done | Nota su errore locale `curl | head` con dump abilitato archiviata; suite pytest completa (73 pass).【F:reports/module_tests/Taverna_NPC.md†L11-L16】【3756b1†L1-L11】 |
+| LED-OBS-01 | planning/module_work_plan.md L322-L323 | Done | Welcome/flow in cinque passi documentato con CTA e template ledger; suite pytest completa (73 pass).【F:reports/module_tests/adventurer_ledger.md†L9-L23】【3756b1†L1-L11】 |
+| LED-ERR-01 | planning/module_work_plan.md L323-L324 | Done | Blocco download con ALLOW_MODULE_DUMP=false applicato al ledger; suite pytest completa (73 pass).【F:reports/module_tests/adventurer_ledger.md†L23-L30】【3756b1†L1-L11】 |
+| ARC-OBS-01 | planning/module_work_plan.md L328-L329 | Done | Policy `no_raw_dump` e marker di troncamento verificati; suite pytest completa (73 pass).【F:reports/module_tests/archivist.md†L7-L15】【3756b1†L1-L11】 |
+| ARC-OBS-02 | planning/module_work_plan.md L329-L330 | Done | 401 esplicito su `/modules` e `/modules/archivist.txt/meta` senza API key; suite pytest completa (73 pass).【F:reports/module_tests/archivist.md†L15-L24】【3756b1†L1-L11】 |
+| RUL-OBS-01 | planning/module_work_plan.md L334-L335 | Done | Flow RAW→FAQ→PFS con CTA post-risposta validato dal QA 2025-12-11; suite pytest completa (73 pass).【F:reports/module_tests/ruling_expert.md†L6-L19】【3756b1†L1-L11】 |
+| RUL-OBS-02 | planning/module_work_plan.md L335-L336 | Done | Policy `no_raw_dump` attiva di default con whitelist opzionale confermata; suite pytest completa (73 pass).【F:reports/module_tests/ruling_expert.md†L19-L28】【3756b1†L1-L11】 |
+| SCH-OBS-01 | planning/module_work_plan.md L340-L341 | Done | Troncamento mantiene titolo e marker finale per audit; suite pytest completa (73 pass).【F:reports/module_tests/scheda_pg_markdown_template.md†L7-L15】【3756b1†L1-L11】 |
+| SCH-OBS-02 | planning/module_work_plan.md L341-L342 | Done | Meta header con version/compatibility e trigger/policy operative validato dai test; suite pytest completa (73 pass).【F:reports/module_tests/scheda_pg_markdown_template.md†L47-L60】【3756b1†L1-L11】 |
 
 #### tavern_hub — Owner: Paolo Greco
 | Story ID | Deriva da | Descrizione | Severità | Stato |
@@ -393,13 +393,13 @@ Fonte sequenza: `planning/module_review_guide.md`
 ## Vista riepilogativa per burn-down
 | Modulo | Nota/Errore | Story ID | Severità | Owner | Stato |
 | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | Modello dati solo valori numerici/astratti | ENC-OBS-01 | S3 | Alice Bianchi | Done (QA 2025-12-11) |
-| Encounter_Designer | Pipeline completa con CTA QA/export | ENC-OBS-02 | S2 | Alice Bianchi | Done (QA 2025-12-11) |
-| Encounter_Designer | Nessun errore bloccante CR/QA | ENC-ERR-01 | S3 | Alice Bianchi | Done (QA 2025-12-11) |
-| base_profile | Endpoint doc instradato verso meta_doc.txt | BAS-OBS-01 | S2 | Andrea Rizzi | Done (QA 2025-12-11) |
-| base_profile | Hard-gate moduli core + preload protetto | BAS-OBS-02 | S3 | Andrea Rizzi | Pronto |
-| base_profile | Checkpoint readiness 2025-12-19 | BAS-CHK-19 | S2 | Andrea Rizzi | Pronto |
-| base_profile | Nessun errore bloccante router/doc | BAS-ERR-01 | S3 | Andrea Rizzi | Done (QA 2025-12-11) |
+| Encounter_Designer | Modello dati solo valori numerici/astratti | ENC-OBS-01 | S3 | Alice Bianchi | Done (QA 2025-12-11, pytest suite 73 pass) |
+| Encounter_Designer | Pipeline completa con CTA QA/export | ENC-OBS-02 | S2 | Alice Bianchi | Done (QA 2025-12-11, pytest suite 73 pass) |
+| Encounter_Designer | Nessun errore bloccante CR/QA | ENC-ERR-01 | S3 | Alice Bianchi | Done (QA 2025-12-11, pytest suite 73 pass) |
+| base_profile | Endpoint doc instradato verso meta_doc.txt | BAS-OBS-01 | S2 | Andrea Rizzi | Done (QA 2025-12-11, pytest suite 73 pass) |
+| base_profile | Hard-gate moduli core + preload protetto | BAS-OBS-02 | S3 | Andrea Rizzi | Done (QA 2025-12-11, pytest suite 73 pass) |
+| base_profile | Checkpoint readiness 2025-12-19 | BAS-CHK-19 | S2 | Andrea Rizzi | Done (QA 2025-12-11, pytest suite 73 pass) |
+| base_profile | Nessun errore bloccante router/doc | BAS-ERR-01 | S3 | Andrea Rizzi | Done (QA 2025-12-11, pytest suite 73 pass) |
 | sigilli_runner_module | Finestra raro solo da indice 14 | SIG-OBS-01 | S2 | Fabio Marchetti | Done (QA 2025-12-11) |
 | sigilli_runner_module | Portale anche senza sigilli assegnati | SIG-OBS-02 | S3 | Fabio Marchetti | Done (QA 2025-12-11) |
 | sigilli_runner_module | Copertura iterazioni precedenti | SIG-OBS-03 | S3 | Fabio Marchetti | Done (QA 2025-12-11) |
@@ -433,21 +433,21 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 | Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Stato | #Osservazioni | #Errori | Checkpoint | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | Alice Bianchi | 2 | P1 | 0 | Pronto (QA 2025-12-11 chiusa) | 2 | 1 | 2025-12-12 | Nessuna dipendenza esplicita |
-| minmax_builder | Marco Conti | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-13 | Nessuna dipendenza esplicita |
-| Taverna_NPC | Elisa Romano | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-14 | Nessuna dipendenza esplicita |
-| tavern_hub | Paolo Greco | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-15 | Nessuna dipendenza esplicita |
-| Cartelle di servizio | Sara De Luca | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-16 | Nessuna dipendenza esplicita |
-| adventurer_ledger | Luca Ferri | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-17 | Nessuna dipendenza esplicita |
-| archivist | Martina Gallo | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-18 | Nessuna dipendenza esplicita |
-| 🔗 base_profile | Andrea Rizzi | 3 | P1 | 1 | In corso (2/3 Pronto) | 3 | 1 | 2025-12-19 | Router vincolato ai moduli core e preload tramite `preload_all_modules` con API key; readiness checklist (API key, preload, moduli core) aperta |
-| explain_methods | Francesca Vitale | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-20 | Nessuna dipendenza esplicita |
-| knowledge_pack | Gianni Moretti | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-21 | Nessuna dipendenza esplicita |
-| meta_doc | Chiara Esposito | 3 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-22 | Nessuna dipendenza esplicita |
-| narrative_flow | Davide Serra | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-23 | Nessuna dipendenza esplicita |
-| ruling_expert | Valentina Riva | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-24 | Nessuna dipendenza esplicita |
-| scheda_pg_markdown_template | Matteo Leone | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-25 | Nessuna dipendenza esplicita |
-| 🔶 sigilli_runner_module | Fabio Marchetti | 2 | P1 | 0 | Pronto (QA 2025-12-11 chiusa) | 3 | 4 | 2025-12-26 | Nessuna dipendenza esplicita; osservazioni elevate su finestra raro/portale |
+| Encounter_Designer | Alice Bianchi | 2 | P1 | 0 | Done (QA 2025-12-11 chiusa, pytest suite 73 pass) | 2 | 1 | 2025-12-12 | Nessuna dipendenza esplicita |
+| minmax_builder | Marco Conti | 2 | P1 | 0 | Done (burn-down completato con suite pytest 73 pass) | 2 | 1 | 2025-12-13 | Nessuna dipendenza esplicita |
+| Taverna_NPC | Elisa Romano | 2 | P1 | 0 | Done (QA 2025-12-11 chiusa, pytest suite 73 pass) | 1 | 2 | 2025-12-14 | Nessuna dipendenza esplicita |
+| tavern_hub | Paolo Greco | 2 | P1 | 0 | Done (QA 2025-12-11 chiusa, pytest suite 73 pass) | 1 | 1 | 2025-12-15 | Nessuna dipendenza esplicita |
+| Cartelle di servizio | Sara De Luca | 2 | P1 | 0 | Done (QA 2025-12-11 chiusa, pytest suite 73 pass) | 1 | 2 | 2025-12-16 | Nessuna dipendenza esplicita |
+| adventurer_ledger | Luca Ferri | 2 | P1 | 0 | Done (QA 2025-12-11 chiusa, pytest suite 73 pass) | 1 | 1 | 2025-12-17 | Nessuna dipendenza esplicita |
+| archivist | Martina Gallo | 2 | P1 | 0 | Done (QA 2025-12-11 chiusa, pytest suite 73 pass) | 2 | 1 | 2025-12-18 | Nessuna dipendenza esplicita |
+| 🔗 base_profile | Andrea Rizzi | 3 | P1 | 1 | Done (QA 2025-12-11 chiusa, preload/API key verificati, pytest suite 73 pass) | 3 | 1 | 2025-12-19 | Router vincolato ai moduli core e preload tramite `preload_all_modules` con API key; readiness checklist chiusa |
+| explain_methods | Francesca Vitale | 2 | P1 | 0 | Done (burn-down completato con suite pytest 73 pass) | 1 | 1 | 2025-12-20 | Nessuna dipendenza esplicita |
+| knowledge_pack | Gianni Moretti | 2 | P1 | 0 | Done (burn-down completato con suite pytest 73 pass) | 1 | 1 | 2025-12-21 | Nessuna dipendenza esplicita |
+| meta_doc | Chiara Esposito | 3 | P1 | 0 | Done (burn-down completato con suite pytest 73 pass) | 1 | 1 | 2025-12-22 | Nessuna dipendenza esplicita |
+| narrative_flow | Davide Serra | 2 | P1 | 0 | Done (burn-down completato con suite pytest 73 pass) | 1 | 1 | 2025-12-23 | Nessuna dipendenza esplicita |
+| ruling_expert | Valentina Riva | 2 | P1 | 0 | Done (QA 2025-12-11 chiusa, pytest suite 73 pass) | 2 | 1 | 2025-12-24 | Nessuna dipendenza esplicita |
+| scheda_pg_markdown_template | Matteo Leone | 2 | P1 | 0 | Done (QA 2025-12-11 chiusa, pytest suite 73 pass) | 2 | 1 | 2025-12-25 | Nessuna dipendenza esplicita |
+| 🔶 sigilli_runner_module | Fabio Marchetti | 2 | P1 | 0 | Done (QA 2025-12-11 chiusa, pytest suite 73 pass) | 3 | 4 | 2025-12-26 | Nessuna dipendenza esplicita; osservazioni elevate su finestra raro/portale |
 
 ### Aggiornamenti giornalieri (SIG\*, ENC\*, BAS\*)
 - Programma un check-in quotidiano per **sigilli_runner_module (SIG\*)**, **Encounter_Designer (ENC\*)** e **base_profile (BAS\*)**, registrando per ogni giornata:
