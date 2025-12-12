@@ -88,5 +88,54 @@
     "tags": ["abjuration", "defense", "damage-reduction"],
     "references": ["d20PFSRD: Stoneskin"],
     "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/"]
+  },
+  {
+    "name": "Blessing of Fervor",
+    "source": "Advanced Player's Guide",
+    "source_id": "APG",
+    "prerequisites": ["Divine spellcasting 4th level"],
+    "tags": [
+      "school:transmutation",
+      "buff",
+      "slot:4",
+      "class:cleric",
+      "class:inquisitor",
+      "class:warpriest"
+    ],
+    "references": ["d20PFSRD: Blessing of Fervor"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/b/blessing-of-fervor/"]
+  },
+  {
+    "name": "Scorching Ray",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": ["Arcane spellcasting 2nd level"],
+    "tags": [
+      "school:evocation",
+      "damage:fire",
+      "attack:ranged-touch",
+      "slot:2",
+      "class:magus",
+      "class:sorcerer",
+      "class:wizard"
+    ],
+    "references": ["d20PFSRD: Scorching Ray"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/s/scorching-ray/"]
+  },
+  {
+    "name": "Barkskin",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": ["Divine or primal spellcasting 2nd level"],
+    "tags": [
+      "school:transmutation",
+      "defense",
+      "slot:2",
+      "class:druid",
+      "class:ranger",
+      "class:oracle"
+    ],
+    "references": ["d20PFSRD: Barkskin"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/b/barkskin/"]
   }
 ]

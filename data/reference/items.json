@@ -67,7 +67,7 @@
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": ["Craft Wondrous Item", "caster level 3rd"],
-    "tags": ["wondrous", "save-bonus"],
+    "tags": ["wondrous", "save-bonus", "slot:shoulders"],
     "references": ["d20PFSRD: Cloak of Resistance"],
     "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/cloak-of-resistance/"]
   },
@@ -94,8 +94,41 @@
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": ["Craft Wondrous Item", "caster level 8th"],
-    "tags": ["wondrous", "enhancement", "strength"],
+    "tags": ["wondrous", "enhancement", "strength", "slot:belt", "melee"],
     "references": ["d20PFSRD: Belt of Giant Strength"],
     "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/belts/belt-of-giant-strength/"]
+  },
+  {
+    "name": "Headband of Inspired Wisdom +2",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": ["Craft Wondrous Item", "owl's wisdom"],
+    "tags": [
+      "wondrous",
+      "ability:wisdom",
+      "slot:headband",
+      "class:cleric",
+      "class:druid"
+    ],
+    "references": ["d20PFSRD: Headband of Inspired Wisdom"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/headband-of-inspired-wisdom/"]
+  },
+  {
+    "name": "Cloak of Resistance +2",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": ["Craft Wondrous Item", "resistance"],
+    "tags": ["wondrous", "save-bonus", "slot:shoulders", "defense"],
+    "references": ["d20PFSRD: Cloak of Resistance"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/cloak-of-resistance/"]
+  },
+  {
+    "name": "Ring of the Shooting Star",
+    "source": "Ultimate Equipment",
+    "source_id": "UE",
+    "prerequisites": ["Forge Ring", "scorching ray"],
+    "tags": ["ring", "slot:ring", "damage:fire", "ranged"],
+    "references": ["d20PFSRD: Ring of the Shooting Star"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic-items/rings/ring-of-the-shooting-star/"]
   }
 ]
