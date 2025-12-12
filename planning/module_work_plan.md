@@ -268,6 +268,111 @@ Fonte sequenza: `planning/module_review_guide.md`
 | meta_doc | 1 | 1 | 2 |
 | narrative_flow | 1 | 1 | 2 |
 | tavern_hub | 1 | 1 | 2 |
+
+## Tracker delle storie derivate da osservazioni/errori
+
+### Moduli critici (storie con acceptance criteria e owner)
+
+#### Encounter_Designer — Owner: Alice Bianchi — Checkpoint: 2025-12-12
+| Story ID | Deriva da | Descrizione | Severità | Acceptance Criteria | Stato |
+| --- | --- | --- | --- | --- | --- |
+| ENC-OBS-01 | Osservazione | Documentare nel tracker dati che il modello usa solo valori numerici/astratti per stat, DC e badge/gate PFS, evitando riferimenti a testi protetti. | S3 (Info) | - Nota di conformità legale visibile nel tracker.<br>- QA verifica che gli output di esempio mantengano valori numerici/astratti.<br>- Convalida durante il checkpoint 2025-12-12. | To Do |
+| ENC-OBS-02 | Osservazione | Tracciare la pipeline completa (setup → auto-bilanciamento → QA → export VTT/MD/PDF) con CTA obbligatorie verso i comandi chiave e auto-validazione prima dell’export. | S2 (Minor) | - Descrizione pipeline e CTA registrate come definizione di pronto.<br>- Verifica che ogni fase richiami i comandi citati nei gate QA.<br>- Checkpoint 2025-12-12 approva la checklist. | To Do |
+| ENC-ERR-01 | Errore | Conservare evidenza che non risultano errori bloccanti su CR/QA dopo l’allineamento al helper clampato. | S3 (Info) | - Nota “nessun errore bloccante” collegata al test CR/QA.<br>- QA ripete il test clampato e allega esito nel tracker.<br>- Validato entro il checkpoint 2025-12-12. | To Do |
+
+#### sigilli_runner_module — Owner: Fabio Marchetti — Checkpoint: 2025-12-26
+| Story ID | Deriva da | Descrizione | Severità | Acceptance Criteria | Stato |
+| --- | --- | --- | --- | --- | --- |
+| SIG-OBS-01 | Osservazione | Chiarire in documentazione del modulo la finestra di attivazione del raro (solo da indice 14 con stato di default) per evitare percezione di malfunzionamento. | S2 (Minor) | - Sezione "rare trigger" aggiunta al tracker con esempi.<br>- QA verifica simulazione indice 14 con esito atteso.<br>- Checkpoint 2025-12-26 registrato come chiuso. | To Do |
+| SIG-OBS-02 | Osservazione | Evidenziare che il portale viene aggiunto anche senza sigilli assegnati, garantendo almeno un elemento in `seals`. | S3 (Info) | - Nota operativa nel tracker con comportamento atteso.<br>- Test riprodotto e allegato come log nel tracker.<br>- Convalida in checkpoint 2025-12-26. | To Do |
+| SIG-OBS-03 | Osservazione | Confermare che il report incorpora tutte le richieste delle due iterazioni precedenti (API, metadati, flow, errori simulati). | S3 (Info) | - Checklist di copertura iterazioni precedenti marcata come completa.<br>- QA allega riferimento ai punti verificati.<br>- Approvazione durante checkpoint 2025-12-26. | To Do |
+| SIG-ERR-01 | Errore | Gestire risposta 401 su API key mancante per `/modules*` assicurando messaggio “Invalid or missing API key”. | S1 (Major) | - Test automatizzato su richiesta senza API key allegato al tracker.<br>- Risposta 401 coerente con messaggio previsto.<br>- Checkpoint 2025-12-26 conferma la chiusura. | To Do |
+| SIG-ERR-02 | Errore | Gestire 404 su `/modules/bogus.txt` per modulo inesistente. | S2 (Minor) | - Caso negativo documentato con log 404.<br>- QA ripete test e allega esito.<br>- Convalida al checkpoint 2025-12-26. | To Do |
+| SIG-ERR-03 | Errore | Tracciamento del comportamento con `ALLOW_MODULE_DUMP=false`: header troncato per evitare leak completi. | S1 (Major) | - Evidenza del marker di troncamento registrata nel tracker.<br>- Test con dump disabilitato allegato.<br>- Checkpoint 2025-12-26 approva il controllo. | To Do |
+| SIG-ERR-04 | Errore | Nota che non esistono errori bloccanti dopo l’integrazione di `code_ok` e tagging MDA/CTA nei sigilli. | S3 (Info) | - Annotazione “nessun errore bloccante” con link ai test di regressione.<br>- QA ripete scenario post-tagging.<br>- Validato nel checkpoint 2025-12-26. | To Do |
+
+#### base_profile — Owner: Andrea Rizzi — Checkpoint: 2025-12-19
+| Story ID | Deriva da | Descrizione | Severità | Acceptance Criteria | Stato |
+| --- | --- | --- | --- | --- | --- |
+| BAS-OBS-01 | Osservazione | Evidenziare che l’endpoint di documentazione (`/doc`/`/help`/`/manuale`) è instradato nel router base_profile e rimanda a `meta_doc.txt`. | S2 (Minor) | - Evidenza routing e link a `meta_doc.txt` nel tracker.<br>- Test manuale o automatico allegato con status 200.<br>- Checkpoint 2025-12-19 registra la verifica. | To Do |
+| BAS-OBS-02 | Osservazione | Documentare dipendenza del router dai moduli core caricati da file locali tramite `preload_all_modules`. | S3 (Info) | - Sezione dipendenze aggiornata con elenco moduli core.<br>- Verifica che caricamento avvenga con API key valida.<br>- Convalida nel checkpoint 2025-12-19. | To Do |
+| BAS-ERR-01 | Errore | Annotare che non ci sono errori bloccanti dopo l’attivazione dei validator reali in `/qa_story`. | S3 (Info) | - Nota "nessun errore bloccante" con riferimento ai test `/qa_story` reali.<br>- QA allega log del validator attivo.<br>- Checkpoint 2025-12-19 approva la nota. | To Do |
+
+### Altri moduli
+
+#### Taverna_NPC — Owner: Elisa Romano
+| Story ID | Deriva da | Descrizione | Severità | Stato |
+| --- | --- | --- | --- | --- |
+| TAV-OBS-01 | Osservazione | Documentare il flusso guidato dall’onboarding al quiz MaxDiff/SJT e generazione PNG con CTA/template dedicati per ogni step. | S2 (Minor) | To Do |
+| TAV-ERR-01 | Errore | Registrare che le API core rispondono correttamente mentre `taverna_saves` resta non esposto per sicurezza. | S3 (Info) | To Do |
+| TAV-ERR-02 | Errore | Segnalare l’errore locale `curl | head` con dump abilitato (write failure) indicando che non richiede azione server-side. | S3 (Info) | To Do |
+
+#### adventurer_ledger — Owner: Luca Ferri
+| Story ID | Deriva da | Descrizione | Severità | Stato |
+| --- | --- | --- | --- | --- |
+| LED-OBS-01 | Osservazione | Raccogliere il welcome/flow in cinque passi (policy → stile giocatore → profilo WBL → roll loot → export) con CTA e template pronti per ledger/buylist/scheda PG. | S2 (Minor) | To Do |
+| LED-ERR-01 | Errore | Annotare che il blocco download con `ALLOW_MODULE_DUMP=false` si applica anche al ledger testuale. | S2 (Minor) | To Do |
+
+#### archivist — Owner: Martina Gallo
+| Story ID | Deriva da | Descrizione | Severità | Stato |
+| --- | --- | --- | --- | --- |
+| ARC-OBS-01 | Osservazione | Tracciare l’applicazione della policy `no_raw_dump` con header/JSON di lunghezza e marker di troncamento per dump testuali. | S2 (Minor) | To Do |
+| ARC-OBS-02 | Osservazione | Registrare che `/modules` e `/modules/archivist.txt/meta` rifiutano le richieste senza API key con 401 esplicito. | S2 (Minor) | To Do |
+
+#### ruling_expert — Owner: Valentina Riva
+| Story ID | Deriva da | Descrizione | Severità | Stato |
+| --- | --- | --- | --- | --- |
+| RUL-OBS-01 | Osservazione | Documentare il flow guidato RAW→FAQ→PFS con guardrail anti-injection, disambiguazione 0.65 e CTA post-risposta. | S2 (Minor) | To Do |
+| RUL-OBS-02 | Osservazione | Evidenziare la policy `exposure_policy: no_raw_dump` applicata di default con whitelist opzionale. | S2 (Minor) | To Do |
+
+#### scheda_pg_markdown_template — Owner: Matteo Leone
+| Story ID | Deriva da | Descrizione | Severità | Stato |
+| --- | --- | --- | --- | --- |
+| SCH-OBS-01 | Osservazione | Annotare che il troncamento mantiene titolo e marker finale, utile per audit con dump limitato. | S3 (Info) | To Do |
+| SCH-OBS-02 | Osservazione | Evidenziare meta header con versione/compatibilità, trigger e policy operative per pipeline automatiche. | S2 (Minor) | To Do |
+
+#### tavern_hub — Owner: Paolo Greco
+| Story ID | Deriva da | Descrizione | Severità | Stato |
+| --- | --- | --- | --- | --- |
+| HUB-OBS-01 | Osservazione | Documentare l’Hub che aggrega quest/rumor/bounty/eventi con flow GameMode, CTA di salvataggio/export e integrazione Encounter/Ledger. | S2 (Minor) | To Do |
+| HUB-ERR-01 | Errore | Registrare che con `ALLOW_MODULE_DUMP=false` gli asset JSON sono bloccati con 403 e gli export hub ereditano marker di troncamento/logging gate. | S2 (Minor) | To Do |
+
+#### Cartelle di servizio — Owner: Sara De Luca
+| Story ID | Deriva da | Descrizione | Severità | Stato |
+| --- | --- | --- | --- | --- |
+| SER-OBS-01 | Osservazione | Tracciare workflow e template Taverna (onboarding, quiz, export `taverna_saves`) con naming coerente, guardrail Echo e CTA guidate. | S2 (Minor) | To Do |
+| SER-ERR-01 | Errore | Registrare che le API core rispondono correttamente e `taverna_saves` resta non esposto per sicurezza. | S3 (Info) | To Do |
+| SER-ERR-02 | Errore | Segnalare l’errore locale `curl | head` con dump abilitato (write failure) come informazione senza azione server-side. | S3 (Info) | To Do |
+
+## Vista riepilogativa per burn-down
+| Modulo | Nota/Errore | Story ID | Severità | Owner | Stato |
+| --- | --- | --- | --- | --- | --- |
+| Encounter_Designer | Modello dati solo valori numerici/astratti | ENC-OBS-01 | S3 | Alice Bianchi | To Do |
+| Encounter_Designer | Pipeline completa con CTA QA/export | ENC-OBS-02 | S2 | Alice Bianchi | To Do |
+| Encounter_Designer | Nessun errore bloccante CR/QA | ENC-ERR-01 | S3 | Alice Bianchi | To Do |
+| sigilli_runner_module | Finestra raro solo da indice 14 | SIG-OBS-01 | S2 | Fabio Marchetti | To Do |
+| sigilli_runner_module | Portale anche senza sigilli assegnati | SIG-OBS-02 | S3 | Fabio Marchetti | To Do |
+| sigilli_runner_module | Copertura iterazioni precedenti | SIG-OBS-03 | S3 | Fabio Marchetti | To Do |
+| sigilli_runner_module | 401 su API key mancante | SIG-ERR-01 | S1 | Fabio Marchetti | To Do |
+| sigilli_runner_module | 404 su modulo inesistente | SIG-ERR-02 | S2 | Fabio Marchetti | To Do |
+| sigilli_runner_module | Troncamento con ALLOW_MODULE_DUMP=false | SIG-ERR-03 | S1 | Fabio Marchetti | To Do |
+| sigilli_runner_module | Nessun errore bloccante post code_ok | SIG-ERR-04 | S3 | Fabio Marchetti | To Do |
+| Taverna_NPC | Flusso guidato onboarding→quiz→PNG | TAV-OBS-01 | S2 | Elisa Romano | To Do |
+| Taverna_NPC | API core ok, `taverna_saves` non esposto | TAV-ERR-01 | S3 | Elisa Romano | To Do |
+| Taverna_NPC | Errore locale `curl | head` | TAV-ERR-02 | S3 | Elisa Romano | To Do |
+| adventurer_ledger | Welcome/flow in cinque passi con CTA | LED-OBS-01 | S2 | Luca Ferri | To Do |
+| adventurer_ledger | Blocco download con ALLOW_MODULE_DUMP=false | LED-ERR-01 | S2 | Luca Ferri | To Do |
+| archivist | Policy no_raw_dump con header/JSON lunghezza | ARC-OBS-01 | S2 | Martina Gallo | To Do |
+| archivist | 401 chiaro su /modules e /meta senza API key | ARC-OBS-02 | S2 | Martina Gallo | To Do |
+| ruling_expert | Flow RAW→FAQ→PFS con guardrail e CTA | RUL-OBS-01 | S2 | Valentina Riva | To Do |
+| ruling_expert | Default exposure_policy no_raw_dump | RUL-OBS-02 | S2 | Valentina Riva | To Do |
+| scheda_pg_markdown_template | Troncamento con titolo/marker finale | SCH-OBS-01 | S3 | Matteo Leone | To Do |
+| scheda_pg_markdown_template | Meta header con trigger/policy operative | SCH-OBS-02 | S2 | Matteo Leone | To Do |
+| tavern_hub | Hub con quest/rumor e integrazione Encounter/Ledger | HUB-OBS-01 | S2 | Paolo Greco | To Do |
+| tavern_hub | Blocco asset JSON con ALLOW_MODULE_DUMP=false | HUB-ERR-01 | S2 | Paolo Greco | To Do |
+| Cartelle di servizio | Workflow/template Taverna con guardrail Echo | SER-OBS-01 | S2 | Sara De Luca | To Do |
+| Cartelle di servizio | API core ok, `taverna_saves` non esposto | SER-ERR-01 | S3 | Sara De Luca | To Do |
+| Cartelle di servizio | Errore locale `curl | head` | SER-ERR-02 | S3 | Sara De Luca | To Do |
 ## Cross-cutting e dipendenze
 - Builder/Bilanciamento (Encounter_Designer, minmax_builder): usare i task sopra per valutare epic condivise su export/QA o flow di bilanciamento; ordinare i fix P1 prima dei miglioramenti.
 - Hub/Persistenza (Taverna_NPC, tavern_hub, Cartelle di servizio): verificare coerenza delle policy di salvataggio/quarantena e annotare eventuali blocchi prima di procedere con altri moduli dipendenti.
