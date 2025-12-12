@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Starter kit",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": [],
+    "tags": ["gear", "starter"],
+    "references": ["SRD equipment"]
+  },
+  {
+    "name": "Potion of Cure Light Wounds",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": [],
+    "tags": ["consumable", "healing", "potion"],
+    "references": ["SRD magic items"]
+  },
+  {
+    "name": "Wand of Magic Missile (CL 3)",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Craft Wand", "Magic Missile"],
+    "tags": ["consumable", "wand", "force"],
+    "references": ["SRD magic items"]
+  },
+  {
+    "name": "Tanglefoot Bag",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": [],
+    "tags": ["alchemical", "grenade"],
+    "references": ["SRD equipment"]
+  },
+  {
+    "name": "Longsword",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Martial weapon proficiency"],
+    "tags": ["weapon", "martial", "melee"],
+    "references": ["SRD weapons"]
+  },
+  {
+    "name": "Composite Longbow (+2 Str)",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Martial weapon proficiency", "Strength 12"],
+    "tags": ["weapon", "martial", "ranged"],
+    "references": ["SRD weapons"]
+  },
+  {
+    "name": "Mithral Shirt",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Light armor proficiency"],
+    "tags": ["armor", "light", "mithral"],
+    "references": ["SRD armor"]
+  },
+  {
+    "name": "Cloak of Resistance +1",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Craft Wondrous Item", "caster level 3rd"],
+    "tags": ["wondrous", "save-bonus"],
+    "references": ["SRD magic items"]
+  },
+  {
+    "name": "Ring of Protection +1",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Forge Ring", "caster level 5th"],
+    "tags": ["ring", "defense", "deflection"],
+    "references": ["SRD magic items"]
+  },
+  {
+    "name": "Handy Haversack",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Craft Wondrous Item", "caster level 9th"],
+    "tags": ["wondrous", "utility"],
+    "references": ["SRD magic items"]
+  },
+  {
+    "name": "Belt of Giant Strength +2",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Craft Wondrous Item", "caster level 8th"],
+    "tags": ["wondrous", "enhancement", "strength"],
+    "references": ["SRD magic items"]
+  }
+]
