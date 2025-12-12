@@ -17,6 +17,12 @@ provides: ["lore PF1e con citazioni", "QA citazioni & spoiler guard", "VTT map f
 requires: ["base_profile.txt"]
 exports: ["badge:CANONE", "vtt:hooks", "qa:citations", "campaign:docs"]
 
+tracker_notes:
+  - id: ARC-OBS-01
+    note: "Policy no_raw_dump applicata con header/JSON di lunghezza e marker di troncamento per dump testuali."
+  - id: ARC-OBS-02
+    note: "Richieste senza API key su /modules e /modules/archivist.txt/meta respinte con 401 esplicito."
+
 description: >
   Archivist monolitico con QA esteso e motore VTT integrato.
   Aderisce a fonti Paizo PF1e, include badge canone, pipeline QA,

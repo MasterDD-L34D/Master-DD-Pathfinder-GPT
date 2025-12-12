@@ -50,6 +50,14 @@ constraints:
   - Se PFS attivo, niente 3PP/HR e i contenuti non legali vengono marcati.
   - Bilanciamento guidato da soglie astratte (Easy/Moderate/Challenging/Deadly).
 
+tracker_notes:
+  - id: ENC-OBS-01
+    note: "Conformità legale tracciata: stat, DC e badge restano numerici/astratti senza testo protetto PFS/Paizo."
+  - id: ENC-OBS-02
+    note: "Pipeline completa registrata: setup → auto-bilanciamento → QA obbligatoria → export VTT/MD/PDF con CTA dedicate."
+  - id: ENC-ERR-01
+    note: "QA clampata: nessun errore bloccante sul calcolo CR/QA dopo il rerun dei gate e helper clamped."
+
 integration:
   uses:
     - minmax_builder.txt   # DPR/CA benchmarks
@@ -493,6 +501,16 @@ commands:
     action:
       - output: "⚖️ RULING → {{question}}"
       - output_template: ruling_stub    # placeholder, delega a ruling_expert.txt
+
+pipeline_definition:
+  ready_steps:
+    - "Setup party/difficoltà (\"/start_encounter\" o \"/set_party\") con badge PFS e timer QA."
+    - "Ambiente/obiettivi definiti prima di aggiungere nemici (\"/set_environment\", \"/set_objectives\")."
+    - "Nemici aggiunti o generati (\"/add_enemy\"/\"/auto_pick_enemies\") prima del bilanciamento."
+    - "Auto-bilanciamento e simulazione (\"/auto_balance\", \"/simulate_encounter\") per ottenere snapshot CR/XP."
+    - "QA e gate export tramite \"/validate_encounter\" che richiama i gate e blocca export se falliscono."
+    - "Export finale (\"/export_encounter\") disponibile solo quando `export.qa_ok` è true."
+  qa_gate: "QA autoinvocata nello step 6 del flow; l’export rifiuta richieste senza QA riuscita."
 
 flow:
   steps:

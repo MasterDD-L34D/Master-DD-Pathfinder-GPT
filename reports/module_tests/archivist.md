@@ -50,6 +50,10 @@
 - I dump seguono ora la policy `no_raw_dump`: con `ALLOW_MODULE_DUMP=false` i moduli testuali vengono troncati, marcati con `[…TRUNCATED ALLOW_MODULE_DUMP=false…]` e corredati da header/JSON `x-original-length`, `x-served-length` e `x-served-percent`, mentre asset non testuali restano bloccati; gli endpoint proteggono comunque l’accesso senza API key con 401 esplicito.【F:src/modules/archivist.txt†L118-L177】【F:src/modules/archivist.txt†L280-L332】
 - L’endpoint `/modules` rifiuta richieste senza API key con dettaglio chiaro; idem per `/modules/archivist.txt/meta` (401), fornendo copertura ai casi di autenticazione mancata.【d95840†L1-L7】
 
+## Aggiornamento tracker
+- ARC-OBS-01: policy `no_raw_dump` applicata con marker/header/JSON di lunghezza per dump testuali, come richiesto.【F:src/modules/archivist.txt†L118-L177】
+- ARC-OBS-02: rifiuto 401 esplicito su `/modules` e `/modules/archivist.txt/meta` senza API key documentato.【d95840†L1-L7】【F:src/modules/archivist.txt†L280-L332】
+
 ## Errori
 - Nessun errore bloccante rilevato dopo l’allineamento della dump policy.
 

@@ -26,6 +26,12 @@ identity:
     auto_detect_core_version: true
     on_version_mismatch: "warn_and_adapt"
 
+tracker_notes:
+  - id: BAS-OBS-01
+    note: "Router documentazione attestato: /doc|/help|/manuale puntano a meta_doc.txt nel router base_profile."
+  - id: BAS-ERR-01
+    note: "QA router/doc: nessun errore bloccante dopo allineamento dump e protezione documentazione."
+
 principles:
   canon: "Paizo PF1e RAW; RAI solo se il testo è ambiguo."
   pfs_mode: "Con PFS=ON filtra o marca i contenuti non PFS-legal."
@@ -143,7 +149,7 @@ router:
       flag: runtime.preload_done
       silent: true
 
-    rules:
+  rules:
       - match: ['^.*$']
         condition: '!runtime.preload_done'
         set: [runtime.preload_done: true]
@@ -151,7 +157,7 @@ router:
 
       # Comandi diretti
       - match: ["^/help\\b", "^/doc\\b", "^/manuale\\b"]
-        route_to: "Documentazione"
+        route_to: "Documentazione"   # inoltra a meta_doc.txt con elenco comandi
         short_circuit: true
       - match: ["^/start_build\\b", "^/bench\\b", "^/next_step\\b"]
         route_to: "MinMax Builder"

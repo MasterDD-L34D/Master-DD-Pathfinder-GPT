@@ -58,6 +58,11 @@
 ## Osservazioni
 - Il flusso guidato accompagna l’utente da onboarding lingua/universo/ritratto alle fasi di quiz e generazione PNG, con CTA e template UI dedicati per ogni step.【F:src/modules/Taverna_NPC.txt†L282-L518】【F:src/modules/Taverna_NPC.txt†L838-L974】
 
+## Aggiornamento tracker
+- TAV-OBS-01: flow onboarding → quiz MaxDiff/SJT → generazione PNG e quest/rumor documentato con CTA/template per ogni step.【F:src/modules/Taverna_NPC.txt†L282-L518】【F:src/modules/Taverna_NPC.txt†L838-L974】
+- TAV-ERR-01: API core operative mentre `taverna_saves` resta non esposto per sicurezza, nota registrata.【F:src/modules/Taverna_NPC.txt†L364-L386】
+- TAV-ERR-02: errore locale `curl | head` con dump abilitato marcato come noto; nessuna azione server-side richiesta.【b21fe7†L3-L16】
+
 ## Errori
 - ✅ API core rispondono correttamente; `taverna_saves` non esposto (atteso per sicurezza). 【e01c22†L1-L8】
 - ⚠️ `curl | head` con dump abilitato ritorna errore di write locale, ma il server fornisce `content-length`; nessuna azione necessaria lato server. 【b21fe7†L3-L16】
