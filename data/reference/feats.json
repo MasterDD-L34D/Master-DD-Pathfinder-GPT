@@ -2,78 +2,100 @@
   {
     "name": "Alertness",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": [],
     "tags": ["general"],
-    "references": ["SRD CRB p.118"]
+    "references": ["d20PFSRD: Alertness"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/general-feats/alertness/"]
   },
   {
     "name": "Bomb Focus",
     "source": "Advanced Player's Guide",
+    "source_id": "APG",
     "prerequisites": ["Alchemist"],
     "tags": ["combat", "archetype:grenadier"],
-    "references": ["APG p.150"]
+    "references": ["d20PFSRD: Bomb Focus"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/general-feats/bomb-focus/"]
   },
   {
     "name": "Power Attack",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Strength 13"],
     "tags": ["combat", "melee"],
-    "references": ["SRD CRB p.131"]
+    "references": ["d20PFSRD: Power Attack"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/power-attack-combat/"]
   },
   {
     "name": "Combat Expertise",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Intelligence 13"],
     "tags": ["combat", "defense"],
-    "references": ["SRD CRB p.119"]
+    "references": ["d20PFSRD: Combat Expertise"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/combat-expertise-combat/"]
   },
   {
     "name": "Point-Blank Shot",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": [],
     "tags": ["combat", "ranged"],
-    "references": ["SRD CRB p.131"]
+    "references": ["d20PFSRD: Point-Blank Shot"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/point-blank-shot-combat/"]
   },
   {
     "name": "Precise Shot",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Point-Blank Shot"],
     "tags": ["combat", "ranged"],
-    "references": ["SRD CRB p.131"]
+    "references": ["d20PFSRD: Precise Shot"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/precise-shot-combat/"]
   },
   {
     "name": "Rapid Shot",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Dexterity 13", "Point-Blank Shot"],
     "tags": ["combat", "ranged", "full-attack"],
-    "references": ["SRD CRB p.132"]
+    "references": ["d20PFSRD: Rapid Shot"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/rapid-shot-combat/"]
   },
   {
     "name": "Two-Weapon Fighting",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Dexterity 15"],
     "tags": ["combat", "dual-wield"],
-    "references": ["SRD CRB p.136"]
+    "references": ["d20PFSRD: Two-Weapon Fighting"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/two-weapon-fighting-combat/"]
   },
   {
     "name": "Weapon Focus (Longsword)",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Proficiency with selected weapon", "Base Attack Bonus +1"],
     "tags": ["combat", "weapon"],
-    "references": ["SRD CRB p.137"]
+    "references": ["d20PFSRD: Weapon Focus"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/weapon-focus-combat/"]
   },
   {
     "name": "Spell Focus (Evocation)",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Ability to cast spells"],
     "tags": ["magic", "school:evocation"],
-    "references": ["SRD CRB p.133"]
+    "references": ["d20PFSRD: Spell Focus"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/general-feats/spell-focus/"]
   },
   {
     "name": "Improved Initiative",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": [],
     "tags": ["general", "initiative"],
-    "references": ["SRD CRB p.127"]
+    "references": ["d20PFSRD: Improved Initiative"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/improved-initiative-combat/"]
   }
 ]

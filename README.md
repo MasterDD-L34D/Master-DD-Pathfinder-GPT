@@ -93,8 +93,9 @@ Lo script lancia `black --check` sui file Python e compila i moduli con
 
 - I file normalizzati si trovano in `data/reference/*.json` e seguono lo schema
   `schemas/reference_catalog.schema.json` (chiavi obbligatorie: `name`,
-  `source`, `prerequisites`, `tags`, `references`). Aggiorna i file con nuove
-  voci RAW/SRD citando la fonte e mantieni il formato lista di oggetti.
+  `source`, `prerequisites`, `tags`, `references`; campi opzionali: `reference_urls`,
+  `source_id`, `notes`). Aggiorna i file con nuove voci RAW/SRD citando la fonte
+  e mantieni il formato lista di oggetti.
 - Ogni snapshot è versionato in `data/reference/manifest.json` con numero di
   versione, conteggio entry e percorso dei file: quando modifichi il catalogo
   aggiorna il manifest (versione e contatori) e verifica che le fonti restino
@@ -110,6 +111,31 @@ Lo script lancia `black --check` sui file Python e compila i moduli con
 - L'indice `src/data/module_index.json` espone il catalogo tramite il campo
   `reference_catalog`: aggiungi il manifest se crei nuovi dataset e mantieni
   l'elenco allineato.
+
+#### Siti SRD ammessi e formato delle citazioni
+
+- **d20pfsrd.com** e **Archives of Nethys (aonprd.com)** sono le due fonti
+  ammesse per gli URL SRD canonici. Usa i permalink alla singola voce (feat,
+  incantesimo, oggetto) e non le pagine riassuntive generiche.
+- Nei file catalogo valorizza `reference_urls` con URL assoluti SRD e mantieni
+  `references` come descrizione leggibile (es. `d20PFSRD: Power Attack`).
+- In risposta alle query, il GPT deve citare gli URL SRD con Markdown link o
+  testo esplicito, privilegiando i link presenti in `reference_urls`.
+- Se esistono più URL validi (es. d20pfsrd e aonprd) puoi elencarli entrambi
+  nello stesso campo mantenendo l'ordine di preferenza.
+
+Esempi di uso nelle risposte del GPT:
+
+- **Query**: "Che effetto ha *Fireball*?"
+  **Risposta sintetica**: "*Fireball* infligge 1d6 danni da fuoco per livello
+  (max 10d6) in un raggio di 6 m, Riflessi dimezza (CD basata sulla tua
+  caratteristica da incantatore). Fonte: d20pfsrd
+  <https://www.d20pfsrd.com/magic/all-spells/f/fireball/>".
+- **Query**: "Posso usare Rapid Shot con il mio arco composito?"
+  **Risposta sintetica**: "Sì, *Rapid Shot* ti dà un attacco extra a penalità
+  -2 su tutti gli attacchi a distanza nel round completo. Richiede Des 13 e
+  *Point-Blank Shot*. Fonte: d20pfsrd
+  <https://www.d20pfsrd.com/feats/combat-feats/rapid-shot-combat/>".
 
 ### Flag CLI per validazione catalogo e combo T1
 

@@ -56,6 +56,22 @@
           },
           "minItems": 1
         },
+        "reference_urls": {
+          "type": "array",
+          "description": "URL SRD/d20pfsrd che l'assistente deve citare come fonte primaria",
+          "items": {
+            "type": "string",
+            "format": "uri",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "source_id": {
+          "type": "string",
+          "description": "Identificativo normalizzato della fonte RAW/SRD (es. CRB, APG)",
+          "minLength": 1
+        },
         "notes": {
           "type": "string",
           "description": "Annotazioni libere opzionali"

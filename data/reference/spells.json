@@ -2,71 +2,91 @@
   {
     "name": "Light",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": [],
     "tags": ["utility", "cantrip", "evocation"],
-    "references": ["SRD CRB p.263"]
+    "references": ["d20PFSRD: Light"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/l/light/"]
   },
   {
     "name": "Cure Light Wounds",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Divine spellcasting"],
     "tags": ["healing", "positive", "conjuration"],
-    "references": ["SRD CRB p.263"]
+    "references": ["d20PFSRD: Cure Light Wounds"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/c/cure-light-wounds/"]
   },
   {
     "name": "Magic Missile",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Arcane spellcasting"],
     "tags": ["evocation", "force", "damage"],
-    "references": ["SRD CRB p.308"]
+    "references": ["d20PFSRD: Magic Missile"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/m/magic-missile/"]
   },
   {
     "name": "Shield",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Arcane spellcasting"],
     "tags": ["defense", "abjuration", "force"],
-    "references": ["SRD CRB p.340"]
+    "references": ["d20PFSRD: Shield"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/s/shield/"]
   },
   {
     "name": "Invisibility",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Arcane spellcasting 2nd level"],
     "tags": ["illusion", "utility", "defense"],
-    "references": ["SRD CRB p.301"]
+    "references": ["d20PFSRD: Invisibility"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/i/invisibility/"]
   },
   {
     "name": "Haste",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Arcane spellcasting 3rd level"],
     "tags": ["transmutation", "buff", "speed"],
-    "references": ["SRD CRB p.294"]
+    "references": ["d20PFSRD: Haste"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/h/haste/"]
   },
   {
     "name": "Fireball",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Arcane spellcasting 3rd level"],
     "tags": ["evocation", "fire", "area", "damage"],
-    "references": ["SRD CRB p.289"]
+    "references": ["d20PFSRD: Fireball"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/f/fireball/"]
   },
   {
     "name": "Fly",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Arcane spellcasting 3rd level"],
     "tags": ["transmutation", "mobility", "buff"],
-    "references": ["SRD CRB p.292"]
+    "references": ["d20PFSRD: Fly"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/f/fly/"]
   },
   {
     "name": "Dispel Magic",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Ability to cast 3rd-level spells"],
     "tags": ["abjuration", "utility"],
-    "references": ["SRD CRB p.272"]
+    "references": ["d20PFSRD: Dispel Magic"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/d/dispel-magic/"]
   },
   {
     "name": "Stoneskin",
     "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
     "prerequisites": ["Arcane spellcasting 4th level"],
     "tags": ["abjuration", "defense", "damage-reduction"],
-    "references": ["SRD CRB p.348"]
+    "references": ["d20PFSRD: Stoneskin"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/"]
   }
 ]
