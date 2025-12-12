@@ -122,12 +122,28 @@
           "totale": 12
         }
       },
+      "skills": [
+        {"nome": "Acrobazia", "gradi": 10, "mod_car": 5, "classe": true, "totale": 18},
+        {"nome": "Furtività", "gradi": 10, "mod_car": 5, "classe": true, "totale": 18}
+      ],
       "equipaggiamento": [
         "Handwraps +3 furious",
         "Sandals of the Light Step",
         "Cintura del gigante +2",
         "Headband of Inspired Wisdom +2"
       ],
+      "ledger_movimenti": [
+        {"voce": "Manutenzione handwraps", "importo": -280},
+        {"voce": "Cache premio tornei", "importo": 480}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Manutenzione handwraps", "importo": -280},
+          {"voce": "Cache premio tornei", "importo": 480}
+        ],
+        "currency": {"oro": 240, "argento": 40, "rame": 15}
+      },
+      "sheet_markdown": "Acrobazia\nHandwraps +3 furious\nManutenzione handwraps",
       "talenti": [
         "Medusa's Wrath",
         "Crane Riposte",

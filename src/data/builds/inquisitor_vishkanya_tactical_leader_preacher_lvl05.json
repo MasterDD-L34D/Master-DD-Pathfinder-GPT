@@ -212,7 +212,40 @@
         "base_profile.txt",
         "Taverna_NPC.txt",
         "narrative_flow.txt"
-      ]
+      ],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "gradi": 5,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 13
+        },
+        {
+          "nome": "Intimidire",
+          "gradi": 5,
+          "mod_car": 0,
+          "classe": true,
+          "totale": 8
+        }
+      ],
+      "equipaggiamento": [
+        "Kukri rituale", 
+        "Giaco di maglia benedetto",
+        "Pergamena di Litany of Defense"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Acquisto reliquie", "importo": -150},
+        {"voce": "Compenso inquisizione", "importo": 260}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Acquisto reliquie", "importo": -150},
+          {"voce": "Compenso inquisizione", "importo": 260}
+        ],
+        "currency": {"oro": 120, "argento": 18, "rame": 10}
+      },
+      "sheet_markdown": "Percezione\nKukri rituale\nAcquisto reliquie"
     }
   },
   "mode": "extended",

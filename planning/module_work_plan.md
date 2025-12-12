@@ -320,7 +320,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | Story ID | Deriva da | Descrizione | Severità | Stato |
 | --- | --- | --- | --- | --- |
 | LED-OBS-01 | Osservazione | Raccogliere il welcome/flow in cinque passi (policy → stile giocatore → profilo WBL → roll loot → export) con CTA e template pronti per ledger/buylist/scheda PG. | S2 (Minor) | To Do |
-| LED-ERR-01 | Errore | Annotare che il blocco download con `ALLOW_MODULE_DUMP=false` si applica anche al ledger testuale. | S2 (Minor) | To Do |
+| LED-ERR-01 | Errore | Annotare che il blocco download con `ALLOW_MODULE_DUMP=false` si applica anche al ledger testuale. | S2 (Minor) | Done |
 
 #### archivist — Owner: Martina Gallo
 | Story ID | Deriva da | Descrizione | Severità | Stato |

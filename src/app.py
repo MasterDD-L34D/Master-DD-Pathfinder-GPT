@@ -570,6 +570,7 @@ async def storage_meta(_: None = Depends(require_api_key)) -> Dict[str, object]:
 TEXT_SUFFIXES = {".txt", ".md"}
 PROTECTED_DUMP_MODULES = {"ruling_expert.txt"}
 STRICT_TRUNCATION_MODULES = {"adventurer_ledger.txt", "narrative_flow.txt"}
+LEDGER_TEXT_MODULES = {"adventurer_ledger.txt"}
 
 
 def _media_type_for_path(path: Path) -> str:
@@ -1530,7 +1531,9 @@ async def get_module_content(
     max_chars = 4000
 
     total_size = path.stat().st_size
-    strict_truncation = path.name in STRICT_TRUNCATION_MODULES
+    strict_truncation = (not settings.allow_module_dump) or (
+        path.name in STRICT_TRUNCATION_MODULES
+    )
 
     if strict_truncation:
         served_chunk = ""

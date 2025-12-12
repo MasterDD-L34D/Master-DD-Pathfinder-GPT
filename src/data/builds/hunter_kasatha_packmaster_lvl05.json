@@ -149,7 +149,40 @@
           "5": 28,
           "10": 63
         }
-      }
+      },
+      "skills": [
+        {
+          "nome": "Percezione",
+          "gradi": 5,
+          "mod_car": 3,
+          "classe": true,
+          "totale": 13
+        },
+        {
+          "nome": "Sopravvivenza",
+          "gradi": 5,
+          "mod_car": 3,
+          "classe": true,
+          "totale": 12
+        }
+      ],
+      "equipaggiamento": [
+        "Lancia lunga tribale temprata",
+        "Pettorale rinforzato per cavalcature",
+        "Kit scout del deserto"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Addestramento branchia di dinosauro", "importo": -240},
+        {"voce": "Scorta carovana stellare", "importo": 420}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Addestramento branchia di dinosauro", "importo": -240},
+          {"voce": "Scorta carovana stellare", "importo": 420}
+        ],
+        "currency": {"oro": 200, "argento": 30, "rame": 12}
+      },
+      "sheet_markdown": "Percezione\nLancia lunga tribale temprata\nAddestramento branchia di dinosauro"
     },
     "fonti": [
       "local-refresh",

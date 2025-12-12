@@ -114,7 +114,56 @@
       "bench_log": [
         "Checkpoint 10: major hex online, healing top-tier; badge RAW/RAI/PFS mantenuto"
       ],
-      "rules_status_text": "Badge RAW/RAI/PFS confermato; meta_tier T1 con log bench salvati"
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; meta_tier T1 con log bench salvati",
+      "skills": [
+        {
+          "nome": "Conoscenze (arcana)",
+          "gradi": 10,
+          "mod_car": 6,
+          "classe": true,
+          "totale": 22
+        },
+        {
+          "nome": "Percezione",
+          "gradi": 10,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 17
+        }
+      ],
+      "equipaggiamento": [
+        "Feticcio necromantico maggiore",
+        "Mantello del vento tempestoso",
+        "Libro degli incantesimi runico avanzato"
+      ],
+      "ledger_movimenti": [
+        {
+          "voce": "Offerte ai defunti illustri",
+          "importo": -320
+        },
+        {
+          "voce": "Rituale di comando pagato dal casato",
+          "importo": 520
+        }
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Offerte ai defunti illustri",
+            "importo": -320
+          },
+          {
+            "voce": "Rituale di comando pagato dal casato",
+            "importo": 520
+          }
+        ],
+        "currency": {
+          "oro": 260,
+          "argento": 28,
+          "rame": 12
+        }
+      },
+      "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico maggiore\nOfferte ai defunti illustri"
     }
   },
   "bench_log": [

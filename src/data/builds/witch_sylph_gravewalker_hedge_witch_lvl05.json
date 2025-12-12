@@ -110,7 +110,28 @@
       "bench_log": [
         "Checkpoint 5: hex + fly-by Cackle, healing patron online; badge RAW/RAI/PFS valido"
       ],
-      "rules_status_text": "Badge RAW/RAI/PFS confermato; focus debuff/curing mantenuto"
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; focus debuff/curing mantenuto",
+      "skills": [
+        {"nome": "Conoscenze (arcana)", "gradi": 5, "mod_car": 5, "classe": true, "totale": 15},
+        {"nome": "Percezione", "gradi": 5, "mod_car": 1, "classe": true, "totale": 11}
+      ],
+      "equipaggiamento": [
+        "Feticcio necromantico",
+        "Mantello del vento leggero",
+        "Libro degli incantesimi runico"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Offerte ai defunti", "importo": -140},
+        {"voce": "Consulta spiritica retribuita", "importo": 260}
+      ],
+      "ledger": {
+        "movimenti": [
+          {"voce": "Offerte ai defunti", "importo": -140},
+          {"voce": "Consulta spiritica retribuita", "importo": 260}
+        ],
+        "currency": {"oro": 120, "argento": 22, "rame": 10}
+      },
+      "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico\nOfferte ai defunti"
     }
   },
   "bench_log": [

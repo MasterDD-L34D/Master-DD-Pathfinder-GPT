@@ -188,7 +188,7 @@ def collect_section_lines(
 
     merged_lines: List[str] = []
     for idx, content in enumerate(matching_sections):
-        if idx:
+        if idx and (not merged_lines or merged_lines[-1] != ""):
             merged_lines.append("")
         merged_lines.extend(content)
 

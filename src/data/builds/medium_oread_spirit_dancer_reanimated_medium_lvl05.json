@@ -96,6 +96,31 @@
         "Riflessi": "+4",
         "Volontà": "+7"
       },
+      "skills": [
+        {
+          "nome": "Conoscenze (religioni)",
+          "gradi": 5,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 11
+        },
+        {
+          "nome": "Diplomazia",
+          "gradi": 5,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 14
+        }
+      ],
+      "equipaggiamento": [
+        "Tamburo di quarzo rituale",
+        "Corazza di pietra scolpita",
+        "Cappuccio di seta per seance"
+      ],
+      "ledger_movimenti": [
+        {"voce": "Incensi per seance", "importo": -200},
+        {"voce": "Contributo da guide minerarie", "importo": 450}
+      ],
       "ledger": {
         "movimenti": [
           {
@@ -114,6 +139,7 @@
         },
         "saldo": 0
       },
+      "sheet_markdown": "Conoscenze (religioni)\nTamburo di quarzo rituale\nIncensi per seance",
       "print_mode": false,
       "show_minmax": true,
       "show_vtt": true,
