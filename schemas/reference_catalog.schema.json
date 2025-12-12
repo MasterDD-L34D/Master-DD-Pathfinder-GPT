@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pathfinder-master-dd/schemas/reference_catalog.schema.json",
+  "title": "Catalogo di riferimento RAW/SRD",
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/reference_entry"
+  },
+  "minItems": 1,
+  "$defs": {
+    "reference_entry": {
+      "type": "object",
+      "required": [
+        "name",
+        "source",
+        "prerequisites",
+        "tags",
+        "references"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Nome normalizzato dell'oggetto di catalogo"
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Fonte RAW/SRD di riferimento"
+        },
+        "prerequisites": {
+          "type": "array",
+          "description": "Prerequisiti testuali richiesti per usare l'elemento",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "default": []
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true,
+          "default": []
+        },
+        "references": {
+          "type": "array",
+          "description": "Citazioni RAW/SRD a supporto dell'elemento",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "notes": {
+          "type": "string",
+          "description": "Annotazioni libere opzionali"
+        }
+      }
+    }
+  }
+}

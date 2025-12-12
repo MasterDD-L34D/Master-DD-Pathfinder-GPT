@@ -1,0 +1,79 @@
+[
+  {
+    "name": "Alertness",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": [],
+    "tags": ["general"],
+    "references": ["SRD CRB p.118"]
+  },
+  {
+    "name": "Bomb Focus",
+    "source": "Advanced Player's Guide",
+    "prerequisites": ["Alchemist"],
+    "tags": ["combat", "archetype:grenadier"],
+    "references": ["APG p.150"]
+  },
+  {
+    "name": "Power Attack",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Strength 13"],
+    "tags": ["combat", "melee"],
+    "references": ["SRD CRB p.131"]
+  },
+  {
+    "name": "Combat Expertise",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Intelligence 13"],
+    "tags": ["combat", "defense"],
+    "references": ["SRD CRB p.119"]
+  },
+  {
+    "name": "Point-Blank Shot",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": [],
+    "tags": ["combat", "ranged"],
+    "references": ["SRD CRB p.131"]
+  },
+  {
+    "name": "Precise Shot",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Point-Blank Shot"],
+    "tags": ["combat", "ranged"],
+    "references": ["SRD CRB p.131"]
+  },
+  {
+    "name": "Rapid Shot",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Dexterity 13", "Point-Blank Shot"],
+    "tags": ["combat", "ranged", "full-attack"],
+    "references": ["SRD CRB p.132"]
+  },
+  {
+    "name": "Two-Weapon Fighting",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Dexterity 15"],
+    "tags": ["combat", "dual-wield"],
+    "references": ["SRD CRB p.136"]
+  },
+  {
+    "name": "Weapon Focus (Longsword)",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Proficiency with selected weapon", "Base Attack Bonus +1"],
+    "tags": ["combat", "weapon"],
+    "references": ["SRD CRB p.137"]
+  },
+  {
+    "name": "Spell Focus (Evocation)",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Ability to cast spells"],
+    "tags": ["magic", "school:evocation"],
+    "references": ["SRD CRB p.133"]
+  },
+  {
+    "name": "Improved Initiative",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": [],
+    "tags": ["general", "initiative"],
+    "references": ["SRD CRB p.127"]
+  }
+]

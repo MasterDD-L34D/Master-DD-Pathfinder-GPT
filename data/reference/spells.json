@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Light",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": [],
+    "tags": ["utility", "cantrip", "evocation"],
+    "references": ["SRD CRB p.263"]
+  },
+  {
+    "name": "Cure Light Wounds",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Divine spellcasting"],
+    "tags": ["healing", "positive", "conjuration"],
+    "references": ["SRD CRB p.263"]
+  },
+  {
+    "name": "Magic Missile",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Arcane spellcasting"],
+    "tags": ["evocation", "force", "damage"],
+    "references": ["SRD CRB p.308"]
+  },
+  {
+    "name": "Shield",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Arcane spellcasting"],
+    "tags": ["defense", "abjuration", "force"],
+    "references": ["SRD CRB p.340"]
+  },
+  {
+    "name": "Invisibility",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Arcane spellcasting 2nd level"],
+    "tags": ["illusion", "utility", "defense"],
+    "references": ["SRD CRB p.301"]
+  },
+  {
+    "name": "Haste",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Arcane spellcasting 3rd level"],
+    "tags": ["transmutation", "buff", "speed"],
+    "references": ["SRD CRB p.294"]
+  },
+  {
+    "name": "Fireball",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Arcane spellcasting 3rd level"],
+    "tags": ["evocation", "fire", "area", "damage"],
+    "references": ["SRD CRB p.289"]
+  },
+  {
+    "name": "Fly",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Arcane spellcasting 3rd level"],
+    "tags": ["transmutation", "mobility", "buff"],
+    "references": ["SRD CRB p.292"]
+  },
+  {
+    "name": "Dispel Magic",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Ability to cast 3rd-level spells"],
+    "tags": ["abjuration", "utility"],
+    "references": ["SRD CRB p.272"]
+  },
+  {
+    "name": "Stoneskin",
+    "source": "Pathfinder Core Rulebook",
+    "prerequisites": ["Arcane spellcasting 4th level"],
+    "tags": ["abjuration", "defense", "damage-reduction"],
+    "references": ["SRD CRB p.348"]
+  }
+]

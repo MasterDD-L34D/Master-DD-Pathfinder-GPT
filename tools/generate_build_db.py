@@ -17,6 +17,9 @@ from itertools import islice, product
 from pathlib import Path
 from typing import Any, Iterable, List, Mapping, MutableMapping, Sequence
 
+DEFAULT_REFERENCE_DIR = Path(__file__).resolve().parent.parent / "data" / "reference"
+REFERENCE_SCHEMA = "reference_catalog.schema.json"
+
 import yaml
 from jinja2 import BaseLoader, ChainableUndefined
 from jinja2.nativetypes import NativeEnvironment
@@ -238,6 +241,184 @@ class BuildFetchError(Exception):
 
 def slugify(name: str) -> str:
     return name.strip().lower().replace(" ", "_")
+
+
+def _normalize_catalog_key(name: object | None) -> str:
+    if name is None:
+        return ""
+    return slugify(str(name))
+
+
+def _string_name(value: object | None) -> str | None:
+    if value is None:
+        return None
+    if isinstance(value, str):
+        return value.strip() or None
+    if isinstance(value, Mapping):
+        for key in ("name", "nome", "label", "item"):
+            candidate = value.get(key)
+            if isinstance(candidate, str) and candidate.strip():
+                return candidate.strip()
+    return None
+
+
+def load_reference_catalog(
+    reference_dir: Path | None = None, *, strict: bool = False
+) -> dict[str, dict[str, Mapping[str, object]]]:
+    directory = reference_dir or DEFAULT_REFERENCE_DIR
+    catalog: dict[str, dict[str, Mapping[str, object]]] = {}
+    if not directory.exists():
+        return catalog
+
+    for filename in ("spells.json", "feats.json", "items.json"):
+        path = directory / filename
+        if not path.is_file():
+            continue
+        entries = json.loads(path.read_text(encoding="utf-8"))
+        validate_with_schema(REFERENCE_SCHEMA, entries, filename, strict=strict)
+        normalized: dict[str, Mapping[str, object]] = {}
+        for entry in entries:
+            if not isinstance(entry, Mapping):
+                continue
+            name = _string_name(entry.get("name"))
+            if not name:
+                continue
+            normalized[_normalize_catalog_key(name)] = entry
+        catalog[filename.removesuffix(".json")] = normalized
+
+    return catalog
+
+
+def _collect_catalog_entries(sheet_payload: Mapping[str, object]) -> dict[str, list[str]]:
+    def _extract_sequence_names(value: object) -> list[str]:
+        names: list[str] = []
+        if isinstance(value, Mapping):
+            for entry in value.values():
+                names.extend(_extract_sequence_names(entry))
+        elif isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+            for entry in value:
+                candidate = _string_name(entry)
+                if candidate:
+                    names.append(candidate)
+        else:
+            candidate = _string_name(value)
+            if candidate:
+                names.append(candidate)
+        return names
+
+    catalog_entries = {
+        "spells": [],
+        "feats": [],
+        "items": [],
+    }
+
+    spell_levels = sheet_payload.get("spell_levels")
+    if spell_levels:
+        catalog_entries["spells"].extend(_extract_sequence_names(spell_levels))
+
+    for key, target in (("talenti", "feats"), ("equipaggiamento", "items")):
+        value = sheet_payload.get(key)
+        if value:
+            catalog_entries[target].extend(_extract_sequence_names(value))
+
+    return catalog_entries
+
+
+def validate_sheet_with_catalog(
+    sheet_payload: Mapping[str, object] | None,
+    catalog: Mapping[str, Mapping[str, Mapping[str, object]]],
+) -> tuple[list[str], dict[str, list[str]]]:
+    if not isinstance(sheet_payload, Mapping):
+        return [], {}
+
+    available = _collect_catalog_entries(sheet_payload)
+    normalized_present = {
+        category: {_normalize_catalog_key(name): name for name in names}
+        for category, names in available.items()
+    }
+    all_selected = set()
+    for names in normalized_present.values():
+        all_selected.update(names)
+
+    missing: list[str] = []
+    prerequisite_violations: list[str] = []
+
+    for category, names in normalized_present.items():
+        known_entries = catalog.get(category, {})
+        for normalized_name, raw_name in names.items():
+            entry = known_entries.get(normalized_name)
+            if not entry:
+                missing.append(f"{category}:{raw_name}")
+                continue
+            prerequisites = entry.get("prerequisites")
+            if isinstance(prerequisites, Sequence) and not isinstance(
+                prerequisites, (str, bytes)
+            ):
+                for prerequisite in prerequisites:
+                    if _normalize_catalog_key(prerequisite) not in all_selected:
+                        prerequisite_violations.append(
+                            f"{entry.get('name')}: {prerequisite}"
+                        )
+
+    errors: list[str] = []
+    metadata: dict[str, list[str]] = {}
+    if missing:
+        errors.append(
+            "Elementi non presenti nel catalogo: " + ", ".join(sorted(set(missing)))
+        )
+        metadata["missing_catalog_entries"] = sorted(set(missing))
+    if prerequisite_violations:
+        errors.append(
+            "Prerequisiti catalogo non soddisfatti: "
+            + ", ".join(sorted(set(prerequisite_violations)))
+        )
+        metadata["prerequisite_violations"] = sorted(set(prerequisite_violations))
+
+    return errors, metadata
+
+
+def catalog_combo_candidates(
+    catalog: Mapping[str, Mapping[str, Mapping[str, object]]], *, max_entries: int = 2
+) -> list[dict[str, object]]:
+    feats_catalog = catalog.get("feats", {})
+    items_catalog = catalog.get("items", {})
+    feat_names = [
+        entry.get("name")
+        for entry in islice(feats_catalog.values(), max_entries)
+        if isinstance(entry, Mapping) and _string_name(entry.get("name"))
+    ]
+    feat_names = [_string_name(name) for name in feat_names if _string_name(name)]
+    item_names = [
+        entry.get("name")
+        for entry in islice(items_catalog.values(), max_entries)
+        if isinstance(entry, Mapping) and _string_name(entry.get("name"))
+    ]
+    item_names = [_string_name(name) for name in item_names if _string_name(name)]
+
+    archetype_candidates: list[str | None] = [None]
+    for entry in feats_catalog.values():
+        tags = entry.get("tags") if isinstance(entry.get("tags"), Sequence) else []
+        for tag in tags:
+            if isinstance(tag, str) and tag.startswith("archetype:"):
+                archetype_candidates.append(tag.split(":", 1)[1])
+    archetype_candidates = [
+        archetype
+        for archetype in archetype_candidates
+        if archetype is None or _string_name(archetype)
+    ][: max_entries + 1]
+
+    combos: list[dict[str, object]] = []
+    for feat_name, item_name in product(feat_names or [None], item_names or [None]):
+        for archetype in archetype_candidates:
+            combos.append(
+                {
+                    "archetype": _string_name(archetype),
+                    "feats": [name for name in (feat_name,) if name],
+                    "items": [name for name in (item_name,) if name],
+                }
+            )
+
+    return combos
 
 
 def normalize_mode(mode: str) -> str:
@@ -858,6 +1039,7 @@ def review_local_database(
     module_index_path: Path | None = None,
     strict: bool = False,
     output_path: Path | None = None,
+    reference_dir: Path | None = None,
 ) -> Mapping[str, Any]:
     """Valida i JSON già presenti nel database locale e produce un report riassuntivo."""
 
@@ -880,6 +1062,7 @@ def review_local_database(
             pass
 
     build_index_entries = _load_build_index_entries(build_index_path)
+    reference_catalog = load_reference_catalog(reference_dir, strict=strict)
     build_files: dict[Path, str] = {}
     index_entries: list[dict[str, object]] = []
     if build_dir.is_dir():
@@ -959,6 +1142,15 @@ def review_local_database(
             for error in progression_errors:
                 if error not in completeness_errors:
                     completeness_errors.append(error)
+
+            catalog_errors, catalog_meta = validate_sheet_with_catalog(
+                sheet_payload, reference_catalog
+            )
+            for error in catalog_errors:
+                if error not in completeness_errors:
+                    completeness_errors.append(error)
+            if catalog_meta:
+                entry.update(catalog_meta)
             completeness_text: str | None = None
             if completeness_errors:
                 completeness_text = "; ".join(
@@ -1073,6 +1265,9 @@ def review_local_database(
             index_entry["error"] = validation_error
         if completeness_errors:
             index_entry["completeness_errors"] = completeness_errors
+        for field in ("missing_catalog_entries", "prerequisite_violations"):
+            if entry.get(field):
+                index_entry[field] = entry[field]
         entry.setdefault("output_prefix", index_entry.get("output_prefix"))
         entry.setdefault("level_checkpoints", index_entry.get("level_checkpoints"))
         entry.setdefault("spec_id", index_entry.get("spec_id"))
@@ -1470,6 +1665,19 @@ def parse_args() -> argparse.Namespace:
         help="Genera più varianti e mantiene solo quelle con meta_tier T1 e badge validato",
     )
     parser.add_argument(
+        "--suggest-combos",
+        action="store_true",
+        help="Genera combinazioni dal catalogo e conserva solo quelle T1 con ruling badge",
+    )
+    parser.add_argument(
+        "--validate-combo",
+        action="store_true",
+        help=(
+            "Valida che le combo suggerite abbiano meta_tier T1 e ruling_badge; "
+            "se nessuna è valida aggiunge errori di completezza"
+        ),
+    )
+    parser.add_argument(
         "--t1-variants",
         type=int,
         default=3,
@@ -1504,6 +1712,12 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("src/data/module_index.json"),
         help="Percorso del file indice per i moduli scaricati",
+    )
+    parser.add_argument(
+        "--reference-dir",
+        type=Path,
+        default=Path("data/reference"),
+        help="Directory con il catalogo normalizzato di incantesimi/talenti/equipaggiamento",
     )
     parser.add_argument(
         "--reports-dir",
@@ -2943,7 +3157,14 @@ async def fetch_build(
     ruling_max_retries: int | None = None,
     t1_filter: bool = False,
     t1_variants: int = 3,
+    reference_dir: Path | None = None,
+    suggest_combos: bool = False,
+    validate_combo: bool = False,
 ) -> MutableMapping:
+    reference_catalog = load_reference_catalog(
+        reference_dir, strict=require_complete
+    )
+
     def _coerce_number(value: object) -> float | None:
         if isinstance(value, (int, float)):
             return float(value)
@@ -3025,17 +3246,93 @@ async def fetch_build(
 
         return meta_tier, str(ruling_badge) if ruling_badge else None, offense_score, defense_score, ruling_log
 
-    async def _fetch_single_variant() -> MutableMapping:
+    async def _append_combo_suggestions(
+        base_payload: MutableMapping,
+    ) -> MutableMapping:
+        if not suggest_combos:
+            return base_payload
+
+        suggested: list[Mapping[str, object]] = []
+        for combo in catalog_combo_candidates(reference_catalog):
+            combo_id_parts = [request.class_name]
+            archetype_value = combo.get("archetype") or request.archetype
+            if archetype_value:
+                combo_id_parts.append(str(archetype_value))
+            feat_names = combo.get("feats") if isinstance(combo.get("feats"), Sequence) else []
+            item_names = combo.get("items") if isinstance(combo.get("items"), Sequence) else []
+            combo_id_parts.extend(map(str, feat_names or []))
+            combo_id_parts.extend(map(str, item_names or []))
+            combo_slug = slugify("-".join(filter(None, combo_id_parts)))
+
+            merged_query = dict(request.query_params)
+            if archetype_value:
+                merged_query.setdefault("archetype", archetype_value)
+            merged_body = dict(request.body_params)
+            if feat_names:
+                merged_body["feat_matrix"] = list(feat_names)
+            if item_names:
+                merged_body["equipment_plan"] = list(item_names)
+
+            combo_request = replace(
+                request,
+                archetype=archetype_value,
+                query_params=merged_query,
+                body_params=merged_body,
+                combo_id=f"catalog_{combo_slug}",
+            )
+
+            try:
+                combo_payload = await _fetch_single_variant(combo_request)
+            except BuildFetchError:
+                continue
+
+            meta = _variant_meta(combo_payload)
+            if validate_combo and (meta[0] != "T1" or not meta[1]):
+                continue
+            if meta[0] == "T1" and meta[1]:
+                suggested.append(
+                    {
+                        "combo_id": combo_request.combo_id,
+                        "archetype": archetype_value,
+                        "feats": list(feat_names or []),
+                        "items": list(item_names or []),
+                        "meta_tier": meta[0],
+                        "ruling_badge": meta[1],
+                        "offense": meta[2],
+                        "defense": meta[3],
+                        "ruling_log": meta[4],
+                    }
+                )
+
+        benchmark_ctx = base_payload.setdefault("benchmark", {})
+        benchmark_ctx["suggested_combos"] = suggested
+        base_meta = _variant_meta(base_payload)
+        if base_meta[0] and "meta_tier" not in benchmark_ctx:
+            benchmark_ctx["meta_tier"] = base_meta[0]
+        if base_meta[1] and "ruling_badge" not in benchmark_ctx:
+            benchmark_ctx["ruling_badge"] = base_meta[1]
+        if not suggested and validate_combo:
+            completeness_ctx = base_payload.setdefault("completeness", {})
+            errors_list = completeness_ctx.setdefault("errors", [])
+            errors_list.append(
+                "Nessuna combo catalogo con meta_tier T1 e badge valido trovata"
+            )
+        return base_payload
+
+    async def _fetch_single_variant(
+        current_request: BuildRequest | None = None,
+    ) -> MutableMapping:
+        active_request = current_request or request
         params: MutableMapping[str, object] = {
-            "mode": request.mode,
-            "class": request.class_name,
+            "mode": active_request.mode,
+            "class": active_request.class_name,
             "stub": True,
         }
         if target_level is not None:
             params["level"] = target_level
-        params.update(request.query_params)
+        params.update(active_request.query_params)
         headers = {"x-api-key": api_key} if api_key else {}
-        method = request.http_method()
+        method = active_request.http_method()
         response = await request_with_retry(
             client,
             method,
@@ -3053,6 +3350,16 @@ async def fetch_build(
             raise BuildFetchError(
                 f"Risposta non JSON per {request.class_name}: {exc}"
             ) from exc
+
+        original_benchmark = (
+            payload.get("benchmark") if isinstance(payload.get("benchmark"), Mapping) else {}
+        )
+        original_meta_tier = (
+            original_benchmark.get("meta_tier") if isinstance(original_benchmark, Mapping) else None
+        )
+        original_ruling_badge = (
+            original_benchmark.get("ruling_badge") if isinstance(original_benchmark, Mapping) else None
+        )
 
         for required in ("build_state", "benchmark", "export"):
             if required not in payload:
@@ -3101,17 +3408,21 @@ async def fetch_build(
             logging.info(
                 "Modalità %s confermata per %s: step_total=%s (%s step disponibili)",
                 normalized_mode,
-                request.class_name,
+                active_request.class_name,
                 observed_step_total,
                 "16" if normalized_mode == "extended" else "8",
             )
 
-        if request.race is None and build_state.get("race"):
-            request.race = build_state.get("race")
-        if request.archetype is None and build_state.get("archetype"):
-            request.archetype = build_state.get("archetype")
-        if request.background is None and request.body_params.get("background_hooks"):
-            request.background = str(request.body_params.get("background_hooks"))
+        if active_request.race is None and build_state.get("race"):
+            active_request.race = build_state.get("race")
+        if active_request.archetype is None and build_state.get("archetype"):
+            active_request.archetype = build_state.get("archetype")
+        if active_request.background is None and active_request.body_params.get(
+            "background_hooks"
+        ):
+            active_request.background = str(
+                active_request.body_params.get("background_hooks")
+            )
 
         composite = {
             "build": {
@@ -3209,6 +3520,20 @@ async def fetch_build(
             if error not in completeness_errors:
                 completeness_errors.append(error)
 
+        catalog_errors, catalog_meta = validate_sheet_with_catalog(
+            sheet_payload, reference_catalog
+        )
+        for error in catalog_errors:
+            if error not in completeness_errors:
+                completeness_errors.append(error)
+        if catalog_meta:
+            payload["catalog_validation"] = catalog_meta
+            payload.setdefault("benchmark", {}).update(catalog_meta)
+        if original_meta_tier and "meta_tier" not in payload.get("benchmark", {}):
+            payload.setdefault("benchmark", {})["meta_tier"] = original_meta_tier
+        if original_ruling_badge and "ruling_badge" not in payload.get("benchmark", {}):
+            payload.setdefault("benchmark", {})["ruling_badge"] = original_ruling_badge
+
         payload.update(
             {
                 "class": request.class_name,
@@ -3218,7 +3543,7 @@ async def fetch_build(
                 "request": request.metadata(),
                 "composite": composite,
                 "query_params": params,
-                "body_params": request.body_params,
+                "body_params": active_request.body_params,
                 "mode_normalized": normalized_mode,
                 "step_audit": {
                     "normalized_mode": normalized_mode,
@@ -3251,7 +3576,7 @@ async def fetch_build(
         if require_complete and completeness_errors:
             joined_errors = "; ".join(completeness_errors)
             raise BuildFetchError(
-                f"Build incompleta per {request.class_name}: {joined_errors}",
+                f"Build incompleta per {active_request.class_name}: {joined_errors}",
                 completeness_errors=completeness_errors,
             )
         return payload
@@ -3262,7 +3587,7 @@ async def fetch_build(
         payload = await _fetch_single_variant()
         variants.append((payload, _variant_meta(payload)))
         if not t1_filter:
-            return payload
+            return await _append_combo_suggestions(payload)
 
     valid_variants = [
         (payload, meta)
@@ -3282,7 +3607,7 @@ async def fetch_build(
     best_payload, best_meta = max(valid_variants, key=lambda item: _score(item[1]))
     if best_meta[4]:
         best_payload.setdefault("qa", {}).setdefault("ruling_expert", {})["log"] = best_meta[4]
-    return best_payload
+    return await _append_combo_suggestions(best_payload)
 
 async def fetch_module(
     client: httpx.AsyncClient, api_key: str | None, module_name: str, max_retries: int
@@ -3403,6 +3728,10 @@ def _index_meta_from_payload(payload: Mapping[str, object] | None) -> dict[str, 
             metadata["benchmark_offense"] = offense
         if defense:
             metadata["benchmark_defense"] = defense
+
+        for field in ("missing_catalog_entries", "prerequisite_violations"):
+            if benchmark.get(field):
+                metadata[field] = benchmark[field]
 
     ruling_log = payload.get("ruling_log")
     if isinstance(ruling_log, Sequence) and not isinstance(ruling_log, (str, bytes)):
@@ -3614,6 +3943,9 @@ async def run_harvest(
     t1_filter: bool = False,
     t1_variants: int = 3,
     combo_best_only: bool = False,
+    reference_dir: Path | None = None,
+    suggest_combos: bool = False,
+    validate_combo: bool = False,
 ) -> None:
     requests = list(requests)
     max_items = int(max_items) if max_items is not None else None
@@ -3934,6 +4266,9 @@ async def run_harvest(
                                 ruling_max_retries=ruling_max_retries,
                                 t1_filter=t1_filter,
                                 t1_variants=t1_variants,
+                                reference_dir=reference_dir,
+                                suggest_combos=suggest_combos,
+                                validate_combo=validate_combo,
                             )
                             break
                         except BuildFetchError as exc:
@@ -4384,6 +4719,9 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 ruling_max_retries=args.ruling_max_retries,
                 t1_filter=args.t1_filter,
                 t1_variants=args.t1_variants,
+                reference_dir=args.reference_dir,
+                suggest_combos=args.suggest_combos,
+                validate_combo=args.validate_combo,
                 combo_best_only=combo_best_only,
             )
         )
@@ -4423,6 +4761,9 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 ruling_max_retries=args.ruling_max_retries,
                 t1_filter=args.t1_filter,
                 t1_variants=args.t1_variants,
+                reference_dir=args.reference_dir,
+                suggest_combos=args.suggest_combos,
+                validate_combo=args.validate_combo,
                 combo_best_only=combo_best_only,
             )
         )
@@ -4506,6 +4847,7 @@ def main() -> None:
             module_index_path=args.module_index_path,
             strict=strict_mode,
             output_path=args.review_output,
+            reference_dir=args.reference_dir,
         )
         return
 
@@ -4538,6 +4880,9 @@ def main() -> None:
             args.t1_filter,
             args.t1_variants,
             combo_best_only,
+            reference_dir=args.reference_dir,
+            suggest_combos=args.suggest_combos,
+            validate_combo=args.validate_combo,
         )
     )
 

@@ -89,6 +89,41 @@ tools/run_static_analysis.sh
 Lo script lancia `black --check` sui file Python e compila i moduli con
 `python -m compileall` per rilevare errori di sintassi.
 
+### Catalogo di riferimento RAW/SRD
+
+- I file normalizzati si trovano in `data/reference/*.json` e seguono lo schema
+  `schemas/reference_catalog.schema.json` (chiavi obbligatorie: `name`,
+  `source`, `prerequisites`, `tags`, `references`). Aggiorna i file con nuove
+  voci RAW/SRD citando la fonte e mantieni il formato lista di oggetti.
+- Il catalogo locale non sostituisce le query runtime verso le fonti
+  `meta_community`: è uno snapshot curato offline (per CI/validazioni senza
+  rete) che raccoglie gli entry point più ricorrenti. Puoi ampliare l'elenco
+  importando i risultati delle ricerche `meta_community` e normalizzandoli
+  nello schema condiviso.
+- Per validare il catalogo esegui i test: `pytest tests/test_generate_build_db.py -k reference`.
+- L'indice `src/data/module_index.json` espone il catalogo tramite il campo
+  `reference_catalog`: aggiornalo se aggiungi/riordini i file.
+
+### Flag CLI per validazione catalogo e combo T1
+
+`tools/generate_build_db.py` ora integra la verifica contro il catalogo
+`data/reference/` e la generazione opzionale di combo T1:
+
+- `--reference-dir data/reference` punta alla directory del catalogo.
+- `--validate-combo` richiede che ogni scheda e combo suggerita sia coerente con
+  il catalogo (incantesimi, talenti, equipaggiamento) e aggiunge errori di
+  completezza se mancano voci/prerequisiti.
+- `--suggest-combos` genera varianti combinando archetipi/talenti/equipaggiamento
+  dal catalogo, esegue il builder e salva nelle metadati solo le proposte con
+  `benchmark.meta_tier == "T1"` e `ruling_badge` valido.
+
+L'output arricchito include:
+
+- `completeness.errors` popolato con assenze/prerequisiti e, se richiesto,
+  l'assenza di combo T1 valide.
+- `benchmark.suggested_combos` con le varianti accettate e i relativi log di
+  ruling/benchmark.
+
 Su push e pull request, il workflow GitHub Actions **Static Analysis** esegue
 lo stesso script per garantire che il codice resti formattato e privo di errori
 di sintassi prima del merge.

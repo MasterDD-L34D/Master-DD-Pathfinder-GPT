@@ -34,5 +34,10 @@
     "narrative_flow.txt",
     "scheda_pg_markdown_template.md",
     "adventurer_ledger.txt"
+  ],
+  "reference_catalog": [
+    "data/reference/spells.json",
+    "data/reference/feats.json",
+    "data/reference/items.json"
   ]
 }
