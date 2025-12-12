@@ -4005,6 +4005,7 @@ def build_index_entry(
     benchmark_offense: float | None = None,
     benchmark_defense: float | None = None,
     ruling_log: Sequence[str] | None = None,
+    **extra_meta: object,
 ) -> Mapping:
     entry: dict[str, object] = {
         "file": str(output_file) if output_file else None,
@@ -4029,6 +4030,8 @@ def build_index_entry(
         entry["benchmark_defense"] = benchmark_defense
     if ruling_log:
         entry["ruling_log"] = list(ruling_log)
+    if extra_meta:
+        entry.update(extra_meta)
     if step_audit:
         entry.update(
             {
