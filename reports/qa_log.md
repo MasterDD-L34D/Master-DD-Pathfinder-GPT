@@ -1,7 +1,12 @@
 # QA Log — 2025-12-11
 
+## Regression 2025-12-12
+- `pytest tests/test_app.py -q` ripetuto con `ALLOW_MODULE_DUMP=false` di default: i `.txt` vengono serviti con header `X-Content-*` e marker `[contenuto troncato]`, mentre PDF/binari restano bloccati 403, confermando il troncamento/marker richiesto per i moduli con note aperte.【F:tests/test_app.py†L265-L340】【ff0839†L1-L10】
+- Naming export e CTA QA stabili: MinMax Builder continua a produrre `MinMax_<nome>.pdf/.xlsx/.json` dietro il gate `export_requires`, e l’Encounter Designer mantiene il flow QA→export vincolato alle CTA guidate (validate→export).【F:src/modules/minmax_builder.txt†L940-L942】【F:src/modules/Encounter_Designer.txt†L505-L514】
+- Endpoint protetti verificati: `/modules` e `/knowledge` rifiutano chiamate senza/errata API key con 401/429, mentre `/metrics` respinge accessi non autorizzati con 403 e accetta solo chiave valida.【F:tests/test_app.py†L542-L618】
+
 ## Test eseguiti
-- `pytest tests/test_app.py -q` (50 pass; solo warning jsonschema).【439a96†L1-L11】
+- `pytest tests/test_app.py -q` (50 pass; solo warning jsonschema).【ff0839†L1-L10】
 
 ## Verifiche di dump (ALLOW_MODULE_DUMP=false) ed export
 - L'handler di streaming applica troncamento e marker/header (`X-Content-*`, `[contenuto troncato]`) quando il dump è disabilitato, mantenendo il blocco export per asset non ammessi.【F:src/app.py†L1546-L1580】【F:tests/test_app.py†L270-L298】
