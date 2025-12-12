@@ -289,6 +289,26 @@ def load_reference_catalog(
     return catalog
 
 
+def load_reference_manifest(
+    reference_dir: Path | None = None,
+) -> Mapping[str, object]:
+    directory = reference_dir or DEFAULT_REFERENCE_DIR
+    manifest_path = directory / "manifest.json"
+    if not manifest_path.is_file():
+        return {}
+
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except Exception as exc:  # pragma: no cover - defensive log
+        logging.warning("Impossibile leggere il manifest del catalogo: %s", exc)
+        return {}
+
+    if not isinstance(manifest, Mapping):
+        return {}
+
+    return manifest
+
+
 def _collect_catalog_entries(sheet_payload: Mapping[str, object]) -> dict[str, list[str]]:
     def _extract_sequence_names(value: object) -> list[str]:
         names: list[str] = []
@@ -327,28 +347,43 @@ def _collect_catalog_entries(sheet_payload: Mapping[str, object]) -> dict[str, l
 def validate_sheet_with_catalog(
     sheet_payload: Mapping[str, object] | None,
     catalog: Mapping[str, Mapping[str, Mapping[str, object]]],
+    ledger: Mapping[str, object] | None = None,
+    catalog_manifest: Mapping[str, object] | None = None,
 ) -> tuple[list[str], dict[str, list[str]]]:
     if not isinstance(sheet_payload, Mapping):
         return [], {}
 
     available = _collect_catalog_entries(sheet_payload)
-    normalized_present = {
+    ledger_entries = _collect_ledger_entries(ledger)
+
+    normalized_sheet = {
         category: {_normalize_catalog_key(name): name for name in names}
         for category, names in available.items()
     }
+    normalized_ledger = {
+        category: {_normalize_catalog_key(name): name for name in names}
+        for category, names in ledger_entries.items()
+    }
+
     all_selected = set()
-    for names in normalized_present.values():
+    for names in normalized_sheet.values():
+        all_selected.update(names)
+    for names in normalized_ledger.values():
         all_selected.update(names)
 
     missing: list[str] = []
+    ledger_missing: list[str] = []
     prerequisite_violations: list[str] = []
+    ledger_mismatch: list[str] = []
 
-    for category, names in normalized_present.items():
+    def _collect_missing(
+        normalized: Mapping[str, str], category: str, target: list[str]
+    ) -> None:
         known_entries = catalog.get(category, {})
-        for normalized_name, raw_name in names.items():
+        for normalized_name, raw_name in normalized.items():
             entry = known_entries.get(normalized_name)
             if not entry:
-                missing.append(f"{category}:{raw_name}")
+                target.append(f"{category}:{raw_name}")
                 continue
             prerequisites = entry.get("prerequisites")
             if isinstance(prerequisites, Sequence) and not isinstance(
@@ -360,21 +395,75 @@ def validate_sheet_with_catalog(
                             f"{entry.get('name')}: {prerequisite}"
                         )
 
+    for category, names in normalized_sheet.items():
+        _collect_missing(names, category, missing)
+
+    for category, names in normalized_ledger.items():
+        _collect_missing(names, category, ledger_missing)
+        sheet_names = normalized_sheet.get(category, {})
+        for normalized_name, raw_name in names.items():
+            if normalized_name not in sheet_names:
+                ledger_mismatch.append(raw_name)
+
     errors: list[str] = []
     metadata: dict[str, list[str]] = {}
+    version = None
+    if isinstance(catalog_manifest, Mapping):
+        version = catalog_manifest.get("version")
     if missing:
         errors.append(
             "Elementi non presenti nel catalogo: " + ", ".join(sorted(set(missing)))
         )
         metadata["missing_catalog_entries"] = sorted(set(missing))
+    if ledger_missing:
+        errors.append(
+            "Voci ledger fuori catalogo: " + ", ".join(sorted(set(ledger_missing)))
+        )
+        metadata["ledger_unknown_entries"] = sorted(set(ledger_missing))
     if prerequisite_violations:
         errors.append(
             "Prerequisiti catalogo non soddisfatti: "
             + ", ".join(sorted(set(prerequisite_violations)))
         )
         metadata["prerequisite_violations"] = sorted(set(prerequisite_violations))
+    if ledger_mismatch:
+        errors.append(
+            "Ledger e scheda disallineati: " + ", ".join(sorted(set(ledger_mismatch)))
+        )
+        metadata["ledger_sheet_mismatches"] = sorted(set(ledger_mismatch))
+    if version:
+        metadata["catalog_version"] = [str(version)]
 
     return errors, metadata
+
+
+def _collect_ledger_entries(
+    ledger: Mapping[str, object] | None,
+) -> dict[str, list[str]]:
+    if not isinstance(ledger, Mapping):
+        return {"items": []}
+
+    entries: list[object] = []
+    for key in ("entries", "movimenti", "transactions"):
+        value = ledger.get(key)
+        if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+            entries.extend(value)
+    if not entries:
+        entries = [ledger]
+
+    names: list[str] = []
+    for entry in entries:
+        if isinstance(entry, Mapping):
+            for key in ("item", "oggetto", "voce", "note"):
+                candidate = _string_name(entry.get(key))
+                if candidate:
+                    names.append(candidate)
+        else:
+            candidate = _string_name(entry)
+            if candidate:
+                names.append(candidate)
+
+    return {"items": names}
 
 
 def catalog_combo_candidates(
@@ -1063,6 +1152,7 @@ def review_local_database(
 
     build_index_entries = _load_build_index_entries(build_index_path)
     reference_catalog = load_reference_catalog(reference_dir, strict=strict)
+    reference_manifest = load_reference_manifest(reference_dir)
     build_files: dict[Path, str] = {}
     index_entries: list[dict[str, object]] = []
     if build_dir.is_dir():
@@ -1118,6 +1208,7 @@ def review_local_database(
             sheet_payload = payload.get("export", {}).get(
                 "sheet_payload"
             ) or payload.get("sheet_payload")
+            ledger = payload.get("ledger") or payload.get("adventurer_ledger")
             sheet_error = None
             if sheet_payload is not None:
                 sheet_error = validate_with_schema(
@@ -1144,7 +1235,7 @@ def review_local_database(
                     completeness_errors.append(error)
 
             catalog_errors, catalog_meta = validate_sheet_with_catalog(
-                sheet_payload, reference_catalog
+                sheet_payload, reference_catalog, ledger, reference_manifest
             )
             for error in catalog_errors:
                 if error not in completeness_errors:
@@ -1265,7 +1356,13 @@ def review_local_database(
             index_entry["error"] = validation_error
         if completeness_errors:
             index_entry["completeness_errors"] = completeness_errors
-        for field in ("missing_catalog_entries", "prerequisite_violations"):
+        for field in (
+            "missing_catalog_entries",
+            "prerequisite_violations",
+            "ledger_unknown_entries",
+            "ledger_sheet_mismatches",
+            "catalog_version",
+        ):
             if entry.get(field):
                 index_entry[field] = entry[field]
         entry.setdefault("output_prefix", index_entry.get("output_prefix"))
@@ -3164,6 +3261,7 @@ async def fetch_build(
     reference_catalog = load_reference_catalog(
         reference_dir, strict=require_complete
     )
+    reference_manifest = load_reference_manifest(reference_dir)
 
     def _coerce_number(value: object) -> float | None:
         if isinstance(value, (int, float)):
@@ -3521,7 +3619,7 @@ async def fetch_build(
                 completeness_errors.append(error)
 
         catalog_errors, catalog_meta = validate_sheet_with_catalog(
-            sheet_payload, reference_catalog
+            sheet_payload, reference_catalog, ledger, reference_manifest
         )
         for error in catalog_errors:
             if error not in completeness_errors:
@@ -3559,6 +3657,8 @@ async def fetch_build(
                 },
             }
         )
+        if reference_manifest:
+            payload["catalog_manifest"] = reference_manifest
 
         ruling_retries = (
             ruling_max_retries if ruling_max_retries is not None else max_retries
@@ -3729,9 +3829,15 @@ def _index_meta_from_payload(payload: Mapping[str, object] | None) -> dict[str, 
         if defense:
             metadata["benchmark_defense"] = defense
 
-        for field in ("missing_catalog_entries", "prerequisite_violations"):
-            if benchmark.get(field):
-                metadata[field] = benchmark[field]
+    for field in (
+        "missing_catalog_entries",
+        "prerequisite_violations",
+        "ledger_unknown_entries",
+        "ledger_sheet_mismatches",
+        "catalog_version",
+    ):
+        if benchmark.get(field):
+            metadata[field] = benchmark[field]
 
     ruling_log = payload.get("ruling_log")
     if isinstance(ruling_log, Sequence) and not isinstance(ruling_log, (str, bytes)):

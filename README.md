@@ -95,34 +95,45 @@ Lo script lancia `black --check` sui file Python e compila i moduli con
   `schemas/reference_catalog.schema.json` (chiavi obbligatorie: `name`,
   `source`, `prerequisites`, `tags`, `references`). Aggiorna i file con nuove
   voci RAW/SRD citando la fonte e mantieni il formato lista di oggetti.
+- Ogni snapshot è versionato in `data/reference/manifest.json` con numero di
+  versione, conteggio entry e percorso dei file: quando modifichi il catalogo
+  aggiorna il manifest (versione e contatori) e verifica che le fonti restino
+  SRD/RAW.
 - Il catalogo locale non sostituisce le query runtime verso le fonti
   `meta_community`: è uno snapshot curato offline (per CI/validazioni senza
   rete) che raccoglie gli entry point più ricorrenti. Puoi ampliare l'elenco
   importando i risultati delle ricerche `meta_community` e normalizzandoli
   nello schema condiviso.
-- Per validare il catalogo esegui i test: `pytest tests/test_generate_build_db.py -k reference`.
+- Per validare il catalogo esegui i test: `pytest tests/test_generate_build_db.py -k reference`
+  oppure lancia `python -m compileall data/reference schemas` per catturare
+  errori di formattazione prima di eseguire lo script di harvest.
 - L'indice `src/data/module_index.json` espone il catalogo tramite il campo
-  `reference_catalog`: aggiornalo se aggiungi/riordini i file.
+  `reference_catalog`: aggiungi il manifest se crei nuovi dataset e mantieni
+  l'elenco allineato.
 
 ### Flag CLI per validazione catalogo e combo T1
 
 `tools/generate_build_db.py` ora integra la verifica contro il catalogo
 `data/reference/` e la generazione opzionale di combo T1:
 
-- `--reference-dir data/reference` punta alla directory del catalogo.
-- `--validate-combo` richiede che ogni scheda e combo suggerita sia coerente con
-  il catalogo (incantesimi, talenti, equipaggiamento) e aggiunge errori di
-  completezza se mancano voci/prerequisiti.
+- `--reference-dir data/reference` punta alla directory del catalogo e del
+  manifest versionato (iniettato nei metadati delle build).
+- `--validate-combo` richiede che ogni scheda e ledger siano coerenti con il
+  catalogo (incantesimi, talenti, equipaggiamento) e aggiunge errori di
+  completezza se mancano voci/prerequisiti o se il ledger contiene elementi non
+  presenti nella scheda.
 - `--suggest-combos` genera varianti combinando archetipi/talenti/equipaggiamento
   dal catalogo, esegue il builder e salva nelle metadati solo le proposte con
-  `benchmark.meta_tier == "T1"` e `ruling_badge` valido.
+  `benchmark.meta_tier == "T1"` e `ruling_badge` valido. Con `--validate-combo`
+  i log dei ruling e l'assenza di combo T1 vengono riportati in
+  `completeness.errors`.
 
 L'output arricchito include:
 
-- `completeness.errors` popolato con assenze/prerequisiti e, se richiesto,
-  l'assenza di combo T1 valide.
+- `completeness.errors` popolato con assenze/prerequisiti, disallineamenti
+  sheet/ledger e, se richiesto, l'assenza di combo T1 valide.
 - `benchmark.suggested_combos` con le varianti accettate e i relativi log di
-  ruling/benchmark.
+  ruling/benchmark, oltre al versionamento del catalogo utilizzato.
 
 Su push e pull request, il workflow GitHub Actions **Static Analysis** esegue
 lo stesso script per garantire che il codice resti formattato e privo di errori

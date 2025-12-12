@@ -38,6 +38,7 @@
   "reference_catalog": [
     "data/reference/spells.json",
     "data/reference/feats.json",
-    "data/reference/items.json"
+    "data/reference/items.json",
+    "data/reference/manifest.json"
   ]
 }
