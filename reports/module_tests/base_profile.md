@@ -17,6 +17,7 @@
 9. **`GET /modules/preload_all_modules.txt`** — Senza API key risponde `401 Invalid or missing API key`; con header `x-api-key` valido ritorna il bundle di preload (status `206` per troncamento con `ALLOW_MODULE_DUMP=false`), confermando l’endpoint protetto e pronto al warmup.【3ae972†L1-L4】【F:src/modules/preload_all_modules.txt†L1-L15】
 10. **Verifica BAS-CHK-19 (API key + preload)** — Esecuzione manuale con `TestClient` e `API_KEY=test-api-key`: `/modules/preload_all_modules.txt` restituisce `206` con header `X-Content-Partial=true`, `ALLOW_MODULE_DUMP` disattivo e guard `runtime.preload_done` attiva nel router.【4fce5c†L1-L7】【F:src/modules/base_profile.txt†L148-L156】
 11. **Riesecuzione BAS-CHK-19 (preload protetto con API key)** — Con `settings.api_key=test-api-key` e dump disattivo, `GET /modules/preload_all_modules.txt` restituisce `206` con header `X-Content-Partial=true` e warning di troncamento, confermando il warmup protetto; la guard `runtime.preload_done` resta configurata nel router per marcare l’avvenuto preload.【9a9887†L1-L2】【F:src/modules/base_profile.txt†L148-L156】
+12. **BAS-CHK-19 — verifica odierna con API key dedicata** — Con `API_KEY=qa-preload-key` e dump disattivo, `GET /modules/preload_all_modules.txt` risponde `206` con header `X-Content-Partial=true` e testo troncato, confermando il preload protetto che abilita la guard `runtime.preload_done` nel router.【8c37bc†L1-L6】【F:src/modules/base_profile.txt†L148-L156】
 
 - Copertura API completata con test automatici e run manuali: health/modules/meta/download hanno esiti attesi, 401/404 vengono restituiti correttamente e il troncamento è verificato quando `ALLOW_MODULE_DUMP=false`.【56fa11†L1-L12】【F:tests/test_app.py†L282-L314】
 
@@ -29,7 +30,7 @@
 ## Dipendenze
 - Elencare moduli esterni, API o asset (file, immagini, modelli) su cui il modulo fa affidamento, includendo per ciascuno una citazione in linea al blocco di codice che definisce il link o l’endpoint di riferimento.【F:src/modules/base_profile.txt†L95-L117】【F:src/modules/base_profile.txt†L430-L447】
 - Preload silente: la regola iniziale del router imposta `runtime.preload_done` e richiama `Preload_Warmup`/`Ingest` usando il bundle `preload_all_modules.txt` o l’endpoint omonimo protetto da API key.【F:src/modules/base_profile.txt†L142-L150】【F:src/modules/base_profile.txt†L252-L262】【F:src/modules/preload_all_modules.txt†L1-L15】
-- Controllo file binding: tutti i `file_binding` del router puntano a moduli core presenti su disco; nessun riferimento mancante rilevato.【171e26†L15-L24】【F:src/modules/base_profile.txt†L114-L122】
+- Controllo file binding: tutti i `file_binding` del router puntano a moduli core presenti su disco; nessun riferimento mancante rilevato.【2879d6†L2-L3】【F:src/modules/base_profile.txt†L114-L122】【F:src/modules/preload_all_modules.txt†L1-L15】
 
 ## Modello dati e stato
 - **Toggles**: pfs, language, terse_mode, show_badges/show_sources, spoiler, echo_gate/echo_persona, image_constraints, expert; controllano filtri PFS, lingua, lunghezza, spoiler e grading Echo.【F:src/modules/base_profile.txt†L368-L388】
