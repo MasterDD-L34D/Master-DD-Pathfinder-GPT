@@ -1,0 +1,18 @@
+{
+  "version": "2024.06.01",
+  "source": "Pathfinder 1E RAW/SRD snapshot curato offline",
+  "files": {
+    "spells": {
+      "path": "data/reference/spells.json",
+      "entries": 10
+    },
+    "feats": {
+      "path": "data/reference/feats.json",
+      "entries": 11
+    },
+    "items": {
+      "path": "data/reference/items.json",
+      "entries": 11
+    }
+  }
+}
