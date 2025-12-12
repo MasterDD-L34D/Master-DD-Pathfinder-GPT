@@ -331,61 +331,61 @@ Fonte sequenza: `planning/module_review_guide.md`
 #### ruling_expert — Owner: Valentina Riva
 | Story ID | Deriva da | Descrizione | Severità | Stato |
 | --- | --- | --- | --- | --- |
-| RUL-OBS-01 | Osservazione | Documentare il flow guidato RAW→FAQ→PFS con guardrail anti-injection, disambiguazione 0.65 e CTA post-risposta. | S2 (Minor) | To Do |
-| RUL-OBS-02 | Osservazione | Evidenziare la policy `exposure_policy: no_raw_dump` applicata di default con whitelist opzionale. | S2 (Minor) | To Do |
+| RUL-OBS-01 | Osservazione | Documentare il flow guidato RAW→FAQ→PFS con guardrail anti-injection, disambiguazione 0.65 e CTA post-risposta. | S2 (Minor) | Done (QA 2025-12-11) |
+| RUL-OBS-02 | Osservazione | Evidenziare la policy `exposure_policy: no_raw_dump` applicata di default con whitelist opzionale. | S2 (Minor) | Done (QA 2025-12-11) |
 
 #### scheda_pg_markdown_template — Owner: Matteo Leone
 | Story ID | Deriva da | Descrizione | Severità | Stato |
 | --- | --- | --- | --- | --- |
-| SCH-OBS-01 | Osservazione | Annotare che il troncamento mantiene titolo e marker finale, utile per audit con dump limitato. | S3 (Info) | To Do |
-| SCH-OBS-02 | Osservazione | Evidenziare meta header con versione/compatibilità, trigger e policy operative per pipeline automatiche. | S2 (Minor) | To Do |
+| SCH-OBS-01 | Osservazione | Annotare che il troncamento mantiene titolo e marker finale, utile per audit con dump limitato. | S3 (Info) | Done (QA 2025-12-11) |
+| SCH-OBS-02 | Osservazione | Evidenziare meta header con versione/compatibilità, trigger e policy operative per pipeline automatiche. | S2 (Minor) | Done (QA 2025-12-11) |
 
 #### tavern_hub — Owner: Paolo Greco
 | Story ID | Deriva da | Descrizione | Severità | Stato |
 | --- | --- | --- | --- | --- |
-| HUB-OBS-01 | Osservazione | Documentare l’Hub che aggrega quest/rumor/bounty/eventi con flow GameMode, CTA di salvataggio/export e integrazione Encounter/Ledger. | S2 (Minor) | To Do |
-| HUB-ERR-01 | Errore | Registrare che con `ALLOW_MODULE_DUMP=false` gli asset JSON sono bloccati con 403 e gli export hub ereditano marker di troncamento/logging gate. | S2 (Minor) | To Do |
+| HUB-OBS-01 | Osservazione | Documentare l’Hub che aggrega quest/rumor/bounty/eventi con flow GameMode, CTA di salvataggio/export e integrazione Encounter/Ledger. | S2 (Minor) | Done (QA 2025-12-11) |
+| HUB-ERR-01 | Errore | Registrare che con `ALLOW_MODULE_DUMP=false` gli asset JSON sono bloccati con 403 e gli export hub ereditano marker di troncamento/logging gate. | S2 (Minor) | Done (QA 2025-12-11) |
 
 #### Cartelle di servizio — Owner: Sara De Luca
 | Story ID | Deriva da | Descrizione | Severità | Stato |
 | --- | --- | --- | --- | --- |
-| SER-OBS-01 | Osservazione | Tracciare workflow e template Taverna (onboarding, quiz, export `taverna_saves`) con naming coerente, guardrail Echo e CTA guidate. | S2 (Minor) | To Do |
-| SER-ERR-01 | Errore | Registrare che le API core rispondono correttamente e `taverna_saves` resta non esposto per sicurezza. | S3 (Info) | To Do |
-| SER-ERR-02 | Errore | Segnalare l’errore locale `curl | head` con dump abilitato (write failure) come informazione senza azione server-side. | S3 (Info) | To Do |
+| SER-OBS-01 | Osservazione | Tracciare workflow e template Taverna (onboarding, quiz, export `taverna_saves`) con naming coerente, guardrail Echo e CTA guidate. | S2 (Minor) | Done (QA 2025-12-11) |
+| SER-ERR-01 | Errore | Registrare che le API core rispondono correttamente e `taverna_saves` resta non esposto per sicurezza. | S3 (Info) | Done (QA 2025-12-11) |
+| SER-ERR-02 | Errore | Segnalare l’errore locale `curl | head` con dump abilitato (write failure) come informazione senza azione server-side. | S3 (Info) | Done (QA 2025-12-11) |
 
 ## Vista riepilogativa per burn-down
 | Modulo | Nota/Errore | Story ID | Severità | Owner | Stato |
 | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | Modello dati solo valori numerici/astratti | ENC-OBS-01 | S3 | Alice Bianchi | To Do |
-| Encounter_Designer | Pipeline completa con CTA QA/export | ENC-OBS-02 | S2 | Alice Bianchi | To Do |
-| Encounter_Designer | Nessun errore bloccante CR/QA | ENC-ERR-01 | S3 | Alice Bianchi | To Do |
-| base_profile | Endpoint doc instradato verso meta_doc.txt | BAS-OBS-01 | S2 | Andrea Rizzi | To Do |
+| Encounter_Designer | Modello dati solo valori numerici/astratti | ENC-OBS-01 | S3 | Alice Bianchi | Done (QA 2025-12-11) |
+| Encounter_Designer | Pipeline completa con CTA QA/export | ENC-OBS-02 | S2 | Alice Bianchi | Done (QA 2025-12-11) |
+| Encounter_Designer | Nessun errore bloccante CR/QA | ENC-ERR-01 | S3 | Alice Bianchi | Done (QA 2025-12-11) |
+| base_profile | Endpoint doc instradato verso meta_doc.txt | BAS-OBS-01 | S2 | Andrea Rizzi | Done (QA 2025-12-11) |
 | base_profile | Hard-gate moduli core + preload protetto | BAS-OBS-02 | S3 | Andrea Rizzi | Pronto |
 | base_profile | Checkpoint readiness 2025-12-19 | BAS-CHK-19 | S2 | Andrea Rizzi | Pronto |
-| base_profile | Nessun errore bloccante router/doc | BAS-ERR-01 | S3 | Andrea Rizzi | To Do |
-| sigilli_runner_module | Finestra raro solo da indice 14 | SIG-OBS-01 | S2 | Fabio Marchetti | To Do |
-| sigilli_runner_module | Portale anche senza sigilli assegnati | SIG-OBS-02 | S3 | Fabio Marchetti | To Do |
-| sigilli_runner_module | Copertura iterazioni precedenti | SIG-OBS-03 | S3 | Fabio Marchetti | To Do |
-| sigilli_runner_module | 401 su API key mancante | SIG-ERR-01 | S1 | Fabio Marchetti | To Do |
-| sigilli_runner_module | 404 su modulo inesistente | SIG-ERR-02 | S2 | Fabio Marchetti | To Do |
-| sigilli_runner_module | Troncamento con ALLOW_MODULE_DUMP=false | SIG-ERR-03 | S1 | Fabio Marchetti | To Do |
-| sigilli_runner_module | Nessun errore bloccante post code_ok | SIG-ERR-04 | S3 | Fabio Marchetti | To Do |
-| Taverna_NPC | Flusso guidato onboarding→quiz→PNG | TAV-OBS-01 | S2 | Elisa Romano | To Do |
-| Taverna_NPC | API core ok, `taverna_saves` non esposto | TAV-ERR-01 | S3 | Elisa Romano | To Do |
-| Taverna_NPC | Errore locale `curl | head` | TAV-ERR-02 | S3 | Elisa Romano | To Do |
-| adventurer_ledger | Welcome/flow in cinque passi con CTA | LED-OBS-01 | S2 | Luca Ferri | To Do |
-| adventurer_ledger | Blocco download con ALLOW_MODULE_DUMP=false | LED-ERR-01 | S2 | Luca Ferri | To Do |
-| archivist | Policy no_raw_dump con header/JSON lunghezza | ARC-OBS-01 | S2 | Martina Gallo | To Do |
-| archivist | 401 chiaro su /modules e /meta senza API key | ARC-OBS-02 | S2 | Martina Gallo | To Do |
-| ruling_expert | Flow RAW→FAQ→PFS con guardrail e CTA | RUL-OBS-01 | S2 | Valentina Riva | To Do |
-| ruling_expert | Default exposure_policy no_raw_dump | RUL-OBS-02 | S2 | Valentina Riva | To Do |
-| scheda_pg_markdown_template | Troncamento con titolo/marker finale | SCH-OBS-01 | S3 | Matteo Leone | To Do |
-| scheda_pg_markdown_template | Meta header con trigger/policy operative | SCH-OBS-02 | S2 | Matteo Leone | To Do |
-| tavern_hub | Hub con quest/rumor e integrazione Encounter/Ledger | HUB-OBS-01 | S2 | Paolo Greco | To Do |
-| tavern_hub | Blocco asset JSON con ALLOW_MODULE_DUMP=false | HUB-ERR-01 | S2 | Paolo Greco | To Do |
-| Cartelle di servizio | Workflow/template Taverna con guardrail Echo | SER-OBS-01 | S2 | Sara De Luca | To Do |
-| Cartelle di servizio | API core ok, `taverna_saves` non esposto | SER-ERR-01 | S3 | Sara De Luca | To Do |
-| Cartelle di servizio | Errore locale `curl | head` | SER-ERR-02 | S3 | Sara De Luca | To Do |
+| base_profile | Nessun errore bloccante router/doc | BAS-ERR-01 | S3 | Andrea Rizzi | Done (QA 2025-12-11) |
+| sigilli_runner_module | Finestra raro solo da indice 14 | SIG-OBS-01 | S2 | Fabio Marchetti | Done (QA 2025-12-11) |
+| sigilli_runner_module | Portale anche senza sigilli assegnati | SIG-OBS-02 | S3 | Fabio Marchetti | Done (QA 2025-12-11) |
+| sigilli_runner_module | Copertura iterazioni precedenti | SIG-OBS-03 | S3 | Fabio Marchetti | Done (QA 2025-12-11) |
+| sigilli_runner_module | 401 su API key mancante | SIG-ERR-01 | S1 | Fabio Marchetti | Done (QA 2025-12-11) |
+| sigilli_runner_module | 404 su modulo inesistente | SIG-ERR-02 | S2 | Fabio Marchetti | Done (QA 2025-12-11) |
+| sigilli_runner_module | Troncamento con ALLOW_MODULE_DUMP=false | SIG-ERR-03 | S1 | Fabio Marchetti | Done (QA 2025-12-11) |
+| sigilli_runner_module | Nessun errore bloccante post code_ok | SIG-ERR-04 | S3 | Fabio Marchetti | Done (QA 2025-12-11) |
+| Taverna_NPC | Flusso guidato onboarding→quiz→PNG | TAV-OBS-01 | S2 | Elisa Romano | Done (QA 2025-12-11) |
+| Taverna_NPC | API core ok, `taverna_saves` non esposto | TAV-ERR-01 | S3 | Elisa Romano | Done (QA 2025-12-11) |
+| Taverna_NPC | Errore locale `curl | head` | TAV-ERR-02 | S3 | Elisa Romano | Done (QA 2025-12-11) |
+| adventurer_ledger | Welcome/flow in cinque passi con CTA | LED-OBS-01 | S2 | Luca Ferri | Done (QA 2025-12-11) |
+| adventurer_ledger | Blocco download con ALLOW_MODULE_DUMP=false | LED-ERR-01 | S2 | Luca Ferri | Done (QA 2025-12-11) |
+| archivist | Policy no_raw_dump con header/JSON lunghezza | ARC-OBS-01 | S2 | Martina Gallo | Done (QA 2025-12-11) |
+| archivist | 401 chiaro su /modules e /meta senza API key | ARC-OBS-02 | S2 | Martina Gallo | Done (QA 2025-12-11) |
+| ruling_expert | Flow RAW→FAQ→PFS con guardrail e CTA | RUL-OBS-01 | S2 | Valentina Riva | Done (QA 2025-12-11) |
+| ruling_expert | Default exposure_policy no_raw_dump | RUL-OBS-02 | S2 | Valentina Riva | Done (QA 2025-12-11) |
+| scheda_pg_markdown_template | Troncamento con titolo/marker finale | SCH-OBS-01 | S3 | Matteo Leone | Done (QA 2025-12-11) |
+| scheda_pg_markdown_template | Meta header con trigger/policy operative | SCH-OBS-02 | S2 | Matteo Leone | Done (QA 2025-12-11) |
+| tavern_hub | Hub con quest/rumor e integrazione Encounter/Ledger | HUB-OBS-01 | S2 | Paolo Greco | Done (QA 2025-12-11) |
+| tavern_hub | Blocco asset JSON con ALLOW_MODULE_DUMP=false | HUB-ERR-01 | S2 | Paolo Greco | Done (QA 2025-12-11) |
+| Cartelle di servizio | Workflow/template Taverna con guardrail Echo | SER-OBS-01 | S2 | Sara De Luca | Done (QA 2025-12-11) |
+| Cartelle di servizio | API core ok, `taverna_saves` non esposto | SER-ERR-01 | S3 | Sara De Luca | Done (QA 2025-12-11) |
+| Cartelle di servizio | Errore locale `curl | head` | SER-ERR-02 | S3 | Sara De Luca | Done (QA 2025-12-11) |
 ## Cross-cutting e dipendenze
 - Builder/Bilanciamento (Encounter_Designer, minmax_builder): usare i task sopra per valutare epic condivise su export/QA o flow di bilanciamento; ordinare i fix P1 prima dei miglioramenti.
 - Hub/Persistenza (Taverna_NPC, tavern_hub, Cartelle di servizio): verificare coerenza delle policy di salvataggio/quarantena e annotare eventuali blocchi prima di procedere con altri moduli dipendenti.
@@ -396,7 +396,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 | Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Stato | #Osservazioni | #Errori | Checkpoint | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | Alice Bianchi | 2 | P1 | 0 | In corso (3/3 To Do) | 2 | 1 | 2025-12-12 | Nessuna dipendenza esplicita |
+| Encounter_Designer | Alice Bianchi | 2 | P1 | 0 | Pronto (QA 2025-12-11 chiusa) | 2 | 1 | 2025-12-12 | Nessuna dipendenza esplicita |
 | minmax_builder | Marco Conti | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-13 | Nessuna dipendenza esplicita |
 | Taverna_NPC | Elisa Romano | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-14 | Nessuna dipendenza esplicita |
 | tavern_hub | Paolo Greco | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-15 | Nessuna dipendenza esplicita |
@@ -410,7 +410,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | narrative_flow | Davide Serra | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-23 | Nessuna dipendenza esplicita |
 | ruling_expert | Valentina Riva | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-24 | Nessuna dipendenza esplicita |
 | scheda_pg_markdown_template | Matteo Leone | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-25 | Nessuna dipendenza esplicita |
-| 🔶 sigilli_runner_module | Fabio Marchetti | 2 | P1 | 0 | In corso (7/7 To Do) | 3 | 4 | 2025-12-26 | Nessuna dipendenza esplicita; osservazioni elevate su finestra raro/portale |
+| 🔶 sigilli_runner_module | Fabio Marchetti | 2 | P1 | 0 | Pronto (QA 2025-12-11 chiusa) | 3 | 4 | 2025-12-26 | Nessuna dipendenza esplicita; osservazioni elevate su finestra raro/portale |
 
 ### Aggiornamenti giornalieri (SIG\*, ENC\*, BAS\*)
 - Programma un check-in quotidiano per **sigilli_runner_module (SIG\*)**, **Encounter_Designer (ENC\*)** e **base_profile (BAS\*)**, registrando per ogni giornata:
