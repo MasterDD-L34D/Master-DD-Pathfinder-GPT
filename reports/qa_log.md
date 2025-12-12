@@ -1,17 +1,19 @@
 # QA Log — 2025-12-11
 
 ## Test eseguiti
-- `pytest tests/test_app.py -q` (50 pass; solo warning jsonschema).【9eb1eb†L1-L11】
+- `pytest tests/test_app.py -q` (50 pass; solo warning jsonschema).【439a96†L1-L11】
 
 ## Verifiche di dump (ALLOW_MODULE_DUMP=false) ed export
 - L'handler di streaming applica troncamento e marker/header (`X-Content-*`, `[contenuto troncato]`) quando il dump è disabilitato, mantenendo il blocco export per asset non ammessi.【F:src/app.py†L1546-L1580】【F:tests/test_app.py†L270-L298】
 - Gli export condivisi di MinMax Builder continuano a usare il naming uniforme `MinMax_<nome>.pdf/.xlsx/.json` con gate QA associati, allineato alle CTA degli altri moduli di build/export.【F:src/modules/minmax_builder.txt†L940-L943】
 - I flow Encounter Designer restano vincolati alle CTA QA prima dell'export finale (step guidati con gate su `/validate_encounter` e `/export_encounter`).【F:src/modules/Encounter_Designer.txt†L505-L514】【F:src/modules/Encounter_Designer.txt†L515-L524】
 - Le directory e gli export Taverna mantengono auto-name, schema minimo e controllo hub/ledger, con troncamento attivo sui dump protetti.【F:src/modules/Taverna_NPC.txt†L378-L395】【F:src/modules/Taverna_NPC.txt†L1285-L1310】
+- Con `ALLOW_MODULE_DUMP=false` i moduli ancora aperti mostrano troncamento e header `X-Content-*` (es. `narrative_flow.txt`), mentre asset binari/PDF restano bloccati 403 e i listing doc segnalano suffix `-partial` dove previsto.【F:tests/test_app.py†L269-L338】【F:src/modules/meta_doc.txt†L7-L18】
 
 ## Verifiche 401/403 e CTA QA
 - Gli endpoint protetti rifiutano richieste senza API key con `401 Invalid or missing API key`; backoff e 429 scattano su ripetuti tentativi errati prima di sbloccare l'accesso autenticato.【F:tests/test_app.py†L542-L570】
 - L'accesso a risorse bloccate o directory non permesse restituisce 403 coerenti con la policy di dump/whitelist.【F:tests/test_app.py†L270-L298】
+- `/knowledge` replica la stessa policy: 401 senza chiave, 200 solo con API key valida, con protezione 403 sulle metriche se la chiave è errata.【F:tests/test_app.py†L574-L618】
 
 ## Chiusura note per moduli con storie aperte
 - **Encounter_Designer** — ENC-OBS-01/02, ENC-ERR-01 chiusi: data model resta numerico/astratto e le CTA QA guidano il flow fino all'export.【F:src/modules/Encounter_Designer.txt†L90-L140】【F:src/modules/Encounter_Designer.txt†L505-L514】【F:src/modules/Encounter_Designer.txt†L515-L524】
@@ -24,3 +26,8 @@
 - **scheda_pg_markdown_template** — SCH-OBS-01/02 chiusi: troncamento mantiene titolo/marker e meta header dichiara trigger/policy operative.【F:src/modules/scheda_pg_markdown_template.md†L13-L60】【F:src/modules/scheda_pg_markdown_template.md†L115-L139】
 - **tavern_hub** — HUB-OBS-01/ERR-01 chiusi: Hub aggrega quest/rumor con integrazione Encounter/Ledger e blocca asset JSON con troncamento marker su dump off.【F:src/modules/Taverna_NPC.txt†L1133-L1256】【F:src/modules/Taverna_NPC.txt†L1285-L1310】【F:tests/test_app.py†L270-L298】
 - **Cartelle di servizio** — SER-OBS-01/ERR-01/ERR-02 chiusi: workflow e naming Taverna_saves confermati, 401/403 rispettati con marker di troncamento e nota su warning locale.【F:src/modules/Taverna_NPC.txt†L364-L395】【F:tests/test_app.py†L270-L298】【F:tests/test_app.py†L542-L570】
+- **minmax_builder** — MIN-OBS-01/ERR-01 chiusi: export e CTA QA mantengono naming condiviso `MinMax_<nome>.pdf/.xlsx/.json` e sono protetti dal gate `export_requires`; il troncamento resta attivo con dump disabilitato.【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L2018-L2024】【F:tests/test_app.py†L299-L338】
+- **meta_doc** — META-OBS-01 chiuso: con dump disabilitato i listing indicano suffix `-partial` e marker di troncamento, coerenti con la policy documentata; CTA Homebrewery già allineate.【F:src/modules/meta_doc.txt†L7-L18】【F:src/modules/meta_doc.txt†L504-L562】
+- **knowledge_pack** — KNO-OBS-01 chiuso: quick start e router richiedono `x-api-key` e, con dump off, il download resta marcato `[contenuto troncato]` in linea con i test; knowledge base protetta con 401/200 su accesso.【F:src/modules/knowledge_pack.md†L45-L66】【F:reports/module_tests/knowledge_pack.md†L5-L18】【F:tests/test_app.py†L574-L582】
+- **narrative_flow** — NAR-OBS-01 chiuso: QA `/qa_story` blocca export finché arc/tema/hook/pacing/stile non sono OK e, con dump disabilitato, il modulo espone header `x-truncated`/`x-original-length` insieme al marker di troncamento.【F:src/modules/narrative_flow.txt†L334-L401】【F:tests/test_app.py†L319-L338】
+- **explain_methods** — EXP-OBS-01 chiuso: policy `exposure_guard` applicata e troncamento `[contenuto troncato]` confermato con dump off; CTA guidate e template QA restano invariati.【F:src/modules/explain_methods.txt†L205-L225】【F:tests/test_app.py†L299-L315】
