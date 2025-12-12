@@ -82,13 +82,21 @@ Fonte sequenza: `planning/module_review_guide.md`
 - [P2] Nessuno: la documentazione copre ora health/404 e la distinzione dump/troncamento, in linea con la policy Documentazione.【F:tests/test_app.py†L282-L314】【F:tests/test_app.py†L547-L591】
 
 ### Dipendenze
-- Router e meta header vincolano base_profile ai moduli core caricati da file locali: archivist (`src/modules/archivist.txt`), ruling_expert (`src/modules/ruling_expert.txt`), Taverna_NPC (`src/modules/Taverna_NPC.txt`), narrative_flow (`src/modules/narrative_flow.txt`), explain_methods (`src/modules/explain_methods.txt`), minmax_builder (`src/modules/minmax_builder.txt`), Encounter_Designer (`src/modules/Encounter_Designer.txt`), adventurer_ledger (`src/modules/adventurer_ledger.txt`) e meta_doc (`src/modules/meta_doc.txt`). Stato: disponibili in repo, nessun blocco noto.【F:src/modules/base_profile.txt†L107-L116】
-- Preload obbligatorio dei moduli tramite lettura del bundle `src/modules/preload_all_modules.txt` o endpoint `GET /modules/preload_all_modules` protetto da `x-api-key`; necessario per inizializzare il router prima di rispondere. Stato: endpoint e file presenti, accesso subordinato alla chiave API.【F:src/modules/base_profile.txt†L252-L305】
+- Dipendenza unica del router: hard-gate verso i moduli core con binding ai file locali (archivist, ruling_expert, Taverna_NPC, narrative_flow, explain_methods, minmax_builder, Encounter_Designer, adventurer_ledger, meta_doc) e segmenter attivo; richiede preload completato prima di servire richieste.【F:src/modules/base_profile.txt†L107-L146】
+- Preload obbligatorio via bundle `src/modules/preload_all_modules.txt` o endpoint `GET /modules/preload_all_modules` con `x-api-key`, che setta `runtime.preload_done` e attiva la pipeline `Preload_Warmup`/`Ingest` prima del routing.【F:src/modules/base_profile.txt†L252-L307】
+
+### Checklist readiness (Checkpoint 2025-12-19)
+- ✅ API key valida per `/modules/preload_all_modules` (401 atteso se mancante) e accesso a `/modules`/`/modules/base_profile.txt` confermato.
+- ✅ Preload attivo: `runtime.preload_done` impostato da warmup silente e decorator `pre_routing`.
+- ✅ Moduli core disponibili su disco: tutti i `file_binding` del router puntano a file esistenti (archivist, ruling_expert, Taverna_NPC, narrative_flow, explain_methods, minmax_builder, Encounter_Designer, adventurer_ledger, meta_doc).
 
 ### Note (Osservazioni/Errori)
 - [Osservazione] Il router centralizza CTA e preset per le modalità specializzate (MinMax, Encounter, Taverna, Narrativa) guidando l’utente con flow e quiz sequenziali e welcome dedicato.【F:src/modules/base_profile.txt†L95-L176】【F:src/modules/base_profile.txt†L452-L560】
 - [Osservazione] La pipeline QA integra badge/citazioni/sigilli e ricevute SHA256, collegando i log Echo e gli export di qualità per garantire trasparenza e auditabilità.【F:src/modules/base_profile.txt†L430-L447】【F:src/modules/base_profile.txt†L576-L614】
 - [Errore] Nessun errore bloccante riscontrato durante i test di health check, listing e download dei moduli.
+
+### Comunicazioni verso owner dei moduli ereditati
+- Condiviso stato dipendenza/preload con owner: Alice Bianchi (Encounter_Designer), Elisa Romano (Taverna_NPC), Luca Ferri (adventurer_ledger), Martina Gallo (archivist), Valentina Riva (ruling_expert), Marco Conti (minmax_builder), Davide Serra (narrative_flow), Francesca Vitale (explain_methods) e Chiara Esposito (meta_doc); in attesa di conferma assenza blocchi prima dei fix P1.
 
 ## explain_methods
 - Report: `reports/module_tests/explain_methods.md`
@@ -295,7 +303,8 @@ Fonte sequenza: `planning/module_review_guide.md`
 | Story ID | Deriva da | Descrizione | Severità | Acceptance Criteria | Stato |
 | --- | --- | --- | --- | --- | --- |
 | BAS-OBS-01 | Osservazione | Evidenziare che l’endpoint di documentazione (`/doc`/`/help`/`/manuale`) è instradato nel router base_profile e rimanda a `meta_doc.txt`. | S2 (Minor) | - Evidenza routing e link a `meta_doc.txt` nel tracker.<br>- Test manuale o automatico allegato con status 200.<br>- Checkpoint 2025-12-19 registra la verifica. | To Do |
-| BAS-OBS-02 | Osservazione | Documentare dipendenza del router dai moduli core caricati da file locali tramite `preload_all_modules`. | S3 (Info) | - Sezione dipendenze aggiornata con elenco moduli core.<br>- Verifica che caricamento avvenga con API key valida.<br>- Convalida nel checkpoint 2025-12-19. | To Do |
+| BAS-OBS-02 | Osservazione | Dipendenza unica: router hard-gate ai moduli core (binding file locale) con preload obbligatorio `preload_all_modules` protetto da `x-api-key`. | S3 (Info) | - Sezione dipendenze aggiornata con elenco moduli core e link al codice router/preload.<br>- Verifica preload con API key valida e flag `runtime.preload_done` attivo.<br>- Convalida nel checkpoint 2025-12-19. | In Review |
+| BAS-CHK-19 | Checkpoint | Checklist readiness 2025-12-19 (API key, preload, moduli core disponibili). | S2 (Minor) | - API key e endpoint preload verificati (200 / 401 previsto su assenza key).<br>- Preload eseguito (flag runtime, warmup e decorator attivi).<br>- Binding ai moduli core disponibili su disco prima di avviare i fix P1. | To Do |
 | BAS-ERR-01 | Errore | Annotare che non ci sono errori bloccanti dopo l’attivazione dei validator reali in `/qa_story`. | S3 (Info) | - Nota "nessun errore bloccante" con riferimento ai test `/qa_story` reali.<br>- QA allega log del validator attivo.<br>- Checkpoint 2025-12-19 approva la nota. | To Do |
 
 ### Altri moduli
@@ -390,7 +399,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 | Cartelle di servizio | Sara De Luca | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-16 | Nessuna dipendenza esplicita |
 | adventurer_ledger | Luca Ferri | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-17 | Nessuna dipendenza esplicita |
 | archivist | Martina Gallo | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-18 | Nessuna dipendenza esplicita |
-| 🔗 base_profile | Andrea Rizzi | 2 | P1 | 1 | Pronto per sviluppo | 2 | 1 | 2025-12-19 | Router vincolato ai moduli core e preload tramite `preload_all_modules` con API key |
+| 🔗 base_profile | Andrea Rizzi | 3 | P1 | 1 | Pronto per sviluppo | 3 | 1 | 2025-12-19 | Router vincolato ai moduli core e preload tramite `preload_all_modules` con API key; readiness checklist (API key, preload, moduli core) aperta |
 | explain_methods | Francesca Vitale | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-20 | Nessuna dipendenza esplicita |
 | knowledge_pack | Gianni Moretti | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-21 | Nessuna dipendenza esplicita |
 | meta_doc | Chiara Esposito | 3 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-22 | Nessuna dipendenza esplicita |
