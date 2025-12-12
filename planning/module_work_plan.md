@@ -396,18 +396,32 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 | Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Stato | #Osservazioni | #Errori | Checkpoint | Note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Encounter_Designer | Alice Bianchi | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-12 | Nessuna dipendenza esplicita |
+| Encounter_Designer | Alice Bianchi | 2 | P1 | 0 | In corso (3/3 To Do) | 2 | 1 | 2025-12-12 | Nessuna dipendenza esplicita |
 | minmax_builder | Marco Conti | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-13 | Nessuna dipendenza esplicita |
 | Taverna_NPC | Elisa Romano | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-14 | Nessuna dipendenza esplicita |
 | tavern_hub | Paolo Greco | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-15 | Nessuna dipendenza esplicita |
 | Cartelle di servizio | Sara De Luca | 2 | P1 | 0 | Pronto per sviluppo | 1 | 2 | 2025-12-16 | Nessuna dipendenza esplicita |
 | adventurer_ledger | Luca Ferri | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-17 | Nessuna dipendenza esplicita |
 | archivist | Martina Gallo | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-18 | Nessuna dipendenza esplicita |
-| 🔗 base_profile | Andrea Rizzi | 3 | P1 | 1 | Pronto per sviluppo | 3 | 1 | 2025-12-19 | Router vincolato ai moduli core e preload tramite `preload_all_modules` con API key; readiness checklist (API key, preload, moduli core) aperta |
+| 🔗 base_profile | Andrea Rizzi | 3 | P1 | 1 | In corso (2/3 Pronto) | 3 | 1 | 2025-12-19 | Router vincolato ai moduli core e preload tramite `preload_all_modules` con API key; readiness checklist (API key, preload, moduli core) aperta |
 | explain_methods | Francesca Vitale | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-20 | Nessuna dipendenza esplicita |
 | knowledge_pack | Gianni Moretti | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-21 | Nessuna dipendenza esplicita |
 | meta_doc | Chiara Esposito | 3 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-22 | Nessuna dipendenza esplicita |
 | narrative_flow | Davide Serra | 2 | P1 | 0 | Pronto per sviluppo | 1 | 1 | 2025-12-23 | Nessuna dipendenza esplicita |
 | ruling_expert | Valentina Riva | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-24 | Nessuna dipendenza esplicita |
 | scheda_pg_markdown_template | Matteo Leone | 2 | P1 | 0 | Pronto per sviluppo | 2 | 1 | 2025-12-25 | Nessuna dipendenza esplicita |
-| 🔶 sigilli_runner_module | Fabio Marchetti | 2 | P1 | 0 | Pronto per sviluppo | 3 | 4 | 2025-12-26 | Nessuna dipendenza esplicita; osservazioni elevate su finestra raro/portale |
+| 🔶 sigilli_runner_module | Fabio Marchetti | 2 | P1 | 0 | In corso (7/7 To Do) | 3 | 4 | 2025-12-26 | Nessuna dipendenza esplicita; osservazioni elevate su finestra raro/portale |
+
+### Aggiornamenti giornalieri (SIG\*, ENC\*, BAS\*)
+- Programma un check-in quotidiano per **sigilli_runner_module (SIG\*)**, **Encounter_Designer (ENC\*)** e **base_profile (BAS\*)**, registrando per ogni giornata:
+  - rischi individuati o nuove regressioni;
+  - avanzamento verso i checkpoint indicati nel tracker (esito QA/autotest, CTA completate);
+  - eventuali blocchi o dipendenze emerse, collegandole ai rispettivi Story ID.
+- Gli owner (Fabio Marchetti, Alice Bianchi, Andrea Rizzi) inseriscono gli aggiornamenti direttamente nel tracker della storia di riferimento entro fine giornata.
+
+### Regression pass pre-rilascio
+- Prima del rilascio finale eseguire un regression pass mirato su:
+  - policy di dump (inclusi marker di troncamento e header coerenti);
+  - gating QA e relative CTA obbligatorie;
+  - naming degli export, verificando coerenza con le policy di ciascun modulo.
+- L’esito del regression pass va comunicato al team nel tracker sprint (stato chiuso/riaperto per le storie impattate) e nel canale di rilascio, con riferimento ai test utilizzati.
