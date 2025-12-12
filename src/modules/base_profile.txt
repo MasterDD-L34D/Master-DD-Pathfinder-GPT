@@ -693,6 +693,7 @@ changelog:
     date: "2025-09-06T00:00:00.000Z"
     items:
       - "Preload_Warmup: lettura 'src/modules/preload_all_modules.txt' (o GET /modules/preload_all_modules) e cache terminologica, invocato una sola volta da pre_routing."
+      - "Bundle preload_all_modules.txt disponibile su disco e servibile via API key per warmup offline dei moduli core."
       - "Preload silente: regola iniziale con 'continue: true' (nessun routing/output); rimosso il mode 'Preload Trigger'."
       - "Router: priorità aggiornata [RULING, EXPLAIN, ARCHIVIST, MINMAX, ENCOUNTER, TAVERNA, LEDGER, DOCUMENTAZIONE, NARRATIVA]."
       - "Browse flags per-turn: reset di 'runtime.must_browse' e 'runtime.prefer_browse' all'inizio del post_routing."
