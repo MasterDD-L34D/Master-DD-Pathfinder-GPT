@@ -21,6 +21,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Verifica owner e checkpoint del piano
+        run: |
+          python tools/verify_owners.py --format markdown > verify_owners_report.md
+          cat verify_owners_report.md
+
       - name: Validate module reports
         run: |
           python tools/refresh_module_reports.py --check
