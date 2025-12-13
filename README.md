@@ -153,14 +153,17 @@ Esempi di uso nelle risposte del GPT:
   `benchmark.meta_tier == "T1"` e `ruling_badge` valido. Con `--validate-combo`
   i log dei ruling e l'assenza di combo T1 vengono riportati in
   `completeness.errors`. I suggerimenti ora sfruttano tag granulari (es.
-  `class:magus`, `archetype:swashbuckler`, `slot:headband`, `damage:fire`) per
-  scegliere oggetti e talenti compatibili con la classe/archetipo richiesto.
-  Esempio:
+  `class:magus`, `archetype:swashbuckler`, `slot:headband`, `damage:fire`,
+  `school:evocation`) per scegliere oggetti e talenti compatibili con la
+  classe/archetipo richiesto. Esempi:
 
   ```bash
   python tools/generate_build_db.py --class Ranger \
     --suggest-combos --validate-combo --reference-dir data/reference \
     --api-url http://localhost:8000
+
+  python tools/generate_build_db.py --class Magus --archetype "eldritch scion" \
+    --suggest-combos --reference-dir data/reference --mode extended
   ```
 
 L'output arricchito include:

@@ -137,5 +137,55 @@
     ],
     "references": ["d20PFSRD: Barkskin"],
     "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/b/barkskin/"]
+  },
+  {
+    "name": "Mirror Image",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": ["Arcane spellcasting 2nd level"],
+    "tags": [
+      "school:illusion",
+      "defense",
+      "slot:2",
+      "class:magus",
+      "class:sorcerer",
+      "class:wizard"
+    ],
+    "references": ["d20PFSRD: Mirror Image"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/m/mirror-image/"]
+  },
+  {
+    "name": "Gravity Bow",
+    "source": "Advanced Player's Guide",
+    "source_id": "APG",
+    "prerequisites": ["Divine or primal spellcasting 1st level"],
+    "tags": [
+      "school:transmutation",
+      "buff",
+      "damage:piercing",
+      "slot:1",
+      "class:ranger",
+      "class:hunter",
+      "class:inquisitor"
+    ],
+    "references": ["d20PFSRD: Gravity Bow"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/g/gravity-bow/"]
+  },
+  {
+    "name": "Snowball",
+    "source": "Advanced Player's Guide",
+    "source_id": "APG",
+    "prerequisites": ["Arcane spellcasting 1st level"],
+    "tags": [
+      "school:evocation",
+      "damage:cold",
+      "slot:1",
+      "attack:ranged-touch",
+      "class:magus",
+      "class:sorcerer",
+      "class:wizard"
+    ],
+    "references": ["d20PFSRD: Snowball"],
+    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/s/snowball/"]
   }
 ]

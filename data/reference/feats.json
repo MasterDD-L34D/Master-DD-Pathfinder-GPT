@@ -146,5 +146,64 @@
     ],
     "references": ["d20PFSRD: Extra Hex"],
     "reference_urls": ["https://www.d20pfsrd.com/feats/general-feats/extra-hex/"]
+  },
+  {
+    "name": "Arcane Strike",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": ["Ability to cast arcane spells"],
+    "tags": [
+      "combat",
+      "magic",
+      "damage:magic",
+      "class:bard",
+      "class:magus",
+      "class:sorcerer",
+      "class:witch",
+      "archetype:eldritch"
+    ],
+    "references": ["d20PFSRD: Arcane Strike"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/arcane-strike-combat/"]
+  },
+  {
+    "name": "Shatter Defenses",
+    "source": "Advanced Player's Guide",
+    "source_id": "APG",
+    "prerequisites": [
+      "Dazzling Display",
+      "Weapon Focus",
+      "Base Attack Bonus +6"
+    ],
+    "tags": [
+      "combat",
+      "fear",
+      "class:fighter",
+      "class:rogue",
+      "class:slayer",
+      "archetype:intimidating",
+      "damage:piercing"
+    ],
+    "references": ["d20PFSRD: Shatter Defenses"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/shatter-defenses-combat/"]
+  },
+  {
+    "name": "Fencing Grace (Rapier)",
+    "source": "Advanced Class Guide",
+    "source_id": "ACG",
+    "prerequisites": [
+      "Dexterity 13",
+      "Weapon Finesse",
+      "Weapon Focus (rapier)",
+      "No off-hand or shield use"
+    ],
+    "tags": [
+      "combat",
+      "finesse",
+      "damage:piercing",
+      "class:swashbuckler",
+      "archetype:duelist"
+    ],
+    "references": ["d20PFSRD: Fencing Grace"],
+    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/fencing-grace-combat/"]
   }
 ]
