@@ -3,6 +3,7 @@
 Compila questa checklist prima di richiedere la review. Ogni elemento deve avere un'evidenza di test collegata alla storia che chiude.
 
 > Nota: il workflow di validazione richiede che ogni controllo sia marcato come completato (`[x]`) **e** che nella tabella sottostante esista una riga con valori reali (senza placeholder). Usa l'esempio indicato per sostituire i campi.
+> Se il workflow segnala errori, controlla di aver (1) sostituito gli esempi in corsivo con valori reali, (2) aggiunto una riga per **ognuno** dei controlli obbligatori e (3) spuntato le checkbox corrispondenti.
 
 ## Controlli obbligatori
 - [ ] Test con dump disabilitato (marker/header)
