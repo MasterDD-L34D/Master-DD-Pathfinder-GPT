@@ -202,7 +202,7 @@ class BuildRequest:
             )
         )
 
-        return {
+        metadata = {
             "class": self.class_name,
             "race": resolved_race,
             "archetype": resolved_archetype,
@@ -659,6 +659,41 @@ def export_race_inventory(build_dir: Path, output_path: Path) -> Mapping[str, ob
     write_json(output_path, payload)
     logging.info("Inventario razze salvato in %s", output_path)
     return payload
+
+
+def export_build_reports(
+    build_dir: Path,
+    reports_dir: Path,
+    *,
+    module_dir: Path | None = None,
+    build_index_path: Path | None = None,
+    module_index_path: Path | None = None,
+    invalid_archive_dir: Path | None = None,
+) -> Mapping[str, Path]:
+    """Generate and persist coverage reports for local builds and modules."""
+
+    reports_dir.mkdir(parents=True, exist_ok=True)
+
+    review_path = reports_dir / "build_review.json"
+    review_local_database(
+        build_dir,
+        module_dir or build_dir,
+        build_index_path=build_index_path,
+        module_index_path=module_index_path,
+        output_path=review_path,
+    )
+
+    analysis_path = reports_dir / "index_analysis.json"
+    build_index = build_index_path or Path("src/data/build_index.json")
+    module_index = module_index_path or Path("src/data/module_index.json")
+    analysis_payload = analyze_indices(
+        build_index,
+        module_index,
+        archive_dir=invalid_archive_dir,
+    )
+    write_json(analysis_path, analysis_payload)
+
+    return {"review": review_path, "index_analysis": analysis_path}
 
 
 def expected_step_total_for_mode(mode: str) -> int:
@@ -4960,7 +4995,14 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
 
     if args.export_lists:
-        outputs = export_build_reports(args.output_dir, args.reports_dir)
+        outputs = export_build_reports(
+            args.output_dir,
+            args.reports_dir,
+            module_dir=args.modules_output_dir,
+            build_index_path=args.index_path,
+            module_index_path=args.module_index_path,
+            invalid_archive_dir=args.invalid_archive_dir,
+        )
         for key, path in outputs.items():
             logging.info("Report %s esportato in %s", key, path)
         return
