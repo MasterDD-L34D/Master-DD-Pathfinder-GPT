@@ -4,105 +4,214 @@
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
-    "tags": ["general"],
-    "references": ["d20PFSRD: Alertness"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/general-feats/alertness/"]
+    "tags": [
+      "general"
+    ],
+    "references": [
+      "d20PFSRD: Alertness",
+      "https://www.d20pfsrd.com/feats/general-feats/alertness/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/general-feats/alertness/"
+    ]
   },
   {
     "name": "Bomb Focus",
     "source": "Advanced Player's Guide",
     "source_id": "APG",
-    "prerequisites": ["Alchemist"],
-    "tags": ["combat", "archetype:grenadier"],
-    "references": ["d20PFSRD: Bomb Focus"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/general-feats/bomb-focus/"]
+    "prerequisites": [
+      "Alchemist"
+    ],
+    "tags": [
+      "combat",
+      "archetype:grenadier"
+    ],
+    "references": [
+      "d20PFSRD: Bomb Focus",
+      "https://www.d20pfsrd.com/feats/general-feats/bomb-focus/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/general-feats/bomb-focus/"
+    ]
   },
   {
     "name": "Power Attack",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Strength 13"],
-    "tags": ["combat", "melee"],
-    "references": ["d20PFSRD: Power Attack"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/power-attack-combat/"]
+    "prerequisites": [
+      "Strength 13"
+    ],
+    "tags": [
+      "combat",
+      "melee"
+    ],
+    "references": [
+      "d20PFSRD: Power Attack",
+      "https://www.d20pfsrd.com/feats/combat-feats/power-attack-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/power-attack-combat/"
+    ]
   },
   {
     "name": "Combat Expertise",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Intelligence 13"],
-    "tags": ["combat", "defense"],
-    "references": ["d20PFSRD: Combat Expertise"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/combat-expertise-combat/"]
+    "prerequisites": [
+      "Intelligence 13"
+    ],
+    "tags": [
+      "combat",
+      "defense"
+    ],
+    "references": [
+      "d20PFSRD: Combat Expertise",
+      "https://www.d20pfsrd.com/feats/combat-feats/combat-expertise-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/combat-expertise-combat/"
+    ]
   },
   {
     "name": "Point-Blank Shot",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
-    "tags": ["combat", "ranged"],
-    "references": ["d20PFSRD: Point-Blank Shot"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/point-blank-shot-combat/"]
+    "tags": [
+      "combat",
+      "ranged"
+    ],
+    "references": [
+      "d20PFSRD: Point-Blank Shot",
+      "https://www.d20pfsrd.com/feats/combat-feats/point-blank-shot-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/point-blank-shot-combat/"
+    ]
   },
   {
     "name": "Precise Shot",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Point-Blank Shot"],
-    "tags": ["combat", "ranged"],
-    "references": ["d20PFSRD: Precise Shot"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/precise-shot-combat/"]
+    "prerequisites": [
+      "Point-Blank Shot"
+    ],
+    "tags": [
+      "combat",
+      "ranged"
+    ],
+    "references": [
+      "d20PFSRD: Precise Shot",
+      "https://www.d20pfsrd.com/feats/combat-feats/precise-shot-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/precise-shot-combat/"
+    ]
   },
   {
     "name": "Rapid Shot",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Dexterity 13", "Point-Blank Shot"],
-    "tags": ["combat", "ranged", "full-attack"],
-    "references": ["d20PFSRD: Rapid Shot"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/rapid-shot-combat/"]
+    "prerequisites": [
+      "Dexterity 13",
+      "Point-Blank Shot"
+    ],
+    "tags": [
+      "combat",
+      "ranged",
+      "full-attack"
+    ],
+    "references": [
+      "d20PFSRD: Rapid Shot",
+      "https://www.d20pfsrd.com/feats/combat-feats/rapid-shot-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/rapid-shot-combat/"
+    ]
   },
   {
     "name": "Two-Weapon Fighting",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Dexterity 15"],
-    "tags": ["combat", "dual-wield"],
-    "references": ["d20PFSRD: Two-Weapon Fighting"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/two-weapon-fighting-combat/"]
+    "prerequisites": [
+      "Dexterity 15"
+    ],
+    "tags": [
+      "combat",
+      "dual-wield"
+    ],
+    "references": [
+      "d20PFSRD: Two-Weapon Fighting",
+      "https://www.d20pfsrd.com/feats/combat-feats/two-weapon-fighting-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/two-weapon-fighting-combat/"
+    ]
   },
   {
     "name": "Weapon Focus (Longsword)",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Proficiency with selected weapon", "Base Attack Bonus +1"],
-    "tags": ["combat", "weapon"],
-    "references": ["d20PFSRD: Weapon Focus"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/weapon-focus-combat/"]
+    "prerequisites": [
+      "Proficiency with selected weapon",
+      "Base Attack Bonus +1"
+    ],
+    "tags": [
+      "combat",
+      "weapon"
+    ],
+    "references": [
+      "d20PFSRD: Weapon Focus",
+      "https://www.d20pfsrd.com/feats/combat-feats/weapon-focus-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/weapon-focus-combat/"
+    ]
   },
   {
     "name": "Spell Focus (Evocation)",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Ability to cast spells"],
-    "tags": ["magic", "school:evocation"],
-    "references": ["d20PFSRD: Spell Focus"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/general-feats/spell-focus/"]
+    "prerequisites": [
+      "Ability to cast spells"
+    ],
+    "tags": [
+      "magic",
+      "school:evocation"
+    ],
+    "references": [
+      "d20PFSRD: Spell Focus",
+      "https://www.d20pfsrd.com/feats/general-feats/spell-focus/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/general-feats/spell-focus/"
+    ]
   },
   {
     "name": "Improved Initiative",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
-    "tags": ["general", "initiative"],
-    "references": ["d20PFSRD: Improved Initiative"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/improved-initiative-combat/"]
+    "tags": [
+      "general",
+      "initiative"
+    ],
+    "references": [
+      "d20PFSRD: Improved Initiative",
+      "https://www.d20pfsrd.com/feats/combat-feats/improved-initiative-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/improved-initiative-combat/"
+    ]
   },
   {
     "name": "Deadly Aim",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Dexterity 13", "Point-Blank Shot"],
+    "prerequisites": [
+      "Dexterity 13",
+      "Point-Blank Shot"
+    ],
     "tags": [
       "combat",
       "ranged",
@@ -110,8 +219,13 @@
       "class:ranger",
       "class:rogue"
     ],
-    "references": ["d20PFSRD: Deadly Aim"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/deadly-aim-combat/"]
+    "references": [
+      "d20PFSRD: Deadly Aim",
+      "https://www.d20pfsrd.com/feats/combat-feats/deadly-aim-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/deadly-aim-combat/"
+    ]
   },
   {
     "name": "Slashing Grace (Longsword)",
@@ -130,28 +244,42 @@
       "class:swashbuckler",
       "archetype:swashbuckler"
     ],
-    "references": ["d20PFSRD: Slashing Grace"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/slashing-grace-combat/"]
+    "references": [
+      "d20PFSRD: Slashing Grace",
+      "https://www.d20pfsrd.com/feats/combat-feats/slashing-grace-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/slashing-grace-combat/"
+    ]
   },
   {
     "name": "Extra Hex",
     "source": "Advanced Player's Guide",
     "source_id": "APG",
-    "prerequisites": ["Hex class feature"],
+    "prerequisites": [
+      "Hex class feature"
+    ],
     "tags": [
       "magic",
       "class:witch",
       "class:shaman",
       "archetype:hex"
     ],
-    "references": ["d20PFSRD: Extra Hex"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/general-feats/extra-hex/"]
+    "references": [
+      "d20PFSRD: Extra Hex",
+      "https://www.d20pfsrd.com/feats/general-feats/extra-hex/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/general-feats/extra-hex/"
+    ]
   },
   {
     "name": "Arcane Strike",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Ability to cast arcane spells"],
+    "prerequisites": [
+      "Ability to cast arcane spells"
+    ],
     "tags": [
       "combat",
       "magic",
@@ -162,8 +290,13 @@
       "class:witch",
       "archetype:eldritch"
     ],
-    "references": ["d20PFSRD: Arcane Strike"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/arcane-strike-combat/"]
+    "references": [
+      "d20PFSRD: Arcane Strike",
+      "https://www.d20pfsrd.com/feats/combat-feats/arcane-strike-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/arcane-strike-combat/"
+    ]
   },
   {
     "name": "Shatter Defenses",
@@ -183,8 +316,13 @@
       "archetype:intimidating",
       "damage:piercing"
     ],
-    "references": ["d20PFSRD: Shatter Defenses"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/shatter-defenses-combat/"]
+    "references": [
+      "d20PFSRD: Shatter Defenses",
+      "https://www.d20pfsrd.com/feats/combat-feats/shatter-defenses-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/shatter-defenses-combat/"
+    ]
   },
   {
     "name": "Fencing Grace (Rapier)",
@@ -203,7 +341,12 @@
       "class:swashbuckler",
       "archetype:duelist"
     ],
-    "references": ["d20PFSRD: Fencing Grace"],
-    "reference_urls": ["https://www.d20pfsrd.com/feats/combat-feats/fencing-grace-combat/"]
+    "references": [
+      "d20PFSRD: Fencing Grace",
+      "https://www.d20pfsrd.com/feats/combat-feats/fencing-grace-combat/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/combat-feats/fencing-grace-combat/"
+    ]
   }
 ]

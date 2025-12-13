@@ -4,105 +4,228 @@
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
-    "tags": ["gear", "starter"],
-    "references": ["d20PFSRD: Adventuring gear"],
-    "reference_urls": ["https://www.d20pfsrd.com/equipment/goods-and-services/adventuring-gear/"]
+    "tags": [
+      "gear",
+      "starter"
+    ],
+    "references": [
+      "d20PFSRD: Adventuring gear",
+      "https://www.d20pfsrd.com/equipment/goods-and-services/adventuring-gear/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/equipment/goods-and-services/adventuring-gear/"
+    ]
   },
   {
     "name": "Potion of Cure Light Wounds",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
-    "tags": ["consumable", "healing", "potion"],
-    "references": ["d20PFSRD: Potions"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/potions/"]
+    "tags": [
+      "consumable",
+      "healing",
+      "potion"
+    ],
+    "references": [
+      "d20PFSRD: Potions",
+      "https://www.d20pfsrd.com/magic-items/potions/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/potions/"
+    ]
   },
   {
     "name": "Wand of Magic Missile (CL 3)",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Craft Wand", "Magic Missile"],
-    "tags": ["consumable", "wand", "force"],
-    "references": ["d20PFSRD: Wands"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wands/"]
+    "prerequisites": [
+      "Craft Wand",
+      "Magic Missile"
+    ],
+    "tags": [
+      "consumable",
+      "wand",
+      "force"
+    ],
+    "references": [
+      "d20PFSRD: Wands",
+      "https://www.d20pfsrd.com/magic-items/wands/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/wands/"
+    ]
   },
   {
     "name": "Tanglefoot Bag",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
-    "tags": ["alchemical", "grenade"],
-    "references": ["d20PFSRD: Tanglefoot Bag"],
-    "reference_urls": ["https://www.d20pfsrd.com/equipment/goods-and-services/alchemical-items/tanglefoot-bag/"]
+    "tags": [
+      "alchemical",
+      "grenade"
+    ],
+    "references": [
+      "d20PFSRD: Tanglefoot Bag",
+      "https://www.d20pfsrd.com/equipment/goods-and-services/alchemical-items/tanglefoot-bag/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/equipment/goods-and-services/alchemical-items/tanglefoot-bag/"
+    ]
   },
   {
     "name": "Longsword",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Martial weapon proficiency"],
-    "tags": ["weapon", "martial", "melee"],
-    "references": ["d20PFSRD: Longsword"],
-    "reference_urls": ["https://www.d20pfsrd.com/equipment/weapons/weapon-descriptions/longsword/"]
+    "prerequisites": [
+      "Martial weapon proficiency"
+    ],
+    "tags": [
+      "weapon",
+      "martial",
+      "melee"
+    ],
+    "references": [
+      "d20PFSRD: Longsword",
+      "https://www.d20pfsrd.com/equipment/weapons/weapon-descriptions/longsword/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/equipment/weapons/weapon-descriptions/longsword/"
+    ]
   },
   {
     "name": "Composite Longbow (+2 Str)",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Martial weapon proficiency", "Strength 12"],
-    "tags": ["weapon", "martial", "ranged"],
-    "references": ["d20PFSRD: Composite Longbow"],
-    "reference_urls": ["https://www.d20pfsrd.com/equipment/weapons/weapon-descriptions/longbow-composite/"]
+    "prerequisites": [
+      "Martial weapon proficiency",
+      "Strength 12"
+    ],
+    "tags": [
+      "weapon",
+      "martial",
+      "ranged"
+    ],
+    "references": [
+      "d20PFSRD: Composite Longbow",
+      "https://www.d20pfsrd.com/equipment/weapons/weapon-descriptions/longbow-composite/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/equipment/weapons/weapon-descriptions/longbow-composite/"
+    ]
   },
   {
     "name": "Mithral Shirt",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Light armor proficiency"],
-    "tags": ["armor", "light", "mithral"],
-    "references": ["d20PFSRD: Mithral Shirt"],
-    "reference_urls": ["https://www.d20pfsrd.com/equipment/armor/mithral-shirt/"]
+    "prerequisites": [
+      "Light armor proficiency"
+    ],
+    "tags": [
+      "armor",
+      "light",
+      "mithral"
+    ],
+    "references": [
+      "d20PFSRD: Mithral Shirt",
+      "https://www.d20pfsrd.com/equipment/armor/mithral-shirt/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/equipment/armor/mithral-shirt/"
+    ]
   },
   {
     "name": "Cloak of Resistance +1",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Craft Wondrous Item", "caster level 3rd"],
-    "tags": ["wondrous", "save-bonus", "slot:shoulders"],
-    "references": ["d20PFSRD: Cloak of Resistance"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/cloak-of-resistance/"]
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "caster level 3rd"
+    ],
+    "tags": [
+      "wondrous",
+      "save-bonus",
+      "slot:shoulders"
+    ],
+    "references": [
+      "d20PFSRD: Cloak of Resistance",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/cloak-of-resistance/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/cloak-of-resistance/"
+    ]
   },
   {
     "name": "Ring of Protection +1",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Forge Ring", "caster level 5th"],
-    "tags": ["ring", "defense", "deflection"],
-    "references": ["d20PFSRD: Ring of Protection"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/rings/ring-of-protection/"]
+    "prerequisites": [
+      "Forge Ring",
+      "caster level 5th"
+    ],
+    "tags": [
+      "ring",
+      "defense",
+      "deflection"
+    ],
+    "references": [
+      "d20PFSRD: Ring of Protection",
+      "https://www.d20pfsrd.com/magic-items/rings/ring-of-protection/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/rings/ring-of-protection/"
+    ]
   },
   {
     "name": "Handy Haversack",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Craft Wondrous Item", "caster level 9th"],
-    "tags": ["wondrous", "utility"],
-    "references": ["d20PFSRD: Handy Haversack"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/handy-haversack/"]
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "caster level 9th"
+    ],
+    "tags": [
+      "wondrous",
+      "utility"
+    ],
+    "references": [
+      "d20PFSRD: Handy Haversack",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/handy-haversack/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/handy-haversack/"
+    ]
   },
   {
     "name": "Belt of Giant Strength +2",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Craft Wondrous Item", "caster level 8th"],
-    "tags": ["wondrous", "enhancement", "strength", "slot:belt", "melee"],
-    "references": ["d20PFSRD: Belt of Giant Strength"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/belts/belt-of-giant-strength/"]
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "caster level 8th"
+    ],
+    "tags": [
+      "wondrous",
+      "enhancement",
+      "strength",
+      "slot:belt",
+      "melee"
+    ],
+    "references": [
+      "d20PFSRD: Belt of Giant Strength",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/belts/belt-of-giant-strength/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/belts/belt-of-giant-strength/"
+    ]
   },
   {
     "name": "Headband of Inspired Wisdom +2",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Craft Wondrous Item", "owl's wisdom"],
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "owl's wisdom"
+    ],
     "tags": [
       "wondrous",
       "ability:wisdom",
@@ -110,26 +233,57 @@
       "class:cleric",
       "class:druid"
     ],
-    "references": ["d20PFSRD: Headband of Inspired Wisdom"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/headband-of-inspired-wisdom/"]
+    "references": [
+      "d20PFSRD: Headband of Inspired Wisdom",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/headband-of-inspired-wisdom/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/headband-of-inspired-wisdom/"
+    ]
   },
   {
     "name": "Cloak of Resistance +2",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Craft Wondrous Item", "resistance"],
-    "tags": ["wondrous", "save-bonus", "slot:shoulders", "defense"],
-    "references": ["d20PFSRD: Cloak of Resistance"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/cloak-of-resistance/"]
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "resistance"
+    ],
+    "tags": [
+      "wondrous",
+      "save-bonus",
+      "slot:shoulders",
+      "defense"
+    ],
+    "references": [
+      "d20PFSRD: Cloak of Resistance",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/cloak-of-resistance/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/cloak-of-resistance/"
+    ]
   },
   {
     "name": "Ring of the Shooting Star",
     "source": "Ultimate Equipment",
     "source_id": "UE",
-    "prerequisites": ["Forge Ring", "scorching ray"],
-    "tags": ["ring", "slot:ring", "damage:fire", "ranged"],
-    "references": ["d20PFSRD: Ring of the Shooting Star"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/rings/ring-of-the-shooting-star/"]
+    "prerequisites": [
+      "Forge Ring",
+      "scorching ray"
+    ],
+    "tags": [
+      "ring",
+      "slot:ring",
+      "damage:fire",
+      "ranged"
+    ],
+    "references": [
+      "d20PFSRD: Ring of the Shooting Star",
+      "https://www.d20pfsrd.com/magic-items/rings/ring-of-the-shooting-star/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/rings/ring-of-the-shooting-star/"
+    ]
   },
   {
     "name": "Robe of Arcane Heritage",
@@ -147,14 +301,22 @@
       "class:sorcerer",
       "archetype:eldritch scion"
     ],
-    "references": ["d20PFSRD: Robe of Arcane Heritage"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/r-z/robe-of-arcane-heritage/"]
+    "references": [
+      "d20PFSRD: Robe of Arcane Heritage",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/r-z/robe-of-arcane-heritage/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/r-z/robe-of-arcane-heritage/"
+    ]
   },
   {
     "name": "Headband of Alluring Charisma +2",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Craft Wondrous Item", "eagle's splendor"],
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "eagle's splendor"
+    ],
     "tags": [
       "wondrous",
       "ability:charisma",
@@ -163,14 +325,22 @@
       "class:oracle",
       "class:paladin"
     ],
-    "references": ["d20PFSRD: Headband of Alluring Charisma"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/headband-of-alluring-charisma/"]
+    "references": [
+      "d20PFSRD: Headband of Alluring Charisma",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/headband-of-alluring-charisma/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/headband-of-alluring-charisma/"
+    ]
   },
   {
     "name": "Bracers of Falcon's Aim",
     "source": "Ultimate Equipment",
     "source_id": "UE",
-    "prerequisites": ["Craft Wondrous Item", "hunter's eye"],
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "hunter's eye"
+    ],
     "tags": [
       "wondrous",
       "slot:wrist",
@@ -179,7 +349,12 @@
       "class:ranger",
       "class:hunter"
     ],
-    "references": ["d20PFSRD: Bracers of Falcon's Aim"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/bracers-of-falcon-s-aim/"]
+    "references": [
+      "d20PFSRD: Bracers of Falcon's Aim",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/bracers-of-falcon-s-aim/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/bracers-of-falcon-s-aim/"
+    ]
   }
 ]

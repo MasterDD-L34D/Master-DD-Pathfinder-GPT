@@ -116,11 +116,15 @@ Lo script lancia `black --check` sui file Python e compila i moduli con
 
 - **d20pfsrd.com** e **Archives of Nethys (aonprd.com)** sono le due fonti
   ammesse per gli URL SRD canonici. Usa i permalink alla singola voce (feat,
-  incantesimo, oggetto) e non le pagine riassuntive generiche.
+  incantesimo, oggetto) e non le pagine riassuntive generiche. Evita link a PDF
+  non ufficiali o mirror terzi.
 - Nei file catalogo valorizza `reference_urls` con URL assoluti SRD e mantieni
-  `references` come descrizione leggibile (es. `d20PFSRD: Power Attack`).
+  `references` come descrizione leggibile (es. `d20PFSRD: Power Attack`). Quando
+  una voce dispone di un URL canonico aggiungilo anche in `references` per
+  affiancare alle sigle la citazione pronta all'uso.
 - In risposta alle query, il GPT deve citare gli URL SRD con Markdown link o
-  testo esplicito, privilegiando i link presenti in `reference_urls`.
+  testo esplicito, privilegiando i link presenti in `reference_urls` e includendo
+  entrambi i siti se disponibili.
 - Se esistono più URL validi (es. d20pfsrd e aonprd) puoi elencarli entrambi
   nello stesso campo mantenendo l'ordine di preferenza.
 
@@ -129,13 +133,15 @@ Esempi di uso nelle risposte del GPT:
 - **Query**: "Che effetto ha *Fireball*?"
   **Risposta sintetica**: "*Fireball* infligge 1d6 danni da fuoco per livello
   (max 10d6) in un raggio di 6 m, Riflessi dimezza (CD basata sulla tua
-  caratteristica da incantatore). Fonte: d20pfsrd
-  <https://www.d20pfsrd.com/magic/all-spells/f/fireball/>".
+  caratteristica da incantatore). Fonte: [d20pfsrd](https://www.d20pfsrd.com/magic/all-spells/f/fireball/) e
+  [Archives of Nethys](https://aonprd.com/SpellDisplay.aspx?ItemName=Fireball)".
 - **Query**: "Posso usare Rapid Shot con il mio arco composito?"
   **Risposta sintetica**: "Sì, *Rapid Shot* ti dà un attacco extra a penalità
   -2 su tutti gli attacchi a distanza nel round completo. Richiede Des 13 e
-  *Point-Blank Shot*. Fonte: d20pfsrd
-  <https://www.d20pfsrd.com/feats/combat-feats/rapid-shot-combat/>".
+  *Point-Blank Shot*. Fonte: [d20pfsrd](https://www.d20pfsrd.com/feats/combat-feats/rapid-shot-combat/)".
+- **Query**: "Dove trovo i prerequisiti di *Shatter Defenses*?"
+  **Risposta sintetica**: "*Shatter Defenses* richiede Des 13, *Weapon Focus*,
+  *Dazzling Display* e BAB +6. Fonte: [Archives of Nethys](https://aonprd.com/FeatDisplay.aspx?ItemName=Shatter%20Defenses)".
 
 ### Flag CLI per validazione catalogo e combo T1
 
