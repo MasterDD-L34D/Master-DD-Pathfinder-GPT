@@ -179,7 +179,7 @@ def validate(plan_path: Path) -> Tuple[List[Violation], dict]:
 
     report = {
         "plan": str(plan_path),
-        "checked_at": datetime.datetime.now(datetime.UTC).isoformat(),
+        "checked_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "violations": [v.to_dict() for v in violations],
         "modules_with_owner": len(module_data),
         "stories_checked": len(summary_moduli_critici) + len(summary_altri_moduli),
