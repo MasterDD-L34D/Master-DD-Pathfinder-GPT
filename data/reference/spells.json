@@ -4,96 +4,206 @@
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
-    "tags": ["utility", "cantrip", "evocation"],
-    "references": ["d20PFSRD: Light"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/l/light/"]
+    "tags": [
+      "utility",
+      "cantrip",
+      "evocation"
+    ],
+    "references": [
+      "d20PFSRD: Light",
+      "https://www.d20pfsrd.com/magic/all-spells/l/light/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/l/light/"
+    ]
   },
   {
     "name": "Cure Light Wounds",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Divine spellcasting"],
-    "tags": ["healing", "positive", "conjuration"],
-    "references": ["d20PFSRD: Cure Light Wounds"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/c/cure-light-wounds/"]
+    "prerequisites": [
+      "Divine spellcasting"
+    ],
+    "tags": [
+      "healing",
+      "positive",
+      "conjuration"
+    ],
+    "references": [
+      "d20PFSRD: Cure Light Wounds",
+      "https://www.d20pfsrd.com/magic/all-spells/c/cure-light-wounds/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/c/cure-light-wounds/"
+    ]
   },
   {
     "name": "Magic Missile",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Arcane spellcasting"],
-    "tags": ["evocation", "force", "damage"],
-    "references": ["d20PFSRD: Magic Missile"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/m/magic-missile/"]
+    "prerequisites": [
+      "Arcane spellcasting"
+    ],
+    "tags": [
+      "evocation",
+      "force",
+      "damage"
+    ],
+    "references": [
+      "d20PFSRD: Magic Missile",
+      "https://www.d20pfsrd.com/magic/all-spells/m/magic-missile/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/m/magic-missile/"
+    ]
   },
   {
     "name": "Shield",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Arcane spellcasting"],
-    "tags": ["defense", "abjuration", "force"],
-    "references": ["d20PFSRD: Shield"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/s/shield/"]
+    "prerequisites": [
+      "Arcane spellcasting"
+    ],
+    "tags": [
+      "defense",
+      "abjuration",
+      "force"
+    ],
+    "references": [
+      "d20PFSRD: Shield",
+      "https://www.d20pfsrd.com/magic/all-spells/s/shield/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/s/shield/"
+    ]
   },
   {
     "name": "Invisibility",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Arcane spellcasting 2nd level"],
-    "tags": ["illusion", "utility", "defense"],
-    "references": ["d20PFSRD: Invisibility"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/i/invisibility/"]
+    "prerequisites": [
+      "Arcane spellcasting 2nd level"
+    ],
+    "tags": [
+      "illusion",
+      "utility",
+      "defense"
+    ],
+    "references": [
+      "d20PFSRD: Invisibility",
+      "https://www.d20pfsrd.com/magic/all-spells/i/invisibility/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/i/invisibility/"
+    ]
   },
   {
     "name": "Haste",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Arcane spellcasting 3rd level"],
-    "tags": ["transmutation", "buff", "speed"],
-    "references": ["d20PFSRD: Haste"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/h/haste/"]
+    "prerequisites": [
+      "Arcane spellcasting 3rd level"
+    ],
+    "tags": [
+      "transmutation",
+      "buff",
+      "speed"
+    ],
+    "references": [
+      "d20PFSRD: Haste",
+      "https://www.d20pfsrd.com/magic/all-spells/h/haste/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/h/haste/"
+    ]
   },
   {
     "name": "Fireball",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Arcane spellcasting 3rd level"],
-    "tags": ["evocation", "fire", "area", "damage"],
-    "references": ["d20PFSRD: Fireball"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/f/fireball/"]
+    "prerequisites": [
+      "Arcane spellcasting 3rd level"
+    ],
+    "tags": [
+      "evocation",
+      "fire",
+      "area",
+      "damage"
+    ],
+    "references": [
+      "d20PFSRD: Fireball",
+      "https://www.d20pfsrd.com/magic/all-spells/f/fireball/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/f/fireball/"
+    ]
   },
   {
     "name": "Fly",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Arcane spellcasting 3rd level"],
-    "tags": ["transmutation", "mobility", "buff"],
-    "references": ["d20PFSRD: Fly"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/f/fly/"]
+    "prerequisites": [
+      "Arcane spellcasting 3rd level"
+    ],
+    "tags": [
+      "transmutation",
+      "mobility",
+      "buff"
+    ],
+    "references": [
+      "d20PFSRD: Fly",
+      "https://www.d20pfsrd.com/magic/all-spells/f/fly/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/f/fly/"
+    ]
   },
   {
     "name": "Dispel Magic",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Ability to cast 3rd-level spells"],
-    "tags": ["abjuration", "utility"],
-    "references": ["d20PFSRD: Dispel Magic"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/d/dispel-magic/"]
+    "prerequisites": [
+      "Ability to cast 3rd-level spells"
+    ],
+    "tags": [
+      "abjuration",
+      "utility"
+    ],
+    "references": [
+      "d20PFSRD: Dispel Magic",
+      "https://www.d20pfsrd.com/magic/all-spells/d/dispel-magic/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/d/dispel-magic/"
+    ]
   },
   {
     "name": "Stoneskin",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Arcane spellcasting 4th level"],
-    "tags": ["abjuration", "defense", "damage-reduction"],
-    "references": ["d20PFSRD: Stoneskin"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/"]
+    "prerequisites": [
+      "Arcane spellcasting 4th level"
+    ],
+    "tags": [
+      "abjuration",
+      "defense",
+      "damage-reduction"
+    ],
+    "references": [
+      "d20PFSRD: Stoneskin",
+      "https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/"
+    ]
   },
   {
     "name": "Blessing of Fervor",
     "source": "Advanced Player's Guide",
     "source_id": "APG",
-    "prerequisites": ["Divine spellcasting 4th level"],
+    "prerequisites": [
+      "Divine spellcasting 4th level"
+    ],
     "tags": [
       "school:transmutation",
       "buff",
@@ -102,14 +212,21 @@
       "class:inquisitor",
       "class:warpriest"
     ],
-    "references": ["d20PFSRD: Blessing of Fervor"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/b/blessing-of-fervor/"]
+    "references": [
+      "d20PFSRD: Blessing of Fervor",
+      "https://www.d20pfsrd.com/magic/all-spells/b/blessing-of-fervor/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/b/blessing-of-fervor/"
+    ]
   },
   {
     "name": "Scorching Ray",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Arcane spellcasting 2nd level"],
+    "prerequisites": [
+      "Arcane spellcasting 2nd level"
+    ],
     "tags": [
       "school:evocation",
       "damage:fire",
@@ -119,14 +236,21 @@
       "class:sorcerer",
       "class:wizard"
     ],
-    "references": ["d20PFSRD: Scorching Ray"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/s/scorching-ray/"]
+    "references": [
+      "d20PFSRD: Scorching Ray",
+      "https://www.d20pfsrd.com/magic/all-spells/s/scorching-ray/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/s/scorching-ray/"
+    ]
   },
   {
     "name": "Barkskin",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Divine or primal spellcasting 2nd level"],
+    "prerequisites": [
+      "Divine or primal spellcasting 2nd level"
+    ],
     "tags": [
       "school:transmutation",
       "defense",
@@ -135,14 +259,21 @@
       "class:ranger",
       "class:oracle"
     ],
-    "references": ["d20PFSRD: Barkskin"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/b/barkskin/"]
+    "references": [
+      "d20PFSRD: Barkskin",
+      "https://www.d20pfsrd.com/magic/all-spells/b/barkskin/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/b/barkskin/"
+    ]
   },
   {
     "name": "Mirror Image",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
-    "prerequisites": ["Arcane spellcasting 2nd level"],
+    "prerequisites": [
+      "Arcane spellcasting 2nd level"
+    ],
     "tags": [
       "school:illusion",
       "defense",
@@ -151,14 +282,21 @@
       "class:sorcerer",
       "class:wizard"
     ],
-    "references": ["d20PFSRD: Mirror Image"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/m/mirror-image/"]
+    "references": [
+      "d20PFSRD: Mirror Image",
+      "https://www.d20pfsrd.com/magic/all-spells/m/mirror-image/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/m/mirror-image/"
+    ]
   },
   {
     "name": "Gravity Bow",
     "source": "Advanced Player's Guide",
     "source_id": "APG",
-    "prerequisites": ["Divine or primal spellcasting 1st level"],
+    "prerequisites": [
+      "Divine or primal spellcasting 1st level"
+    ],
     "tags": [
       "school:transmutation",
       "buff",
@@ -168,14 +306,21 @@
       "class:hunter",
       "class:inquisitor"
     ],
-    "references": ["d20PFSRD: Gravity Bow"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/g/gravity-bow/"]
+    "references": [
+      "d20PFSRD: Gravity Bow",
+      "https://www.d20pfsrd.com/magic/all-spells/g/gravity-bow/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/g/gravity-bow/"
+    ]
   },
   {
     "name": "Snowball",
     "source": "Advanced Player's Guide",
     "source_id": "APG",
-    "prerequisites": ["Arcane spellcasting 1st level"],
+    "prerequisites": [
+      "Arcane spellcasting 1st level"
+    ],
     "tags": [
       "school:evocation",
       "damage:cold",
@@ -185,7 +330,12 @@
       "class:sorcerer",
       "class:wizard"
     ],
-    "references": ["d20PFSRD: Snowball"],
-    "reference_urls": ["https://www.d20pfsrd.com/magic/all-spells/s/snowball/"]
+    "references": [
+      "d20PFSRD: Snowball",
+      "https://www.d20pfsrd.com/magic/all-spells/s/snowball/"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/magic/all-spells/s/snowball/"
+    ]
   }
 ]
