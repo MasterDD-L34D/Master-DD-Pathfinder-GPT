@@ -2,6 +2,8 @@
 
 Compila questa checklist prima di richiedere la review. Ogni elemento deve avere un'evidenza di test collegata alla storia che chiude.
 
+> Nota: il workflow di validazione richiede che ogni controllo sia marcato come completato (`[x]`) **e** che nella tabella sottostante esista una riga con valori reali (senza placeholder). Usa l'esempio indicato per sostituire i campi.
+
 ## Controlli obbligatori
 - [ ] Test con dump disabilitato (marker/header)
 - [ ] Naming export corretto
@@ -9,12 +11,14 @@ Compila questa checklist prima di richiedere la review. Ogni elemento deve avere
 - [ ] 401/403 per endpoint protetti
 
 ## Evidenze di test per ciascun controllo
+Compila una riga per ogni controllo sostituendo gli esempi in corsivo con i valori effettivi (es. `ABC-123`, `unit`, link a log o PR comment con marker/header).
+
 | Controllo | Storia collegata | Tipo di test (unit/integration/manuale) | Evidenza (link/log, includere header/marker rilevante) |
 | --- | --- | --- | --- |
-| Test con dump disabilitato (marker/header) | <ID storia> | <tipo di test> | <link o descrizione> |
-| Naming export corretto | <ID storia> | <tipo di test> | <link o descrizione> |
-| CTA QA presenti | <ID storia> | <tipo di test> | <link o descrizione> |
-| 401/403 per endpoint protetti | <ID storia> | <tipo di test> | <link o descrizione> |
+| Test con dump disabilitato (marker/header) | _es. ABC-123_ | _es. integration_ | _link/log con marker/header_ |
+| Naming export corretto | _es. ABC-123_ | _es. unit_ | _link/log_ |
+| CTA QA presenti | _es. ABC-123_ | _es. manuale_ | _link/log_ |
+| 401/403 per endpoint protetti | _es. ABC-123_ | _es. integration_ | _link/log_ |
 
 ## Note aggiuntive
 - Dettagli aggiuntivi o rischi noti.
