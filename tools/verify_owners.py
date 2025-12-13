@@ -12,7 +12,13 @@ STORY_ID_RE = re.compile(r"^[A-Z]{2,}-[A-Z]{2,}-\d{2,}")
 
 
 class Violation:
-    def __init__(self, kind: str, detail: str, story_id: str | None = None, module: str | None = None):
+    def __init__(
+        self,
+        kind: str,
+        detail: str,
+        story_id: str | None = None,
+        module: str | None = None,
+    ):
         self.kind = kind
         self.detail = detail
         self.story_id = story_id
@@ -78,7 +84,10 @@ def parse_summary_table(lines: List[str], heading: str) -> List[dict]:
 
             data_idx = header_idx + 2  # skip header and separator rows
             while data_idx < len(lines) and lines[data_idx].startswith("|"):
-                cells = [cell.strip() for cell in lines[data_idx].strip().strip("|").split("|")]
+                cells = [
+                    cell.strip()
+                    for cell in lines[data_idx].strip().strip("|").split("|")
+                ]
                 if cells and STORY_ID_RE.match(cells[0]):
                     rows.append(
                         {
@@ -192,15 +201,24 @@ def render_report(report: dict, as_json: bool) -> str:
     if as_json:
         return json.dumps(report, ensure_ascii=False, indent=2)
 
-    lines = ["## Risultato verifica owner e checkpoint", "", f"Piano: `{report['plan']}`", ""]
+    lines = [
+        "## Risultato verifica owner e checkpoint",
+        "",
+        f"Piano: `{report['plan']}`",
+        "",
+    ]
     if report["violations"]:
         lines.append("### Violazioni trovate")
         for violation in report["violations"]:
             module = violation.get("module") or "(sconosciuto)"
             story = violation.get("story_id") or "(n/a)"
-            lines.append(f"- **{violation['kind']}** — Modulo: {module}, Story: {story}. {violation['detail']}")
+            lines.append(
+                f"- **{violation['kind']}** — Modulo: {module}, Story: {story}. {violation['detail']}"
+            )
     else:
-        lines.append("Nessuna violazione rilevata: tutti i moduli hanno owner e checkpoint Done.")
+        lines.append(
+            "Nessuna violazione rilevata: tutti i moduli hanno owner e checkpoint Done."
+        )
 
     lines.append("")
     lines.append(f"Moduli con owner: {report['modules_with_owner']}")
@@ -209,7 +227,9 @@ def render_report(report: dict, as_json: bool) -> str:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Verifica owner e checkpoint nel piano dei moduli")
+    parser = argparse.ArgumentParser(
+        description="Verifica owner e checkpoint nel piano dei moduli"
+    )
     parser.add_argument(
         "--plan",
         default="planning/module_work_plan.md",

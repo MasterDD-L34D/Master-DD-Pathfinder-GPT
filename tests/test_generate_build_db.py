@@ -211,9 +211,33 @@ def test_review_local_database_catalog_mismatch(monkeypatch, tmp_path):
     reference_dir = tmp_path / "reference"
     reference_dir.mkdir()
     reference_payload = {
-        "spells.json": [{"name": "Light", "source": "SRD", "prerequisites": [], "tags": [], "references": ["SRD"]}],
-        "feats.json": [{"name": "Alertness", "source": "SRD", "prerequisites": [], "tags": [], "references": ["SRD"]}],
-        "items.json": [{"name": "Starter kit", "source": "SRD", "prerequisites": [], "tags": [], "references": ["SRD"]}],
+        "spells.json": [
+            {
+                "name": "Light",
+                "source": "SRD",
+                "prerequisites": [],
+                "tags": [],
+                "references": ["SRD"],
+            }
+        ],
+        "feats.json": [
+            {
+                "name": "Alertness",
+                "source": "SRD",
+                "prerequisites": [],
+                "tags": [],
+                "references": ["SRD"],
+            }
+        ],
+        "items.json": [
+            {
+                "name": "Starter kit",
+                "source": "SRD",
+                "prerequisites": [],
+                "tags": [],
+                "references": ["SRD"],
+            }
+        ],
     }
     for filename, content in reference_payload.items():
         (reference_dir / filename).write_text(json.dumps(content), encoding="utf-8")
@@ -476,7 +500,9 @@ def test_run_harvest_t1_filter_selects_best_variant(tmp_path, monkeypatch):
         )
     )
 
-    saved_build = json.loads((output_dir / "alchemist.json").read_text(encoding="utf-8"))
+    saved_build = json.loads(
+        (output_dir / "alchemist.json").read_text(encoding="utf-8")
+    )
     assert saved_build["benchmark"]["meta_tier"] == "T1"
     assert saved_build["benchmark"]["statistics"]["DPR_Base"] == 12
     assert saved_build["benchmark"]["statistics"]["ca"] == 16
@@ -734,14 +760,18 @@ def test_run_harvest_suggests_combos(tmp_path, monkeypatch):
         )
     )
 
-    saved_build = json.loads((output_dir / "alchemist.json").read_text(encoding="utf-8"))
+    saved_build = json.loads(
+        (output_dir / "alchemist.json").read_text(encoding="utf-8")
+    )
     suggested = saved_build.get("benchmark", {}).get("suggested_combos")
     assert suggested is not None
     if suggested:
         assert suggested[0]["meta_tier"] == "T1"
     index_payload = json.loads(index_path.read_text(encoding="utf-8"))
     main_entry = next(
-        entry for entry in index_payload["entries"] if entry.get("file", "").endswith("alchemist.json")
+        entry
+        for entry in index_payload["entries"]
+        if entry.get("file", "").endswith("alchemist.json")
     )
 
 
