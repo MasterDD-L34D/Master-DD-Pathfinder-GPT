@@ -239,6 +239,13 @@ def test_get_module_content_path_traversal_double_back(client, auth_headers):
     assert response.json()["detail"] == "Invalid module path"
 
 
+def test_runtime_preload_guard_present():
+    content = (MODULES_DIR / "base_profile.txt").read_text(encoding="utf-8")
+
+    assert "flag: runtime.preload_done" in content
+    assert "set: [runtime.preload_done: true]" in content
+
+
 def test_get_module_content_not_found(client, auth_headers):
     response = client.get("/modules/missing_module.txt", headers=auth_headers)
     assert response.status_code == 404
@@ -569,6 +576,47 @@ def test_repeated_wrong_api_key_triggers_backoff(client, short_backoff):
 def test_correct_api_key_allows_access(client, auth_headers):
     response = client.get("/modules", headers=auth_headers)
     assert response.status_code == 200
+
+
+def test_preload_bundle_protected_and_partial(client, auth_headers):
+    unauthorized = client.get("/modules/preload_all_modules.txt")
+    assert unauthorized.status_code == 401
+
+    response = client.get("/modules/preload_all_modules.txt", headers=auth_headers)
+
+    assert response.status_code == 206
+    assert response.headers["X-Content-Partial"] == "true"
+    assert response.headers["X-Content-Served-Bytes"] == "0"
+    assert response.headers["X-Content-Truncated"] == "true"
+
+
+def test_preload_bundle_lists_core_modules(client, auth_headers, enable_module_dump):
+    response = client.get("/modules/preload_all_modules.txt", headers=auth_headers)
+
+    assert response.status_code == 200
+
+    module_paths = {
+        line.lstrip("- ").strip()
+        for line in response.text.splitlines()
+        if line.startswith("-")
+    }
+    expected_paths = {
+        "src/modules/archivist.txt",
+        "src/modules/ruling_expert.txt",
+        "src/modules/Taverna_NPC.txt",
+        "src/modules/narrative_flow.txt",
+        "src/modules/explain_methods.txt",
+        "src/modules/minmax_builder.txt",
+        "src/modules/Encounter_Designer.txt",
+        "src/modules/adventurer_ledger.txt",
+        "src/modules/meta_doc.txt",
+    }
+
+    assert module_paths == expected_paths
+    for path_str in module_paths:
+        binding_path = Path(path_str)
+        assert binding_path.is_file()
+        assert (MODULES_DIR / binding_path.name).is_file()
 
 
 def test_knowledge_requires_api_key(client):
