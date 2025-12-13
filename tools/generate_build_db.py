@@ -476,28 +476,46 @@ def catalog_combo_candidates(
     """Estrae combinazioni dal catalogo dando precedenza a tag rilevanti.
 
     I talenti e gli oggetti vengono ordinati privilegiando tag che matchano
-    la classe o l'archetipo richiesto, seguiti da tag granulari come slot e
-    tipo di danno. Questo consente a ``--suggest-combos`` di proporre varianti
-    più aderenti al ruolo (es. un ranger con talenti da tiro e oggetti da slot
-    corretti).
+    la classe o l'archetipo richiesto, seguiti da tag granulari come slot,
+    scuola ed eventuale tipo di danno. Questo consente a ``--suggest-combos``
+    di proporre varianti più aderenti al ruolo (es. un ranger con talenti da
+    tiro e oggetti da slot corretti o un magus con bonus alle scuole arcane
+    usate dalla build).
     """
 
     def _score_entry(entry: Mapping[str, object]) -> tuple[int, str]:
         tags = entry.get("tags") if isinstance(entry.get("tags"), Sequence) else []
         normalized_tags = [str(tag).strip().lower() for tag in tags if isinstance(tag, str)]
         score = 0
+
+        has_class_tag = any(tag.startswith("class:") for tag in normalized_tags)
+        has_archetype_tag = any(tag.startswith("archetype:") for tag in normalized_tags)
+
         if class_name:
             class_tag = f"class:{class_name.strip().lower()}"
             if class_tag in normalized_tags:
-                score += 3
+                score += 4
+            elif has_class_tag:
+                score += 1
+
         if archetype:
             archetype_tag = f"archetype:{str(archetype).strip().lower()}"
             if archetype_tag in normalized_tags:
-                score += 2
+                score += 3
+            elif has_archetype_tag:
+                score += 1
+        elif has_archetype_tag:
+            score += 1
+
         if any(tag.startswith("damage:") for tag in normalized_tags):
-            score += 1
+            score += 2
         if any(tag.startswith("slot:") for tag in normalized_tags):
+            score += 2
+        if any(tag.startswith("school:") for tag in normalized_tags):
             score += 1
+        if any(tag.startswith("attack:") for tag in normalized_tags):
+            score += 1
+
         name = _string_name(entry.get("name")) or ""
         return score, name
 
