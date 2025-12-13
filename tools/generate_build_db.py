@@ -309,7 +309,9 @@ def load_reference_manifest(
     return manifest
 
 
-def _collect_catalog_entries(sheet_payload: Mapping[str, object]) -> dict[str, list[str]]:
+def _collect_catalog_entries(
+    sheet_payload: Mapping[str, object],
+) -> dict[str, list[str]]:
     def _extract_sequence_names(value: object) -> list[str]:
         names: list[str] = []
         if isinstance(value, Mapping):
@@ -485,7 +487,9 @@ def catalog_combo_candidates(
 
     def _score_entry(entry: Mapping[str, object]) -> tuple[int, str]:
         tags = entry.get("tags") if isinstance(entry.get("tags"), Sequence) else []
-        normalized_tags = [str(tag).strip().lower() for tag in tags if isinstance(tag, str)]
+        normalized_tags = [
+            str(tag).strip().lower() for tag in tags if isinstance(tag, str)
+        ]
         score = 0
 
         has_class_tag = any(tag.startswith("class:") for tag in normalized_tags)
@@ -606,7 +610,9 @@ def assign_missing_races(
     prefer_unused_race: bool = False,
     race_pool: Sequence[str] | None = None,
 ) -> list[BuildRequest]:
-    used_normalized = {race for race in (normalize_race(r) for r in race_inventory) if race}
+    used_normalized = {
+        race for race in (normalize_race(r) for r in race_inventory) if race
+    }
     pool = [race for race in (race_pool or []) if race]
     available_pool = [
         race for race in pool if normalize_race(race) not in used_normalized
@@ -650,9 +656,7 @@ def export_race_inventory(build_dir: Path, output_path: Path) -> Mapping[str, ob
         if race:
             counter[str(race).strip()] += 1
 
-    races = [
-        {"name": name, "count": count} for name, count in sorted(counter.items())
-    ]
+    races = [{"name": name, "count": count} for name, count in sorted(counter.items())]
     payload = {"generated_at": now_iso_utc(), "races": races}
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1459,7 +1463,9 @@ def review_local_database(
         entry.setdefault("mode_normalized", index_entry.get("mode_normalized"))
         index_entries.append(index_entry)
 
-        normalized_prefix = _strip_level_suffix(output_prefix or Path(display_path).stem)
+        normalized_prefix = _strip_level_suffix(
+            output_prefix or Path(display_path).stem
+        )
         tracker_entry = prefix_tracker.setdefault(
             normalized_prefix,
             {
@@ -1468,7 +1474,9 @@ def review_local_database(
                 "template_file": display_path,
             },
         )
-        tracker_entry["expected"].update(_normalize_levels(level_checkpoints, (1, 5, 10)))
+        tracker_entry["expected"].update(
+            _normalize_levels(level_checkpoints, (1, 5, 10))
+        )
         level_from_entry = index_entry.get("level")
         if level_from_entry is None:
             level_from_entry = _deduce_level_from_filename(Path(display_path))
@@ -1485,8 +1493,15 @@ def review_local_database(
 
         template_path = Path(str(tracker.get("template_file") or build_dir / prefix))
         for missing_level in missing_levels:
-            suffix = "" if missing_level == min(expected_levels or {1}) else f"_lvl{missing_level:02d}"
-            missing_path = template_path.parent / f"{_strip_level_suffix(template_path.stem)}{suffix}.json"
+            suffix = (
+                ""
+                if missing_level == min(expected_levels or {1})
+                else f"_lvl{missing_level:02d}"
+            )
+            missing_path = (
+                template_path.parent
+                / f"{_strip_level_suffix(template_path.stem)}{suffix}.json"
+            )
             entry = {
                 "file": str(missing_path),
                 "output_prefix": prefix,
@@ -1632,9 +1647,7 @@ def _combo_archetype_value(archetypes: object) -> str | None:
     if isinstance(archetypes, str):
         return archetypes.strip() or None
     if isinstance(archetypes, Sequence) and not isinstance(archetypes, (str, bytes)):
-        candidates = [
-            str(item).strip() for item in archetypes if str(item).strip()
-        ]
+        candidates = [str(item).strip() for item in archetypes if str(item).strip()]
         if candidates:
             return " + ".join(candidates)
     return None
@@ -1645,12 +1658,12 @@ def load_combo_matrix(matrix_path: Path, default_mode: str) -> list[BuildRequest
 
     raw_data = yaml.safe_load(matrix_path.read_text(encoding="utf-8"))
     if not isinstance(raw_data, Mapping):
-        raise ValueError(f"combo_matrix non valida: atteso mapping, trovato {type(raw_data)}")
+        raise ValueError(
+            f"combo_matrix non valida: atteso mapping, trovato {type(raw_data)}"
+        )
 
     default_mode = str(raw_data.get("mode", default_mode))
-    default_levels = _normalize_levels(
-        raw_data.get("level_checkpoints"), (1, 5, 10)
-    )
+    default_levels = _normalize_levels(raw_data.get("level_checkpoints"), (1, 5, 10))
     class_matrix = raw_data.get("classes")
     if not isinstance(class_matrix, Mapping):
         raise ValueError("combo_matrix mancante della sezione 'classes'")
@@ -2178,13 +2191,16 @@ def build_requests_from_args(
         return load_spec_requests(args.spec_file, args.mode), combo_matrix_used
 
     if args.races or args.archetypes or args.background_hooks:
-        return build_variant_matrix_requests(
-            args.classes,
-            args.mode,
-            args.races,
-            args.archetypes,
-            args.background_hooks,
-        ), combo_matrix_used
+        return (
+            build_variant_matrix_requests(
+                args.classes,
+                args.mode,
+                args.races,
+                args.archetypes,
+                args.background_hooks,
+            ),
+            combo_matrix_used,
+        )
 
     if args.combo_matrix and args.combo_matrix.is_file():
         try:
@@ -3346,9 +3362,7 @@ async def fetch_build(
     suggest_combos: bool = False,
     validate_combo: bool = False,
 ) -> MutableMapping:
-    reference_catalog = load_reference_catalog(
-        reference_dir, strict=require_complete
-    )
+    reference_catalog = load_reference_catalog(reference_dir, strict=require_complete)
     reference_manifest = load_reference_manifest(reference_dir)
 
     def _coerce_number(value: object) -> float | None:
@@ -3363,7 +3377,9 @@ async def fetch_build(
                     return None
         return None
 
-    def _benchmark_scores(benchmark: Mapping[str, object] | None) -> tuple[float, float]:
+    def _benchmark_scores(
+        benchmark: Mapping[str, object] | None,
+    ) -> tuple[float, float]:
         offense = 0.0
         defense = 0.0
         if not isinstance(benchmark, Mapping):
@@ -3394,7 +3410,9 @@ async def fetch_build(
 
         return offense, defense
 
-    def _variant_meta(payload: Mapping[str, object]) -> tuple[str | None, str | None, float, float, list[str]]:
+    def _variant_meta(
+        payload: Mapping[str, object],
+    ) -> tuple[str | None, str | None, float, float, list[str]]:
         benchmark = payload.get("benchmark") if isinstance(payload, Mapping) else None
         meta_tier = None
         if isinstance(benchmark, Mapping):
@@ -3403,9 +3421,9 @@ async def fetch_build(
 
         ruling_badge = None
         if isinstance(payload, Mapping):
-            ruling_badge = payload.get("ruling_badge") or payload.get("benchmark", {}).get(
-                "ruling_badge"
-            )
+            ruling_badge = payload.get("ruling_badge") or payload.get(
+                "benchmark", {}
+            ).get("ruling_badge")
 
         offense_score, defense_score = _benchmark_scores(benchmark)
 
@@ -3417,7 +3435,9 @@ async def fetch_build(
                 ruling_log_field, (str, bytes)
             ):
                 candidates.extend(str(entry) for entry in ruling_log_field)
-            qa_ctx = payload.get("qa") if isinstance(payload.get("qa"), Mapping) else None
+            qa_ctx = (
+                payload.get("qa") if isinstance(payload.get("qa"), Mapping) else None
+            )
             qa_log = None
             if qa_ctx and isinstance(qa_ctx.get("ruling_expert"), Mapping):
                 qa_log = qa_ctx.get("ruling_expert", {}).get("log")
@@ -3430,7 +3450,13 @@ async def fetch_build(
                     candidates.append(str(qa_log))
             ruling_log = candidates
 
-        return meta_tier, str(ruling_badge) if ruling_badge else None, offense_score, defense_score, ruling_log
+        return (
+            meta_tier,
+            str(ruling_badge) if ruling_badge else None,
+            offense_score,
+            defense_score,
+            ruling_log,
+        )
 
     async def _append_combo_suggestions(
         base_payload: MutableMapping,
@@ -3449,8 +3475,12 @@ async def fetch_build(
             archetype_value = combo.get("archetype") or request.archetype
             if archetype_value:
                 combo_id_parts.append(str(archetype_value))
-            feat_names = combo.get("feats") if isinstance(combo.get("feats"), Sequence) else []
-            item_names = combo.get("items") if isinstance(combo.get("items"), Sequence) else []
+            feat_names = (
+                combo.get("feats") if isinstance(combo.get("feats"), Sequence) else []
+            )
+            item_names = (
+                combo.get("items") if isinstance(combo.get("items"), Sequence) else []
+            )
             combo_id_parts.extend(map(str, feat_names or []))
             combo_id_parts.extend(map(str, item_names or []))
             combo_slug = slugify("-".join(filter(None, combo_id_parts)))
@@ -3543,13 +3573,19 @@ async def fetch_build(
             ) from exc
 
         original_benchmark = (
-            payload.get("benchmark") if isinstance(payload.get("benchmark"), Mapping) else {}
+            payload.get("benchmark")
+            if isinstance(payload.get("benchmark"), Mapping)
+            else {}
         )
         original_meta_tier = (
-            original_benchmark.get("meta_tier") if isinstance(original_benchmark, Mapping) else None
+            original_benchmark.get("meta_tier")
+            if isinstance(original_benchmark, Mapping)
+            else None
         )
         original_ruling_badge = (
-            original_benchmark.get("ruling_badge") if isinstance(original_benchmark, Mapping) else None
+            original_benchmark.get("ruling_badge")
+            if isinstance(original_benchmark, Mapping)
+            else None
         )
 
         for required in ("build_state", "benchmark", "export"):
@@ -3579,7 +3615,9 @@ async def fetch_build(
         step_labels = (
             build_state.get("step_labels") if isinstance(build_state, Mapping) else None
         )
-        step_labels_count = len(step_labels) if isinstance(step_labels, Mapping) else None
+        step_labels_count = (
+            len(step_labels) if isinstance(step_labels, Mapping) else None
+        )
         has_extended_steps = bool(step_labels_count and step_labels_count >= 16)
         if observed_step_total is None:
             logging.warning(
@@ -3674,7 +3712,9 @@ async def fetch_build(
                 completeness_errors.append(label)
 
         _require_block(
-            "PF mancanti o vuoti", sheet_payload.get("pf_totali"), sheet_payload.get("hp")
+            "PF mancanti o vuoti",
+            sheet_payload.get("pf_totali"),
+            sheet_payload.get("hp"),
         )
         _require_block("Salvezze mancanti o vuote", sheet_payload.get("salvezze"))
         _require_block(
@@ -3699,7 +3739,9 @@ async def fetch_build(
             sheet_payload.get("magia"),
             sheet_payload.get("slot_incantesimi"),
         )
-        _require_block("CA dettagliata mancante o vuota", sheet_payload.get("ac_breakdown"))
+        _require_block(
+            "CA dettagliata mancante o vuota", sheet_payload.get("ac_breakdown")
+        )
         _require_block(
             "Iniziativa/velocità assente o vuota",
             sheet_payload.get("iniziativa"),
@@ -3774,7 +3816,9 @@ async def fetch_build(
             )
         return payload
 
-    variants: list[tuple[MutableMapping, tuple[str | None, str | None, float, float, list[str]]]] = []
+    variants: list[
+        tuple[MutableMapping, tuple[str | None, str | None, float, float, list[str]]]
+    ] = []
     attempts = max(1, t1_variants if t1_filter else 1)
     for _ in range(attempts):
         payload = await _fetch_single_variant()
@@ -3783,9 +3827,7 @@ async def fetch_build(
             return await _append_combo_suggestions(payload)
 
     valid_variants = [
-        (payload, meta)
-        for payload, meta in variants
-        if meta[0] == "T1" and meta[1]
+        (payload, meta) for payload, meta in variants if meta[0] == "T1" and meta[1]
     ]
 
     if not valid_variants:
@@ -3794,13 +3836,18 @@ async def fetch_build(
             f"Filtro T1 attivo: nessuna variante valida (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
         )
 
-    def _score(meta: tuple[str | None, str | None, float, float, list[str]]) -> tuple[float, float]:
+    def _score(
+        meta: tuple[str | None, str | None, float, float, list[str]],
+    ) -> tuple[float, float]:
         return meta[2], meta[3]
 
     best_payload, best_meta = max(valid_variants, key=lambda item: _score(item[1]))
     if best_meta[4]:
-        best_payload.setdefault("qa", {}).setdefault("ruling_expert", {})["log"] = best_meta[4]
+        best_payload.setdefault("qa", {}).setdefault("ruling_expert", {})["log"] = (
+            best_meta[4]
+        )
     return await _append_combo_suggestions(best_payload)
+
 
 async def fetch_module(
     client: httpx.AsyncClient, api_key: str | None, module_name: str, max_retries: int
@@ -3911,7 +3958,11 @@ def _index_meta_from_payload(payload: Mapping[str, object] | None) -> dict[str, 
         return {}
 
     metadata: dict[str, object] = {}
-    benchmark = payload.get("benchmark") if isinstance(payload.get("benchmark"), Mapping) else None
+    benchmark = (
+        payload.get("benchmark")
+        if isinstance(payload.get("benchmark"), Mapping)
+        else None
+    )
     if benchmark:
         meta_tier = benchmark.get("meta_tier")
         if meta_tier:
@@ -4242,7 +4293,10 @@ async def run_harvest(
         return 1
 
     def _combo_score(
-        meta_tier: str | None, offense: float | None, defense: float | None, badge: str | None
+        meta_tier: str | None,
+        offense: float | None,
+        defense: float | None,
+        badge: str | None,
     ) -> tuple[float, float, float, float]:
         return (
             1.0 if badge else 0.0,
@@ -4569,7 +4623,10 @@ async def run_harvest(
                                 )
                                 async with best_combo_lock:
                                     best_entry = best_combo_scores.get(combo_key)
-                                    if best_entry is None or combo_score > best_entry[0]:
+                                    if (
+                                        best_entry is None
+                                        or combo_score > best_entry[0]
+                                    ):
                                         previous_best_path = (
                                             best_entry[1] if best_entry else None
                                         )
@@ -4579,11 +4636,8 @@ async def run_harvest(
                                         )
                                     else:
                                         status = "pruned"
-                                        validation_error = (
-                                            validation_error
-                                            or (
-                                                f"Scartato dalla combo matrix: score {combo_score} <= {best_entry[0]}"
-                                            )
+                                        validation_error = validation_error or (
+                                            f"Scartato dalla combo matrix: score {combo_score} <= {best_entry[0]}"
                                         )
                             else:
                                 status = "invalid"
@@ -4809,12 +4863,18 @@ async def run_harvest(
             key = f"{class_slug}@{combo_level}"
             if best_path:
                 candidate_path = entry.get("file")
-                if not candidate_path or Path(candidate_path).resolve() != best_path.resolve():
+                if (
+                    not candidate_path
+                    or Path(candidate_path).resolve() != best_path.resolve()
+                ):
                     continue
             elif key in new_build_entries:
                 continue
         else:
-            key = entry.get("file") or f"{entry.get('output_prefix')}@{entry.get('level')}"
+            key = (
+                entry.get("file")
+                or f"{entry.get('output_prefix')}@{entry.get('level')}"
+            )
 
         if key:
             new_build_entries[str(key)] = entry
