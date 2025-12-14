@@ -70,3 +70,14 @@
 
 ### Canale di rilascio (messaggio pronto)
 > Regression su dump policy/QA/export completato (pytest + checklist). Marker/header di troncamento confermati, CTA QA obbligatorie prima degli export, naming `MinMax_<nome>` allineata su Builder/Encounter. Nessuna storia riaperta.
+
+## QA 2025-12-18 — Staging sandbox (dump toggle, CTA QA, export naming)
+- **Playlist staging**: preparata la playlist dedicata per verificare dump header/marker, CTA QA e naming export sui moduli principali (`Encounter_Designer`, `minmax_builder`, `Taverna_NPC`, `narrative_flow`, ledger).【F:reports/staging_test_playlist.md†L1-L46】
+- **Run sandbox**: `pytest tests/test_app.py -q` contro l'istanza sandbox (TestClient) con `ALLOW_MODULE_DUMP` di default disabilitato; 53 test **passati** con 2 warning di deprecazione (jsonschema), confermando header di troncamento, blocco binari e gating API/metrics.【80ed8e†L1-L12】
+- **Evidenze per modulo**:
+  - **Dump policy**: handler streaming applica header `X-Content-*` e marker `[contenuto troncato — …]` con `ALLOW_MODULE_DUMP=false`; full dump solo quando il flag è true e il modulo non è protetto.【F:src/app.py†L1517-L1580】
+  - **CTA/Gate QA**: Encounter Designer richiede `/validate_encounter` prima dell'export; MinMax Builder usa `export_requires`/`qa_check` e CTA dedicate; narrative/taverna mantengono CTA di remediation e QA story prima dell'export.【F:src/modules/Encounter_Designer.txt†L387-L438】【F:src/modules/minmax_builder.txt†L1886-L1893】【F:src/modules/narrative_flow.txt†L334-L401】【F:src/modules/Taverna_NPC.txt†L1299-L1334】
+  - **Naming export**: confermata la nomenclatura condivisa `MinMax_<nome>.pdf/.xlsx/.json` e l'allineamento con Encounter Designer; ledger/taverna mantengono auto-naming su canvas/ledger.【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1224-L1225】【F:src/modules/Encounter_Designer.txt†L419-L438】【F:src/modules/adventurer_ledger.txt†L1101-L1127】
+
+### Canale di rilascio (messaggio pronto)
+> Staging QA completata: dump `[contenuto troncato]`/header `X-Content-*` validati con pytest (53/53 pass), CTA QA attive su Encounter/MinMax/Taverna/Narrative e naming export `MinMax_<nome>` confermato. Nessuna storia riaperta, tracker aggiornato con stato **chiuso**.
