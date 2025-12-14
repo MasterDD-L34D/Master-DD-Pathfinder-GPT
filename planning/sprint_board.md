@@ -15,6 +15,12 @@ Tabella di chiusura riportata da `planning/module_work_plan.md` con evidenza del
 - **Esito storie**: nessuna riapertura; tutte le storie impattate restano **chiuse** dopo il regression pass.【F:reports/regression_checklist.md†L1-L66】
 - **Nota di rilascio**: messaggio pronto nel canale di rilascio che conferma marker/header, CTA QA e naming `MinMax_<nome>` allineato su Builder/Encounter.【F:reports/qa_log.md†L1-L16】
 
+## Aggiornamento regression 2025-12-18
+- **Scope**: verifica staging/sandbox su dump toggle (`ALLOW_MODULE_DUMP` true/false), CTA QA obbligatorie e naming export dei moduli principali (Encounter_Designer, MinMax Builder, Taverna/Narrative, ledger).
+- **Test eseguiti**: `pytest tests/test_app.py -q` (53 pass, 2 warning deprecazione) su sandbox + playlist staging per dump/header, gate CTA e naming export.【80ed8e†L1-L12】【F:reports/staging_test_playlist.md†L1-L46】
+- **Esito storie**: tutte le storie toccate restano **chiuse**, nessuna riapertura necessaria (dump/header/CTA/naming coerenti).【F:reports/qa_log.md†L18-L35】
+- **Nota di rilascio**: messaggio pronto per il canale di rilascio con riferimenti ai test staging e conferma naming `MinMax_<nome>`/CTA QA attive.【F:reports/qa_log.md†L18-L35】
+
 | Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Dipendenze operative | Stato | #Osservazioni | #Errori | Checkpoint | Ultimo update | Rischi |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Encounter_Designer | Alice Bianchi | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-12 | 2025-12-12 | Nessuno |
