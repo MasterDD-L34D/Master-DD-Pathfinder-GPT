@@ -7,6 +7,8 @@ on:
 jobs:
   validate-pr-template:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
     steps:
       - name: Verifica checklist ed evidenze obbligatorie
         uses: actions/github-script@v6
