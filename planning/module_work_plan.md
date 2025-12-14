@@ -458,6 +458,308 @@ Fonte sequenza: `planning/module_review_guide.md`
   - eventuali blocchi o dipendenze emerse, collegandole ai rispettivi Story ID.
 - Gli owner (Fabio Marchetti, Alice Bianchi, Andrea Rizzi) inseriscono gli aggiornamenti direttamente nel tracker della storia di riferimento entro fine giornata.
 
+#### Calendario giornaliero (dal 2025-12-12)
+
+##### 2025-12-12
+- **Encounter_Designer (ENC-OBS-01/02, ENC-ERR-01)**
+  - Rischi/regressioni: nessuna nuova anomalia; i valori numerici/astratti restano coerenti con la policy PFS.
+  - Stato vs checkpoint: criterio di convalida 2025-12-12 rispettato con QA clampato ripetuto.
+  - CTA completate: rerun QA clampato e verifica pipeline export/CTA sequenziale.
+  - Blocchi/dipendenze: nessuna.
+  - Stato tracker: storie confermate chiuse (Done).
+- **base_profile (BAS-OBS-01/02, BAS-CHK-19, BAS-ERR-01)**
+  - Rischi/regressioni: nessuna regressione sul routing doc/help/manuale o sul preload 206 protetto.
+  - Stato vs checkpoint: prerequisiti 2025-12-19 in anticipo, flag `runtime.preload_done` valido.
+  - CTA completate: smoke test doc/help/manuale con API key; warmup preload ripetuto.
+  - Blocchi/dipendenze: dipendenza ai moduli core già valida su disco, nessun blocco nuovo.
+  - Stato tracker: storie restano chiuse (Done).
+- **sigilli_runner_module (SIG-OBS-01/02/03, SIG-ERR-01/02/03/04)**
+  - Rischi/regressioni: nessun nuovo rischio; finestra raro da indice 14 e portale sempre presente confermati.
+  - Stato vs checkpoint: controllo preliminare verso checkpoint 2025-12-26 senza deviazioni.
+  - CTA completate: ripasso note CTA MDA/CTA e header troncamento.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: storie mantenute chiuse (Done).
+
+##### 2025-12-13
+- **Encounter_Designer**
+  - Rischi/regressioni: nessuna; valori numerici e clamp CR/QA stabili.
+  - Stato vs checkpoint: monitoraggio post-checkpoint, nessuna azione richiesta.
+  - CTA completate: validazione automatica export VTT/MD/PDF riconfermata.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessun degrado nelle rotte doc/help/manuale o preload.
+  - Stato vs checkpoint: pronti per checklist 2025-12-19, nessuno slittamento.
+  - CTA completate: controllo health/doc autenticato con API key.
+  - Blocchi/dipendenze: nessuno aggiuntivo oltre al gate sui moduli core.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessuna nuova regressione sulle soglie rare/quest o tagging CTA.
+  - Stato vs checkpoint: percorso verso 2025-12-26 on track.
+  - CTA completate: review checklist rare/portale e log QA.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-14
+- **Encounter_Designer**
+  - Rischi/regressioni: non rilevati.
+  - Stato vs checkpoint: stabile dopo validazione 2025-12-12.
+  - CTA completate: smoke test clampato rapido.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessun cambio su preload o binding core.
+  - Stato vs checkpoint: preparazione checkpoint 2025-12-19 confermata.
+  - CTA completate: verifica routing `/doc` e note preload.
+  - Blocchi/dipendenze: nessuno ulteriore.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessun rischio su rare gating o portale obbligatorio.
+  - Stato vs checkpoint: progression invariata verso 2025-12-26.
+  - CTA completate: controllo CTA sigilli_portal e badge.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-15
+- **Encounter_Designer**
+  - Rischi/regressioni: nessuna anomalia post-rerun export.
+  - Stato vs checkpoint: mantenuto post-2025-12-12.
+  - CTA completate: revisione pipeline QA/export.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessuna regressione su guard API key.
+  - Stato vs checkpoint: allineato al checkpoint 2025-12-19.
+  - CTA completate: verifica header troncamento su preload autenticato.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: non emersi; cooldown raro coerente.
+  - Stato vs checkpoint: progresso regolare verso 2025-12-26.
+  - CTA completate: controllo logging rare/quest.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-16
+- **Encounter_Designer**
+  - Rischi/regressioni: nessuna variazione.
+  - Stato vs checkpoint: sorveglianza post-chiusura invariata.
+  - CTA completate: check export MD/PDF.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessun nuovo rischio su preload/binding.
+  - Stato vs checkpoint: pronto per convalida 2025-12-19.
+  - CTA completate: test API key su `/help` e warmup.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessuno; CTA sigilli_portal stabile.
+  - Stato vs checkpoint: timeline 2025-12-26 confermata.
+  - CTA completate: revisione badge level-up.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-17
+- **Encounter_Designer**
+  - Rischi/regressioni: non presenti.
+  - Stato vs checkpoint: monitoraggio continuo, nessun riapertura.
+  - CTA completate: check veloce CR clampato.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessun degrado router.
+  - Stato vs checkpoint: on track per 2025-12-19.
+  - CTA completate: conferma binding core e flag runtime.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: non rilevati.
+  - Stato vs checkpoint: schedule rispettata verso 2025-12-26.
+  - CTA completate: verifica quest_every e token_step.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-18
+- **Encounter_Designer**
+  - Rischi/regressioni: nessun problema post-export.
+  - Stato vs checkpoint: stabile post-checkpoint.
+  - CTA completate: export QA ricontrollato.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessuno su preload o gate API key.
+  - Stato vs checkpoint: verifiche finali pronte per 2025-12-19.
+  - CTA completate: chiamata autenticata preload 206.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessuna variazione su CTA portale/rare.
+  - Stato vs checkpoint: percorso verso 2025-12-26 confermato.
+  - CTA completate: check tag MDA su rare/quest.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-19
+- **Encounter_Designer**
+  - Rischi/regressioni: nessuna novità.
+  - Stato vs checkpoint: invariato, nessuna riapertura.
+  - CTA completate: verifica automatica clamp.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessuna regressione; preload e router doc/help/manuale OK.
+  - Stato vs checkpoint: checkpoint 2025-12-19 soddisfatto.
+  - CTA completate: QA su dump troncato e API key; warmup completato.
+  - Blocchi/dipendenze: nessuno nuovo; gate rilasci confermato chiudibile.
+  - Stato tracker: storie confermate chiuse (Done).
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessun nuovo rischio.
+  - Stato vs checkpoint: timeline 2025-12-26 regolare.
+  - CTA completate: controllo portale presente anche senza sigilli.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-20
+- **Encounter_Designer**
+  - Rischi/regressioni: nessuna evidenza.
+  - Stato vs checkpoint: sorveglianza post-chiusura.
+  - CTA completate: sanity check export.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessun degrado dopo checkpoint.
+  - Stato vs checkpoint: chiuso, monitoraggio.
+  - CTA completate: verifica periodica doc/help.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessun problema su rare/quest.
+  - Stato vs checkpoint: avanzamento stabile verso 2025-12-26.
+  - CTA completate: revisione logs QA.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-21
+- **Encounter_Designer**
+  - Rischi/regressioni: nessuna.
+  - Stato vs checkpoint: invariato, storie restano chiuse.
+  - CTA completate: check pipeline CTA.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: non emersi.
+  - Stato vs checkpoint: post-checkpoint, nessuna riapertura.
+  - CTA completate: verifica router doc/help.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessun nuovo rischio.
+  - Stato vs checkpoint: timeline 2025-12-26 confermata.
+  - CTA completate: controllo raro/portale e tag CTA.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-22
+- **Encounter_Designer**
+  - Rischi/regressioni: non rilevati.
+  - Stato vs checkpoint: monitoraggio, nessuna azione.
+  - CTA completate: check export VTT/MD.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessuno.
+  - Stato vs checkpoint: post-checkpoint, tutto chiuso.
+  - CTA completate: controllo doc/help/manuale.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessuna regressione.
+  - Stato vs checkpoint: andamento regolare verso 2025-12-26.
+  - CTA completate: validazione quest_every.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-23
+- **Encounter_Designer**
+  - Rischi/regressioni: nessuno.
+  - Stato vs checkpoint: chiuso, sola sorveglianza.
+  - CTA completate: check rapido CTA QA.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessun problema.
+  - Stato vs checkpoint: post-2025-12-19 nessuna riapertura.
+  - CTA completate: verifica health/doc con API key.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessun nuovo rischio su rare/quest.
+  - Stato vs checkpoint: percorso per 2025-12-26 confermato.
+  - CTA completate: controllo header troncamento.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-24
+- **Encounter_Designer**
+  - Rischi/regressioni: nessuna variazione.
+  - Stato vs checkpoint: chiuso.
+  - CTA completate: export sanity check.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessuno.
+  - Stato vs checkpoint: chiuso, monitoraggio.
+  - CTA completate: controllo router doc.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessun problema.
+  - Stato vs checkpoint: timeline per 2025-12-26 confermata.
+  - CTA completate: verifica badge level-up.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-25
+- **Encounter_Designer**
+  - Rischi/regressioni: non presenti.
+  - Stato vs checkpoint: chiuso.
+  - CTA completate: check CR clampato.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessun degrado.
+  - Stato vs checkpoint: post-checkpoint, nulla da riaprire.
+  - CTA completate: verifica doc/help/manuale.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessuna novità.
+  - Stato vs checkpoint: pronto per verifica finale 2025-12-26.
+  - CTA completate: check CTA portale e rare.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+
+##### 2025-12-26
+- **Encounter_Designer**
+  - Rischi/regressioni: nessun segnale di regressione.
+  - Stato vs checkpoint: concluso e chiuso.
+  - CTA completate: monitoraggio export.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **base_profile**
+  - Rischi/regressioni: nessuna nuova evidenza.
+  - Stato vs checkpoint: checkpoint 2025-12-19 resta valido, nessuna riapertura.
+  - CTA completate: controllo periodico preload/doc.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: chiuso.
+- **sigilli_runner_module**
+  - Rischi/regressioni: nessun rischio aggiuntivo; raro, portale e troncamento restano coerenti.
+  - Stato vs checkpoint: checkpoint 2025-12-26 confermato senza deviazioni.
+  - CTA completate: QA finale su rare/portale/header troncato e tagging MDA/CTA.
+  - Blocchi/dipendenze: nessuno.
+  - Stato tracker: storie confermate chiuse (Done).
+
 ### Regression pass pre-rilascio
 - Prima del rilascio finale eseguire un regression pass mirato su:
   - policy di dump (inclusi marker di troncamento e header coerenti);
