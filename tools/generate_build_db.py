@@ -309,6 +309,39 @@ def load_reference_manifest(
     return manifest
 
 
+def _reference_url_coverage(
+    catalog: Mapping[str, Mapping[str, Mapping[str, object]]]
+) -> dict[str, object]:
+    coverage = {
+        "total": 0,
+        "aon": 0,
+        "d20_only": 0,
+        "missing_aon_entries": [],
+    }
+
+    for category, entries in catalog.items():
+        for normalized_name, entry in entries.items():
+            coverage["total"] += 1
+            urls = entry.get("reference_urls") if isinstance(entry, Mapping) else []
+            urls = urls if isinstance(urls, Sequence) and not isinstance(urls, (str, bytes)) else []
+            normalized_urls = [str(url).strip() for url in urls if str(url).strip()]
+            has_aon = any("aonprd.com" in url for url in normalized_urls)
+            has_d20 = any("d20pfsrd" in url for url in normalized_urls)
+
+            if has_aon:
+                coverage["aon"] += 1
+            if has_d20 and not has_aon:
+                coverage["d20_only"] += 1
+                display_name = entry.get("name") if isinstance(entry, Mapping) else normalized_name
+                coverage["missing_aon_entries"].append(f"{category}:{display_name}")
+
+    total = coverage["total"] or 1
+    coverage["aon_ratio"] = round(coverage["aon"] / total, 3)
+    coverage["status"] = "ok" if not coverage["missing_aon_entries"] else "invalid"
+
+    return coverage
+
+
 def _collect_catalog_entries(
     sheet_payload: Mapping[str, object],
 ) -> dict[str, list[str]]:
@@ -1245,6 +1278,7 @@ def review_local_database(
     build_index_entries = _load_build_index_entries(build_index_path)
     reference_catalog = load_reference_catalog(reference_dir, strict=strict)
     reference_manifest = load_reference_manifest(reference_dir)
+    reference_coverage = _reference_url_coverage(reference_catalog)
     build_files: dict[Path, str] = {}
     index_entries: list[dict[str, object]] = []
     if build_dir.is_dir():
@@ -1598,6 +1632,12 @@ def review_local_database(
         "builds": builds_section,
         "modules": modules_section,
     }
+    report["reference_urls"] = reference_coverage
+    if reference_coverage.get("missing_aon_entries"):
+        logging.warning(
+            "Reference senza AoN rilevate: %s",
+            ", ".join(reference_coverage.get("missing_aon_entries", [])),
+        )
 
     if build_index_path:
         report["build_index"] = str(build_index_path)
