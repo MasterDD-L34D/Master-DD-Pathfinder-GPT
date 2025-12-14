@@ -166,8 +166,8 @@ jobs:
             return re.escape(value)
 
           def update_checkbox(text: str, label: str, checked: bool) -> str:
-            pattern = re.compile(rf"- \[( |x)\] {escape(label)}")
-            replacement = f"- [{'x' if checked else ' '}] {label}"
+            pattern = re.compile(rf"-\s*\[\s*[xX]?\s*\]\s*{escape(label)}", re.IGNORECASE)
+            replacement = re.sub(r"\s+", " ", f"- [{'x' if checked else ' '}] {label}".strip())
             if pattern.search(text):
               return pattern.sub(replacement, text)
             return f"{text}\n{replacement}" if text else replacement
