@@ -89,75 +89,143 @@ jobs:
         continue-on-error: true
 
       - name: Aggiorna corpo PR con esiti QA
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const { owner, repo } = context.repo;
-            const pull_number = context.payload.pull_request.number;
-            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number });
+        if: ${{ github.event.pull_request.number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          APP_TEST_CONCLUSION: ${{ steps.app_tests.conclusion }}
+          STATIC_CONCLUSION: ${{ steps.static_check.conclusion }}
+          REFERENCE_CONCLUSION: ${{ steps.reference_tests.conclusion }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          import subprocess
 
-            const runUrl = `https://github.com/${owner}/${repo}/actions/runs/${context.runId}`;
+          repo = os.environ["GITHUB_REPOSITORY"]
+          pr_number = os.environ["PR_NUMBER"]
+          run_url = os.environ["RUN_URL"]
 
-            const results = [
-              {
-                label: 'Test con dump disabilitato (marker/header)',
-                conclusion: '${{ steps.app_tests.conclusion }}',
-                type: 'integration',
-              },
-              {
-                label: '401/403 per endpoint protetti',
-                conclusion: '${{ steps.app_tests.conclusion }}',
-                type: 'integration',
-              },
-              {
-                label: 'Naming export corretto',
-                conclusion: '${{ steps.static_check.conclusion }}',
-                type: 'static',
-              },
-              {
-                label: 'CTA QA presenti',
-                conclusion: '${{ steps.reference_tests.conclusion }}',
-                type: 'integration',
-              },
-            ];
+          def gh_api(path: str) -> str:
+            return subprocess.check_output([
+              "gh",
+              "api",
+              f"repos/{repo}/{path}",
+              "--jq",
+              ".body",
+            ], text=True)
 
-            const statusText = (conclusion) => {
-              if (!conclusion || conclusion === 'cancelled' || conclusion === 'skipped') {
-                return 'non eseguito';
-              }
-              return conclusion === 'success' ? 'pass' : 'fail';
-            };
+          body = gh_api(f"pulls/{pr_number}") or ""
 
-              const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          results = [
+            {
+              "label": "Test con dump disabilitato (marker/header)",
+              "conclusion": os.environ.get("APP_TEST_CONCLUSION", ""),
+              "type": "integration",
+            },
+            {
+              "label": "401/403 per endpoint protetti",
+              "conclusion": os.environ.get("APP_TEST_CONCLUSION", ""),
+              "type": "integration",
+            },
+            {
+              "label": "Naming export corretto",
+              "conclusion": os.environ.get("STATIC_CONCLUSION", ""),
+              "type": "static",
+            },
+            {
+              "label": "CTA QA presenti",
+              "conclusion": os.environ.get("REFERENCE_CONCLUSION", ""),
+              "type": "integration",
+            },
+          ]
 
-              const updateCheckbox = (body, label, checked) => {
-                const pattern = new RegExp(`- \\[( |x)\\] ${escapeRegex(label)}`);
-                if (pattern.test(body)) {
-                  return body.replace(pattern, `- [${checked ? 'x' : ' '}] ${label}`);
-                }
-                return `${body}\n- [${checked ? 'x' : ' '}] ${label}`;
-              };
+          def status_text(conclusion: str) -> str:
+            if not conclusion or conclusion in {"cancelled", "skipped"}:
+              return "non eseguito"
+            return "pass" if conclusion == "success" else "fail"
 
-            let body = pr.body || '';
-            for (const result of results) {
-              body = updateCheckbox(body, result.label, result.conclusion === 'success');
-            }
+          def escape(value: str) -> str:
+            return re.escape(value)
 
-            const startMarker = '<!-- AUTO-QA-START -->';
-            const endMarker = '<!-- AUTO-QA-END -->';
-            const header = '| Controllo | Storia collegata | Tipo di test (unit/integration/manuale) | Evidenza (link/log, includere header/marker rilevante) |';
-            const separator = '| --- | --- | --- | --- |';
-            const rows = results.map((result) => {
-              const esito = statusText(result.conclusion);
-              return `| ${result.label} | AUTO-QA | ${result.type} | [Log esecuzione](${runUrl}) — esito: ${esito} |`;
-            });
-            const autoTable = [startMarker, header, separator, ...rows, endMarker].join('\n');
+          def update_checkbox(text: str, label: str, checked: bool) -> str:
+            pattern = re.compile(rf"- \[( |x)\] {escape(label)}")
+            replacement = f"- [{'x' if checked else ' '}] {label}"
+            if pattern.search(text):
+              return pattern.sub(replacement, text)
+            return f"{text}\n{replacement}" if text else replacement
 
-            if (body.includes(startMarker) && body.includes(endMarker)) {
-              const blockRegex = new RegExp(`${startMarker}[\s\S]*?${endMarker}`, 'm');
-              body = body.replace(blockRegex, autoTable);
-            } else {
-              body = `${body}\n\n${autoTable}`;
-            }
+          for result in results:
+            body = update_checkbox(body, result["label"], result["conclusion"] == "success")
 
-            await github.rest.pulls.update({ owner, repo, pull_number, body });
+          start_marker = "<!-- AUTO-QA-START -->"
+          end_marker = "<!-- AUTO-QA-END -->"
+          header = "| Controllo | Storia collegata | Tipo di test (unit/integration/manuale) | Evidenza (link/log, includere header/marker rilevante) |"
+          separator = "| --- | --- | --- | --- |"
+          rows = [
+            f"| {res['label']} | AUTO-QA | {res['type']} | [Log esecuzione]({run_url}) — esito: {status_text(res['conclusion'])} |"
+            for res in results
+          ]
+          auto_table = "\n".join([start_marker, header, separator, *rows, end_marker])
+
+          block_regex = re.compile(rf"{re.escape(start_marker)}[\s\S]*?{re.escape(end_marker)}", re.MULTILINE)
+          if block_regex.search(body):
+            body = block_regex.sub(auto_table, body)
+          else:
+            if body and not body.endswith("\n"):
+              body += "\n"
+            body = f"{body}\n{auto_table}" if body else auto_table
+
+          payload = json.dumps({"body": body})
+
+          subprocess.run([
+            "gh",
+            "api",
+            f"repos/{repo}/pulls/{pr_number}",
+            "--method",
+            "PATCH",
+            "--input",
+            "-",
+          ], input=payload.encode(), check=True)
+          PY
+
+      - name: Verifica marker e esiti QA
+        if: always()
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          STATIC_CONCLUSION: ${{ steps.static_check.conclusion }}
+          APP_TEST_CONCLUSION: ${{ steps.app_tests.conclusion }}
+          REFERENCE_CONCLUSION: ${{ steps.reference_tests.conclusion }}
+        run: |
+          failures=()
+
+          check_outcome() {
+            local label="$1"
+            local conclusion="$2"
+            if [ -z "$conclusion" ] || [ "$conclusion" = "skipped" ]; then
+              failures+=("${label}: job non eseguito o skippato")
+            elif [ "$conclusion" != "success" ]; then
+              failures+=("${label}: esito ${conclusion}")
+            fi
+          }
+
+          check_outcome "Naming export corretto" "$STATIC_CONCLUSION"
+          check_outcome "Test con dump disabilitato (marker/header)" "$APP_TEST_CONCLUSION"
+          check_outcome "CTA QA presenti" "$REFERENCE_CONCLUSION"
+          check_outcome "401/403 per endpoint protetti" "$APP_TEST_CONCLUSION"
+
+          body=$(gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}" --jq .body)
+          if [[ "$body" != *"<!-- AUTO-QA-START -->"* || "$body" != *"<!-- AUTO-QA-END -->"* ]]; then
+            failures+=("Sezione AUTO-QA mancante nel corpo della PR")
+          fi
+
+          if [ ${#failures[@]} -gt 0 ]; then
+            printf 'Verifiche QA non superate:\n'
+            printf ' - %s\n' "${failures[@]}"
+            exit 1
+          fi
+
+          echo "Tutte le verifiche QA sono state completate con successo."
