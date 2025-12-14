@@ -50,3 +50,114 @@ jobs:
             if (missingEvidence.length) {
               core.setFailed(`Aggiungi una riga di evidenza per ogni controllo: manca ${missingEvidence.join(', ')}.`);
             }
+
+  qa-autofill:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.number }}
+    permissions:
+      pull-requests: write
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run static analysis helper
+        id: static_check
+        run: |
+          chmod +x tools/run_static_analysis.sh
+          ./tools/run_static_analysis.sh
+        continue-on-error: true
+
+      - name: Run API regression tests (dump e 401/403)
+        id: app_tests
+        run: pytest tests/test_app.py -q
+        continue-on-error: true
+
+      - name: Run catalog reference tests
+        id: reference_tests
+        run: pytest tests/test_generate_build_db.py -k reference
+        continue-on-error: true
+
+      - name: Aggiorna corpo PR con esiti QA
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const pull_number = context.payload.pull_request.number;
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number });
+
+            const runUrl = `https://github.com/${owner}/${repo}/actions/runs/${context.runId}`;
+
+            const results = [
+              {
+                label: 'Test con dump disabilitato (marker/header)',
+                conclusion: '${{ steps.app_tests.conclusion }}',
+                type: 'integration',
+              },
+              {
+                label: '401/403 per endpoint protetti',
+                conclusion: '${{ steps.app_tests.conclusion }}',
+                type: 'integration',
+              },
+              {
+                label: 'Naming export corretto',
+                conclusion: '${{ steps.static_check.conclusion }}',
+                type: 'static',
+              },
+              {
+                label: 'CTA QA presenti',
+                conclusion: '${{ steps.reference_tests.conclusion }}',
+                type: 'integration',
+              },
+            ];
+
+            const statusText = (conclusion) => {
+              if (!conclusion || conclusion === 'cancelled' || conclusion === 'skipped') {
+                return 'non eseguito';
+              }
+              return conclusion === 'success' ? 'pass' : 'fail';
+            };
+
+              const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+              const updateCheckbox = (body, label, checked) => {
+                const pattern = new RegExp(`- \\[( |x)\\] ${escapeRegex(label)}`);
+                if (pattern.test(body)) {
+                  return body.replace(pattern, `- [${checked ? 'x' : ' '}] ${label}`);
+                }
+                return `${body}\n- [${checked ? 'x' : ' '}] ${label}`;
+              };
+
+            let body = pr.body || '';
+            for (const result of results) {
+              body = updateCheckbox(body, result.label, result.conclusion === 'success');
+            }
+
+            const startMarker = '<!-- AUTO-QA-START -->';
+            const endMarker = '<!-- AUTO-QA-END -->';
+            const header = '| Controllo | Storia collegata | Tipo di test (unit/integration/manuale) | Evidenza (link/log, includere header/marker rilevante) |';
+            const separator = '| --- | --- | --- | --- |';
+            const rows = results.map((result) => {
+              const esito = statusText(result.conclusion);
+              return `| ${result.label} | AUTO-QA | ${result.type} | [Log esecuzione](${runUrl}) — esito: ${esito} |`;
+            });
+            const autoTable = [startMarker, header, separator, ...rows, endMarker].join('\n');
+
+            if (body.includes(startMarker) && body.includes(endMarker)) {
+              const blockRegex = new RegExp(`${startMarker}[\s\S]*?${endMarker}`, 'm');
+              body = body.replace(blockRegex, autoTable);
+            } else {
+              body = `${body}\n\n${autoTable}`;
+            }
+
+            await github.rest.pulls.update({ owner, repo, pull_number, body });

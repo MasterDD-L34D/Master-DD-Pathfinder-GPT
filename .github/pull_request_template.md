@@ -19,12 +19,16 @@ Compila questa checklist prima di richiedere la review. Ogni elemento deve avere
 ## Evidenze di test per ciascun controllo
 Compila una riga per ogni controllo sostituendo i placeholder con i valori effettivi (es. `ABC-123`, `unit`, link a log o PR comment con marker/header).
 
+Le righe tra i marker `<!-- AUTO-QA-START -->` e `<!-- AUTO-QA-END -->` possono essere sovrascritte automaticamente dal workflow di QA.
+
+<!-- AUTO-QA-START -->
 | Controllo | Storia collegata | Tipo di test (unit/integration/manuale) | Evidenza (link/log, includere header/marker rilevante) |
 | --- | --- | --- | --- |
 | Test con dump disabilitato (marker/header) | <ID-storia> | <unit/integration/manuale> | <link/log con marker/header> |
 | Naming export corretto | <ID-storia> | <unit/integration/manuale> | <link/log> |
 | CTA QA presenti | <ID-storia> | <unit/integration/manuale> | <link/log> |
 | 401/403 per endpoint protetti | <ID-storia> | <unit/integration/manuale> | <link/log> |
+<!-- AUTO-QA-END -->
 
 > Esempio di evidenze (le checkbox vanno spuntate nella sezione precedente):
 >
