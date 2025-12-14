@@ -371,6 +371,20 @@ python tools/generate_build_db.py --export-lists --reports-dir reports/build_cov
 
 I file generati (`build_classes.json`, `build_races.json`, `checkpoint_coverage.json`) riepilogano le classi, le razze e i prefissi di filename con i checkpoint disponibili, quelli mancanti e il totale di file per livello.
 
+Per mantenere sincronizzato l'inventario delle razze con i JSON presenti in `src/data/builds` puoi anche esportare solo il report delle razze:
+
+```bash
+python tools/generate_build_db.py --export-races
+```
+
+Il file `reports/build_races.json` include ora un campo `unused_preferred_races` che elenca le razze del pool PF1e predefinito (`--race-pool`) ancora non usate: con l'inventario attuale sono `Elf`, `Gnome`, `Half-Elf`, `Human`, `Dhampir`, `Drow`, `Hobgoblin`, `Ifrit`, `Kobold`, `Orc`, `Oread`, `Ratfolk`, `Undine`, `Changeling`, `Gillman`, `Merfolk`, `Nagaji`, `Svirfneblin`, `Wyvaran`, `Advanced Android`, `Android`, `Aphorite`, `Automaton`, `Centaur`, `Duergar`, `Gathlain`, `Lashunta`, `Minotaur`, `Oni-Spawn`, `Samsaran (Reborn)`, `Skinwalker`, `Trox`, `Wyrwood`. Puoi passarle direttamente a `--race-pool` insieme a `--prefer-unused-race` per assegnare automaticamente la prima razza libera alle richieste senza razza esplicita:
+
+```bash
+PREFERRED_UNUSED_RACES=$(jq -r '.unused_preferred_races[]' reports/build_races.json | xargs)
+python tools/generate_build_db.py --ruling-expert-url http://localhost:8000/modules/ruling-expert --prefer-unused-race --race-pool $PREFERRED_UNUSED_RACES
+```
+
+
 #### Selezione moduli: statici o via discovery
 
 - Con `--modules` puoi continuare a pinnare manualmente i file da scaricare (default: i 5 moduli critici per scheda/narrativa).
