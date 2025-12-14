@@ -10,6 +10,9 @@ python -m black --check src tests tools || {
   exit 1
 }
 
+echo "Checking for legacy AoN URLs..."
+./tools/check_legacy_aon_links.sh
+
 echo "Running python -m compileall..."
 python -m compileall src tests
 

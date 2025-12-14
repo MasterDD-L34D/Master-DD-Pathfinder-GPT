@@ -70,8 +70,8 @@ policies:
 sources_registry:
   - id: AON_CRB_Equipment
     kind: RAW
-    label: "CRB – Equipment (Legacy AoN)"
-    url: "https://legacy.aonprd.com/corerulebook/equipment.html"
+    label: "CRB – Equipment (AoN)"
+    url: "https://aonprd.com/corerulebook/equipment.html"
   - id: AON_CRB_MagicItemCreation
     kind: RAW
     label: "CRB – Magic Item Creation (AoN)"
@@ -299,7 +299,7 @@ helpers:
         v = rng.choice(step_pool)
         item_type = rng.choice(["art","gem"])
         name = "Art Object" if item_type == "art" else "Gemstone"
-        pieces.append({"id": gen_id(item_type[:3]), "name":name,"price_gp":v,"type":item_type,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"})
+        pieces.append({"id": gen_id(item_type[:3]), "name":name,"price_gp":v,"type":item_type,"source_url":"https://aonprd.com/corerulebook/equipment.html"})
         remain -= v
       return pieces
   generate_mundane:
@@ -311,15 +311,15 @@ helpers:
       rng = random.Random(int(seed)) if seed is not None else random
       # Catalogo di esempio: sostituire con dataset dinamico/filtrato quando disponibile.
       catalog = [
-        {"name":"Rope, hemp 50 ft.","type":"mundane","price_gp":1,"weight_lb":10,"quantity":1,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
-        {"name":"Tinderbox (flint & steel)","type":"mundane","price_gp":1,"weight_lb":0,"quantity":1,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
-        {"name":"Caltrops","type":"mundane","price_gp":1,"weight_lb":2,"quantity":1,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
-        {"name":"Bedroll","type":"mundane","price_gp":0.1,"weight_lb":5,"quantity":1,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
-        {"name":"Rations (1 day)","type":"mundane","price_gp":0.5,"weight_lb":1,"quantity":2,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
-        {"name":"Chalk (1 piece)","type":"mundane","price_gp":0.01,"weight_lb":0,"quantity":5,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
-        {"name":"Silk Rope 50 ft.","type":"mundane","price_gp":10,"weight_lb":5,"quantity":1,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
-        {"name":"Smokestick","type":"consumable","price_gp":20,"quantity":1,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"},
-        {"name":"Healer’s Kit","type":"mundane","price_gp":50,"weight_lb":1,"quantity":1,"source_url":"https://legacy.aonprd.com/corerulebook/equipment.html"}
+        {"name":"Rope, hemp 50 ft.","type":"mundane","price_gp":1,"weight_lb":10,"quantity":1,"source_url":"https://aonprd.com/corerulebook/equipment.html"},
+        {"name":"Tinderbox (flint & steel)","type":"mundane","price_gp":1,"weight_lb":0,"quantity":1,"source_url":"https://aonprd.com/corerulebook/equipment.html"},
+        {"name":"Caltrops","type":"mundane","price_gp":1,"weight_lb":2,"quantity":1,"source_url":"https://aonprd.com/corerulebook/equipment.html"},
+        {"name":"Bedroll","type":"mundane","price_gp":0.1,"weight_lb":5,"quantity":1,"source_url":"https://aonprd.com/corerulebook/equipment.html"},
+        {"name":"Rations (1 day)","type":"mundane","price_gp":0.5,"weight_lb":1,"quantity":2,"source_url":"https://aonprd.com/corerulebook/equipment.html"},
+        {"name":"Chalk (1 piece)","type":"mundane","price_gp":0.01,"weight_lb":0,"quantity":5,"source_url":"https://aonprd.com/corerulebook/equipment.html"},
+        {"name":"Silk Rope 50 ft.","type":"mundane","price_gp":10,"weight_lb":5,"quantity":1,"source_url":"https://aonprd.com/corerulebook/equipment.html"},
+        {"name":"Smokestick","type":"consumable","price_gp":20,"quantity":1,"source_url":"https://aonprd.com/corerulebook/equipment.html"},
+        {"name":"Healer’s Kit","type":"mundane","price_gp":50,"weight_lb":1,"quantity":1,"source_url":"https://aonprd.com/corerulebook/equipment.html"}
       ]
       out, remain = [], budget
       rng.shuffle(catalog)
