@@ -478,6 +478,8 @@ python tools/generate_build_db.py --validate-db --review-output src/data/build_r
 
 Il report include conteggi di build e moduli validi/invalidi, file mancanti e relativi errori di schema così da facilitare la revisione manuale. Nella sezione `builds.checkpoints` trovi il riepilogo dei checkpoint di livello (per default 1/5/10) con totali, invalidazioni e conteggi distinti per errori di schema o completezza, così puoi identificare rapidamente quali livelli sono più fragili. Lo stesso riepilogo viene scritto anche in `build_index.json`, affiancato alle entry per livello generate con suffisso `_lvlXX`.
 
+Il report ora include anche la sezione `reference_urls` con una metrica di copertura AoN vs d20pfsrd sui reference locali (spells/feats/items). Se `status` è `invalid` significa che esistono entry `reference_urls` solo d20pfsrd per elementi ufficiali che hanno un equivalente AoN noto: `missing_aon_entries` elenca i record (es. `feats:Alertness`) da correggere. Per risolvere, apri il file corrispondente in `data/reference/*.json`, aggiungi l'URL AoN (`https://aonprd.com/...`) alla lista `reference_urls` e rigenera la review: il conteggio `aon` deve crescere mentre `d20_only` torna a 0.
+
 ### Endpoints principali
 
 - `GET /health` — ping rapido

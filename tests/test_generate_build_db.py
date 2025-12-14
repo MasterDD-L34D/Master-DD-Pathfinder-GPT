@@ -286,6 +286,48 @@ def test_review_local_database_catalog_mismatch(monkeypatch, tmp_path):
     )
 
 
+def test_review_local_database_reports_missing_aon_reference(monkeypatch, tmp_path):
+    monkeypatch.setattr(
+        "tools.generate_build_db.validate_with_schema", lambda *args, **kwargs: None
+    )
+
+    reference_dir = tmp_path / "reference"
+    reference_dir.mkdir()
+    (reference_dir / "feats.json").write_text(
+        json.dumps(
+            [
+                {
+                    "name": "Alertness",
+                    "source": "Pathfinder Core Rulebook",
+                    "reference_urls": [
+                        "https://www.d20pfsrd.com/feats/general-feats/alertness/"
+                    ],
+                }
+            ]
+        ),
+        encoding="utf-8",
+    )
+
+    build_dir = tmp_path / "builds"
+    module_dir = tmp_path / "modules"
+    build_dir.mkdir()
+    module_dir.mkdir()
+
+    payload = _make_sample_payload()
+    payload["request"] = BuildRequest(class_name="Alchemist", level=1).metadata()
+    (build_dir / "alchemist.json").write_text(json.dumps(payload), encoding="utf-8")
+
+    report = review_local_database(
+        build_dir, module_dir, reference_dir=reference_dir, strict=False
+    )
+
+    coverage = report.get("reference_urls", {})
+    assert coverage.get("d20_only") == 1
+    assert coverage.get("aon") == 0
+    assert coverage.get("status") == "invalid"
+    assert "feats:Alertness" in coverage.get("missing_aon_entries", [])
+
+
 def test_enrich_sheet_payload_template_error_indicator():
     payload = {
         "modules": {"scheda_pg_markdown_template.md": "{{ invalid {{ syntax"},
