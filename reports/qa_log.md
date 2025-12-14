@@ -11,10 +11,10 @@
 - **401/403 sugli endpoint protetti** — `/modules` e `/knowledge` rifiutano accessi senza o con chiave errata (401 + 429 su backoff), mentre `/metrics` richiede API key dedicata e risponde 403 in caso di chiave sbagliata; accesso riuscito solo con chiavi valide o `ALLOW_ANONYMOUS` esplicito.【F:tests/test_app.py†L542-L618】
 
 ## Controlli obbligatori — Evidenze aggiornate
-- [x] Test con dump disabilitato (marker/header) — `pytest tests/test_app.py -q` conferma troncamento `[contenuto troncato]` e header `X-Content-*` quando `ALLOW_MODULE_DUMP=false`, con blocco 403 per PDF/binari.【F:tests/test_app.py†L272-L348】【fa938d†L1-L11】
+- [x] Test con dump disabilitato (marker/header) — `pytest tests/test_app.py -q` conferma troncamento `[contenuto troncato]` e header `X-Content-*` quando `ALLOW_MODULE_DUMP=false`, con blocco 403 per PDF/binari.【F:tests/test_app.py†L272-L348】【c813a5†L1-L11】
 - [x] Naming export corretto — MinMax Builder continua a produrre `MinMax_<nome>.pdf/.xlsx/.json` dietro il gate QA `export_requires`, garantendo naming condiviso durante gli export VTT/PDF/Excel.【F:src/modules/minmax_builder.txt†L462-L475】【F:src/modules/minmax_builder.txt†L940-L943】
 - [x] CTA QA presenti — Il flow dell’Encounter Designer include CTA guidate e chiama automaticamente `/validate_encounter` nello step 6 prima di consentire `/export_encounter` (JSON/PDF).【F:src/modules/Encounter_Designer.txt†L505-L550】
-- [x] 401/403 per endpoint protetti — I test automatizzati coprono `/modules` e `/knowledge` con 401/429 per chiave mancante/errata e `/metrics` con 403 se la chiave è sbagliata, validando l’accesso solo con API key corretta.【F:tests/test_app.py†L549-L618】【fa938d†L1-L11】
+- [x] 401/403 per endpoint protetti — I test automatizzati coprono `/modules` e `/knowledge` con 401/429 per chiave mancante/errata e `/metrics` con 403 se la chiave è sbagliata, validando l’accesso solo con API key corretta.【F:tests/test_app.py†L549-L618】【c813a5†L1-L11】
 
 | Controllo | Storia collegata | Tipo di test (unit/integration/manuale) | Evidenza (link/log, includere header/marker rilevante) |
 | --- | --- | --- | --- |
