@@ -310,7 +310,7 @@ def load_reference_manifest(
 
 
 def _reference_url_coverage(
-    catalog: Mapping[str, Mapping[str, Mapping[str, object]]]
+    catalog: Mapping[str, Mapping[str, Mapping[str, object]]],
 ) -> dict[str, object]:
     coverage = {
         "total": 0,
@@ -323,7 +323,11 @@ def _reference_url_coverage(
         for normalized_name, entry in entries.items():
             coverage["total"] += 1
             urls = entry.get("reference_urls") if isinstance(entry, Mapping) else []
-            urls = urls if isinstance(urls, Sequence) and not isinstance(urls, (str, bytes)) else []
+            urls = (
+                urls
+                if isinstance(urls, Sequence) and not isinstance(urls, (str, bytes))
+                else []
+            )
             normalized_urls = [str(url).strip() for url in urls if str(url).strip()]
             has_aon = any("aonprd.com" in url for url in normalized_urls)
             has_d20 = any("d20pfsrd" in url for url in normalized_urls)
@@ -332,7 +336,9 @@ def _reference_url_coverage(
                 coverage["aon"] += 1
             if has_d20 and not has_aon:
                 coverage["d20_only"] += 1
-                display_name = entry.get("name") if isinstance(entry, Mapping) else normalized_name
+                display_name = (
+                    entry.get("name") if isinstance(entry, Mapping) else normalized_name
+                )
                 coverage["missing_aon_entries"].append(f"{category}:{display_name}")
 
     total = coverage["total"] or 1
