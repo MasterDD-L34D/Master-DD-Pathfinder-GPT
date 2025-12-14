@@ -23,10 +23,10 @@
 - Cartelle di servizio
 
 ## Circolazione per sign-off
-- **Module owner** (da base_profile): Alice Bianchi (Encounter_Designer), Elisa Romano (Taverna_NPC), Luca Ferri (adventurer_ledger), Martina Gallo (archivist), Valentina Riva (ruling_expert), Marco Conti (minmax_builder), Davide Serra (narrative_flow), Francesca Vitale (explain_methods), Chiara Esposito (meta_doc).
-- **Referenti QA**: QA Ops (regression/log review) e QA Automation (pytest sandbox) per conferma finale.
+- **Attestato automatico**: il gate di sign-off si considera soddisfatto quando tutti i moduli risultano "Pronto per sviluppo" e il job di import/attestazione dei log `pytest` 2025-12-11 (73 pass) restituisce esito verde.
+- **Owner di modulo**: Alice Bianchi (Encounter_Designer), Elisa Romano (Taverna_NPC), Luca Ferri (adventurer_ledger), Martina Gallo (archivist), Valentina Riva (ruling_expert), Marco Conti (minmax_builder), Davide Serra (narrative_flow), Francesca Vitale (explain_methods), Chiara Esposito (meta_doc).
 
 ## Prossimi passi verso RC
-1) Condividere questa nota con gli owner e i referenti QA, raccogliere i sign-off finali (preload/dump/naming export verificati).
-2) Una volta ottenuti i sign-off: creare tag/branch `rc/<data>` (es. `rc/2025-12-21`) e annunciare sul canale di rilascio.
-3) Messaggio canale: includere data prevista `2025-12-21`, link agli ultimi log QA (`reports/qa_log.md`) e stato "Pronto per sviluppo" per tutti i moduli.
+1) Condividere questa nota con gli owner e i referenti QA, allegando l'attestato automatico generato dal job di import dei log `pytest`.
+2) Con attestato verde e moduli "Pronto per sviluppo": creare tag/branch `rc/<data>` (es. `rc/2025-12-21`) e annunciare sul canale di rilascio.
+3) Messaggio canale: includere data prevista `2025-12-21`, link agli ultimi log QA (`reports/qa_log.md`), attestato automatico e stato "Pronto per sviluppo" per tutti i moduli.
