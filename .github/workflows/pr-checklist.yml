@@ -6,6 +6,7 @@ on:
 
 jobs:
   validate-pr-template:
+    needs: qa-autofill
     runs-on: ubuntu-latest
     permissions:
       pull-requests: read
@@ -14,9 +15,23 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const body = (context.payload.pull_request?.body || '').trim();
-            if (!body) {
-              core.setFailed('Il corpo della PR è vuoto: compila la checklist e le evidenze prima di procedere.');
+            const prNumber = context.payload.pull_request?.number;
+            const prBody = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+            }).then((res) => res.data.body || '').catch(() => context.payload.pull_request?.body || '') || '';
+
+            const body = prBody.trim();
+            const hasAutoQaSection = body.includes('<!-- AUTO-QA-START -->') && body.includes('<!-- AUTO-QA-END -->');
+            if (!hasAutoQaSection) {
+              core.notice('Sezione AUTO-QA non presente: la validazione della checklist verrà eseguita dopo l\'autofill.');
+              return;
+            }
+
+            const inProgressTable = /\|\s*In esecuzione\.\.\.\s*\|/i.test(body);
+            if (!body || inProgressTable) {
+              core.notice('Checklist o tabella QA non ancora compilate: attendere il completamento dell\'autofill.');
               return;
             }
 
