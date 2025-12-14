@@ -350,12 +350,15 @@ Fonte sequenza: `planning/module_review_guide.md`
 ## Attività di rilascio
 - Preparazione note/changelog (P2) per finestra 2025-12-26
   - Dipendenze: log QA aggiornati al regression 2025-12-11 e tracker storie "Done" per evitare discrepanze con lo stato "Pronto per sviluppo" dei moduli.
-- Sign-off automatico (P1): si considera soddisfatto quando tutti i moduli sono in stato "Pronto per sviluppo" e il job di attestazione dei log pytest è verde
+- Verifica automatica dei log QA 2025-12-11 e attestato di copertura (P1)
+  - Output atteso: attestato generato dal job tracker a partire dai log `pytest` del 2025-12-11 con evidenza della copertura per ogni storia **Done** e conferma che tutti i moduli restano in stato "Pronto per sviluppo".
   - Dipendenze: esito positivo del job tracker sugli import/log e stato moduli aggiornato a "Pronto per sviluppo" nel tracker.
 - Creazione tag/branch RC (P2) allineato alla finestra 2025-12-26
-  - Dipendenze: note/changelog finali e attestato automatico attivo; utilizzare naming coerente con le date della finestra.
+  - Output atteso: tag/branch RC nominato sulla finestra 2025-12-26 e puntato all'ultimo commit con attestato automatico verde.
+  - Dipendenze: note/changelog finali, attestato automatico attivo e conferma di continuità con la finestra 2025-12-26 senza pause operative.
 - Comunicazione nel canale di rilascio (P3) con riepilogo changelog e stato QA
-  - Dipendenze: changelog consolidato, link ai log QA 2025-12-11 e attestato automatico allegato come prerequisito.
+  - Output atteso: messaggio nel canale di rilascio con link al changelog, ai log QA 2025-12-11 e all'attestato di copertura generato dal job.
+  - Dipendenze: changelog consolidato, attestato automatico allegato e allineamento con lo stato "Pronto per sviluppo" dei moduli.
 
 ### Moduli critici
 | Story | Origine piano | Stato | Evidenza test |
