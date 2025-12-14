@@ -81,3 +81,6 @@
 
 ### Canale di rilascio (messaggio pronto)
 > Staging QA completata: dump `[contenuto troncato]`/header `X-Content-*` validati con pytest (53/53 pass), CTA QA attive su Encounter/MinMax/Taverna/Narrative e naming export `MinMax_<nome>` confermato. Nessuna storia riaperta, tracker aggiornato con stato **chiuso**.
+
+### Canale di rilascio — RC draft
+> RC in preparazione: preload base_profile chiuso, dump policy `[contenuto troncato]`/header `X-Content-*` confermata nei regression log, naming export condiviso `MinMax_<nome>` attivo su Builder/Encounter. Data prevista tag `rc/2025-12-21` dopo sign-off owner/QA. Log QA di riferimento: sezioni "QA 2025-12-13" e "QA 2025-12-18" in `reports/qa_log.md`.
