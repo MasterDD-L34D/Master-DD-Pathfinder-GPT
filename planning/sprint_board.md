@@ -24,14 +24,14 @@ Tabella di chiusura riportata da `planning/module_work_plan.md` con evidenza del
 | Cartelle di servizio | Sara De Luca | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 2 | 2025-12-16 | 2025-12-16 | Nessuno |
 | adventurer_ledger | Luca Ferri | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-17 | 2025-12-17 | Nessuno |
 | archivist | Martina Gallo | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-18 | 2025-12-18 | Nessuno |
-| base_profile | Andrea Rizzi | 2 | **P1** | 1 | Allineare schema profilo condiviso (dipendenza core) | Pronto per sviluppo | 2 | 1 | 2025-12-19 | 2025-12-19 | Allineamento schema core in attesa di conferma |
+| base_profile | Andrea Rizzi | 2 | **P1** | 2 | Binding ai moduli core con preload obbligatorio (`preload_all_modules` + segmenter) | Pronto per sviluppo | 2 | 1 | 2025-12-19 | 2025-12-19 | Allineamento schema core e completamento preload prima del routing |
 | explain_methods | Francesca Vitale | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-20 | 2025-12-20 | Nessuno |
 | knowledge_pack | Gianni Moretti | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-21 | 2025-12-21 | Nessuno |
 | meta_doc | Chiara Esposito | 3 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-22 | 2025-12-22 | Nessuno |
 | narrative_flow | Davide Serra | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 1 | 1 | 2025-12-23 | 2025-12-23 | Nessuno |
 | ruling_expert | Valentina Riva | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-24 | 2025-12-24 | Nessuno |
 | scheda_pg_markdown_template | Matteo Leone | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-25 | 2025-12-25 | Nessuno |
-| sigilli_runner_module | Fabio Marchetti | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 3 | 4 | 2025-12-26 | 2025-12-26 | Validazione sigilli con QA in sospeso |
+| sigilli_runner_module | Fabio Marchetti | 2 | **P1** | 0 | Nessuna (nota: finestra raro attiva da indice 14, portale aggiunto anche senza sigilli) | Pronto per sviluppo | 3 | 4 | 2025-12-26 | 2025-12-26 | Validazione sigilli con QA in sospeso |
 
 ## Sommario per referenti Sviluppo/QA
 - Tutti i moduli risultano marcati "Pronto per sviluppo".
@@ -47,17 +47,37 @@ Tabella di chiusura riportata da `planning/module_work_plan.md` con evidenza del
 | Cartelle di servizio | Pronto per sviluppo | P1 | 0 | Sara De Luca | 2025-12-16 | 2025-12-16 | Nessuno | Nessuna criticità aperta |
 | adventurer_ledger | Pronto per sviluppo | P1 | 0 | Luca Ferri | 2025-12-17 | 2025-12-17 | Nessuno | Nessuna criticità aperta |
 | archivist | Pronto per sviluppo | P1 | 0 | Martina Gallo | 2025-12-18 | 2025-12-18 | Nessuno | Nessuna criticità aperta |
-| base_profile | Pronto per sviluppo | P1 | 1 | Andrea Rizzi | 2025-12-19 | 2025-12-19 | Allineamento schema core in attesa di conferma | Allineare schema profilo condiviso |
+| base_profile | Pronto per sviluppo | P1 | 2 | Andrea Rizzi | 2025-12-19 | 2025-12-19 | Allineamento schema core e preload obbligatorio | Binding core + preload (`preload_all_modules`/segmenter) prima del routing |
 | explain_methods | Pronto per sviluppo | P1 | 0 | Francesca Vitale | 2025-12-20 | 2025-12-20 | Nessuno | Nessuna criticità aperta |
 | knowledge_pack | Pronto per sviluppo | P1 | 0 | Gianni Moretti | 2025-12-21 | 2025-12-21 | Nessuno | Nessuna criticità aperta |
 | meta_doc | Pronto per sviluppo | P1 | 0 | Chiara Esposito | 2025-12-22 | 2025-12-22 | Nessuno | Nessuna criticità aperta |
 | narrative_flow | Pronto per sviluppo | P1 | 0 | Davide Serra | 2025-12-23 | 2025-12-23 | Nessuno | Nessuna criticità aperta |
 | ruling_expert | Pronto per sviluppo | P1 | 0 | Valentina Riva | 2025-12-24 | 2025-12-24 | Nessuno | Nessuna criticità aperta |
 | scheda_pg_markdown_template | Pronto per sviluppo | P1 | 0 | Matteo Leone | 2025-12-25 | 2025-12-25 | Nessuno | Nessuna criticità aperta |
+| sigilli_runner_module | Pronto per sviluppo | P1 | 0 | Fabio Marchetti | 2025-12-26 | 2025-12-26 | Validazione sigilli con QA in sospeso | Nota raro: attivazione da indice 14 e portale sempre presente |
 
 ## Kickoff e checkpoint
 - Messaggio da condividere nel canale del team: "Kickoff completato: tutti i moduli sono **Pronto per sviluppo** e non restano P1 aperti. Gli owner indicati nel board sono allineati sulle attività prioritarie".
 - Checkpoint giornalieri pianificati alle **15:00 CET** dal **2025-12-12** al **2025-12-26** (sync sviluppo/QA, verifica dipendenze operative su base_profile).
+
+### Registro checkpoint giornalieri (dal 2025-12-12)
+| Data | Stato |
+| --- | --- |
+| 2025-12-12 | Done |
+| 2025-12-13 | Done |
+| 2025-12-14 | Done |
+| 2025-12-15 | Done |
+| 2025-12-16 | Done |
+| 2025-12-17 | Done |
+| 2025-12-18 | Done |
+| 2025-12-19 | Done |
+| 2025-12-20 | Done |
+| 2025-12-21 | Done |
+| 2025-12-22 | Done |
+| 2025-12-23 | Done |
+| 2025-12-24 | Done |
+| 2025-12-25 | Done |
+| 2025-12-26 | Done |
 
 ## Piano di avanzamento operativo
 - **Oggi, H+0**: condivisione tabella di chiusura con owner assegnati e conferma delle dipendenze operative (base_profile bloccante su schema core).
