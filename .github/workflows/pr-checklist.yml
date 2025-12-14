@@ -52,8 +52,9 @@ jobs:
               core.setFailed(`Segna come completati tutti i controlli obbligatori: manca ${missingChecks.join(', ')}.`);
             }
 
-            const placeholderPattern = /<[^>]+>/;
-            if (placeholderPattern.test(body)) {
+            const bodyWithoutComments = body.replace(/<!--[\s\S]*?-->/g, '');
+            const placeholderPattern = /<(?!!--)[^>]*>/;
+            if (placeholderPattern.test(bodyWithoutComments)) {
               core.setFailed('Sostituisci tutti i placeholder (<...>) con informazioni reali nelle evidenze di test.');
             }
 
