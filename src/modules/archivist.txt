@@ -109,6 +109,7 @@ sources_priority:
     prefer: [ISWG, CS_PC]
     pfs_variant_tag: "🧭 PFS-Lore"
     note: "In caso di discrepanza, preferisci ISWG/CS; PFS come variante."
+    aon_policy: "Usa permalink AoN (Search/FeatDisplay/SpellDisplay/SkillDisplay) come indice primario; se AoN è irraggiungibile, cita PRD.moe/d20pfsrd come mirror e spiega che stai usando un fallback."
 
 badges:
   RAW_CANON: "📗 RAW-Lore"

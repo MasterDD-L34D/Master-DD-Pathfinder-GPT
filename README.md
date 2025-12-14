@@ -114,10 +114,11 @@ Lo script lancia `black --check` sui file Python e compila i moduli con
 
 #### Siti SRD ammessi e formato delle citazioni
 
-- **d20pfsrd.com** e **Archives of Nethys (aonprd.com)** sono le due fonti
-  ammesse per gli URL SRD canonici. Usa i permalink alla singola voce (feat,
-  incantesimo, oggetto) e non le pagine riassuntive generiche. Evita link a PDF
-  non ufficiali o mirror terzi.
+- **Archives of Nethys (aonprd.com)** è la fonte primaria obbligatoria per i
+  link SRD: ogni dataset offline deve includere il permalink AoN della voce
+  (feat, incantesimo, oggetto). **d20pfsrd.com** va inserito solo come backup,
+  mantenendo sempre l’ordine di preferenza AoN → d20pfsrd. Non usare pagine
+  riassuntive generiche, PDF non ufficiali o mirror terzi.
 - Nei file catalogo valorizza `reference_urls` con URL assoluti SRD e mantieni
   `references` come descrizione leggibile (es. `d20PFSRD: Power Attack`). Quando
   una voce dispone di un URL canonico aggiungilo anche in `references` per
@@ -142,6 +143,17 @@ Esempi di uso nelle risposte del GPT:
 - **Query**: "Dove trovo i prerequisiti di *Shatter Defenses*?"
   **Risposta sintetica**: "*Shatter Defenses* richiede Des 13, *Weapon Focus*,
   *Dazzling Display* e BAB +6. Fonte: [Archives of Nethys](https://aonprd.com/FeatDisplay.aspx?ItemName=Shatter%20Defenses)".
+
+#### Query AoN pronte per lo script generativo
+
+Usa questi permalink AoN come base per gli script di raccolta/normalizzazione (aggiungi
+solo il parametro `ItemName` o la query desiderata; d20pfsrd resta un backup da
+citare solo se AoN è irraggiungibile):
+
+- **Search**: `https://aonprd.com/Search.aspx?Query=<termine+da+cercare>` (esempio: `https://aonprd.com/Search.aspx?Query=power+attack`).
+- **FeatDisplay**: `https://aonprd.com/FeatDisplay.aspx?ItemName=<NomeFeat>` (esempio: `https://aonprd.com/FeatDisplay.aspx?ItemName=Shatter%20Defenses`).
+- **SpellDisplay**: `https://aonprd.com/SpellDisplay.aspx?ItemName=<NomeIncantesimo>` (esempio: `https://aonprd.com/SpellDisplay.aspx?ItemName=Fireball`).
+- **SkillDisplay**: `https://aonprd.com/SkillDisplay.aspx?ItemName=<NomeAbilit%C3%A0>` (esempio: `https://aonprd.com/SkillDisplay.aspx?ItemName=Stealth`).
 
 ### Flag CLI per validazione catalogo e combo T1
 

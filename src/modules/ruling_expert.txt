@@ -31,6 +31,7 @@ web_policy:
   domains_preferred: ["aonprd.com","paizo.com"]
   fallback_domains: ["d20pfsrd.com"]
   timeout_seconds: 20
+  permalink_policy: "Usa i permalink AoN (Search/FeatDisplay/SpellDisplay/SkillDisplay). Se AoN non risponde, passa a d20pfsrd solo come mirror di backup e avvisa nel testo."
   offline_mode:
     enabled: false
     disclaimer: "Offline non supportato: per citazioni serve accesso ad AoN/Paizo."
