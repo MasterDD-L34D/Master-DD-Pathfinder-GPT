@@ -1,5 +1,10 @@
 # QA Log — 2025-12-11
 
+## Job tracker 2025-12-11 — Attestato automatico
+- Import automatico del log `pytest` (73/73 pass) dal regression pass del 2025-12-11.
+- Attestato di copertura generato per tutte le storie marcate **Done** e archiviato in `reports/coverage_attestato_2025-12-11.md`.
+- Stato moduli confermato **Pronto per sviluppo** secondo la sprint board; esito registrato con flag verde nel tracker.
+
 ## Regression 2025-12-12
 - `pytest tests/test_app.py -q` ripetuto con `ALLOW_MODULE_DUMP=false` di default: i `.txt` vengono serviti con header `X-Content-*` e marker `[contenuto troncato]`, mentre PDF/binari restano bloccati 403, confermando il troncamento/marker richiesto per i moduli con note aperte.【F:tests/test_app.py†L265-L340】【ff0839†L1-L10】
 - Naming export e CTA QA stabili: MinMax Builder continua a produrre `MinMax_<nome>.pdf/.xlsx/.json` dietro il gate `export_requires`, e l’Encounter Designer mantiene il flow QA→export vincolato alle CTA guidate (validate→export).【F:src/modules/minmax_builder.txt†L940-L942】【F:src/modules/Encounter_Designer.txt†L505-L514】
