@@ -72,31 +72,65 @@ PF1E_CLASSES: List[str] = [
 # Pool di razze comuni/featured PF1e usate come fallback quando si vuole
 # evitare duplicati automaticamente (può essere sovrascritto da CLI).
 PF1E_RACES: Sequence[str] = (
-    "Human",
-    "Elf",
+    # Core races
     "Dwarf",
+    "Elf",
     "Gnome",
-    "Halfling",
     "Half-Elf",
     "Half-Orc",
+    "Halfling",
+    "Human",
+    # Featured races
     "Aasimar",
     "Catfolk",
     "Dhampir",
+    "Drow",
     "Fetchling",
     "Goblin",
-    "Grippli",
     "Hobgoblin",
     "Ifrit",
-    "Kitsune",
     "Kobold",
-    "Nagaji",
+    "Orc",
     "Oread",
-    "Suli",
+    "Ratfolk",
     "Sylph",
     "Tengu",
     "Tiefling",
     "Undine",
+    # Uncommon races
+    "Changeling",
+    "Gillman",
+    "Grippli",
+    "Kitsune",
+    "Merfolk",
+    "Nagaji",
+    "Samsaran",
+    "Strix",
+    "Suli",
+    "Svirfneblin",
+    "Vanara",
+    "Vishkanya",
     "Wayang",
+    "Wyvaran",
+    # Other player races from d20pfsrd
+    "Advanced Android",
+    "Android",
+    "Aphorite",
+    "Automaton",
+    "Centaur",
+    "Duergar",
+    "Gathlain",
+    "Ghoran",
+    "Kasatha",
+    "Lashunta",
+    "Minotaur",
+    "Oni-Spawn",
+    "Samsaran (Reborn)",
+    "Shabti",
+    "Skinwalker",
+    "Trox",
+    "Wayang (Umbral)",
+    "Wyrwood",
 )
 
 DEFAULT_MODE = "extended"
@@ -676,7 +710,9 @@ def assign_missing_races(
     return updated
 
 
-def export_race_inventory(build_dir: Path, output_path: Path) -> Mapping[str, object]:
+def export_race_inventory(
+    build_dir: Path, output_path: Path, *, race_pool: Sequence[str] | None = None
+) -> Mapping[str, object]:
     from collections import Counter
 
     counter: Counter[str] = Counter()
@@ -696,7 +732,16 @@ def export_race_inventory(build_dir: Path, output_path: Path) -> Mapping[str, ob
             counter[str(race).strip()] += 1
 
     races = [{"name": name, "count": count} for name, count in sorted(counter.items())]
+
+    used_normalized = {normalize_race(name) for name in counter.keys() if name}
+    preferred_pool = list(race_pool or [])
+    unused_preferred = [
+        race for race in preferred_pool if normalize_race(race) not in used_normalized
+    ]
+
     payload = {"generated_at": now_iso_utc(), "races": races}
+    if unused_preferred:
+        payload["unused_preferred_races"] = unused_preferred
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     write_json(output_path, payload)
@@ -5117,7 +5162,9 @@ def main() -> None:
         raise ValueError("--dual-pass non è compatibile con --validate-db")
 
     if args.export_races:
-        export_race_inventory(args.output_dir, args.race_inventory)
+        export_race_inventory(
+            args.output_dir, args.race_inventory, race_pool=args.race_pool
+        )
         return
 
     if not args.ruling_expert_url and not args.validate_db:
