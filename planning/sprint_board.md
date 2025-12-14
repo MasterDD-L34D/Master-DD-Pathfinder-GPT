@@ -9,6 +9,12 @@ Tabella di chiusura riportata da `planning/module_work_plan.md` con evidenza del
 - **Avanzamento**: registrare nuovi progressi nelle colonne di osservazioni/errori e aggiornare i checkpoint programmati se slittano.
 - **Esito checkpoint**: chiudere ogni rituale confermando i rischi attivi e gli owner responsabili della rimozione.
 
+## Aggiornamento regression 2025-12-14
+- **Scope**: policy di dump con marker/header di troncamento, gate QA/CTA obbligatorie, naming export per tutti i moduli.
+- **Test eseguiti**: `pytest tests/test_app.py -q` (troncamento, 401/403/429 su endpoint protetti) + checklist manuale per CTA/naming/export per modulo.【b69106†L1-L10】【F:reports/regression_checklist.md†L1-L66】
+- **Esito storie**: nessuna riapertura; tutte le storie impattate restano **chiuse** dopo il regression pass.【F:reports/regression_checklist.md†L1-L66】
+- **Nota di rilascio**: messaggio pronto nel canale di rilascio che conferma marker/header, CTA QA e naming `MinMax_<nome>` allineato su Builder/Encounter.【F:reports/qa_log.md†L1-L16】
+
 | Modulo | Owner | Task totali | Priorità massima | #Dipendenze | Dipendenze operative | Stato | #Osservazioni | #Errori | Checkpoint | Ultimo update | Rischi |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Encounter_Designer | Alice Bianchi | 2 | **P1** | 0 | Nessuna | Pronto per sviluppo | 2 | 1 | 2025-12-12 | 2025-12-12 | Nessuno |
