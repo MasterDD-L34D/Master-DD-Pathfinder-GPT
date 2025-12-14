@@ -346,6 +346,16 @@ Fonte sequenza: `planning/module_review_guide.md`
 
 - Riesecuzione QA del 2025-12-11: suite `pytest` completa (73 pass) utilizzata come log unico di regressione per tutte le storie chiuse riportate nelle tabelle sottostanti.【2fd912†L1-L11】
 
+## Attività di rilascio
+- Preparazione note/changelog (P2) per finestra 2025-12-26
+  - Dipendenze: log QA aggiornati al regression 2025-12-11 e tracker storie "Done" per evitare discrepanze con lo stato "Pronto per sviluppo" dei moduli.
+- Raccolta sign-off da owner/QA (P1) sulle storie chiuse
+  - Dipendenze: checklist QA per modulo e conferma che eventuali osservazioni rientrino nei log di regression 2025-12-11.
+- Creazione tag/branch RC (P2) allineato alla finestra 2025-12-26
+  - Dipendenze: note/changelog finali e conferma sign-off; utilizzare naming coerente con le date della finestra.
+- Comunicazione nel canale di rilascio (P3) con riepilogo changelog e stato QA
+  - Dipendenze: changelog consolidato, link ai log QA 2025-12-11 e conferme owner/QA.
+
 ### Moduli critici
 | Story | Origine piano | Stato | Evidenza test |
 | --- | --- | --- | --- |
