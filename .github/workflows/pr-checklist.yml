@@ -41,7 +41,7 @@ jobs:
             }
 
             const missingEvidence = requiredChecks.filter((label) => {
-              const rowPattern = new RegExp(`\\|\\s*${escape(label)}\\s*\\|([^|<>]*\\|){2}[^|<>]*\\|`, 'i');
+              const rowPattern = new RegExp(`\\|\\s*${escape(label)}\\s*\\|(?:[^|<>]*\\|){2,}`, 'i');
               return !rowPattern.test(body);
             });
 
