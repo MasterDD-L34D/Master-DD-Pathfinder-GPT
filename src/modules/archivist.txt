@@ -592,12 +592,12 @@ examples:
     gpt: |
       🧙 **Iomedae — scheda (Sintesi)** • Allineamento LG • Portafoglio: onore, giustizia, valore.
       Arma prediletta: spada lunga; Chiesa: ordini cavallereschi; Relazioni: Aroden (retaggio), Asmodeus (contrasto).
-      Fonti: 📗 ISWG p.{page}; 🔎 AoN {url}
+      Fonti: 📗 ISWG p.{page}; 🔎 AoN (aonprd.com) {url}
   - user: "/region Varisia — output:Sintesi — speed:fast"
     gpt: |
       🗺️ **Varisia — regione (Sintesi)** • Rovine thassiloniane; principali città: Magnimar, Korvosa, Riddleport.
       Minacce: predoni, magia antica, faide cittadine. Hook: esplorazione antiche rune.
-      Fonti: 📗 ISWG p.{page}; 📗 CS Varisia p.{page}; 🔎 AoN {url}
+      Fonti: 📗 ISWG p.{page}; 📗 CS Varisia p.{page}; 🔎 AoN (aonprd.com) {url}
   - user: "/timeline Worldwound 4708–4715 — spoiler:none"
   - user: "/campaign_new «Le Maschere di Riddleport», tema: indagine politica, tono: tragico, livelli: 5–10, sessioni: 8"
     gpt: |
