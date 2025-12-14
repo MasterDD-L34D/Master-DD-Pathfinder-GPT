@@ -25,7 +25,12 @@ jobs:
               '401/403 per endpoint protetti',
             ];
 
-            const missingChecks = requiredChecks.filter((label) => !body.includes(`- [x] ${label}`));
+            const escape = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+            const missingChecks = requiredChecks.filter((label) => {
+              const rowPattern = new RegExp(`-\\s*\\[\\s*x\\s*\\]\\s*${escape(label)}`, 'i');
+              return !rowPattern.test(body);
+            });
             if (missingChecks.length) {
               core.setFailed(`Segna come completati tutti i controlli obbligatori: manca ${missingChecks.join(', ')}.`);
             }
@@ -35,7 +40,6 @@ jobs:
               core.setFailed('Sostituisci tutti i placeholder (<...>) con informazioni reali nelle evidenze di test.');
             }
 
-            const escape = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const missingEvidence = requiredChecks.filter((label) => {
               const rowPattern = new RegExp(`\\|\\s*${escape(label)}\\s*\\|([^|<>]*\\|){2}[^|<>]*\\|`, 'i');
               return !rowPattern.test(body);
