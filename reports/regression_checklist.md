@@ -1,0 +1,29 @@
+# Regression checklist — Dump policy, QA gating/CTA, export naming (2025-12-14)
+
+## Scope e test eseguiti
+- **Oggetto**: marker/header di troncamento e policy di dump, gate QA e CTA obbligatorie, naming export per ciascun modulo.
+- **Test automatici**: `pytest tests/test_app.py -q` per verificare troncamento `[contenuto troncato]`, header `X-Content-*` e protezione API key/metrics.【F:tests/test_app.py†L272-L344】【b69106†L1-L10】
+- **Fonti manuali**: revisionati i moduli per confermare CTA/gate e naming export dedicati.【F:src/app.py†L1522-L1586】【F:src/modules/minmax_builder.txt†L940-L943】
+
+## Checklist per modulo
+| Modulo | Dump policy & marker/header | Gate QA / CTA obbligatorie | Naming export | Stato |
+| --- | --- | --- | --- | --- |
+| **Encounter_Designer** | Dump protetto da header `X-Content-*` quando il download è parziale.【F:src/app.py†L1531-L1586】 | Flow in 6 step con QA autoinvocata nello step 6; `/export_encounter` bloccato senza `/validate_encounter`.【F:src/modules/Encounter_Designer.txt†L387-L419】【F:src/modules/Encounter_Designer.txt†L505-L514】 | Export VTT/MD/PDF gated, filename via `export_filename` nello step export.【F:src/modules/Encounter_Designer.txt†L419-L438】 | ✅ Chiuso |
+| **minmax_builder** | Troncamento ereditato da policy globale su dump disabilitato.【F:src/app.py†L1531-L1586】 | Gate `export_requires` (QA + fonti/PFS) prima di export/benchmark.【F:src/modules/minmax_builder.txt†L2018-L2024】 | Naming condivisa `MinMax_<nome>.pdf/.xlsx/.json` su `/export_build` e `/export_vtt`.【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1224-L1225】 | ✅ Chiuso |
+| **Taverna_NPC** | Export bloccato se dump off: marker standard e warning policy.【F:src/modules/Taverna_NPC.txt†L1300-L1326】 | CTA remediation obbligatorie quando gate QA/Echo fallisce prima dell’export.【F:src/modules/Taverna_NPC.txt†L1326-L1333】 | Export Hub `export_tavern` mantiene naming guidato dal canvas/ledger (no file raw).【F:src/modules/Taverna_NPC.txt†L1299-L1334】 | ✅ Chiuso |
+| **tavern_hub** | In bundle con Taverna: segue marker/partial su dump off.【F:src/modules/Taverna_NPC.txt†L1300-L1326】 | CTA Hub dipendenti dal board NPC/quest (vedi workflow Taverna).【F:src/modules/Taverna_NPC.txt†L1299-L1333】 | Export report Hub via `/export_tavern` (md/pdf).【F:src/modules/Taverna_NPC.txt†L1299-L1334】 | ✅ Chiuso |
+| **Cartelle di servizio** | Dump protetto da policy standard e marker di troncamento.【F:src/app.py†L1531-L1586】 | CTA su onboarding/quiz/ledger come da flusso Taverna (riuso).【F:src/modules/Taverna_NPC.txt†L1326-L1333】 | Auto-name `taverna_saves` e export legato a storage policy.【F:src/modules/Taverna_NPC.txt†L1317-L1324】 | ✅ Chiuso |
+| **adventurer_ledger** | Dump bloccato con 403 se dump disabilitato.【F:tests/test_app.py†L370-L380】 | Gate `export_requires` sul delta WBL; CTA export dopo validazione.【F:src/modules/adventurer_ledger.txt†L666-L688】【F:src/modules/adventurer_ledger.txt†L780-L783】 | Export ledger/loot/PG in md/json/vtt (binding scheda).【F:src/modules/adventurer_ledger.txt†L1101-L1127】【F:src/modules/adventurer_ledger.txt†L1169-L1224】 | ✅ Chiuso |
+| **archivist** | Troncamento applicato via handler standard su dump off.【F:src/app.py†L1531-L1586】 | CTA/reference via routing knowledge_pack.【F:src/modules/knowledge_pack.md†L56-L66】 | Nessun export file diretto (solo testo). | ✅ Chiuso |
+| **base_profile** | Policy dump condivisa (troncamento e marker).【F:src/app.py†L1531-L1586】 | CTA documentali nel profilo condiviso (router/core).【F:src/modules/base_profile.txt†L107-L139】 | Nessun export dedicato (profilo base). | ✅ Chiuso |
+| **explain_methods** | Dump parziale tramite policy globale.【F:src/app.py†L1531-L1586】 | CTA guidate per explain e delega a templates.【F:reports/module_tests/explain_methods.md†L5-L20】 | Nessun export file. | ✅ Chiuso |
+| **knowledge_pack** | Accesso via API key, dump protetto e marker `[contenuto troncato]` con dump off.【F:tests/test_app.py†L622-L665】【F:src/modules/knowledge_pack.md†L45-L66】 | CTA router verso moduli e quiz taverna.【F:src/modules/knowledge_pack.md†L69-L83】 | Nessun export file diretto. | ✅ Chiuso |
+| **meta_doc** | Listing segnala `-partial` e marker con dump disabilitato.【F:src/modules/meta_doc.txt†L7-L18】 | CTA Homebrewery/documentazione.【F:src/modules/meta_doc.txt†L504-L562】 | Nessun export oltre al dump controllato. | ✅ Chiuso |
+| **narrative_flow** | Troncamento header `x-truncated`/`x-original-length` verificato con dump off.【F:tests/test_app.py†L326-L345】 | `/qa_story` imposta flag `ready_for_export` e blocca export finché QA non è completo.【F:src/modules/narrative_flow.txt†L334-L401】 | Export storytelling dipende dal flag QA (no file naming custom). | ✅ Chiuso |
+| **ruling_expert** | Dump parziale con header `X-Content-Partial/Truncated`.【F:tests/test_app.py†L351-L365】 | CTA verso explain/ruling pipeline.【F:reports/module_tests/ruling_expert.md†L5-L18】 | Nessun export file. | ✅ Chiuso |
+| **scheda_pg_markdown_template** | Header/meta dichiarano trigger/policy di troncamento.【F:src/modules/scheda_pg_markdown_template.md†L13-L60】 | CTA verso export/aggiornamento scheda in MinMax/ledger.【F:src/modules/scheda_pg_markdown_template.md†L115-L139】 | Export markdown/template controllato dal ledger. | ✅ Chiuso |
+| **sigilli_runner_module** | Troncamento e block 401/403 su dump off/rare senza whitelist.【F:src/modules/sigilli_runner_module.txt†L106-L165】 | CTA portale/rare obbligatorie nel flow.【F:src/modules/sigilli_runner_module.txt†L131-L165】 | Nessun export file diretto (solo istruzioni). | ✅ Chiuso |
+
+## Evidenze riassuntive
+- Streaming handler: marker `[contenuto troncato — ...]` e header `X-Content-*` quando `ALLOW_MODULE_DUMP=false` (status 206).【F:src/app.py†L1531-L1586】
+- Tests: suite `tests/test_app.py` copre troncamento, blocco PDF/binari, header e protezione API/metrics.【F:tests/test_app.py†L272-L345】【F:tests/test_app.py†L549-L728】【b69106†L1-L10】

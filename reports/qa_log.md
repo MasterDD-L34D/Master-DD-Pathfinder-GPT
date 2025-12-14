@@ -57,3 +57,16 @@
 - **knowledge_pack** — KNO-OBS-01 chiuso: quick start e router richiedono `x-api-key` e, con dump off, il download resta marcato `[contenuto troncato]` in linea con i test; knowledge base protetta con 401/200 su accesso.【F:src/modules/knowledge_pack.md†L45-L66】【F:reports/module_tests/knowledge_pack.md†L5-L18】【F:tests/test_app.py†L574-L582】
 - **narrative_flow** — NAR-OBS-01 chiuso: QA `/qa_story` blocca export finché arc/tema/hook/pacing/stile non sono OK e, con dump disabilitato, il modulo espone header `x-truncated`/`x-original-length` insieme al marker di troncamento.【F:src/modules/narrative_flow.txt†L334-L401】【F:tests/test_app.py†L319-L338】
 - **explain_methods** — EXP-OBS-01 chiuso: policy `exposure_guard` applicata e troncamento `[contenuto troncato]` confermato con dump off; CTA guidate e template QA restano invariati.【F:src/modules/explain_methods.txt†L205-L225】【F:tests/test_app.py†L299-L315】
+
+## Regression 2025-12-14 — Dump policy, QA gate/CTA, export naming
+- Eseguito regression mirato: `pytest tests/test_app.py -q` per verificare troncamento `[contenuto troncato]`/header `X-Content-*`, blocco PDF/binari con dump disabilitato e protezione API/metrics (53 test, 2 warning deprecazione).【F:tests/test_app.py†L272-L365】【F:tests/test_app.py†L549-L728】【b69106†L1-L10】
+- Checklist per modulo aggiornata con dump policy, gate QA/CTA e naming export, tutte le storie marcate **chiuso** (nessuna riapertura).【F:reports/regression_checklist.md†L1-L66】
+- Encounter Designer e MinMax Builder: export bloccato senza QA, naming condivisa `MinMax_<nome>` confermata; CTA guidate restano obbligatorie prima dell’export.【F:src/modules/Encounter_Designer.txt†L387-L438】【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L2018-L2024】
+- Moduli narrativi/documentali (Taverna/Narrative/Meta): marker di troncamento attivo con dump off e CTA di remediation/QA prima di ogni export o preview.【F:src/modules/Taverna_NPC.txt†L1299-L1333】【F:src/modules/narrative_flow.txt†L334-L401】【F:src/modules/meta_doc.txt†L7-L18】
+
+### Tracker sprint
+- Stato: tutte le storie impattate restano **chiuse**; nessuna riapertura richiesta dopo il regression pass.【F:reports/regression_checklist.md†L1-L66】
+- Test usati per la chiusura: `pytest tests/test_app.py -q` + checklist manuale per CTA/naming (dump policy/marker).【b69106†L1-L10】【F:reports/regression_checklist.md†L1-L66】
+
+### Canale di rilascio (messaggio pronto)
+> Regression su dump policy/QA/export completato (pytest + checklist). Marker/header di troncamento confermati, CTA QA obbligatorie prima degli export, naming `MinMax_<nome>` allineata su Builder/Encounter. Nessuna storia riaperta.
