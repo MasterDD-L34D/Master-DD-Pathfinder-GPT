@@ -3,6 +3,10 @@
 Generato il 2025-12-11T21:48:49Z
 Fonte sequenza: `planning/module_review_guide.md`
 
+## Aggiornamento attestato 2025-12-11
+- Esito job tracker: **verde** (import log pytest 2025-12-11 con 73/73 passati, tutte le storie Done coperte).
+- Attestato di copertura archiviato in `reports/coverage_attestato_2025-12-11.md`.
+
 ## Checklist seguita (dal documento di guida)
 - Sequenza completa: Encounter_Designer → Taverna_NPC → adventurer_ledger → archivist → base_profile → explain_methods → knowledge_pack → meta_doc → minmax_builder → narrative_flow → ruling_expert → scheda_pg_markdown_template → sigilli_runner_module → tavern_hub → Cartelle di servizio.
 - Per ogni report: checklist Ambiente di test → Esiti API → Metadati → Comandi/Flow → QA → Errori → Miglioramenti → Fix necessari.
