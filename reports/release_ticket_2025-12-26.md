@@ -4,6 +4,7 @@
 - **Changelog RC 2025-12-26**: `reports/changelog_2025-12-26.md`.
 - **Attestato automatico QA (73/73 verde)**: `reports/coverage_attestato_2025-12-11.md`.
 - **Log QA di riferimento**: `reports/qa_log.md` (QA 2025-12-11/12/13/14/18).
+- **Tag/branch RC**: `rc/2025-12-26` (commit `5968b375e2` con changelog aggiornato) usato dalla pipeline di rilascio.
 
 ## Note operative
 - Il changelog riflette la dump policy (`ALLOW_MODULE_DUMP=false` → marker/header `X-Content-*`, 403 su PDF/binari) e i gate QA/CTA su export Encounter/MinMax/Taverna/Narrative.
