@@ -82,13 +82,7 @@
         "CAR": 16,
         "attacco": "+6",
         "danni": "lancia di forza 2d6+6",
-        "ca": 19,
-        "Forza": 12,
-        "Destrezza": 18,
-        "Costituzione": 12,
-        "Intelligenza": 10,
-        "Saggezza": 12,
-        "Carisma": 16
+        "ca": 19
       },
       "statistiche_chiave": {
         "attacco": "+6",
@@ -154,7 +148,11 @@
             "importo": 250
           }
         ],
-        "currency": {"oro": 120, "argento": 35, "rame": 10}
+        "currency": {
+          "oro": 120,
+          "argento": 35,
+          "rame": 10
+        }
       },
       "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale"
     }

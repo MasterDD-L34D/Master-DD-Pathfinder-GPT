@@ -57,7 +57,7 @@
     },
     "bench_log": [
       "Varianti combo finali: (1) Sylph Gravewalker + Hedge Witch con major hex Misfortune + Life Giver, (2) Sylph Gravewalker + Seducer con focus charme, (3) Oread Winter Witch + Havocker con cold blast. Conservata la variante 1 per badge pieno e meta_tier T1.",
-      "Log di bench e ruling allegati ai metadati." 
+      "Log di bench e ruling allegati ai metadati."
     ]
   },
   "export": {
@@ -81,13 +81,7 @@
         "CAR": 14,
         "attacco": "+13",
         "danni": "cone of cold 10d6+10",
-        "ca": 22,
-        "Forza": 8,
-        "Destrezza": 18,
-        "Costituzione": 14,
-        "Intelligenza": 22,
-        "Saggezza": 12,
-        "Carisma": 14
+        "ca": 22
       },
       "statistiche_chiave": {
         "attacco": "+13",
@@ -169,7 +163,7 @@
   "bench_log": [
     "Ruling Expert: major hex e possession confermati legali insieme a Life Giver.",
     "MinMax: combo Slumber/Misfortune + Command Undead mantiene lockdown e sustain; DPR stabile con cone of cold.",
-    "Narrative/Taverna: oracolo volante che trama con gli spiriti del vento e dei defunti." 
+    "Narrative/Taverna: oracolo volante che trama con gli spiriti del vento e dei defunti."
   ],
   "body_params": {
     "race": "Sylph",

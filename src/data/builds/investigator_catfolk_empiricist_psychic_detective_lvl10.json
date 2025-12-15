@@ -78,19 +78,7 @@
         "CAR": 10,
         "attacco": "+18",
         "danni": "1d6+14",
-        "ca": 28,
-        "Forza": 16,
-        "forza": 16,
-        "Destrezza": 14,
-        "destrezza": 14,
-        "Costituzione": 14,
-        "costituzione": 14,
-        "Intelligenza": 10,
-        "intelligenza": 10,
-        "Saggezza": 12,
-        "saggezza": 12,
-        "Carisma": 8,
-        "carisma": 8
+        "ca": 28
       },
       "statistiche_chiave": {
         "attacco": "+18",

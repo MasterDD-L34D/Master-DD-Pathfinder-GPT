@@ -2621,6 +2621,28 @@ def _enrich_sheet_payload(
             entry["totale"] = total
         return entry
 
+    ability_alias_map = {
+        "for": "FOR",
+        "forza": "FOR",
+        "str": "FOR",
+        "des": "DES",
+        "destrezza": "DES",
+        "dex": "DES",
+        "cos": "COS",
+        "costituzione": "COS",
+        "con": "COS",
+        "int": "INT",
+        "intelligenza": "INT",
+        "sag": "SAG",
+        "saggezza": "SAG",
+        "wis": "SAG",
+        "car": "CAR",
+        "carisma": "CAR",
+        "cha": "CAR",
+    }
+
+    ability_keys = set(ability_alias_map.values())
+
     def _normalize_stat_key(raw_key: object) -> str | None:
         if raw_key is None:
             return None
@@ -2628,33 +2650,18 @@ def _enrich_sheet_payload(
         if not key:
             return None
 
-        alias_map = {
-            "for": "FOR",
-            "forza": "FOR",
-            "str": "FOR",
-            "des": "DES",
-            "destrezza": "DES",
-            "dex": "DES",
-            "cos": "COS",
-            "costituzione": "COS",
-            "con": "COS",
-            "int": "INT",
-            "intelligenza": "INT",
-            "sag": "SAG",
-            "saggezza": "SAG",
-            "wis": "SAG",
-            "car": "CAR",
-            "carisma": "CAR",
-            "cha": "CAR",
-        }
-
         lowered = key.lower()
-        if lowered in alias_map:
-            return alias_map[lowered]
+        if lowered in ability_alias_map:
+            return ability_alias_map[lowered]
 
-        # Default to upper-case keys so mixed-case payloads converge to a
-        # canonical representation.
-        return key.upper()
+        upper = key.upper()
+        if upper in ability_keys:
+            return upper
+
+        # Preserve the original key for non-characteristic entries to avoid
+        # altering unrelated statistics while still converging ability scores
+        # to FOR/DES/COS/INT/SAG/CAR.
+        return key
 
     slot_entry_re = re.compile(r"(\d+)\s*(?:[°º]|lvl|liv(?:ello)?|level)?\s*[:=]?\s*([+\-]?\d+)")
 

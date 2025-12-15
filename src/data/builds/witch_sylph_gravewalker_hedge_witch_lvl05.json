@@ -77,13 +77,7 @@
         "CAR": 14,
         "attacco": "+8",
         "danni": "snowball 5d6+5",
-        "ca": 20,
-        "Forza": 8,
-        "Destrezza": 18,
-        "Costituzione": 12,
-        "Intelligenza": 20,
-        "Saggezza": 12,
-        "Carisma": 14
+        "ca": 20
       },
       "statistiche_chiave": {
         "attacco": "+8",
@@ -112,8 +106,20 @@
       ],
       "rules_status_text": "Badge RAW/RAI/PFS confermato; focus debuff/curing mantenuto",
       "skills": [
-        {"nome": "Conoscenze (arcana)", "gradi": 5, "mod_car": 5, "classe": true, "totale": 15},
-        {"nome": "Percezione", "gradi": 5, "mod_car": 1, "classe": true, "totale": 11}
+        {
+          "nome": "Conoscenze (arcana)",
+          "gradi": 5,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 15
+        },
+        {
+          "nome": "Percezione",
+          "gradi": 5,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 11
+        }
       ],
       "equipaggiamento": [
         "Feticcio necromantico",
@@ -121,15 +127,31 @@
         "Libro degli incantesimi runico"
       ],
       "ledger_movimenti": [
-        {"voce": "Offerte ai defunti", "importo": -140},
-        {"voce": "Consulta spiritica retribuita", "importo": 260}
+        {
+          "voce": "Offerte ai defunti",
+          "importo": -140
+        },
+        {
+          "voce": "Consulta spiritica retribuita",
+          "importo": 260
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Offerte ai defunti", "importo": -140},
-          {"voce": "Consulta spiritica retribuita", "importo": 260}
+          {
+            "voce": "Offerte ai defunti",
+            "importo": -140
+          },
+          {
+            "voce": "Consulta spiritica retribuita",
+            "importo": 260
+          }
         ],
-        "currency": {"oro": 120, "argento": 22, "rame": 10}
+        "currency": {
+          "oro": 120,
+          "argento": 22,
+          "rame": 10
+        }
       },
       "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico\nOfferte ai defunti"
     }

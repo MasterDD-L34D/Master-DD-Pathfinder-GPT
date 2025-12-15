@@ -106,19 +106,7 @@
         "CAR": 8,
         "attacco": "+11",
         "danni": "1d6+6",
-        "ca": 23,
-        "Forza": 12,
-        "forza": 12,
-        "Destrezza": 18,
-        "destrezza": 18,
-        "Costituzione": 12,
-        "costituzione": 12,
-        "Intelligenza": 14,
-        "intelligenza": 14,
-        "Saggezza": 10,
-        "saggezza": 10,
-        "Carisma": 8,
-        "carisma": 8
+        "ca": 23
       },
       "statistiche_chiave": {
         "attacco": "+11",
@@ -339,19 +327,7 @@
       "COS": 12,
       "INT": 14,
       "SAG": 10,
-      "CAR": 8,
-      "Forza": 12,
-      "Destrezza": 18,
-      "Costituzione": 12,
-      "Intelligenza": 14,
-      "Saggezza": 10,
-      "Carisma": 8,
-      "forza": 12,
-      "destrezza": 18,
-      "costituzione": 12,
-      "intelligenza": 14,
-      "saggezza": 10,
-      "carisma": 8
+      "CAR": 8
     },
     "statistiche_chiave": {
       "attacco": "+11",
@@ -591,19 +567,7 @@
             "CAR": 8,
             "attacco": "+11",
             "danni": "1d6+6",
-            "ca": 23,
-            "Forza": 12,
-            "forza": 12,
-            "Destrezza": 18,
-            "destrezza": 18,
-            "Costituzione": 12,
-            "costituzione": 12,
-            "Intelligenza": 14,
-            "intelligenza": 14,
-            "Saggezza": 10,
-            "saggezza": 10,
-            "Carisma": 8,
-            "carisma": 8
+            "ca": 23
           },
           "statistiche_chiave": {
             "attacco": "+11",
@@ -813,19 +777,7 @@
         "COS": 12,
         "INT": 14,
         "SAG": 10,
-        "CAR": 8,
-        "Forza": 12,
-        "Destrezza": 18,
-        "Costituzione": 12,
-        "Intelligenza": 14,
-        "Saggezza": 10,
-        "Carisma": 8,
-        "forza": 12,
-        "destrezza": 18,
-        "costituzione": 12,
-        "intelligenza": 14,
-        "saggezza": 10,
-        "carisma": 8
+        "CAR": 8
       },
       "statistiche_chiave": {
         "attacco": "+11",
