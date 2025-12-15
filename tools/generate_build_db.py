@@ -133,7 +133,7 @@ PF1E_RACES: Sequence[str] = (
     "Wyrwood",
 )
 
-DEFAULT_MODE = "extended"
+DEFAULT_MODE = "full-pg"
 DEFAULT_BASE_URL = "http://localhost:8000"
 DEFAULT_SPEC_FILE = (
     Path(__file__).resolve().parent.parent / "docs/examples/pg_variants.yml"
@@ -1121,8 +1121,7 @@ def get_validator(schema_filename: str) -> Draft202012Validator:
 
 
 def schema_for_mode(mode: str) -> str:
-    normalized = mode.lower()
-    return BUILD_SCHEMA_MAP.get(normalized, BUILD_SCHEMA_MAP[DEFAULT_MODE])
+    return BUILD_SCHEMA_MAP["full-pg"]
 
 
 def validate_with_schema(
@@ -2831,6 +2830,20 @@ def _enrich_sheet_payload(
     if stats_block:
         sheet_payload["statistiche"] = stats_block
 
+    stat_key_block = _as_mapping(sheet_payload.get("statistiche_chiave")) or {}
+    benchmark_stats = _as_mapping((payload.get("benchmark") or {}).get("statistics"))
+    if benchmark_stats:
+        for source_key, target_key in (
+            ("ca", "CA"),
+            ("attacco", "attacco"),
+            ("danni", "danni"),
+        ):
+            value = benchmark_stats.get(source_key)
+            if not _is_placeholder(value) and target_key not in stat_key_block:
+                stat_key_block[target_key] = value
+    if stat_key_block:
+        sheet_payload["statistiche_chiave"] = stat_key_block
+
     ability_mod_map = {
         "Tempra": _ability_modifier(stats_block.get("COS")) if stats_block else None,
         "Riflessi": _ability_modifier(stats_block.get("DES")) if stats_block else None,
@@ -3236,6 +3249,35 @@ def _enrich_sheet_payload(
     if inventory:
         sheet_payload["inventario"] = inventory
 
+    def _normalize_currency(currency: Mapping | None) -> dict[str, object]:
+        if not isinstance(currency, Mapping):
+            return {}
+        normalized: dict[str, object] = {}
+        aliases = {
+            "pp": ("pp", "platino", "platinum"),
+            "gp": ("gp", "oro", "gold"),
+            "sp": ("sp", "argento", "silver"),
+            "cp": ("cp", "rame", "copper"),
+        }
+        for target, keys in aliases.items():
+            for key in keys:
+                if key in currency and not _is_placeholder(currency.get(key)):
+                    normalized[target] = currency.get(key)
+                    break
+        return normalized
+
+    if ledger:
+        ledger_currency = _normalize_currency(_as_mapping(ledger.get("currency")))
+        if ledger_currency:
+            sheet_payload.setdefault("currency", ledger_currency)
+            for key, value in ledger_currency.items():
+                sheet_payload.setdefault(key, value)
+        movements = _merge_unique_list(
+            sheet_payload.get("ledger_movimenti"), ledger.get("movimenti")
+        )
+        if movements:
+            sheet_payload["ledger_movimenti"] = movements
+
     magic_map = _merge_prefer_existing(
         {},
         _as_mapping(sheet_payload.get("magia")) or {},
@@ -3307,6 +3349,23 @@ def _enrich_sheet_payload(
 
     if normalized_spell_levels:
         sheet_payload["spell_levels"] = normalized_spell_levels
+
+    if not sheet_payload.get("magia") and normalized_spell_levels:
+        magia_from_levels: dict[str, object] = {}
+        for entry in normalized_spell_levels:
+            if not isinstance(entry, Mapping):
+                continue
+            level = entry.get("liv") or entry.get("level")
+            spells = (
+                entry.get("known")
+                or entry.get("prepared")
+                or entry.get("per_day")
+            )
+            if level is None or spells is None:
+                continue
+            magia_from_levels[str(level)] = spells
+        if magia_from_levels:
+            sheet_payload["magia"] = magia_from_levels
 
     languages = _merge_unique_list(
         sheet_payload.get("lingue"),
@@ -4043,9 +4102,24 @@ async def fetch_build(
             "CA dettagliata mancante o vuota", sheet_payload.get("ac_breakdown")
         )
         _require_block(
+            "CA totale mancante o vuota",
+            sheet_payload.get("AC_tot"),
+            sheet_payload.get("CA_touch"),
+            sheet_payload.get("CA_ff"),
+        )
+        _require_block(
             "Iniziativa/velocità assente o vuota",
             sheet_payload.get("iniziativa"),
             sheet_payload.get("velocita"),
+        )
+        _require_block(
+            "Risorse/valuta mancanti o vuote",
+            sheet_payload.get("currency"),
+            sheet_payload.get("risorse_giornaliere"),
+            sheet_payload.get("gp"),
+            sheet_payload.get("sp"),
+            sheet_payload.get("pp"),
+            sheet_payload.get("cp"),
         )
         completeness_errors.extend(_ledger_entry_errors(sheet_payload))
         progression_errors = _progression_level_errors(sheet_payload, target_level)
