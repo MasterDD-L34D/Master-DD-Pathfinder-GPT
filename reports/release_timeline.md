@@ -15,3 +15,7 @@
 - Tag/branch RC: rc/2025-12-26 disponibile per sviluppo e pipeline
 - Feedback/approvazioni: Pubblicato nel canale di rilascio e archiviato nel registro comunicazioni
 
+## 2025-12-26 (GA)
+- Messaggio: reports/release_announcement_2025-12-26-GA.md
+- Tag GA: GA/stable creato da rc/2025-12-26 (5968b375e2) dopo smoke test OK (health, dump ALLOW_MODULE_DUMP=false, naming export)
+- Feedback/approvazioni: Annuncio GA condiviso nel canale di rilascio con link a changelog e attestato QA
