@@ -3893,11 +3893,12 @@ async def fetch_build(
             raw_tier = benchmark.get("meta_tier")
             meta_tier = str(raw_tier).strip() if raw_tier else None
 
-        ruling_badge = None
-        if isinstance(payload, Mapping):
-            ruling_badge = payload.get("ruling_badge") or payload.get(
-                "benchmark", {}
-            ).get("ruling_badge")
+        benchmark_ctx = (
+            payload.get("benchmark")
+            if isinstance(payload.get("benchmark"), Mapping)
+            else {}
+        )
+        ruling_badge = payload.get("ruling_badge") or benchmark_ctx.get("ruling_badge")
 
         offense_score, defense_score = _benchmark_scores(benchmark)
 
@@ -4443,7 +4444,7 @@ def _index_meta_from_payload(payload: Mapping[str, object] | None) -> dict[str, 
     benchmark = (
         payload.get("benchmark")
         if isinstance(payload.get("benchmark"), Mapping)
-        else None
+        else {}
     )
     if benchmark:
         meta_tier = benchmark.get("meta_tier")
@@ -4816,7 +4817,7 @@ async def run_harvest(
             )
             continue
 
-        base_level = level_plan[0] if level_plan else 1
+        base_level = 1
 
         for idx, level in enumerate(level_plan):
             if max_items is not None and snapshots_planned >= max_items:
@@ -4828,7 +4829,7 @@ async def run_harvest(
                 level=level,
                 level_checkpoints=tuple(level_plan),
             )
-            suffix = "" if level == base_level else f"_lvl{level:02d}"
+            suffix = "" if level == 1 else f"_lvl{level:02d}"
             output_file = output_dir / f"{task_request.output_name()}{suffix}.json"
             planned_snapshots.append((task_request, output_file, base_level))
             snapshots_planned += 1
