@@ -1,3 +1,4 @@
+import argparse
 import asyncio
 import copy
 import json
@@ -18,6 +19,8 @@ from tools.generate_build_db import (
     run_dual_pass_harvest,
     review_local_database,
     run_harvest,
+    run_dual_pass_harvest,
+    parse_args,
 )
 
 
@@ -78,6 +81,34 @@ def _make_sample_payload() -> dict:
             for level in range(1, 11)
         ],
     }
+
+
+def _make_dual_pass_args(tmp_path: Path, **overrides) -> argparse.Namespace:
+    original_argv = sys.argv
+    sys.argv = [sys.argv[0]]
+    try:
+        args = parse_args()
+    finally:
+        sys.argv = original_argv
+    args.dual_pass = True
+    args.skip_tolerant_on_success = overrides.get("skip_tolerant_on_success", False)
+    args.output_dir = tmp_path / "tolerant"
+    args.modules_output_dir = tmp_path / "modules"
+    args.index_path = tmp_path / "index.json"
+    args.module_index_path = tmp_path / "module_index.json"
+    args.race_inventory = tmp_path / "race_inventory.json"
+    args.reference_dir = tmp_path / "reference"
+    args.spec_file = None
+    args.discover_modules = False
+    args.include = []
+    args.exclude = []
+    args.modules = []
+    args.keep_all_combos = False
+    args.t1_filter = overrides.get("t1_filter", False)
+    args.t1_variants = overrides.get("t1_variants", args.t1_variants)
+    args.invalid_archive_dir = overrides.get("invalid_archive_dir")
+    args.dual_pass_report = overrides.get("dual_pass_report")
+    return args
 
 
 def test_review_local_database_reports_status(tmp_path, monkeypatch):

@@ -1,7 +1,7 @@
 # Changelog — Finestra RC 2025-12-26
 
 ## Fonti QA e attestazioni
-- Basato sui log QA del 2025-12-11/12/13/14/18 che coprono dump policy, gate QA/CTA e naming export condiviso per i moduli core, con regression pass `pytest` verde (73 test) usato per chiudere le storie di finestra.
+- Basato sui log `pytest` del 2025-12-11 (73 pass) e del 2025-12-12 (50 pass nello scope MinMax/Encounter) usati per chiudere le storie **Done** e validare dump policy e gate QA/CTA di finestra.
 - Attestato automatico di copertura 2025-12-11 allegato (flag verde su tutte le storie **Done** e moduli **Pronto per sviluppo**).
 
 ## Policy di dump e protezioni
@@ -17,8 +17,8 @@
 - ENC-OBS/ERR, BAS-OBS/ERR, SIG-OBS/ERR, TAV-OBS/ERR, LED-OBS/ERR, ARC-OBS, RUL-OBS, SCH-OBS, HUB-OBS/ERR, SER-OBS/ERR, MIN-OBS/ERR, META-OBS, KNO-OBS, NAR-OBS, EXP-OBS: tutti i moduli indicati risultano chiusi con marker dump, CTA QA e protezioni API allineate ai log QA.
 
 ## Evidenze di test
-- Regression 2025-12-11: `pytest` completo (73 pass) usato per l’attestato automatico e la chiusura delle storie.
-- Regression 2025-12-12/13/14/18: `pytest tests/test_app.py -q` (50/53 pass secondo scope) con warning di deprecazione attesi, confermando dump policy, gate QA/CTA e naming export.
+- Regression 2025-12-11: `pytest` completo (73 pass) usato per l’attestato automatico e la chiusura delle storie **Done**.
+- Regression 2025-12-12: `pytest tests/test_app.py -q` (50 pass nello scope MinMax/Encounter) con warning di deprecazione attesi, confermando dump policy, gate QA/CTA e naming export.
 
 ## Allegati per rilascio
 - Attestato automatico: `reports/coverage_attestato_2025-12-11.md`.

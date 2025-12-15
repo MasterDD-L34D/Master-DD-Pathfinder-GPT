@@ -7,6 +7,6 @@
 
 ## 2025-12-26
 - Messaggio: reports/release_announcement_2025-12-26.md
-- Tag/branch RC: RC non creato (team interno)
-- Feedback/approvazioni: In attesa di pubblicazione manuale; nessun feedback raccolto
+- Tag/branch RC: rc/2025-12-26 creato dopo attestato verde
+- Feedback/approvazioni: Pubblicato nel canale di rilascio; nessun feedback/approvazione aggiuntiva ricevuta finora
 
