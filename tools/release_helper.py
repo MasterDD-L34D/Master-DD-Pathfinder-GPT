@@ -11,7 +11,13 @@ DEFAULT_ATTESTATO = Path("reports/coverage_attestato_2025-12-11.md")
 DEFAULT_TIMELINE = Path("reports/release_timeline.md")
 
 
-def build_message(release_date: str, changelog: Path, rc_status: str, pytest_log: Path, attestato: Path) -> str:
+def build_message(
+    release_date: str,
+    changelog: Path,
+    rc_status: str,
+    pytest_log: Path,
+    attestato: Path,
+) -> str:
     header = f"## Annuncio rilascio {release_date}"
     body = [
         "- Changelog: " + changelog.as_posix(),
@@ -66,13 +72,43 @@ def append_timeline(
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Prepara annuncio e timeline di rilascio")
-    parser.add_argument("--date", dest="release_date", default=date.today().isoformat(), help="Data ISO del rilascio")
-    parser.add_argument("--rc-status", dest="rc_status", default="Da creare", help="Stato del tag/branch RC")
-    parser.add_argument("--changelog", type=Path, default=DEFAULT_CHANGELOG, help="Percorso al changelog")
-    parser.add_argument("--pytest-log", dest="pytest_log", type=Path, default=DEFAULT_PYTEST_LOG, help="Percorso al log pytest 11/12")
-    parser.add_argument("--attestato", type=Path, default=DEFAULT_ATTESTATO, help="Percorso all'attestato automatico")
-    parser.add_argument("--output", type=Path, help="File di output per il messaggio di rilascio")
+    parser = argparse.ArgumentParser(
+        description="Prepara annuncio e timeline di rilascio"
+    )
+    parser.add_argument(
+        "--date",
+        dest="release_date",
+        default=date.today().isoformat(),
+        help="Data ISO del rilascio",
+    )
+    parser.add_argument(
+        "--rc-status",
+        dest="rc_status",
+        default="Da creare",
+        help="Stato del tag/branch RC",
+    )
+    parser.add_argument(
+        "--changelog",
+        type=Path,
+        default=DEFAULT_CHANGELOG,
+        help="Percorso al changelog",
+    )
+    parser.add_argument(
+        "--pytest-log",
+        dest="pytest_log",
+        type=Path,
+        default=DEFAULT_PYTEST_LOG,
+        help="Percorso al log pytest 11/12",
+    )
+    parser.add_argument(
+        "--attestato",
+        type=Path,
+        default=DEFAULT_ATTESTATO,
+        help="Percorso all'attestato automatico",
+    )
+    parser.add_argument(
+        "--output", type=Path, help="File di output per il messaggio di rilascio"
+    )
     parser.add_argument(
         "--timeline",
         type=Path,

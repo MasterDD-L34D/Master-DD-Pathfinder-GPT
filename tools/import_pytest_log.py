@@ -106,7 +106,9 @@ def build_attestato(
     warnings = log.get("warnings") or []
     notes = log.get("notes")
     all_ready = all(status.lower().startswith("pronto") for status in statuses.values())
-    not_ready = {m: s for m, s in statuses.items() if not s.lower().startswith("pronto")}
+    not_ready = {
+        m: s for m, s in statuses.items() if not s.lower().startswith("pronto")
+    }
 
     lines = [
         f"# Attestato di copertura QA — Job tracker {run_date}",
@@ -121,27 +123,33 @@ def build_attestato(
     if warnings:
         lines.append(f"- **Warning**: {', '.join(warnings)}.")
 
-    lines.extend([
-        "",
-        "## Copertura e stato moduli",
-        "- Il log di regressione certifica la copertura su API, flow CTA, metadati e policy di dump/troncamento per i moduli in scopo.",
-    ])
+    lines.extend(
+        [
+            "",
+            "## Copertura e stato moduli",
+            "- Il log di regressione certifica la copertura su API, flow CTA, metadati e policy di dump/troncamento per i moduli in scopo.",
+        ]
+    )
 
     if all_ready:
         lines.append(
             "- Tutti i moduli risultano **Pronto per sviluppo** secondo la sprint board aggiornata; flag tracking **verde**."
         )
     else:
-        lines.append("- Attenzione: alcuni moduli non sono marcati Pronto per sviluppo nel tracker.")
+        lines.append(
+            "- Attenzione: alcuni moduli non sono marcati Pronto per sviluppo nel tracker."
+        )
         for module, status in sorted(not_ready.items()):
             lines.append(f"  - {module}: {status}")
 
-    lines.extend([
-        "",
-        "## Allegati",
-        f"- Fonte log: {log_path.as_posix()}.",
-        f"- Tracker stato moduli: {board_path.as_posix()}.",
-    ])
+    lines.extend(
+        [
+            "",
+            "## Allegati",
+            f"- Fonte log: {log_path.as_posix()}.",
+            f"- Tracker stato moduli: {board_path.as_posix()}.",
+        ]
+    )
     return "\n".join(lines) + "\n"
 
 
