@@ -210,7 +210,9 @@ class BuildRequest:
         if self.model:
             params.setdefault("model", self.model)
         if self.query_params:
-            params.update({str(k): v for k, v in self.query_params.items() if v is not None})
+            params.update(
+                {str(k): v for k, v in self.query_params.items() if v is not None}
+            )
         return params
 
     def output_name(self) -> str:
@@ -2735,7 +2737,9 @@ def _enrich_sheet_payload(
         # to FOR/DES/COS/INT/SAG/CAR.
         return key
 
-    slot_entry_re = re.compile(r"(\d+)\s*(?:[°º]|lvl|liv(?:ello)?|level)?\s*[:=]?\s*([+\-]?\d+)")
+    slot_entry_re = re.compile(
+        r"(\d+)\s*(?:[°º]|lvl|liv(?:ello)?|level)?\s*[:=]?\s*([+\-]?\d+)"
+    )
 
     def _parse_slots_from_text(raw: object) -> dict[int, object]:
         if not isinstance(raw, str):
@@ -3201,8 +3205,7 @@ def _enrich_sheet_payload(
         if variant_numeric is None and isinstance(cmb_base_value, (int, float)):
             sheet_payload[cmb_key] = cmb_base_value
         elif derived_variant is not None and (
-            cmb_key not in sheet_payload
-            or _is_placeholder(sheet_payload.get(cmb_key))
+            cmb_key not in sheet_payload or _is_placeholder(sheet_payload.get(cmb_key))
         ):
             sheet_payload[cmb_key] = derived_variant
         elif cmb_key not in sheet_payload:
@@ -3416,7 +3419,9 @@ def _enrich_sheet_payload(
             export_ctx.get("spell_levels"),
         ),
         slots_map=_as_mapping(magic_map.get("slots_per_day")) if magic_map else None,
-        prepared_map=_as_mapping(magic_map.get("spells_prepared")) if magic_map else None,
+        prepared_map=(
+            _as_mapping(magic_map.get("spells_prepared")) if magic_map else None
+        ),
         known_map=_as_mapping(magic_map.get("spell_list")) if magic_map else None,
         dc_map=_as_mapping(magic_map.get("cd_by_level")) if magic_map else None,
     )
@@ -3435,11 +3440,7 @@ def _enrich_sheet_payload(
             if not isinstance(entry, Mapping):
                 continue
             level = entry.get("liv") or entry.get("level")
-            spells = (
-                entry.get("known")
-                or entry.get("prepared")
-                or entry.get("per_day")
-            )
+            spells = entry.get("known") or entry.get("prepared") or entry.get("per_day")
             if level is None or spells is None:
                 continue
             magia_from_levels[str(level)] = spells
@@ -3806,8 +3807,10 @@ def _ledger_entry_errors(sheet_payload: Mapping[str, object] | None) -> list[str
             if any(entry.get(key) for key in recognized_keys):
                 return []
             if any(
-                isinstance(value, (int, float)) and value != 0
-                or isinstance(value, str) and value.strip()
+                isinstance(value, (int, float))
+                and value != 0
+                or isinstance(value, str)
+                and value.strip()
                 for value in entry.values()
             ):
                 return []
@@ -5297,14 +5300,10 @@ async def run_harvest(
 
         module_results: dict[str, Mapping] = {}
 
-        async def process_module(
-            name: str, destination: Path
-        ) -> tuple[str, Mapping]:
+        async def process_module(name: str, destination: Path) -> tuple[str, Mapping]:
             async with semaphore:
                 if skip_unchanged and destination.exists():
-                    logging.info(
-                        "Riutilizzo modulo locale %s (skip-unchanged)", name
-                    )
+                    logging.info("Riutilizzo modulo locale %s (skip-unchanged)", name)
                     return name, module_index_entry(name, destination, "ok")
 
                 logging.info("Scarico modulo raw %s", name)
