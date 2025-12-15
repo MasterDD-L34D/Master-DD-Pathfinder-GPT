@@ -593,7 +593,9 @@ def _collect_ledger_entries(
             if candidate:
                 collected.append(candidate)
             for child in value.values():
-                if isinstance(child, (Mapping, Sequence)) and not isinstance(child, (str, bytes)):
+                if isinstance(child, (Mapping, Sequence)) and not isinstance(
+                    child, (str, bytes)
+                ):
                     collected.extend(_extract_named_entries(child))
             return collected
 
@@ -1560,8 +1562,8 @@ def review_local_database(
                     if error not in completeness_errors:
                         completeness_errors.append(error)
             elif catalog_policy == "warn" and catalog_errors:
-                payload.setdefault("qa", {}).setdefault("catalog", {})["warnings"] = sorted(
-                    set(catalog_errors)
+                payload.setdefault("qa", {}).setdefault("catalog", {})["warnings"] = (
+                    sorted(set(catalog_errors))
                 )
             if catalog_meta:
                 entry.update(catalog_meta)
@@ -3976,7 +3978,9 @@ async def fetch_build(
     numeric_completeness: bool = False,
 ) -> MutableMapping:
     if reference_catalog is None:
-        reference_catalog = load_reference_catalog(reference_dir, strict=require_complete)
+        reference_catalog = load_reference_catalog(
+            reference_dir, strict=require_complete
+        )
     if reference_manifest is None:
         reference_manifest = load_reference_manifest(reference_dir)
 
@@ -4373,6 +4377,7 @@ async def fetch_build(
         )
         completeness_errors.extend(_ledger_entry_errors(sheet_payload))
         if numeric_completeness:
+
             def _num(x: object) -> float | None:
                 if isinstance(x, (int, float)):
                     return float(x)
@@ -4459,12 +4464,12 @@ async def fetch_build(
         )
         if not skip_ruling_expert:
             await _validate_ruling_badge(
-            client,
-            url=ruling_expert_url,
-            api_key=api_key,
-            payload=payload,
-            request=active_request,
-            timeout=ruling_timeout,
+                client,
+                url=ruling_expert_url,
+                api_key=api_key,
+                payload=payload,
+                request=active_request,
+                timeout=ruling_timeout,
                 max_retries=ruling_retries,
             )
         return payload
@@ -5799,7 +5804,11 @@ def main() -> None:
         )
         return
 
-    if (not args.skip_ruling_expert) and (not args.ruling_expert_url) and (not args.validate_db):
+    if (
+        (not args.skip_ruling_expert)
+        and (not args.ruling_expert_url)
+        and (not args.validate_db)
+    ):
         raise ValueError(
             "--ruling-expert-url è obbligatorio per salvare nuovi snapshot (oppure usa --skip-ruling-expert per debug)"
         )
