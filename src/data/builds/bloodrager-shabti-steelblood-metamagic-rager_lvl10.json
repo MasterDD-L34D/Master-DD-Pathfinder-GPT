@@ -78,19 +78,7 @@
         "CAR": 8,
         "attacco": "+22",
         "danni": "3d6+28",
-        "ca": 33,
-        "Forza": 20,
-        "forza": 20,
-        "Destrezza": 14,
-        "destrezza": 14,
-        "Costituzione": 16,
-        "costituzione": 16,
-        "Intelligenza": 10,
-        "intelligenza": 10,
-        "Saggezza": 12,
-        "saggezza": 12,
-        "Carisma": 8,
-        "carisma": 8
+        "ca": 33
       },
       "statistiche_chiave": {
         "attacco": "+22",
@@ -504,19 +492,7 @@
             "CAR": 8,
             "attacco": "+21",
             "danni": "2d6+22",
-            "ca": 26,
-            "Forza": 24,
-            "forza": 24,
-            "Destrezza": 14,
-            "destrezza": 14,
-            "Costituzione": 18,
-            "costituzione": 18,
-            "Intelligenza": 10,
-            "intelligenza": 10,
-            "Saggezza": 12,
-            "saggezza": 12,
-            "Carisma": 8,
-            "carisma": 8
+            "ca": 26
           },
           "statistiche_chiave": {
             "attacco": "+21",

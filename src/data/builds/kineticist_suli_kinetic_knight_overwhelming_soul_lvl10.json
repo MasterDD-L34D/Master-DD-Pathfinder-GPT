@@ -81,13 +81,7 @@
         "CAR": 22,
         "attacco": "+20",
         "danni": "blast doppio 6d6+28",
-        "ca": 31,
-        "Forza": 14,
-        "Destrezza": 22,
-        "Costituzione": 14,
-        "Intelligenza": 8,
-        "Saggezza": 12,
-        "Carisma": 22
+        "ca": 31
       },
       "statistiche_chiave": {
         "attacco": "+20",
@@ -116,8 +110,16 @@
       ],
       "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per guardie dell'oasi.",
       "skills": [
-        {"nome": "Acrobazia", "gradi": 10, "bonus": "+15"},
-        {"nome": "Percezione", "gradi": 10, "bonus": "+14"}
+        {
+          "nome": "Acrobazia",
+          "gradi": 10,
+          "bonus": "+15"
+        },
+        {
+          "nome": "Percezione",
+          "gradi": 10,
+          "bonus": "+14"
+        }
       ],
       "equipaggiamento": [
         "Lancia di forza cinetica",
@@ -125,15 +127,31 @@
         "Mantello resistente +3"
       ],
       "ledger_movimenti": [
-        {"voce": "Manutenzione scudi e mantello", "importo": -420},
-        {"voce": "Ricompensa guardia oasi", "importo": 640}
+        {
+          "voce": "Manutenzione scudi e mantello",
+          "importo": -420
+        },
+        {
+          "voce": "Ricompensa guardia oasi",
+          "importo": 640
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Manutenzione scudi e mantello", "importo": -420},
-          {"voce": "Ricompensa guardia oasi", "importo": 640}
+          {
+            "voce": "Manutenzione scudi e mantello",
+            "importo": -420
+          },
+          {
+            "voce": "Ricompensa guardia oasi",
+            "importo": 640
+          }
         ],
-        "currency": {"oro": 310, "argento": 45, "rame": 18}
+        "currency": {
+          "oro": 310,
+          "argento": 45,
+          "rame": 18
+        }
       },
       "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudi e mantello"
     }

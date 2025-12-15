@@ -72,19 +72,7 @@
         "CAR": 8,
         "attacco": "+21/+21 (pugnali)",
         "danni": "1d4+8 (pugnale) +5d6 furtivo",
-        "ca": 26,
-        "Forza": 12,
-        "forza": 12,
-        "Destrezza": 18,
-        "destrezza": 18,
-        "Costituzione": 12,
-        "costituzione": 12,
-        "Intelligenza": 14,
-        "intelligenza": 14,
-        "Saggezza": 10,
-        "saggezza": 10,
-        "Carisma": 8,
-        "carisma": 8
+        "ca": 26
       },
       "statistiche_chiave": {
         "attacco": "+21/+21 (pugnali)",
@@ -819,19 +807,7 @@
             "CAR": 8,
             "attacco": "+21/+21 (pugnali)",
             "danni": "1d4+8 (pugnale) +5d6 furtivo",
-            "ca": 26,
-            "Forza": 12,
-            "forza": 12,
-            "Destrezza": 18,
-            "destrezza": 18,
-            "Costituzione": 12,
-            "costituzione": 12,
-            "Intelligenza": 14,
-            "intelligenza": 14,
-            "Saggezza": 10,
-            "saggezza": 10,
-            "Carisma": 8,
-            "carisma": 8
+            "ca": 26
           },
           "statistiche_chiave": {
             "attacco": "+21/+21 (pugnali)",

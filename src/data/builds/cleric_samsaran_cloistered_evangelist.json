@@ -80,19 +80,7 @@
         "CAR": 10,
         "attacco": "+9",
         "danni": "1d8+5 (arma sacra)",
-        "ca": 22,
-        "Forza": 12,
-        "forza": 12,
-        "Destrezza": 14,
-        "destrezza": 14,
-        "Costituzione": 12,
-        "costituzione": 12,
-        "Intelligenza": 12,
-        "intelligenza": 12,
-        "Saggezza": 18,
-        "saggezza": 18,
-        "Carisma": 10,
-        "carisma": 10
+        "ca": 22
       },
       "statistiche_chiave": {
         "attacco": "+9",
@@ -471,19 +459,7 @@
             "CAR": 10,
             "attacco": "+9",
             "danni": "1d8+5 (arma sacra)",
-            "ca": 22,
-            "Forza": 12,
-            "forza": 12,
-            "Destrezza": 14,
-            "destrezza": 14,
-            "Costituzione": 12,
-            "costituzione": 12,
-            "Intelligenza": 12,
-            "intelligenza": 12,
-            "Saggezza": 18,
-            "saggezza": 18,
-            "Carisma": 10,
-            "carisma": 10
+            "ca": 22
           },
           "statistiche_chiave": {
             "attacco": "+9",

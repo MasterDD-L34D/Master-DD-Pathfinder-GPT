@@ -82,13 +82,7 @@
         "CAR": 18,
         "attacco": "+6",
         "danni": "lancia di forza 2d6+6",
-        "ca": 19,
-        "Forza": 14,
-        "Destrezza": 18,
-        "Costituzione": 12,
-        "Intelligenza": 8,
-        "Saggezza": 12,
-        "Carisma": 18
+        "ca": 19
       },
       "statistiche_chiave": {
         "attacco": "+6",
@@ -117,8 +111,16 @@
       ],
       "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
       "skills": [
-        {"nome": "Acrobazia", "gradi": 1, "bonus": "+6"},
-        {"nome": "Percezione", "gradi": 1, "bonus": "+5"}
+        {
+          "nome": "Acrobazia",
+          "gradi": 1,
+          "bonus": "+6"
+        },
+        {
+          "nome": "Percezione",
+          "gradi": 1,
+          "bonus": "+5"
+        }
       ],
       "equipaggiamento": [
         "Lancia di forza cinetica",
@@ -126,15 +128,31 @@
         "Corazza rinforzata"
       ],
       "ledger_movimenti": [
-        {"voce": "Affilatura scudo", "importo": -120},
-        {"voce": "Ricompensa pattuglia oasis", "importo": 180}
+        {
+          "voce": "Affilatura scudo",
+          "importo": -120
+        },
+        {
+          "voce": "Ricompensa pattuglia oasis",
+          "importo": 180
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Affilatura scudo", "importo": -120},
-          {"voce": "Ricompensa pattuglia oasis", "importo": 180}
+          {
+            "voce": "Affilatura scudo",
+            "importo": -120
+          },
+          {
+            "voce": "Ricompensa pattuglia oasis",
+            "importo": 180
+          }
         ],
-        "currency": {"oro": 90, "argento": 15, "rame": 6}
+        "currency": {
+          "oro": 90,
+          "argento": 15,
+          "rame": 6
+        }
       },
       "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo"
     }

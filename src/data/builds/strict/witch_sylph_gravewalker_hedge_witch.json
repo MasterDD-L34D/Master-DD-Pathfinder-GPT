@@ -82,13 +82,7 @@
         "CAR": 14,
         "attacco": "+3",
         "danni": "raggio di gelo + hex",
-        "ca": 16,
-        "Forza": 8,
-        "Destrezza": 16,
-        "Costituzione": 12,
-        "Intelligenza": 18,
-        "Saggezza": 12,
-        "Carisma": 14
+        "ca": 16
       },
       "statistiche_chiave": {
         "attacco": "+3",

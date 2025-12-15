@@ -81,13 +81,7 @@
         "CAR": 20,
         "attacco": "+19",
         "danni": "blast doppio 6d6+26",
-        "ca": 31,
-        "Forza": 12,
-        "Destrezza": 22,
-        "Costituzione": 14,
-        "Intelligenza": 10,
-        "Saggezza": 12,
-        "Carisma": 20
+        "ca": 31
       },
       "statistiche_chiave": {
         "attacco": "+19",
@@ -111,33 +105,57 @@
         "ranged": "blast 6d6+26",
         "special": "deadly earth + cyclone"
       },
-        "bench_log": [
-          "Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati."
-        ],
-        "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per cavalieri dell'aria.",
-        "skills": [
-          {"nome": "Acrobazia", "gradi": 10, "bonus": "+15"},
-          {"nome": "Volare", "gradi": 10, "bonus": "+17"}
-        ],
-        "equipaggiamento": [
-          "Lancia di forza cinetica",
-          "Scudo pesante in adamantio",
-          "Mantello resistente +3"
-        ],
-        "ledger_movimenti": [
-          {"voce": "Manutenzione scudo pesante", "importo": -420},
-          {"voce": "Ricompensa pattuglia strix", "importo": 640}
-        ],
-        "ledger": {
-          "movimenti": [
-            {"voce": "Manutenzione scudo pesante", "importo": -420},
-            {"voce": "Ricompensa pattuglia strix", "importo": 640}
-          ],
-          "currency": {"oro": 310, "argento": 42, "rame": 18}
+      "bench_log": [
+        "Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati."
+      ],
+      "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per cavalieri dell'aria.",
+      "skills": [
+        {
+          "nome": "Acrobazia",
+          "gradi": 10,
+          "bonus": "+15"
         },
-        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudo pesante"
-      }
-    },
+        {
+          "nome": "Volare",
+          "gradi": 10,
+          "bonus": "+17"
+        }
+      ],
+      "equipaggiamento": [
+        "Lancia di forza cinetica",
+        "Scudo pesante in adamantio",
+        "Mantello resistente +3"
+      ],
+      "ledger_movimenti": [
+        {
+          "voce": "Manutenzione scudo pesante",
+          "importo": -420
+        },
+        {
+          "voce": "Ricompensa pattuglia strix",
+          "importo": 640
+        }
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Manutenzione scudo pesante",
+            "importo": -420
+          },
+          {
+            "voce": "Ricompensa pattuglia strix",
+            "importo": 640
+          }
+        ],
+        "currency": {
+          "oro": 310,
+          "argento": 42,
+          "rame": 18
+        }
+      },
+      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudo pesante"
+    }
+  },
   "bench_log": [
     "Ruling Expert: confermate infusioni difensive con armatura e scudo cinetico in modalità PFS.",
     "MinMax: deadly earth + empower + overflow per picchi sostenuti; volo costante.",
