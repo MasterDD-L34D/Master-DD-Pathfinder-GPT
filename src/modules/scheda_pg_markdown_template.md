@@ -334,9 +334,8 @@ _Nessuna abilità strutturata._
 ---
 
 ## Incantesimi / Capacità Magiche
-- **Classe da incantatore:** {{ d(classe_incantatore, FIRST_CLASS) }}  
-- **CD base incantesimi:** {{ d(spell_dc_base) }} | **LI:** {{ d(livello_incantatore) }}  
-- **Slot per giorno:** {{ d(slot_incantesimi) }}
+- **Classe da incantatore:** {{ d(classe_incantatore, FIRST_CLASS) }}
+- **CD base incantesimi:** {{ d(spell_dc_base) }} | **LI:** {{ d(livello_incantatore) }}
 
 **Conosciuti/Preparati**
 {% for lvl in (magia or {}).keys() | map('int') | list | sort %}
@@ -345,11 +344,13 @@ _Nessuna abilità strutturata._
 {% if (magia or {})|length == 0 %}_Nessun incantesimo conosciuto o preparato specificato._{% endif %}
 
 {% if has_spell_table %}
-| Liv | Conosciuti | Preparati | Slot/giorno | CD |
+| Liv | Slot/giorno | Preparati | Conosciuti | CD |
 |---:|---:|---:|---:|---:|
 {% for sl in spell_levels -%}
-| {{ sl.liv }} | {{ d(sl.known) }} | {{ d(sl.prepared) }} | {{ d(sl.per_day) }} | {{ d(sl.dc) }} |
+| {{ sl.liv }} | {{ d(sl.per_day) }} | {{ d(sl.prepared) }} | {{ d(sl.known) }} | {{ d(sl.dc) }} |
 {%- endfor %}
+{% elif slot_incantesimi %}
+- **Slot per giorno:** {{ d(slot_incantesimi) }}
 {% else %}
 _Nessuna tabella incantesimi disponibile._
 {% endif %}
