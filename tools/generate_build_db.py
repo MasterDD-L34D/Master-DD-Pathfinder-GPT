@@ -1043,6 +1043,9 @@ def _render_sheet_template(template_text: str, context: Mapping[str, object]) ->
         "CMD",
         "CMD_base",
         "size_mod_cmd",
+        "cmb_disarm",
+        "cmb_trip",
+        "cmb_grapple",
         "cmd_altro",
         "gp_totali",
         "gp_investiti",
@@ -2561,6 +2564,12 @@ def _enrich_sheet_payload(
     def _fallback_stat(label: str) -> str:
         return f"n/d ({label} non fornito)"
 
+    def _ability_modifier(score: object) -> int | None:
+        value = _coerce_number(score)
+        if isinstance(value, (int, float)):
+            return int((value - 10) // 2)
+        return None
+
     def _normalize_save_entry(
         raw: object,
         breakdown: Mapping | None,
@@ -2739,6 +2748,13 @@ def _enrich_sheet_payload(
     if stats_block:
         sheet_payload["statistiche"] = stats_block
 
+    ability_mod_map = {
+        "Tempra": _ability_modifier(stats_block.get("COS")) if stats_block else None,
+        "Riflessi": _ability_modifier(stats_block.get("DES")) if stats_block else None,
+        "Volontà": _ability_modifier(stats_block.get("SAG")) if stats_block else None,
+    }
+    strength_mod = _ability_modifier(stats_block.get("FOR")) if stats_block else None
+
     _populate_profile_metadata(sheet_payload)
 
     salvezze_raw = _merge_prefer_existing(
@@ -2754,7 +2770,6 @@ def _enrich_sheet_payload(
         _as_mapping((payload.get("build_state") or {}).get("saves_breakdown")) or {},
     )
     normalized_saves: dict[str, object] = {}
-    saves_totals: dict[str, object] = {}
     for name in ("Tempra", "Riflessi", "Volontà"):
         normalized_entry = _normalize_save_entry(
             salvezze_raw.get(name),
@@ -2763,7 +2778,6 @@ def _enrich_sheet_payload(
             label=f"TS {name}",
         )
         normalized_saves[name] = normalized_entry
-        saves_totals[name] = normalized_entry.get("totale")
     for extra_key, value in salvezze_raw.items():
         if extra_key in normalized_saves:
             continue
@@ -2771,8 +2785,37 @@ def _enrich_sheet_payload(
             value, _as_mapping(saves_breakdown.get(extra_key))
         )
         normalized_saves[extra_key] = normalized_entry
-        saves_totals[extra_key] = normalized_entry.get("totale")
-    sheet_payload["salvezze_breakdown"] = normalized_saves
+    for save_name, save_entry in normalized_saves.items():
+        total_value = _coerce_number(save_entry.get("totale"))
+        if save_name in ability_mod_map and save_entry.get("modificatore") is None:
+            ability_mod = ability_mod_map.get(save_name)
+            if ability_mod is not None:
+                save_entry["modificatore"] = ability_mod
+        misc_value = _coerce_number(save_entry.get("misc"))
+        if misc_value is None:
+            save_entry["misc"] = 0
+            misc_value = 0
+        base_value = _coerce_number(save_entry.get("base"))
+        if base_value is None and isinstance(total_value, (int, float)):
+            mod_value = _coerce_number(save_entry.get("modificatore"))
+            if isinstance(mod_value, (int, float)):
+                save_entry["base"] = total_value - mod_value - (misc_value or 0)
+        if total_value is None:
+            base_value = _coerce_number(save_entry.get("base"))
+            mod_value = _coerce_number(save_entry.get("modificatore"))
+            if isinstance(base_value, (int, float)):
+                parts = [base_value]
+                if isinstance(mod_value, (int, float)):
+                    parts.append(mod_value)
+                if isinstance(misc_value, (int, float)):
+                    parts.append(misc_value)
+                if parts:
+                    save_entry["totale"] = sum(parts)
+
+    saves_totals: dict[str, object] = {
+        key: value.get("totale") if isinstance(value, Mapping) else None
+        for key, value in normalized_saves.items()
+    }
     if not any(
         isinstance(value, (int, float)) and value != 0
         for value in saves_totals.values()
@@ -2783,6 +2826,7 @@ def _enrich_sheet_payload(
                 saves_totals[key] = _fallback_stat(placeholder_label)
                 if key in normalized_saves:
                     normalized_saves[key]["totale"] = saves_totals[key]
+    sheet_payload["salvezze_breakdown"] = normalized_saves
     sheet_payload["salvezze"] = saves_totals
 
     hp_block = _merge_prefer_existing(
@@ -2938,6 +2982,57 @@ def _enrich_sheet_payload(
         sheet_payload["iniziativa"] = initiative
         if _is_placeholder(sheet_payload.get("init")):
             sheet_payload["init"] = initiative
+
+    cmb_sources = _merge_prefer_existing(
+        {},
+        _as_mapping(export_ctx.get("cmb")) or {},
+        _as_mapping((payload.get("build_state") or {}).get("cmb")) or {},
+        _as_mapping((derived_core or {}).get("cmb")) or {},
+    )
+    size_mod_cmd = _coerce_number(sheet_payload.get("size_mod_cmd"))
+    cmb_misc_bonus = _coerce_number(sheet_payload.get("cmb_misc"))
+    cmb_value = _first_non_placeholder(
+        sheet_payload.get("CMB"),
+        cmb_sources.get("total") if cmb_sources else None,
+        (derived_core or {}).get("cmb_total"),
+        cmb_sources.get("base") if cmb_sources else None,
+        (derived_core or {}).get("cmb_base"),
+    )
+    cmb_total = _coerce_number(cmb_value)
+    if cmb_total is None:
+        bab_value = _coerce_number(sheet_payload.get("BAB"))
+        if isinstance(bab_value, (int, float)) and strength_mod is not None:
+            parts = [bab_value, strength_mod]
+            if isinstance(size_mod_cmd, (int, float)):
+                parts.append(size_mod_cmd)
+            if isinstance(cmb_misc_bonus, (int, float)):
+                parts.append(cmb_misc_bonus)
+            cmb_total = sum(parts)
+    if cmb_total is not None and (
+        "CMB" not in sheet_payload or _is_placeholder(sheet_payload.get("CMB"))
+    ):
+        sheet_payload["CMB"] = cmb_total
+    if "CMB" not in sheet_payload:
+        sheet_payload["CMB"] = _fallback_stat("CMB")
+
+    cmb_base_value = _coerce_number(sheet_payload.get("CMB"))
+    for cmb_key in ("cmb_disarm", "cmb_trip", "cmb_grapple"):
+        derived_variant = _first_non_placeholder(
+            sheet_payload.get(cmb_key),
+            cmb_sources.get(cmb_key) if cmb_sources else None,
+            (derived_core or {}).get(cmb_key),
+        )
+        variant_numeric = _coerce_number(derived_variant)
+        if variant_numeric is None and isinstance(cmb_base_value, (int, float)):
+            sheet_payload[cmb_key] = cmb_base_value
+        elif derived_variant is not None and (
+            cmb_key not in sheet_payload
+            or _is_placeholder(sheet_payload.get(cmb_key))
+        ):
+            sheet_payload[cmb_key] = derived_variant
+        elif cmb_key not in sheet_payload:
+            friendly_label = cmb_key.replace("_", " ")
+            sheet_payload[cmb_key] = _fallback_stat(friendly_label)
 
     speed = _first_non_placeholder(
         sheet_payload.get("velocita"),
@@ -3196,6 +3291,10 @@ def _enrich_sheet_payload(
     sheet_payload.setdefault("iniziativa", 0)
     sheet_payload.setdefault("pf_totali", 0)
     sheet_payload.setdefault("skill_points", 0)
+    sheet_payload.setdefault("CMB", 0)
+    sheet_payload.setdefault("cmb_disarm", sheet_payload.get("CMB"))
+    sheet_payload.setdefault("cmb_trip", sheet_payload.get("CMB"))
+    sheet_payload.setdefault("cmb_grapple", sheet_payload.get("CMB"))
 
     return sheet_payload
 
