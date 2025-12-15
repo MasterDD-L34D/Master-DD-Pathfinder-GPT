@@ -176,6 +176,7 @@ def now_iso_utc() -> str:
 class BuildRequest:
     class_name: str
     mode: str = DEFAULT_MODE
+    stub: bool = True
     level: int | None = None
     filename_prefix: str | None = None
     spec_id: str | None = None
@@ -199,7 +200,7 @@ class BuildRequest:
         params: dict[str, object] = {
             "mode": self.mode,
             "class": self.class_name,
-            "stub": True,
+            "stub": self.stub,
         }
         if level is not None:
             params["level"] = level
@@ -297,7 +298,21 @@ class BuildFetchError(Exception):
 
 
 def slugify(name: str) -> str:
-    return name.strip().lower().replace(" ", "_")
+    """Return a filesystem-friendly identifier.
+
+    Notes:
+    - keeps letters/digits plus '_' and '-'
+    - collapses whitespace and disallowed characters to '_'
+    - strips leading/trailing separators
+    """
+    text = str(name).strip().lower()
+    if not text:
+        return ""
+    text = re.sub(r"\s+", "_", text)
+    text = re.sub(r"[^\w-]+", "_", text, flags=re.UNICODE)
+    text = re.sub(r"_+", "_", text)
+    text = re.sub(r"-+", "-", text)
+    return text.strip("_-")
 
 
 def _normalize_catalog_key(name: object | None) -> str:
@@ -430,14 +445,27 @@ def _collect_catalog_entries(
         "items": [],
     }
 
+    # Prefer explicit spell lists (if present) and fall back to spell_levels.
+    magia = sheet_payload.get("magia")
+    if isinstance(magia, Mapping):
+        for key in ("spell_list", "spells_prepared", "incantesimi", "spells"):
+            value = magia.get(key)
+            if value:
+                catalog_entries["spells"].extend(_extract_sequence_names(value))
+
     spell_levels = sheet_payload.get("spell_levels")
     if spell_levels:
         catalog_entries["spells"].extend(_extract_sequence_names(spell_levels))
 
-    for key, target in (("talenti", "feats"), ("equipaggiamento", "items")):
+    for key in ("talenti", "feats", "talents"):
         value = sheet_payload.get(key)
         if value:
-            catalog_entries[target].extend(_extract_sequence_names(value))
+            catalog_entries["feats"].extend(_extract_sequence_names(value))
+
+    for key in ("equipaggiamento", "inventario", "equipment", "inventory", "items"):
+        value = sheet_payload.get(key)
+        if value:
+            catalog_entries["items"].extend(_extract_sequence_names(value))
 
     return catalog_entries
 
@@ -469,6 +497,11 @@ def validate_sheet_with_catalog(
     for names in normalized_ledger.values():
         all_selected.update(names)
 
+    known_catalog_keys = set()
+    for entries in catalog.values():
+        if isinstance(entries, Mapping):
+            known_catalog_keys.update(entries.keys())
+
     missing: list[str] = []
     ledger_missing: list[str] = []
     prerequisite_violations: list[str] = []
@@ -488,9 +521,16 @@ def validate_sheet_with_catalog(
                 prerequisites, (str, bytes)
             ):
                 for prerequisite in prerequisites:
-                    if _normalize_catalog_key(prerequisite) not in all_selected:
+                    normalized_prerequisite = _normalize_catalog_key(prerequisite)
+                    if not normalized_prerequisite:
+                        continue
+                    if normalized_prerequisite not in known_catalog_keys:
+                        # Not verifiable (ability score thresholds, class names, BAB, etc.)
+                        continue
+                    if normalized_prerequisite not in all_selected:
+                        display_name = entry.get("name") or raw_name
                         prerequisite_violations.append(
-                            f"{entry.get('name')}: {prerequisite}"
+                            f"{display_name}: {prerequisite}"
                         )
 
     for category, names in normalized_sheet.items():
@@ -541,27 +581,78 @@ def _collect_ledger_entries(
     if not isinstance(ledger, Mapping):
         return {"items": []}
 
+    names: list[str] = []
+
+    def _extract_named_entries(value: object) -> list[str]:
+        collected: list[str] = []
+        if value is None:
+            return collected
+
+        if isinstance(value, Mapping):
+            candidate = _string_name(value)
+            if candidate:
+                collected.append(candidate)
+            for child in value.values():
+                if isinstance(child, (Mapping, Sequence)) and not isinstance(child, (str, bytes)):
+                    collected.extend(_extract_named_entries(child))
+            return collected
+
+        if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+            for item in value:
+                collected.extend(_extract_named_entries(item))
+            return collected
+
+        candidate = _string_name(value)
+        if candidate:
+            collected.append(candidate)
+        return collected
+
+    # Prefer itemized sections; ignore generic financial transaction labels (movimenti/voce/note).
+    for container_key in (
+        "equipaggiamento",
+        "inventario",
+        "items",
+        "equipment",
+        "inventory",
+        "parcels",
+        "crafting",
+        "ledger_parcels",
+        "ledger_crafting",
+        "loot",
+        "treasure",
+        "acquisti",
+        "purchases",
+    ):
+        value = ledger.get(container_key)
+        if value:
+            names.extend(_extract_named_entries(value))
+
+    # Fallback: explicit item/name fields inside entries/transactions only (avoid movimenti stub labels).
     entries: list[object] = []
-    for key in ("entries", "movimenti", "transactions"):
+    for key in ("entries", "transactions"):
         value = ledger.get(key)
         if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
             entries.extend(value)
-    if not entries:
-        entries = [ledger]
 
-    names: list[str] = []
     for entry in entries:
-        if isinstance(entry, Mapping):
-            for key in ("item", "oggetto", "voce", "note"):
-                candidate = _string_name(entry.get(key))
-                if candidate:
-                    names.append(candidate)
-        else:
-            candidate = _string_name(entry)
+        if not isinstance(entry, Mapping):
+            continue
+        for field in ("item", "nome", "name", "label", "oggetto"):
+            candidate = _string_name(entry.get(field))
             if candidate:
                 names.append(candidate)
 
-    return {"items": names}
+    # De-duplicate while preserving order.
+    seen: set[str] = set()
+    unique: list[str] = []
+    for name in names:
+        normalized = _normalize_catalog_key(name)
+        if not normalized or normalized in seen:
+            continue
+        seen.add(normalized)
+        unique.append(name)
+
+    return {"items": unique}
 
 
 def catalog_combo_candidates(
@@ -909,7 +1000,15 @@ def _has_content(value: object) -> bool:
     return True
 
 
+_local_modules_cache: dict[tuple[str, ...], Mapping[str, str]] = {}
+
+
 def _load_local_modules(module_names: Sequence[str]) -> Mapping[str, str]:
+    key = tuple(module_names)
+    cached = _local_modules_cache.get(key)
+    if cached is not None:
+        return cached
+
     candidates = [
         Path("src/data/modules"),
         Path("src/modules"),
@@ -924,6 +1023,7 @@ def _load_local_modules(module_names: Sequence[str]) -> Mapping[str, str]:
             if path.is_file():
                 loaded[name] = path.read_text(encoding="utf-8")
                 break
+    _local_modules_cache[key] = loaded
     return loaded
 
 
@@ -1028,6 +1128,9 @@ def _truncate_sequence_by_level(
     return kept
 
 
+_sheet_template_cache: dict[str, object] = {}
+
+
 _sheet_template_env = NativeEnvironment(
     loader=BaseLoader(),
     autoescape=False,
@@ -1045,7 +1148,11 @@ _sheet_template_env.globals.update(
 
 
 def _render_sheet_template(template_text: str, context: Mapping[str, object]) -> str:
-    template = _sheet_template_env.from_string(template_text)
+    cached_template = _sheet_template_cache.get(template_text)
+    if cached_template is None:
+        cached_template = _sheet_template_env.from_string(template_text)
+        _sheet_template_cache[template_text] = cached_template
+    template = cached_template
     render_ctx: dict[str, object] = dict(context)
     numeric_keys = {
         "AC_arm",
@@ -1448,9 +1555,14 @@ def review_local_database(
             catalog_errors, catalog_meta = validate_sheet_with_catalog(
                 sheet_payload, reference_catalog, ledger, reference_manifest
             )
-            for error in catalog_errors:
-                if error not in completeness_errors:
-                    completeness_errors.append(error)
+            if catalog_policy == "strict":
+                for error in catalog_errors:
+                    if error not in completeness_errors:
+                        completeness_errors.append(error)
+            elif catalog_policy == "warn" and catalog_errors:
+                payload.setdefault("qa", {}).setdefault("catalog", {})["warnings"] = sorted(
+                    set(catalog_errors)
+                )
             if catalog_meta:
                 entry.update(catalog_meta)
             completeness_text: str | None = None
@@ -1982,6 +2094,11 @@ def parse_args() -> argparse.Namespace:
         help="Retry massimo per la chiamata Ruling Expert (default: usa --max-retries)",
     )
     parser.add_argument(
+        "--skip-ruling-expert",
+        action="store_true",
+        help="Debug: non valida ruling badge e non richiede --ruling-expert-url",
+    )
+    parser.add_argument(
         "--require-t1",
         action="store_true",
         dest="t1_filter",
@@ -2013,6 +2130,12 @@ def parse_args() -> argparse.Namespace:
         help="Modalità di flow da richiedere al builder (default: %(default)s)",
     )
     parser.add_argument(
+        "--stub",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Passa il flag stub al builder (default: True). Usa --no-stub per richiedere output pieno se supportato.",
+    )
+    parser.add_argument(
         "--output-dir",
         type=Path,
         default=Path("src/data/builds"),
@@ -2041,6 +2164,18 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("data/reference"),
         help="Directory con il catalogo normalizzato di incantesimi/talenti/equipaggiamento",
+    )
+    parser.add_argument(
+        "--catalog-policy",
+        choices=["strict", "warn", "off"],
+        default="warn",
+        help="Policy validazione catalogo: strict=blocca su mismatch, warn=solo warning, off=salta (default: warn)",
+    )
+    parser.add_argument(
+        "--numeric-completeness",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="Abilita controlli numerici minimi (PF>0, velocita>0, CA>=10, BAB>=0)",
     )
     parser.add_argument(
         "--reports-dir",
@@ -3833,11 +3968,17 @@ async def fetch_build(
     t1_filter: bool = False,
     t1_variants: int = 3,
     reference_dir: Path | None = None,
+    reference_catalog: Mapping[str, Mapping[str, Mapping[str, object]]] | None = None,
+    reference_manifest: Mapping[str, object] | None = None,
     suggest_combos: bool = False,
     validate_combo: bool = False,
+    catalog_policy: str = "warn",
+    numeric_completeness: bool = False,
 ) -> MutableMapping:
-    reference_catalog = load_reference_catalog(reference_dir, strict=require_complete)
-    reference_manifest = load_reference_manifest(reference_dir)
+    if reference_catalog is None:
+        reference_catalog = load_reference_catalog(reference_dir, strict=require_complete)
+    if reference_manifest is None:
+        reference_manifest = load_reference_manifest(reference_dir)
 
     def _coerce_number(value: object) -> float | None:
         if isinstance(value, (int, float)):
@@ -4231,6 +4372,34 @@ async def fetch_build(
             sheet_payload.get("cp"),
         )
         completeness_errors.extend(_ledger_entry_errors(sheet_payload))
+        if numeric_completeness:
+            def _num(x: object) -> float | None:
+                if isinstance(x, (int, float)):
+                    return float(x)
+                if isinstance(x, str):
+                    m = re.search(r"-?\d+(?:\.\d+)?", x)
+                    if m:
+                        try:
+                            return float(m.group())
+                        except ValueError:
+                            return None
+                return None
+
+            pf = _num(sheet_payload.get("pf_totali"))
+            if pf is None or pf <= 0:
+                completeness_errors.append("PF totali non numerici o <= 0")
+
+            spd = _num(sheet_payload.get("velocita"))
+            if spd is None or spd <= 0:
+                completeness_errors.append("Velocità non numerica o <= 0")
+
+            ac = _num(sheet_payload.get("AC_tot"))
+            if ac is None or ac < 10:
+                completeness_errors.append("CA totale non numerica o < 10")
+
+            bab = _num(sheet_payload.get("BAB"))
+            if bab is None or bab < 0:
+                completeness_errors.append("BAB non numerico o < 0")
         progression_errors = _progression_level_errors(sheet_payload, target_level)
         for error in progression_errors:
             if error not in completeness_errors:
@@ -4278,24 +4447,25 @@ async def fetch_build(
         if reference_manifest:
             payload["catalog_manifest"] = reference_manifest
 
-        ruling_retries = (
-            ruling_max_retries if ruling_max_retries is not None else max_retries
-        )
-        await _validate_ruling_badge(
-            client,
-            url=ruling_expert_url,
-            api_key=api_key,
-            payload=payload,
-            request=request,
-            timeout=ruling_timeout,
-            max_retries=ruling_retries,
-        )
-
         if require_complete and completeness_errors:
             joined_errors = "; ".join(completeness_errors)
             raise BuildFetchError(
                 f"Build incompleta per {active_request.class_name}: {joined_errors}",
                 completeness_errors=completeness_errors,
+            )
+
+        ruling_retries = (
+            ruling_max_retries if ruling_max_retries is not None else max_retries
+        )
+        if not skip_ruling_expert:
+            await _validate_ruling_badge(
+            client,
+            url=ruling_expert_url,
+            api_key=api_key,
+            payload=payload,
+            request=active_request,
+            timeout=ruling_timeout,
+                max_retries=ruling_retries,
             )
         return payload
 
@@ -4676,12 +4846,15 @@ async def run_harvest(
     ruling_expert_url: str | None = None,
     ruling_timeout: float = 30.0,
     ruling_max_retries: int | None = None,
+    skip_ruling_expert: bool = False,
     t1_filter: bool = False,
     t1_variants: int = 3,
     combo_best_only: bool = False,
     reference_dir: Path | None = None,
     suggest_combos: bool = False,
     validate_combo: bool = False,
+    catalog_policy: str = "warn",
+    numeric_completeness: bool = False,
 ) -> None:
     requests = list(requests)
     max_items = int(max_items) if max_items is not None else None
@@ -4848,7 +5021,13 @@ async def run_harvest(
     )
 
     async with httpx.AsyncClient(
-        base_url=api_url.rstrip("/"), follow_redirects=True
+        base_url=api_url.rstrip("/"),
+        follow_redirects=True,
+        http2=True,
+        limits=httpx.Limits(
+            max_connections=max(10, concurrency * 2),
+            max_keepalive_connections=max(10, concurrency),
+        ),
     ) as client:
         if skip_health_check or all_cached:
             logging.warning(
@@ -5003,11 +5182,16 @@ async def run_harvest(
                                 ruling_expert_url=ruling_expert_url,
                                 ruling_timeout=ruling_timeout,
                                 ruling_max_retries=ruling_max_retries,
+                                skip_ruling_expert=skip_ruling_expert,
                                 t1_filter=t1_filter,
                                 t1_variants=t1_variants,
                                 reference_dir=reference_dir,
+                                reference_catalog=reference_catalog,
+                                reference_manifest=reference_manifest,
                                 suggest_combos=suggest_combos,
                                 validate_combo=validate_combo,
+                                catalog_policy=catalog_policy,
+                                numeric_completeness=numeric_completeness,
                             )
                             break
                         except BuildFetchError as exc:
@@ -5420,6 +5604,7 @@ async def run_harvest(
 def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
     race_inventory = load_race_inventory(args.race_inventory)
     requests, combo_matrix_used = build_requests_from_args(args)
+    requests = [replace(req, stub=args.stub) for req in requests]
     requests = assign_missing_races(
         requests,
         race_inventory,
@@ -5489,11 +5674,14 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 ruling_expert_url=args.ruling_expert_url,
                 ruling_timeout=args.ruling_timeout,
                 ruling_max_retries=args.ruling_max_retries,
+                skip_ruling_expert=args.skip_ruling_expert,
                 t1_filter=args.t1_filter,
                 t1_variants=args.t1_variants,
                 reference_dir=args.reference_dir,
                 suggest_combos=args.suggest_combos,
                 validate_combo=args.validate_combo,
+                catalog_policy=args.catalog_policy,
+                numeric_completeness=args.numeric_completeness,
                 combo_best_only=combo_best_only,
             )
         )
@@ -5526,54 +5714,57 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
             logging.info("Report dual-pass salvato in %s", args.dual_pass_report)
         return report
 
-    try:
-        asyncio.run(
-            run_harvest(
-                requests,
-                args.api_url,
-                args.api_key,
-                args.output_dir,
-                args.index_path,
-                args.modules,
-                args.modules_output_dir,
-                args.module_index_path,
-                args.concurrency,
-                args.max_retries,
-                args.spec_file,
-                args.discover_modules,
-                args.include,
-                args.exclude,
-                strict=False,
-                keep_invalid=True,
-                require_complete=args.require_complete,
-                skip_health_check=args.skip_health_check,
-                level_filters=args.filter_levels,
-                skip_unchanged=args.skip_unchanged,
-                max_items=args.max_items,
-                ruling_expert_url=args.ruling_expert_url,
-                ruling_timeout=args.ruling_timeout,
-                ruling_max_retries=args.ruling_max_retries,
-                t1_filter=args.t1_filter,
-                t1_variants=args.t1_variants,
-                reference_dir=args.reference_dir,
-                suggest_combos=args.suggest_combos,
-                validate_combo=args.validate_combo,
-                combo_best_only=combo_best_only,
+        try:
+            asyncio.run(
+                run_harvest(
+                    requests,
+                    args.api_url,
+                    args.api_key,
+                    args.output_dir,
+                    args.index_path,
+                    args.modules,
+                    args.modules_output_dir,
+                    args.module_index_path,
+                    args.concurrency,
+                    args.max_retries,
+                    args.spec_file,
+                    args.discover_modules,
+                    args.include,
+                    args.exclude,
+                    strict=False,
+                    keep_invalid=True,
+                    require_complete=args.require_complete,
+                    skip_health_check=args.skip_health_check,
+                    level_filters=args.filter_levels,
+                    skip_unchanged=args.skip_unchanged,
+                    max_items=args.max_items,
+                    ruling_expert_url=args.ruling_expert_url,
+                    ruling_timeout=args.ruling_timeout,
+                    ruling_max_retries=args.ruling_max_retries,
+                    skip_ruling_expert=args.skip_ruling_expert,
+                    t1_filter=args.t1_filter,
+                    t1_variants=args.t1_variants,
+                    reference_dir=args.reference_dir,
+                    suggest_combos=args.suggest_combos,
+                    validate_combo=args.validate_combo,
+                    catalog_policy=args.catalog_policy,
+                    numeric_completeness=args.numeric_completeness,
+                    combo_best_only=combo_best_only,
+                )
             )
-        )
-        report["tolerant"]["status"] = "ok"
-        if args.invalid_archive_dir:
-            analysis = analyze_indices(
-                args.index_path,
-                args.module_index_path,
-                archive_dir=args.invalid_archive_dir,
-            )
-        else:
-            analysis = analyze_indices(args.index_path, args.module_index_path)
-        report["analysis"] = analysis
-    except Exception as exc:
-        logging.error("Passaggio tollerante fallito: %s", exc)
-        report["tolerant"].update({"status": "failed", "error": str(exc)})
+            report["tolerant"]["status"] = "ok"
+            if args.invalid_archive_dir:
+                analysis = analyze_indices(
+                    args.index_path,
+                    args.module_index_path,
+                    archive_dir=args.invalid_archive_dir,
+                )
+            else:
+                analysis = analyze_indices(args.index_path, args.module_index_path)
+            report["analysis"] = analysis
+        except Exception as exc:
+            logging.error("Passaggio tollerante fallito: %s", exc)
+            report["tolerant"].update({"status": "failed", "error": str(exc)})
 
     if args.dual_pass_report:
         write_json(args.dual_pass_report, report)
@@ -5608,9 +5799,9 @@ def main() -> None:
         )
         return
 
-    if not args.ruling_expert_url and not args.validate_db:
+    if (not args.skip_ruling_expert) and (not args.ruling_expert_url) and (not args.validate_db):
         raise ValueError(
-            "--ruling-expert-url è obbligatorio per salvare nuovi snapshot"
+            "--ruling-expert-url è obbligatorio per salvare nuovi snapshot (oppure usa --skip-ruling-expert per debug)"
         )
 
     if args.dual_pass:
@@ -5619,6 +5810,7 @@ def main() -> None:
 
     race_inventory = load_race_inventory(args.race_inventory)
     requests, combo_matrix_used = build_requests_from_args(args)
+    requests = [replace(req, stub=args.stub) for req in requests]
     requests = assign_missing_races(
         requests,
         race_inventory,
@@ -5686,6 +5878,7 @@ def main() -> None:
             reference_dir=args.reference_dir,
             suggest_combos=args.suggest_combos,
             validate_combo=args.validate_combo,
+            catalog_policy=args.catalog_policy,
         )
     )
 
