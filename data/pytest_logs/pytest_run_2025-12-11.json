@@ -1,0 +1,9 @@
+{
+  "run_date": "2025-12-11",
+  "tests_total": 73,
+  "tests_passed": 73,
+  "warnings": [
+    "jsonschema.RefResolver deprecato in generate_build_db.py"
+  ],
+  "notes": "Regression pass completo importato per attestato di copertura"
+}

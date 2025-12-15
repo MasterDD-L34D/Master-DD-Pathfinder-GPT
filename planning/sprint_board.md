@@ -1,6 +1,7 @@
 # Sprint Board / Project Tracker
 
 Tabella di chiusura riportata da `planning/module_work_plan.md` con evidenza delle priorità P1 e stato "Pronto per sviluppo" per tutti i moduli, includendo owner e checkpoint giornalieri a partire da **2025-12-12**.
+- Attestato QA 2025-12-11: **verde** (log pytest 73/73 importato, `reports/coverage_attestato_2025-12-11.md`).
 
 ## Rituale di aggiornamento quotidiano
 - **Frequenza (15:00 CET, daily)**: aggiornare la tabella come fonte di verità durante il checkpoint.
