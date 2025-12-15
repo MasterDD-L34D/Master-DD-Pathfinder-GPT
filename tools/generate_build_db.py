@@ -4829,7 +4829,7 @@ async def run_harvest(
 
         modules_index["module_plan"] = module_plan
 
-        build_tasks = []
+        build_results: dict[str, Mapping] = {}
 
         async def process_class(
             request: BuildRequest, destination: Path, base_level: int
@@ -5211,98 +5211,129 @@ async def run_harvest(
                         **meta_data,
                     )
 
-        for task_request, output_file, base_level in planned_snapshots:
-            build_tasks.append(
-                asyncio.create_task(
-                    process_class(task_request, output_file, base_level)
+        def _record_build_result(entry: Mapping) -> None:
+            combo_id = entry.get("combo_id") if isinstance(entry, Mapping) else None
+            if combo_best_only and combo_id:
+                class_slug = slugify(str(entry.get("class") or ""))
+                try:
+                    combo_level = int(entry.get("level")) if entry.get("level") else 0
+                except (TypeError, ValueError):
+                    combo_level = 0
+                combo_key = (class_slug, combo_level)
+                best_entry = best_combo_scores.get(combo_key)
+                best_path = best_entry[1] if best_entry else None
+                key = f"{class_slug}@{combo_level}"
+                if best_path:
+                    candidate_path = entry.get("file")
+                    if (
+                        not candidate_path
+                        or Path(candidate_path).resolve() != best_path.resolve()
+                    ):
+                        return
+                elif key in build_results:
+                    return
+            else:
+                key = (
+                    entry.get("file")
+                    or f"{entry.get('output_prefix')}@{entry.get('level')}"
                 )
-            )
 
-        module_tasks = []
-        for module_name in module_plan:
-            module_path = modules_output_dir / module_name
+            if key:
+                build_results[str(key)] = entry
 
-            async def process_module(
-                name: str, destination: Path
-            ) -> tuple[str, Mapping]:
-                async with semaphore:
-                    if skip_unchanged and destination.exists():
-                        logging.info(
-                            "Riutilizzo modulo locale %s (skip-unchanged)", name
-                        )
-                        return name, module_index_entry(name, destination, "ok")
+        module_results: dict[str, Mapping] = {}
 
-                    logging.info("Scarico modulo raw %s", name)
+        async def process_module(
+            name: str, destination: Path
+        ) -> tuple[str, Mapping]:
+            async with semaphore:
+                if skip_unchanged and destination.exists():
+                    logging.info(
+                        "Riutilizzo modulo locale %s (skip-unchanged)", name
+                    )
+                    return name, module_index_entry(name, destination, "ok")
+
+                logging.info("Scarico modulo raw %s", name)
+                try:
+                    content, meta = await fetch_module(
+                        client, api_key, name, max_retries
+                    )
+                    validation_error = validate_with_schema(
+                        MODULE_SCHEMA,
+                        meta,
+                        f"module meta {name}",
+                        strict=strict,
+                    )
+                    status = "ok" if validation_error is None else "invalid"
+                    destination_path: Path | None = None
+                    if status == "ok" or keep_invalid:
+                        destination.parent.mkdir(parents=True, exist_ok=True)
+                        destination.write_text(content, encoding="utf-8")
+                        destination_path = destination
+                    elif destination.exists():
+                        destination.unlink()
+                    return name, module_index_entry(
+                        name,
+                        destination_path,
+                        status,
+                        meta if validation_error is None else None,
+                        validation_error,
+                    )
+                except ValidationError:
+                    raise
+                except Exception as exc:  # pragma: no cover - network dependent
+                    logging.exception("Errore durante il download di %s", name)
+                    return name, module_index_entry(name, None, "error", error=str(exc))
+
+        async def process_plan(
+            plan: Iterable[tuple[object, ...]] | Iterable[object],
+            launcher: callable,
+            consume_result: callable,
+        ) -> None:
+            iterator = iter(plan)
+            in_flight: set[asyncio.Task] = set()
+
+            def _launch_next() -> None:
+                try:
+                    task_args = next(iterator)
+                except StopIteration:
+                    return
+                if not isinstance(task_args, tuple):
+                    task_args = (task_args,)
+                in_flight.add(asyncio.create_task(launcher(*task_args)))
+
+            for _ in range(max(1, concurrency)):
+                _launch_next()
+
+            while in_flight:
+                done, pending = await asyncio.wait(
+                    in_flight, return_when=asyncio.FIRST_COMPLETED
+                )
+                in_flight = pending
+                for task in done:
                     try:
-                        content, meta = await fetch_module(
-                            client, api_key, name, max_retries
-                        )
-                        validation_error = validate_with_schema(
-                            MODULE_SCHEMA,
-                            meta,
-                            f"module meta {name}",
-                            strict=strict,
-                        )
-                        status = "ok" if validation_error is None else "invalid"
-                        destination_path: Path | None = None
-                        if status == "ok" or keep_invalid:
-                            destination.parent.mkdir(parents=True, exist_ok=True)
-                            destination.write_text(content, encoding="utf-8")
-                            destination_path = destination
-                        elif destination.exists():
-                            destination.unlink()
-                        return name, module_index_entry(
-                            name,
-                            destination_path,
-                            status,
-                            meta if validation_error is None else None,
-                            validation_error,
-                        )
-                    except ValidationError:
+                        result = await task
+                    except Exception:
+                        for pending_task in pending:
+                            pending_task.cancel()
+                        await asyncio.gather(*pending, return_exceptions=True)
                         raise
-                    except Exception as exc:  # pragma: no cover - network dependent
-                        logging.exception("Errore durante il download di %s", name)
-                        return name, module_index_entry(
-                            name, None, "error", error=str(exc)
-                        )
+                    consume_result(result)
+                    _launch_next()
 
-            module_tasks.append(
-                asyncio.create_task(process_module(module_name, module_path))
-            )
+        await process_plan(
+            planned_snapshots,
+            lambda req, dest, base: process_class(req, dest, base),
+            lambda result: _record_build_result(result[1]),
+        )
 
-        build_results = await asyncio.gather(*build_tasks)
-        module_results = await asyncio.gather(*module_tasks)
+        await process_plan(
+            ((name, modules_output_dir / name) for name in module_plan),
+            lambda name, path: process_module(name, path),
+            lambda result: module_results.__setitem__(result[0], result[1]),
+        )
 
-    new_build_entries: dict[str, Mapping] = {}
-    for _, entry in sorted(build_results, key=lambda item: item[0]):
-        combo_id = entry.get("combo_id") if isinstance(entry, Mapping) else None
-        if combo_best_only and combo_id:
-            class_slug = slugify(str(entry.get("class") or ""))
-            try:
-                combo_level = int(entry.get("level")) if entry.get("level") else 0
-            except (TypeError, ValueError):
-                combo_level = 0
-            combo_key = (class_slug, combo_level)
-            best_entry = best_combo_scores.get(combo_key)
-            best_path = best_entry[1] if best_entry else None
-            key = f"{class_slug}@{combo_level}"
-            if best_path:
-                candidate_path = entry.get("file")
-                if (
-                    not candidate_path
-                    or Path(candidate_path).resolve() != best_path.resolve()
-                ):
-                    continue
-            elif key in new_build_entries:
-                continue
-        else:
-            key = (
-                entry.get("file")
-                or f"{entry.get('output_prefix')}@{entry.get('level')}"
-            )
-
-        if key:
-            new_build_entries[str(key)] = entry
+    new_build_entries = build_results
 
     merged_build_entries = []
     for key in sorted(set(new_build_entries) | set(existing_build_entries)):
@@ -5315,7 +5346,7 @@ async def run_harvest(
     builds_index["checkpoints"] = _checkpoint_summary_from_entries(
         builds_index["entries"]
     )
-    new_module_entries = {name: entry for name, entry in module_results}
+    new_module_entries = dict(module_results)
     merged_module_entries = []
     for name in sorted(set(new_module_entries) | set(existing_module_entries)):
         if name in new_module_entries:

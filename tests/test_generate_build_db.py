@@ -49,7 +49,13 @@ def _make_sample_payload() -> dict:
         "spell_levels": {"0": [{"name": "Light"}]},
         "magia": {"spells_known": 1},
         "slot_incantesimi": {"1": 2},
-        "ac_breakdown": {},
+        "ac_breakdown": {"totale": 17, "arm": 4, "des": 2},
+        "AC_tot": 17,
+        "CA_touch": 12,
+        "CA_ff": 15,
+        "iniziativa": 4,
+        "velocita": 9,
+        "currency": {"gp": 10},
     }
 
     return {
