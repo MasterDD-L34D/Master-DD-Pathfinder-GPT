@@ -1496,9 +1496,11 @@ async def get_module_content(
                 "build_state": payload["build_state"],
                 "benchmark": payload["benchmark"],
                 "export": payload["export"],
+                "sheet_payload": sheet_payload,
             },
             "narrative": narrative,
             "sheet": payload["sheet"],
+            "sheet_payload": sheet_payload,
             "ledger": ledger,
         }
 

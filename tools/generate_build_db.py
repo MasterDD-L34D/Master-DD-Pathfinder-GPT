@@ -194,6 +194,25 @@ class BuildRequest:
     def http_method(self) -> str:
         return "POST" if self.body_params else "GET"
 
+    def api_params(self, *, level: int | None = None) -> dict[str, object]:
+        """Build query params for the builder API ensuring race/archetype/model are passed."""
+        params: dict[str, object] = {
+            "mode": self.mode,
+            "class": self.class_name,
+            "stub": True,
+        }
+        if level is not None:
+            params["level"] = level
+        if self.race:
+            params.setdefault("race", self.race)
+        if self.archetype:
+            params.setdefault("archetype", self.archetype)
+        if self.model:
+            params.setdefault("model", self.model)
+        if self.query_params:
+            params.update({str(k): v for k, v in self.query_params.items() if v is not None})
+        return params
+
     def output_name(self) -> str:
         if self.filename_prefix:
             return self.filename_prefix
@@ -705,7 +724,9 @@ def assign_missing_races(
         if prefer_unused_race and available_pool:
             next_race = available_pool.pop(0)
             used_normalized.add(normalize_race(next_race))
-            updated.append(replace(request, race=next_race))
+            merged_query = dict(request.query_params)
+            merged_query.setdefault("race", next_race)
+            updated.append(replace(request, race=next_race, query_params=merged_query))
         else:
             updated.append(request)
 
@@ -819,6 +840,8 @@ def _is_placeholder(value: object) -> bool:
         return True
     if isinstance(value, str):
         lowered = value.strip().lower()
+        if lowered.startswith(("n/d", "nd", "n/a", "na")):
+            return True
         return not lowered or "stub" in lowered or lowered in {"todo", "tbd"}
     if isinstance(value, Mapping):
         return all(_is_placeholder(v) for v in value.values())
@@ -1123,6 +1146,11 @@ def get_validator(schema_filename: str) -> Draft202012Validator:
 
 
 def schema_for_mode(mode: str) -> str:
+    normalized = str(mode or "").lower()
+    if normalized.startswith("core"):
+        return BUILD_SCHEMA_MAP["core"]
+    if normalized.startswith("extended"):
+        return BUILD_SCHEMA_MAP["extended"]
     return BUILD_SCHEMA_MAP["full-pg"]
 
 
@@ -3747,13 +3775,46 @@ def _progression_level_errors(
 
 def _ledger_entry_errors(sheet_payload: Mapping[str, object] | None) -> list[str]:
     if not isinstance(sheet_payload, Mapping):
-        return []
+        return ["Sheet payload mancante"]
 
     ledger = sheet_payload.get("ledger")
-    if isinstance(ledger, Mapping) and ledger.get("entries"):
-        return []
+    if not isinstance(ledger, Mapping):
+        return ["Ledger mancante"]
 
-    return []
+    entries = None
+    for key in ("entries", "movimenti", "transactions"):
+        value = ledger.get(key)
+        if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+            entries = value
+            break
+
+    if not entries:
+        return ["Ledger senza entries/movimenti"]
+
+    # Verifica minima: almeno una entry riconoscibile
+    recognized_keys = (
+        "item",
+        "oggetto",
+        "voce",
+        "name",
+        "label",
+        "descrizione",
+        "description",
+    )
+    for entry in entries:
+        if isinstance(entry, Mapping):
+            if any(entry.get(key) for key in recognized_keys):
+                return []
+            if any(
+                isinstance(value, (int, float)) and value != 0
+                or isinstance(value, str) and value.strip()
+                for value in entry.values()
+            ):
+                return []
+        if isinstance(entry, str) and entry.strip():
+            return []  # entry testuale non vuota: consideriamola sufficiente
+
+    return ["Ledger entries presenti ma senza item/oggetto riconoscibile"]
 
 
 async def fetch_build(
@@ -3954,14 +4015,7 @@ async def fetch_build(
         current_request: BuildRequest | None = None,
     ) -> MutableMapping:
         active_request = current_request or request
-        params: MutableMapping[str, object] = {
-            "mode": active_request.mode,
-            "class": active_request.class_name,
-            "stub": True,
-        }
-        if target_level is not None:
-            params["level"] = target_level
-        params.update(active_request.query_params)
+        params = active_request.api_params(level=target_level)
         headers = {"x-api-key": api_key} if api_key else {}
         method = active_request.http_method()
         response = await request_with_retry(
@@ -3972,7 +4026,7 @@ async def fetch_build(
             headers=headers,
             timeout=60,
             max_retries=max_retries,
-            json_body=request.body_params or None,
+            json_body=active_request.body_params or None,
         )
 
         try:
@@ -4198,7 +4252,7 @@ async def fetch_build(
                 "mode": request.mode,
                 "source_url": source_url,
                 "fetched_at": now_iso_utc(),
-                "request": request.metadata(),
+                "request": active_request.metadata(),
                 "composite": composite,
                 "query_params": params,
                 "body_params": active_request.body_params,
