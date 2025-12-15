@@ -43,14 +43,14 @@
     },
     "statistiche": {
       "type": "object",
-      "description": "Valori base di For/Des/Cos/Int/Sag/Car.",
+      "description": "Valori base di FOR/DES/COS/INT/SAG/CAR (alias legacy normalizzati automaticamente).",
       "properties": {
-        "Forza": {"type": ["integer", "number"]},
-        "Destrezza": {"type": ["integer", "number"]},
-        "Costituzione": {"type": ["integer", "number"]},
-        "Intelligenza": {"type": ["integer", "number"]},
-        "Saggezza": {"type": ["integer", "number"]},
-        "Carisma": {"type": ["integer", "number"]}
+        "FOR": {"type": ["integer", "number"]},
+        "DES": {"type": ["integer", "number"]},
+        "COS": {"type": ["integer", "number"]},
+        "INT": {"type": ["integer", "number"]},
+        "SAG": {"type": ["integer", "number"]},
+        "CAR": {"type": ["integer", "number"]}
       },
       "additionalProperties": true
     },
