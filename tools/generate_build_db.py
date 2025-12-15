@@ -7,6 +7,7 @@ import asyncio
 import json
 import logging
 import os
+import random
 import shutil
 import textwrap
 import re
@@ -16,6 +17,7 @@ from datetime import datetime, timezone
 from itertools import islice, product
 from pathlib import Path
 from typing import Any, Iterable, List, Mapping, MutableMapping, Sequence
+from email.utils import parsedate_to_datetime
 
 DEFAULT_REFERENCE_DIR = Path(__file__).resolve().parent.parent / "data" / "reference"
 REFERENCE_SCHEMA = "reference_catalog.schema.json"
@@ -2474,9 +2476,31 @@ async def request_with_retry(
     timeout: int | float | None = None,
     max_retries: int,
     backoff_factor: float = 1.0,
+    max_delay: float | None = 60.0,
+    jitter_ratio: float = 0.1,
 ) -> httpx.Response:
+    max_attempts = max_retries + 1
     attempt = 0
+
+    def _retry_after_seconds(value: str | None) -> float | None:
+        if value is None:
+            return None
+        if value.isdigit():
+            return float(value)
+
+        try:
+            parsed_date = parsedate_to_datetime(value)
+        except (TypeError, ValueError):
+            return None
+
+        if parsed_date is None:
+            return None
+
+        delta = parsed_date - datetime.now(timezone.utc)
+        return max(0.0, delta.total_seconds())
+
     while True:
+        attempt += 1
         try:
             response = await client.request(
                 method,
@@ -2487,38 +2511,58 @@ async def request_with_retry(
                 timeout=timeout,
             )
         except httpx.RequestError as exc:
-            if attempt >= max_retries:
+            if attempt >= max_attempts:
                 raise
 
-            delay = backoff_factor * 2**attempt
-            attempt += 1
+            base_delay = backoff_factor * 2 ** (attempt - 1)
+            delay = min(base_delay, max_delay) if max_delay is not None else base_delay
+            jitter = random.uniform(0, delay * jitter_ratio) if jitter_ratio > 0 else 0
+            actual_delay = delay + jitter
             logging.warning(
-                "Tentativo fallito per %s %s (%s). Retry in %.1fs...",
+                "Tentativo %s fallito per %s %s (%s). Retry in %.1fs (base %.1fs, jitter %.2fs)...",
+                attempt,
                 method,
                 url,
                 exc.__class__.__name__,
+                actual_delay,
                 delay,
+                jitter,
             )
-            await asyncio.sleep(delay)
+            await asyncio.sleep(actual_delay)
             continue
 
         if response.status_code not in {429} and response.status_code < 500:
             response.raise_for_status()
             return response
 
-        if attempt >= max_retries:
+        if attempt >= max_attempts:
             response.raise_for_status()
 
-        delay = backoff_factor * 2**attempt
-        attempt += 1
+        base_delay = backoff_factor * 2 ** (attempt - 1)
+        retry_after_header = response.headers.get("Retry-After")
+        retry_after = _retry_after_seconds(retry_after_header)
+
+        delay = base_delay
+        if retry_after is not None:
+            delay = max(delay, retry_after)
+
+        if max_delay is not None:
+            delay = min(delay, max_delay)
+
+        jitter = random.uniform(0, delay * jitter_ratio) if jitter_ratio > 0 else 0
+        actual_delay = delay + jitter
         logging.warning(
-            "Tentativo fallito per %s %s (status %s). Retry in %.1fs...",
+            "Tentativo %s fallito per %s %s (status %s). Retry in %.1fs (base %.1fs, jitter %.2fs, retry-after %s)...",
+            attempt,
             method,
             url,
             response.status_code,
+            actual_delay,
             delay,
+            jitter,
+            retry_after_header or "-",
         )
-        await asyncio.sleep(delay)
+        await asyncio.sleep(actual_delay)
 
 
 async def assert_api_reachable(
