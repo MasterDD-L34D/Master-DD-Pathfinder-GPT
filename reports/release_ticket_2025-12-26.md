@@ -1,7 +1,7 @@
 # Ticket di rilascio — Finestra RC 2025-12-26
 
 ## Allegati
-- **Changelog RC 2025-12-26**: `docs/changelog_2025-12-26.md`.
+- **Changelog RC 2025-12-26**: `reports/changelog_2025-12-26.md`.
 - **Attestato automatico QA (73/73 verde)**: `reports/coverage_attestato_2025-12-11.md`.
 - **Log QA di riferimento**: `reports/qa_log.md` (QA 2025-12-11/12/13/14/18).
 
