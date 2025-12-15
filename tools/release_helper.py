@@ -5,7 +5,7 @@ from datetime import date
 from pathlib import Path
 
 
-DEFAULT_CHANGELOG = Path("docs/changelog_2025-12-26.md")
+DEFAULT_CHANGELOG = Path("reports/changelog_2025-12-26.md")
 DEFAULT_PYTEST_LOG = Path("reports/qa_log.md")
 DEFAULT_ATTESTATO = Path("reports/coverage_attestato_2025-12-11.md")
 DEFAULT_TIMELINE = Path("reports/release_timeline.md")
@@ -22,7 +22,7 @@ def build_message(
     body = [
         "- Changelog: " + changelog.as_posix(),
         "- Tag/branch RC: " + rc_status,
-        "- Log pytest 11/12: " + pytest_log.as_posix(),
+        "- Log QA 2025-12-11: " + pytest_log.as_posix(),
         "- Attestato automatico: " + attestato.as_posix(),
         "\nFeedback/approvazioni: <inserisci breve nota dopo la pubblicazione>.",
     ]

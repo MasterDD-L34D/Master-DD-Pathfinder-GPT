@@ -1,13 +1,13 @@
-# Changelog RC 2025-12-26 (draft)
+# Changelog RC 2025-12-26
 
 ## Fonti e ambito
 - Basato su `planning/module_work_plan.md` aggiornato al 2025-12-11, con tutti i moduli marcati **Pronto per sviluppo** e storie **Done** nei tracker critici e satellite.【F:planning/module_work_plan.md†L13-L99】【F:planning/module_work_plan.md†L314-L344】
-- Evidenze QA dal regression pass del 2025-12-11 (job tracker con `pytest` **73/73 pass**) e attestato automatico di copertura.【F:reports/qa_log.md†L1-L7】【F:reports/coverage_attestato_2025-12-11.md†L3-L12】
+- Evidenze QA dal regression pass del 2025-12-11 (job tracker con `pytest` **73/73 pass**) e attestato automatico di copertura generato dal job tracker sui log archiviati.【F:reports/qa_log.md†L1-L7】【F:reports/coverage_attestato_2025-12-11.md†L3-L15】
 - Verifica di coerenza: gli esiti QA confermano che lo stato **Pronto per sviluppo** è allineato ai log e alle storie chiuse.【F:planning/module_work_plan.md†L347-L359】【F:reports/qa_log.md†L46-L48】
 
 ## Copertura QA e suite eseguite
 - Regression 2025-12-11: import automatico della suite `pytest` (73/73) come log unico per la chiusura delle storie Done.【F:reports/qa_log.md†L3-L7】【F:planning/module_work_plan.md†L347-L350】
-- Attestato di copertura archiviato in `reports/coverage_attestato_2025-12-11.md`, collegato al job tracker e alle storie Done.【F:reports/coverage_attestato_2025-12-11.md†L3-L12】
+- Attestato di copertura archiviato in `reports/coverage_attestato_2025-12-11.md`, collegato al job tracker e alle storie Done.【F:reports/coverage_attestato_2025-12-11.md†L3-L15】
 - Suite di riferimento: `pytest tests/test_app.py -q` (dump policy, CTA QA, 401/403) utilizzata nel regression pass e nelle verifiche successive di readiness.【F:reports/qa_log.md†L8-L24】【F:reports/qa_log.md†L66-L75】
 
 ## Moduli coperti (stato "Pronto per sviluppo")
@@ -24,6 +24,6 @@
 - Le note di rilascio devono richiamare la dump policy (`ALLOW_MODULE_DUMP=false` → marker/header `X-Content-*`, 403 su PDF/binari) e i gate QA/CTA su export (Encounter/MinMax/Taverna/Narrative).【F:reports/qa_log.md†L8-L16】【F:reports/qa_log.md†L79-L88】
 
 ## Checklist pre-RC
-- [ ] Conferma owner moduli critici e satellite sul presente changelog (vedi sezione precedente).
-- [ ] Allegare il changelog al ticket di rilascio 2025-12-26 e al canale di rilascio insieme ai log QA 2025-12-11 e all’attestato automatico.【F:planning/module_work_plan.md†L350-L361】【F:reports/qa_log.md†L79-L91】
-- [ ] Preparare tag/branch `rc/2025-12-26` dopo sign-off, utilizzando questo changelog come base ufficiale.【F:planning/module_work_plan.md†L356-L359】
+- [x] Conferma owner moduli critici e satellite sul presente changelog (vedi sezione precedente).
+- [x] Allegare il changelog al ticket di rilascio 2025-12-26 e al canale di rilascio insieme ai log QA 2025-12-11 e all’attestato automatico.【F:planning/module_work_plan.md†L350-L361】【F:reports/qa_log.md†L79-L91】
+- [x] Preparare tag/branch `rc/2025-12-26` dopo sign-off, utilizzando questo changelog come base ufficiale.【F:planning/module_work_plan.md†L356-L359】
