@@ -29,7 +29,7 @@
 ## Prossimi passi verso RC
 1) Condividere questa nota con gli owner e i referenti QA, allegando l'attestato automatico generato dal job di import dei log `pytest`.
 2) Con attestato verde e moduli "Pronto per sviluppo": creare tag/branch `rc/2025-12-26` e annunciare sul canale di rilascio.
-3) Messaggio canale: includere data prevista `2025-12-26`, link agli ultimi log QA (`reports/qa_log.md`), attestato automatico, changelog aggiornato (`docs/changelog_2025-12-26.md`) e stato "Pronto per sviluppo" per tutti i moduli.
+3) Messaggio canale: includere data prevista `2025-12-26`, link agli ultimi log QA (`reports/qa_log.md`), attestato automatico, changelog aggiornato (`reports/changelog_2025-12-26.md`) e stato "Pronto per sviluppo" per tutti i moduli.
 
 ## Archiviazione e tracciabilità
-- Changelog e attestato automatico sono archiviati in repository (`docs/changelog_2025-12-26.md`, `reports/coverage_attestato_2025-12-11.md`) e devono essere allegati al ticket di rilascio per la finestra 2025-12-26.
+- Changelog e attestato automatico sono archiviati in repository (`reports/changelog_2025-12-26.md`, `reports/coverage_attestato_2025-12-11.md`) e devono essere allegati al ticket di rilascio per la finestra 2025-12-26.

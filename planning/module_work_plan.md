@@ -354,9 +354,11 @@ Fonte sequenza: `planning/module_review_guide.md`
 ## Attività di rilascio
 - Preparazione note/changelog (P2) per finestra 2025-12-26
   - Dipendenze: log QA aggiornati al regression 2025-12-11 e tracker storie "Done" per evitare discrepanze con lo stato "Pronto per sviluppo" dei moduli.
+  - Stato: completato con `reports/changelog_2025-12-26.md` allegato al ticket e al canale di rilascio.【F:reports/changelog_2025-12-26.md†L1-L36】
 - Verifica automatica dei log QA 2025-12-11 e attestato di copertura (P1)
   - Output atteso: attestato generato dal job tracker a partire dai log `pytest` del 2025-12-11 con evidenza della copertura per ogni storia **Done** e conferma che tutti i moduli restano in stato "Pronto per sviluppo".
   - Dipendenze: esito positivo del job tracker sugli import/log e stato moduli aggiornato a "Pronto per sviluppo" nel tracker.
+  - Stato: completato, attestato archiviato in `reports/coverage_attestato_2025-12-11.md` (job tracker verde su 73/73).【F:reports/coverage_attestato_2025-12-11.md†L1-L16】【F:data/pytest_logs/pytest_run_2025-12-11.json†L1-L9】
 - Creazione tag/branch RC (P2) allineato alla finestra 2025-12-26
   - Output atteso: tag/branch RC nominato sulla finestra 2025-12-26 e puntato all'ultimo commit con attestato automatico verde.
   - Dipendenze: note/changelog finali, attestato automatico attivo e conferma di continuità con la finestra 2025-12-26 senza pause operative.
@@ -364,6 +366,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Comunicazione nel canale di rilascio (P3) con riepilogo changelog e stato QA
   - Output atteso: messaggio nel canale di rilascio con link al changelog, ai log QA 2025-12-11 e all'attestato di copertura generato dal job.
   - Dipendenze: changelog consolidato, attestato automatico allegato e allineamento con lo stato "Pronto per sviluppo" dei moduli.
+  - Stato: pubblicato messaggio nel canale di rilascio con tag `rc/2025-12-26` e link a log/attestato/changelog.【F:reports/release_announcement_2025-12-26.md†L1-L8】
 
 ### Moduli critici
 | Story | Origine piano | Stato | Evidenza test |
