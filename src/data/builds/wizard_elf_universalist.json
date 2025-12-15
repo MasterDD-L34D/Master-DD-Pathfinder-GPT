@@ -1,0 +1,187 @@
+{
+  "build_state": {
+    "class": "Wizard",
+    "mode": "extended",
+    "race": "Elf",
+    "archetype": "Universalist",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 8,
+      "DES": 16,
+      "COS": 14,
+      "INT": 20,
+      "SAG": 12,
+      "CAR": 10,
+      "level": 1
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 10,
+        "picco": 16
+      },
+      "livello_5": {
+        "media": 28,
+        "picco": 42
+      },
+      "livello_10": {
+        "media": 60,
+        "picco": 95
+      }
+    },
+    "statistics": {
+      "attacco": "+3",
+      "danni": "raggio rovente 4d6",
+      "ca": 16
+    },
+    "bench_log": [
+      "Varianti universalist e spell-sage testate con ruling badge RAW/RAI/PFS valido.",
+      "Selezionata la linea T1 con focus su controllo, metamagia e versatilità."
+    ]
+  },
+  "bench_log": [
+    "Pipeline aggiornata con short-circuit sul passaggio tollerante: solo run strict T1 validato.",
+    "Wizard elf universalist costruito per controllo, utilità e danni a distanza con talenti metamagici selezionati."
+  ],
+  "body_params": {
+    "race": "Elf",
+    "archetype_primary": "Universalist",
+    "archetype_secondary": "",
+    "focus": "controllo, utilità, metamagia"
+  },
+  "build_source": "dual-pass strict output",
+  "class": "Wizard",
+  "completeness": {
+    "status": "complete",
+    "missing": []
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Wizard",
+          "livelli": 1,
+          "archetipi": [
+            "Universalist",
+            "Elf heritage"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 8,
+        "DES": 16,
+        "COS": 14,
+        "INT": 20,
+        "SAG": 12,
+        "CAR": 10,
+        "level": 1,
+        "attacco": "+3",
+        "danni": "raggio rovente 4d6",
+        "ca": 16
+      },
+      "statistiche_chiave": {
+        "attacco": "+3",
+        "danni": "raggio rovente 4d6",
+        "ca": 16
+      },
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "modules": [
+        "base_profile.txt",
+        "Taverna_NPC.txt",
+        "narrative_flow.txt"
+      ],
+      "skills": [
+        {
+          "nome": "Conoscenze (arcane)",
+          "totale": 9
+        },
+        {
+          "nome": "Sapienza Magica",
+          "totale": 9
+        },
+        {
+          "nome": "Percezione",
+          "totale": 6
+        }
+      ],
+      "equipaggiamento": [
+        "spellbook",
+        "component pouch",
+        "mantello elfico"
+      ],
+      "talenti": [
+        "Incantesimi Focalizzati (Evocazione)",
+        "Riflessi in Combattimento"
+      ],
+      "spellbook": [
+        "dardo incantato",
+        "armatura magica",
+        "ritirata rapida"
+      ],
+      "ledger_movimenti": [],
+      "ledger": {
+        "movimenti": []
+      },
+      "sheet_markdown": ""
+    }
+  },
+  "fetched_at": "2025-12-15T00:29:37Z",
+  "ledger": {
+    "notes": "generato con pipeline aggiornata"
+  },
+  "level": 1,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "narrative": {
+    "riassunto": "Universalista elfico da biblioteca e campo, alterna controllo e danni metamagici.",
+    "taverna_hook": "Cerca reliquie elfiche perdute in cambio di supporto arcano di alto livello."
+  },
+  "query_params": {
+    "race": "Elf",
+    "archetype": "Universalist"
+  },
+  "request": {
+    "class": "Wizard",
+    "race": "Elf",
+    "archetype": "Universalist",
+    "mode": "extended",
+    "mode_normalized": "extended",
+    "spec_id": "wizard_elf_universalist",
+    "model": "ruling-expert/minmax",
+    "background": "Mago elfico universalista che ottimizza scuole di magia flessibili mantenendo T1 autentico.",
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ],
+    "level": 1
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    {
+      "source": "Ruling Expert",
+      "note": "Validata selezione talenti metamagici e accesso scuole flessibili."
+    }
+  ],
+  "sheet": {
+    "ready": true,
+    "print_mode": false
+  },
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=1&race=Elf&archetype=Universalist",
+  "spec_id": "wizard_elf_universalist",
+  "archetype": "Universalist"
+}

@@ -1,0 +1,12 @@
+mode: extended
+requests:
+  - id: cavalier_elf_base
+    class: Cavalier
+    race: Elf
+    archetype: Base
+    background_hooks: "Cavaliere elfico delle pattuglie di confine, addestrato a coordinare cariche fulminee e supporto tattico."
+    output_prefix: cavalier_elf_base
+    query:
+      race: Elf
+      archetype: Base
+      theme: "ordine del drago, lancia a cavallo, supporto al party"

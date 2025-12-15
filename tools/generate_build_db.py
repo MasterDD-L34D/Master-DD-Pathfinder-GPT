@@ -793,6 +793,49 @@ def ensure_output_dirs(output_dir: Path) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
 
 
+def mirror_strict_outputs(
+    strict_output_dir: Path,
+    strict_modules_dir: Path,
+    strict_build_index: Path,
+    strict_module_index: Path,
+    output_dir: Path,
+    modules_output_dir: Path,
+    index_path: Path,
+    module_index_path: Path,
+) -> Mapping[str, int]:
+    ensure_output_dirs(output_dir)
+    ensure_output_dirs(modules_output_dir)
+
+    copied_files = 0
+
+    for source_dir, target_dir in (
+        (strict_output_dir, output_dir),
+        (strict_modules_dir, modules_output_dir),
+    ):
+        if not source_dir.exists():
+            continue
+        for src in source_dir.rglob("*"):
+            if not src.is_file():
+                continue
+            dst = target_dir / src.relative_to(source_dir)
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dst)
+            copied_files += 1
+
+    copied_indices = 0
+    for src, dst in (
+        (strict_build_index, index_path),
+        (strict_module_index, module_index_path),
+    ):
+        if not src.is_file():
+            continue
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+        copied_indices += 1
+
+    return {"copied_files": copied_files, "copied_indices": copied_indices}
+
+
 def _normalize_mapping(data: Mapping | None) -> Mapping[str, object]:
     return {str(key): value for key, value in (data or {}).items() if value is not None}
 
@@ -2067,6 +2110,11 @@ def parse_args() -> argparse.Namespace:
         "--dual-pass",
         action="store_true",
         help="Esegue prima un passaggio fail-fast (--strict) e poi uno tollerante con --keep-invalid",
+    )
+    parser.add_argument(
+        "--skip-tolerant-on-success",
+        action="store_true",
+        help="Quando usato con --dual-pass, salta il passaggio tollerante se quello strict termina senza errori",
     )
     parser.add_argument(
         "--dual-pass-report",
@@ -5084,6 +5132,30 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
             "Passaggio strict fallito, procedo con il run tollerante: %s", exc
         )
         report["strict"].update({"status": "failed", "error": str(exc)})
+
+    strict_ok = report.get("strict", {}).get("status") == "ok"
+    if args.skip_tolerant_on_success and strict_ok:
+        copied = mirror_strict_outputs(
+            strict_output_dir,
+            strict_modules_dir,
+            strict_build_index,
+            strict_module_index,
+            args.output_dir,
+            args.modules_output_dir,
+            args.index_path,
+            args.module_index_path,
+        )
+        report["tolerant"].update(
+            {"status": "skipped", "reason": "strict_ok", "mirrored": copied}
+        )
+        logging.info(
+            "Passaggio tollerante saltato: output strict sincronizzato su %s",
+            args.output_dir,
+        )
+        if args.dual_pass_report:
+            write_json(args.dual_pass_report, report)
+            logging.info("Report dual-pass salvato in %s", args.dual_pass_report)
+        return report
 
     try:
         asyncio.run(

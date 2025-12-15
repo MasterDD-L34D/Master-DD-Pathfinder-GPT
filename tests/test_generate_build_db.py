@@ -3,6 +3,7 @@ import copy
 import json
 from pathlib import Path
 import sys
+import types
 
 import httpx
 
@@ -14,6 +15,7 @@ from tools.generate_build_db import (
     BuildRequest,
     _enrich_sheet_payload,
     analyze_indices,
+    run_dual_pass_harvest,
     review_local_database,
     run_harvest,
 )
@@ -913,3 +915,110 @@ def test_analyze_indices_archives_invalid_payloads(tmp_path):
     assert len(report["archived_files"]) == 2
     assert (archive_dir / "builds" / invalid_build.name).is_file()
     assert (archive_dir / "modules" / module_file.name).is_file()
+
+
+def test_run_dual_pass_skips_tolerant_when_strict_is_ok(monkeypatch, tmp_path):
+    requests = [BuildRequest(class_name="Wizard", level=1)]
+    call_log: list[bool] = []
+
+    monkeypatch.setattr(
+        "tools.generate_build_db.load_race_inventory", lambda *args, **kwargs: {}
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.build_requests_from_args",
+        lambda args: (requests, False),
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.assign_missing_races",
+        lambda reqs, *_args, **_kwargs: reqs,
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.filter_requests", lambda reqs, *_: reqs
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.select_request_window",
+        lambda reqs, **_: (reqs, {}),
+    )
+    monkeypatch.setattr("tools.generate_build_db.log_request_batch", lambda *_, **__: None)
+
+    async def fake_run_harvest(
+        _requests,
+        _api_url,
+        _api_key,
+        output_dir,
+        build_index_path,
+        _modules,
+        modules_output_dir,
+        module_index_path,
+        *_args,
+        **kwargs,
+    ):
+        call_log.append(kwargs.get("strict", False))
+        output_dir.mkdir(parents=True, exist_ok=True)
+        modules_output_dir.mkdir(parents=True, exist_ok=True)
+        (output_dir / "sample.json").write_text("{}", encoding="utf-8")
+        build_index_path.parent.mkdir(parents=True, exist_ok=True)
+        build_index_path.write_text("{\"entries\": []}", encoding="utf-8")
+        module_index_path.parent.mkdir(parents=True, exist_ok=True)
+        module_index_path.write_text("{\"entries\": []}", encoding="utf-8")
+
+    monkeypatch.setattr("tools.generate_build_db.run_harvest", fake_run_harvest)
+    monkeypatch.setattr(
+        "tools.generate_build_db.analyze_indices",
+        lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("should not run")),
+    )
+
+    args = types.SimpleNamespace(
+        race_inventory=tmp_path / "races.json",
+        prefer_unused_race=False,
+        race_pool=None,
+        filter_classes=None,
+        filter_levels=None,
+        offset=None,
+        max_items=None,
+        page=None,
+        page_size=None,
+        output_dir=tmp_path / "out",
+        modules_output_dir=tmp_path / "modules",
+        index_path=tmp_path / "index.json",
+        module_index_path=tmp_path / "module_index.json",
+        modules=[],
+        concurrency=1,
+        max_retries=1,
+        spec_file=None,
+        discover_modules=False,
+        include=[],
+        exclude=[],
+        strict=False,
+        keep_invalid=True,
+        require_complete=True,
+        skip_health_check=False,
+        skip_unchanged=False,
+        ruling_expert_url="http://example",  # mandatory when not validating
+        ruling_timeout=30,
+        ruling_max_retries=1,
+        t1_filter=None,
+        t1_variants=0,
+        reference_dir=None,
+        suggest_combos=False,
+        validate_combo=False,
+        keep_all_combos=False,
+        invalid_archive_dir=None,
+        dual_pass_report=None,
+        dual_pass=True,
+        validate_db=False,
+        export_lists=False,
+        export_races=False,
+        review_output=None,
+        reports_dir=None,
+        api_url="http://api",
+        api_key="test-key",
+        skip_tolerant_on_success=True,
+    )
+
+    report = run_dual_pass_harvest(args)
+
+    assert call_log == [True]
+    assert (tmp_path / "out" / "sample.json").is_file()
+    assert (tmp_path / "index.json").is_file()
+    assert report["tolerant"]["status"] == "skipped"

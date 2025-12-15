@@ -1,0 +1,287 @@
+{
+  "build_state": {
+    "class": "Cavalier",
+    "mode": "extended",
+    "race": "Elf",
+    "archetype": "Base",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 18,
+      "DES": 15,
+      "COS": 14,
+      "INT": 12,
+      "SAG": 12,
+      "CAR": 10,
+      "level": 1
+    }
+  },
+  "benchmark": {
+    "meta_tier": "T1",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 11,
+        "picco": 17
+      },
+      "livello_5": {
+        "media": 32,
+        "picco": 52
+      },
+      "livello_10": {
+        "media": 68,
+        "picco": 102
+      }
+    },
+    "statistics": {
+      "attacco": "+6",
+      "danni": "lancia lunga 1d8+6 (carica a cavallo)",
+      "ca": 19
+    },
+    "bench_log": [
+      "Varianti testate: leadership difensiva con Ordine del Drago, cavalleria con lancia lunga e supporto tattico via Tactician.",
+      "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata su livelli 1/5/10 con badge RAW/RAI/PFS validato.",
+      "Variante selezionata: cavalier elf base focalizzato su charge control e benefici condivisi all'Ordine, equilibrio tra DPR e CA."
+    ]
+  },
+  "bench_log": [
+    "Checkpoint 1: lancia lunga e destriero addestrato per cariche coordinate; ordini dell'Ordine del Drago per sostenere il party.",
+    "Note ruling: condivisione Tactician e movimento in sella in spazi stretti validati dal ruling badge."
+  ],
+  "body_params": {
+    "race": "Elf",
+    "archetype_primary": "Base",
+    "archetype_secondary": "",
+    "focus": "ordine del drago, cavalleria di supporto"
+  },
+  "build_source": "local spec",
+  "class": "Cavalier",
+  "completeness": {
+    "status": "complete",
+    "missing": []
+  },
+  "composite": {
+    "build": {
+      "build_state": {
+        "class": "Cavalier",
+        "mode": "extended",
+        "race": "Elf",
+        "archetype": "Base",
+        "step": 16,
+        "step_total": 16,
+        "statistics": {
+          "FOR": 18,
+          "DES": 15,
+          "COS": 14,
+          "INT": 12,
+          "SAG": 12,
+          "CAR": 10,
+          "level": 1
+        }
+      },
+      "benchmark": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 11,
+            "picco": 17
+          },
+          "livello_5": {
+            "media": 32,
+            "picco": 52
+          },
+          "livello_10": {
+            "media": 68,
+            "picco": 102
+          }
+        },
+        "statistics": {
+          "attacco": "+6",
+          "danni": "lancia lunga 1d8+6 (carica a cavallo)",
+          "ca": 19
+        },
+        "bench_log": [
+          "Varianti testate: leadership difensiva con Ordine del Drago, cavalleria con lancia lunga e supporto tattico via Tactician.",
+          "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata su livelli 1/5/10 con badge RAW/RAI/PFS validato.",
+          "Variante selezionata: cavalier elf base focalizzato su charge control e benefici condivisi all'Ordine, equilibrio tra DPR e CA."
+        ]
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Cavalier",
+              "livelli": 1,
+              "archetipi": [
+                "Ordine del Drago",
+                "Cavaliere base"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 18,
+            "DES": 15,
+            "COS": 14,
+            "INT": 12,
+            "SAG": 12,
+            "CAR": 10,
+            "attacco": "+6",
+            "danni": "lancia lunga 1d8+6",
+            "ca": 19
+          },
+          "statistiche_chiave": {
+            "attacco": "+6",
+            "danni": "1d8+6",
+            "ca": 19
+          },
+          "level": 1,
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "modules": [
+            "base_profile.txt",
+            "Taverna_NPC.txt",
+            "narrative_flow.txt"
+          ],
+          "skills": [
+            {
+              "nome": "Percezione",
+              "totale": 6
+            },
+            {
+              "nome": "Volare",
+              "totale": 9
+            }
+          ],
+          "equipaggiamento": [],
+          "ledger_movimenti": [],
+          "ledger": {
+            "movimenti": []
+          },
+          "sheet_markdown": ""
+        }
+      }
+    },
+    "narrative": {
+      "riassunto": "Cavaliere elfico dell'Ordine del Drago che guida cariche coordinate e protegge il gruppo con tattiche condivise.",
+      "taverna_hook": "Scorta di un convoglio elfico, offre bannière e supporto tattico in cambio di un incarico prestigioso."
+    },
+    "sheet": {
+      "ready": true,
+      "print_mode": false
+    },
+    "ledger": {
+      "notes": "import manuale pipeline potenziata"
+    }
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Cavalier",
+          "livelli": 1,
+          "archetipi": [
+            "Ordine del Drago",
+            "Cavaliere base"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 18,
+        "DES": 15,
+        "COS": 14,
+        "INT": 12,
+        "SAG": 12,
+        "CAR": 10,
+        "attacco": "+6",
+        "danni": "lancia lunga 1d8+6",
+        "ca": 19
+      },
+      "statistiche_chiave": {
+        "attacco": "+6",
+        "danni": "1d8+6",
+        "ca": 19
+      },
+      "level": 1,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "modules": [
+        "base_profile.txt",
+        "Taverna_NPC.txt",
+        "narrative_flow.txt"
+      ],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "totale": 6
+        },
+        {
+          "nome": "Volare",
+          "totale": 9
+        }
+      ],
+      "equipaggiamento": [],
+      "ledger_movimenti": [],
+      "ledger": {
+        "movimenti": []
+      },
+      "sheet_markdown": ""
+    }
+  },
+  "fetched_at": "2025-12-11T01:14:21Z",
+  "ledger": {
+    "notes": "import manuale pipeline potenziata"
+  },
+  "level": 1,
+  "level_checkpoints": [
+    1,
+    5,
+    10
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "narrative": {
+    "riassunto": "Cavaliere elfico dell'Ordine del Drago che guida cariche coordinate e protegge il gruppo con tattiche condivise.",
+    "taverna_hook": "Scorta di un convoglio elfico, offre bannière e supporto tattico in cambio di un incarico prestigioso."
+  },
+  "query_params": {
+    "race": "Elf",
+    "archetype": "Base"
+  },
+  "request": {
+    "class": "Cavalier",
+    "race": "Elf",
+    "archetype": "Base",
+    "mode": "extended",
+    "mode_normalized": "extended",
+    "spec_id": "cavalier_elf_base",
+    "model": "ruling-expert/minmax",
+    "background": "Cavaliere elfico dell'Ordine del Drago che coordina cariche fulminee e supporto tattico dal destriero.",
+    "level": 1,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "ruling_badge": "RAW/RAI/PFS",
+  "ruling_sources": [
+    {
+      "source": "Ruling Expert",
+      "note": "Confermata legalità dei talenti di cavalcare e condivisione Tactician con Ordine del Drago."
+    }
+  ],
+  "sheet": {
+    "ready": true,
+    "print_mode": false
+  },
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cavalier&stub=true&level=1&race=Elf&archetype=Base",
+  "spec_id": "cavalier_elf_base",
+  "archetype": ""
+}
