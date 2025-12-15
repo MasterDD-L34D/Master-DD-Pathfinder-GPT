@@ -2069,6 +2069,14 @@ def parse_args() -> argparse.Namespace:
         help="Esegue prima un passaggio fail-fast (--strict) e poi uno tollerante con --keep-invalid",
     )
     parser.add_argument(
+        "--skip-tolerant-on-success",
+        action="store_true",
+        help=(
+            "Quando usato con --dual-pass, salta il secondo passaggio se quello strict ha"
+            " successo e non sono richieste varianti o salvataggi aggiuntivi"
+        ),
+    )
+    parser.add_argument(
         "--dual-pass-report",
         type=Path,
         help="Percorso del report riepilogativo dei due passaggi (--dual-pass)",
@@ -5084,6 +5092,28 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
             "Passaggio strict fallito, procedo con il run tollerante: %s", exc
         )
         report["strict"].update({"status": "failed", "error": str(exc)})
+
+    strict_ok = report.get("strict", {}).get("status") == "ok"
+    variants_requested = bool(args.t1_filter and args.t1_variants > 1)
+    extra_saves_requested = bool(args.invalid_archive_dir)
+    skip_tolerant = (
+        args.skip_tolerant_on_success
+        and strict_ok
+        and not variants_requested
+        and not extra_saves_requested
+    )
+
+    if skip_tolerant:
+        logging.info(
+            "Passaggio tollerante saltato: esecuzione strict riuscita e nessuna variante "
+            "o salvataggio aggiuntivo richiesto"
+        )
+        report["tolerant"]["status"] = "skipped"
+        report["tolerant"]["reason"] = "strict_pass_sufficient"
+        if args.dual_pass_report:
+            write_json(args.dual_pass_report, report)
+            logging.info("Report dual-pass salvato in %s", args.dual_pass_report)
+        return report
 
     try:
         asyncio.run(

@@ -1,8 +1,10 @@
+import argparse
 import asyncio
 import copy
 import json
 from pathlib import Path
 import sys
+import logging
 
 import httpx
 
@@ -16,6 +18,8 @@ from tools.generate_build_db import (
     analyze_indices,
     review_local_database,
     run_harvest,
+    run_dual_pass_harvest,
+    parse_args,
 )
 
 
@@ -76,6 +80,34 @@ def _make_sample_payload() -> dict:
             for level in range(1, 11)
         ],
     }
+
+
+def _make_dual_pass_args(tmp_path: Path, **overrides) -> argparse.Namespace:
+    original_argv = sys.argv
+    sys.argv = [sys.argv[0]]
+    try:
+        args = parse_args()
+    finally:
+        sys.argv = original_argv
+    args.dual_pass = True
+    args.skip_tolerant_on_success = overrides.get("skip_tolerant_on_success", False)
+    args.output_dir = tmp_path / "tolerant"
+    args.modules_output_dir = tmp_path / "modules"
+    args.index_path = tmp_path / "index.json"
+    args.module_index_path = tmp_path / "module_index.json"
+    args.race_inventory = tmp_path / "race_inventory.json"
+    args.reference_dir = tmp_path / "reference"
+    args.spec_file = None
+    args.discover_modules = False
+    args.include = []
+    args.exclude = []
+    args.modules = []
+    args.keep_all_combos = False
+    args.t1_filter = overrides.get("t1_filter", False)
+    args.t1_variants = overrides.get("t1_variants", args.t1_variants)
+    args.invalid_archive_dir = overrides.get("invalid_archive_dir")
+    args.dual_pass_report = overrides.get("dual_pass_report")
+    return args
 
 
 def test_review_local_database_reports_status(tmp_path, monkeypatch):
@@ -913,3 +945,109 @@ def test_analyze_indices_archives_invalid_payloads(tmp_path):
     assert len(report["archived_files"]) == 2
     assert (archive_dir / "builds" / invalid_build.name).is_file()
     assert (archive_dir / "modules" / module_file.name).is_file()
+
+
+def test_dual_pass_skips_tolerant_when_strict_ok(monkeypatch, tmp_path, caplog):
+    args = _make_dual_pass_args(tmp_path, skip_tolerant_on_success=True)
+
+    monkeypatch.setattr("tools.generate_build_db.load_race_inventory", lambda *_: {})
+    monkeypatch.setattr(
+        "tools.generate_build_db.build_requests_from_args",
+        lambda *_: ([BuildRequest(class_name="Alchemist")], False),
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.assign_missing_races", lambda requests, *_, **__: requests
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.filter_requests", lambda requests, *_: list(requests)
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.select_request_window",
+        lambda requests, **kwargs: (list(requests), {"offset": 0, "max_items": None}),
+    )
+    monkeypatch.setattr("tools.generate_build_db.log_request_batch", lambda *_: None)
+
+    calls: list[bool] = []
+
+    async def fake_run_harvest(*_, **kwargs):
+        calls.append(kwargs.get("strict", False))
+
+    monkeypatch.setattr("tools.generate_build_db.run_harvest", fake_run_harvest)
+
+    caplog.set_level(logging.INFO)
+    report = run_dual_pass_harvest(args)
+
+    assert calls == [True]
+    assert report["tolerant"]["status"] == "skipped"
+    assert "Passaggio tollerante saltato" in caplog.text
+
+
+def test_dual_pass_runs_tolerant_on_strict_failure(monkeypatch, tmp_path):
+    args = _make_dual_pass_args(tmp_path, skip_tolerant_on_success=True)
+
+    monkeypatch.setattr("tools.generate_build_db.load_race_inventory", lambda *_: {})
+    monkeypatch.setattr(
+        "tools.generate_build_db.build_requests_from_args",
+        lambda *_: ([BuildRequest(class_name="Alchemist")], False),
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.assign_missing_races", lambda requests, *_, **__: requests
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.filter_requests", lambda requests, *_: list(requests)
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.select_request_window",
+        lambda requests, **kwargs: (list(requests), {"offset": 0, "max_items": None}),
+    )
+    monkeypatch.setattr("tools.generate_build_db.log_request_batch", lambda *_: None)
+
+    calls: list[bool] = []
+
+    async def fake_run_harvest(*_, **kwargs):
+        calls.append(kwargs.get("strict", False))
+        if kwargs.get("strict"):
+            raise RuntimeError("strict failure")
+
+    monkeypatch.setattr("tools.generate_build_db.run_harvest", fake_run_harvest)
+    monkeypatch.setattr("tools.generate_build_db.analyze_indices", lambda *_, **__: {})
+
+    report = run_dual_pass_harvest(args)
+
+    assert calls == [True, False]
+    assert report["strict"]["status"] == "failed"
+    assert report["tolerant"]["status"] == "ok"
+
+
+def test_dual_pass_respects_flag_default(monkeypatch, tmp_path):
+    args = _make_dual_pass_args(tmp_path, skip_tolerant_on_success=False)
+
+    monkeypatch.setattr("tools.generate_build_db.load_race_inventory", lambda *_: {})
+    monkeypatch.setattr(
+        "tools.generate_build_db.build_requests_from_args",
+        lambda *_: ([BuildRequest(class_name="Alchemist")], False),
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.assign_missing_races", lambda requests, *_, **__: requests
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.filter_requests", lambda requests, *_: list(requests)
+    )
+    monkeypatch.setattr(
+        "tools.generate_build_db.select_request_window",
+        lambda requests, **kwargs: (list(requests), {"offset": 0, "max_items": None}),
+    )
+    monkeypatch.setattr("tools.generate_build_db.log_request_batch", lambda *_: None)
+
+    calls: list[bool] = []
+
+    async def fake_run_harvest(*_, **kwargs):
+        calls.append(kwargs.get("strict", False))
+
+    monkeypatch.setattr("tools.generate_build_db.run_harvest", fake_run_harvest)
+    monkeypatch.setattr("tools.generate_build_db.analyze_indices", lambda *_, **__: {})
+
+    report = run_dual_pass_harvest(args)
+
+    assert calls == [True, False]
+    assert report["tolerant"]["status"] == "ok"
