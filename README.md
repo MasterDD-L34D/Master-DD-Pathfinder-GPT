@@ -474,7 +474,7 @@ Esempio di payload valido per la scheda (estratto da una risposta del builder, c
       "show_vtt": true,
       "decimal_comma": true,
       "classi": [{"nome": "Fighter", "livelli": 7, "archetipi": ["Lore Warden"]}],
-      "statistiche": {"Forza": 18, "Destrezza": 16, "Costituzione": 14, "Intelligenza": 14, "Saggezza": 10, "Carisma": 8},
+      "statistiche": {"FOR": 18, "DES": 16, "COS": 14, "INT": 14, "SAG": 10, "CAR": 8},
       "statistiche_chiave": {"PF": 67, "CA": 24, "DPR_Base": 21.5, "meta_tier": "T3"},
       "salvezze": {"Tempra": 9, "Riflessi": 7, "Volontà": 3},
       "benchmarks": {"meta_tier": "T3", "DPR_late_status": "ok", "risk_top3": {"feats": [], "spells": []}},

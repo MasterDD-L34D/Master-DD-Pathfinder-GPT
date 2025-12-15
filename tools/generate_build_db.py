@@ -2650,7 +2650,12 @@ def _enrich_sheet_payload(
         }
 
         lowered = key.lower()
-        return alias_map.get(lowered, key)
+        if lowered in alias_map:
+            return alias_map[lowered]
+
+        # Default to upper-case keys so mixed-case payloads converge to a
+        # canonical representation.
+        return key.upper()
 
     slot_entry_re = re.compile(r"(\d+)\s*(?:[°º]|lvl|liv(?:ello)?|level)?\s*[:=]?\s*([+\-]?\d+)")
 
@@ -2798,21 +2803,6 @@ def _enrich_sheet_payload(
                 existing = normalized.get(key)
                 if _is_placeholder(existing) or key not in normalized:
                     normalized[key] = value
-
-        long_form_aliases = {
-            "FOR": ["Forza", "forza"],
-            "DES": ["Destrezza", "destrezza"],
-            "COS": ["Costituzione", "costituzione"],
-            "INT": ["Intelligenza", "intelligenza"],
-            "SAG": ["Saggezza", "saggezza"],
-            "CAR": ["Carisma", "carisma"],
-        }
-        for short, aliases in long_form_aliases.items():
-            if short not in normalized:
-                continue
-            for alias in aliases:
-                if alias not in normalized or _is_placeholder(normalized.get(alias)):
-                    normalized[alias] = normalized[short]
 
         return normalized
 
