@@ -360,6 +360,7 @@ Fonte sequenza: `planning/module_review_guide.md`
 - Creazione tag/branch RC (P2) allineato alla finestra 2025-12-26
   - Output atteso: tag/branch RC nominato sulla finestra 2025-12-26 e puntato all'ultimo commit con attestato automatico verde.
   - Dipendenze: note/changelog finali, attestato automatico attivo e conferma di continuità con la finestra 2025-12-26 senza pause operative.
+  - Stato: creato tag `rc/2025-12-26` (commit `5968b375e2` con changelog aggiornato e attestato QA 73/73) e configurata la pipeline di rilascio per usare l'RC.
 - Comunicazione nel canale di rilascio (P3) con riepilogo changelog e stato QA
   - Output atteso: messaggio nel canale di rilascio con link al changelog, ai log QA 2025-12-11 e all'attestato di copertura generato dal job.
   - Dipendenze: changelog consolidato, attestato automatico allegato e allineamento con lo stato "Pronto per sviluppo" dei moduli.
