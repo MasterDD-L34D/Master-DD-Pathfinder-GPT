@@ -7,6 +7,7 @@
     "build_state",
     "benchmark",
     "export",
+    "sheet_payload",
     "composite"
   ],
   "properties": {
@@ -43,7 +44,8 @@
           "required": [
             "build_state",
             "benchmark",
-            "export"
+            "export",
+            "sheet_payload"
           ],
           "properties": {
             "build_state": {
@@ -54,6 +56,10 @@
             },
             "export": {
               "$ref": "build_core.schema.json#/$defs/export"
+            },
+            "sheet_payload": {
+              "$ref": "scheda_pg.schema.json",
+              "description": "Contesto opzionale per il template scheda_pg_markdown_template.md"
             }
           },
           "additionalProperties": true
