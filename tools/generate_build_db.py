@@ -2652,6 +2652,99 @@ def _enrich_sheet_payload(
         lowered = key.lower()
         return alias_map.get(lowered, key)
 
+    slot_entry_re = re.compile(r"(\d+)\s*(?:[°º]|lvl|liv(?:ello)?|level)?\s*[:=]?\s*([+\-]?\d+)")
+
+    def _parse_slots_from_text(raw: object) -> dict[int, object]:
+        if not isinstance(raw, str):
+            return {}
+        entries: dict[int, object] = {}
+        for level_str, value_str in slot_entry_re.findall(raw):
+            try:
+                level = int(level_str)
+            except ValueError:
+                continue
+            if level <= 0:
+                continue
+            value: object = value_str
+            try:
+                numeric = int(value_str)
+                value = numeric
+            except ValueError:
+                pass
+            if level not in entries:
+                entries[level] = value
+        return entries
+
+    def _normalize_spell_value(value: object) -> object | None:
+        if _is_placeholder(value):
+            return None
+        if isinstance(value, (int, float)):
+            return value
+        if isinstance(value, str):
+            cleaned = value.strip()
+            return cleaned or None
+        if isinstance(value, Mapping):
+            for key in ("totale", "total", "value"):
+                if key in value and not _is_placeholder(value.get(key)):
+                    return value.get(key)
+            return None
+        if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+            return len([item for item in value if not _is_placeholder(item)])
+        return None
+
+    def _normalize_spell_levels(
+        *sources: Sequence | None,
+        slots_map: Mapping | None = None,
+        prepared_map: Mapping | None = None,
+        known_map: Mapping | None = None,
+        dc_map: Mapping | None = None,
+    ) -> list[Mapping[str, object]]:
+        normalized: dict[int, dict[str, object]] = {}
+
+        def _coerce_level(value: object) -> int | None:
+            coerced = _coerce_number(value)
+            try:
+                return int(coerced) if coerced is not None else None
+            except (TypeError, ValueError):
+                return None
+
+        def _update(level: int, key: str, value: object | None) -> None:
+            if value is None:
+                return
+            entry = normalized.setdefault(level, {"liv": level})
+            if _is_placeholder(entry.get(key)) or key not in entry:
+                entry[key] = value
+
+        for source in sources:
+            if not isinstance(source, Sequence) or isinstance(source, (str, bytes)):
+                continue
+            for item in source:
+                if not isinstance(item, Mapping):
+                    continue
+                level = _coerce_level(item.get("liv") or item.get("level"))
+                if level is None:
+                    continue
+                for key in ("per_day", "prepared", "known", "dc"):
+                    _update(level, key, _normalize_spell_value(item.get(key)))
+
+        for source_map, target_key in (
+            (slots_map, "per_day"),
+            (prepared_map, "prepared"),
+            (known_map, "known"),
+            (dc_map, "dc"),
+        ):
+            if not isinstance(source_map, Mapping):
+                continue
+            for raw_level, raw_value in source_map.items():
+                level = _coerce_level(raw_level)
+                if level is None:
+                    continue
+                _update(level, target_key, _normalize_spell_value(raw_value))
+
+        return [
+            entry for level, entry in sorted(normalized.items(), key=lambda kv: kv[0])
+        ]
+
     def _populate_profile_metadata(target: MutableMapping[str, object]) -> None:
         profile_sources: list[Mapping[str, object]] = []
         for candidate in (
@@ -3153,13 +3246,6 @@ def _enrich_sheet_payload(
     if inventory:
         sheet_payload["inventario"] = inventory
 
-    spell_levels = _merge_unique_list(
-        sheet_payload.get("spell_levels"),
-        export_ctx.get("spell_levels"),
-    )
-    if spell_levels:
-        sheet_payload["spell_levels"] = spell_levels
-
     magic_map = _merge_prefer_existing(
         {},
         _as_mapping(sheet_payload.get("magia")) or {},
@@ -3192,10 +3278,17 @@ def _enrich_sheet_payload(
         _as_mapping((payload.get("build_state") or {}).get("slots_per_day")) or {},
         _as_mapping((payload.get("build_state") or {}).get("spell_slots")) or {},
     )
-    if not slots_per_day and spell_levels:
-        slots_per_day = {str(level): 0 for level in spell_levels}
     if slots_per_day:
         magic_map["slots_per_day"] = slots_per_day
+
+    spell_dc_map = _merge_prefer_existing(
+        {},
+        _as_mapping(magic_map.get("cd_by_level")) or {},
+        _as_mapping(export_ctx.get("spell_dc")) or {},
+        _as_mapping(export_ctx.get("cd_by_level")) or {},
+    )
+    if spell_dc_map:
+        magic_map["cd_by_level"] = spell_dc_map
 
     if magic_map:
         sheet_payload["magia"] = magic_map
@@ -3205,6 +3298,25 @@ def _enrich_sheet_payload(
     )
     if slot_text is not None:
         sheet_payload["slot_incantesimi"] = slot_text
+
+    normalized_spell_levels = _normalize_spell_levels(
+        _merge_unique_list(
+            sheet_payload.get("spell_levels"),
+            export_ctx.get("spell_levels"),
+        ),
+        slots_map=_as_mapping(magic_map.get("slots_per_day")) if magic_map else None,
+        prepared_map=_as_mapping(magic_map.get("spells_prepared")) if magic_map else None,
+        known_map=_as_mapping(magic_map.get("spell_list")) if magic_map else None,
+        dc_map=_as_mapping(magic_map.get("cd_by_level")) if magic_map else None,
+    )
+
+    if not normalized_spell_levels and slot_text:
+        normalized_spell_levels = _normalize_spell_levels(
+            slots_map=_parse_slots_from_text(slot_text)
+        )
+
+    if normalized_spell_levels:
+        sheet_payload["spell_levels"] = normalized_spell_levels
 
     languages = _merge_unique_list(
         sheet_payload.get("lingue"),

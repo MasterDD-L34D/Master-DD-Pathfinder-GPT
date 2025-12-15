@@ -1339,6 +1339,19 @@ async def get_module_content(
             if snapshot and not is_cutpurse
             else ("Non incantatore" if is_cutpurse else "Liv1:4/Liv2:3")
         )
+        spell_levels: list[dict[str, object]] = []
+        slot_pattern = re.compile(
+            r"(\d+)\s*(?:[°º]|lvl|liv(?:ello)?|level)?\s*[:=]?\s*(\d+)"
+        )
+        for level_str, per_day_str in slot_pattern.findall(slot_text or ""):
+            try:
+                level = int(level_str)
+                per_day = int(per_day_str)
+            except ValueError:
+                continue
+            if level <= 0:
+                continue
+            spell_levels.append({"liv": level, "per_day": per_day})
         ac_block = (
             snapshot.get("ca")
             if snapshot
@@ -1436,7 +1449,7 @@ async def get_module_content(
             "capacita_classe": sorted(set(class_features)),
             "equipaggiamento": sorted(set(equip_full)),
             "inventario": sorted(set(inventory_full + equip_full)),
-            "spell_levels": [],
+            "spell_levels": spell_levels,
             "slot_incantesimi": slot_text,
             "ac_breakdown": (
                 ac_block
