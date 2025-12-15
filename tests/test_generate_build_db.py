@@ -956,7 +956,8 @@ def test_dual_pass_skips_tolerant_when_strict_ok(monkeypatch, tmp_path, caplog):
         lambda *_: ([BuildRequest(class_name="Alchemist")], False),
     )
     monkeypatch.setattr(
-        "tools.generate_build_db.assign_missing_races", lambda requests, *_, **__: requests
+        "tools.generate_build_db.assign_missing_races",
+        lambda requests, *_, **__: requests,
     )
     monkeypatch.setattr(
         "tools.generate_build_db.filter_requests", lambda requests, *_: list(requests)
@@ -991,7 +992,8 @@ def test_dual_pass_runs_tolerant_on_strict_failure(monkeypatch, tmp_path):
         lambda *_: ([BuildRequest(class_name="Alchemist")], False),
     )
     monkeypatch.setattr(
-        "tools.generate_build_db.assign_missing_races", lambda requests, *_, **__: requests
+        "tools.generate_build_db.assign_missing_races",
+        lambda requests, *_, **__: requests,
     )
     monkeypatch.setattr(
         "tools.generate_build_db.filter_requests", lambda requests, *_: list(requests)
@@ -1028,7 +1030,8 @@ def test_dual_pass_respects_flag_default(monkeypatch, tmp_path):
         lambda *_: ([BuildRequest(class_name="Alchemist")], False),
     )
     monkeypatch.setattr(
-        "tools.generate_build_db.assign_missing_races", lambda requests, *_, **__: requests
+        "tools.generate_build_db.assign_missing_races",
+        lambda requests, *_, **__: requests,
     )
     monkeypatch.setattr(
         "tools.generate_build_db.filter_requests", lambda requests, *_: list(requests)
