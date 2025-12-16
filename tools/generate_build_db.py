@@ -4415,9 +4415,15 @@ async def fetch_build(
         catalog_errors, catalog_meta = validate_sheet_with_catalog(
             sheet_payload, reference_catalog, ledger, reference_manifest
         )
-        for error in catalog_errors:
-            if error not in completeness_errors:
-                completeness_errors.append(error)
+        if catalog_errors:
+            if catalog_policy == "warn":
+                payload.setdefault("qa", {}).setdefault("catalog", {})[
+                    "warnings"
+                ] = catalog_errors
+            elif catalog_policy != "ignore":
+                for error in catalog_errors:
+                    if error not in completeness_errors:
+                        completeness_errors.append(error)
         if catalog_meta:
             payload["catalog_validation"] = catalog_meta
             payload.setdefault("benchmark", {}).update(catalog_meta)
@@ -5032,7 +5038,7 @@ async def run_harvest(
     async with httpx.AsyncClient(
         base_url=api_url.rstrip("/"),
         follow_redirects=True,
-        http2=True,
+        http2=False,
         limits=httpx.Limits(
             max_connections=max(10, concurrency * 2),
             max_keepalive_connections=max(10, concurrency),
@@ -5723,57 +5729,57 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
             logging.info("Report dual-pass salvato in %s", args.dual_pass_report)
         return report
 
-        try:
-            asyncio.run(
-                run_harvest(
-                    requests,
-                    args.api_url,
-                    args.api_key,
-                    args.output_dir,
-                    args.index_path,
-                    args.modules,
-                    args.modules_output_dir,
-                    args.module_index_path,
-                    args.concurrency,
-                    args.max_retries,
-                    args.spec_file,
-                    args.discover_modules,
-                    args.include,
-                    args.exclude,
-                    strict=False,
-                    keep_invalid=True,
-                    require_complete=args.require_complete,
-                    skip_health_check=args.skip_health_check,
-                    level_filters=args.filter_levels,
-                    skip_unchanged=args.skip_unchanged,
-                    max_items=args.max_items,
-                    ruling_expert_url=args.ruling_expert_url,
-                    ruling_timeout=args.ruling_timeout,
-                    ruling_max_retries=args.ruling_max_retries,
-                    skip_ruling_expert=args.skip_ruling_expert,
-                    t1_filter=args.t1_filter,
-                    t1_variants=args.t1_variants,
-                    reference_dir=args.reference_dir,
-                    suggest_combos=args.suggest_combos,
-                    validate_combo=args.validate_combo,
-                    catalog_policy=args.catalog_policy,
-                    numeric_completeness=args.numeric_completeness,
-                    combo_best_only=combo_best_only,
-                )
+    try:
+        asyncio.run(
+            run_harvest(
+                requests,
+                args.api_url,
+                args.api_key,
+                args.output_dir,
+                args.index_path,
+                args.modules,
+                args.modules_output_dir,
+                args.module_index_path,
+                args.concurrency,
+                args.max_retries,
+                args.spec_file,
+                args.discover_modules,
+                args.include,
+                args.exclude,
+                strict=False,
+                keep_invalid=True,
+                require_complete=args.require_complete,
+                skip_health_check=args.skip_health_check,
+                level_filters=args.filter_levels,
+                skip_unchanged=args.skip_unchanged,
+                max_items=args.max_items,
+                ruling_expert_url=args.ruling_expert_url,
+                ruling_timeout=args.ruling_timeout,
+                ruling_max_retries=args.ruling_max_retries,
+                skip_ruling_expert=args.skip_ruling_expert,
+                t1_filter=args.t1_filter,
+                t1_variants=args.t1_variants,
+                reference_dir=args.reference_dir,
+                suggest_combos=args.suggest_combos,
+                validate_combo=args.validate_combo,
+                catalog_policy=args.catalog_policy,
+                numeric_completeness=args.numeric_completeness,
+                combo_best_only=combo_best_only,
             )
-            report["tolerant"]["status"] = "ok"
-            if args.invalid_archive_dir:
-                analysis = analyze_indices(
-                    args.index_path,
-                    args.module_index_path,
-                    archive_dir=args.invalid_archive_dir,
-                )
-            else:
-                analysis = analyze_indices(args.index_path, args.module_index_path)
-            report["analysis"] = analysis
-        except Exception as exc:
-            logging.error("Passaggio tollerante fallito: %s", exc)
-            report["tolerant"].update({"status": "failed", "error": str(exc)})
+        )
+        report["tolerant"]["status"] = "ok"
+        if args.invalid_archive_dir:
+            analysis = analyze_indices(
+                args.index_path,
+                args.module_index_path,
+                archive_dir=args.invalid_archive_dir,
+            )
+        else:
+            analysis = analyze_indices(args.index_path, args.module_index_path)
+        report["analysis"] = analysis
+    except Exception as exc:
+        logging.error("Passaggio tollerante fallito: %s", exc)
+        report["tolerant"].update({"status": "failed", "error": str(exc)})
 
     if args.dual_pass_report:
         write_json(args.dual_pass_report, report)
