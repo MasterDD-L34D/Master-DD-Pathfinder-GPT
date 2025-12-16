@@ -811,7 +811,9 @@ def test_validate_directories_returns_error_for_missing_paths(monkeypatch, tmp_p
 
     response = asyncio.run(app_module.health())
 
-    payload = json.loads(response.body)
+    payload = (
+        response.json() if hasattr(response, "json") else json.loads(response.body)
+    )
     assert response.status_code == 503
     assert payload["status"] == "error"
     assert payload["required_module_files"]["missing"] == sorted(
@@ -842,7 +844,9 @@ def test_validate_directories_reports_missing_required_files(monkeypatch, tmp_pa
 
     response = asyncio.run(app_module.health())
 
-    payload = json.loads(response.body)
+    payload = (
+        response.json() if hasattr(response, "json") else json.loads(response.body)
+    )
     assert response.status_code == 503
     assert payload["status"] == "error"
     assert payload["required_module_files"]["missing"] == [
