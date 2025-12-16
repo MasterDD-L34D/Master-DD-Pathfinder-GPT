@@ -3788,7 +3788,9 @@ class RulingCache:
 
     async def set(self, key: str, value: dict[str, Any] | object) -> None:
         async with self.lock:
-            self.data[key] = dict(value) if isinstance(value, dict) else {"value": value}
+            self.data[key] = (
+                dict(value) if isinstance(value, dict) else {"value": value}
+            )
             self.dirty = True
 
     async def flush(self) -> None:
@@ -3804,10 +3806,14 @@ class RulingCache:
                 tmp.replace(self.path)
                 self.dirty = False
             except Exception as exc:  # pragma: no cover - defensive logging only
-                logger.warning("Impossibile scrivere ruling cache %s: %s", self.path, exc)
+                logger.warning(
+                    "Impossibile scrivere ruling cache %s: %s", self.path, exc
+                )
 
 
-def _ruling_cache_key(payload: Mapping[str, Any], context: Mapping[str, Any]) -> str | None:
+def _ruling_cache_key(
+    payload: Mapping[str, Any], context: Mapping[str, Any]
+) -> str | None:
     core: Any = payload.get("composite")
     if not isinstance(core, Mapping):
         core = {
@@ -4656,14 +4662,18 @@ async def fetch_build(
 
     if use_lazy_ruling:
         t1_candidates = [
-            (payload, meta) for payload, meta in variants if (meta[0] or "").upper() == "T1"
+            (payload, meta)
+            for payload, meta in variants
+            if (meta[0] or "").upper() == "T1"
         ]
         if not t1_candidates:
             observed_tiers = {meta[0] or "n/d" for _, meta in variants}
             raise BuildFetchError(
                 f"Filtro T1 attivo: nessuna variante T1 (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
             )
-        ruling_retries = ruling_max_retries if ruling_max_retries is not None else max_retries
+        ruling_retries = (
+            ruling_max_retries if ruling_max_retries is not None else max_retries
+        )
         validation_error = None
         for payload, _ in sorted(
             t1_candidates, key=lambda item: _score(item[1]), reverse=True
