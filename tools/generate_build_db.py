@@ -6242,6 +6242,10 @@ async def backfill_ruling_badges(
             entries = index_data.get("entries")
             if isinstance(entries, list):
                 base_dir = index_path.parent
+                try:
+                    base_dir_relative = base_dir.relative_to(Path.cwd())
+                except ValueError:
+                    base_dir_relative = None
                 mapping: dict[Path, MutableMapping[str, object]] = {}
                 for e in entries:
                     if not isinstance(e, MutableMapping):
@@ -6251,7 +6255,15 @@ async def backfill_ruling_badges(
                         continue
                     file_path = Path(file_value)
                     if not file_path.is_absolute():
-                        file_path = base_dir / file_path
+                        base_candidate = (
+                            Path.cwd() / file_path
+                            if base_dir_relative
+                            and file_path.as_posix().startswith(
+                                f"{base_dir_relative.as_posix()}/"
+                            )
+                            else base_dir / file_path
+                        )
+                        file_path = base_candidate
                     mapping[file_path.resolve()] = e
                 touched = 0
                 for p, badge, sources in updated:
@@ -6362,7 +6374,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 skip_modules=args.skip_modules,
                 # In dual-pass la passata tolerant deve poter completare prima
                 # di decidere se fallire (altrimenti lo strict può abortire presto).
-                fail_on_invalid=False,
+                fail_on_invalid=args.fail_on_invalid,
             )
         )
         report["strict"]["status"] = "ok"
