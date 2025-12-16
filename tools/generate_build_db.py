@@ -23,6 +23,8 @@ from email.utils import parsedate_to_datetime
 DEFAULT_REFERENCE_DIR = Path(__file__).resolve().parent.parent / "data" / "reference"
 REFERENCE_SCHEMA = "reference_catalog.schema.json"
 
+logger = logging.getLogger(__name__)
+
 import yaml
 from jinja2 import BaseLoader, ChainableUndefined
 from jinja2.nativetypes import NativeEnvironment
