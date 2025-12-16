@@ -6027,32 +6027,64 @@ async def run_harvest(
     logging.info("Indici aggiornati: %s e %s", index_path, module_index_path)
 
     if fail_on_invalid:
+        # NB: 'cached' è uno stato valido (es. --skip-unchanged). 'pruned' viene ignorato.
+        ok_build_status = {"ok", "cached", "pruned"}
+        ok_module_status = {"ok", "cached"}
+
         bad_builds = [
             entry
             for entry in merged_build_entries
-            if entry.get("status") not in {"ok", "pruned"}
+            if entry.get("status") not in ok_build_status
         ]
-        bad_modules = [
-            entry for entry in merged_module_entries if entry.get("status") != "ok"
-        ]
+
+        # Se l'utente ha chiesto esplicitamente di saltare i moduli, non ha senso
+        # fallire per errori residui di moduli eventualmente presenti nell'indice.
+        if skip_modules:
+            bad_modules: list[dict[str, object]] = []
+        else:
+            bad_modules = [
+                entry
+                for entry in merged_module_entries
+                if entry.get("status") not in ok_module_status
+            ]
+
         if bad_builds or bad_modules:
             logging.error(
-                "--fail-on-invalid: trovate %d build non valide e %d moduli non validi",
+                "--fail-on-invalid: trovate %d build non valide e %d moduli non validi%s",
                 len(bad_builds),
                 len(bad_modules),
+                (
+                    " (controllo moduli saltato per --skip-modules)"
+                    if skip_modules
+                    else ""
+                ),
             )
+
+            def _format_entry_path(entry: Mapping[str, object]) -> str:
+                file_value = entry.get("file") or entry.get("output_file")
+                if not isinstance(file_value, str) or not file_value:
+                    return "<file mancante>"
+                file_path = Path(file_value)
+                base_dir = modules_output_dir if entry.get("module") else output_dir
+                if not file_path.is_absolute():
+                    file_path = base_dir / file_path
+                return str(file_path)
+
             for entry in bad_builds[:10]:
                 logging.error(
                     "Build non valida: %s (%s)",
-                    entry.get("output_file"),
+                    _format_entry_path(entry),
                     entry.get("status"),
                 )
             for entry in bad_modules[:10]:
+                module_name = entry.get("module") or entry.get("name") or "<modulo>"
                 logging.error(
-                    "Modulo non valido: %s (%s)",
-                    entry.get("name"),
+                    "Modulo non valido: %s @ %s (%s)",
+                    module_name,
+                    _format_entry_path(entry),
                     entry.get("status"),
                 )
+
             raise SystemExit(2)
 
 
@@ -6209,12 +6241,18 @@ async def backfill_ruling_badges(
         else:
             entries = index_data.get("entries")
             if isinstance(entries, list):
+                base_dir = index_path.parent
                 mapping: dict[Path, MutableMapping[str, object]] = {}
                 for e in entries:
-                    if isinstance(e, MutableMapping) and isinstance(
-                        e.get("output_file"), str
-                    ):
-                        mapping[Path(e["output_file"]).resolve()] = e
+                    if not isinstance(e, MutableMapping):
+                        continue
+                    file_value = e.get("file") or e.get("output_file")
+                    if not isinstance(file_value, str) or not file_value:
+                        continue
+                    file_path = Path(file_value)
+                    if not file_path.is_absolute():
+                        file_path = base_dir / file_path
+                    mapping[file_path.resolve()] = e
                 touched = 0
                 for p, badge, sources in updated:
                     entry = mapping.get(p.resolve())
@@ -6322,7 +6360,9 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 ruling_cache_path=args.ruling_cache,
                 ruling_concurrency=args.ruling_concurrency,
                 skip_modules=args.skip_modules,
-                fail_on_invalid=args.fail_on_invalid,
+                # In dual-pass la passata tolerant deve poter completare prima
+                # di decidere se fallire (altrimenti lo strict può abortire presto).
+                fail_on_invalid=False,
             )
         )
         report["strict"]["status"] = "ok"
