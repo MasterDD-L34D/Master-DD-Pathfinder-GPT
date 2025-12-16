@@ -20,9 +20,6 @@ from pathlib import Path
 from typing import Any, Iterable, List, Mapping, MutableMapping, Sequence
 from email.utils import parsedate_to_datetime
 
-DEFAULT_REFERENCE_DIR = Path(__file__).resolve().parent.parent / "data" / "reference"
-REFERENCE_SCHEMA = "reference_catalog.schema.json"
-
 import yaml
 from jinja2 import BaseLoader, ChainableUndefined
 from jinja2.nativetypes import NativeEnvironment
@@ -30,6 +27,9 @@ from jinja2.nativetypes import NativeEnvironment
 import httpx
 from jsonschema import Draft202012Validator, RefResolver
 from jsonschema.exceptions import ValidationError
+
+DEFAULT_REFERENCE_DIR = Path(__file__).resolve().parent.parent / "data" / "reference"
+REFERENCE_SCHEMA = "reference_catalog.schema.json"
 
 # Module-level logger for defensive logging inside helpers
 logger = logging.getLogger(__name__)
@@ -627,7 +627,8 @@ def _collect_ledger_entries(
         if value:
             names.extend(_extract_named_entries(value))
 
-    # Fallback: explicit item/name fields inside entries/transactions only (avoid movimenti stub labels).
+    # Fallback: explicit item/name fields inside entries/transactions only
+    # (avoid movimenti stub labels).
     entries: list[object] = []
     for key in ("entries", "transactions"):
         value = ledger.get(key)
@@ -637,8 +638,8 @@ def _collect_ledger_entries(
     for entry in entries:
         if not isinstance(entry, Mapping):
             continue
-        for field in ("item", "nome", "name", "label", "oggetto"):
-            candidate = _string_name(entry.get(field))
+        for field_name in ("item", "nome", "name", "label", "oggetto"):
+            candidate = _string_name(entry.get(field_name))
             if candidate:
                 names.append(candidate)
 
@@ -1668,27 +1669,27 @@ def review_local_database(
         }
         if target_level:
             index_entry["level"] = target_level
-        for field in (
+        for field_name in (
             "step_total",
             "expected_step_total",
             "extended_steps_available",
             "step_total_ok",
         ):
-            if preserved_metadata.get(field) is not None:
-                index_entry[field] = preserved_metadata[field]
+            if preserved_metadata.get(field_name) is not None:
+                index_entry[field_name] = preserved_metadata[field_name]
         if validation_error:
             index_entry["error"] = validation_error
         if completeness_errors:
             index_entry["completeness_errors"] = completeness_errors
-        for field in (
+        for field_name in (
             "missing_catalog_entries",
             "prerequisite_violations",
             "ledger_unknown_entries",
             "ledger_sheet_mismatches",
             "catalog_version",
         ):
-            if entry.get(field):
-                index_entry[field] = entry[field]
+            if entry.get(field_name):
+                index_entry[field_name] = entry[field_name]
         entry.setdefault("output_prefix", index_entry.get("output_prefix"))
         entry.setdefault("level_checkpoints", index_entry.get("level_checkpoints"))
         entry.setdefault("spec_id", index_entry.get("spec_id"))
@@ -2100,7 +2101,8 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=2,
         help=(
-            "Limite di concorrenza dedicato per le chiamate verso Ruling Expert (default: %(default)s)."
+            "Limite di concorrenza dedicato per le chiamate verso Ruling Expert "
+            "(default: %(default)s)."
         ),
     )
     parser.add_argument(
@@ -2144,7 +2146,8 @@ def parse_args() -> argparse.Namespace:
         action=argparse.BooleanOptionalAction,
         default=True,
         help=(
-            "Con --require-t1 e --t1-variants > 1, valida il ruling badge solo sulla variante migliore (riduce chiamate esterne)."
+            "Con --require-t1 e --t1-variants > 1, valida il ruling badge "
+            "solo sulla variante migliore (riduce chiamate esterne)."
         ),
     )
     parser.add_argument(
@@ -2157,7 +2160,10 @@ def parse_args() -> argparse.Namespace:
         "--stub",
         action=argparse.BooleanOptionalAction,
         default=True,
-        help="Passa il flag stub al builder (default: True). Usa --no-stub per richiedere output pieno se supportato.",
+        help=(
+            "Passa il flag stub al builder (default: True). Usa --no-stub per "
+            "richiedere output pieno se supportato."
+        ),
     )
     parser.add_argument(
         "--output-dir",
@@ -2193,7 +2199,10 @@ def parse_args() -> argparse.Namespace:
         "--catalog-policy",
         choices=["strict", "warn", "off"],
         default="warn",
-        help="Policy validazione catalogo: strict=blocca su mismatch, warn=solo warning, off=salta (default: warn)",
+        help=(
+            "Policy validazione catalogo: strict=blocca su mismatch, "
+            "warn=solo warning, off=salta (default: warn)"
+        ),
     )
     parser.add_argument(
         "--numeric-completeness",
@@ -2244,22 +2253,34 @@ def parse_args() -> argparse.Namespace:
         "--require-complete",
         action=argparse.BooleanOptionalAction,
         default=True,
-        help="Considera incompleti i payload privi di statistiche/narrativa/ledger e riprova automaticamente",
+        help=(
+            "Considera incompleti i payload privi di statistiche/narrativa/"
+            "ledger e riprova automaticamente"
+        ),
     )
     parser.add_argument(
         "--skip-health-check",
         action="store_true",
-        help="Salta il controllo di raggiungibilità dell'API (fallback per ambienti in cui /health non è disponibile)",
+        help=(
+            "Salta il controllo di raggiungibilità dell'API (fallback per "
+            "ambienti in cui /health non è disponibile)"
+        ),
     )
     parser.add_argument(
         "--skip-unchanged",
         action="store_true",
-        help="Evita di riscrivere i payload invariati confrontando i JSON generati con i file già presenti",
+        help=(
+            "Evita di riscrivere i payload invariati confrontando i JSON "
+            "generati con i file già presenti"
+        ),
     )
     parser.add_argument(
         "--dual-pass",
         action="store_true",
-        help="Esegue prima un passaggio fail-fast (--strict) e poi uno tollerante con --keep-invalid",
+        help=(
+            "Esegue prima un passaggio fail-fast (--strict) e poi uno "
+            "tollerante con --keep-invalid"
+        ),
     )
     parser.add_argument(
         "--skip-tolerant-on-success",
@@ -2282,13 +2303,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--validate-db",
         action="store_true",
-        help="Valida il database locale (build e moduli) senza effettuare chiamate all'API, producendo un report per livello",
+        help=(
+            "Valida il database locale (build e moduli) senza effettuare "
+            "chiamate all'API, producendo un report per livello"
+        ),
     )
     parser.add_argument(
         "--review-output",
         type=Path,
         default=Path("src/data/build_review.json"),
-        help="Percorso del report di review (con riepilogo per checkpoint di livello) quando --validate-db è attivo (default: %(default)s)",
+        help=(
+            "Percorso del report di review (con riepilogo per checkpoint di "
+            "livello) quando --validate-db è attivo (default: %(default)s)"
+        ),
     )
     parser.add_argument(
         "--discover-modules",
@@ -2332,18 +2359,27 @@ def parse_args() -> argparse.Namespace:
         "--race-inventory",
         type=Path,
         default=Path("reports/build_races.json"),
-        help="File JSON con l'inventario delle razze già usate; se esiste può essere usato per evitare duplicati",
+        help=(
+            "File JSON con l'inventario delle razze già usate; se esiste può "
+            "essere usato per evitare duplicati"
+        ),
     )
     parser.add_argument(
         "--race-pool",
         nargs="*",
         default=list(PF1E_RACES),
-        help="Pool di razze candidate per l'assegnazione automatica quando manca la razza nella request",
+        help=(
+            "Pool di razze candidate per l'assegnazione automatica quando "
+            "manca la razza nella request"
+        ),
     )
     parser.add_argument(
         "--prefer-unused-race",
         action="store_true",
-        help="Quando la razza non è specificata assegna la prima razza non ancora presente nell'inventario",
+        help=(
+            "Quando la razza non è specificata assegna la prima razza non "
+            "ancora presente nell'inventario"
+        ),
     )
     parser.add_argument(
         "--export-races",
@@ -2630,7 +2666,8 @@ def select_request_window(
         effective_page_size = page_size or normalized_max_items
         if effective_page_size is None or effective_page_size <= 0:
             raise ValueError(
-                "--page richiede un --page-size valido o un --max-items positivo per calcolare la finestra"
+                "--page richiede un --page-size valido o un --max-items "
+                "positivo per calcolare la finestra"
             )
         effective_offset = (page_num - 1) * effective_page_size
         if normalized_max_items is None:
@@ -2741,7 +2778,8 @@ async def request_with_retry(
         jitter = random.uniform(0, delay * jitter_ratio) if jitter_ratio > 0 else 0
         actual_delay = delay + jitter
         logging.warning(
-            "Tentativo %s fallito per %s %s (status %s). Retry in %.1fs (base %.1fs, jitter %.2fs, retry-after %s)...",
+            "Tentativo %s fallito per %s %s (status %s). Retry in %.1fs "
+            "(base %.1fs, jitter %.2fs, retry-after %s)...",
             attempt,
             method,
             url,
@@ -4362,7 +4400,9 @@ async def fetch_build(
         for required in ("build_state", "benchmark", "export"):
             if required not in payload:
                 raise BuildFetchError(
-                    f"Campo '{required}' mancante nella risposta per {request.class_name}. Chiavi viste: {sorted(payload.keys())}"
+                    f"Campo '{required}' mancante nella risposta per"
+                    f" {request.class_name}. Chiavi viste:"
+                    f" {sorted(payload.keys())}"
                 )
 
         sheet = None
@@ -4672,7 +4712,8 @@ async def fetch_build(
         if not t1_candidates:
             observed_tiers = {meta[0] or "n/d" for _, meta in variants}
             raise BuildFetchError(
-                f"Filtro T1 attivo: nessuna variante T1 (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
+                "Filtro T1 attivo: nessuna variante T1 (meta_tier osservati: "
+                f"{', '.join(sorted(observed_tiers))})"
             )
         ruling_retries = (
             ruling_max_retries if ruling_max_retries is not None else max_retries
@@ -4706,13 +4747,9 @@ async def fetch_build(
     if not valid_variants:
         observed_tiers = {meta[0] or "n/d" for _, meta in variants}
         raise BuildFetchError(
-            f"Filtro T1 attivo: nessuna variante valida (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
+            "Filtro T1 attivo: nessuna variante valida (meta_tier osservati: "
+            f"{', '.join(sorted(observed_tiers))})"
         )
-
-    def _score(
-        meta: tuple[str | None, str | None, float, float, list[str]],
-    ) -> tuple[float, float]:
-        return meta[2], meta[3]
 
     best_payload, best_meta = max(valid_variants, key=lambda item: _score(item[1]))
     if best_meta[4]:
@@ -4846,15 +4883,15 @@ def _index_meta_from_payload(payload: Mapping[str, object] | None) -> dict[str, 
         if defense:
             metadata["benchmark_defense"] = defense
 
-    for field in (
+    for field_name in (
         "missing_catalog_entries",
         "prerequisite_violations",
         "ledger_unknown_entries",
         "ledger_sheet_mismatches",
         "catalog_version",
     ):
-        if benchmark.get(field):
-            metadata[field] = benchmark[field]
+        if benchmark.get(field_name):
+            metadata[field_name] = benchmark[field_name]
 
     ruling_log = payload.get("ruling_log")
     if isinstance(ruling_log, Sequence) and not isinstance(ruling_log, (str, bytes)):
@@ -5540,7 +5577,8 @@ async def run_harvest(
                                     else:
                                         status = "pruned"
                                         validation_error = validation_error or (
-                                            f"Scartato dalla combo matrix: score {combo_score} <= {best_entry[0]}"
+                                            "Scartato dalla combo matrix: "
+                                            f"score {combo_score} <= {best_entry[0]}"
                                         )
                             else:
                                 status = "invalid"
@@ -6050,7 +6088,8 @@ def main() -> None:
         and (not args.validate_db)
     ):
         raise ValueError(
-            "--ruling-expert-url è obbligatorio per salvare nuovi snapshot (oppure usa --skip-ruling-expert per debug)"
+            "--ruling-expert-url è obbligatorio per salvare nuovi snapshot "
+            "(oppure usa --skip-ruling-expert per debug)"
         )
 
     if args.dual_pass:
