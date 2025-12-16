@@ -1,3 +1,4 @@
+import asyncio
 from pathlib import Path
 import json
 import re
@@ -791,6 +792,64 @@ def test_health_reports_missing_required_module_files(monkeypatch, tmp_path):
     assert missing_file in payload["required_module_files"]["missing"]
 
 
+def test_validate_directories_returns_error_for_missing_paths(monkeypatch, tmp_path):
+    missing_modules = tmp_path / "missing_modules"
+    missing_data = tmp_path / "missing_data"
+
+    monkeypatch.setattr(app_module, "MODULES_DIR", missing_modules)
+    monkeypatch.setattr(app_module, "DATA_DIR", missing_data)
+
+    diagnostic = app_module._validate_directories()
+
+    assert diagnostic["status"] == "error"
+    assert diagnostic["directories"]["modules"]["status"] == "error"
+    assert diagnostic["directories"]["data"]["status"] == "error"
+    assert diagnostic["required_module_files"]["status"] == "error"
+    assert diagnostic["required_module_files"]["missing"] == sorted(
+        app_module.REQUIRED_MODULE_FILES
+    )
+
+    response = asyncio.run(app_module.health())
+
+    payload = json.loads(response.body)
+    assert response.status_code == 503
+    assert payload["status"] == "error"
+    assert payload["required_module_files"]["missing"] == sorted(
+        app_module.REQUIRED_MODULE_FILES
+    )
+
+
+def test_validate_directories_reports_missing_required_files(monkeypatch, tmp_path):
+    modules_dir = tmp_path / "modules"
+    data_dir = tmp_path / "data"
+    modules_dir.mkdir()
+    data_dir.mkdir()
+
+    (modules_dir / app_module.REQUIRED_MODULE_FILES[0]).write_text("placeholder")
+
+    monkeypatch.setattr(app_module, "MODULES_DIR", modules_dir)
+    monkeypatch.setattr(app_module, "DATA_DIR", data_dir)
+
+    diagnostic = app_module._validate_directories()
+
+    assert diagnostic["status"] == "error"
+    assert diagnostic["directories"]["modules"]["status"] == "ok"
+    assert diagnostic["directories"]["data"]["status"] == "ok"
+    assert diagnostic["required_module_files"]["status"] == "error"
+    assert diagnostic["required_module_files"]["missing"] == [
+        app_module.REQUIRED_MODULE_FILES[1]
+    ]
+
+    response = asyncio.run(app_module.health())
+
+    payload = json.loads(response.body)
+    assert response.status_code == 503
+    assert payload["status"] == "error"
+    assert payload["required_module_files"]["missing"] == [
+        app_module.REQUIRED_MODULE_FILES[1]
+    ]
+
+
 def test_health_reports_valid_directories(client):
     response = client.get("/health")
 
@@ -816,3 +875,42 @@ def test_health_reports_valid_directories(client):
             "path": str(MODULES_DIR),
         },
     }
+
+
+def test_health_with_temp_directories_sets_directory_metrics(
+    monkeypatch, tmp_path, metrics_security_settings
+):
+    modules_dir = tmp_path / "modules"
+    data_dir = tmp_path / "data"
+    modules_dir.mkdir()
+    data_dir.mkdir()
+
+    for name in app_module.REQUIRED_MODULE_FILES:
+        (modules_dir / name).write_text("placeholder")
+
+    monkeypatch.setattr(app_module, "MODULES_DIR", modules_dir)
+    monkeypatch.setattr(app_module, "DATA_DIR", data_dir)
+
+    settings.metrics_api_key = "metrics-secret"
+    settings.metrics_ip_allowlist = []
+
+    diagnostic = app_module._validate_directories()
+
+    assert diagnostic["status"] == "ok"
+    assert diagnostic["directories"]["modules"]["status"] == "ok"
+    assert diagnostic["directories"]["data"]["status"] == "ok"
+    assert diagnostic["required_module_files"]["missing"] == []
+
+    with TestClient(app) as local_client:
+        health_response = local_client.get("/health")
+        metrics_response = local_client.get(
+            "/metrics", headers={"x-api-key": "metrics-secret"}
+        )
+
+    payload = health_response.json()
+    assert health_response.status_code == 200
+    assert payload["status"] == "ok"
+
+    assert metrics_response.status_code == 200
+    assert 'app_directory_status{directory="modules"} 1.0' in metrics_response.text
+    assert 'app_directory_status{directory="data"} 1.0' in metrics_response.text
