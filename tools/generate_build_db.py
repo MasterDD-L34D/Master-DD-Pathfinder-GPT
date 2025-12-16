@@ -1448,6 +1448,7 @@ def review_local_database(
     strict: bool = False,
     output_path: Path | None = None,
     reference_dir: Path | None = None,
+    catalog_policy: str = "strict",
 ) -> Mapping[str, Any]:
     """Valida i JSON già presenti nel database locale e produce un report riassuntivo."""
 
@@ -3976,6 +3977,7 @@ async def fetch_build(
     validate_combo: bool = False,
     catalog_policy: str = "warn",
     numeric_completeness: bool = False,
+    skip_ruling_expert: bool = False,
 ) -> MutableMapping:
     if reference_catalog is None:
         reference_catalog = load_reference_catalog(
@@ -4928,6 +4930,8 @@ async def run_harvest(
 
     include_filters = include_filters or []
     exclude_filters = exclude_filters or []
+    reference_catalog = load_reference_catalog(reference_dir, strict=strict)
+    reference_manifest = load_reference_manifest(reference_dir)
     discovery_info: Mapping[str, object] | None = None
 
     semaphore = asyncio.Semaphore(max(1, concurrency))
