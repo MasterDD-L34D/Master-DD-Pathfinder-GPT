@@ -182,7 +182,7 @@ def test_minmax_builder_stub_is_opt_in(client, auth_headers):
     response = client.get("/modules/minmax_builder.txt?mode=stub", headers=auth_headers)
     assert response.status_code == 200
     assert response.headers["content-type"].startswith("application/json")
-    payload = json.loads(response.body)
+    payload = response.json()
     assert payload["build_state"]["mode"] in {"core", "extended"}
     assert payload["sheet"]["classi"][0]["nome"] == "Unknown"
 
@@ -190,7 +190,7 @@ def test_minmax_builder_stub_is_opt_in(client, auth_headers):
 def test_minmax_builder_stub_contains_full_payload(client, auth_headers):
     response = client.get("/modules/minmax_builder.txt?mode=stub", headers=auth_headers)
     assert response.status_code == 200
-    payload = json.loads(response.body)
+    payload = response.json()
 
     expected_keys = {
         "build_state",
@@ -212,7 +212,7 @@ def test_minmax_builder_stub_contains_full_payload(client, auth_headers):
 def test_minmax_builder_stub_payload_matches_schema(client, auth_headers):
     response = client.get("/modules/minmax_builder.txt?mode=stub", headers=auth_headers)
     assert response.status_code == 200
-    payload = json.loads(response.body)
+    payload = response.json()
 
     schema_filename = schema_for_mode(payload.get("mode", ""))
     validate_with_schema(
@@ -403,7 +403,7 @@ def test_get_module_meta_valid_file(client, auth_headers):
         f"/modules/{quote(sample_file.name)}/meta", headers=auth_headers
     )
     assert response.status_code == 200
-    payload = json.loads(response.body)
+    payload = response.json()
     assert payload["name"] == sample_file.name
     assert payload["size_bytes"] == sample_file.stat().st_size
     assert payload["suffix"] == sample_file.suffix
@@ -418,7 +418,7 @@ def test_get_knowledge_pack_meta_includes_version_and_compatibility(
     )
 
     assert response.status_code == 200
-    payload = json.loads(response.body)
+    payload = response.json()
 
     match = re.search(
         r"\*\*Versione:\*\*\s*(?P<version>[^•\n]+).*?\*\*Compatibilit\u00e0:\*\*\s*(?P<compatibility>[^\n<]+)",
@@ -436,7 +436,7 @@ def test_get_module_meta_includes_front_matter_fields(client, auth_headers):
     )
 
     assert response.status_code == 200
-    payload = json.loads(response.body)
+    payload = response.json()
 
     expected = app_module._parse_front_matter_metadata(
         sample_file.read_text(encoding="utf-8"), source=sample_file
