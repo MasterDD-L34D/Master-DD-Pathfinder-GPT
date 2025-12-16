@@ -31,6 +31,9 @@ import httpx
 from jsonschema import Draft202012Validator, RefResolver
 from jsonschema.exceptions import ValidationError
 
+# Module-level logger for defensive logging inside helpers
+logger = logging.getLogger(__name__)
+
 # Lista di classi PF1e target supportate dal builder
 PF1E_CLASSES: List[str] = [
     "Alchemist",
@@ -3788,7 +3791,9 @@ class RulingCache:
 
     async def set(self, key: str, value: dict[str, Any] | object) -> None:
         async with self.lock:
-            self.data[key] = dict(value) if isinstance(value, dict) else {"value": value}
+            self.data[key] = (
+                dict(value) if isinstance(value, dict) else {"value": value}
+            )
             self.dirty = True
 
     async def flush(self) -> None:
@@ -3804,10 +3809,14 @@ class RulingCache:
                 tmp.replace(self.path)
                 self.dirty = False
             except Exception as exc:  # pragma: no cover - defensive logging only
-                logger.warning("Impossibile scrivere ruling cache %s: %s", self.path, exc)
+                logger.warning(
+                    "Impossibile scrivere ruling cache %s: %s", self.path, exc
+                )
 
 
-def _ruling_cache_key(payload: Mapping[str, Any], context: Mapping[str, Any]) -> str | None:
+def _ruling_cache_key(
+    payload: Mapping[str, Any], context: Mapping[str, Any]
+) -> str | None:
     core: Any = payload.get("composite")
     if not isinstance(core, Mapping):
         core = {
@@ -4656,27 +4665,39 @@ async def fetch_build(
 
     if use_lazy_ruling:
         t1_candidates = [
-            (payload, meta) for payload, meta in variants if (meta[0] or "").upper() == "T1"
+            (payload, meta)
+            for payload, meta in variants
+            if (meta[0] or "").upper() == "T1"
         ]
         if not t1_candidates:
             observed_tiers = {meta[0] or "n/d" for _, meta in variants}
             raise BuildFetchError(
                 f"Filtro T1 attivo: nessuna variante T1 (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
             )
-        best_payload, best_meta = max(t1_candidates, key=lambda item: _score(item[1]))
-        ruling_retries = ruling_max_retries if ruling_max_retries is not None else max_retries
-        await _validate_ruling_badge(
-            client,
-            url=ruling_expert_url,
-            api_key=api_key,
-            payload=best_payload,
-            request=request,
-            timeout=ruling_timeout,
-            max_retries=ruling_retries,
-            cache=ruling_cache,
-            semaphore=ruling_semaphore,
+        ruling_retries = (
+            ruling_max_retries if ruling_max_retries is not None else max_retries
         )
-        return await _append_combo_suggestions(best_payload)
+        validation_error = None
+        for payload, _ in sorted(
+            t1_candidates, key=lambda item: _score(item[1]), reverse=True
+        ):
+            try:
+                await _validate_ruling_badge(
+                    client,
+                    url=ruling_expert_url,
+                    api_key=api_key,
+                    payload=payload,
+                    request=request,
+                    timeout=ruling_timeout,
+                    max_retries=ruling_retries,
+                    cache=ruling_cache,
+                    semaphore=ruling_semaphore,
+                )
+                return await _append_combo_suggestions(payload)
+            except BuildFetchError as exc:
+                validation_error = exc
+
+        raise validation_error
 
     valid_variants = [
         (payload, meta) for payload, meta in variants if meta[0] == "T1" and meta[1]
