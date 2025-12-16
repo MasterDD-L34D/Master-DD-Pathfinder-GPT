@@ -31,6 +31,9 @@ import httpx
 from jsonschema import Draft202012Validator, RefResolver
 from jsonschema.exceptions import ValidationError
 
+# Module-level logger for defensive logging inside helpers
+logger = logging.getLogger(__name__)
+
 # Lista di classi PF1e target supportate dal builder
 PF1E_CLASSES: List[str] = [
     "Alchemist",
