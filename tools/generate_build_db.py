@@ -378,6 +378,37 @@ def load_reference_manifest(
     return manifest
 
 
+_reference_catalog_cache: dict[
+    tuple[str, bool],
+    dict[str, dict[str, Mapping[str, object]]],
+] = {}
+_reference_manifest_cache: dict[str, Mapping[str, object]] = {}
+
+
+def get_reference_catalog(
+    reference_dir: Path | None = None, *, strict: bool = False
+) -> dict[str, dict[str, Mapping[str, object]]]:
+    directory = (reference_dir or DEFAULT_REFERENCE_DIR).resolve()
+    key = (str(directory), bool(strict))
+    cached = _reference_catalog_cache.get(key)
+    if cached is not None:
+        return cached
+    catalog = load_reference_catalog(directory, strict=strict)
+    _reference_catalog_cache[key] = catalog
+    return catalog
+
+
+def get_reference_manifest(reference_dir: Path | None = None) -> Mapping[str, object]:
+    directory = (reference_dir or DEFAULT_REFERENCE_DIR).resolve()
+    key = str(directory)
+    cached = _reference_manifest_cache.get(key)
+    if cached is not None:
+        return cached
+    manifest = load_reference_manifest(directory)
+    _reference_manifest_cache[key] = manifest
+    return manifest
+
+
 def _reference_url_coverage(
     catalog: Mapping[str, Mapping[str, Mapping[str, object]]],
 ) -> dict[str, object]:
@@ -1468,8 +1499,8 @@ def review_local_database(
             pass
 
     build_index_entries = _load_build_index_entries(build_index_path)
-    reference_catalog = load_reference_catalog(reference_dir, strict=strict)
-    reference_manifest = load_reference_manifest(reference_dir)
+    reference_catalog = get_reference_catalog(reference_dir, strict=strict)
+    reference_manifest = get_reference_manifest(reference_dir)
     reference_coverage = _reference_url_coverage(reference_catalog)
     build_files: dict[Path, str] = {}
     index_entries: list[dict[str, object]] = []
@@ -2225,6 +2256,11 @@ def parse_args() -> argparse.Namespace:
         help="Elenco moduli da scaricare in parallelo alle build",
     )
     parser.add_argument(
+        "--skip-modules",
+        action="store_true",
+        help="Salta discovery/download/validazione moduli (utile per velocizzare la sola generazione build).",
+    )
+    parser.add_argument(
         "--strict",
         action="store_true",
         help="Interrompe l'esecuzione al primo errore di validazione",
@@ -2238,6 +2274,11 @@ def parse_args() -> argparse.Namespace:
         "--keep-invalid",
         action="store_true",
         help="Scrive comunque i payload non validi invece di scartarli",
+    )
+    parser.add_argument(
+        "--fail-on-invalid",
+        action="store_true",
+        help="Exit non-zero se build/moduli risultano invalid/error/missing (escludendo pruned).",
     )
     parser.add_argument(
         "--require-complete",
@@ -2288,6 +2329,22 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path("src/data/build_review.json"),
         help="Percorso del report di review (con riepilogo per checkpoint di livello) quando --validate-db è attivo (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--backfill-badges",
+        action="store_true",
+        help="Aggiorna snapshot build esistenti aggiungendo ruling_badge/ruling_sources se mancanti (usa ruling expert).",
+    )
+    parser.add_argument(
+        "--backfill-badges-dry-run",
+        action="store_true",
+        help="Con --backfill-badges: non scrive file/index, mostra solo cosa verrebbe aggiornato.",
+    )
+    parser.add_argument(
+        "--backfill-badges-max-items",
+        type=int,
+        default=0,
+        help="Con --backfill-badges: limita numero file da processare (0=tutti).",
     )
     parser.add_argument(
         "--discover-modules",
@@ -4131,11 +4188,11 @@ async def fetch_build(
     ruling_semaphore: asyncio.Semaphore | None = None,
 ) -> MutableMapping:
     if reference_catalog is None:
-        reference_catalog = load_reference_catalog(
+        reference_catalog = get_reference_catalog(
             reference_dir, strict=require_complete
         )
     if reference_manifest is None:
-        reference_manifest = load_reference_manifest(reference_dir)
+        reference_manifest = get_reference_manifest(reference_dir)
 
     def _coerce_number(value: object) -> float | None:
         if isinstance(value, (int, float)):
@@ -4647,15 +4704,71 @@ async def fetch_build(
         return payload
 
     variants: list[
-        tuple[MutableMapping, tuple[str | None, str | None, float, float, list[str]]]
+        tuple[
+            int,
+            MutableMapping,
+            tuple[str | None, str | None, float, float, list[str]],
+        ]
     ] = []
+    variant_failures: list[BuildFetchError] = []
+    variant_candidates: list[dict[str, object]] = []
     attempts = max(1, t1_variants if t1_filter else 1)
     use_lazy_ruling = bool(lazy_ruling and t1_filter and attempts > 1)
-    for _ in range(attempts):
-        payload = await _fetch_single_variant(validate_ruling=not use_lazy_ruling)
-        variants.append((payload, _variant_meta(payload)))
+    for attempt_index in range(1, attempts + 1):
+        try:
+            payload = await _fetch_single_variant(validate_ruling=not use_lazy_ruling)
+        except BuildFetchError as exc:
+            if not t1_filter:
+                raise
+            variant_failures.append(exc)
+            candidate: dict[str, object] = {
+                "attempt": attempt_index,
+                "status": "error",
+                "error": str(exc),
+            }
+            if exc.completeness_errors:
+                candidate["completeness_errors"] = list(exc.completeness_errors)
+            variant_candidates.append(candidate)
+            logging.warning(
+                "Variante %d/%d fallita per %s: %s. Provo la successiva...",
+                attempt_index,
+                attempts,
+                request.class_name,
+                exc,
+            )
+            continue
+        meta = _variant_meta(payload)
+        variants.append((attempt_index, payload, meta))
+        candidate = {
+            "attempt": attempt_index,
+            "status": "ok",
+            "meta_tier": meta[0],
+            "ruling_badge": meta[1],
+            "offense": meta[2],
+            "defense": meta[3],
+        }
+        if meta[4]:
+            candidate["ruling_log"] = meta[4]
+        completeness: object = payload.get("completeness")
+        if isinstance(completeness, Mapping):
+            errors = completeness.get("errors")
+            if isinstance(errors, list) and errors:
+                candidate["completeness_errors"] = list(errors)
+        variant_candidates.append(candidate)
         if not t1_filter:
             return await _append_combo_suggestions(payload)
+
+    if t1_filter and not variants:
+        preview_errors: list[str] = []
+        for exc in variant_failures[:3]:
+            if exc.completeness_errors:
+                preview_errors.append("; ".join(exc.completeness_errors))
+            else:
+                preview_errors.append(str(exc))
+        preview = " | ".join(preview_errors) if preview_errors else "n/d"
+        raise BuildFetchError(
+            f"Filtro T1 attivo: tutte le varianti ({attempts}) sono fallite per {request.class_name}. Errori: {preview}"
+        )
 
     def _score(
         meta: tuple[str | None, str | None, float, float, list[str]],
@@ -4665,11 +4778,11 @@ async def fetch_build(
     if use_lazy_ruling:
         t1_candidates = [
             (payload, meta)
-            for payload, meta in variants
+            for _, payload, meta in variants
             if (meta[0] or "").upper() == "T1"
         ]
         if not t1_candidates:
-            observed_tiers = {meta[0] or "n/d" for _, meta in variants}
+            observed_tiers = {meta[0] or "n/d" for _, _, meta in variants}
             raise BuildFetchError(
                 f"Filtro T1 attivo: nessuna variante T1 (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
             )
@@ -4691,21 +4804,31 @@ async def fetch_build(
         return await _append_combo_suggestions(best_payload)
 
     valid_variants = [
-        (payload, meta) for payload, meta in variants if meta[0] == "T1" and meta[1]
+        (attempt, payload, meta)
+        for attempt, payload, meta in variants
+        if meta[0] == "T1" and meta[1]
     ]
 
     if not valid_variants:
-        observed_tiers = {meta[0] or "n/d" for _, meta in variants}
+        observed_tiers = {meta[0] or "n/d" for _, _, meta in variants}
+        failure_note = (
+            f"; fallite: {len(variant_failures)}/{attempts}" if variant_failures else ""
+        )
         raise BuildFetchError(
-            f"Filtro T1 attivo: nessuna variante valida (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
+            f"Filtro T1 attivo: nessuna variante valida (meta_tier osservati: {', '.join(sorted(observed_tiers))}){failure_note}"
         )
 
-    def _score(
-        meta: tuple[str | None, str | None, float, float, list[str]],
-    ) -> tuple[float, float]:
-        return meta[2], meta[3]
-
-    best_payload, best_meta = max(valid_variants, key=lambda item: _score(item[1]))
+    best_attempt, best_payload, best_meta = max(
+        valid_variants, key=lambda item: _score(item[2])
+    )
+    for candidate in variant_candidates:
+        if (
+            candidate.get("attempt") == best_attempt
+            and candidate.get("status") == "ok"
+        ):
+            candidate["selected"] = True
+            break
+    best_payload.setdefault("benchmark", {})["variant_candidates"] = variant_candidates
     if best_meta[4]:
         best_payload.setdefault("qa", {}).setdefault("ruling_expert", {})["log"] = (
             best_meta[4]
@@ -5069,6 +5192,8 @@ async def run_harvest(
     numeric_completeness: bool = False,
     ruling_cache_path: Path | None = None,
     ruling_concurrency: int | None = None,
+    skip_modules: bool = False,
+    fail_on_invalid: bool = False,
 ) -> None:
     requests = list(requests)
     max_items = int(max_items) if max_items is not None else None
@@ -5141,8 +5266,8 @@ async def run_harvest(
 
     include_filters = include_filters or []
     exclude_filters = exclude_filters or []
-    reference_catalog = load_reference_catalog(reference_dir, strict=strict)
-    reference_manifest = load_reference_manifest(reference_dir)
+    reference_catalog = get_reference_catalog(reference_dir, strict=strict)
+    reference_manifest = get_reference_manifest(reference_dir)
     discovery_info: Mapping[str, object] | None = None
 
     semaphore = asyncio.Semaphore(max(1, concurrency))
@@ -5261,7 +5386,11 @@ async def run_harvest(
             )
         else:
             await assert_api_reachable(client, api_key)
-        if discover:
+        if skip_modules:
+            if discover:
+                logging.info("Skip modules attivo: ignoro --discover-modules")
+            filtered_discovered = []
+        elif discover:
             discovered = await discover_modules(client, api_key, max_retries)
             filtered_discovered = apply_glob_filters(
                 discovered, include_filters, exclude_filters
@@ -5279,14 +5408,15 @@ async def run_harvest(
 
         module_plan: list[str] = []
         seen: set[str] = set()
-        for name in modules:
-            if name not in seen:
-                module_plan.append(name)
-                seen.add(name)
-        for name in sorted(filtered_discovered):
-            if name not in seen:
-                module_plan.append(name)
-                seen.add(name)
+        if not skip_modules:
+            for name in modules:
+                if name not in seen:
+                    module_plan.append(name)
+                    seen.add(name)
+            for name in sorted(filtered_discovered):
+                if name not in seen:
+                    module_plan.append(name)
+                    seen.add(name)
 
         modules_index["module_plan"] = module_plan
 
@@ -5357,29 +5487,97 @@ async def run_harvest(
                                 "Riutilizzo payload esistente per %s (skip-unchanged)",
                                 request.output_name(),
                             )
-                            return destination.name, build_index_entry(
-                                request,
-                                destination,
-                                status,
-                                validation_error,
-                                (
-                                    payload.get("step_audit")
-                                    if isinstance(payload, Mapping)
-                                    else None
-                                ),
-                                completeness_errors,
-                                (
-                                    payload.get("ruling_badge")
-                                    if isinstance(payload, Mapping)
-                                    else None
-                                ),
-                                (
-                                    payload.get("ruling_sources")
-                                    if isinstance(payload, Mapping)
-                                    else None
-                                ),
-                                **meta_data,
-                            )
+                            reuse_ok = True
+                            if (
+                                status == "ok"
+                                and t1_filter
+                                and isinstance(payload, MutableMapping)
+                            ):
+                                benchmark_ctx = payload.get("benchmark")
+                                meta_tier = None
+                                if isinstance(benchmark_ctx, Mapping):
+                                    meta_tier = benchmark_ctx.get("meta_tier")
+                                if isinstance(meta_tier, str):
+                                    meta_tier = meta_tier.strip() or None
+
+                                if meta_tier != "T1":
+                                    logging.warning(
+                                        "Payload esistente per %s non è T1 (meta_tier=%s) ma t1_filter è attivo: forza refetch",
+                                        request.output_name(),
+                                        meta_tier,
+                                    )
+                                    reuse_ok = False
+                                else:
+                                    existing_badge = payload.get("ruling_badge")
+                                    if not (
+                                        isinstance(existing_badge, str)
+                                        and existing_badge.strip()
+                                    ):
+                                        if ruling_expert_url:
+                                            try:
+                                                validated_badge, _ = (
+                                                    await _validate_ruling_badge(
+                                                        client,
+                                                        url=ruling_expert_url,
+                                                        api_key=api_key,
+                                                        payload=payload,
+                                                        request=request,
+                                                        timeout=ruling_timeout,
+                                                        max_retries=ruling_max_retries,
+                                                    )
+                                                )
+                                                existing_badge = validated_badge
+                                            except BuildFetchError as exc:
+                                                logging.warning(
+                                                    "Backfill ruling badge fallito per payload esistente %s: %s",
+                                                    request.output_name(),
+                                                    exc,
+                                                )
+                                                reuse_ok = False
+                                            else:
+                                                if existing_badge:
+                                                    payload.setdefault("benchmark", {}).setdefault(
+                                                        "ruling_badge", existing_badge
+                                                    )
+                                                write_json(destination, payload)
+                                        else:
+                                            reuse_ok = False
+
+                                    badge_now = payload.get("ruling_badge")
+                                    if not (
+                                        isinstance(badge_now, str)
+                                        and badge_now.strip()
+                                    ):
+                                        logging.warning(
+                                            "Payload esistente per %s è T1 ma senza ruling_badge valido e t1_filter è attivo: forza refetch",
+                                            request.output_name(),
+                                        )
+                                        reuse_ok = False
+
+                            if reuse_ok:
+                                return destination.name, build_index_entry(
+                                    request,
+                                    destination,
+                                    status,
+                                    validation_error,
+                                    (
+                                        payload.get("step_audit")
+                                        if isinstance(payload, Mapping)
+                                        else None
+                                    ),
+                                    completeness_errors,
+                                    (
+                                        payload.get("ruling_badge")
+                                        if isinstance(payload, Mapping)
+                                        else None
+                                    ),
+                                    (
+                                        payload.get("ruling_sources")
+                                        if isinstance(payload, Mapping)
+                                        else None
+                                    ),
+                                    **meta_data,
+                                )
 
                 method = request.http_method()
                 logging.info(
@@ -5830,6 +6028,170 @@ async def run_harvest(
     write_json(module_index_path, modules_index)
     logging.info("Indici aggiornati: %s e %s", index_path, module_index_path)
 
+    if fail_on_invalid:
+        bad_builds = [
+            entry
+            for entry in merged_build_entries
+            if entry.get("status") not in {"ok", "pruned"}
+        ]
+        bad_modules = [
+            entry
+            for entry in merged_module_entries
+            if entry.get("status") != "ok"
+        ]
+        if bad_builds or bad_modules:
+            logging.error(
+                "--fail-on-invalid: trovate %d build non valide e %d moduli non validi",
+                len(bad_builds),
+                len(bad_modules),
+            )
+            for entry in bad_builds[:10]:
+                logging.error(
+                    "Build non valida: %s (%s)",
+                    entry.get("output_file"),
+                    entry.get("status"),
+                )
+            for entry in bad_modules[:10]:
+                logging.error(
+                    "Modulo non valido: %s (%s)",
+                    entry.get("name"),
+                    entry.get("status"),
+                )
+            raise SystemExit(2)
+
+
+def _snapshot_request_from_payload(payload: Mapping[str, object]) -> BuildRequest:
+    request_meta = payload.get("request")
+    if isinstance(request_meta, Mapping):
+        class_name = request_meta.get("class") or payload.get("class") or "Unknown"
+        mode = request_meta.get("mode") or payload.get("mode") or DEFAULT_MODE
+        race = request_meta.get("race") if isinstance(request_meta.get("race"), str) else None
+        archetype = request_meta.get("archetype") if isinstance(request_meta.get("archetype"), str) else None
+        model = request_meta.get("model") if isinstance(request_meta.get("model"), str) else None
+        background = request_meta.get("background") if isinstance(request_meta.get("background"), str) else None
+        level = request_meta.get("level") if isinstance(request_meta.get("level"), int) else None
+        spec_id = request_meta.get("spec_id") if isinstance(request_meta.get("spec_id"), str) else None
+        filename_prefix = request_meta.get("output_prefix") if isinstance(request_meta.get("output_prefix"), str) else None
+        return BuildRequest(
+            class_name=str(class_name),
+            mode=str(mode),
+            race=race,
+            archetype=archetype,
+            model=model,
+            background=background,
+            level=level,
+            spec_id=spec_id,
+            filename_prefix=filename_prefix,
+        )
+    class_name = payload.get("class") or "Unknown"
+    mode = payload.get("mode") or DEFAULT_MODE
+    level = payload.get("level") if isinstance(payload.get("level"), int) else None
+    return BuildRequest(class_name=str(class_name), mode=str(mode), level=level)
+
+
+async def backfill_ruling_badges(
+    build_dir: Path,
+    index_path: Path | None,
+    api_key: str | None,
+    ruling_expert_url: str,
+    concurrency: int,
+    timeout: float,
+    max_retries: int,
+    *,
+    strict_mode: bool = False,
+    dry_run: bool = False,
+    max_items: int = 0,
+) -> int:
+    files = sorted(p for p in build_dir.rglob("*.json") if p.is_file())
+    if index_path is not None:
+        files = [p for p in files if p.resolve() != index_path.resolve()]
+    if max_items and max_items > 0:
+        files = files[:max_items]
+    logging.info("Backfill ruling_badges: %d file in %s", len(files), build_dir)
+    sem = asyncio.Semaphore(max(1, concurrency))
+    updated: list[tuple[Path, str | None, list[str] | None]] = []
+
+    async with httpx.AsyncClient(timeout=timeout) as client:
+        async def _work(file_path: Path) -> None:
+            async with sem:
+                try:
+                    payload = json.loads(file_path.read_text(encoding="utf-8"))
+                except Exception as exc:
+                    logging.warning("Backfill: JSON invalido %s (%s)", file_path, exc)
+                    return
+                if not isinstance(payload, MutableMapping):
+                    return
+                existing = payload.get("ruling_badge")
+                if isinstance(existing, str) and existing.strip():
+                    return
+
+                qa = payload.get("qa")
+                if isinstance(qa, Mapping):
+                    re_data = qa.get("ruling_expert")
+                    if isinstance(re_data, Mapping):
+                        badge = re_data.get("badge")
+                        if isinstance(badge, str) and badge.strip():
+                            payload["ruling_badge"] = badge.strip()
+                            sources = re_data.get("sources")
+                            if isinstance(sources, list) and sources:
+                                payload["ruling_sources"] = sources
+                            payload.setdefault("benchmark", {}).setdefault("ruling_badge", badge.strip())
+                            if not dry_run:
+                                write_json(file_path, payload)
+                            updated.append((file_path, payload.get("ruling_badge"), payload.get("ruling_sources")))
+                            return
+
+                req = _snapshot_request_from_payload(payload)
+                try:
+                    badge, _ = await _validate_ruling_badge(
+                        client,
+                        url=ruling_expert_url,
+                        api_key=api_key,
+                        payload=payload,
+                        request=req,
+                        timeout=timeout,
+                        max_retries=max_retries,
+                    )
+                except BuildFetchError as exc:
+                    logging.warning("Backfill badge fallito %s: %s", file_path, exc)
+                    return
+                if badge:
+                    payload.setdefault("benchmark", {}).setdefault("ruling_badge", badge)
+                if not dry_run:
+                    write_json(file_path, payload)
+                updated.append((file_path, badge, payload.get("ruling_sources")))
+
+        if files:
+            await asyncio.gather(*(_work(p) for p in files))
+
+    if (not dry_run) and index_path and index_path.is_file() and updated:
+        try:
+            index_data = json.loads(index_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            logging.warning("Backfill: impossibile leggere index %s (%s)", index_path, exc)
+        else:
+            entries = index_data.get("entries")
+            if isinstance(entries, list):
+                mapping: dict[Path, MutableMapping[str, object]] = {}
+                for e in entries:
+                    if isinstance(e, MutableMapping) and isinstance(e.get("output_file"), str):
+                        mapping[Path(e["output_file"]).resolve()] = e
+                touched = 0
+                for p, badge, sources in updated:
+                    entry = mapping.get(p.resolve())
+                    if not entry:
+                        continue
+                    if badge:
+                        entry["ruling_badge"] = badge
+                    if sources:
+                        entry["ruling_sources"] = sources
+                    touched += 1
+                if touched:
+                    write_json(index_path, index_data)
+                    logging.info("Backfill: aggiornato index %s (%d entries)", index_path, touched)
+
+    return len(updated)
+
 
 def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
     race_inventory = load_race_inventory(args.race_inventory)
@@ -5916,6 +6278,8 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 combo_best_only=combo_best_only,
                 ruling_cache_path=args.ruling_cache,
                 ruling_concurrency=args.ruling_concurrency,
+                skip_modules=args.skip_modules,
+                fail_on_invalid=args.fail_on_invalid,
             )
         )
         report["strict"]["status"] = "ok"
@@ -5986,6 +6350,8 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 combo_best_only=combo_best_only,
                 ruling_cache_path=args.ruling_cache,
                 ruling_concurrency=args.ruling_concurrency,
+                skip_modules=args.skip_modules,
+                fail_on_invalid=args.fail_on_invalid,
             )
         )
         report["tolerant"]["status"] = "ok"
@@ -6074,6 +6440,27 @@ def main() -> None:
     strict_mode = args.strict and not args.warn_only
     combo_best_only = combo_matrix_used and not args.keep_all_combos
 
+    if args.backfill_badges:
+        if not args.ruling_expert_url:
+            raise ValueError("--ruling-expert-url è obbligatorio per --backfill-badges")
+        updated = asyncio.run(
+            backfill_ruling_badges(
+                build_dir=args.output_dir,
+                index_path=args.index_path,
+                api_key=args.api_key,
+                ruling_expert_url=args.ruling_expert_url,
+                concurrency=args.concurrency,
+                timeout=args.ruling_timeout,
+                max_retries=args.ruling_max_retries,
+                strict_mode=strict_mode,
+                dry_run=args.backfill_badges_dry_run,
+                max_items=args.backfill_badges_max_items,
+            )
+        )
+        logging.info("Backfill completato: %d snapshot aggiornati", updated)
+        if not args.validate_db:
+            return
+
     if args.validate_db:
         review_local_database(
             args.output_dir,
@@ -6124,6 +6511,8 @@ def main() -> None:
             numeric_completeness=args.numeric_completeness,
             ruling_cache_path=args.ruling_cache,
             ruling_concurrency=args.ruling_concurrency,
+            skip_modules=args.skip_modules,
+            fail_on_invalid=args.fail_on_invalid,
         )
     )
 
