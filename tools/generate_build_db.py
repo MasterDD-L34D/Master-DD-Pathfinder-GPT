@@ -4806,7 +4806,10 @@ async def fetch_build(
 
         def _find_candidate_entry(attempt: int) -> dict[str, object] | None:
             for candidate in variant_candidates:
-                if candidate.get("attempt") == attempt and candidate.get("status") == "ok":
+                if (
+                    candidate.get("attempt") == attempt
+                    and candidate.get("status") == "ok"
+                ):
                     return candidate
             return None
 
