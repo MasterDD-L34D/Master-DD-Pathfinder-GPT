@@ -4698,9 +4698,11 @@ async def fetch_build(
         if not t1_filter:
             return await _append_combo_suggestions(payload)
 
-    def _score(
+    def _variant_score(
         meta: tuple[str | None, str | None, float, float, list[str]],
     ) -> tuple[float, float]:
+        """Return sortable score tuple for variant meta (offense/defense)."""
+
         return meta[2], meta[3]
 
     if use_lazy_ruling:
@@ -4720,7 +4722,7 @@ async def fetch_build(
         )
         validation_error = None
         for payload, _ in sorted(
-            t1_candidates, key=lambda item: _score(item[1]), reverse=True
+            t1_candidates, key=lambda item: _variant_score(item[1]), reverse=True
         ):
             try:
                 await _validate_ruling_badge(
@@ -4751,7 +4753,9 @@ async def fetch_build(
             f"{', '.join(sorted(observed_tiers))})"
         )
 
-    best_payload, best_meta = max(valid_variants, key=lambda item: _score(item[1]))
+    best_payload, best_meta = max(
+        valid_variants, key=lambda item: _variant_score(item[1])
+    )
     if best_meta[4]:
         best_payload.setdefault("qa", {}).setdefault("ruling_expert", {})["log"] = (
             best_meta[4]
