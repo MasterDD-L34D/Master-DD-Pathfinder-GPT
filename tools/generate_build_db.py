@@ -4663,20 +4663,28 @@ async def fetch_build(
             raise BuildFetchError(
                 f"Filtro T1 attivo: nessuna variante T1 (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
             )
-        best_payload, best_meta = max(t1_candidates, key=lambda item: _score(item[1]))
         ruling_retries = ruling_max_retries if ruling_max_retries is not None else max_retries
-        await _validate_ruling_badge(
-            client,
-            url=ruling_expert_url,
-            api_key=api_key,
-            payload=best_payload,
-            request=request,
-            timeout=ruling_timeout,
-            max_retries=ruling_retries,
-            cache=ruling_cache,
-            semaphore=ruling_semaphore,
-        )
-        return await _append_combo_suggestions(best_payload)
+        validation_error = None
+        for payload, _ in sorted(
+            t1_candidates, key=lambda item: _score(item[1]), reverse=True
+        ):
+            try:
+                await _validate_ruling_badge(
+                    client,
+                    url=ruling_expert_url,
+                    api_key=api_key,
+                    payload=payload,
+                    request=request,
+                    timeout=ruling_timeout,
+                    max_retries=ruling_retries,
+                    cache=ruling_cache,
+                    semaphore=ruling_semaphore,
+                )
+                return await _append_combo_suggestions(payload)
+            except BuildFetchError as exc:
+                validation_error = exc
+
+        raise validation_error
 
     valid_variants = [
         (payload, meta) for payload, meta in variants if meta[0] == "T1" and meta[1]
