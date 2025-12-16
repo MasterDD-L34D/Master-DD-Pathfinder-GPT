@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import asyncio
 import json
 import logging
@@ -2078,11 +2079,26 @@ def parse_args() -> argparse.Namespace:
         help="Endpoint REST del Ruling Expert per convalidare il badge (obbligatorio)",
     )
     parser.add_argument(
+        "--ruling-cache",
+        type=Path,
+        default=None,
+        help="Path a una cache JSON per i risultati del Ruling Expert (riduce chiamate ripetute).",
+    )
+    parser.add_argument(
         "--ruling-expert-timeout",
         dest="ruling_timeout",
         type=float,
         default=30.0,
         help="Timeout (secondi) per la chiamata verso Ruling Expert (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--ruling-expert-concurrency",
+        dest="ruling_concurrency",
+        type=int,
+        default=2,
+        help=(
+            "Limite di concorrenza dedicato per le chiamate verso Ruling Expert (default: %(default)s)."
+        ),
     )
     parser.add_argument(
         "--ruling-expert-max-retries",
@@ -2119,6 +2135,14 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=3,
         help="Numero di varianti da testare quando il filtro T1 è attivo (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--lazy-ruling",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help=(
+            "Con --require-t1 e --t1-variants > 1, valida il ruling badge solo sulla variante migliore (riduce chiamate esterne)."
+        ),
     )
     parser.add_argument(
         "--mode",
@@ -3738,6 +3762,72 @@ def _pfs_blocks_homebrew(context: Mapping[str, object]) -> bool:
     return bool(pfs_active and (hr_present or meta_present))
 
 
+@dataclass
+class RulingCache:
+    path: Path
+    data: dict[str, dict[str, Any]] = field(default_factory=dict)
+    lock: asyncio.Lock = field(default_factory=asyncio.Lock)
+    dirty: bool = False
+
+    @classmethod
+    def load(cls, path: Path) -> "RulingCache":
+        try:
+            if path.is_file():
+                raw = path.read_text(encoding="utf-8")
+                loaded = json.loads(raw) if raw.strip() else {}
+                if isinstance(loaded, dict):
+                    return cls(path=path, data=loaded)
+        except Exception as exc:  # pragma: no cover - defensive logging only
+            logger.warning("Impossibile leggere ruling cache %s: %s", path, exc)
+        return cls(path=path)
+
+    async def get(self, key: str) -> dict[str, Any] | None:
+        async with self.lock:
+            value = self.data.get(key)
+            return value if isinstance(value, dict) else None
+
+    async def set(self, key: str, value: dict[str, Any] | object) -> None:
+        async with self.lock:
+            self.data[key] = dict(value) if isinstance(value, dict) else {"value": value}
+            self.dirty = True
+
+    async def flush(self) -> None:
+        async with self.lock:
+            if not self.dirty:
+                return
+            try:
+                tmp = self.path.with_suffix(self.path.suffix + ".tmp")
+                tmp.write_text(
+                    json.dumps(self.data, ensure_ascii=False, indent=2, sort_keys=True),
+                    encoding="utf-8",
+                )
+                tmp.replace(self.path)
+                self.dirty = False
+            except Exception as exc:  # pragma: no cover - defensive logging only
+                logger.warning("Impossibile scrivere ruling cache %s: %s", self.path, exc)
+
+
+def _ruling_cache_key(payload: Mapping[str, Any], context: Mapping[str, Any]) -> str | None:
+    core: Any = payload.get("composite")
+    if not isinstance(core, Mapping):
+        core = {
+            "build": payload.get("build_state"),
+            "benchmark": payload.get("benchmark"),
+            "export": payload.get("export"),
+        }
+    try:
+        raw = json.dumps(
+            {"context": context, "core": core},
+            sort_keys=True,
+            ensure_ascii=False,
+            separators=(",", ":"),
+            default=str,
+        )
+    except TypeError:
+        return None
+    return hashlib.sha256(raw.encode("utf-8")).hexdigest()
+
+
 async def _validate_ruling_badge(
     client: httpx.AsyncClient,
     *,
@@ -3747,6 +3837,8 @@ async def _validate_ruling_badge(
     request: BuildRequest,
     timeout: float,
     max_retries: int,
+    cache: RulingCache | None = None,
+    semaphore: asyncio.Semaphore | None = None,
 ) -> tuple[str, object | None]:
     if not url:
         raise BuildFetchError("Endpoint Ruling Expert obbligatorio per il salvataggio")
@@ -3758,17 +3850,59 @@ async def _validate_ruling_badge(
             "PFS attivo: HR/META rilevati e non ammessi per lo snapshot",
         )
 
+    cache_key: str | None = None
+    if cache is not None:
+        cache_key = _ruling_cache_key(payload, context)
+        if cache_key:
+            cached = await cache.get(cache_key)
+            if cached:
+                cached_badge = _normalize_badge_value(
+                    cached.get("badge")
+                    or cached.get("ruling_badge")
+                    or cached.get("rulingBadge")
+                )
+                cached_sources = (
+                    cached.get("sources")
+                    or cached.get("ruling_sources")
+                    or cached.get("rulingSources")
+                )
+                if cached_badge:
+                    payload["ruling_badge"] = cached_badge
+                    if cached_sources:
+                        payload["ruling_sources"] = cached_sources
+                    payload.setdefault("qa", {})["ruling_expert"] = {
+                        "badge": cached_badge,
+                        "sources": cached_sources,
+                        "context": context,
+                        "cached": True,
+                        "cache_key": cache_key,
+                    }
+                    return cached_badge, cached_sources
+
     headers = {"x-api-key": api_key} if api_key else {}
-    response = await request_with_retry(
-        client,
-        "POST",
-        url,
-        headers=headers,
-        json_body={"build": payload, "context": context},
-        timeout=timeout,
-        max_retries=max_retries,
-        backoff_factor=0.5,
-    )
+    if semaphore is not None:
+        async with semaphore:
+            response = await request_with_retry(
+                client,
+                "POST",
+                url,
+                headers=headers,
+                json_body={"build": payload, "context": context},
+                timeout=timeout,
+                max_retries=max_retries,
+                backoff_factor=0.5,
+            )
+    else:
+        response = await request_with_retry(
+            client,
+            "POST",
+            url,
+            headers=headers,
+            json_body={"build": payload, "context": context},
+            timeout=timeout,
+            max_retries=max_retries,
+            backoff_factor=0.5,
+        )
 
     try:
         data = response.json()
@@ -3797,7 +3931,19 @@ async def _validate_ruling_badge(
         "badge": normalized_badge,
         "sources": sources,
         "context": context,
+        "raw": data,
+        "cached": False,
+        "cache_key": cache_key,
     }
+    if cache is not None and cache_key and normalized_badge:
+        await cache.set(
+            cache_key,
+            {
+                "badge": normalized_badge,
+                "sources": sources,
+                "validated_at": datetime.now(timezone.utc).isoformat(),
+            },
+        )
 
     return normalized_badge, sources
 
@@ -3964,6 +4110,7 @@ async def fetch_build(
     ruling_max_retries: int | None = None,
     t1_filter: bool = False,
     t1_variants: int = 3,
+    lazy_ruling: bool = True,
     reference_dir: Path | None = None,
     reference_catalog: Mapping[str, Mapping[str, Mapping[str, object]]] | None = None,
     reference_manifest: Mapping[str, object] | None = None,
@@ -3972,6 +4119,8 @@ async def fetch_build(
     catalog_policy: str = "warn",
     numeric_completeness: bool = False,
     skip_ruling_expert: bool = False,
+    ruling_cache: RulingCache | None = None,
+    ruling_semaphore: asyncio.Semaphore | None = None,
 ) -> MutableMapping:
     if reference_catalog is None:
         reference_catalog = load_reference_catalog(
@@ -4119,7 +4268,9 @@ async def fetch_build(
             )
 
             try:
-                combo_payload = await _fetch_single_variant(combo_request)
+                combo_payload = await _fetch_single_variant(
+                    combo_request, validate_ruling=True
+                )
             except BuildFetchError:
                 continue
 
@@ -4158,6 +4309,8 @@ async def fetch_build(
 
     async def _fetch_single_variant(
         current_request: BuildRequest | None = None,
+        *,
+        validate_ruling: bool = True,
     ) -> MutableMapping:
         active_request = current_request or request
         params = active_request.api_params(level=target_level)
@@ -4470,15 +4623,18 @@ async def fetch_build(
         ruling_retries = (
             ruling_max_retries if ruling_max_retries is not None else max_retries
         )
-        await _validate_ruling_badge(
-            client,
-            url=ruling_expert_url,
-            api_key=api_key,
-            payload=payload,
-            request=active_request,
-            timeout=ruling_timeout,
-            max_retries=ruling_retries,
-        )
+        if validate_ruling:
+            await _validate_ruling_badge(
+                client,
+                url=ruling_expert_url,
+                api_key=api_key,
+                payload=payload,
+                request=active_request,
+                timeout=ruling_timeout,
+                max_retries=ruling_retries,
+                cache=ruling_cache,
+                semaphore=ruling_semaphore,
+            )
 
         return payload
 
@@ -4486,11 +4642,41 @@ async def fetch_build(
         tuple[MutableMapping, tuple[str | None, str | None, float, float, list[str]]]
     ] = []
     attempts = max(1, t1_variants if t1_filter else 1)
+    use_lazy_ruling = bool(lazy_ruling and t1_filter and attempts > 1)
     for _ in range(attempts):
-        payload = await _fetch_single_variant()
+        payload = await _fetch_single_variant(validate_ruling=not use_lazy_ruling)
         variants.append((payload, _variant_meta(payload)))
         if not t1_filter:
             return await _append_combo_suggestions(payload)
+
+    def _score(
+        meta: tuple[str | None, str | None, float, float, list[str]],
+    ) -> tuple[float, float]:
+        return meta[2], meta[3]
+
+    if use_lazy_ruling:
+        t1_candidates = [
+            (payload, meta) for payload, meta in variants if (meta[0] or "").upper() == "T1"
+        ]
+        if not t1_candidates:
+            observed_tiers = {meta[0] or "n/d" for _, meta in variants}
+            raise BuildFetchError(
+                f"Filtro T1 attivo: nessuna variante T1 (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
+            )
+        best_payload, best_meta = max(t1_candidates, key=lambda item: _score(item[1]))
+        ruling_retries = ruling_max_retries if ruling_max_retries is not None else max_retries
+        await _validate_ruling_badge(
+            client,
+            url=ruling_expert_url,
+            api_key=api_key,
+            payload=best_payload,
+            request=request,
+            timeout=ruling_timeout,
+            max_retries=ruling_retries,
+            cache=ruling_cache,
+            semaphore=ruling_semaphore,
+        )
+        return await _append_combo_suggestions(best_payload)
 
     valid_variants = [
         (payload, meta) for payload, meta in variants if meta[0] == "T1" and meta[1]
@@ -4862,18 +5048,25 @@ async def run_harvest(
     skip_ruling_expert: bool = False,
     t1_filter: bool = False,
     t1_variants: int = 3,
+    lazy_ruling: bool = True,
     combo_best_only: bool = False,
     reference_dir: Path | None = None,
     suggest_combos: bool = False,
     validate_combo: bool = False,
     catalog_policy: str = "warn",
     numeric_completeness: bool = False,
+    ruling_cache_path: Path | None = None,
+    ruling_concurrency: int | None = None,
 ) -> None:
     requests = list(requests)
     max_items = int(max_items) if max_items is not None else None
     max_items = max_items if max_items and max_items > 0 else None
     ensure_output_dirs(output_dir)
     ensure_output_dirs(modules_output_dir)
+    ruling_cache: RulingCache | None = None
+    if ruling_cache_path:
+        ruling_cache_path.parent.mkdir(parents=True, exist_ok=True)
+        ruling_cache = RulingCache.load(ruling_cache_path)
     existing_build_entries: dict[str, Mapping] = {}
     existing_build_meta: dict[str, object] = {}
     if index_path.is_file():
@@ -4941,6 +5134,10 @@ async def run_harvest(
     discovery_info: Mapping[str, object] | None = None
 
     semaphore = asyncio.Semaphore(max(1, concurrency))
+    ruling_limit = max(
+        1, min(max(1, concurrency), max(1, (ruling_concurrency or concurrency)))
+    )
+    ruling_semaphore = asyncio.Semaphore(ruling_limit)
 
     planned_snapshots: list[tuple[BuildRequest, Path, int]] = []
     level_filter_set = (
@@ -5200,6 +5397,7 @@ async def run_harvest(
                                 skip_ruling_expert=skip_ruling_expert,
                                 t1_filter=t1_filter,
                                 t1_variants=t1_variants,
+                                lazy_ruling=lazy_ruling,
                                 reference_dir=reference_dir,
                                 reference_catalog=reference_catalog,
                                 reference_manifest=reference_manifest,
@@ -5207,6 +5405,8 @@ async def run_harvest(
                                 validate_combo=validate_combo,
                                 catalog_policy=catalog_policy,
                                 numeric_completeness=numeric_completeness,
+                                ruling_cache=ruling_cache,
+                                ruling_semaphore=ruling_semaphore,
                             )
                             break
                         except BuildFetchError as exc:
@@ -5611,6 +5811,9 @@ async def run_harvest(
     if discovery_info:
         modules_index["discovery"] = discovery_info
 
+    if ruling_cache is not None:
+        await ruling_cache.flush()
+
     write_json(index_path, builds_index)
     write_json(module_index_path, modules_index)
     logging.info("Indici aggiornati: %s e %s", index_path, module_index_path)
@@ -5692,12 +5895,15 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 skip_ruling_expert=args.skip_ruling_expert,
                 t1_filter=args.t1_filter,
                 t1_variants=args.t1_variants,
+                lazy_ruling=args.lazy_ruling,
                 reference_dir=args.reference_dir,
                 suggest_combos=args.suggest_combos,
                 validate_combo=args.validate_combo,
                 catalog_policy=args.catalog_policy,
                 numeric_completeness=args.numeric_completeness,
                 combo_best_only=combo_best_only,
+                ruling_cache_path=args.ruling_cache,
+                ruling_concurrency=args.ruling_concurrency,
             )
         )
         report["strict"]["status"] = "ok"
@@ -5759,12 +5965,15 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 skip_ruling_expert=args.skip_ruling_expert,
                 t1_filter=args.t1_filter,
                 t1_variants=args.t1_variants,
+                lazy_ruling=args.lazy_ruling,
                 reference_dir=args.reference_dir,
                 suggest_combos=args.suggest_combos,
                 validate_combo=args.validate_combo,
                 catalog_policy=args.catalog_policy,
                 numeric_completeness=args.numeric_completeness,
                 combo_best_only=combo_best_only,
+                ruling_cache_path=args.ruling_cache,
+                ruling_concurrency=args.ruling_concurrency,
             )
         )
         report["tolerant"]["status"] = "ok"
@@ -5891,13 +6100,18 @@ def main() -> None:
             args.ruling_expert_url,
             args.ruling_timeout,
             args.ruling_max_retries,
+            args.skip_ruling_expert,
             args.t1_filter,
             args.t1_variants,
+            args.lazy_ruling,
             combo_best_only,
             reference_dir=args.reference_dir,
             suggest_combos=args.suggest_combos,
             validate_combo=args.validate_combo,
             catalog_policy=args.catalog_policy,
+            numeric_completeness=args.numeric_completeness,
+            ruling_cache_path=args.ruling_cache,
+            ruling_concurrency=args.ruling_concurrency,
         )
     )
 
