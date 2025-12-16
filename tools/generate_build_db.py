@@ -4822,10 +4822,7 @@ async def fetch_build(
         valid_variants, key=lambda item: _score(item[2])
     )
     for candidate in variant_candidates:
-        if (
-            candidate.get("attempt") == best_attempt
-            and candidate.get("status") == "ok"
-        ):
+        if candidate.get("attempt") == best_attempt and candidate.get("status") == "ok":
             candidate["selected"] = True
             break
     best_payload.setdefault("benchmark", {})["variant_candidates"] = variant_candidates
@@ -5536,7 +5533,9 @@ async def run_harvest(
                                                 reuse_ok = False
                                             else:
                                                 if existing_badge:
-                                                    payload.setdefault("benchmark", {}).setdefault(
+                                                    payload.setdefault(
+                                                        "benchmark", {}
+                                                    ).setdefault(
                                                         "ruling_badge", existing_badge
                                                     )
                                                 write_json(destination, payload)
@@ -5545,8 +5544,7 @@ async def run_harvest(
 
                                     badge_now = payload.get("ruling_badge")
                                     if not (
-                                        isinstance(badge_now, str)
-                                        and badge_now.strip()
+                                        isinstance(badge_now, str) and badge_now.strip()
                                     ):
                                         logging.warning(
                                             "Payload esistente per %s è T1 ma senza ruling_badge valido e t1_filter è attivo: forza refetch",
@@ -6035,9 +6033,7 @@ async def run_harvest(
             if entry.get("status") not in {"ok", "pruned"}
         ]
         bad_modules = [
-            entry
-            for entry in merged_module_entries
-            if entry.get("status") != "ok"
+            entry for entry in merged_module_entries if entry.get("status") != "ok"
         ]
         if bad_builds or bad_modules:
             logging.error(
@@ -6065,13 +6061,41 @@ def _snapshot_request_from_payload(payload: Mapping[str, object]) -> BuildReques
     if isinstance(request_meta, Mapping):
         class_name = request_meta.get("class") or payload.get("class") or "Unknown"
         mode = request_meta.get("mode") or payload.get("mode") or DEFAULT_MODE
-        race = request_meta.get("race") if isinstance(request_meta.get("race"), str) else None
-        archetype = request_meta.get("archetype") if isinstance(request_meta.get("archetype"), str) else None
-        model = request_meta.get("model") if isinstance(request_meta.get("model"), str) else None
-        background = request_meta.get("background") if isinstance(request_meta.get("background"), str) else None
-        level = request_meta.get("level") if isinstance(request_meta.get("level"), int) else None
-        spec_id = request_meta.get("spec_id") if isinstance(request_meta.get("spec_id"), str) else None
-        filename_prefix = request_meta.get("output_prefix") if isinstance(request_meta.get("output_prefix"), str) else None
+        race = (
+            request_meta.get("race")
+            if isinstance(request_meta.get("race"), str)
+            else None
+        )
+        archetype = (
+            request_meta.get("archetype")
+            if isinstance(request_meta.get("archetype"), str)
+            else None
+        )
+        model = (
+            request_meta.get("model")
+            if isinstance(request_meta.get("model"), str)
+            else None
+        )
+        background = (
+            request_meta.get("background")
+            if isinstance(request_meta.get("background"), str)
+            else None
+        )
+        level = (
+            request_meta.get("level")
+            if isinstance(request_meta.get("level"), int)
+            else None
+        )
+        spec_id = (
+            request_meta.get("spec_id")
+            if isinstance(request_meta.get("spec_id"), str)
+            else None
+        )
+        filename_prefix = (
+            request_meta.get("output_prefix")
+            if isinstance(request_meta.get("output_prefix"), str)
+            else None
+        )
         return BuildRequest(
             class_name=str(class_name),
             mode=str(mode),
@@ -6112,6 +6136,7 @@ async def backfill_ruling_badges(
     updated: list[tuple[Path, str | None, list[str] | None]] = []
 
     async with httpx.AsyncClient(timeout=timeout) as client:
+
         async def _work(file_path: Path) -> None:
             async with sem:
                 try:
@@ -6135,10 +6160,18 @@ async def backfill_ruling_badges(
                             sources = re_data.get("sources")
                             if isinstance(sources, list) and sources:
                                 payload["ruling_sources"] = sources
-                            payload.setdefault("benchmark", {}).setdefault("ruling_badge", badge.strip())
+                            payload.setdefault("benchmark", {}).setdefault(
+                                "ruling_badge", badge.strip()
+                            )
                             if not dry_run:
                                 write_json(file_path, payload)
-                            updated.append((file_path, payload.get("ruling_badge"), payload.get("ruling_sources")))
+                            updated.append(
+                                (
+                                    file_path,
+                                    payload.get("ruling_badge"),
+                                    payload.get("ruling_sources"),
+                                )
+                            )
                             return
 
                 req = _snapshot_request_from_payload(payload)
@@ -6156,7 +6189,9 @@ async def backfill_ruling_badges(
                     logging.warning("Backfill badge fallito %s: %s", file_path, exc)
                     return
                 if badge:
-                    payload.setdefault("benchmark", {}).setdefault("ruling_badge", badge)
+                    payload.setdefault("benchmark", {}).setdefault(
+                        "ruling_badge", badge
+                    )
                 if not dry_run:
                     write_json(file_path, payload)
                 updated.append((file_path, badge, payload.get("ruling_sources")))
@@ -6168,13 +6203,17 @@ async def backfill_ruling_badges(
         try:
             index_data = json.loads(index_path.read_text(encoding="utf-8"))
         except Exception as exc:
-            logging.warning("Backfill: impossibile leggere index %s (%s)", index_path, exc)
+            logging.warning(
+                "Backfill: impossibile leggere index %s (%s)", index_path, exc
+            )
         else:
             entries = index_data.get("entries")
             if isinstance(entries, list):
                 mapping: dict[Path, MutableMapping[str, object]] = {}
                 for e in entries:
-                    if isinstance(e, MutableMapping) and isinstance(e.get("output_file"), str):
+                    if isinstance(e, MutableMapping) and isinstance(
+                        e.get("output_file"), str
+                    ):
                         mapping[Path(e["output_file"]).resolve()] = e
                 touched = 0
                 for p, badge, sources in updated:
@@ -6188,7 +6227,11 @@ async def backfill_ruling_badges(
                     touched += 1
                 if touched:
                     write_json(index_path, index_data)
-                    logging.info("Backfill: aggiornato index %s (%d entries)", index_path, touched)
+                    logging.info(
+                        "Backfill: aggiornato index %s (%d entries)",
+                        index_path,
+                        touched,
+                    )
 
     return len(updated)
 
