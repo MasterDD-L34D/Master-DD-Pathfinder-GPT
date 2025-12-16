@@ -6053,7 +6053,11 @@ async def run_harvest(
                 "--fail-on-invalid: trovate %d build non valide e %d moduli non validi%s",
                 len(bad_builds),
                 len(bad_modules),
-                " (controllo moduli saltato per --skip-modules)" if skip_modules else "",
+                (
+                    " (controllo moduli saltato per --skip-modules)"
+                    if skip_modules
+                    else ""
+                ),
             )
 
             def _format_entry_path(entry: Mapping[str, object]) -> str:
