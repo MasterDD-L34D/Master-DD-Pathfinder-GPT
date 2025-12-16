@@ -4461,19 +4461,25 @@ async def fetch_build(
                 completeness_errors=completeness_errors,
             )
 
+        if skip_ruling_expert:
+            logging.info(
+                "Salto la validazione del badge ruling per %s", request.output_name()
+            )
+            return payload
+
         ruling_retries = (
             ruling_max_retries if ruling_max_retries is not None else max_retries
         )
-        if not skip_ruling_expert:
-            await _validate_ruling_badge(
-                client,
-                url=ruling_expert_url,
-                api_key=api_key,
-                payload=payload,
-                request=active_request,
-                timeout=ruling_timeout,
-                max_retries=ruling_retries,
-            )
+        await _validate_ruling_badge(
+            client,
+            url=ruling_expert_url,
+            api_key=api_key,
+            payload=payload,
+            request=active_request,
+            timeout=ruling_timeout,
+            max_retries=ruling_retries,
+        )
+
         return payload
 
     variants: list[
