@@ -298,13 +298,7 @@ class BuildFetchError(Exception):
 
 
 def slugify(name: str) -> str:
-    """Return a filesystem-friendly identifier.
-
-    Notes:
-    - keeps letters/digits plus '_' and '-'
-    - collapses whitespace and disallowed characters to '_'
-    - strips leading/trailing separators
-    """
+    """Filesystem-friendly slug."""
     text = str(name).strip().lower()
     if not text:
         return ""
