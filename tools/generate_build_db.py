@@ -17,7 +17,7 @@ from dataclasses import dataclass, field, replace
 from datetime import datetime, timezone
 from itertools import islice, product
 from pathlib import Path
-from typing import Any, Iterable, List, Mapping, MutableMapping, Sequence
+from typing import Any, Iterable, List, Mapping, MutableMapping, Optional, Sequence
 from email.utils import parsedate_to_datetime
 
 DEFAULT_REFERENCE_DIR = Path(__file__).resolve().parent.parent / "data" / "reference"
@@ -4776,9 +4776,19 @@ async def fetch_build(
         return meta[2], meta[3]
 
     if use_lazy_ruling:
-        t1_candidates = [
-            (payload, meta)
-            for _, payload, meta in variants
+        # Lazy ruling: proviamo a validare il badge solo su una variante per volta,
+        # in ordine di score, fino a trovare la prima che risulta effettivamente T1.
+        # Così riduciamo drasticamente le chiamate al ruling expert ma evitiamo falsi
+        # negativi ("best" non-T1 mentre una successiva sarebbe valida).
+        t1_candidates: list[
+            tuple[
+                int,
+                MutableMapping,
+                tuple[str | None, str | None, float, float, list[str]],
+            ]
+        ] = [
+            (attempt, payload, meta)
+            for attempt, payload, meta in variants
             if (meta[0] or "").upper() == "T1"
         ]
         if not t1_candidates:
@@ -4786,22 +4796,59 @@ async def fetch_build(
             raise BuildFetchError(
                 f"Filtro T1 attivo: nessuna variante T1 (meta_tier osservati: {', '.join(sorted(observed_tiers))})"
             )
-        best_payload, best_meta = max(t1_candidates, key=lambda item: _score(item[1]))
+
+        # Ordina per score decrescente (offense, defense).
+        ordered = sorted(t1_candidates, key=lambda item: _score(item[2]), reverse=True)
         ruling_retries = (
             ruling_max_retries if ruling_max_retries is not None else max_retries
         )
-        await _validate_ruling_badge(
-            client,
-            url=ruling_expert_url,
-            api_key=api_key,
-            payload=best_payload,
-            request=request,
-            timeout=ruling_timeout,
-            max_retries=ruling_retries,
-            cache=ruling_cache,
-            semaphore=ruling_semaphore,
+        ruling_errors: list[str] = []
+
+        def _find_candidate_entry(attempt: int) -> dict[str, object] | None:
+            for candidate in variant_candidates:
+                if candidate.get("attempt") == attempt and candidate.get("status") == "ok":
+                    return candidate
+            return None
+
+        for attempt, candidate_payload, _meta_before in ordered:
+            candidate_entry = _find_candidate_entry(attempt)
+            if candidate_entry is not None:
+                candidate_entry["ruling_checked"] = True
+            try:
+                await _validate_ruling_badge(
+                    client,
+                    url=ruling_expert_url,
+                    api_key=api_key,
+                    payload=candidate_payload,
+                    request=request,
+                    timeout=ruling_timeout,
+                    max_retries=ruling_retries,
+                    cache=ruling_cache,
+                    semaphore=ruling_semaphore,
+                )
+            except BuildFetchError as exc:
+                ruling_errors.append(str(exc))
+                if candidate_entry is not None:
+                    candidate_entry["ruling_error"] = str(exc)
+                continue
+
+            # Successo: aggiorna metadati nel report e restituisce la variante selezionata.
+            meta_after = _variant_meta(candidate_payload)
+            if candidate_entry is not None:
+                candidate_entry["selected"] = True
+                candidate_entry["ruling_badge"] = meta_after[1]
+                if meta_after[4]:
+                    candidate_entry["ruling_log"] = meta_after[4]
+            candidate_payload.setdefault("benchmark", {})[
+                "variant_candidates"
+            ] = variant_candidates
+            return await _append_combo_suggestions(candidate_payload)
+
+        preview = " | ".join(ruling_errors[:3]) if ruling_errors else "n/d"
+        raise BuildFetchError(
+            "Filtro T1 attivo: lazy ruling non ha trovato nessuna variante valida "
+            f"tra {len(ordered)} candidate T1 (errori: {preview})"
         )
-        return await _append_combo_suggestions(best_payload)
 
     valid_variants = [
         (attempt, payload, meta)
@@ -6332,6 +6379,8 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
         },
     }
 
+    strict_abort: Optional[BaseException] = None
+
     try:
         asyncio.run(
             run_harvest(
@@ -6378,6 +6427,12 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
             )
         )
         report["strict"]["status"] = "ok"
+    except SystemExit as exc:
+        strict_abort = exc
+        logging.warning(
+            "Passaggio strict fallito, procedo con il run tollerante: %s", exc
+        )
+        report["strict"].update({"status": "failed", "error": str(exc)})
     except Exception as exc:
         logging.warning(
             "Passaggio strict fallito, procedo con il run tollerante: %s", exc
@@ -6466,6 +6521,9 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
     if args.dual_pass_report:
         write_json(args.dual_pass_report, report)
         logging.info("Report dual-pass salvato in %s", args.dual_pass_report)
+
+    if strict_abort is not None:
+        raise strict_abort
 
     return report
 
