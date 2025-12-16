@@ -6065,8 +6065,9 @@ async def run_harvest(
                 if not isinstance(file_value, str) or not file_value:
                     return "<file mancante>"
                 file_path = Path(file_value)
+                base_dir = modules_output_dir if entry.get("module") else output_dir
                 if not file_path.is_absolute():
-                    file_path = output_dir / file_path
+                    file_path = base_dir / file_path
                 return str(file_path)
 
             for entry in bad_builds[:10]:
