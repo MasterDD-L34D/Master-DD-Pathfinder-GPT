@@ -58,6 +58,32 @@ constraints:
   - Distingui chiaramente consigli 3PP/community dai riferimenti Paizo.
   - Esportazione bloccata se QA fallisce.
   - Le build seguono flusso vincolato: Setup → Core → Ottimizzazione → Export.
+  - |
+      # BEGIN SOURCE_GOVERNANCE_V1
+      **Source Governance v1 (obbligatoria quando usi fonti META)**
+
+      STEP -1 — META-SEARCH (solo discovery → META-CANDIDATE)
+      - Le fonti META (community/guide/... ) servono a scoprire "idee" o "combo" candidati.
+      - In questa fase è vietato dare verdetti: produce solo META-CANDIDATE (lista di claim + link + autore).
+
+      STEP 0 — RAW anchoring (AoN/Paizo) prima di qualsiasi verdetto
+      - Prima di consigliare/comparare una combo o dichiararla "legale/funziona", devi verificare il testo RAW su AoN/Paizo.
+      - Se il testo RAW non è disponibile, non dare verdetti: chiedi l'estratto o proponi come ipotesi da verificare.
+
+      4 gate quando entri in META:
+      1) Consultazione (tesi): estrai la tesi/claim.
+      2) Valutazione autore: identifica livello (META_OFFICIAL/EXPERT/COMMUNITY/UNKNOWN).
+      3) Verifica RAW: conferma o smentisci con testo AoN/Paizo.
+      4) Classificazione finale: CONFERMATO / PROBABILE / INCERTO / SMENTITO / NON VERIFICABILE.
+
+      Regole automatiche:
+      - Autore sconosciuto ⇒ massimo INCERTO finché non confermato da RAW.
+      - Ambiguità ⇒ INCERTO e richiedi chiarimento.
+      - Contraddizione RAW ⇒ SMENTITO (non raccomandare; proponi alternativa conforme a RAW).
+
+      Breadcrumb obbligatoria quando META è stata usata:
+      🔍 META-SEARCH → 📖 RAW check ✔ → 🧠 META-ANALYSIS → VERDETTO
+      # END SOURCE_GOVERNANCE_V1
 meta_reference:
   enabled: true
   banner_on_use: >-
@@ -596,6 +622,65 @@ helpers:
     params: []
     logic: |
       return lookup_meta_badges('DPR_early') or "-"
+
+  any_meta_source:
+    params: []
+    logic: |
+      sources = build_state.get('fonti_meta') or []
+      for src in sources:
+        try:
+          lvl = str((src or {}).get('level') or '').upper()
+        except Exception:
+          lvl = ''
+        if lvl.startswith('META_'):
+          return True
+      return False
+
+  meta_governance_breadcrumb:
+    params: []
+    logic: |
+      return "🔍 META-SEARCH → 📖 RAW check ✔ → 🧠 META-ANALYSIS → VERDETTO" if any_meta_source() else ""
+
+  meta_governance_source_verdict:
+    params: []
+    logic: |
+      """Verdetto conservativo basato SOLO sul tipo di fonte META.
+
+      Nota: questo non sostituisce la verifica RAW (STEP 0). Se durante la RAW-check
+      trovi una contraddizione, il verdetto finale deve diventare SMENTITO.
+      """
+
+      sources = build_state.get('fonti_meta') or []
+      levels = set()
+      for src in sources:
+        try:
+          levels.add(str((src or {}).get('level') or '').upper())
+        except Exception:
+          pass
+
+      # Se nella lista META compare già una fonte RAW_CANON, possiamo considerare
+      # "ancorato" (almeno a livello di fonte) e alzare il verdetto.
+      if 'RAW_CANON' in levels:
+        return "CONFERMATO (ancorato a RAW_CANON)"
+
+      # Fonti più affidabili (comunque da verificare su RAW)
+      if any(l in {'META_OFFICIAL', 'META_EXPERT', 'META_CORE', 'META_GUIDE'} for l in levels):
+        return "PROBABILE (fonte autorevole; verifica RAW richiesta)"
+
+      # Community/live discussion
+      if any(l in {'META_COMMUNITY', 'META_LIVE'} for l in levels):
+        return "INCERTO (community; verifica RAW richiesta)"
+
+      # Sconosciuto/non classificato
+      return "NON VERIFICABILE (sorgente/autorità non chiara; verifica RAW richiesta)"
+
+  meta_governance_banner:
+    params: []
+    logic: |
+      if not any_meta_source():
+        return ""
+      verdict = meta_governance_source_verdict()
+      return meta_governance_breadcrumb() + "\n" + "**Verdetto fonti META:** " + verdict
   calc_init_mod:
     params:
       - DEX
@@ -1278,11 +1363,17 @@ commands:
                       link:"{{result.link}}" descrizione:"{{result.summary}}"
                       tipo:"{{result.source_type}}" level:"{{local.level}}"
                       badge:"{{local.badge}}"
-          - set: build_state.fonti_meta
-            value: '{{sort_meta_by_level(build_state.fonti_meta)}}'
-          - call: meta_cache_set
-            with:
-              classe: '{{local.classe}}'
+            - set: build_state.fonti_meta
+              value: '{{sort_meta_by_level(build_state.fonti_meta)}}'
+
+            - if: '{{ any_meta_source() }}'
+              then:
+                - output: |
+                    {{ meta_governance_banner() }}
+
+            - call: meta_cache_set
+              with:
+                classe: '{{local.classe}}'
               patterns: '{{meta_reference.search_patterns}}'
               results: '{{build_state.fonti_meta}}'
             return_as: _cached_ok

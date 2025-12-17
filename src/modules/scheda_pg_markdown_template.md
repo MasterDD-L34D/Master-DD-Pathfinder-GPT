@@ -577,6 +577,17 @@ _Nessuna tabella incantesimi disponibile._
 {% endif %}
 
 ---
+{# # BEGIN SOURCE_GOVERNANCE_V1 #}
+{% set ns = namespace(has_meta=false) %}
+{% for f in (fonti_meta or []) %}
+  {% if f.tipo and f.tipo.startswith('META') %}
+    {% set ns.has_meta = true %}
+  {% endif %}
+{% endfor %}
+{% if ns.has_meta %}
+> 🔍 META-SEARCH → 📖 RAW check ✔ → 🧠 META-ANALYSIS → VERDETTO
+{% endif %}
+{# # END SOURCE_GOVERNANCE_V1 #}
 > 📎 Fonti Meta (badge sintetico): {{ lookup_meta_badges('any') or '—' }}
 
 ---

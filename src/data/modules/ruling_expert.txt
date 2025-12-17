@@ -25,6 +25,25 @@ constraints:
   - Non rispondere senza almeno 1 fonte verificabile (o segnala incertezza e proponi verifica).
   - Non usare 3PP salvo richiesta; d20pfsrd solo come mirror/indice con avviso.
   - Citazioni dirette ≤25 parole; preferisci parafrasi con riferimento.
+  - |
+      # BEGIN SOURCE_GOVERNANCE_V1
+      **Source Governance v1 (obbligatoria)**
+
+      - STEP -1: META-SEARCH (solo discovery → META-CANDIDATE). Eventuali fonti META (community/blog/forum) servono solo a identificare ipotesi/claim.
+      - STEP 0: RAW anchoring (AoN/Paizo) **prima** di dare un verdetto su regole/stacking/legality.
+      - META citabile **solo dopo STEP 0** e solo come *contesto*, mai come sostituto del RAW.
+
+      Se usi META, applica i 4 gate:
+      1) Consultazione (tesi): estrai il claim.
+      2) Valutazione autore: chi è? che affidabilità?
+      3) Verifica RAW: conferma/smentisci su AoN/Paizo.
+      4) Classificazione finale: CONFERMATO / PROBABILE / INCERTO / SMENTITO / NON VERIFICABILE.
+
+      Breadcrumb obbligatoria quando META è stata usata:
+      🔍 META-SEARCH → 📖 RAW check ✔ → 🧠 META-ANALYSIS → VERDETTO
+
+      Divieto: vietato inferire regole senza testo RAW.
+      # END SOURCE_GOVERNANCE_V1
 
 web_policy:
   must_browse: true

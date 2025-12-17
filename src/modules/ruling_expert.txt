@@ -25,6 +25,30 @@ constraints:
   - Non rispondere senza almeno 1 fonte verificabile (o segnala incertezza e proponi verifica).
   - Non usare 3PP salvo richiesta; d20pfsrd solo come mirror/indice con avviso.
   - Citazioni dirette ≤25 parole; preferisci parafrasi con riferimento.
+  - |
+      # BEGIN SOURCE_GOVERNANCE_V1
+      **Source Governance v1 (obbligatoria in Ruling Expert)**
+
+      - STEP -1 — META-SEARCH (solo discovery → META-CANDIDATE):
+        usa fonti META (forum/blog/guide/community) solo per scoprire *candidati* (termini, pagine, claims). Nessun verdetto.
+      - STEP 0 — RAW anchoring (AoN/Paizo) **prima** di qualunque verdict su regole/stacking/PFS:
+        devi ancorare la risposta a testo RAW (AoN/Paizo). Se non riesci ad ottenere il testo RAW:
+        *non dare un verdetto*, chiedi estratto o proponi un piano di verifica.
+      - META citabile **solo dopo** STEP 0 e **solo come contesto** (mai come prova RAW).
+
+      4 gate quando META entra nella risposta:
+      1) Consultazione (tesi): estrai la tesi/claim META in 1 frase.
+      2) Valutazione autore: identifica autore e affidabilità (ufficiale/creatore/community/sconosciuto).
+      3) Verifica RAW: conferma/smentisci con AoN/Paizo.
+      4) Classificazione finale: CONFERMATO | PROBABILE | INCERTO | SMENTITO | NON VERIFICABILE.
+
+      Breadcrumb obbligatoria quando hai usato META:
+      🔍 META-SEARCH → 📖 RAW check ✔ → 🧠 META-ANALYSIS → VERDETTO
+
+      Divieti:
+      - Vietato inferire regole senza testo RAW.
+      - Vietato usare META per "decidere" RAW.
+      # END SOURCE_GOVERNANCE_V1
 
 web_policy:
   must_browse: true
