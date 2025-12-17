@@ -8,7 +8,8 @@
     "benchmark",
     "export",
     "sheet_payload",
-    "composite"
+    "composite",
+    "reference_catalog_version"
   ],
   "properties": {
     "build_state": {
@@ -25,6 +26,9 @@
     },
     "sheet": {
       "$ref": "build_core.schema.json#/$defs/textual_block"
+    },
+    "reference_catalog_version": {
+      "$ref": "build_core.schema.json#/$defs/reference_catalog_version"
     },
     "sheet_payload": {
       "$ref": "scheda_pg.schema.json",

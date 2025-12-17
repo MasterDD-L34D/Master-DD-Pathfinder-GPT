@@ -124,6 +124,24 @@ Risposta JSON semplificata:
 
 > **Nota sulla validazione**: gli snapshot del builder seguono gli schemi JSON `schemas/build_core.schema.json` e `schemas/build_full_pg.schema.json`. I blocchi `build_state`, `benchmark` e `export` hanno campi espliciti (es. `mode` ∈ {`core`,`extended`,`full-pg`}, `step`/`step_total` numerici e `step_labels` con chiavi numeriche) e il sotto-blocco `composite.build` riutilizza gli stessi riferimenti per mantenere identica struttura e versioni. Nei payload full-PG, `sheet_payload` è obbligatoria sia al livello root sia in `composite.build`, mentre `ledger` accetta sia testi sia movimenti strutturati con `voce`/`importo`.
 
+#### Versione del catalogo di riferimento
+
+- Il manifest RAW/SRD `data/reference/manifest.json` espone il campo `version` (attualmente `2026.03.22`).
+- Tutti i payload di build devono includere `reference_catalog_version` con quel valore; lo stub `/modules/minmax_builder.txt` lo compila automaticamente insieme a `catalog_manifest`.
+- Per richieste personalizzate è possibile passare il campo nel body (o farlo inserire dal proprio orchestratore) come nell'esempio:
+  ```http
+  POST /modules/minmax_builder.txt?stub=true&class=Fighter
+  x-api-key: ${API_KEY}
+  Content-Type: application/json
+
+  {
+    "mode": "extended",
+    "reference_catalog_version": "2026.03.22",
+    "hooks": ["serve l'Ordine"]
+  }
+  ```
+- Se il campo manca o non coincide con il manifest corrente, la validazione JSON Schema fallisce: lo stub restituisce `500 Stub payload non valido...`, mentre i job di review (`tools/generate_build_db.py`) marcano la build come `invalid` con errore `reference_catalog_version`.
+
 ### `GET /knowledge`
 Elenca i file in `src/data` (PDF, markdown di supporto). Non restituisce il contenuto dei manuali Paizo protetti.
 
