@@ -1501,6 +1501,11 @@ def review_local_database(
     build_index_entries = _load_build_index_entries(build_index_path)
     reference_catalog = get_reference_catalog(reference_dir, strict=strict)
     reference_manifest = get_reference_manifest(reference_dir)
+    manifest_version = (
+        str(reference_manifest.get("version"))
+        if isinstance(reference_manifest, Mapping)
+        else None
+    )
     reference_coverage = _reference_url_coverage(reference_catalog)
     build_files: dict[Path, str] = {}
     index_entries: list[dict[str, object]] = []
@@ -1548,12 +1553,34 @@ def review_local_database(
                     "mode": payload.get("mode"),
                 }
             )
+            manifest_mismatch: str | None = None
+            payload_catalog_version = payload.get("reference_catalog_version")
+            if manifest_version:
+                if payload_catalog_version != manifest_version:
+                    manifest_mismatch = (
+                        "reference_catalog_version mancante"
+                        if payload_catalog_version is None
+                        else (
+                            "reference_catalog_version"
+                            f" {payload_catalog_version} diversa da {manifest_version}"
+                        )
+                    )
+            elif payload_catalog_version:
+                manifest_mismatch = (
+                    "reference_catalog_version presente ma manifest locale senza versione"
+                )
             validation_error = validate_with_schema(
                 schema_for_mode(payload.get("mode", DEFAULT_MODE)),
                 payload,
                 f"build {path.name}",
                 strict=strict,
             )
+            if manifest_mismatch:
+                validation_error = (
+                    manifest_mismatch
+                    if validation_error is None
+                    else f"{validation_error}; {manifest_mismatch}"
+                )
             sheet_payload = payload.get("export", {}).get(
                 "sheet_payload"
             ) or payload.get("sheet_payload")
@@ -4193,6 +4220,16 @@ async def fetch_build(
         )
     if reference_manifest is None:
         reference_manifest = get_reference_manifest(reference_dir)
+    manifest_version = (
+        str(reference_manifest.get("version"))
+        if isinstance(reference_manifest, Mapping)
+        else None
+    )
+    if manifest_version is None:
+        raise BuildFetchError(
+            "Manifest del catalogo di riferimento non disponibile o senza versione",
+            request=request,
+        )
 
     def _coerce_number(value: object) -> float | None:
         if isinstance(value, (int, float)):
@@ -4485,6 +4522,7 @@ async def fetch_build(
                 "build_state": payload.get("build_state"),
                 "benchmark": payload.get("benchmark"),
                 "export": payload.get("export"),
+                "reference_catalog_version": manifest_version,
             },
         }
         if narrative is not None:
@@ -4649,6 +4687,7 @@ async def fetch_build(
                 "class": request.class_name,
                 "mode": request.mode,
                 "source_url": source_url,
+                "reference_catalog_version": manifest_version,
                 "fetched_at": now_iso_utc(),
                 "request": active_request.metadata(),
                 "composite": composite,

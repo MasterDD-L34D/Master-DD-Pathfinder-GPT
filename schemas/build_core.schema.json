@@ -6,7 +6,8 @@
   "required": [
     "build_state",
     "benchmark",
-    "export"
+    "export",
+    "reference_catalog_version"
   ],
   "properties": {
     "build_state": {
@@ -47,6 +48,9 @@
         "null"
       ],
       "format": "uri"
+    },
+    "reference_catalog_version": {
+      "$ref": "#/$defs/reference_catalog_version"
     },
     "fetched_at": {
       "type": [
@@ -122,6 +126,11 @@
     }
   },
   "$defs": {
+    "reference_catalog_version": {
+      "type": "string",
+      "const": "2026.03.22",
+      "description": "Versione del catalogo RAW/SRD usato per la build, deve corrispondere a data/reference/manifest.json"
+    },
     "build_state": {
       "type": "object",
       "required": [
@@ -407,7 +416,8 @@
       "required": [
         "build_state",
         "benchmark",
-        "export"
+        "export",
+        "reference_catalog_version"
       ],
       "properties": {
         "build_state": {
@@ -418,6 +428,9 @@
         },
         "export": {
           "$ref": "#/$defs/export"
+        },
+        "reference_catalog_version": {
+          "$ref": "#/$defs/reference_catalog_version"
         },
         "sheet_payload": {
           "type": [

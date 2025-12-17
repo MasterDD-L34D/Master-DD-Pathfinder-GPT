@@ -27,6 +27,9 @@ from .config import MODULES_DIR, DATA_DIR, settings
 from tools.generate_build_db import schema_for_mode, validate_with_schema
 
 
+REFERENCE_MANIFEST_PATH = Path(__file__).resolve().parent.parent / "data" / "reference" / "manifest.json"
+
+
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     """Perform startup checks using FastAPI lifespan API."""
@@ -81,6 +84,24 @@ def _reset_failed_attempts() -> None:
     """Utility to clear the in-memory tracker (mainly for tests)."""
 
     _failed_attempts.clear()
+
+
+def _load_reference_manifest() -> Mapping[str, object]:
+    try:
+        manifest = json.loads(
+            REFERENCE_MANIFEST_PATH.read_text(encoding="utf-8")
+        )
+    except Exception as exc:  # pragma: no cover - safety net for missing fixtures
+        logging.error("Impossibile leggere il manifest di riferimento: %s", exc)
+        return {}
+
+    return manifest if isinstance(manifest, Mapping) else {}
+
+
+def _reference_catalog_version() -> str | None:
+    manifest = _load_reference_manifest()
+    version = manifest.get("version") if isinstance(manifest, Mapping) else None
+    return str(version) if version else None
 
 
 def _client_identifier(request: Request) -> str:
@@ -1480,6 +1501,18 @@ async def get_module_content(
             "currency": {"oro": 100, "argento": 25, "rame": 40},
         }
 
+        catalog_manifest = _load_reference_manifest()
+        catalog_version = (
+            str(catalog_manifest.get("version"))
+            if isinstance(catalog_manifest, Mapping)
+            else None
+        )
+        if not catalog_version:
+            raise HTTPException(
+                status_code=503,
+                detail="Reference catalog manifest non disponibile",
+            )
+
         payload: Dict = {
             "build_state": base_build_state,
             "benchmark": benchmark,
@@ -1489,6 +1522,8 @@ async def get_module_content(
             "ledger": ledger,
             "class": class_name,
             "mode": normalized_mode,
+            "reference_catalog_version": catalog_version,
+            "catalog_manifest": catalog_manifest,
         }
 
         payload["composite"] = {
@@ -1497,6 +1532,7 @@ async def get_module_content(
                 "benchmark": payload["benchmark"],
                 "export": payload["export"],
                 "sheet_payload": sheet_payload,
+                "reference_catalog_version": catalog_version,
             },
             "narrative": narrative,
             "sheet": payload["sheet"],
