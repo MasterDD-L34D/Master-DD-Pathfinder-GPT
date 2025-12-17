@@ -1058,6 +1058,26 @@
     ]
   },
   {
+    "name": "Colpo possente",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Forza 13"
+    ],
+    "tags": [
+      "combat",
+      "melee"
+    ],
+    "references": [
+      "Archives of Nethys: Power Attack",
+      "d20PFSRD: Power Attack"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Power%20Attack",
+      "https://www.d20pfsrd.com/feats/combat-feats/power-attack-combat/"
+    ]
+  },
+  {
     "name": "Precise Shot",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
