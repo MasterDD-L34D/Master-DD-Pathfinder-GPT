@@ -1636,7 +1636,7 @@
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "rogue_halfling_cutpurse",
       "class": "Rogue",
       "race": "Halfling",
@@ -1652,20 +1652,13 @@
         10
       ],
       "level": 5,
-      "error": "Elementi non presenti nel catalogo: feats:Schivare prodigioso",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Schivare prodigioso"
-      ],
-      "missing_catalog_entries": [
-        "feats:Schivare prodigioso"
-      ],
       "catalog_version": [
         "2026.03.01"
       ]
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "rogue_halfling_cutpurse",
       "class": "Rogue",
       "race": "Halfling",
@@ -1681,15 +1674,6 @@
         10
       ],
       "level": 10,
-      "error": "Elementi non presenti nel catalogo: feats:Arma accurata superiore, feats:Schivare prodigioso, feats:Talento ladresco: Opportunista",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Arma accurata superiore, feats:Schivare prodigioso, feats:Talento ladresco: Opportunista"
-      ],
-      "missing_catalog_entries": [
-        "feats:Arma accurata superiore",
-        "feats:Schivare prodigioso",
-        "feats:Talento ladresco: Opportunista"
-      ],
       "catalog_version": [
         "2026.03.01"
       ]

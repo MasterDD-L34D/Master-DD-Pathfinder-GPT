@@ -118,7 +118,7 @@
         "Arma focalizzata (pugnale)",
         "Combattere con due armi",
         "Schivare",
-        "Schivare prodigioso"
+        "Iniziativa migliorata"
       ],
       "capacita_classe": [
         "Attacco furtivo +1d6",
@@ -193,7 +193,7 @@
             "PF 18 | TS +3/+5/+1 | CA 19"
           ],
           "talenti": [
-            "Schivare prodigioso"
+            "Iniziativa migliorata"
           ]
         },
         {
@@ -389,7 +389,7 @@
       "Arma focalizzata (pugnale)",
       "Combattere con due armi",
       "Schivare",
-      "Schivare prodigioso"
+      "Iniziativa migliorata"
     ],
     "capacita_classe": [
       "Attacco furtivo +1d6",
@@ -472,7 +472,7 @@
           "PF 18 | TS +3/+5/+1 | CA 19"
         ],
         "talenti": [
-          "Schivare prodigioso"
+          "Iniziativa migliorata"
         ]
       },
       {
@@ -654,7 +654,7 @@
             "Arma focalizzata (pugnale)",
             "Combattere con due armi",
             "Schivare",
-            "Schivare prodigioso"
+            "Iniziativa migliorata"
           ],
           "capacita_classe": [
             "Attacco furtivo +1d6",
@@ -729,7 +729,7 @@
                 "PF 18 | TS +3/+5/+1 | CA 19"
               ],
               "talenti": [
-                "Schivare prodigioso"
+                "Iniziativa migliorata"
               ]
             },
             {
@@ -904,7 +904,7 @@
         "Arma focalizzata (pugnale)",
         "Combattere con due armi",
         "Schivare",
-        "Schivare prodigioso"
+        "Iniziativa migliorata"
       ],
       "capacita_classe": [
         "Attacco furtivo +1d6",
@@ -987,7 +987,7 @@
             "PF 18 | TS +3/+5/+1 | CA 19"
           ],
           "talenti": [
-            "Schivare prodigioso"
+            "Iniziativa migliorata"
           ]
         },
         {
@@ -1105,7 +1105,7 @@
           "Arma focalizzata (pugnale)",
           "Combattere con due armi",
           "Schivare",
-          "Schivare prodigioso"
+          "Iniziativa migliorata"
         ],
         "hr_sources": null,
         "meta_sources": null,
