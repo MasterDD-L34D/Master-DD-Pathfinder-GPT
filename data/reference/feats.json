@@ -1138,6 +1138,48 @@
     ]
   },
   {
+    "name": "Superstition",
+    "source": "Advanced Player's Guide",
+    "source_id": "APG",
+    "prerequisites": [
+      "rage class feature"
+    ],
+    "tags": [
+      "rage",
+      "barbarian"
+    ],
+    "references": [
+      "Archives of Nethys: Superstition",
+      "d20PFSRD: Superstition"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/RagePowers.aspx?RagePower=Superstition",
+      "https://www.d20pfsrd.com/classes/core-classes/barbarian/rage-powers/paizo-rage-powers/superstition-ex/"
+    ]
+  },
+  {
+    "name": "Come and Get Me",
+    "source": "Advanced Player's Guide",
+    "source_id": "APG",
+    "prerequisites": [
+      "rage class feature",
+      "Barbarian level 12",
+      "Superstition"
+    ],
+    "tags": [
+      "rage",
+      "barbarian"
+    ],
+    "references": [
+      "Archives of Nethys: Come and Get Me",
+      "d20PFSRD: Come and Get Me"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/RagePowers.aspx?RagePower=Come%20and%20Get%20Me",
+      "https://www.d20pfsrd.com/classes/core-classes/barbarian/rage-powers/paizo-rage-powers/come-and-get-me-ex/"
+    ]
+  },
+  {
     "name": "Rapid Shot",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",

@@ -117,11 +117,11 @@
       },
       "notes": "Variante colosso-ira selezionata dopo confronto con build DES e difensiva.",
       "talenti": [
-        "Attacco Poderoso",
+        "Power Attack",
         "Furious Focus",
         "Raging Vitality",
         "Superstition",
-        "Come and Get Me",
+        "Improved Initiative",
         "Dodge"
       ],
       "capacita_classe": [
@@ -349,11 +349,11 @@
           },
           "notes": "Variante colosso-ira selezionata dopo confronto con build DES e difensiva.",
           "talenti": [
-            "Attacco Poderoso",
+            "Power Attack",
             "Furious Focus",
             "Raging Vitality",
             "Superstition",
-            "Come and Get Me",
+            "Improved Initiative",
             "Dodge"
           ],
           "capacita_classe": [
