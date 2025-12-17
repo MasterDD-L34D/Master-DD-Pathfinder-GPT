@@ -54,8 +54,7 @@
                   "$ref": "scheda_pg.schema.json",
                   "description": "Contesto opzionale per il template scheda_pg_markdown_template.md"
                 }
-              },
-              "additionalProperties": false
+              }
             }
           ]
         },
