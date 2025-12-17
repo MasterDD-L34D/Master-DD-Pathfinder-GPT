@@ -40231,6 +40231,26 @@
     ]
   },
   {
+    "name": "Spell Focus (maledizioni)",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [],
+    "tags": [
+      "magic",
+      "spellcasting",
+      "focus",
+      "curse"
+    ],
+    "references": [
+      "Archives of Nethys: Spell Focus",
+      "d20PFSRD: Spell Focus"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Spell%20Focus",
+      "https://www.d20pfsrd.com/feats/general-feats/spell-focus/"
+    ]
+  },
+  {
     "name": "Spell Focus (necromanzia)",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
