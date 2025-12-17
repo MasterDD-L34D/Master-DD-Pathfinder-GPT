@@ -2336,6 +2336,138 @@
     "reference_urls": []
   },
   {
+    "name": "Longsword, Flaming +1",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Craft Magic Arms and Armor",
+      "flame blade"
+    ],
+    "tags": [
+      "weapon",
+      "enhancement"
+    ],
+    "references": [
+      "Archives of Nethys: Longsword, Flaming +1",
+      "d20PFSRD: Flaming Weapon Special Ability"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/MagicWeaponsDisplay.aspx?FinalName=Flaming%20Longsword%2C%20+1",
+      "https://www.d20pfsrd.com/magic-items/magic-weapons/specific-magic-weapons/flaming-longsword/"
+    ]
+  },
+  {
+    "name": "Mithral Chain Shirt +1",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Craft Magic Arms and Armor",
+      "magic vestment"
+    ],
+    "tags": [
+      "armor",
+      "enhancement"
+    ],
+    "references": [
+      "Archives of Nethys: Mithral Chain Shirt +1",
+      "d20PFSRD: Mithral Chain Shirt"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/MagicArmorDisplay.aspx?FinalName=Mithral%20Chain%20Shirt%2C%20+1",
+      "https://www.d20pfsrd.com/magic-items/magic-armor/specific-magic-armor/mithral-chain-shirt/"
+    ]
+  },
+  {
+    "name": "Headband of Mental Prowess +2 (Int/Cha)",
+    "source": "Pathfinder Ultimate Equipment",
+    "source_id": "UE",
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "fox's cunning",
+      "eagle's splendor"
+    ],
+    "tags": [
+      "wondrous",
+      "slot:headband",
+      "enhancement"
+    ],
+    "references": [
+      "Archives of Nethys: Headband of Mental Prowess",
+      "d20PFSRD: Headband of Mental Prowess"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/MagicWondrousDisplay.aspx?ItemName=Headband%20of%20Mental%20Prowess%20%2B2",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/headband-of-mental-prowess/"
+    ]
+  },
+  {
+    "name": "Belt of Physical Might +2 (Str/Con)",
+    "source": "Pathfinder Ultimate Equipment",
+    "source_id": "UE",
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "bull's strength",
+      "bear's endurance"
+    ],
+    "tags": [
+      "wondrous",
+      "slot:belt",
+      "enhancement"
+    ],
+    "references": [
+      "Archives of Nethys: Belt of Physical Might",
+      "d20PFSRD: Belt of Physical Might"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/MagicWondrousDisplay.aspx?ItemName=Belt%20of%20Physical%20Might%20%2B2",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/belts/belt-of-physical-might/"
+    ]
+  },
+  {
+    "name": "Potion of Invisibility",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Brew Potion",
+      "invisibility"
+    ],
+    "tags": [
+      "consumable",
+      "potion"
+    ],
+    "references": [
+      "Archives of Nethys: Potion of Invisibility",
+      "d20PFSRD: Potion of Invisibility"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/EquipmentMiscellaneousDisplay.aspx?ItemName=Potion%20of%20Invisibility",
+      "https://www.d20pfsrd.com/magic-items/potions/potion-of-invisibility/"
+    ]
+  },
+  {
+    "name": "Vigilante Mask",
+    "source": "Pathfinder Ultimate Intrigue",
+    "source_id": "UI",
+    "prerequisites": [
+      "Craft Wondrous Item",
+      "disguise self"
+    ],
+    "tags": [
+      "wondrous",
+      "slot:head",
+      "archetype",
+      "class:vigilante"
+    ],
+    "references": [
+      "Archives of Nethys: Vigilante Mask",
+      "d20PFSRD: Vigilante Mask"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/MagicWondrousDisplay.aspx?ItemName=Vigilante%20Mask",
+      "https://www.d20pfsrd.com/magic-items/wondrous-items/r-z/vigilante-mask/"
+    ]
+  },
+  {
     "name": "Potion of Cure Light Wounds",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
