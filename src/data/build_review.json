@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-17T02:34:31Z",
+  "generated_at": "2025-12-17T02:44:47Z",
   "builds": {
     "total": 93,
-    "valid": 68,
-    "invalid": 25,
+    "valid": 71,
+    "invalid": 22,
     "errors": 0,
     "missing": 0,
     "entries": [
@@ -12,7 +12,7 @@
         "class": "Alchemist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -30,7 +30,7 @@
         "class": "Alchemist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 5,
@@ -48,7 +48,7 @@
         "class": "Alchemist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 10,
@@ -66,7 +66,7 @@
         "class": "Alchemist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -84,7 +84,7 @@
         "class": "Alchemist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 5,
@@ -102,7 +102,7 @@
         "class": "Alchemist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 10,
@@ -123,7 +123,7 @@
           "feats:Spell Focus (maledizioni)"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Elementi non presenti nel catalogo: feats:Spell Focus (maledizioni)"
@@ -145,7 +145,7 @@
         "class": "Arcanist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 5,
@@ -163,7 +163,7 @@
         "class": "Arcanist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 10,
@@ -184,7 +184,7 @@
           "Furious Focus: Power Attack"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Furious Focus: Power Attack"
@@ -212,7 +212,7 @@
           "Furious Focus: Power Attack"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Elementi non presenti nel catalogo: feats:Superstition",
@@ -242,7 +242,7 @@
           "Furious Focus: Power Attack"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Elementi non presenti nel catalogo: feats:Come and Get Me, feats:Superstition",
@@ -264,19 +264,10 @@
         "file": "src/data/builds/bard_kitsune_sound_striker_sandman.json",
         "class": "Bard",
         "mode": "extended",
-        "missing_catalog_entries": [
-          "feats:Armonia Letale (Sound Striker)",
-          "feats:Focalizzazione Abilità: Intrattenere",
-          "feats:Scacciare Sogni (Sandman)"
-        ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Armonia Letale (Sound Striker), feats:Focalizzazione Abilità: Intrattenere, feats:Scacciare Sogni (Sandman)"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Armonia Letale (Sound Striker), feats:Focalizzazione Abilità: Intrattenere, feats:Scacciare Sogni (Sandman)",
-        "status": "invalid",
+        "status": "ok",
         "output_prefix": "bard_kitsune_sound_striker_sandman",
         "level_checkpoints": [
           1,
@@ -290,18 +281,10 @@
         "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl05.json",
         "class": "Bard",
         "mode": "extended",
-        "missing_catalog_entries": [
-          "feats:Focus: Suoni di Sabbia",
-          "feats:Melodic Casting"
-        ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Focus: Suoni di Sabbia, feats:Melodic Casting"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Focus: Suoni di Sabbia, feats:Melodic Casting",
-        "status": "invalid",
+        "status": "ok",
         "level": 5,
         "output_prefix": "bard_kitsune_sound_striker_sandman",
         "level_checkpoints": [
@@ -316,17 +299,10 @@
         "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json",
         "class": "Bard",
         "mode": "extended",
-        "missing_catalog_entries": [
-          "feats:Discordant Voice"
-        ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Discordant Voice"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Discordant Voice",
-        "status": "invalid",
+        "status": "ok",
         "level": 10,
         "output_prefix": "bard_kitsune_sound_striker_sandman",
         "level_checkpoints": [
@@ -342,7 +318,7 @@
         "class": "Bloodrager",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -360,7 +336,7 @@
         "class": "Bloodrager",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 5,
@@ -378,7 +354,7 @@
         "class": "Bloodrager",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 10,
@@ -404,7 +380,7 @@
           "Pozione di cura"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
@@ -435,7 +411,7 @@
           "Pozione di cura"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
@@ -466,7 +442,7 @@
           "Pozione di cura"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
@@ -489,7 +465,7 @@
         "class": "Cavalier",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -507,7 +483,7 @@
         "class": "Cavalier",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 5,
@@ -525,7 +501,7 @@
         "class": "Cavalier",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 10,
@@ -543,7 +519,7 @@
         "class": "Cleric",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -561,7 +537,7 @@
         "class": "Cleric",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 5,
@@ -579,7 +555,7 @@
         "class": "Cleric",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 10,
@@ -597,7 +573,7 @@
         "class": "Druid",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -618,7 +594,7 @@
           "feats:Incantesimi naturali"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Elementi non presenti nel catalogo: feats:Incantesimi naturali"
@@ -644,7 +620,7 @@
           "feats:Incantesimi naturali"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Elementi non presenti nel catalogo: feats:Critico migliorato (artiglio), feats:Incantesimi naturali"
@@ -666,7 +642,7 @@
         "class": "Druid",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "druid_wayang_mooncaller_shapeshifter",
@@ -683,7 +659,7 @@
         "class": "Druid",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "druid_wayang_mooncaller_shapeshifter",
@@ -700,7 +676,7 @@
         "class": "Druid",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "druid_wayang_mooncaller_shapeshifter",
@@ -717,7 +693,7 @@
         "class": "Fighter",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -735,7 +711,7 @@
         "class": "Fighter",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 5,
@@ -753,7 +729,7 @@
         "class": "Fighter",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 10,
@@ -771,7 +747,7 @@
         "class": "Gunslinger",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "gunslinger_strix_gun_tank",
@@ -788,7 +764,7 @@
         "class": "Gunslinger",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "gunslinger_strix_gun_tank",
@@ -805,7 +781,7 @@
         "class": "Gunslinger",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "gunslinger_strix_gun_tank",
@@ -822,7 +798,7 @@
         "class": "Gunslinger",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "gunslinger_tengu_pistolero_bolt_ace",
@@ -839,7 +815,7 @@
         "class": "Gunslinger",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "gunslinger_tengu_pistolero_bolt_ace",
@@ -856,7 +832,7 @@
         "class": "Gunslinger",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "gunslinger_tengu_pistolero_bolt_ace",
@@ -873,7 +849,7 @@
         "class": "Hunter",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "hunter_kasatha_packmaster",
@@ -890,7 +866,7 @@
         "class": "Hunter",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "hunter_kasatha_packmaster",
@@ -907,7 +883,7 @@
         "class": "Hunter",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "hunter_kasatha_packmaster",
@@ -924,7 +900,7 @@
         "class": "Inquisitor",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",
@@ -941,7 +917,7 @@
         "class": "Inquisitor",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",
@@ -958,7 +934,7 @@
         "class": "Inquisitor",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",
@@ -983,7 +959,7 @@
           "Pozione di cura"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
@@ -1014,7 +990,7 @@
           "Pozione di cura"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
@@ -1045,7 +1021,7 @@
           "Pozione di cura"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
@@ -1068,7 +1044,7 @@
         "class": "Kineticist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "kineticist_strix_kinetic_knight_overwhelming_soul_guardia_alata_delle_cittadelle_strix",
@@ -1085,7 +1061,7 @@
         "class": "Kineticist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "kineticist_strix_kinetic_knight_overwhelming_soul_guardia_alata_delle_cittadelle_strix",
@@ -1102,7 +1078,7 @@
         "class": "Kineticist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "kineticist_strix_kinetic_knight_overwhelming_soul_guardia_alata_delle_cittadelle_strix",
@@ -1119,7 +1095,7 @@
         "class": "Kineticist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "kineticist_suli_kinetic_knight_overwhelming_soul_guardia_delle_carovane_dell_oasi_suli",
@@ -1136,7 +1112,7 @@
         "class": "Kineticist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "kineticist_suli_kinetic_knight_overwhelming_soul_guardia_delle_carovane_dell_oasi_suli",
@@ -1153,7 +1129,7 @@
         "class": "Kineticist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "kineticist_suli_kinetic_knight_overwhelming_soul_guardia_delle_carovane_dell_oasi_suli",
@@ -1170,7 +1146,7 @@
         "class": "Magus",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "magus_kitsune_bladebound_hexcrafter",
@@ -1187,7 +1163,7 @@
         "class": "Magus",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "magus_kitsune_bladebound_hexcrafter",
@@ -1204,7 +1180,7 @@
         "class": "Magus",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "magus_kitsune_bladebound_hexcrafter",
@@ -1221,7 +1197,7 @@
         "class": "Medium",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
@@ -1238,7 +1214,7 @@
         "class": "Medium",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
@@ -1255,7 +1231,7 @@
         "class": "Medium",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
@@ -1272,7 +1248,7 @@
         "class": "Monk",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -1295,7 +1271,7 @@
           "Tiger Claws: Tiger Style"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Crane Wing: Crane Style, Mobility: Dodge, Tiger Claws: Tiger Style"
@@ -1324,7 +1300,7 @@
           "Spring Attack: Mobility"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Crane Riposte: Crane Wing, Dragon Ferocity: Dragon Style, Dragon Ferocity: Power Attack, Spring Attack: Dodge, Spring Attack: Mobility"
@@ -1346,7 +1322,7 @@
         "class": "Paladin",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
@@ -1363,7 +1339,7 @@
         "class": "Paladin",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
@@ -1380,7 +1356,7 @@
         "class": "Paladin",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
@@ -1397,7 +1373,7 @@
         "class": "Rogue",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -1418,7 +1394,7 @@
           "feats:Schivare prodigioso"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Elementi non presenti nel catalogo: feats:Schivare prodigioso"
@@ -1445,7 +1421,7 @@
           "feats:Talento ladresco: Opportunista"
         ],
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "completeness_errors": [
           "Elementi non presenti nel catalogo: feats:Arma accurata superiore, feats:Schivare prodigioso, feats:Talento ladresco: Opportunista"
@@ -1467,7 +1443,7 @@
         "class": "Cleric",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 1,
@@ -1485,7 +1461,7 @@
         "class": "Cleric",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 5,
@@ -1503,7 +1479,7 @@
         "class": "Cleric",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "level": 10,
@@ -1521,7 +1497,7 @@
         "class": "Mesmerist",
         "mode": null,
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid",
@@ -1539,7 +1515,7 @@
         "class": "Mesmerist",
         "mode": null,
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid",
@@ -1557,7 +1533,7 @@
         "class": "Mesmerist",
         "mode": null,
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid",
@@ -1575,7 +1551,7 @@
         "class": "Occultist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "occultist_ghoran_battle_host_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
@@ -1592,7 +1568,7 @@
         "class": "Occultist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "occultist_ghoran_battle_host_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
@@ -1609,7 +1585,7 @@
         "class": "Occultist",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "occultist_ghoran_battle_host_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
@@ -1626,7 +1602,7 @@
         "class": "Oracle",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "oracle_ghoran_spirit_guide_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
@@ -1643,7 +1619,7 @@
         "class": "Oracle",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "oracle_ghoran_spirit_guide_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
@@ -1660,7 +1636,7 @@
         "class": "Oracle",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "oracle_ghoran_spirit_guide_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
@@ -1677,7 +1653,7 @@
         "class": "Paladin",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
@@ -1694,7 +1670,7 @@
         "class": "Paladin",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
@@ -1711,7 +1687,7 @@
         "class": "Paladin",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
@@ -1728,7 +1704,7 @@
         "class": "Witch",
         "mode": null,
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid",
@@ -1746,7 +1722,7 @@
         "class": "Witch",
         "mode": null,
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid",
@@ -1764,7 +1740,7 @@
         "class": "Witch",
         "mode": null,
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid",
@@ -1782,7 +1758,7 @@
         "class": "Witch",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
@@ -1799,7 +1775,7 @@
         "class": "Witch",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
@@ -1816,7 +1792,7 @@
         "class": "Witch",
         "mode": "extended",
         "catalog_version": [
-          "2026.02.25"
+          "2026.03.01"
         ],
         "status": "ok",
         "output_prefix": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
@@ -1838,15 +1814,15 @@
       },
       "5": {
         "total": 15,
-        "invalid": 7,
-        "schema_errors": 7,
-        "completeness_errors": 7
+        "invalid": 6,
+        "schema_errors": 6,
+        "completeness_errors": 6
       },
       "10": {
         "total": 15,
-        "invalid": 7,
-        "schema_errors": 7,
-        "completeness_errors": 7
+        "invalid": 6,
+        "schema_errors": 6,
+        "completeness_errors": 6
       }
     }
   },
@@ -1950,12 +1926,14 @@
     ]
   },
   "reference_urls": {
-    "total": 385,
-    "aon": 182,
-    "d20_only": 0,
-    "missing_aon_entries": [],
-    "aon_ratio": 0.473,
-    "status": "ok"
+    "total": 391,
+    "aon": 187,
+    "d20_only": 1,
+    "missing_aon_entries": [
+      "feats:Focus: Suoni di Sabbia"
+    ],
+    "aon_ratio": 0.478,
+    "status": "invalid"
   },
   "build_index": "src/data/build_index.json",
   "module_index": "src/data/module_index.json"
