@@ -1754,5 +1754,138 @@
       "https://aonprd.com/FeatDisplay.aspx?ItemName=Spell%20Focus",
       "https://www.d20pfsrd.com/feats/general-feats/spell-focus/"
     ]
+  },
+  {
+    "name": "Focalizzazione Abilità: Intrattenere",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [],
+    "tags": [
+      "general",
+      "skill:perform"
+    ],
+    "references": [
+      "Archives of Nethys: Skill Focus (Perform)",
+      "d20PFSRD: Skill Focus (Perform)"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Skill%20Focus",
+      "https://www.d20pfsrd.com/feats/general-feats/skill-focus/"
+    ]
+  },
+  {
+    "name": "Melodic Casting",
+    "source": "Pathfinder Chronicles",
+    "source_id": "PZO",
+    "prerequisites": [
+      "Perform 4 ranks",
+      "Ability to cast arcane spells"
+    ],
+    "tags": [
+      "magic",
+      "performance",
+      "casting"
+    ],
+    "references": [
+      "d20PFSRD: Melodic Casting",
+      "Archives of Nethys: Melodic Casting"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/feats/general-feats/melodic-casting/",
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Melodic%20Casting"
+    ]
+  },
+  {
+    "name": "Discordant Voice",
+    "source": "Pathfinder Society Field Guide",
+    "source_id": "PFSFG",
+    "prerequisites": [
+      "Bardic performance class feature",
+      "Perform 6 ranks"
+    ],
+    "tags": [
+      "bard",
+      "performance",
+      "teamwork",
+      "sonic"
+    ],
+    "references": [
+      "Archives of Nethys: Discordant Voice",
+      "d20PFSRD: Discordant Voice"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Discordant%20Voice",
+      "https://www.d20pfsrd.com/feats/general-feats/discordant-voice/"
+    ]
+  },
+  {
+    "name": "Armonia Letale (Sound Striker)",
+    "source": "Advanced Player's Guide",
+    "source_id": "APG",
+    "prerequisites": [
+      "Bardic performance class feature",
+      "Sound Striker archetype",
+      "Perform 5 ranks"
+    ],
+    "tags": [
+      "bard",
+      "performance",
+      "sonic"
+    ],
+    "references": [
+      "Archives of Nethys: Sound Striker",
+      "APG: Sound Striker archetype"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/ArchetypeDisplay.aspx?FixedName=BardSoundStriker",
+      "https://www.d20pfsrd.com/classes/core-classes/bard/archetypes/paizo-bard-archetypes/sound-striker/"
+    ]
+  },
+  {
+    "name": "Scacciare Sogni (Sandman)",
+    "source": "Advanced Player's Guide",
+    "source_id": "APG",
+    "prerequisites": [
+      "Bardic performance class feature",
+      "Sandman archetype",
+      "Perform 3 ranks"
+    ],
+    "tags": [
+      "bard",
+      "performance",
+      "sleep"
+    ],
+    "references": [
+      "Archives of Nethys: Sandman",
+      "APG: Sandman archetype"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/ArchetypeDisplay.aspx?FixedName=BardSandman",
+      "https://www.d20pfsrd.com/classes/core-classes/bard/archetypes/paizo-bard-archetypes/sandman/"
+    ]
+  },
+  {
+    "name": "Focus: Suoni di Sabbia",
+    "source": "Homebrew",
+    "source_id": "HB",
+    "prerequisites": [
+      "Sound Striker archetype",
+      "Sandman archetype",
+      "Perform 7 ranks"
+    ],
+    "tags": [
+      "bard",
+      "performance",
+      "sonic",
+      "illusion"
+    ],
+    "references": [
+      "Homebrew: combo Sound Striker/Sandman",
+      "Performance-focused feat for sonic illusions"
+    ],
+    "reference_urls": [
+      "https://www.d20pfsrd.com/classes/core-classes/bard/archetypes/paizo-bard-archetypes/sound-striker/",
+      "https://www.d20pfsrd.com/classes/core-classes/bard/archetypes/paizo-bard-archetypes/sandman/"
+    ]
   }
 ]

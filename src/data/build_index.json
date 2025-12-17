@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-17T02:34:31Z",
+  "generated_at": "2025-12-17T02:44:47Z",
   "entries": [
     {
       "file": "src/data/builds/alchemist-goblin-vivisectionist.json",
@@ -20,7 +20,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -42,7 +42,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -64,7 +64,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -86,7 +86,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -108,7 +108,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -130,7 +130,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -159,7 +159,7 @@
         "feats:Spell Focus (maledizioni)"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -181,7 +181,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -203,7 +203,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -232,7 +232,7 @@
         "Furious Focus: Power Attack"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -265,7 +265,7 @@
         "Furious Focus: Power Attack"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -299,12 +299,12 @@
         "Furious Focus: Power Attack"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "bard_kitsune_sound_striker_sandman",
       "class": "Bard",
       "race": "Kitsune",
@@ -319,22 +319,13 @@
         5,
         10
       ],
-      "error": "Elementi non presenti nel catalogo: feats:Armonia Letale (Sound Striker), feats:Focalizzazione Abilità: Intrattenere, feats:Scacciare Sogni (Sandman)",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Armonia Letale (Sound Striker), feats:Focalizzazione Abilità: Intrattenere, feats:Scacciare Sogni (Sandman)"
-      ],
-      "missing_catalog_entries": [
-        "feats:Armonia Letale (Sound Striker)",
-        "feats:Focalizzazione Abilità: Intrattenere",
-        "feats:Scacciare Sogni (Sandman)"
-      ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "bard_kitsune_sound_striker_sandman",
       "class": "Bard",
       "race": "Kitsune",
@@ -350,21 +341,13 @@
         10
       ],
       "level": 5,
-      "error": "Elementi non presenti nel catalogo: feats:Focus: Suoni di Sabbia, feats:Melodic Casting",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Focus: Suoni di Sabbia, feats:Melodic Casting"
-      ],
-      "missing_catalog_entries": [
-        "feats:Focus: Suoni di Sabbia",
-        "feats:Melodic Casting"
-      ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "bard_kitsune_sound_striker_sandman",
       "class": "Bard",
       "race": "Kitsune",
@@ -380,15 +363,8 @@
         10
       ],
       "level": 10,
-      "error": "Elementi non presenti nel catalogo: feats:Discordant Voice",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Discordant Voice"
-      ],
-      "missing_catalog_entries": [
-        "feats:Discordant Voice"
-      ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -410,7 +386,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -432,7 +408,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -454,7 +430,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -489,7 +465,7 @@
         "Pozione di cura"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -524,7 +500,7 @@
         "Pozione di cura"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -559,7 +535,7 @@
         "Pozione di cura"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -581,7 +557,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -603,7 +579,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -625,7 +601,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -647,7 +623,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -669,7 +645,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -691,7 +667,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -713,7 +689,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -742,7 +718,7 @@
         "feats:Incantesimi naturali"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -772,7 +748,7 @@
         "feats:Incantesimi naturali"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -793,7 +769,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -814,7 +790,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -835,7 +811,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -857,7 +833,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -879,7 +855,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -901,7 +877,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -922,7 +898,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -943,7 +919,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -964,7 +940,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -985,7 +961,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1006,7 +982,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1027,7 +1003,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1048,7 +1024,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1069,7 +1045,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1090,7 +1066,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1111,7 +1087,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1132,7 +1108,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1153,7 +1129,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1188,7 +1164,7 @@
         "Pozione di cura"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1223,7 +1199,7 @@
         "Pozione di cura"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1258,7 +1234,7 @@
         "Pozione di cura"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1279,7 +1255,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1300,7 +1276,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1321,7 +1297,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1342,7 +1318,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1363,7 +1339,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1384,7 +1360,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1405,7 +1381,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1426,7 +1402,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1447,7 +1423,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1468,7 +1444,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1489,7 +1465,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1510,7 +1486,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1532,7 +1508,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1563,7 +1539,7 @@
         "Tiger Claws: Tiger Style"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1596,7 +1572,7 @@
         "Spring Attack: Mobility"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1617,7 +1593,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1638,7 +1614,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1659,7 +1635,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1681,7 +1657,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1710,7 +1686,7 @@
         "feats:Schivare prodigioso"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1741,7 +1717,7 @@
         "feats:Talento ladresco: Opportunista"
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1763,7 +1739,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1785,7 +1761,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1807,7 +1783,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1829,7 +1805,7 @@
       ],
       "error": "'sheet_payload' is a required property; 'composite' is a required property",
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1851,7 +1827,7 @@
       ],
       "error": "'sheet_payload' is a required property; 'composite' is a required property",
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1873,7 +1849,7 @@
       ],
       "error": "'sheet_payload' is a required property; 'composite' is a required property",
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1894,7 +1870,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1915,7 +1891,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1936,7 +1912,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1957,7 +1933,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1978,7 +1954,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -1999,7 +1975,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -2020,7 +1996,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -2041,7 +2017,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -2062,7 +2038,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -2084,7 +2060,7 @@
       ],
       "error": "'sheet_payload' is a required property; 'composite' is a required property",
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -2106,7 +2082,7 @@
       ],
       "error": "'sheet_payload' is a required property; 'composite' is a required property",
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -2128,7 +2104,7 @@
       ],
       "error": "'sheet_payload' is a required property; 'composite' is a required property",
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -2149,7 +2125,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -2170,7 +2146,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     },
     {
@@ -2191,7 +2167,7 @@
         10
       ],
       "catalog_version": [
-        "2026.02.25"
+        "2026.03.01"
       ]
     }
   ],
@@ -2204,15 +2180,15 @@
     },
     "5": {
       "total": 15,
-      "invalid": 7,
-      "schema_errors": 7,
-      "completeness_errors": 7
+      "invalid": 6,
+      "schema_errors": 6,
+      "completeness_errors": 6
     },
     "10": {
       "total": 15,
-      "invalid": 7,
-      "schema_errors": 7,
-      "completeness_errors": 7
+      "invalid": 6,
+      "schema_errors": 6,
+      "completeness_errors": 6
     }
   }
 }
