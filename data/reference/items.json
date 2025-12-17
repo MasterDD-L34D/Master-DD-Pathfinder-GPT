@@ -3516,5 +3516,45 @@
       "https://aonprd.com/WondrousDisplay.aspx?ItemName=Bag%20of%20Holding%20Type%20III",
       "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/bag-of-holding/"
     ]
+  },
+  {
+    "name": "Borsa di monete",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [],
+    "tags": [
+      "gear",
+      "container",
+      "equipment",
+      "nonmagical"
+    ],
+    "references": [
+      "d20PFSRD: Belt Pouch",
+      "https://www.d20pfsrd.com/equipment/goods-and-services/containers-bags/#TOC-Pouch-belt"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/EquipmentMiscellaneousDisplay.aspx?ItemName=Pouch%20belt",
+      "https://www.d20pfsrd.com/equipment/goods-and-services/containers-bags/#TOC-Pouch-belt"
+    ]
+  },
+  {
+    "name": "Pozione di cura",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [],
+    "tags": [
+      "potion",
+      "consumable",
+      "healing",
+      "srd"
+    ],
+    "references": [
+      "d20PFSRD: Potion of Cure Light Wounds",
+      "https://www.d20pfsrd.com/magic-items/potions/potion-of-cure-light-wounds/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/EquipmentMiscellaneousDisplay.aspx?ItemName=Potion%20of%20Cure%20Light%20Wounds",
+      "https://www.d20pfsrd.com/magic-items/potions/potion-of-cure-light-wounds/"
+    ]
   }
 ]
