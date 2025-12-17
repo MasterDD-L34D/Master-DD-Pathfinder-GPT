@@ -4,7 +4,7 @@
   "files": {
     "spells": {
       "path": "data/reference/spells.json",
-      "entries": 18
+      "entries": 52
     },
     "feats": {
       "path": "data/reference/feats.json",
