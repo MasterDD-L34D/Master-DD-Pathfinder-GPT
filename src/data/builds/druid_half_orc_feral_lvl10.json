@@ -124,7 +124,7 @@
         "Abilità focalizzata (Sopravvivenza)",
         "Incantesimi naturali",
         "Robustezza",
-        "Critico migliorato (artiglio)",
+        "Arma focalizzata (artiglio)",
         "Schivare",
         "Colpo vitale"
       ],
@@ -234,7 +234,7 @@
             "Forma selvatica (scurovisione)"
           ],
           "talenti": [
-            "Critico migliorato (artiglio)"
+            "Arma focalizzata (artiglio)"
           ]
         },
         {
