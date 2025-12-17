@@ -211,5 +211,7 @@
     1,
     5,
     10
-  ]
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended"
 }
