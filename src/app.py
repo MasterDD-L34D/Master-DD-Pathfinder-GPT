@@ -27,7 +27,9 @@ from .config import MODULES_DIR, DATA_DIR, settings
 from tools.generate_build_db import schema_for_mode, validate_with_schema
 
 
-REFERENCE_MANIFEST_PATH = Path(__file__).resolve().parent.parent / "data" / "reference" / "manifest.json"
+REFERENCE_MANIFEST_PATH = (
+    Path(__file__).resolve().parent.parent / "data" / "reference" / "manifest.json"
+)
 
 
 @asynccontextmanager
@@ -88,9 +90,7 @@ def _reset_failed_attempts() -> None:
 
 def _load_reference_manifest() -> Mapping[str, object]:
     try:
-        manifest = json.loads(
-            REFERENCE_MANIFEST_PATH.read_text(encoding="utf-8")
-        )
+        manifest = json.loads(REFERENCE_MANIFEST_PATH.read_text(encoding="utf-8"))
     except Exception as exc:  # pragma: no cover - safety net for missing fixtures
         logging.error("Impossibile leggere il manifest di riferimento: %s", exc)
         return {}

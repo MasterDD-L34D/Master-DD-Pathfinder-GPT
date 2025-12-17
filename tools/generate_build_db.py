@@ -1566,9 +1566,7 @@ def review_local_database(
                         )
                     )
             elif payload_catalog_version:
-                manifest_mismatch = (
-                    "reference_catalog_version presente ma manifest locale senza versione"
-                )
+                manifest_mismatch = "reference_catalog_version presente ma manifest locale senza versione"
             validation_error = validate_with_schema(
                 schema_for_mode(payload.get("mode", DEFAULT_MODE)),
                 payload,
