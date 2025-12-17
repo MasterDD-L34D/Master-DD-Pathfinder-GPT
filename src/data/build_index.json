@@ -1,8 +1,5 @@
 {
-  "generated_at": "2025-12-17T03:49:45Z",
-  "api_url": null,
-  "mode": null,
-  "spec_file": null,
+  "generated_at": "2025-12-17T11:19:53Z",
   "entries": [
     {
       "file": "src/data/builds/alchemist-goblin-vivisectionist.json",
@@ -23,7 +20,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -45,7 +42,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -67,7 +64,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -89,7 +86,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -111,7 +108,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -133,12 +130,12 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "arcanist_tiefling_hexcrafter_blood_arcanist",
       "class": "Arcanist",
       "race": "Tiefling",
@@ -154,15 +151,8 @@
         10
       ],
       "level": 1,
-      "error": "Elementi non presenti nel catalogo: feats:Spell Focus (maledizioni)",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Spell Focus (maledizioni)"
-      ],
-      "missing_catalog_entries": [
-        "feats:Spell Focus (maledizioni)"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -184,7 +174,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -206,12 +196,12 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "barbarian_fetchling_invulnerable_rager",
       "class": "Barbarian",
       "race": "Fetchling",
@@ -227,16 +217,13 @@
         10
       ],
       "level": 1,
-      "prerequisite_violations": [
-        "Furious Focus: Power Attack"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "barbarian_fetchling_invulnerable_rager",
       "class": "Barbarian",
       "race": "Fetchling",
@@ -252,19 +239,13 @@
         10
       ],
       "level": 5,
-      "missing_catalog_entries": [
-        "feats:Superstition"
-      ],
-      "prerequisite_violations": [
-        "Furious Focus: Power Attack"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "barbarian_fetchling_invulnerable_rager",
       "class": "Barbarian",
       "race": "Fetchling",
@@ -280,15 +261,8 @@
         10
       ],
       "level": 10,
-      "missing_catalog_entries": [
-        "feats:Come and Get Me",
-        "feats:Superstition"
-      ],
-      "prerequisite_violations": [
-        "Furious Focus: Power Attack"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -309,7 +283,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -331,12 +305,12 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "bard_kitsune_sound_striker_sandman",
       "class": "Bard",
       "race": "Kitsune",
@@ -352,8 +326,15 @@
         10
       ],
       "level": 10,
+      "error": "Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration"
+      ],
+      "prerequisite_violations": [
+        "Greater Spell Penetration: Spell Penetration"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -375,7 +356,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -397,7 +378,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -419,12 +400,12 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "brawler_grippli_mutagenic_mauler_strangler",
       "class": "Brawler",
       "race": "Grippli",
@@ -440,21 +421,13 @@
         10
       ],
       "level": 1,
-      "ledger_unknown_entries": [
-        "items:Borsa di monete",
-        "items:Pozione di cura"
-      ],
-      "ledger_sheet_mismatches": [
-        "Borsa di monete",
-        "Pozione di cura"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "brawler_grippli_mutagenic_mauler_strangler",
       "class": "Brawler",
       "race": "Grippli",
@@ -470,21 +443,13 @@
         10
       ],
       "level": 5,
-      "ledger_unknown_entries": [
-        "items:Borsa di monete",
-        "items:Pozione di cura"
-      ],
-      "ledger_sheet_mismatches": [
-        "Borsa di monete",
-        "Pozione di cura"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "brawler_grippli_mutagenic_mauler_strangler",
       "class": "Brawler",
       "race": "Grippli",
@@ -500,16 +465,8 @@
         10
       ],
       "level": 10,
-      "ledger_unknown_entries": [
-        "items:Borsa di monete",
-        "items:Pozione di cura"
-      ],
-      "ledger_sheet_mismatches": [
-        "Borsa di monete",
-        "Pozione di cura"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -531,7 +488,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -553,7 +510,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -575,7 +532,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -597,7 +554,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -619,7 +576,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -641,7 +598,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -663,7 +620,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -685,7 +642,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -707,7 +664,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -728,7 +685,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -749,7 +706,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -770,7 +727,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -792,7 +749,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -814,7 +771,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -836,7 +793,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -857,7 +814,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -878,7 +835,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -899,7 +856,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -920,7 +877,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -941,7 +898,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -962,7 +919,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -983,7 +940,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1004,7 +961,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1025,7 +982,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1046,7 +1003,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1067,7 +1024,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1088,12 +1045,12 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "investigator_catfolk_empiricist_psychic_detective_detective_psichico_delle_steppe_felide",
       "class": "Investigator",
       "race": "Catfolk",
@@ -1109,21 +1066,13 @@
         10
       ],
       "level": 1,
-      "ledger_unknown_entries": [
-        "items:Borsa di monete",
-        "items:Pozione di cura"
-      ],
-      "ledger_sheet_mismatches": [
-        "Borsa di monete",
-        "Pozione di cura"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "investigator_catfolk_empiricist_psychic_detective_detective_psichico_delle_steppe_felide",
       "class": "Investigator",
       "race": "Catfolk",
@@ -1139,21 +1088,13 @@
         10
       ],
       "level": 5,
-      "ledger_unknown_entries": [
-        "items:Borsa di monete",
-        "items:Pozione di cura"
-      ],
-      "ledger_sheet_mismatches": [
-        "Borsa di monete",
-        "Pozione di cura"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "investigator_catfolk_empiricist_psychic_detective_detective_psichico_delle_steppe_felide",
       "class": "Investigator",
       "race": "Catfolk",
@@ -1169,16 +1110,8 @@
         10
       ],
       "level": 10,
-      "ledger_unknown_entries": [
-        "items:Borsa di monete",
-        "items:Pozione di cura"
-      ],
-      "ledger_sheet_mismatches": [
-        "Borsa di monete",
-        "Pozione di cura"
-      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1199,7 +1132,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1220,7 +1153,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1241,7 +1174,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1262,7 +1195,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1283,7 +1216,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1304,12 +1237,12 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "magus_kitsune_bladebound_hexcrafter",
       "class": "Magus",
       "race": "Kitsune",
@@ -1324,8 +1257,15 @@
         5,
         10
       ],
+      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
+      ],
+      "prerequisite_violations": [
+        "Armatura di cuoio borchiato: Light armor proficiency"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1346,7 +1286,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1367,7 +1307,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1388,7 +1328,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1409,7 +1349,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1430,12 +1370,12 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "monk_vanara_qinggong_master_of_many_styles",
       "class": "Monk",
       "race": "Vanara",
@@ -1451,8 +1391,16 @@
         10
       ],
       "level": 1,
+      "error": "Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
+      ],
+      "prerequisite_violations": [
+        "Crane Style: Improved Unarmed Strike",
+        "Tiger Style: Improved Unarmed Strike"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1473,17 +1421,20 @@
         10
       ],
       "level": 5,
-      "error": "Prerequisiti catalogo non soddisfatti: Crane Wing: Crane Style, Mobility: Dodge, Tiger Claws: Tiger Style",
+      "error": "Prerequisiti catalogo non soddisfatti: Crane Wing: Crane Style, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Mobility: Dodge, Tiger Claws: Improved Unarmed Strike, Tiger Claws: Tiger Style",
       "completeness_errors": [
-        "Prerequisiti catalogo non soddisfatti: Crane Wing: Crane Style, Mobility: Dodge, Tiger Claws: Tiger Style"
+        "Prerequisiti catalogo non soddisfatti: Crane Wing: Crane Style, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Mobility: Dodge, Tiger Claws: Improved Unarmed Strike, Tiger Claws: Tiger Style"
       ],
       "prerequisite_violations": [
         "Crane Wing: Crane Style",
+        "Crane Wing: Improved Unarmed Strike",
+        "Dragon Style: Improved Unarmed Strike",
         "Mobility: Dodge",
+        "Tiger Claws: Improved Unarmed Strike",
         "Tiger Claws: Tiger Style"
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1504,24 +1455,30 @@
         10
       ],
       "level": 10,
-      "error": "Prerequisiti catalogo non soddisfatti: Crane Riposte: Crane Wing, Dragon Ferocity: Dragon Style, Dragon Ferocity: Power Attack, Spring Attack: Dodge, Spring Attack: Mobility",
+      "error": "Prerequisiti catalogo non soddisfatti: Crane Riposte: Crane Wing, Crane Riposte: Improved Unarmed Strike, Dragon Ferocity: Dragon Style, Dragon Ferocity: Improved Unarmed Strike, Dragon Ferocity: Power Attack, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Spring Attack: Dodge, Spring Attack: Mobility",
       "completeness_errors": [
-        "Prerequisiti catalogo non soddisfatti: Crane Riposte: Crane Wing, Dragon Ferocity: Dragon Style, Dragon Ferocity: Power Attack, Spring Attack: Dodge, Spring Attack: Mobility"
+        "Prerequisiti catalogo non soddisfatti: Crane Riposte: Crane Wing, Crane Riposte: Improved Unarmed Strike, Dragon Ferocity: Dragon Style, Dragon Ferocity: Improved Unarmed Strike, Dragon Ferocity: Power Attack, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Spring Attack: Dodge, Spring Attack: Mobility"
       ],
       "prerequisite_violations": [
         "Crane Riposte: Crane Wing",
+        "Crane Riposte: Improved Unarmed Strike",
         "Dragon Ferocity: Dragon Style",
+        "Dragon Ferocity: Improved Unarmed Strike",
         "Dragon Ferocity: Power Attack",
+        "Headband of Inspired Wisdom +2: Craft Wondrous Item",
+        "Headband of Inspired Wisdom +2: owl's wisdom",
+        "Medusa's Wrath: Improved Unarmed Strike",
+        "Medusa's Wrath: Stunning Fist",
         "Spring Attack: Dodge",
         "Spring Attack: Mobility"
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl01.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
       "class": "Paladin",
       "race": "Aasimar",
@@ -1536,13 +1493,20 @@
         5,
         10
       ],
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+      ],
+      "prerequisite_violations": [
+        "Coordinated Charge: Combat Reflexes"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
       "class": "Paladin",
       "race": "Aasimar",
@@ -1557,13 +1521,20 @@
         5,
         10
       ],
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+      ],
+      "prerequisite_violations": [
+        "Coordinated Charge: Combat Reflexes"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
       "class": "Paladin",
       "race": "Aasimar",
@@ -1578,13 +1549,20 @@
         5,
         10
       ],
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+      ],
+      "prerequisite_violations": [
+        "Coordinated Charge: Combat Reflexes"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "rogue_halfling_cutpurse",
       "class": "Rogue",
       "race": "Halfling",
@@ -1600,13 +1578,20 @@
         10
       ],
       "level": 1,
+      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
+      ],
+      "prerequisite_violations": [
+        "Armatura di cuoio borchiato: Light armor proficiency"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "rogue_halfling_cutpurse",
       "class": "Rogue",
       "race": "Halfling",
@@ -1622,8 +1607,15 @@
         10
       ],
       "level": 5,
+      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
+      ],
+      "prerequisite_violations": [
+        "Armatura di cuoio borchiato: Light armor proficiency"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1644,15 +1636,19 @@
         10
       ],
       "level": 10,
-      "error": "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)",
+      "error": "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale); Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)"
+        "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)",
+        "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
       "missing_catalog_entries": [
         "feats:Critico migliorato (pugnale)"
       ],
+      "prerequisite_violations": [
+        "Armatura di cuoio borchiato: Light armor proficiency"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1674,7 +1670,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1696,7 +1692,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1718,7 +1714,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1739,7 +1735,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1760,7 +1756,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1781,7 +1777,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1802,7 +1798,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1823,7 +1819,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1844,7 +1840,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1865,7 +1861,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1886,7 +1882,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1907,12 +1903,12 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
       "class": "Paladin",
       "race": "Aasimar",
@@ -1927,13 +1923,20 @@
         5,
         10
       ],
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+      ],
+      "prerequisite_violations": [
+        "Coordinated Charge: Combat Reflexes"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
       "class": "Paladin",
       "race": "Aasimar",
@@ -1948,13 +1951,20 @@
         5,
         10
       ],
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+      ],
+      "prerequisite_violations": [
+        "Coordinated Charge: Combat Reflexes"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
       "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "paladin_aasimar_holy_tactician_sacred_servant",
       "class": "Paladin",
       "race": "Aasimar",
@@ -1969,8 +1979,15 @@
         5,
         10
       ],
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "completeness_errors": [
+        "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+      ],
+      "prerequisite_violations": [
+        "Coordinated Charge: Combat Reflexes"
+      ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -1991,7 +2008,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -2012,7 +2029,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -2033,7 +2050,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -2054,7 +2071,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -2075,7 +2092,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     },
     {
@@ -2096,28 +2113,28 @@
         10
       ],
       "catalog_version": [
-        "2026.03.01"
+        "2026.03.20"
       ]
     }
   ],
   "checkpoints": {
     "1": {
       "total": 14,
-      "invalid": 4,
-      "schema_errors": 1,
-      "completeness_errors": 1
+      "invalid": 2,
+      "schema_errors": 2,
+      "completeness_errors": 2
     },
     "5": {
       "total": 15,
-      "invalid": 4,
-      "schema_errors": 1,
-      "completeness_errors": 1
+      "invalid": 2,
+      "schema_errors": 2,
+      "completeness_errors": 2
     },
     "10": {
       "total": 15,
-      "invalid": 5,
-      "schema_errors": 2,
-      "completeness_errors": 2
+      "invalid": 3,
+      "schema_errors": 3,
+      "completeness_errors": 3
     }
   }
 }
