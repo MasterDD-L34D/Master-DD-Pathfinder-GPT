@@ -1,27 +1,10 @@
 {
-  "generated_at": "2025-12-17T02:15:09Z",
+  "generated_at": "2025-12-17T12:23:23Z",
   "api_url": null,
+  "catalog_version": [
+    "2026.03.22"
+  ],
   "entries": [
-    {
-      "module": "Encounter_Designer.txt",
-      "file": "src/data/modules/Encounter_Designer.txt",
-      "status": "ok",
-      "meta": {
-        "name": "Encounter_Designer.txt",
-        "suffix": ".txt",
-        "size_bytes": 36198
-      }
-    },
-    {
-      "module": "Taverna_NPC.txt",
-      "file": "src/data/modules/Taverna_NPC.txt",
-      "status": "ok",
-      "meta": {
-        "name": "Taverna_NPC.txt",
-        "suffix": ".txt",
-        "size_bytes": 124135
-      }
-    },
     {
       "module": "adventurer_ledger.txt",
       "file": "src/data/modules/adventurer_ledger.txt",
@@ -53,13 +36,13 @@
       }
     },
     {
-      "module": "preload_all_modules.txt",
-      "file": "src/data/modules/preload_all_modules.txt",
+      "module": "Encounter_Designer.txt",
+      "file": "src/data/modules/Encounter_Designer.txt",
       "status": "ok",
       "meta": {
-        "name": "preload_all_modules.txt",
+        "name": "Encounter_Designer.txt",
         "suffix": ".txt",
-        "size_bytes": 523
+        "size_bytes": 36198
       }
     },
     {
@@ -99,7 +82,7 @@
       "meta": {
         "name": "minmax_builder.txt",
         "suffix": ".txt",
-        "size_bytes": 86355
+        "size_bytes": 88649
       }
     },
     {
@@ -110,6 +93,16 @@
         "name": "narrative_flow.txt",
         "suffix": ".txt",
         "size_bytes": 35089
+      }
+    },
+    {
+      "module": "preload_all_modules.txt",
+      "file": "src/data/modules/preload_all_modules.txt",
+      "status": "ok",
+      "meta": {
+        "name": "preload_all_modules.txt",
+        "suffix": ".txt",
+        "size_bytes": 523
       }
     },
     {
@@ -129,7 +122,7 @@
       "meta": {
         "name": "scheda_pg_markdown_template.md",
         "suffix": ".md",
-        "size_bytes": 23883
+        "size_bytes": 24875
       }
     },
     {
@@ -151,29 +144,54 @@
         "suffix": ".json",
         "size_bytes": 740
       }
+    },
+    {
+      "module": "Taverna_NPC.txt",
+      "file": "src/data/modules/Taverna_NPC.txt",
+      "status": "ok",
+      "meta": {
+        "name": "Taverna_NPC.txt",
+        "suffix": ".txt",
+        "size_bytes": 124135
+      }
     }
   ],
   "module_plan": [
-    "Encounter_Designer.txt",
-    "Taverna_NPC.txt",
     "adventurer_ledger.txt",
     "archivist.txt",
     "base_profile.txt",
-    "preload_all_modules.txt",
+    "Encounter_Designer.txt",
     "explain_methods.txt",
     "knowledge_pack.md",
     "meta_doc.txt",
     "minmax_builder.txt",
     "narrative_flow.txt",
+    "preload_all_modules.txt",
     "ruling_expert.txt",
     "scheda_pg_markdown_template.md",
     "sigilli_runner_module.txt",
-    "tavern_hub.json"
+    "tavern_hub.json",
+    "Taverna_NPC.txt"
   ],
   "reference_catalog": [
-    "data/reference/spells.json",
-    "data/reference/feats.json",
-    "data/reference/items.json",
-    "data/reference/manifest.json"
+    {
+      "path": "data/reference/spells.json",
+      "entries": 1035,
+      "version": "2026.03.22"
+    },
+    {
+      "path": "data/reference/feats.json",
+      "entries": 2838,
+      "version": "2026.03.22"
+    },
+    {
+      "path": "data/reference/items.json",
+      "entries": 250,
+      "version": "2026.03.22"
+    },
+    {
+      "path": "data/reference/manifest.json",
+      "version": "2026.03.22"
+    }
   ]
 }
