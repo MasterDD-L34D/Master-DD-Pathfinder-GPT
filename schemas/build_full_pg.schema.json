@@ -4,14 +4,19 @@
   "title": "Master DD build payload (full-PG)",
   "type": "object",
   "required": [
+    "build_id",
     "build_state",
     "benchmark",
     "export",
     "sheet_payload",
     "composite",
-    "reference_catalog_version"
+    "reference_catalog_version",
+    "step_audit"
   ],
   "properties": {
+    "build_id": {
+      "$ref": "build_core.schema.json#/$defs/build_id"
+    },
     "build_state": {
       "$ref": "build_core.schema.json#/$defs/build_state"
     },
@@ -29,6 +34,9 @@
     },
     "reference_catalog_version": {
       "$ref": "build_core.schema.json#/$defs/reference_catalog_version"
+    },
+    "step_audit": {
+      "$ref": "build_core.schema.json#/$defs/step_audit"
     },
     "sheet_payload": {
       "$ref": "scheda_pg.schema.json",

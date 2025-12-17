@@ -4,12 +4,17 @@
   "title": "Master DD build payload (core)",
   "type": "object",
   "required": [
+    "build_id",
     "build_state",
     "benchmark",
     "export",
-    "reference_catalog_version"
+    "reference_catalog_version",
+    "step_audit"
   ],
   "properties": {
+    "build_id": {
+      "$ref": "#/$defs/build_id"
+    },
     "build_state": {
       "$ref": "#/$defs/build_state"
     },
@@ -18,6 +23,9 @@
     },
     "export": {
       "$ref": "#/$defs/export"
+    },
+    "catalog_references": {
+      "$ref": "#/$defs/catalog_references"
     },
     "narrative": {
       "$ref": "#/$defs/textual_block"
@@ -118,6 +126,21 @@
     "step_audit": {
       "$ref": "#/$defs/step_audit"
     },
+    "created_at": {
+      "$ref": "#/$defs/timestamp"
+    },
+    "updated_at": {
+      "$ref": "#/$defs/timestamp"
+    },
+    "status": {
+      "$ref": "#/$defs/build_status"
+    },
+    "validation_status": {
+      "$ref": "#/$defs/validation_status"
+    },
+    "reviewed_by": {
+      "$ref": "#/$defs/reviewer"
+    },
     "completeness": {
       "$ref": "#/$defs/completeness"
     },
@@ -126,6 +149,75 @@
     }
   },
   "$defs": {
+    "build_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Identificatore univoco della build (PK logica per snapshot e ledger)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewer": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "Identificativo/revisore umano o processo che ha validato la build"
+    },
+    "build_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "in_review",
+        "approved",
+        "rejected"
+      ]
+    },
+    "validation_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "passed",
+        "failed"
+      ]
+    },
+    "catalog_references": {
+      "type": "array",
+      "description": "Lista di voci catalogate usate dalla build (feat/incantesimi/oggetti)",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "type"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Identificativo dell'entry in data/reference (FK logica)"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "feat",
+              "spell",
+              "item",
+              "other"
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Nome dell'entry catalogata (ridondante per coerenza)"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
     "reference_catalog_version": {
       "type": "string",
       "const": "2026.03.22",
@@ -462,29 +554,40 @@
     "build_bundle": {
       "type": "object",
       "required": [
+        "build_id",
         "build_state",
         "benchmark",
         "export",
-        "reference_catalog_version"
+        "reference_catalog_version",
+        "step_audit"
       ],
       "properties": {
+        "build_id": {
+          "$ref": "#/$defs/build_id"
+        },
         "build_state": {
           "$ref": "#/$defs/build_state"
         },
-        "benchmark": {
-          "$ref": "#/$defs/benchmark"
-        },
-        "export": {
-          "$ref": "#/$defs/export"
-        },
-        "reference_catalog_version": {
-          "$ref": "#/$defs/reference_catalog_version"
-        },
-        "sheet_payload": {
-          "type": [
-            "object",
-            "null"
-          ],
+      "benchmark": {
+        "$ref": "#/$defs/benchmark"
+      },
+      "export": {
+        "$ref": "#/$defs/export"
+      },
+      "reference_catalog_version": {
+        "$ref": "#/$defs/reference_catalog_version"
+      },
+      "step_audit": {
+        "$ref": "#/$defs/step_audit"
+      },
+      "catalog_references": {
+        "$ref": "#/$defs/catalog_references"
+      },
+      "sheet_payload": {
+        "type": [
+          "object",
+          "null"
+        ],
           "description": "Sheet payload completo, quando disponibile",
           "additionalProperties": true
         }

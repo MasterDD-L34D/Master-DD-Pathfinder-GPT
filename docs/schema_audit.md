@@ -6,32 +6,32 @@
 
 ## Sintesi delle strutture (DDL logico)
 ### Build payload (core)
-- **Struttura:** oggetto con campi obbligatori `build_state`, `benchmark`, `export`; altre sezioni (`narrative`, `sheet`, `ledger`, `request`, `query_params`, `body_params`, `step_audit`, `completeness`, `composite`) sono facoltative e ammettono proprietà aggiuntive.【F:schemas/build_core.schema.json†L1-L242】
-- **Vincoli espliciti:** solo obbligatorietà dei tre campi core; i sottoschemi `build_state`, `benchmark`, `export` e `textual_block` non definiscono proprietà richieste, né tipi più stretti, quindi accettano qualsiasi oggetto/array/stringa/null. Il sottoschema `step_audit` ora richiede timestamp richiesta, hash della chiave client, esito (`accepted`/`denied`/`backoff`), conteggio tentativi e motivazione di backoff (null se assente), più IP opzionale.【F:schemas/build_core.schema.json†L11-L241】【F:schemas/build_core.schema.json†L328-L369】
-- **Note DDL:** può essere visto come tabella `build_core(build_state JSON NOT NULL, benchmark JSON NOT NULL, export JSON NOT NULL, …)` senza chiave primaria.
+- **Struttura:** oggetto con campi obbligatori `build_id`, `build_state`, `benchmark`, `export`, `reference_catalog_version`, `step_audit`; altre sezioni (`narrative`, `sheet`, `ledger`, `request`, `query_params`, `body_params`, `completeness`, `composite`) sono facoltative e ammettono proprietà aggiuntive.【F:schemas/build_core.schema.json†L1-L242】
+- **Vincoli espliciti:** obbligo di PK logica `build_id`, di `reference_catalog_version` e del blocco di audit `step_audit` (che richiede timestamp richiesta, hash della chiave client, esito `accepted`/`denied`/`backoff`, conteggio tentativi e motivazione di backoff, più IP opzionale). I sottoschemi `build_state`, `benchmark`, `export` e `textual_block` restano permissivi e non definiscono proprietà richieste, quindi accettano qualsiasi oggetto/array/stringa/null.【F:schemas/build_core.schema.json†L11-L241】【F:schemas/build_core.schema.json†L328-L369】
+- **Note DDL:** può essere visto come tabella `build_core(build_id PK, build_state JSON NOT NULL, benchmark JSON NOT NULL, export JSON NOT NULL, reference_catalog_version TEXT NOT NULL, step_audit JSON NOT NULL, …)` con chiave primaria logica ma sottostrutture ancora debolmente vincolate.
 
 ### Build payload (extended)
 - **Struttura:** estende `build_core` richiedendo almeno una sezione tra `narrative`, `sheet`, `ledger` o `composite` in aggiunta ai dati core.【F:schemas/build_extended.schema.json†L1-L35】
 - **Vincoli espliciti:** nessuna chiave; eredita le aperture di `build_core` e aggiunge solo il vincolo “almeno una sezione extended”.
 
 ### Build payload (full-PG)
-- **Struttura:** oggetto che richiede `build_state`, `benchmark`, `export`, `sheet_payload` e `composite`; `sheet_payload` usa `scheda_pg.schema.json` e può comparire sia al top-level sia dentro `composite.build`.【F:schemas/build_full_pg.schema.json†L1-L102】
-- **Vincoli espliciti:** obbligatorietà dei campi sopra elencati; `composite.build` replica gli stessi obblighi ma senza regole di coerenza rispetto al top-level (duplicazione potenzialmente divergente). Nessuna chiave primaria o relazione verso altre entità.
+- **Struttura:** oggetto che richiede `build_id`, `build_state`, `benchmark`, `export`, `sheet_payload`, `composite`, `reference_catalog_version` e `step_audit`; `sheet_payload` usa `scheda_pg.schema.json` e può comparire sia al top-level sia dentro `composite.build`.【F:schemas/build_full_pg.schema.json†L1-L102】
+- **Vincoli espliciti:** obbligatorietà dei campi sopra elencati; `composite.build` replica gli stessi obblighi (inclusi `build_id`, `reference_catalog_version`, `step_audit`) ma senza regole di coerenza rispetto al top-level (duplicazione potenzialmente divergente). PK logica presente, ma nessuna relazione verso altre entità.
 
 ### Scheda PG (sheet payload)
-- **Struttura:** oggetto estremamente ampio per il rendering della scheda; nessun campo è richiesto e sono ammessi campi aggiuntivi, con molte proprietà numeriche/stringa facoltative.【F:schemas/scheda_pg.schema.json†L1-L80】
-- **Vincoli espliciti:** assenti; funge da documento libero più che da tabella strutturata.
+- **Struttura:** oggetto estremamente ampio per il rendering della scheda; nessun campo è richiesto e sono ammessi campi aggiuntivi, con molte proprietà numeriche/stringa facoltative. Include campi di workflow opzionali (`created_at`, `updated_at`, `status`, `validation_status`, `reviewed_by`), la FK logica `build_id` e dimensioni analitiche (`language`, `number_format`).【F:schemas/scheda_pg.schema.json†L1-L150】
+- **Vincoli espliciti:** i nuovi campi di workflow e `build_id` sono opzionali ma vincolati a enum/date-time/string; `language`/`number_format` aggiungono preferenze di localizzazione; per il resto resta un documento libero.
 
 ### Catalogo di riferimento
-- **Struttura:** array di `reference_entry` con campi obbligatori `name`, `source`, `prerequisites`, `tags`, `references`; altre proprietà opzionali come `reference_urls`, `source_id`, `notes` e `additionalProperties` disabilitati per le entry.【F:schemas/reference_catalog.schema.json†L1-L81】
-- **Vincoli espliciti:** obbligatorietà e lunghezze minime per i campi base, unicità degli elementi in `tags`; nessun vincolo di unicità per `name`/`source_id` e nessun collegamento a build o moduli.
+- **Struttura:** array di `reference_entry` con campi obbligatori `name`, `source`, `source_id`, `prerequisites`, `tags`, `references`, `reference_urls`; `additionalProperties` è disabilitato. Sono presenti campi di workflow opzionali (`created_at`, `updated_at`, `status`, `validation_status`, `reviewed_by`) e dimensioni analitiche (`category`, `edition`).【F:schemas/reference_catalog.schema.json†L1-L145】
+- **Vincoli espliciti:** `reference_urls` richiede almeno un URI e `source_id` è obbligatorio (univoco a livello logico insieme a `name`), mentre `uniqueItems` sull'array previene duplicati completi; restano assenti relazioni verso build o moduli.
 
 ### Metadati modulo
 - **Struttura:** oggetto con `name`, `size_bytes`, `suffix` obbligatori; `version` e `compatibility` opzionali (quest’ultima può essere stringa, oggetto o array).【F:schemas/module_metadata.schema.json†L1-L34】
 - **Vincoli espliciti:** solo tipi base e `size_bytes >= 0`; nessun identificatore univoco o relazione con altri schemi.
 
 ## Chiavi primarie, chiavi esterne e vincoli mancanti
-- **Assenza di PK:** nessuno degli schemi definisce campi identificativi univoci; le “tabelle” build, scheda, catalogo e moduli risultano senza chiave primaria esplicita.
+- **Assenza di PK:** resta vera per scheda, catalogo e metadati modulo, ma i payload build ora includono la PK logica `build_id` come campo richiesto.
 - **Relazioni/FK mancanti o deboli:**
   - I payload `composite.build` duplicano i campi top-level senza vincoli di coerenza (mancano FK o controlli che garantiscano l’allineamento).【F:schemas/build_full_pg.schema.json†L36-L102】【F:schemas/build_core.schema.json†L202-L239】
   - `sheet_payload` non è collegato a `build_state` o `benchmark`; nessun vincolo assicura che i dati di scheda riflettano la build associata.【F:schemas/build_full_pg.schema.json†L13-L80】

@@ -95,9 +95,10 @@ Lo script lancia `black --check` sui file Python e compila i moduli con
 
 - I file normalizzati si trovano in `data/reference/*.json` e seguono lo schema
   `schemas/reference_catalog.schema.json` (chiavi obbligatorie: `name`,
-  `source`, `prerequisites`, `tags`, `references`; campi opzionali: `reference_urls`,
-  `source_id`, `notes`). Aggiorna i file con nuove voci RAW/SRD citando la fonte
-  e mantieni il formato lista di oggetti.
+  `source`, `source_id`, `prerequisites`, `tags`, `references`, `reference_urls`;
+  campi opzionali: `notes`, `created_at`, `updated_at`, `status`, `validation_status`, `reviewed_by`). Aggiorna i file con nuove voci RAW/SRD citando la
+  fonte e mantieni il formato lista di oggetti; `reference_urls` deve includere
+  almeno un link AoN e gli ID devono essere univoci.
 - Ogni snapshot è versionato in `data/reference/manifest.json` con numero di
   versione, conteggio entry e percorso dei file: quando modifichi il catalogo
   aggiorna il manifest (versione e contatori) e verifica che le fonti restino

@@ -123,6 +123,7 @@ Risposta JSON semplificata:
 ```
 
 > **Nota sulla validazione**: gli snapshot del builder seguono gli schemi JSON `schemas/build_core.schema.json` e `schemas/build_full_pg.schema.json`. I blocchi `build_state`, `benchmark` e `export` hanno campi espliciti (es. `mode` ∈ {`core`,`extended`,`full-pg`}, `step`/`step_total` numerici e `step_labels` con chiavi numeriche) e il sotto-blocco `composite.build` riutilizza gli stessi riferimenti per mantenere identica struttura e versioni. Nei payload full-PG, `sheet_payload` è obbligatoria sia al livello root sia in `composite.build`, mentre `ledger` accetta sia testi sia movimenti strutturati con `voce`/`importo`.
+> Ogni snapshot deve includere la PK logica `build_id`, il campo `reference_catalog_version` allineato al manifest corrente e il blocco di audit `step_audit`; gli stessi obblighi valgono per `composite.build` nei payload full-PG.
 
 #### Versione del catalogo di riferimento
 
