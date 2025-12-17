@@ -2,8 +2,18 @@
   {
     "name": "Acid Arrow",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Arcane spellcasting 2nd level"
+    ],
+    "tags": [
+      "school:conjuration",
+      "slot:2",
+      "attack",
+      "acid",
+      "class:sorcerer",
+      "class:wizard",
+      "class:magus"
+    ],
     "references": [
       "Archives of Nethys: Acid Arrow"
     ],
@@ -14,8 +24,16 @@
   {
     "name": "Acid Fog",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Arcane spellcasting 6th level"
+    ],
+    "tags": [
+      "school:conjuration",
+      "slot:6",
+      "acid",
+      "class:sorcerer",
+      "class:wizard"
+    ],
     "references": [
       "Archives of Nethys: Acid Fog"
     ],
@@ -49,8 +67,16 @@
   {
     "name": "Aid",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Divine spellcasting 2nd level"
+    ],
+    "tags": [
+      "school:enchantment",
+      "slot:2",
+      "mind-affecting",
+      "class:cleric",
+      "class:paladin"
+    ],
     "references": [
       "Archives of Nethys: Aid"
     ],
@@ -61,8 +87,15 @@
   {
     "name": "Air Walk",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Divine spellcasting 4th level"
+    ],
+    "tags": [
+      "school:transmutation",
+      "slot:4",
+      "class:cleric",
+      "class:druid"
+    ],
     "references": [
       "Archives of Nethys: Air Walk"
     ],
@@ -73,8 +106,16 @@
   {
     "name": "Alarm",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Spellcasting 1st level"
+    ],
+    "tags": [
+      "school:abjuration",
+      "slot:1",
+      "class:ranger",
+      "class:sorcerer",
+      "class:wizard"
+    ],
     "references": [
       "Archives of Nethys: Alarm"
     ],
@@ -85,8 +126,15 @@
   {
     "name": "Align Weapon",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Divine spellcasting 2nd level"
+    ],
+    "tags": [
+      "school:transmutation",
+      "slot:2",
+      "class:cleric",
+      "class:paladin"
+    ],
     "references": [
       "Archives of Nethys: Align Weapon"
     ],
@@ -97,8 +145,17 @@
   {
     "name": "Alter Self",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Arcane spellcasting 2nd level"
+    ],
+    "tags": [
+      "school:transmutation",
+      "slot:2",
+      "polymorph",
+      "class:sorcerer",
+      "class:wizard",
+      "class:alchemist"
+    ],
     "references": [
       "Archives of Nethys: Alter Self"
     ],
@@ -109,8 +166,16 @@
   {
     "name": "Analyze Dweomer",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Spellcasting 6th level"
+    ],
+    "tags": [
+      "school:divination",
+      "slot:6",
+      "class:bard",
+      "class:sorcerer",
+      "class:wizard"
+    ],
     "references": [
       "Archives of Nethys: Analyze Dweomer"
     ],
@@ -121,8 +186,15 @@
   {
     "name": "Animal Growth",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Divine spellcasting 5th level"
+    ],
+    "tags": [
+      "school:transmutation",
+      "slot:5",
+      "class:druid",
+      "class:ranger"
+    ],
     "references": [
       "Archives of Nethys: Animal Growth"
     ],
@@ -133,8 +205,16 @@
   {
     "name": "Animal Messenger",
     "source": "Pathfinder SRD",
-    "prerequisites": [],
-    "tags": [],
+    "prerequisites": [
+      "Spellcasting 2nd level"
+    ],
+    "tags": [
+      "school:enchantment",
+      "slot:2",
+      "class:bard",
+      "class:druid",
+      "class:ranger"
+    ],
     "references": [
       "Archives of Nethys: Animal Messenger"
     ],
