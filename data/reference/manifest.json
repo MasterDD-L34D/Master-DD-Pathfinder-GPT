@@ -4,15 +4,15 @@
   "files": {
     "spells": {
       "path": "data/reference/spells.json",
-      "entries": 16
+      "entries": 18
     },
     "feats": {
       "path": "data/reference/feats.json",
-      "entries": 17
+      "entries": 67
     },
     "items": {
       "path": "data/reference/items.json",
-      "entries": 17
+      "entries": 223
     }
   }
 }

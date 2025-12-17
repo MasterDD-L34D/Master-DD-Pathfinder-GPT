@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-17T00:27:58Z",
+  "generated_at": "2025-12-17T00:40:31Z",
   "builds": {
     "total": 93,
-    "valid": 0,
-    "invalid": 93,
+    "valid": 51,
+    "invalid": 42,
     "errors": 0,
     "missing": 0,
     "entries": [
@@ -24,22 +24,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Arma preferita",
-          "items:Armatura leggera",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x2"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl05.json",
@@ -58,22 +46,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Arma preferita",
-          "items:Armatura leggera",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x2"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl10.json",
@@ -92,22 +68,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Arma preferita",
-          "items:Armatura leggera",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x2"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/alchemist_goblin_bombardier.json",
@@ -126,22 +90,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Arma preferita",
-          "items:Armatura leggera",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x2"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/alchemist_goblin_bombardier_lvl05.json",
@@ -160,22 +112,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Arma preferita",
-          "items:Armatura leggera",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x2"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/alchemist_goblin_bombardier_lvl10.json",
@@ -194,22 +134,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Arma preferita",
-          "items:Armatura leggera",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x2"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json",
@@ -219,7 +147,7 @@
         "archetype": "Hexcrafter + Blood Arcanist",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "arcanist_tiefling_hexcrafter_+_blood_arcanist",
+        "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -228,23 +156,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "feats:Accuratezza Magica",
-          "feats:Spell Focus (maledizioni)",
-          "items:Bastone scuro con rune",
-          "items:Componenti arcane",
-          "items:Diario di formula arcanist",
-          "items:Mantello da apprendista",
-          "items:Pozione di cura moderata"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Spell Focus (maledizioni), items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello da apprendista, items:Pozione di cura moderata"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Spell Focus (maledizioni), items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello da apprendista, items:Pozione di cura moderata",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl05.json",
@@ -254,7 +169,7 @@
         "archetype": "Hexcrafter + Blood Arcanist",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "arcanist_tiefling_hexcrafter_+_blood_arcanist",
+        "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -263,26 +178,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Accuratezza Magica",
-          "feats:Metamagia Rapida",
-          "feats:Raggi Potenziati",
-          "feats:Spell Focus (necromanzia)",
-          "items:Anello di protezione +1",
-          "items:Bastone scuro con rune",
-          "items:Componenti arcane",
-          "items:Diario di formula arcanist",
-          "items:Mantello di resistenza +1",
-          "items:Pozione di invisibilità"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Metamagia Rapida, feats:Raggi Potenziati, feats:Spell Focus (necromanzia), items:Anello di protezione +1, items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello di resistenza +1, items:Pozione di invisibilità"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Metamagia Rapida, feats:Raggi Potenziati, feats:Spell Focus (necromanzia), items:Anello di protezione +1, items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello di resistenza +1, items:Pozione di invisibilità",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl10.json",
@@ -292,7 +191,7 @@
         "archetype": "Hexcrafter + Blood Arcanist",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "arcanist_tiefling_hexcrafter_+_blood_arcanist",
+        "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -301,26 +200,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Accuratezza Magica",
-          "feats:Metamagia Rapida",
-          "feats:Raggi Potenziati",
-          "feats:Spell Focus (necromanzia)",
-          "items:Anello di protezione +1",
-          "items:Bastone scuro con rune",
-          "items:Componenti arcane",
-          "items:Diario di formula arcanist",
-          "items:Mantello di resistenza +1",
-          "items:Pozione di invisibilità"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Metamagia Rapida, feats:Raggi Potenziati, feats:Spell Focus (necromanzia), items:Anello di protezione +1, items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello di resistenza +1, items:Pozione di invisibilità"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Metamagia Rapida, feats:Raggi Potenziati, feats:Spell Focus (necromanzia), items:Anello di protezione +1, items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello di resistenza +1, items:Pozione di invisibilità",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
@@ -339,23 +222,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "feats:Attacco Poderoso",
-          "feats:Furious Focus",
-          "items:Anello di protezione +1",
-          "items:Ascia bipenne adamantina +1",
-          "items:Corazza lamellare d'ombra (+2 CA)",
-          "items:Kit da esploratore",
-          "items:Pozione di cura moderate"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Attacco Poderoso, feats:Furious Focus, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Attacco Poderoso, feats:Furious Focus, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
@@ -374,25 +244,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Attacco Poderoso",
-          "feats:Furious Focus",
-          "feats:Raging Vitality",
-          "feats:Superstition",
-          "items:Anello di protezione +1",
-          "items:Ascia bipenne adamantina +1",
-          "items:Corazza lamellare d'ombra (+2 CA)",
-          "items:Kit da esploratore",
-          "items:Pozione di cura moderate"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Attacco Poderoso, feats:Furious Focus, feats:Raging Vitality, feats:Superstition, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Attacco Poderoso, feats:Furious Focus, feats:Raging Vitality, feats:Superstition, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
@@ -411,27 +266,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Attacco Poderoso",
-          "feats:Come and Get Me",
-          "feats:Dodge",
-          "feats:Furious Focus",
-          "feats:Raging Vitality",
-          "feats:Superstition",
-          "items:Anello di protezione +1",
-          "items:Ascia bipenne adamantina +1",
-          "items:Corazza lamellare d'ombra (+2 CA)",
-          "items:Kit da esploratore",
-          "items:Pozione di cura moderate"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Attacco Poderoso, feats:Come and Get Me, feats:Dodge, feats:Furious Focus, feats:Raging Vitality, feats:Superstition, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Attacco Poderoso, feats:Come and Get Me, feats:Dodge, feats:Furious Focus, feats:Raging Vitality, feats:Superstition, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/bard_kitsune_sound_striker_sandman.json",
@@ -441,7 +279,7 @@
         "archetype": "Sound Striker + Sandman",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "bard_kitsune_sound_striker_+_sandman",
+        "spec_id": "bard_kitsune_sound_striker_sandman",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -449,22 +287,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "feats:Armonia Letale (Sound Striker)",
-          "feats:Focalizzazione Abilità: Intrattenere",
-          "feats:Scacciare Sogni (Sandman)",
-          "items:dagger",
-          "items:lira accordata",
-          "items:mantello dell'ombra kitsune"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Armonia Letale (Sound Striker), feats:Focalizzazione Abilità: Intrattenere, feats:Scacciare Sogni (Sandman), items:dagger, items:lira accordata, items:mantello dell'ombra kitsune"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Armonia Letale (Sound Striker), feats:Focalizzazione Abilità: Intrattenere, feats:Scacciare Sogni (Sandman), items:dagger, items:lira accordata, items:mantello dell'ombra kitsune",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl05.json",
@@ -474,7 +300,7 @@
         "archetype": "Sound Striker + Sandman",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "bard_kitsune_sound_striker_+_sandman",
+        "spec_id": "bard_kitsune_sound_striker_sandman",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -483,22 +309,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Focus: Suoni di Sabbia",
-          "feats:Lingering Performance",
-          "feats:Melodic Casting",
-          "items:anello di protezione +1",
-          "items:cornamusa sonica",
-          "items:mantello elusivo"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Focus: Suoni di Sabbia, feats:Lingering Performance, feats:Melodic Casting, items:anello di protezione +1, items:cornamusa sonica, items:mantello elusivo"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Focus: Suoni di Sabbia, feats:Lingering Performance, feats:Melodic Casting, items:anello di protezione +1, items:cornamusa sonica, items:mantello elusivo",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json",
@@ -508,7 +322,7 @@
         "archetype": "Sound Striker + Sandman",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "bard_kitsune_sound_striker_+_sandman",
+        "spec_id": "bard_kitsune_sound_striker_sandman",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -517,22 +331,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Discordant Voice",
-          "feats:Greater Spell Penetration",
-          "feats:Spell Focus (Illusion)",
-          "items:cintura della destrezza +4",
-          "items:lira d'argento accordata",
-          "items:stivali dell'elusione"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Discordant Voice, feats:Greater Spell Penetration, feats:Spell Focus (Illusion), items:cintura della destrezza +4, items:lira d'argento accordata, items:stivali dell'elusione"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Discordant Voice, feats:Greater Spell Penetration, feats:Spell Focus (Illusion), items:cintura della destrezza +4, items:lira d'argento accordata, items:stivali dell'elusione",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager.json",
@@ -551,12 +353,6 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "items:Kit avventuriero",
-          "items:Lancia conduttiva",
-          "items:Talenti totemici",
-          "items:corda di seta"
-        ],
         "ledger_unknown_entries": [
           "items:Kit avventuriero",
           "items:corda di seta"
@@ -564,12 +360,7 @@
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Kit avventuriero, items:Lancia conduttiva, items:Talenti totemici, items:corda di seta",
-          "Voci ledger fuori catalogo: items:Kit avventuriero, items:corda di seta"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Kit avventuriero, items:Lancia conduttiva, items:Talenti totemici, items:corda di seta; Voci ledger fuori catalogo: items:Kit avventuriero, items:corda di seta",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json",
@@ -588,12 +379,6 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "items:Corazza a scaglie +1",
-          "items:Kit del gladiatore",
-          "items:Lancia conduttiva +1",
-          "items:mantello del leone"
-        ],
         "ledger_unknown_entries": [
           "items:Kit del gladiatore",
           "items:mantello del leone"
@@ -601,12 +386,7 @@
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Corazza a scaglie +1, items:Kit del gladiatore, items:Lancia conduttiva +1, items:mantello del leone",
-          "Voci ledger fuori catalogo: items:Kit del gladiatore, items:mantello del leone"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Corazza a scaglie +1, items:Kit del gladiatore, items:Lancia conduttiva +1, items:mantello del leone; Voci ledger fuori catalogo: items:Kit del gladiatore, items:mantello del leone",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json",
@@ -625,12 +405,6 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "items:Corazza lamellare +3",
-          "items:Lancia conduttiva adamantina",
-          "items:cintura del gigante +4",
-          "items:elisir elementale"
-        ],
         "ledger_unknown_entries": [
           "items:cintura del gigante +4",
           "items:elisir elementale"
@@ -638,12 +412,7 @@
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Corazza lamellare +3, items:Lancia conduttiva adamantina, items:cintura del gigante +4, items:elisir elementale",
-          "Voci ledger fuori catalogo: items:cintura del gigante +4, items:elisir elementale"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Corazza lamellare +3, items:Lancia conduttiva adamantina, items:cintura del gigante +4, items:elisir elementale; Voci ledger fuori catalogo: items:cintura del gigante +4, items:elisir elementale",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json",
@@ -653,7 +422,7 @@
         "archetype": "Mutagenic Mauler + Strangler",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "brawler_grippli_mutagenic_mauler_+_strangler",
+        "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -662,11 +431,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "items:Arma semplice",
-          "items:Armatura leggera",
-          "items:Kit avventuriero",
-          "items:Strumenti da scasso"
+        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
+        "completeness_errors": [
+          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
+          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
         ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
@@ -679,12 +447,6 @@
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso; Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
         "status": "invalid"
       },
       {
@@ -695,7 +457,7 @@
         "archetype": "Mutagenic Mauler + Strangler",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "brawler_grippli_mutagenic_mauler_+_strangler",
+        "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -704,11 +466,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "items:Arma semplice",
-          "items:Armatura leggera",
-          "items:Kit avventuriero",
-          "items:Strumenti da scasso"
+        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
+        "completeness_errors": [
+          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
+          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
         ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
@@ -721,12 +482,6 @@
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso; Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
         "status": "invalid"
       },
       {
@@ -737,7 +492,7 @@
         "archetype": "Mutagenic Mauler + Strangler",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "brawler_grippli_mutagenic_mauler_+_strangler",
+        "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -746,11 +501,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "items:Arma semplice",
-          "items:Armatura leggera",
-          "items:Kit avventuriero",
-          "items:Strumenti da scasso"
+        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
+        "completeness_errors": [
+          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
+          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
         ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
@@ -763,12 +517,6 @@
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso; Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
         "status": "invalid"
       },
       {
@@ -788,18 +536,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "items:Armatura lamellare",
-          "items:Lancia da cavalleria"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Armatura lamellare, items:Lancia da cavalleria"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Armatura lamellare, items:Lancia da cavalleria",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl05.json",
@@ -818,18 +558,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "items:Corazza strix",
-          "items:Lancia lunga rinforzata"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Corazza strix, items:Lancia lunga rinforzata"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Corazza strix, items:Lancia lunga rinforzata",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl10.json",
@@ -848,18 +580,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "items:Armatura a scaglie strix",
-          "items:Lancia pesante volante"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Armatura a scaglie strix, items:Lancia pesante volante"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Armatura a scaglie strix, items:Lancia pesante volante",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/cleric_samsaran_cloistered_evangelist.json",
@@ -878,25 +602,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Kit da avventuriero",
-          "items:L1: Armatura a scaglie benedetta",
-          "items:L1: Kit da avventuriero",
-          "items:L1: Mazzafrusto pesante",
-          "items:L1: Pozione di cura x2",
-          "items:L1: Scudo leggero d'acciaio",
-          "items:Razioni x5"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:Razioni x5"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:Razioni x5",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl05.json",
@@ -915,25 +624,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Kit da avventuriero",
-          "items:L1: Armatura a scaglie benedetta",
-          "items:L1: Kit da avventuriero",
-          "items:L1: Mazzafrusto pesante",
-          "items:L1: Pozione di cura x2",
-          "items:L1: Scudo leggero d'acciaio",
-          "items:Razioni x5"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:Razioni x5"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:Razioni x5",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl10.json",
@@ -952,30 +646,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Kit da avventuriero",
-          "items:L1: Armatura a scaglie benedetta",
-          "items:L1: Kit da avventuriero",
-          "items:L1: Mazzafrusto pesante",
-          "items:L1: Pozione di cura x2",
-          "items:L1: Scudo leggero d'acciaio",
-          "items:L3: Mantello della resistenza +1",
-          "items:L3: Pergamene di Benedizione",
-          "items:L5: Arma sacra +1",
-          "items:L5: Pozioni di protezione dal male x2",
-          "items:L7: Armatura completa +2",
-          "items:Razioni x5"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:L3: Mantello della resistenza +1, items:L3: Pergamene di Benedizione, items:L5: Arma sacra +1, items:L5: Pozioni di protezione dal male x2, items:L7: Armatura completa +2, items:Razioni x5"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:L3: Mantello della resistenza +1, items:L3: Pergamene di Benedizione, items:L5: Arma sacra +1, items:L5: Pozioni di protezione dal male x2, items:L7: Armatura completa +2, items:Razioni x5",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral.json",
@@ -994,21 +668,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Arma preferita",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x2"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Kit da avventuriero, items:Pozione di cura x2"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Kit da avventuriero, items:Pozione di cura x2",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
@@ -1027,27 +690,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Abilità focalizzata (Sopravvivenza)",
-          "feats:Attacco poderoso",
-          "feats:Incantesimi naturali",
-          "feats:Iniziativa migliorata",
-          "items:Amuleto della naturale armatura +1",
-          "items:Bacchetta di cura ferite leggere (20 cariche)",
-          "items:Bastone druidico",
-          "items:Corazza di pelle chiodata +1",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x3",
-          "items:Scudo leggero in legno"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Abilità focalizzata (Sopravvivenza), feats:Attacco poderoso, feats:Incantesimi naturali, feats:Iniziativa migliorata, items:Amuleto della naturale armatura +1, items:Bacchetta di cura ferite leggere (20 cariche), items:Bastone druidico, items:Corazza di pelle chiodata +1, items:Kit da avventuriero, items:Pozione di cura x3, items:Scudo leggero in legno"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Abilità focalizzata (Sopravvivenza), feats:Attacco poderoso, feats:Incantesimi naturali, feats:Iniziativa migliorata, items:Amuleto della naturale armatura +1, items:Bacchetta di cura ferite leggere (20 cariche), items:Bastone druidico, items:Corazza di pelle chiodata +1, items:Kit da avventuriero, items:Pozione di cura x3, items:Scudo leggero in legno",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
@@ -1066,33 +712,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Abilità focalizzata (Sopravvivenza)",
-          "feats:Attacco poderoso",
-          "feats:Colpo vitale",
-          "feats:Critico migliorato (artiglio)",
-          "feats:Incantesimi naturali",
-          "feats:Iniziativa migliorata",
-          "feats:Robustezza",
-          "feats:Schivare",
-          "items:Amuleto della naturale armatura +2",
-          "items:Bacchetta di invocare alleato naturale II (15 cariche)",
-          "items:Bastone druidico incantato",
-          "items:Cintura del predatore +2",
-          "items:Corazza di pelle rinforzata +2",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x5",
-          "items:Scudo leggero in legno +1",
-          "items:Unguento per artigli ferini"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Abilità focalizzata (Sopravvivenza), feats:Attacco poderoso, feats:Colpo vitale, feats:Critico migliorato (artiglio), feats:Incantesimi naturali, feats:Iniziativa migliorata, feats:Robustezza, feats:Schivare, items:Amuleto della naturale armatura +2, items:Bacchetta di invocare alleato naturale II (15 cariche), items:Bastone druidico incantato, items:Cintura del predatore +2, items:Corazza di pelle rinforzata +2, items:Kit da avventuriero, items:Pozione di cura x5, items:Scudo leggero in legno +1, items:Unguento per artigli ferini"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Abilità focalizzata (Sopravvivenza), feats:Attacco poderoso, feats:Colpo vitale, feats:Critico migliorato (artiglio), feats:Incantesimi naturali, feats:Iniziativa migliorata, feats:Robustezza, feats:Schivare, items:Amuleto della naturale armatura +2, items:Bacchetta di invocare alleato naturale II (15 cariche), items:Bastone druidico incantato, items:Cintura del predatore +2, items:Corazza di pelle rinforzata +2, items:Kit da avventuriero, items:Pozione di cura x5, items:Scudo leggero in legno +1, items:Unguento per artigli ferini",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
@@ -1110,18 +733,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Bastone lunare scolpito",
-          "items:Mantello d'ombra wayang"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Bastone lunare scolpito, items:Mantello d'ombra wayang"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Bastone lunare scolpito, items:Mantello d'ombra wayang",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
@@ -1139,18 +754,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Pelle d'ombra",
-          "items:Talismano lunare"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Pelle d'ombra, items:Talismano lunare"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Pelle d'ombra, items:Talismano lunare",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
@@ -1168,18 +775,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Anello della luce lunare",
-          "items:Veste d'ombra maggiore"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Anello della luce lunare, items:Veste d'ombra maggiore"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Anello della luce lunare, items:Veste d'ombra maggiore",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded.json",
@@ -1198,21 +797,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Arma preferita",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x2"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Kit da avventuriero, items:Pozione di cura x2"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Kit da avventuriero, items:Pozione di cura x2",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
@@ -1231,24 +819,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Ascia nanica da guerra +1",
-          "items:Corazza a piastre temprata",
-          "items:Kit da avventuriero",
-          "items:Martello leggero di riserva",
-          "items:Pozione di cura x2",
-          "items:Scudo pesante in acciaio +1"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Ascia nanica da guerra +1, items:Corazza a piastre temprata, items:Kit da avventuriero, items:Martello leggero di riserva, items:Pozione di cura x2, items:Scudo pesante in acciaio +1"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Ascia nanica da guerra +1, items:Corazza a piastre temprata, items:Kit da avventuriero, items:Martello leggero di riserva, items:Pozione di cura x2, items:Scudo pesante in acciaio +1",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
@@ -1267,28 +841,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Colpo possente",
-          "feats:Iniziativa migliorata",
-          "items:Amuleto dell'armatura naturale +2",
-          "items:Anello di protezione +2",
-          "items:Armatura completa in mithral +2",
-          "items:Ascia da guerra nanica +1",
-          "items:Cintura della forza +4",
-          "items:Kit da avventuriero",
-          "items:Kit di manutenzione scudi",
-          "items:Mantello della resistenza +1",
-          "items:Pozione di cura x2",
-          "items:Scudo pesante in acciaio +2 (bashing)"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Amuleto dell'armatura naturale +2, items:Anello di protezione +2, items:Armatura completa in mithral +2, items:Ascia da guerra nanica +1, items:Cintura della forza +4, items:Kit da avventuriero, items:Kit di manutenzione scudi, items:Mantello della resistenza +1, items:Pozione di cura x2, items:Scudo pesante in acciaio +2 (bashing)"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Amuleto dell'armatura naturale +2, items:Anello di protezione +2, items:Armatura completa in mithral +2, items:Ascia da guerra nanica +1, items:Cintura della forza +4, items:Kit da avventuriero, items:Kit di manutenzione scudi, items:Mantello della resistenza +1, items:Pozione di cura x2, items:Scudo pesante in acciaio +2 (bashing)",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/gunslinger_strix_gun_tank.json",
@@ -1306,20 +862,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Buckler rinforzato Gun Tank",
-          "items:Cartucce alchemiche e mirino telescopico leggero",
-          "items:Corazza lamellare alata (custom per volo strix)",
-          "items:Musket pesante forgiato in mithral"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Buckler rinforzato Gun Tank, items:Cartucce alchemiche e mirino telescopico leggero, items:Corazza lamellare alata (custom per volo strix), items:Musket pesante forgiato in mithral"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Buckler rinforzato Gun Tank, items:Cartucce alchemiche e mirino telescopico leggero, items:Corazza lamellare alata (custom per volo strix), items:Musket pesante forgiato in mithral",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/gunslinger_strix_gun_tank_lvl05.json",
@@ -1337,20 +883,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Cartucce concussive e polvere nera raffinata",
-          "items:Corazza lamellare +1 con cinghie aerodinamiche",
-          "items:Musket pesante in mithral con baionetta a scatto",
-          "items:Scudo torre pieghevole per difese aeree"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Cartucce concussive e polvere nera raffinata, items:Corazza lamellare +1 con cinghie aerodinamiche, items:Musket pesante in mithral con baionetta a scatto, items:Scudo torre pieghevole per difese aeree"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Cartucce concussive e polvere nera raffinata, items:Corazza lamellare +1 con cinghie aerodinamiche, items:Musket pesante in mithral con baionetta a scatto, items:Scudo torre pieghevole per difese aeree",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/gunslinger_strix_gun_tank_lvl10.json",
@@ -1368,20 +904,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Corazza lamellare +2 con harness alare",
-          "items:Munizioni adamantine e scatter, cartucce concussive di riserva",
-          "items:Musket pesante +2 con mirino a cristallo nero",
-          "items:Scudo torre pieghevole +1"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Corazza lamellare +2 con harness alare, items:Munizioni adamantine e scatter, cartucce concussive di riserva, items:Musket pesante +2 con mirino a cristallo nero, items:Scudo torre pieghevole +1"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Corazza lamellare +2 con harness alare, items:Munizioni adamantine e scatter, cartucce concussive di riserva, items:Musket pesante +2 con mirino a cristallo nero, items:Scudo torre pieghevole +1",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace.json",
@@ -1391,7 +917,7 @@
         "archetype": "Pistolero + Bolt Ace",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "gunslinger_tengu_pistolero_+_bolt_ace",
+        "spec_id": "gunslinger_tengu_pistolero_bolt_ace",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -1399,20 +925,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Dueling pistol forgiata per critico",
-          "items:Giaco di maglia leggera +1",
-          "items:Hand crossbow rinforzata Bolt Ace",
-          "items:Kit da pistoliere con polveri e bulloni speciali"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl05.json",
@@ -1422,7 +938,7 @@
         "archetype": "Pistolero + Bolt Ace",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "gunslinger_tengu_pistolero_+_bolt_ace",
+        "spec_id": "gunslinger_tengu_pistolero_bolt_ace",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -1430,20 +946,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Dueling pistol forgiata per critico",
-          "items:Giaco di maglia leggera +1",
-          "items:Hand crossbow rinforzata Bolt Ace",
-          "items:Kit da pistoliere con polveri e bulloni speciali"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl10.json",
@@ -1453,7 +959,7 @@
         "archetype": "Pistolero + Bolt Ace",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "gunslinger_tengu_pistolero_+_bolt_ace",
+        "spec_id": "gunslinger_tengu_pistolero_bolt_ace",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -1461,20 +967,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Dueling pistol forgiata per critico",
-          "items:Giaco di maglia leggera +1",
-          "items:Hand crossbow rinforzata Bolt Ace",
-          "items:Kit da pistoliere con polveri e bulloni speciali"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/hunter_kasatha_packmaster.json",
@@ -1492,17 +988,9 @@
           5,
           10
         ],
-        "error": "None is not of type 'object'; Elementi non presenti nel catalogo: items:Armatura di cuoio rinforzata, items:Kit da esploratore del deserto, items:Lancia lunga tribale",
-        "missing_catalog_entries": [
-          "items:Armatura di cuoio rinforzata",
-          "items:Kit da esploratore del deserto",
-          "items:Lancia lunga tribale"
-        ],
+        "error": "None is not of type 'object'",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Armatura di cuoio rinforzata, items:Kit da esploratore del deserto, items:Lancia lunga tribale"
         ],
         "status": "invalid"
       },
@@ -1522,17 +1010,9 @@
           5,
           10
         ],
-        "error": "None is not of type 'object'; Elementi non presenti nel catalogo: items:Kit scout del deserto, items:Lancia lunga tribale temprata, items:Pettorale rinforzato per cavalcature",
-        "missing_catalog_entries": [
-          "items:Kit scout del deserto",
-          "items:Lancia lunga tribale temprata",
-          "items:Pettorale rinforzato per cavalcature"
-        ],
+        "error": "None is not of type 'object'",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Kit scout del deserto, items:Lancia lunga tribale temprata, items:Pettorale rinforzato per cavalcature"
         ],
         "status": "invalid"
       },
@@ -1552,17 +1032,9 @@
           5,
           10
         ],
-        "error": "None is not of type 'object'; Elementi non presenti nel catalogo: items:Cotta di maglia leggera rinforzata, items:Kit di comando da carovana, items:Lancia lunga tribale maestro",
-        "missing_catalog_entries": [
-          "items:Cotta di maglia leggera rinforzata",
-          "items:Kit di comando da carovana",
-          "items:Lancia lunga tribale maestro"
-        ],
+        "error": "None is not of type 'object'",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Cotta di maglia leggera rinforzata, items:Kit di comando da carovana, items:Lancia lunga tribale maestro"
         ],
         "status": "invalid"
       },
@@ -1582,19 +1054,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Giaco di maglia",
-          "items:Kukri rituale",
-          "items:Santino del tempio"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Giaco di maglia, items:Kukri rituale, items:Santino del tempio"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Giaco di maglia, items:Kukri rituale, items:Santino del tempio",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl05.json",
@@ -1612,19 +1075,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Giaco di maglia benedetto",
-          "items:Kukri rituale",
-          "items:Pergamena di Litany of Defense"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Giaco di maglia benedetto, items:Kukri rituale, items:Pergamena di Litany of Defense"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Giaco di maglia benedetto, items:Kukri rituale, items:Pergamena di Litany of Defense",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl10.json",
@@ -1642,19 +1096,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Armatura di cuoio borchiato +2",
-          "items:Fiaschette di antitoxin superiore",
-          "items:Kukri benedetto"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Armatura di cuoio borchiato +2, items:Fiaschette di antitoxin superiore, items:Kukri benedetto"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Armatura di cuoio borchiato +2, items:Fiaschette di antitoxin superiore, items:Kukri benedetto",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective.json",
@@ -1664,7 +1109,7 @@
         "archetype": "Empiricist + Psychic Detective",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "investigator_catfolk_empiricist_+_psychic_detective_detective_psichico_delle_steppe_felide",
+        "spec_id": "investigator_catfolk_empiricist_psychic_detective_detective_psichico_delle_steppe_felide",
         "background": "Detective psichico delle steppe felide",
         "model": null,
         "level_checkpoints": [
@@ -1673,11 +1118,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "items:Arma semplice",
-          "items:Armatura leggera",
-          "items:Kit avventuriero",
-          "items:Strumenti da scasso"
+        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
+        "completeness_errors": [
+          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
+          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
         ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
@@ -1690,12 +1134,6 @@
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso; Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
         "status": "invalid"
       },
       {
@@ -1706,7 +1144,7 @@
         "archetype": "Empiricist + Psychic Detective",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "investigator_catfolk_empiricist_+_psychic_detective_detective_psichico_delle_steppe_felide",
+        "spec_id": "investigator_catfolk_empiricist_psychic_detective_detective_psichico_delle_steppe_felide",
         "background": "Detective psichico delle steppe felide",
         "model": null,
         "level_checkpoints": [
@@ -1715,11 +1153,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "items:Arma semplice",
-          "items:Armatura leggera",
-          "items:Kit avventuriero",
-          "items:Strumenti da scasso"
+        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
+        "completeness_errors": [
+          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
+          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
         ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
@@ -1732,12 +1169,6 @@
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso; Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
         "status": "invalid"
       },
       {
@@ -1748,7 +1179,7 @@
         "archetype": "Empiricist + Psychic Detective",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "investigator_catfolk_empiricist_+_psychic_detective_detective_psichico_delle_steppe_felide",
+        "spec_id": "investigator_catfolk_empiricist_psychic_detective_detective_psichico_delle_steppe_felide",
         "background": "Detective psichico delle steppe felide",
         "model": null,
         "level_checkpoints": [
@@ -1757,11 +1188,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "items:Arma semplice",
-          "items:Armatura leggera",
-          "items:Kit avventuriero",
-          "items:Strumenti da scasso"
+        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
+        "completeness_errors": [
+          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
+          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
         ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
@@ -1774,12 +1204,6 @@
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso; Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
         "status": "invalid"
       },
       {
@@ -1790,7 +1214,7 @@
         "archetype": "Kinetic Knight + Overwhelming Soul",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "kineticist_strix_kinetic_knight_+_overwhelming_soul_guardia_alata_delle_cittadelle_strix",
+        "spec_id": "kineticist_strix_kinetic_knight_overwhelming_soul_guardia_alata_delle_cittadelle_strix",
         "background": "Guardia alata delle cittadelle strix",
         "model": null,
         "level_checkpoints": [
@@ -1798,17 +1222,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Corazza di piastre leggermente rinforzata, items:Lancia di forza cinetica, items:Scudo pesante in adamantio",
-        "missing_catalog_entries": [
-          "items:Corazza di piastre leggermente rinforzata",
-          "items:Lancia di forza cinetica",
-          "items:Scudo pesante in adamantio"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Corazza di piastre leggermente rinforzata, items:Lancia di forza cinetica, items:Scudo pesante in adamantio"
         ],
         "status": "invalid"
       },
@@ -1820,7 +1236,7 @@
         "archetype": "Kinetic Knight + Overwhelming Soul",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "kineticist_strix_kinetic_knight_+_overwhelming_soul_guardia_alata_delle_cittadelle_strix",
+        "spec_id": "kineticist_strix_kinetic_knight_overwhelming_soul_guardia_alata_delle_cittadelle_strix",
         "background": "Guardia alata delle cittadelle strix",
         "model": null,
         "level_checkpoints": [
@@ -1828,17 +1244,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +2, items:Scudo pesante in adamantio",
-        "missing_catalog_entries": [
-          "items:Lancia di forza cinetica",
-          "items:Mantello resistente +2",
-          "items:Scudo pesante in adamantio"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +2, items:Scudo pesante in adamantio"
         ],
         "status": "invalid"
       },
@@ -1850,7 +1258,7 @@
         "archetype": "Kinetic Knight + Overwhelming Soul",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "kineticist_strix_kinetic_knight_+_overwhelming_soul_guardia_alata_delle_cittadelle_strix",
+        "spec_id": "kineticist_strix_kinetic_knight_overwhelming_soul_guardia_alata_delle_cittadelle_strix",
         "background": "Guardia alata delle cittadelle strix",
         "model": null,
         "level_checkpoints": [
@@ -1858,17 +1266,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +3, items:Scudo pesante in adamantio",
-        "missing_catalog_entries": [
-          "items:Lancia di forza cinetica",
-          "items:Mantello resistente +3",
-          "items:Scudo pesante in adamantio"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +3, items:Scudo pesante in adamantio"
         ],
         "status": "invalid"
       },
@@ -1880,7 +1280,7 @@
         "archetype": "Kinetic Knight + Overwhelming Soul",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "kineticist_suli_kinetic_knight_+_overwhelming_soul_guardia_delle_carovane_dell'oasi_suli",
+        "spec_id": "kineticist_suli_kinetic_knight_overwhelming_soul_guardia_delle_carovane_dell_oasi_suli",
         "background": "Guardia delle carovane dell'oasi suli",
         "model": null,
         "level_checkpoints": [
@@ -1888,17 +1288,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Corazza rinforzata, items:Lancia di forza cinetica, items:Scudo pesante in adamantio",
-        "missing_catalog_entries": [
-          "items:Corazza rinforzata",
-          "items:Lancia di forza cinetica",
-          "items:Scudo pesante in adamantio"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Corazza rinforzata, items:Lancia di forza cinetica, items:Scudo pesante in adamantio"
         ],
         "status": "invalid"
       },
@@ -1910,7 +1302,7 @@
         "archetype": "Kinetic Knight + Overwhelming Soul",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "kineticist_suli_kinetic_knight_+_overwhelming_soul_guardia_delle_carovane_dell'oasi_suli",
+        "spec_id": "kineticist_suli_kinetic_knight_overwhelming_soul_guardia_delle_carovane_dell_oasi_suli",
         "background": "Guardia delle carovane dell'oasi suli",
         "model": null,
         "level_checkpoints": [
@@ -1918,17 +1310,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +2, items:Scudo pesante in adamantio",
-        "missing_catalog_entries": [
-          "items:Lancia di forza cinetica",
-          "items:Mantello resistente +2",
-          "items:Scudo pesante in adamantio"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +2, items:Scudo pesante in adamantio"
         ],
         "status": "invalid"
       },
@@ -1940,7 +1324,7 @@
         "archetype": "Kinetic Knight + Overwhelming Soul",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "kineticist_suli_kinetic_knight_+_overwhelming_soul_guardia_delle_carovane_dell'oasi_suli",
+        "spec_id": "kineticist_suli_kinetic_knight_overwhelming_soul_guardia_delle_carovane_dell_oasi_suli",
         "background": "Guardia delle carovane dell'oasi suli",
         "model": null,
         "level_checkpoints": [
@@ -1948,17 +1332,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +3, items:Scudo pesante in adamantio",
-        "missing_catalog_entries": [
-          "items:Lancia di forza cinetica",
-          "items:Mantello resistente +3",
-          "items:Scudo pesante in adamantio"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +3, items:Scudo pesante in adamantio"
         ],
         "status": "invalid"
       },
@@ -1978,19 +1354,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Anello di protezione +1",
-          "items:Armatura di cuoio borchiato",
-          "items:Falchion Black Blade"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Anello di protezione +1, items:Armatura di cuoio borchiato, items:Falchion Black Blade"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Anello di protezione +1, items:Armatura di cuoio borchiato, items:Falchion Black Blade",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl05.json",
@@ -2008,19 +1375,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Anello di protezione +1",
-          "items:Bracciali dell'armatura +1",
-          "items:Falchion Black Blade"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Anello di protezione +1, items:Bracciali dell'armatura +1, items:Falchion Black Blade"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Anello di protezione +1, items:Bracciali dell'armatura +1, items:Falchion Black Blade",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl10.json",
@@ -2038,19 +1396,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Anello di protezione +2",
-          "items:Cintura della forza +4",
-          "items:Falchion Black Blade"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Anello di protezione +2, items:Cintura della forza +4, items:Falchion Black Blade"
-        ],
-        "error": "Elementi non presenti nel catalogo: items:Anello di protezione +2, items:Cintura della forza +4, items:Falchion Black Blade",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
@@ -2060,7 +1409,7 @@
         "archetype": "Spirit Dancer + Reanimated Medium",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "medium_oread_spirit_dancer_+_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
+        "spec_id": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
         "background": "Medium oread danzatore degli spiriti di pietra",
         "model": null,
         "level_checkpoints": [
@@ -2068,17 +1417,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Corazza di cuoio temprato, items:Corda di seta, items:Tamburo rituale di pietra",
-        "missing_catalog_entries": [
-          "items:Corazza di cuoio temprato",
-          "items:Corda di seta",
-          "items:Tamburo rituale di pietra"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Corazza di cuoio temprato, items:Corda di seta, items:Tamburo rituale di pietra"
         ],
         "status": "invalid"
       },
@@ -2090,7 +1431,7 @@
         "archetype": "Spirit Dancer + Reanimated Medium",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "medium_oread_spirit_dancer_+_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
+        "spec_id": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
         "background": "Medium oread danzatore degli spiriti di pietra",
         "model": null,
         "level_checkpoints": [
@@ -2098,17 +1439,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Cappuccio di seta per seance, items:Corazza di pietra scolpita, items:Tamburo di quarzo rituale",
-        "missing_catalog_entries": [
-          "items:Cappuccio di seta per seance",
-          "items:Corazza di pietra scolpita",
-          "items:Tamburo di quarzo rituale"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Cappuccio di seta per seance, items:Corazza di pietra scolpita, items:Tamburo di quarzo rituale"
         ],
         "status": "invalid"
       },
@@ -2120,7 +1453,7 @@
         "archetype": "Spirit Dancer + Reanimated Medium",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "medium_oread_spirit_dancer_+_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
+        "spec_id": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
         "background": "Medium oread danzatore degli spiriti di pietra",
         "model": null,
         "level_checkpoints": [
@@ -2128,17 +1461,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Corazza di pietra scolpita +2, items:Diadema dei sussurri ancestrali, items:Tamburo di quarzo rituale maggiore",
-        "missing_catalog_entries": [
-          "items:Corazza di pietra scolpita +2",
-          "items:Diadema dei sussurri ancestrali",
-          "items:Tamburo di quarzo rituale maggiore"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Corazza di pietra scolpita +2, items:Diadema dei sussurri ancestrali, items:Tamburo di quarzo rituale maggiore"
         ],
         "status": "invalid"
       },
@@ -2150,7 +1475,7 @@
         "archetype": "Qinggong + Master of Many Styles",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
+        "spec_id": "monk_vanara_qinggong_master_of_many_styles",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -2159,22 +1484,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "feats:Crane Style",
-          "feats:Dodge",
-          "feats:Tiger Style",
-          "items:Cintura dell'agilità",
-          "items:Corazza di seta",
-          "items:Kama bilanciati"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Crane Style, feats:Dodge, feats:Tiger Style, items:Cintura dell'agilità, items:Corazza di seta, items:Kama bilanciati"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Crane Style, feats:Dodge, feats:Tiger Style, items:Cintura dell'agilità, items:Corazza di seta, items:Kama bilanciati",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl05.json",
@@ -2184,7 +1497,7 @@
         "archetype": "Qinggong + Master of Many Styles",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
+        "spec_id": "monk_vanara_qinggong_master_of_many_styles",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -2193,23 +1506,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Crane Wing",
-          "feats:Dragon Style",
-          "feats:Mobility",
-          "feats:Tiger Claws",
-          "items:Amuleto dell'armatura naturale +1",
-          "items:Handwraps +1 con Furious Focus",
-          "items:Stivali del salto del vento"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Crane Wing, feats:Dragon Style, feats:Mobility, feats:Tiger Claws, items:Amuleto dell'armatura naturale +1, items:Handwraps +1 con Furious Focus, items:Stivali del salto del vento"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Crane Wing, feats:Dragon Style, feats:Mobility, feats:Tiger Claws, items:Amuleto dell'armatura naturale +1, items:Handwraps +1 con Furious Focus, items:Stivali del salto del vento",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl10.json",
@@ -2219,7 +1519,7 @@
         "archetype": "Qinggong + Master of Many Styles",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "monk_vanara_qinggong_+_master_of_many_styles",
+        "spec_id": "monk_vanara_qinggong_master_of_many_styles",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -2228,23 +1528,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Crane Riposte",
-          "feats:Dragon Ferocity",
-          "feats:Medusa's Wrath",
-          "feats:Spring Attack",
-          "items:Cintura del gigante +2",
-          "items:Handwraps +3 furious",
-          "items:Sandals of the Light Step"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Crane Riposte, feats:Dragon Ferocity, feats:Medusa's Wrath, feats:Spring Attack, items:Cintura del gigante +2, items:Handwraps +3 furious, items:Sandals of the Light Step"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Crane Riposte, feats:Dragon Ferocity, feats:Medusa's Wrath, feats:Spring Attack, items:Cintura del gigante +2, items:Handwraps +3 furious, items:Sandals of the Light Step",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl01.json",
@@ -2254,7 +1541,7 @@
         "archetype": "Holy Tactician + Sacred Servant",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "paladin_aasimar_holy_tactician_+_sacred_servant",
+        "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -2262,21 +1549,9 @@
           5,
           10
         ],
-        "error": "14 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 2} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'; Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor",
-        "missing_catalog_entries": [
-          "feats:Coordinated Charge",
-          "items:Full plate benedetta",
-          "items:Pozioni di cura",
-          "items:Simbolo sacro",
-          "items:Spada lunga sacra",
-          "spells:Bless Weapon",
-          "spells:Divine Favor"
-        ],
+        "error": "14 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 2} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor"
         ],
         "status": "invalid"
       },
@@ -2288,7 +1563,7 @@
         "archetype": "Holy Tactician + Sacred Servant",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "paladin_aasimar_holy_tactician_+_sacred_servant",
+        "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -2296,21 +1571,9 @@
           5,
           10
         ],
-        "error": "22 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 3} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'; Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor",
-        "missing_catalog_entries": [
-          "feats:Coordinated Charge",
-          "items:Full plate benedetta",
-          "items:Pozioni di cura",
-          "items:Simbolo sacro",
-          "items:Spada lunga sacra",
-          "spells:Bless Weapon",
-          "spells:Divine Favor"
-        ],
+        "error": "22 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 3} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor"
         ],
         "status": "invalid"
       },
@@ -2322,7 +1585,7 @@
         "archetype": "Holy Tactician + Sacred Servant",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "paladin_aasimar_holy_tactician_+_sacred_servant",
+        "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -2330,21 +1593,9 @@
           5,
           10
         ],
-        "error": "32 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 4} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'; Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor",
-        "missing_catalog_entries": [
-          "feats:Coordinated Charge",
-          "items:Full plate benedetta",
-          "items:Pozioni di cura",
-          "items:Simbolo sacro",
-          "items:Spada lunga sacra",
-          "spells:Bless Weapon",
-          "spells:Divine Favor"
-        ],
+        "error": "32 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 4} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor"
         ],
         "status": "invalid"
       },
@@ -2365,23 +1616,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "feats:Arma accurata",
-          "items:Armatura di cuoio borchiato",
-          "items:Attrezzi da scasso di qualità",
-          "items:Fionda con 20 proiettili",
-          "items:Kit da avventuriero",
-          "items:Pozione di cura x2",
-          "items:Pugnale bilanciato"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Arma accurata, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Fionda con 20 proiettili, items:Kit da avventuriero, items:Pozione di cura x2, items:Pugnale bilanciato"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Arma accurata, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Fionda con 20 proiettili, items:Kit da avventuriero, items:Pozione di cura x2, items:Pugnale bilanciato",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
@@ -2400,35 +1638,10 @@
           10
         ],
         "level": 5,
-        "missing_catalog_entries": [
-          "feats:Arma accurata",
-          "feats:Arma focalizzata (pugnale)",
-          "feats:Combattere con due armi",
-          "feats:Schivare",
-          "feats:Schivare prodigioso",
-          "items:Anello di protezione +1",
-          "items:Armatura di cuoio borchiato",
-          "items:Attrezzi da scasso di qualità",
-          "items:Cappa elfica grigia",
-          "items:Cintura dell'agilità +2",
-          "items:Fionda con 20 proiettili",
-          "items:Giaco di maglia ombreggiato",
-          "items:Guanti da ladro",
-          "items:Kit da avventuriero",
-          "items:Mantello della resistenza +1",
-          "items:Pozione di cura x2",
-          "items:Pugnale +1",
-          "items:Pugnale bilanciato",
-          "items:Pugnale masterwork"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Arma accurata, feats:Arma focalizzata (pugnale), feats:Combattere con due armi, feats:Schivare, feats:Schivare prodigioso, items:Anello di protezione +1, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Cappa elfica grigia, items:Cintura dell'agilità +2, items:Fionda con 20 proiettili, items:Giaco di maglia ombreggiato, items:Guanti da ladro, items:Kit da avventuriero, items:Mantello della resistenza +1, items:Pozione di cura x2, items:Pugnale +1, items:Pugnale bilanciato, items:Pugnale masterwork"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Arma accurata, feats:Arma focalizzata (pugnale), feats:Combattere con due armi, feats:Schivare, feats:Schivare prodigioso, items:Anello di protezione +1, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Cappa elfica grigia, items:Cintura dell'agilità +2, items:Fionda con 20 proiettili, items:Giaco di maglia ombreggiato, items:Guanti da ladro, items:Kit da avventuriero, items:Mantello della resistenza +1, items:Pozione di cura x2, items:Pugnale +1, items:Pugnale bilanciato, items:Pugnale masterwork",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/rogue_halfling_cutpurse_lvl10.json",
@@ -2447,51 +1660,10 @@
           10
         ],
         "level": 10,
-        "missing_catalog_entries": [
-          "feats:Arma accurata",
-          "feats:Arma accurata superiore",
-          "feats:Arma focalizzata (pugnale)",
-          "feats:Arma focalizzata superiore (pugnale)",
-          "feats:Colpo senz'armi migliorato",
-          "feats:Combattere con due armi",
-          "feats:Mobilità",
-          "feats:Riflessi in combattimento",
-          "feats:Schivare",
-          "feats:Schivare prodigioso",
-          "feats:Talento ladresco: Opportunista",
-          "items:Anello di protezione +1",
-          "items:Anello di protezione +2",
-          "items:Armatura di cuoio borchiato",
-          "items:Attrezzi da scasso di qualità",
-          "items:Bracciali dell'armatura +1",
-          "items:Cappa elfica grigia",
-          "items:Cintura dell'agilità +2",
-          "items:Cintura dell'agilità +4",
-          "items:Fionda con 20 proiettili",
-          "items:Giaco di maglia ombreggiato",
-          "items:Giaco di maglia ombreggiato +2",
-          "items:Guanti da ladro",
-          "items:Guanti della destrezza +4",
-          "items:Kit da avventuriero",
-          "items:Mantello della resistenza +1",
-          "items:Mantello della resistenza +2",
-          "items:Pozione di cura x2",
-          "items:Pugnale +1",
-          "items:Pugnale +2 bilanciato",
-          "items:Pugnale agile +2",
-          "items:Pugnale bilanciato",
-          "items:Pugnale masterwork",
-          "items:Pugnale velocità +2",
-          "items:Stivali dell'agilità"
-        ],
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Arma accurata, feats:Arma accurata superiore, feats:Arma focalizzata (pugnale), feats:Arma focalizzata superiore (pugnale), feats:Colpo senz'armi migliorato, feats:Combattere con due armi, feats:Mobilità, feats:Riflessi in combattimento, feats:Schivare, feats:Schivare prodigioso, feats:Talento ladresco: Opportunista, items:Anello di protezione +1, items:Anello di protezione +2, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Bracciali dell'armatura +1, items:Cappa elfica grigia, items:Cintura dell'agilità +2, items:Cintura dell'agilità +4, items:Fionda con 20 proiettili, items:Giaco di maglia ombreggiato, items:Giaco di maglia ombreggiato +2, items:Guanti da ladro, items:Guanti della destrezza +4, items:Kit da avventuriero, items:Mantello della resistenza +1, items:Mantello della resistenza +2, items:Pozione di cura x2, items:Pugnale +1, items:Pugnale +2 bilanciato, items:Pugnale agile +2, items:Pugnale bilanciato, items:Pugnale masterwork, items:Pugnale velocità +2, items:Stivali dell'agilità"
-        ],
-        "error": "Elementi non presenti nel catalogo: feats:Arma accurata, feats:Arma accurata superiore, feats:Arma focalizzata (pugnale), feats:Arma focalizzata superiore (pugnale), feats:Colpo senz'armi migliorato, feats:Combattere con due armi, feats:Mobilità, feats:Riflessi in combattimento, feats:Schivare, feats:Schivare prodigioso, feats:Talento ladresco: Opportunista, items:Anello di protezione +1, items:Anello di protezione +2, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Bracciali dell'armatura +1, items:Cappa elfica grigia, items:Cintura dell'agilità +2, items:Cintura dell'agilità +4, items:Fionda con 20 proiettili, items:Giaco di maglia ombreggiato, items:Giaco di maglia ombreggiato +2, items:Guanti da ladro, items:Guanti della destrezza +4, items:Kit da avventuriero, items:Mantello della resistenza +1, items:Mantello della resistenza +2, items:Pozione di cura x2, items:Pugnale +1, items:Pugnale +2 bilanciato, items:Pugnale agile +2, items:Pugnale bilanciato, items:Pugnale masterwork, items:Pugnale velocità +2, items:Stivali dell'agilità",
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist.json",
@@ -2501,7 +1673,7 @@
         "archetype": "Shadowcaster + Separatist",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "cleric_wayang_(umbral)_shadowcaster_+_separatist_cleric_wayang_ombra_che_separa_dottrina_e_fede_per_massimizzare_controllo_t1",
+        "spec_id": "cleric_wayang_umbral_shadowcaster_separatist_cleric_wayang_ombra_che_separa_dottrina_e_fede_per_massimizzare_controllo_t1",
         "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
         "model": null,
         "level_checkpoints": [
@@ -2510,18 +1682,10 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "items:Sacro simbolo invertito separatista",
-          "items:Scimitarra d'ombra rituale",
-          "items:Veste oscurante wayang"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Sacro simbolo invertito separatista, items:Scimitarra d'ombra rituale, items:Veste oscurante wayang"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Sacro simbolo invertito separatista, items:Scimitarra d'ombra rituale, items:Veste oscurante wayang",
         "status": "invalid"
       },
       {
@@ -2532,7 +1696,7 @@
         "archetype": "Shadowcaster + Separatist",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "cleric_wayang_(umbral)_shadowcaster_+_separatist_cleric_wayang_ombra_che_separa_dottrina_e_fede_per_massimizzare_controllo_t1",
+        "spec_id": "cleric_wayang_umbral_shadowcaster_separatist_cleric_wayang_ombra_che_separa_dottrina_e_fede_per_massimizzare_controllo_t1",
         "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
         "model": null,
         "level_checkpoints": [
@@ -2541,10 +1705,10 @@
           10
         ],
         "level": 5,
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid"
       },
       {
@@ -2555,7 +1719,7 @@
         "archetype": "Shadowcaster + Separatist",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "cleric_wayang_(umbral)_shadowcaster_+_separatist_cleric_wayang_ombra_che_separa_dottrina_e_fede_per_massimizzare_controllo_t1",
+        "spec_id": "cleric_wayang_umbral_shadowcaster_separatist_cleric_wayang_ombra_che_separa_dottrina_e_fede_per_massimizzare_controllo_t1",
         "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
         "model": null,
         "level_checkpoints": [
@@ -2564,10 +1728,10 @@
           10
         ],
         "level": 10,
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid"
       },
       {
@@ -2578,7 +1742,7 @@
         "archetype": "Vexing Daredevil + Enigma",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "mesmerist_catfolk_vexing_daredevil_+_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
+        "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
         "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
         "model": null,
         "level_checkpoints": [
@@ -2586,19 +1750,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Focus psichico minore",
-          "items:Frusta potenziata per dirty trick",
-          "items:Giaco di maglia leggera",
-          "items:Kit da contorsionista"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Focus psichico minore, items:Frusta potenziata per dirty trick, items:Giaco di maglia leggera, items:Kit da contorsionista"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Focus psichico minore, items:Frusta potenziata per dirty trick, items:Giaco di maglia leggera, items:Kit da contorsionista",
         "status": "invalid"
       },
       {
@@ -2609,7 +1764,7 @@
         "archetype": "Vexing Daredevil + Enigma",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "mesmerist_catfolk_vexing_daredevil_+_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
+        "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
         "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
         "model": null,
         "level_checkpoints": [
@@ -2617,19 +1772,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Frusta +1 con fustigazione sporca",
-          "items:Mantello dell'ombra",
-          "items:Mitria felina con focus psichico",
-          "items:Stivali dell'agilità"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Frusta +1 con fustigazione sporca, items:Mantello dell'ombra, items:Mitria felina con focus psichico, items:Stivali dell'agilità"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Frusta +1 con fustigazione sporca, items:Mantello dell'ombra, items:Mitria felina con focus psichico, items:Stivali dell'agilità",
         "status": "invalid"
       },
       {
@@ -2640,7 +1786,7 @@
         "archetype": "Vexing Daredevil + Enigma",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "mesmerist_catfolk_vexing_daredevil_+_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
+        "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
         "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
         "model": null,
         "level_checkpoints": [
@@ -2648,19 +1794,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Anello di protezione +2",
-          "items:Cintura della destrezza +2",
-          "items:Frusta +2 con cruel",
-          "items:Mantello della resistenza +3"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Anello di protezione +2, items:Cintura della destrezza +2, items:Frusta +2 con cruel, items:Mantello della resistenza +3"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Anello di protezione +2, items:Cintura della destrezza +2, items:Frusta +2 con cruel, items:Mantello della resistenza +3",
         "status": "invalid"
       },
       {
@@ -2671,7 +1808,7 @@
         "archetype": "Battle Host + Panoply Savant",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "occultist_ghoran_battle_host_+_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
+        "spec_id": "occultist_ghoran_battle_host_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
         "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
         "model": null,
         "level_checkpoints": [
@@ -2679,19 +1816,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Armatura legata in fibra di vite Ghoran",
-          "items:Implemento panoply (aegis + weapon) lucidato",
-          "items:Kit da studioso",
-          "items:Talismano di linfa per focus mentale"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Armatura legata in fibra di vite Ghoran, items:Implemento panoply (aegis + weapon) lucidato, items:Kit da studioso, items:Talismano di linfa per focus mentale"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Armatura legata in fibra di vite Ghoran, items:Implemento panoply (aegis + weapon) lucidato, items:Kit da studioso, items:Talismano di linfa per focus mentale",
         "status": "invalid"
       },
       {
@@ -2702,7 +1830,7 @@
         "archetype": "Battle Host + Panoply Savant",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "occultist_ghoran_battle_host_+_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
+        "spec_id": "occultist_ghoran_battle_host_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
         "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
         "model": null,
         "level_checkpoints": [
@@ -2710,19 +1838,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Armatura vivente +1 con rune botaniche",
-          "items:Ciondolo di linfa rinforzata",
-          "items:Implemento panoply (aegis + weapon) masterwork",
-          "items:Manuale di tattica psichica"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Armatura vivente +1 con rune botaniche, items:Ciondolo di linfa rinforzata, items:Implemento panoply (aegis + weapon) masterwork, items:Manuale di tattica psichica"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Armatura vivente +1 con rune botaniche, items:Ciondolo di linfa rinforzata, items:Implemento panoply (aegis + weapon) masterwork, items:Manuale di tattica psichica",
         "status": "invalid"
       },
       {
@@ -2733,7 +1852,7 @@
         "archetype": "Battle Host + Panoply Savant",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "occultist_ghoran_battle_host_+_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
+        "spec_id": "occultist_ghoran_battle_host_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
         "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
         "model": null,
         "level_checkpoints": [
@@ -2741,19 +1860,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Armatura vivente +2 con rune e spine",
-          "items:Cintura di linfa per forza e focus",
-          "items:Implemento panoply (aegis + weapon) potenziato",
-          "items:Manuale di comando panoply avanzato"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Armatura vivente +2 con rune e spine, items:Cintura di linfa per forza e focus, items:Implemento panoply (aegis + weapon) potenziato, items:Manuale di comando panoply avanzato"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Armatura vivente +2 con rune e spine, items:Cintura di linfa per forza e focus, items:Implemento panoply (aegis + weapon) potenziato, items:Manuale di comando panoply avanzato",
         "status": "invalid"
       },
       {
@@ -2764,7 +1874,7 @@
         "archetype": "Spirit Guide + Seer",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "oracle_ghoran_spirit_guide_+_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
+        "spec_id": "oracle_ghoran_spirit_guide_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
         "background": "Oracolo Ghoran che intreccia presagi vegetali e patroni shamanici",
         "model": null,
         "level_checkpoints": [
@@ -2772,19 +1882,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Bastone rituale di linfa",
-          "items:Focus druidico intrecciato",
-          "items:Set da veggente Ghoran",
-          "items:Tatuaggi di mistero lore"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore",
         "status": "invalid"
       },
       {
@@ -2795,7 +1896,7 @@
         "archetype": "Spirit Guide + Seer",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "oracle_ghoran_spirit_guide_+_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
+        "spec_id": "oracle_ghoran_spirit_guide_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
         "background": "Oracolo Ghoran che intreccia presagi vegetali e patroni shamanici",
         "model": null,
         "level_checkpoints": [
@@ -2803,19 +1904,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Bastone rituale di linfa",
-          "items:Focus druidico intrecciato",
-          "items:Set da veggente Ghoran",
-          "items:Tatuaggi di mistero lore"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore",
         "status": "invalid"
       },
       {
@@ -2826,7 +1918,7 @@
         "archetype": "Spirit Guide + Seer",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "oracle_ghoran_spirit_guide_+_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
+        "spec_id": "oracle_ghoran_spirit_guide_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
         "background": "Oracolo Ghoran che intreccia presagi vegetali e patroni shamanici",
         "model": null,
         "level_checkpoints": [
@@ -2834,19 +1926,10 @@
           5,
           10
         ],
-        "missing_catalog_entries": [
-          "items:Bastone rituale di linfa",
-          "items:Focus druidico intrecciato",
-          "items:Set da veggente Ghoran",
-          "items:Tatuaggi di mistero lore"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore"
-        ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore",
         "status": "invalid"
       },
       {
@@ -2857,7 +1940,7 @@
         "archetype": "Holy Tactician + Sacred Servant",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "paladin_aasimar_holy_tactician_+_sacred_servant",
+        "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -2865,21 +1948,9 @@
           5,
           10
         ],
-        "error": "14 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 2} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'; Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor",
-        "missing_catalog_entries": [
-          "feats:Coordinated Charge",
-          "items:Full plate benedetta",
-          "items:Pozioni di cura",
-          "items:Simbolo sacro",
-          "items:Spada lunga sacra",
-          "spells:Bless Weapon",
-          "spells:Divine Favor"
-        ],
+        "error": "14 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 2} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor"
         ],
         "status": "invalid"
       },
@@ -2891,7 +1962,7 @@
         "archetype": "Holy Tactician + Sacred Servant",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "paladin_aasimar_holy_tactician_+_sacred_servant",
+        "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -2899,21 +1970,9 @@
           5,
           10
         ],
-        "error": "22 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 3} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'; Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor",
-        "missing_catalog_entries": [
-          "feats:Coordinated Charge",
-          "items:Full plate benedetta",
-          "items:Pozioni di cura",
-          "items:Simbolo sacro",
-          "items:Spada lunga sacra",
-          "spells:Bless Weapon",
-          "spells:Divine Favor"
-        ],
+        "error": "22 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 3} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor"
         ],
         "status": "invalid"
       },
@@ -2925,7 +1984,7 @@
         "archetype": "Holy Tactician + Sacred Servant",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "paladin_aasimar_holy_tactician_+_sacred_servant",
+        "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -2933,21 +1992,9 @@
           5,
           10
         ],
-        "error": "32 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 4} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'; Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor",
-        "missing_catalog_entries": [
-          "feats:Coordinated Charge",
-          "items:Full plate benedetta",
-          "items:Pozioni di cura",
-          "items:Simbolo sacro",
-          "items:Spada lunga sacra",
-          "spells:Bless Weapon",
-          "spells:Divine Favor"
-        ],
+        "error": "32 is not of type 'object'; [{'livello': 1, 'lista': ['Bless Weapon', 'Divine Favor']}] is not of type 'object'; 9 is not of type 'object'; 5 is not of type 'object'; 7 is not of type 'object'; {'1': 4} is not of type 'string', 'null'; {'1': ['Bless Weapon', 'Divine Favor']} is not of type 'array'",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Coordinated Charge, items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra, spells:Bless Weapon, spells:Divine Favor"
         ],
         "status": "invalid"
       },
@@ -2959,7 +2006,7 @@
         "archetype": "Gravewalker + Hedge Witch",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
+        "spec_id": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
         "background": "Veggente del vento che guida anime e cura con erbe sospese",
         "model": null,
         "level_checkpoints": [
@@ -2967,10 +2014,10 @@
           5,
           10
         ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid"
       },
       {
@@ -2981,7 +2028,7 @@
         "archetype": "Gravewalker + Hedge Witch",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
+        "spec_id": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
         "background": "Veggente del vento che guida anime e cura con erbe sospese",
         "model": null,
         "level_checkpoints": [
@@ -2989,10 +2036,10 @@
           5,
           10
         ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid"
       },
       {
@@ -3003,7 +2050,7 @@
         "archetype": "Gravewalker + Hedge Witch",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
+        "spec_id": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
         "background": "Veggente del vento che guida anime e cura con erbe sospese",
         "model": null,
         "level_checkpoints": [
@@ -3011,10 +2058,10 @@
           5,
           10
         ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "status": "invalid"
       },
       {
@@ -3025,7 +2072,7 @@
         "archetype": "Gravewalker + Hedge Witch",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
+        "spec_id": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
         "background": "Veggente del vento che guida anime e cura con erbe sospese",
         "model": null,
         "level_checkpoints": [
@@ -3033,17 +2080,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Feticcio necromantico, items:Grimoire di spine, items:Mantello del vento",
-        "missing_catalog_entries": [
-          "items:Feticcio necromantico",
-          "items:Grimoire di spine",
-          "items:Mantello del vento"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Feticcio necromantico, items:Grimoire di spine, items:Mantello del vento"
         ],
         "status": "invalid"
       },
@@ -3055,7 +2094,7 @@
         "archetype": "Gravewalker + Hedge Witch",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
+        "spec_id": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
         "background": "Veggente del vento che guida anime e cura con erbe sospese",
         "model": null,
         "level_checkpoints": [
@@ -3063,17 +2102,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Feticcio necromantico, items:Libro degli incantesimi runico, items:Mantello del vento leggero",
-        "missing_catalog_entries": [
-          "items:Feticcio necromantico",
-          "items:Libro degli incantesimi runico",
-          "items:Mantello del vento leggero"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Feticcio necromantico, items:Libro degli incantesimi runico, items:Mantello del vento leggero"
         ],
         "status": "invalid"
       },
@@ -3085,7 +2116,7 @@
         "archetype": "Gravewalker + Hedge Witch",
         "mode": null,
         "mode_normalized": "extended",
-        "spec_id": "witch_sylph_gravewalker_+_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
+        "spec_id": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
         "background": "Veggente del vento che guida anime e cura con erbe sospese",
         "model": null,
         "level_checkpoints": [
@@ -3093,17 +2124,9 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property; Elementi non presenti nel catalogo: items:Feticcio necromantico maggiore, items:Libro degli incantesimi runico avanzato, items:Mantello del vento tempestoso",
-        "missing_catalog_entries": [
-          "items:Feticcio necromantico maggiore",
-          "items:Libro degli incantesimi runico avanzato",
-          "items:Mantello del vento tempestoso"
-        ],
+        "error": "'sheet_payload' is a required property; 'composite' is a required property",
         "catalog_version": [
           "2025.12.14"
-        ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: items:Feticcio necromantico maggiore, items:Libro degli incantesimi runico avanzato, items:Mantello del vento tempestoso"
         ],
         "status": "invalid"
       }
@@ -3111,21 +2134,21 @@
     "checkpoints": {
       "1": {
         "total": 14,
-        "invalid": 14,
-        "schema_errors": 14,
-        "completeness_errors": 14
+        "invalid": 3,
+        "schema_errors": 3,
+        "completeness_errors": 2
       },
       "5": {
         "total": 15,
-        "invalid": 15,
-        "schema_errors": 15,
-        "completeness_errors": 14
+        "invalid": 3,
+        "schema_errors": 3,
+        "completeness_errors": 2
       },
       "10": {
         "total": 15,
-        "invalid": 15,
-        "schema_errors": 15,
-        "completeness_errors": 14
+        "invalid": 3,
+        "schema_errors": 3,
+        "completeness_errors": 2
       }
     }
   },
@@ -3244,11 +2267,11 @@
     ]
   },
   "reference_urls": {
-    "total": 50,
+    "total": 305,
     "aon": 50,
     "d20_only": 0,
     "missing_aon_entries": [],
-    "aon_ratio": 1.0,
+    "aon_ratio": 0.164,
     "status": "ok"
   },
   "build_index": "src/data/build_index.json",
