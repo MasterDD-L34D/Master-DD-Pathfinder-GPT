@@ -179,6 +179,14 @@
             "string",
             "null"
           ]
+        },
+        "statistics": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Statistiche sintetiche calcolate sul personaggio",
+          "additionalProperties": true
         }
       },
       "additionalProperties": false
@@ -198,6 +206,14 @@
             "string",
             "null"
           ]
+        },
+        "statistics": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Metriche chiave per il benchmarking",
+          "additionalProperties": true
         },
         "dpr_snapshot": {
           "type": "object",
@@ -236,7 +252,12 @@
       "type": "object",
       "properties": {
         "sheet_payload": {
-          "$ref": "scheda_pg.schema.json"
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Sheet payload completo, quando disponibile",
+          "additionalProperties": true
         },
         "sheet_locale": {
           "type": [
@@ -397,6 +418,14 @@
         },
         "export": {
           "$ref": "#/$defs/export"
+        },
+        "sheet_payload": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "Sheet payload completo, quando disponibile",
+          "additionalProperties": true
         }
       },
       "additionalProperties": false
@@ -415,6 +444,9 @@
         },
         "sheet": {
           "$ref": "#/$defs/textual_block"
+        },
+        "sheet_payload": {
+          "$ref": "scheda_pg.schema.json"
         },
         "ledger": {
           "$ref": "#/$defs/ledger"
