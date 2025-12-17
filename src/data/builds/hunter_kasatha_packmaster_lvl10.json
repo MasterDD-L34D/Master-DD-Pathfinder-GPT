@@ -16,7 +16,7 @@
     "race": "Kasatha",
     "archetype": "Packmaster"
   },
-  "body_params": null,
+  "body_params": {},
   "fetched_at": "2025-01-12T00:10:00Z",
   "build_state": {
     "class": "Hunter",
@@ -173,15 +173,31 @@
         "Kit di comando da carovana"
       ],
       "ledger_movimenti": [
-        {"voce": "Addestramento branchia di dinosauri alpha", "importo": -360},
-        {"voce": "Comando convoglio stellare", "importo": 620}
+        {
+          "voce": "Addestramento branchia di dinosauri alpha",
+          "importo": -360
+        },
+        {
+          "voce": "Comando convoglio stellare",
+          "importo": 620
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Addestramento branchia di dinosauri alpha", "importo": -360},
-          {"voce": "Comando convoglio stellare", "importo": 620}
+          {
+            "voce": "Addestramento branchia di dinosauri alpha",
+            "importo": -360
+          },
+          {
+            "voce": "Comando convoglio stellare",
+            "importo": 620
+          }
         ],
-        "currency": {"oro": 260, "argento": 40, "rame": 18}
+        "currency": {
+          "oro": 260,
+          "argento": 40,
+          "rame": 18
+        }
       },
       "sheet_markdown": "Percezione\nLancia lunga tribale maestro\nAddestramento branchia di dinosauri alpha"
     },

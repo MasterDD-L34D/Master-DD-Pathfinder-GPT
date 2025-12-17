@@ -118,8 +118,14 @@
         "Diadema dei sussurri ancestrali"
       ],
       "ledger_movimenti": [
-        {"voce": "Reliquie di quarzo animato", "importo": -4500},
-        {"voce": "Commissioni per danze rituali", "importo": 6200}
+        {
+          "voce": "Reliquie di quarzo animato",
+          "importo": -4500
+        },
+        {
+          "voce": "Commissioni per danze rituali",
+          "importo": 6200
+        }
       ],
       "ledger": {
         "movimenti": [
@@ -188,5 +194,9 @@
     1,
     5,
     10
-  ]
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "body_params": {},
+  "narrative": "Medium oread che danza con gli spiriti della pietra e preserva un retaggio rianimato."
 }

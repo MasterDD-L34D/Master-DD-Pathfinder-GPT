@@ -16,7 +16,7 @@
     "race": "Kasatha",
     "archetype": "Packmaster"
   },
-  "body_params": null,
+  "body_params": {},
   "fetched_at": "2025-01-12T00:00:00Z",
   "build_state": {
     "class": "Hunter",
@@ -168,15 +168,31 @@
         "Kit da esploratore del deserto"
       ],
       "ledger_movimenti": [
-        {"voce": "Approvvigionamenti carovana", "importo": -180},
-        {"voce": "Contratto di scorta", "importo": 320}
+        {
+          "voce": "Approvvigionamenti carovana",
+          "importo": -180
+        },
+        {
+          "voce": "Contratto di scorta",
+          "importo": 320
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Approvvigionamenti carovana", "importo": -180},
-          {"voce": "Contratto di scorta", "importo": 320}
+          {
+            "voce": "Approvvigionamenti carovana",
+            "importo": -180
+          },
+          {
+            "voce": "Contratto di scorta",
+            "importo": 320
+          }
         ],
-        "currency": {"oro": 140, "argento": 20, "rame": 5}
+        "currency": {
+          "oro": 140,
+          "argento": 20,
+          "rame": 5
+        }
       },
       "sheet_markdown": "Percezione\nLancia lunga tribale\nApprovvigionamenti carovana"
     },

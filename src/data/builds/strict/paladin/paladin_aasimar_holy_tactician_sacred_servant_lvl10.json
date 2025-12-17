@@ -93,12 +93,20 @@
       ],
       "rules_status_text": "Badge RAW/RAI/PFS stabile con meta_tier T1",
       "pf_totali": 32,
-      "hp": 32,
+      "hp": {
+        "totale": 32
+      },
       "skill_points": 4,
       "skills_map": {
-        "Diplomacy": 9,
-        "Perception": 7,
-        "Knowledge (religion)": 5
+        "Diplomacy": {
+          "totale": 9
+        },
+        "Perception": {
+          "totale": 7
+        },
+        "Knowledge (religion)": {
+          "totale": 5
+        }
       },
       "talenti": [
         "Power Attack",
@@ -119,24 +127,23 @@
         "Simbolo sacro",
         "Pozioni di cura"
       ],
-      "spell_levels": {
-        "1": [
-          "Bless Weapon",
-          "Divine Favor"
-        ]
-      },
-      "magia": [
+      "spell_levels": [
         {
-          "livello": 1,
-          "lista": [
+          "liv": 1,
+          "per_day": 4,
+          "spells": [
             "Bless Weapon",
             "Divine Favor"
           ]
         }
       ],
-      "slot_incantesimi": {
-        "1": 4
+      "magia": {
+        "1": [
+          "Bless Weapon",
+          "Divine Favor"
+        ]
       },
+      "slot_incantesimi": "Livello 1: 4",
       "ac_breakdown": {
         "base": 10,
         "armatura": 8,
@@ -239,5 +246,6 @@
     5,
     10
   ],
-  "mode": "extended"
+  "mode": "extended",
+  "mode_normalized": "extended"
 }

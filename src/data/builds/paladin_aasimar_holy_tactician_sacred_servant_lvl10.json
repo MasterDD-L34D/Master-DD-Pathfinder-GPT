@@ -93,32 +93,67 @@
       ],
       "rules_status_text": "Badge RAW/RAI/PFS stabile con meta_tier T1",
       "pf_totali": 32,
-      "hp": 32,
+      "hp": {
+        "totale": 32
+      },
       "skill_points": 4,
       "skills_map": {
-        "Diplomacy": 9,
-        "Perception": 7,
-        "Knowledge (religion)": 5
+        "Diplomacy": {
+          "totale": 9
+        },
+        "Perception": {
+          "totale": 7
+        },
+        "Knowledge (religion)": {
+          "totale": 5
+        }
       },
       "skills": [
-        {"nome": "Diplomazia", "gradi": 10, "mod_car": 6, "classe": true, "totale": 23},
-        {"nome": "Conoscenze (religioni)", "gradi": 10, "mod_car": 1, "classe": true, "totale": 18}
+        {
+          "nome": "Diplomazia",
+          "gradi": 10,
+          "mod_car": 6,
+          "classe": true,
+          "totale": 23
+        },
+        {
+          "nome": "Conoscenze (religioni)",
+          "gradi": 10,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 18
+        }
       ],
       "equipaggiamento": [
-        "Spada lunga consacrata +2", 
-        "Armatura completa benedetta",
-        "Emblema sacro dorato"
+        "Full plate benedetta",
+        "Spada lunga sacra"
       ],
       "ledger_movimenti": [
-        {"voce": "Dono annuale al tempio", "importo": -200},
-        {"voce": "Ricompensa crociata", "importo": 420}
+        {
+          "voce": "Dono annuale al tempio",
+          "importo": -200
+        },
+        {
+          "voce": "Ricompensa crociata",
+          "importo": 420
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Dono annuale al tempio", "importo": -200},
-          {"voce": "Ricompensa crociata", "importo": 420}
+          {
+            "voce": "Dono annuale al tempio",
+            "importo": -200
+          },
+          {
+            "voce": "Ricompensa crociata",
+            "importo": 420
+          }
         ],
-        "currency": {"oro": 180, "argento": 30, "rame": 14}
+        "currency": {
+          "oro": 180,
+          "argento": 30,
+          "rame": 14
+        }
       },
       "sheet_markdown": "Diplomazia\nSpada lunga consacrata +2\nDono annuale al tempio",
       "talenti": [
@@ -132,32 +167,27 @@
         "Aura of Courage",
         "Tactician"
       ],
-      "equipaggiamento": [
-        "Full plate benedetta",
-        "Spada lunga sacra"
-      ],
       "inventario": [
         "Simbolo sacro",
         "Pozioni di cura"
       ],
-      "spell_levels": {
-        "1": [
-          "Bless Weapon",
-          "Divine Favor"
-        ]
-      },
-      "magia": [
+      "spell_levels": [
         {
-          "livello": 1,
-          "lista": [
+          "liv": 1,
+          "per_day": 4,
+          "spells": [
             "Bless Weapon",
             "Divine Favor"
           ]
         }
       ],
-      "slot_incantesimi": {
-        "1": 4
+      "magia": {
+        "1": [
+          "Bless Weapon",
+          "Divine Favor"
+        ]
       },
+      "slot_incantesimi": "Livello 1: 4",
       "ac_breakdown": {
         "base": 10,
         "armatura": 8,
