@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-17T03:25:13Z",
+  "generated_at": "2025-12-17T03:38:57Z",
   "builds": {
     "total": 93,
     "valid": 74,
@@ -442,11 +442,6 @@
           10
         ],
         "level": 1,
-        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
-        "completeness_errors": [
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
           "items:Pozione di cura"
@@ -477,11 +472,6 @@
           10
         ],
         "level": 5,
-        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
-        "completeness_errors": [
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
           "items:Pozione di cura"
@@ -512,11 +502,6 @@
           10
         ],
         "level": 10,
-        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
-        "completeness_errors": [
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
           "items:Pozione di cura"
@@ -1126,11 +1111,6 @@
           10
         ],
         "level": 1,
-        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
-        "completeness_errors": [
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
           "items:Pozione di cura"
@@ -1161,11 +1141,6 @@
           10
         ],
         "level": 5,
-        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
-        "completeness_errors": [
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
           "items:Pozione di cura"
@@ -1196,11 +1171,6 @@
           10
         ],
         "level": 10,
-        "error": "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura; Ledger e scheda disallineati: Borsa di monete, Pozione di cura",
-        "completeness_errors": [
-          "Voci ledger fuori catalogo: items:Borsa di monete, items:Pozione di cura",
-          "Ledger e scheda disallineati: Borsa di monete, Pozione di cura"
-        ],
         "ledger_unknown_entries": [
           "items:Borsa di monete",
           "items:Pozione di cura"
@@ -1676,16 +1646,16 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.03.01"
+        "error": "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)"
         ],
         "missing_catalog_entries": [
           "feats:Critico migliorato (pugnale)"
         ],
-        "completeness_errors": [
-          "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)"
+        "catalog_version": [
+          "2026.03.01"
         ],
-        "error": "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)",
         "status": "invalid"
       },
       {
