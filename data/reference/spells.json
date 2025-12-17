@@ -15,10 +15,12 @@
       "class:magus"
     ],
     "references": [
-      "Archives of Nethys: Acid Arrow"
+      "Archives of Nethys: Acid Arrow",
+      "d20PFSRD: Acid Arrow"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Acid%20Arrow"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Acid%20Arrow",
+      "https://www.d20pfsrd.com/magic/all-spells/a/acid-arrow/"
     ]
   },
   {
@@ -35,10 +37,12 @@
       "class:wizard"
     ],
     "references": [
-      "Archives of Nethys: Acid Fog"
+      "Archives of Nethys: Acid Fog",
+      "d20PFSRD: Acid Fog"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Acid%20Fog"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Acid%20Fog",
+      "https://www.d20pfsrd.com/magic/all-spells/a/acid-fog/"
     ]
   },
   {
@@ -78,10 +82,12 @@
       "class:paladin"
     ],
     "references": [
-      "Archives of Nethys: Aid"
+      "Archives of Nethys: Aid",
+      "d20PFSRD: Aid"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Aid"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Aid",
+      "https://www.d20pfsrd.com/magic/all-spells/a/aid/"
     ]
   },
   {
@@ -97,10 +103,12 @@
       "class:druid"
     ],
     "references": [
-      "Archives of Nethys: Air Walk"
+      "Archives of Nethys: Air Walk",
+      "d20PFSRD: Air Walk"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Air%20Walk"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Air%20Walk",
+      "https://www.d20pfsrd.com/magic/all-spells/a/air-walk/"
     ]
   },
   {
@@ -117,10 +125,12 @@
       "class:wizard"
     ],
     "references": [
-      "Archives of Nethys: Alarm"
+      "Archives of Nethys: Alarm",
+      "d20PFSRD: Alarm"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Alarm"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Alarm",
+      "https://www.d20pfsrd.com/magic/all-spells/a/alarm/"
     ]
   },
   {
@@ -136,10 +146,12 @@
       "class:paladin"
     ],
     "references": [
-      "Archives of Nethys: Align Weapon"
+      "Archives of Nethys: Align Weapon",
+      "d20PFSRD: Align Weapon"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Align%20Weapon"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Align%20Weapon",
+      "https://www.d20pfsrd.com/magic/all-spells/a/align-weapon/"
     ]
   },
   {
@@ -157,10 +169,12 @@
       "class:alchemist"
     ],
     "references": [
-      "Archives of Nethys: Alter Self"
+      "Archives of Nethys: Alter Self",
+      "d20PFSRD: Alter Self"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Alter%20Self"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Alter%20Self",
+      "https://www.d20pfsrd.com/magic/all-spells/a/alter-self/"
     ]
   },
   {
@@ -177,10 +191,12 @@
       "class:wizard"
     ],
     "references": [
-      "Archives of Nethys: Analyze Dweomer"
+      "Archives of Nethys: Analyze Dweomer",
+      "d20PFSRD: Analyze Dweomer"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Analyze%20Dweomer"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Analyze%20Dweomer",
+      "https://www.d20pfsrd.com/magic/all-spells/a/analyze-dweomer/"
     ]
   },
   {
@@ -196,10 +212,12 @@
       "class:ranger"
     ],
     "references": [
-      "Archives of Nethys: Animal Growth"
+      "Archives of Nethys: Animal Growth",
+      "d20PFSRD: Animal Growth"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Animal%20Growth"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Animal%20Growth",
+      "https://www.d20pfsrd.com/magic/all-spells/a/animal-growth/"
     ]
   },
   {
@@ -216,10 +234,12 @@
       "class:ranger"
     ],
     "references": [
-      "Archives of Nethys: Animal Messenger"
+      "Archives of Nethys: Animal Messenger",
+      "d20PFSRD: Animal Messenger"
     ],
     "reference_urls": [
-      "https://aonprd.com/SpellDisplay.aspx?ItemName=Animal%20Messenger"
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Animal%20Messenger",
+      "https://www.d20pfsrd.com/magic/all-spells/a/animal-messenger/"
     ]
   },
   {
