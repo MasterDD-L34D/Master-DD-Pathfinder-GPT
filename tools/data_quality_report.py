@@ -56,7 +56,9 @@ def percentage(count: int, total: int) -> float:
     return round((count / total) * 100, 2) if total else 0.0
 
 
-def null_percentages(records: Iterable[Mapping[str, Any]], fields: Iterable[str]) -> Mapping[str, float]:
+def null_percentages(
+    records: Iterable[Mapping[str, Any]], fields: Iterable[str]
+) -> Mapping[str, float]:
     records_list = list(records)
     total = len(records_list)
     result: dict[str, float] = {}
@@ -66,7 +68,9 @@ def null_percentages(records: Iterable[Mapping[str, Any]], fields: Iterable[str]
     return result
 
 
-def duplicate_counts(records: Iterable[Mapping[str, Any]], key_fields: Iterable[str]) -> Mapping[str, int]:
+def duplicate_counts(
+    records: Iterable[Mapping[str, Any]], key_fields: Iterable[str]
+) -> Mapping[str, int]:
     result: dict[str, int] = {}
     records_list = list(records)
     for field in key_fields:
@@ -75,7 +79,9 @@ def duplicate_counts(records: Iterable[Mapping[str, Any]], key_fields: Iterable[
     return result
 
 
-def duplicate_on_tuple(records: Iterable[Mapping[str, Any]], key_fields: Iterable[str]) -> int:
+def duplicate_on_tuple(
+    records: Iterable[Mapping[str, Any]], key_fields: Iterable[str]
+) -> int:
     counter: Counter[tuple[Any, ...]] = Counter()
     for record in records:
         counter[tuple(record.get(field) for field in key_fields)] += 1
@@ -123,7 +129,8 @@ def analyze_build_index(path: Path, manifest_version: str | None) -> TableQualit
         "level": [
             record.get("level")
             for record in entries
-            if record.get("level") is not None and record.get("level") not in EXPECTED_LEVELS
+            if record.get("level") is not None
+            and record.get("level") not in EXPECTED_LEVELS
         ],
     }
 
@@ -147,7 +154,9 @@ def analyze_build_index(path: Path, manifest_version: str | None) -> TableQualit
         level = record.get("level")
         checkpoints = record.get("level_checkpoints")
         if isinstance(checkpoints, list) and checkpoints:
-            expected_levels[prefix] = {lvl for lvl in checkpoints if isinstance(lvl, int)} or set(EXPECTED_LEVELS)
+            expected_levels[prefix] = {
+                lvl for lvl in checkpoints if isinstance(lvl, int)
+            } or set(EXPECTED_LEVELS)
         if isinstance(level, int):
             grouped[prefix].add(level)
         else:
@@ -224,18 +233,28 @@ def analyze_module_index(path: Path, manifest_version: str | None) -> TableQuali
         if not file_path.exists():
             referential["missing_files"].append(str(file_path))
         if manifest_version is not None:
-            catalog_version = record.get("meta", {}).get("catalog_version") or record.get("catalog_version")
+            catalog_version = record.get("meta", {}).get(
+                "catalog_version"
+            ) or record.get("catalog_version")
             if catalog_version and manifest_version not in catalog_version:
                 referential["catalog_version_mismatch"].append(str(file_path))
 
     coverage_gaps: list[Mapping[str, Any]] = []
     missing_fields_rows: list[Mapping[str, Any]] = []
     for record in entries:
-        missing = [field for field in ("module", "file", "status") if is_nullish(record.get(field))]
+        missing = [
+            field
+            for field in ("module", "file", "status")
+            if is_nullish(record.get(field))
+        ]
         if missing:
-            missing_fields_rows.append({"file": record.get("file"), "missing_fields": missing})
+            missing_fields_rows.append(
+                {"file": record.get("file"), "missing_fields": missing}
+            )
     if missing_fields_rows:
-        coverage_gaps.append({"issue": "mandatory_fields_missing", "rows": missing_fields_rows})
+        coverage_gaps.append(
+            {"issue": "mandatory_fields_missing", "rows": missing_fields_rows}
+        )
 
     return TableQuality(
         name="module_index",
@@ -248,7 +267,9 @@ def analyze_module_index(path: Path, manifest_version: str | None) -> TableQuali
     )
 
 
-def analyze_reference_catalog(manifest: Mapping[str, Any], manifest_path: Path) -> TableQuality:
+def analyze_reference_catalog(
+    manifest: Mapping[str, Any], manifest_path: Path
+) -> TableQuality:
     files = manifest.get("files", {}) if isinstance(manifest, Mapping) else {}
     datasets: dict[str, list[Mapping[str, Any]]] = {}
     referential: dict[str, list[str]] = defaultdict(list)
@@ -272,7 +293,9 @@ def analyze_reference_catalog(manifest: Mapping[str, Any], manifest_path: Path) 
         datasets[key] = data
         expected_entries = info.get("entries")
         if isinstance(expected_entries, int) and expected_entries != len(data):
-            referential["entry_count_mismatch"].append(f"{key}: expected {expected_entries}, found {len(data)}")
+            referential["entry_count_mismatch"].append(
+                f"{key}: expected {expected_entries}, found {len(data)}"
+            )
 
     total_rows = sum(len(items) for items in datasets.values())
     combined_entries = [entry for items in datasets.values() for entry in items]
@@ -306,9 +329,13 @@ def analyze_reference_catalog(manifest: Mapping[str, Any], manifest_path: Path) 
             if is_nullish(entry.get(field))
         ]
         if missing:
-            missing_required.append({"name": entry.get("name"), "missing_fields": missing})
+            missing_required.append(
+                {"name": entry.get("name"), "missing_fields": missing}
+            )
     if missing_required:
-        coverage_gaps.append({"issue": "mandatory_fields_missing", "rows": missing_required})
+        coverage_gaps.append(
+            {"issue": "mandatory_fields_missing", "rows": missing_required}
+        )
 
     return TableQuality(
         name="reference_catalog",
@@ -327,7 +354,9 @@ def build_report(
     manifest_path: Path = DEFAULT_MANIFEST,
 ) -> Mapping[str, Any]:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    manifest_version = manifest.get("version") if isinstance(manifest, Mapping) else None
+    manifest_version = (
+        manifest.get("version") if isinstance(manifest, Mapping) else None
+    )
 
     build_table = analyze_build_index(build_index, manifest_version)
     module_table = analyze_module_index(module_index, manifest_version)
@@ -344,11 +373,33 @@ def build_report(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate data quality report for key datasets")
-    parser.add_argument("--build-index", type=Path, default=DEFAULT_BUILD_INDEX, help="Path to build_index.json")
-    parser.add_argument("--module-index", type=Path, default=DEFAULT_MODULE_INDEX, help="Path to module_index.json")
-    parser.add_argument("--manifest", type=Path, default=DEFAULT_MANIFEST, help="Path to reference manifest")
-    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT, help="Where to write the quality report JSON")
+    parser = argparse.ArgumentParser(
+        description="Generate data quality report for key datasets"
+    )
+    parser.add_argument(
+        "--build-index",
+        type=Path,
+        default=DEFAULT_BUILD_INDEX,
+        help="Path to build_index.json",
+    )
+    parser.add_argument(
+        "--module-index",
+        type=Path,
+        default=DEFAULT_MODULE_INDEX,
+        help="Path to module_index.json",
+    )
+    parser.add_argument(
+        "--manifest",
+        type=Path,
+        default=DEFAULT_MANIFEST,
+        help="Path to reference manifest",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=DEFAULT_OUTPUT,
+        help="Where to write the quality report JSON",
+    )
     args = parser.parse_args()
 
     report = build_report(args.build_index, args.module_index, args.manifest)

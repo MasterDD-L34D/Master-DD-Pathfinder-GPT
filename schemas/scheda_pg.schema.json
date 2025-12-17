@@ -4,6 +4,13 @@
   "title": "Contesto di rendering per scheda PG Markdown",
   "type": "object",
   "description": "Mappa delle variabili usate da scheda_pg_markdown_template.md.",
+  "$defs": {
+    "ledger": {
+      "type": "object",
+      "description": "Placeholder per ledger, compatibile con riferimenti esterni",
+      "additionalProperties": true
+    }
+  },
   "additionalProperties": true,
   "properties": {
     "print_mode": {
