@@ -497,17 +497,39 @@ _Nessuna tabella incantesimi disponibile._
 {% endif %}
 
 ---
-{# # BEGIN SOURCE_GOVERNANCE_V1 #}
-{% set ns = namespace(has_meta=false) %}
+{# BEGIN SOURCE_GOVERNANCE_V1 #}
+{# META breadcrumb: mostra solo se esistono fonti META; RAW check dinamico (✔/⏳) #}
+{% set ns = namespace(has_meta=false, has_raw=false) %}
+
+{# 1) Detect META sources (preferisci 'level' META_*) + detect RAW anchors in meta links #}
 {% for f in (fonti_meta or []) %}
-  {% if f.tipo and f.tipo.startswith('META') %}
+  {% if f.level and f.level.startswith('META_') %}
+    {% set ns.has_meta = true %}
+  {% elif f.tipo and f.tipo.startswith('META') %}
     {% set ns.has_meta = true %}
   {% endif %}
+
+  {% if f.link and ('aonprd.com' in (f.link|lower) or 'paizo.com' in (f.link|lower) or 'archivesofnethys' in (f.link|lower)) %}
+    {% set ns.has_raw = true %}
+  {% endif %}
 {% endfor %}
+
+{# 2) Detect RAW anchors in 'fonti' (stringhe o dict) #}
+{% for f in (fonti or []) %}
+  {% if f is string and ('aonprd.com' in (f|lower) or 'paizo.com' in (f|lower) or 'archivesofnethys' in (f|lower)) %}
+    {% set ns.has_raw = true %}
+  {% elif f is mapping %}
+    {% set _u = f.url or f.link or f.source_url %}
+    {% if _u and ('aonprd.com' in (_u|lower) or 'paizo.com' in (_u|lower) or 'archivesofnethys' in (_u|lower)) %}
+      {% set ns.has_raw = true %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
 {% if ns.has_meta %}
-> 🔍 META-SEARCH → 📖 RAW check ✔ → 🧠 META-ANALYSIS → VERDETTO
+> 🔍 META-SEARCH → 📖 RAW check {{ '✔' if ns.has_raw else '⏳' }} → 🧠 META-ANALYSIS → VERDETTO
 {% endif %}
-{# # END SOURCE_GOVERNANCE_V1 #}
+{# END SOURCE_GOVERNANCE_V1 #}
 > 📎 Fonti Meta (badge sintetico): {{ lookup_meta_badges('any') or '—' }}
 
 ---

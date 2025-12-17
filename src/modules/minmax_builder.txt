@@ -632,14 +632,41 @@ helpers:
           lvl = str((src or {}).get('level') or '').upper()
         except Exception:
           lvl = ''
-        if lvl.startswith('META_'):
+        tipo = str((src or {}).get('tipo') or '')
+        if lvl.startswith('META_') or tipo.upper().startswith('META'):
           return True
       return False
+
+  raw_anchor_detected:
+    params: []
+    logic: |
+      """Heuristica: considera "ancorato" se esistono riferimenti ufficiali
+      nelle fonti della build o se una fonte META punta a AoN/Paizo."""
+
+      def _is_official_url(u):
+        s = str(u or "").lower()
+        return ("aonprd.com" in s) or ("paizo.com" in s) or ("archivesofnethys" in s)
+
+      for f in (build_state.get("fonti") or []):
+        if isinstance(f, str) and _is_official_url(f):
+          return True
+        if isinstance(f, dict) and _is_official_url(f.get("url") or f.get("link") or f.get("source_url")):
+          return True
+
+      for m in (build_state.get("fonti_meta") or []):
+        if _is_official_url((m or {}).get("url") or (m or {}).get("link") or (m or {}).get("source_url")):
+          return True
+      return False
+
+  raw_anchor_mark:
+    params: []
+    logic: |
+      return "✔" if raw_anchor_detected() else "⏳"
 
   meta_governance_breadcrumb:
     params: []
     logic: |
-      return "🔍 META-SEARCH → 📖 RAW check ✔ → 🧠 META-ANALYSIS → VERDETTO" if any_meta_source() else ""
+      return f"🔍 META-SEARCH → 📖 RAW check {raw_anchor_mark()} → 🧠 META-ANALYSIS → VERDETTO" if any_meta_source() else ""
 
   meta_governance_source_verdict:
     params: []
@@ -680,7 +707,9 @@ helpers:
       if not any_meta_source():
         return ""
       verdict = meta_governance_source_verdict()
-      return meta_governance_breadcrumb() + "\n" + "**Verdetto fonti META:** " + verdict
+      mark = raw_anchor_mark()
+      raw_note = "OK" if mark == "✔" else "PENDING (STEP 0 required)"
+      return meta_governance_breadcrumb() + "\n" + "**Verdetto fonti META:** " + verdict + "\n" + f"**RAW anchoring:** {raw_note}"
   calc_init_mod:
     params:
       - DEX
@@ -719,8 +748,6 @@ helpers:
     params: [name, default]
     logic: |
       flags = build_state.get('_flags_', {}) if isinstance(build_state, dict) else {}
-      return flags.get(name, default)
-
       return flags.get(name, default)
   flags_pack:
     params: []
