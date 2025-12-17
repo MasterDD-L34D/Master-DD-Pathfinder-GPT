@@ -139,10 +139,14 @@
       },
       "sheet_markdown": "Acrobazia\nAmuleto dell'armatura naturale +1\nOfferte ai maestri del monastero",
       "talenti": [
+        "Tiger Style",
+        "Crane Style",
+        "Dodge",
+        "Mobility",
+        "Power Attack",
         "Tiger Claws",
         "Dragon Style",
-        "Crane Wing",
-        "Mobility"
+        "Crane Wing"
       ],
       "capacita_classe": [
         "High Jump",
@@ -165,7 +169,7 @@
           ]
         },
         {
-          "talento": "Tiger Claws",
+          "talento": "Power Attack + Tiger Claws",
           "privilegi": [
             "High Jump"
           ]
