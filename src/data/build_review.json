@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-17T03:08:30Z",
+  "generated_at": "2025-12-17T03:25:13Z",
   "builds": {
     "total": 93,
-    "valid": 73,
-    "invalid": 20,
+    "valid": 74,
+    "invalid": 19,
     "errors": 0,
     "missing": 0,
     "entries": [
@@ -1679,7 +1679,14 @@
         "catalog_version": [
           "2026.03.01"
         ],
-        "status": "ok"
+        "missing_catalog_entries": [
+          "feats:Critico migliorato (pugnale)"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)"
+        ],
+        "error": "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)",
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist.json",
@@ -2136,20 +2143,20 @@
       "1": {
         "total": 14,
         "invalid": 4,
-        "schema_errors": 3,
-        "completeness_errors": 3
+        "schema_errors": 1,
+        "completeness_errors": 1
       },
       "5": {
         "total": 15,
-        "invalid": 6,
-        "schema_errors": 4,
-        "completeness_errors": 4
+        "invalid": 4,
+        "schema_errors": 1,
+        "completeness_errors": 1
       },
       "10": {
         "total": 15,
-        "invalid": 6,
-        "schema_errors": 4,
-        "completeness_errors": 4
+        "invalid": 5,
+        "schema_errors": 2,
+        "completeness_errors": 2
       }
     }
   },

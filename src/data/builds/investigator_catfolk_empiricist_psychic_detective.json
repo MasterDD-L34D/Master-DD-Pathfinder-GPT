@@ -97,20 +97,20 @@
       "ledger": {
         "movimenti": [
           {
-            "voce": "Equipaggiamento iniziale",
-            "importo": -150
+            "voce": "Kit avventuriero",
+            "importo": -10
           },
           {
-            "voce": "Ricompensa missione",
-            "importo": 250
+            "voce": "Strumenti da scasso",
+            "importo": -30
           }
         ],
         "currency": {
-          "oro": 150,
-          "argento": 35,
-          "rame": 40
+          "oro": 110,
+          "argento": 0,
+          "rame": 0
         },
-        "saldo": 0
+        "saldo": 110
       },
       "print_mode": false,
       "show_minmax": true,
@@ -214,23 +214,23 @@
       },
       "ledger_movimenti": [
         {
-          "voce": "Equipaggiamento iniziale",
-          "importo": -150,
-          "oggetto": "Equipaggiamento iniziale",
-          "tot": -150,
-          "delta_gp": -150,
+          "voce": "Kit avventuriero",
+          "importo": -10,
+          "oggetto": "Kit avventuriero",
+          "tot": -10,
+          "delta_gp": -10,
           "tipo": "spesa",
           "data": "Sessione 1",
           "qty": 1,
           "vu": null
         },
         {
-          "voce": "Ricompensa missione",
-          "importo": 250,
-          "oggetto": "Ricompensa missione",
-          "tot": 250,
-          "delta_gp": 250,
-          "tipo": "entrata",
+          "voce": "Strumenti da scasso",
+          "importo": -30,
+          "oggetto": "Strumenti da scasso",
+          "tot": -30,
+          "delta_gp": -30,
+          "tipo": "spesa",
           "data": "Sessione 1",
           "qty": 1,
           "vu": null
@@ -239,9 +239,9 @@
       "ledger_parcels": [],
       "ledger_crafting": [],
       "currency": {
-        "oro": 100,
-        "argento": 25,
-        "rame": 40
+        "oro": 110,
+        "argento": 0,
+        "rame": 0
       },
       "fonti": [
         "local-refresh",
@@ -282,51 +282,35 @@
   "ledger": {
     "movimenti": [
       {
-        "voce": "Equipaggiamento iniziale",
-        "importo": -150,
-        "oggetto": "Equipaggiamento iniziale",
-        "tot": -150,
-        "delta_gp": -150,
+        "voce": "Kit avventuriero",
+        "importo": -10,
+        "oggetto": "Kit avventuriero",
+        "tot": -10,
+        "delta_gp": -10,
         "tipo": "spesa",
         "data": "Sessione 1",
         "qty": 1,
         "vu": null
       },
       {
-        "voce": "Ricompensa missione",
-        "importo": 250,
-        "oggetto": "Ricompensa missione",
-        "tot": 250,
-        "delta_gp": 250,
-        "tipo": "entrata",
+        "voce": "Strumenti da scasso",
+        "importo": -30,
+        "oggetto": "Strumenti da scasso",
+        "tot": -30,
+        "delta_gp": -30,
+        "tipo": "spesa",
         "data": "Sessione 1",
         "qty": 1,
         "vu": null
       }
     ],
     "currency": {
-      "oro": 100,
-      "argento": 25,
-      "rame": 40
+      "oro": 110,
+      "argento": 0,
+      "rame": 0
     },
-    "parcels": [
-      {
-        "nome": "Borsa di monete",
-        "val_gp": 50,
-        "assegnatario": "party",
-        "note": "da dividere"
-      }
-    ],
-    "crafting": [
-      {
-        "item": "Pozione di cura",
-        "dc": 5,
-        "days": 1,
-        "cost": 25,
-        "saving": 0,
-        "status": "in coda"
-      }
-    ]
+    "parcels": [],
+    "crafting": []
   },
   "class": "Investigator",
   "mode": "extended",
@@ -423,19 +407,20 @@
           "ledger": {
             "movimenti": [
               {
-                "voce": "Equipaggiamento iniziale",
-                "importo": -150
+                "voce": "Kit avventuriero",
+                "importo": -10
               },
               {
-                "voce": "Ricompensa missione",
-                "importo": 250
+                "voce": "Strumenti da scasso",
+                "importo": -30
               }
             ],
             "currency": {
-              "oro": 100,
-              "argento": 25,
-              "rame": 40
-            }
+              "oro": 110,
+              "argento": 0,
+              "rame": 0
+            },
+            "saldo": 110
           },
           "print_mode": false,
           "show_minmax": true,
@@ -518,7 +503,38 @@
           "inventario": [],
           "talenti": [],
           "capacita_classe": [],
-          "progressione": []
+          "progressione": [],
+          "ledger_movimenti": [
+            {
+              "voce": "Kit avventuriero",
+              "importo": -10,
+              "oggetto": "Kit avventuriero",
+              "tot": -10,
+              "delta_gp": -10,
+              "tipo": "spesa",
+              "data": "Sessione 1",
+              "qty": 1,
+              "vu": null
+            },
+            {
+              "voce": "Strumenti da scasso",
+              "importo": -30,
+              "oggetto": "Strumenti da scasso",
+              "tot": -30,
+              "delta_gp": -30,
+              "tipo": "spesa",
+              "data": "Sessione 1",
+              "qty": 1,
+              "vu": null
+            }
+          ],
+          "ledger_parcels": [],
+          "ledger_crafting": [],
+          "currency": {
+            "oro": 110,
+            "argento": 0,
+            "rame": 0
+          }
         }
       }
     },
