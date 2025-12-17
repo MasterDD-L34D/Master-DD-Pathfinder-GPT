@@ -155,6 +155,72 @@ citare solo se AoN è irraggiungibile):
 - **SpellDisplay**: `https://aonprd.com/SpellDisplay.aspx?ItemName=<NomeIncantesimo>` (esempio: `https://aonprd.com/SpellDisplay.aspx?ItemName=Fireball`).
 - **SkillDisplay**: `https://aonprd.com/SkillDisplay.aspx?ItemName=<NomeAbilit%C3%A0>` (esempio: `https://aonprd.com/SkillDisplay.aspx?ItemName=Stealth`).
 
+#### Rigenerare `src/data/module_index.json`
+
+- Aggiorna prima `data/reference/manifest.json` (versione e contatori) se il catalogo RAW/SRD è stato modificato e annota il cambio in `CHANGELOG.md` quando introduci una nuova versione.
+- Per riallineare l’indice offline ai moduli scaricati e al manifest corrente, esegui lo snippet seguente dalla root del repository:
+
+  ```bash
+  python - <<'PY'
+  import json
+  from datetime import datetime, timezone
+  from pathlib import Path
+
+  modules_dir = Path("src/data/modules")
+  manifest_path = Path("data/reference/manifest.json")
+  manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+
+  entries = []
+  for path in sorted(modules_dir.iterdir(), key=lambda p: p.name.lower()):
+      if not path.is_file():
+          continue
+      stat = path.stat()
+      entries.append(
+          {
+              "module": path.name,
+              "file": str(path),
+              "status": "ok",
+              "meta": {
+                  "name": path.name,
+                  "suffix": path.suffix,
+                  "size_bytes": stat.st_size,
+              },
+          }
+      )
+
+  module_plan = [entry["module"] for entry in entries]
+  files_info = manifest.get("files", {}) if isinstance(manifest, dict) else {}
+  catalog_version = manifest.get("version") if isinstance(manifest, dict) else None
+
+  reference_catalog = [
+      {
+          "path": str(files_info.get(key, {}).get("path", f"data/reference/{key}.json")),
+          "entries": files_info.get(key, {}).get("entries"),
+          "version": catalog_version,
+      }
+      for key in ("spells", "feats", "items")
+  ]
+  reference_catalog.append({"path": str(manifest_path), "version": catalog_version})
+
+  payload = {
+      "generated_at": datetime.now(timezone.utc)
+      .replace(microsecond=0)
+      .isoformat()
+      .replace("+00:00", "Z"),
+      "api_url": None,
+      "catalog_version": [catalog_version] if catalog_version else [],
+      "entries": entries,
+      "module_plan": module_plan,
+      "reference_catalog": reference_catalog,
+  }
+
+  Path("src/data/module_index.json").write_text(
+      json.dumps(payload, indent=2) + "\n", encoding="utf-8"
+  )
+  PY
+  ```
+- Il comando aggiorna `generated_at`, sincronizza `reference_catalog` con i file versionati e mantiene il piano dei moduli coerente con le risorse presenti in `src/data/modules`.
+
 ### Flag CLI per validazione catalogo e combo T1
 
 `tools/generate_build_db.py` ora integra la verifica contro il catalogo
