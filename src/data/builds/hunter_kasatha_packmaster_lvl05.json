@@ -16,7 +16,7 @@
     "race": "Kasatha",
     "archetype": "Packmaster"
   },
-  "body_params": null,
+  "body_params": {},
   "fetched_at": "2025-01-12T00:05:00Z",
   "build_state": {
     "class": "Hunter",
@@ -172,15 +172,31 @@
         "Kit scout del deserto"
       ],
       "ledger_movimenti": [
-        {"voce": "Addestramento branchia di dinosauro", "importo": -240},
-        {"voce": "Scorta carovana stellare", "importo": 420}
+        {
+          "voce": "Addestramento branchia di dinosauro",
+          "importo": -240
+        },
+        {
+          "voce": "Scorta carovana stellare",
+          "importo": 420
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Addestramento branchia di dinosauro", "importo": -240},
-          {"voce": "Scorta carovana stellare", "importo": 420}
+          {
+            "voce": "Addestramento branchia di dinosauro",
+            "importo": -240
+          },
+          {
+            "voce": "Scorta carovana stellare",
+            "importo": 420
+          }
         ],
-        "currency": {"oro": 200, "argento": 30, "rame": 12}
+        "currency": {
+          "oro": 200,
+          "argento": 30,
+          "rame": 12
+        }
       },
       "sheet_markdown": "Percezione\nLancia lunga tribale temprata\nAddestramento branchia di dinosauro"
     },

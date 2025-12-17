@@ -101,11 +101,11 @@
       "rules_status_text": "Badge RAW/RAI/PFS confermato a lvl5; pipeline strict ok"
     }
   },
-  "narrative": "Litanista d'ombra che guida confraternite clandestine, bilanciando domini opposti con conjuration oscure per proteggere i suoi." ,
+  "narrative": "Litanista d'ombra che guida confraternite clandestine, bilanciando domini opposti con conjuration oscure per proteggere i suoi.",
   "bench_log": [
     "Ruling Expert: mantenuta legalità PFS con domini separati e incanti d'ombra.",
     "MinMax: affinate le metamagie reach/persistent sulle benedizioni.",
-    "Taverna/Narrative: sacerdote errante che illumina con lanterne nere." 
+    "Taverna/Narrative: sacerdote errante che illumina con lanterne nere."
   ],
   "body_params": {
     "race": "Wayang (Umbral)",
@@ -199,5 +199,7 @@
     1,
     5,
     10
-  ]
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended"
 }

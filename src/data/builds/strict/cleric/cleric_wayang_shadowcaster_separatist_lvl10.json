@@ -46,7 +46,7 @@
     "bench_log": [
       "Checkpoint 10: pipeline Ruling Expert → MinMax → Taverna/Narrative confermata; log di bench/ruling inclusi nei metadati.",
       "Ruling Expert: shadow miracle + domini disallineati rimangono RAW/RAI/PFS con separazione dogmatica.",
-      "MinMax: rotazione definitiva con miracle d'ombra, shadow evocation heightened e channel selettivo difensivo." 
+      "MinMax: rotazione definitiva con miracle d'ombra, shadow evocation heightened e channel selettivo difensivo."
     ]
   },
   "export": {
@@ -105,7 +105,7 @@
   "bench_log": [
     "Ruling Expert: verificata la legalità di miracle d'ombra e scelte di dominio separate.",
     "MinMax: rotazione finale con persistent shadow evocation e channel difensivi.",
-    "Taverna/Narrative: guida le processioni notturne che benedicono i tunnel sotterranei." 
+    "Taverna/Narrative: guida le processioni notturne che benedicono i tunnel sotterranei."
   ],
   "body_params": {
     "race": "Wayang (Umbral)",
@@ -199,5 +199,7 @@
     1,
     5,
     10
-  ]
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended"
 }

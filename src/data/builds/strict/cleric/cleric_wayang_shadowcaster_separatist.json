@@ -154,7 +154,7 @@
   "bench_log": [
     "Ruling Expert: compatibilità Shadowcaster + Separatist verificata, domini ombra + comunità ammessi.",
     "MinMax: preferita rotazione di debuff d'ombra e channel selettivo per mantenere T1.",
-    "Taverna/Narrative: predicatore sussurrante che anima le lanterne d'ombra nei vicoli." 
+    "Taverna/Narrative: predicatore sussurrante che anima le lanterne d'ombra nei vicoli."
   ],
   "body_params": {
     "race": "Wayang (Umbral)",
@@ -248,5 +248,7 @@
     1,
     5,
     10
-  ]
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended"
 }

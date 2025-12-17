@@ -118,8 +118,14 @@
         "Corda di seta"
       ],
       "ledger_movimenti": [
-        {"voce": "Equipaggiamento iniziale", "importo": -150},
-        {"voce": "Spoglie rituali oread", "importo": 220}
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
+        },
+        {
+          "voce": "Spoglie rituali oread",
+          "importo": 220
+        }
       ],
       "ledger": {
         "movimenti": [
@@ -188,5 +194,9 @@
     1,
     5,
     10
-  ]
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "body_params": {},
+  "narrative": "Medium oread che danza con gli spiriti della pietra e preserva un retaggio rianimato."
 }

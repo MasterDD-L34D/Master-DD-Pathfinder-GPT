@@ -118,8 +118,14 @@
         "Cappuccio di seta per seance"
       ],
       "ledger_movimenti": [
-        {"voce": "Incensi per seance", "importo": -200},
-        {"voce": "Contributo da guide minerarie", "importo": 450}
+        {
+          "voce": "Incensi per seance",
+          "importo": -200
+        },
+        {
+          "voce": "Contributo da guide minerarie",
+          "importo": 450
+        }
       ],
       "ledger": {
         "movimenti": [
@@ -188,5 +194,9 @@
     1,
     5,
     10
-  ]
+  ],
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "body_params": {},
+  "narrative": "Medium oread che danza con gli spiriti della pietra e preserva un retaggio rianimato."
 }
