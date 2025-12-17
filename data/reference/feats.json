@@ -7,10 +7,12 @@
       "Mythic Adventures"
     ],
     "references": [
-      "Archives of Nethys: Acrobatic"
+      "Archives of Nethys: Acrobatic",
+      "d20PFSRD: Acrobatic"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Acrobatic"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Acrobatic",
+      "https://www.d20pfsrd.com/feats/general-feats/acrobatic/"
     ]
   },
   {
@@ -21,10 +23,12 @@
       "PFRPG Core"
     ],
     "references": [
-      "Archives of Nethys: Acrobatic Steps"
+      "Archives of Nethys: Acrobatic Steps",
+      "d20PFSRD: Acrobatic Steps"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Acrobatic%20Steps"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Acrobatic%20Steps",
+      "https://www.d20pfsrd.com/feats/general-feats/acrobatic-steps/"
     ]
   },
   {
@@ -35,10 +39,12 @@
       "PFRPG Core"
     ],
     "references": [
-      "Archives of Nethys: Agile Maneuvers"
+      "Archives of Nethys: Agile Maneuvers",
+      "d20PFSRD: Agile Maneuvers"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Agile%20Maneuvers"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Agile%20Maneuvers",
+      "https://www.d20pfsrd.com/feats/combat-feats/agile-maneuvers-combat/"
     ]
   },
   {
@@ -66,10 +72,12 @@
       "Mythic Adventures"
     ],
     "references": [
-      "Archives of Nethys: Alignment Channel"
+      "Archives of Nethys: Alignment Channel",
+      "d20PFSRD: Alignment Channel"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Alignment%20Channel"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Alignment%20Channel",
+      "https://www.d20pfsrd.com/feats/general-feats/alignment-channel/"
     ]
   },
   {
@@ -80,10 +88,12 @@
       "Mythic Adventures"
     ],
     "references": [
-      "Archives of Nethys: Animal Affinity"
+      "Archives of Nethys: Animal Affinity",
+      "d20PFSRD: Animal Affinity"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Animal%20Affinity"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Animal%20Affinity",
+      "https://www.d20pfsrd.com/feats/general-feats/animal-affinity/"
     ]
   },
   {
@@ -94,10 +104,12 @@
       "PFRPG Core"
     ],
     "references": [
-      "Archives of Nethys: Arcane Armor Mastery"
+      "Archives of Nethys: Arcane Armor Mastery",
+      "d20PFSRD: Arcane Armor Mastery"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Arcane%20Armor%20Mastery"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Arcane%20Armor%20Mastery",
+      "https://www.d20pfsrd.com/feats/combat-feats/arcane-armor-mastery-combat/"
     ]
   },
   {
@@ -108,10 +120,12 @@
       "Mythic Adventures"
     ],
     "references": [
-      "Archives of Nethys: Arcane Armor Training"
+      "Archives of Nethys: Arcane Armor Training",
+      "d20PFSRD: Arcane Armor Training"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Arcane%20Armor%20Training"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Arcane%20Armor%20Training",
+      "https://www.d20pfsrd.com/feats/combat-feats/arcane-armor-training-combat/"
     ]
   },
   {
@@ -148,10 +162,12 @@
       "PFRPG Core"
     ],
     "references": [
-      "Archives of Nethys: Heavy Armor Proficiency"
+      "Archives of Nethys: Heavy Armor Proficiency",
+      "d20PFSRD: Heavy Armor Proficiency"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Heavy%20Armor%20Proficiency"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Heavy%20Armor%20Proficiency",
+      "https://www.d20pfsrd.com/feats/combat-feats/heavy-armor-proficiency-combat/"
     ]
   },
   {
@@ -162,10 +178,12 @@
       "PFRPG Core"
     ],
     "references": [
-      "Archives of Nethys: Light Armor Proficiency"
+      "Archives of Nethys: Light Armor Proficiency",
+      "d20PFSRD: Light Armor Proficiency"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Light%20Armor%20Proficiency"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Light%20Armor%20Proficiency",
+      "https://www.d20pfsrd.com/feats/combat-feats/light-armor-proficiency-combat/"
     ]
   },
   {
@@ -176,10 +194,12 @@
       "PFRPG Core"
     ],
     "references": [
-      "Archives of Nethys: Medium Armor Proficiency"
+      "Archives of Nethys: Medium Armor Proficiency",
+      "d20PFSRD: Medium Armor Proficiency"
     ],
     "reference_urls": [
-      "https://aonprd.com/FeatDisplay.aspx?ItemName=Medium%20Armor%20Proficiency"
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Medium%20Armor%20Proficiency",
+      "https://www.d20pfsrd.com/feats/combat-feats/medium-armor-proficiency-combat/"
     ]
   },
   {
@@ -39629,7 +39649,7 @@
     ]
   },
   {
-    "name": "Abilit\u00e0 focalizzata (Sopravvivenza)",
+    "name": "Abilità focalizzata (Sopravvivenza)",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
@@ -40006,7 +40026,7 @@
     ]
   },
   {
-    "name": "Mobilit\u00e0",
+    "name": "Mobilità",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [
@@ -40314,7 +40334,7 @@
     ]
   },
   {
-    "name": "Focalizzazione Abilit\u00e0: Intrattenere",
+    "name": "Focalizzazione Abilità: Intrattenere",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
