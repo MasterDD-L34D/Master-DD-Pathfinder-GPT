@@ -23,6 +23,131 @@
     ]
   },
   {
+    "name": "Knock",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Arcane spellcasting 2nd level"
+    ],
+    "tags": [
+      "school:transmutation",
+      "slot:2",
+      "utility",
+      "class:bard",
+      "class:sorcerer",
+      "class:wizard"
+    ],
+    "references": [
+      "d20PFSRD: Knock",
+      "https://www.d20pfsrd.com/magic/all-spells/k/knock/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Knock",
+      "https://www.d20pfsrd.com/magic/all-spells/k/knock/"
+    ]
+  },
+  {
+    "name": "Silence",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Divine or arcane spellcasting 2nd level"
+    ],
+    "tags": [
+      "school:illusion",
+      "descriptor:glamer",
+      "slot:2",
+      "anti-magic",
+      "class:bard",
+      "class:cleric",
+      "class:inquisitor"
+    ],
+    "references": [
+      "d20PFSRD: Silence",
+      "https://www.d20pfsrd.com/magic/all-spells/s/silence/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Silence",
+      "https://www.d20pfsrd.com/magic/all-spells/s/silence/"
+    ]
+  },
+  {
+    "name": "Remove Curse",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Ability to cast 3rd-level divine spells"
+    ],
+    "tags": [
+      "school:abjuration",
+      "slot:3",
+      "curse-removal",
+      "class:cleric",
+      "class:oracle",
+      "class:paladin",
+      "class:inquisitor"
+    ],
+    "references": [
+      "d20PFSRD: Remove Curse",
+      "https://www.d20pfsrd.com/magic/all-spells/r/remove-curse/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Remove%20Curse",
+      "https://www.d20pfsrd.com/magic/all-spells/r/remove-curse/"
+    ]
+  },
+  {
+    "name": "Stoneskin",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Ability to cast 4th-level arcane spells"
+    ],
+    "tags": [
+      "school:abjuration",
+      "slot:4",
+      "protection",
+      "class:sorcerer",
+      "class:wizard",
+      "class:druid",
+      "class:summoner"
+    ],
+    "references": [
+      "d20PFSRD: Stoneskin",
+      "https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Stoneskin",
+      "https://www.d20pfsrd.com/magic/all-spells/s/stoneskin/"
+    ]
+  },
+  {
+    "name": "Teleport",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Arcane spellcasting 5th level"
+    ],
+    "tags": [
+      "school:conjuration",
+      "descriptor:teleportation",
+      "slot:5",
+      "travel",
+      "class:bard",
+      "class:sorcerer",
+      "class:summoner",
+      "class:wizard"
+    ],
+    "references": [
+      "d20PFSRD: Teleport",
+      "https://www.d20pfsrd.com/magic/all-spells/t/teleport/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Teleport",
+      "https://www.d20pfsrd.com/magic/all-spells/t/teleport/"
+    ]
+  },
+  {
     "name": "Barkskin",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
@@ -1244,6 +1369,252 @@
     "reference_urls": [
       "https://aonprd.com/SpellDisplay.aspx?ItemName=Wish",
       "https://www.d20pfsrd.com/magic/all-spells/w/wish/"
+    ]
+  },
+  {
+    "name": "Detect Evil",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Divine spellcasting"
+    ],
+    "tags": [
+      "school:divination",
+      "slot:0",
+      "detection",
+      "class:cleric",
+      "class:oracle",
+      "class:paladin"
+    ],
+    "references": [
+      "d20PFSRD: Detect Evil",
+      "https://www.d20pfsrd.com/magic/all-spells/d/detect-evil/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Detect%20Evil",
+      "https://www.d20pfsrd.com/magic/all-spells/d/detect-evil/"
+    ]
+  },
+  {
+    "name": "Grease",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Arcane spellcasting 1st level"
+    ],
+    "tags": [
+      "school:conjuration",
+      "slot:1",
+      "control",
+      "class:bard",
+      "class:sorcerer",
+      "class:wizard"
+    ],
+    "references": [
+      "d20PFSRD: Grease",
+      "https://www.d20pfsrd.com/magic/all-spells/g/grease/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Grease",
+      "https://www.d20pfsrd.com/magic/all-spells/g/grease/"
+    ]
+  },
+  {
+    "name": "Protection from Evil",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Divine spellcasting 1st level"
+    ],
+    "tags": [
+      "school:abjuration",
+      "slot:1",
+      "defense",
+      "class:cleric",
+      "class:oracle",
+      "class:paladin"
+    ],
+    "references": [
+      "d20PFSRD: Protection from Evil",
+      "https://www.d20pfsrd.com/magic/all-spells/p/protection-from-evil/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Protection%20from%20Evil",
+      "https://www.d20pfsrd.com/magic/all-spells/p/protection-from-evil/"
+    ]
+  },
+  {
+    "name": "Shield of Faith",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Divine spellcasting 1st level"
+    ],
+    "tags": [
+      "school:abjuration",
+      "slot:1",
+      "defense",
+      "class:cleric",
+      "class:oracle",
+      "class:paladin"
+    ],
+    "references": [
+      "d20PFSRD: Shield of Faith",
+      "https://www.d20pfsrd.com/magic/all-spells/s/shield-of-faith/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Shield%20of%20Faith",
+      "https://www.d20pfsrd.com/magic/all-spells/s/shield-of-faith/"
+    ]
+  },
+  {
+    "name": "Summon Monster I",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Arcane or divine spellcasting 1st level"
+    ],
+    "tags": [
+      "school:conjuration",
+      "slot:1",
+      "summoning",
+      "class:cleric",
+      "class:oracle",
+      "class:sorcerer",
+      "class:summoner",
+      "class:wizard"
+    ],
+    "references": [
+      "d20PFSRD: Summon Monster I",
+      "https://www.d20pfsrd.com/magic/all-spells/s/summon-monster/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Summon%20Monster%20I",
+      "https://www.d20pfsrd.com/magic/all-spells/s/summon-monster/"
+    ]
+  },
+  {
+    "name": "Animate Dead",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Divine spellcasting 4th level"
+    ],
+    "tags": [
+      "school:necromancy",
+      "slot:4",
+      "undead",
+      "class:cleric",
+      "class:oracle",
+      "class:wizard",
+      "class:sorcerer"
+    ],
+    "references": [
+      "d20PFSRD: Animate Dead",
+      "https://www.d20pfsrd.com/magic/all-spells/a/animate-dead/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Animate%20Dead",
+      "https://www.d20pfsrd.com/magic/all-spells/a/animate-dead/"
+    ]
+  },
+  {
+    "name": "Glitterdust",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Arcane spellcasting 2nd level"
+    ],
+    "tags": [
+      "school:conjuration",
+      "slot:2",
+      "debuff",
+      "vision",
+      "class:bard",
+      "class:sorcerer",
+      "class:wizard"
+    ],
+    "references": [
+      "d20PFSRD: Glitterdust",
+      "https://www.d20pfsrd.com/magic/all-spells/g/glitterdust/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Glitterdust",
+      "https://www.d20pfsrd.com/magic/all-spells/g/glitterdust/"
+    ]
+  },
+  {
+    "name": "Greater Invisibility",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Arcane spellcasting 4th level"
+    ],
+    "tags": [
+      "school:illusion",
+      "slot:4",
+      "stealth",
+      "class:bard",
+      "class:sorcerer",
+      "class:wizard"
+    ],
+    "references": [
+      "d20PFSRD: Greater Invisibility",
+      "https://www.d20pfsrd.com/magic/all-spells/i/invisibility-greater/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Invisibility%2C%20Greater",
+      "https://www.d20pfsrd.com/magic/all-spells/i/invisibility-greater/"
+    ]
+  },
+  {
+    "name": "Searing Light",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Divine spellcasting 3rd level"
+    ],
+    "tags": [
+      "school:evocation",
+      "slot:3",
+      "attack",
+      "light",
+      "class:cleric",
+      "class:oracle"
+    ],
+    "references": [
+      "d20PFSRD: Searing Light",
+      "https://www.d20pfsrd.com/magic/all-spells/s/searing-light/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Searing%20Light",
+      "https://www.d20pfsrd.com/magic/all-spells/s/searing-light/"
+    ]
+  },
+  {
+    "name": "Wind Wall",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Divine spellcasting 3rd level"
+    ],
+    "tags": [
+      "school:evocation",
+      "slot:3",
+      "control",
+      "air",
+      "class:cleric",
+      "class:druid",
+      "class:oracle",
+      "class:ranger"
+    ],
+    "references": [
+      "d20PFSRD: Wind Wall",
+      "https://www.d20pfsrd.com/magic/all-spells/w/wind-wall/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/SpellDisplay.aspx?ItemName=Wind%20Wall",
+      "https://www.d20pfsrd.com/magic/all-spells/w/wind-wall/"
     ]
   }
 ]
