@@ -108,7 +108,7 @@
       },
       "notes": "Variante colosso-ira selezionata dopo confronto con build DES e difensiva.",
       "talenti": [
-        "Attacco Poderoso",
+        "Power Attack",
         "Furious Focus"
       ],
       "capacita_classe": [
@@ -327,7 +327,7 @@
           },
           "notes": "Variante colosso-ira selezionata dopo confronto con build DES e difensiva.",
           "talenti": [
-            "Attacco Poderoso",
+            "Power Attack",
             "Furious Focus"
           ],
           "capacita_classe": [
