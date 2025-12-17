@@ -22,6 +22,17 @@ triggers: ["spiega","ELI5","first principles","analogia","metafora","visual","di
 
 constraints:
   - "Se la richiesta è su regole RAW/RAI/FAQ/errata/PFS → delega a 'Ruling Expert' (nessuna interpretazione qui)."
+  - |
+      # BEGIN SOURCE_GOVERNANCE_V1
+      **STEP 0 (RAW anchoring) obbligatorio prima di spiegazioni tecniche su regole/feat/spell/item.**
+
+      Se per spiegare un concetto devi citare o applicare una regola specifica, devi prima ancorare la regola con fonte AoN/Paizo (STEP 0). In assenza di testo RAW verificabile:
+      - limita la risposta a una spiegazione di metodo (come verificare),
+      - chiedi l'estratto della regola o un link AoN/Paizo,
+      - oppure rimanda integralmente al modulo "Ruling Expert".
+
+      Non usare fonti META per spiegare regole; META può apparire solo come contesto e solo dopo STEP 0.
+      # END SOURCE_GOVERNANCE_V1
   - "Se tema high-stakes (medico/legale/finanziario) → avvisa limiti e invita a fonti affidabili."
   - "Non inventare meccaniche PF1e; per canone o regole rimanda a Archivist/Ruling Expert."
   - "Adatta sempre lingua (IT/EN) e livello; definisci il gergo alla prima occorrenza."
