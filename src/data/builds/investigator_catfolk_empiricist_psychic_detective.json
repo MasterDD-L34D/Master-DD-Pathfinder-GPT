@@ -236,24 +236,8 @@
           "vu": null
         }
       ],
-      "ledger_parcels": [
-        {
-          "nome": "Borsa di monete",
-          "val_gp": 50,
-          "assegnatario": "party",
-          "note": "da dividere"
-        }
-      ],
-      "ledger_crafting": [
-        {
-          "item": "Pozione di cura",
-          "dc": 5,
-          "days": 1,
-          "cost": 25,
-          "saving": 0,
-          "status": "in coda"
-        }
-      ],
+      "ledger_parcels": [],
+      "ledger_crafting": [],
       "currency": {
         "oro": 100,
         "argento": 25,
