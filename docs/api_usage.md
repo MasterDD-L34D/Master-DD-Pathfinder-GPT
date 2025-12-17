@@ -184,3 +184,9 @@ Se la richiesta non include una chiave valida **né** proviene da un IP in allow
 **Output**: testo Prometheus con contatori per richieste totali per endpoint/metodo/status, errori 4xx/5xx, attivazioni del backoff di autenticazione e gauge sullo stato delle directory di configurazione.
 
 > **Nota di sicurezza**: in ambienti pubblici usare sempre `METRICS_API_KEY` (o `API_KEY`) e limitare l'allowlist al minimo necessario; evitare allowlist larghe per prevenire scraping non autorizzato.
+
+## Audit richieste build e backoff
+
+- Ogni payload di build deve includere il blocco `step_audit` con i campi obbligatori: `request_timestamp` (ISO8601), `client_fingerprint_hash` (hash della chiave API o del client), `outcome` (`accepted`/`denied`/`backoff`), `attempt_count` (tentativi consecutivi per quella chiave/IP) e `backoff_reason` (stringa o `null` se non applicato). È consigliato popolare anche `request_ip` per correlare IP pubblici e fingerprint.【F:schemas/build_core.schema.json†L328-L369】
+- Gli orchestratori che generano build (anche in modalità stub) devono compilare `step_audit` subito dopo la decisione di accettare/negare la richiesta, usando l'istante di arrivo (`request_timestamp`) e il conteggio tentativi che ha determinato l'eventuale backoff (`AUTH_BACKOFF_THRESHOLD`/`AUTH_BACKOFF_SECONDS`).
+- Log locale: appendere una riga JSON a `data/audit/build_events.jsonl` (non versionato; esempio in `data/audit/build_events.sample.jsonl`) per ogni build generata o negata. La riga deve riportare `timestamp`, `client_fingerprint_hash`, `request_ip`, `payload_file` (se salvata), `outcome`, `attempt_count` e `backoff_reason` per garantire tracciabilità e indagini su abusi di chiave/IP.

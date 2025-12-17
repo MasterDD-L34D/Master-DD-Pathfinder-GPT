@@ -155,23 +155,45 @@
             "narrative_flow.txt"
           ],
           "skills": [
-            {"nome": "Percezione", "totale": 12},
-            {"nome": "Furtività", "totale": 14}
+            {
+              "nome": "Percezione",
+              "totale": 12
+            },
+            {
+              "nome": "Furtività",
+              "totale": 14
+            }
           ],
           "equipaggiamento": [
             "Talismano lunare",
             "Pelle d'ombra"
           ],
           "ledger_movimenti": [
-            {"voce": "Equipaggiamento iniziale", "importo": -150},
-            {"voce": "Ricompensa missione", "importo": 200}
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 200
+            }
           ],
           "ledger": {
             "movimenti": [
-              {"voce": "Equipaggiamento iniziale", "importo": -150},
-              {"voce": "Ricompensa missione", "importo": 200}
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -150
+              },
+              {
+                "voce": "Ricompensa missione",
+                "importo": 200
+              }
             ],
-            "currency": {"oro": 120, "argento": 22, "rame": 55}
+            "currency": {
+              "oro": 120,
+              "argento": 22,
+              "rame": 55
+            }
           },
           "sheet_markdown": "Percezione +12, Furtività +14, Talismano lunare, Ricompensa missione"
         }
@@ -230,23 +252,45 @@
         "narrative_flow.txt"
       ],
       "skills": [
-        {"nome": "Percezione", "totale": 12},
-        {"nome": "Furtività", "totale": 14}
+        {
+          "nome": "Percezione",
+          "totale": 12
+        },
+        {
+          "nome": "Furtività",
+          "totale": 14
+        }
       ],
       "equipaggiamento": [
         "Talismano lunare",
         "Pelle d'ombra"
       ],
       "ledger_movimenti": [
-        {"voce": "Equipaggiamento iniziale", "importo": -150},
-        {"voce": "Ricompensa missione", "importo": 200}
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 200
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Equipaggiamento iniziale", "importo": -150},
-          {"voce": "Ricompensa missione", "importo": 200}
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 200
+          }
         ],
-        "currency": {"oro": 120, "argento": 22, "rame": 55}
+        "currency": {
+          "oro": 120,
+          "argento": 22,
+          "rame": 55
+        }
       },
       "sheet_markdown": "Percezione +12, Furtività +14, Talismano lunare, Ricompensa missione"
     }
@@ -310,6 +354,12 @@
     "observed_step_total": 16,
     "step_total_ok": true,
     "step_labels_count": 16,
-    "has_extended_steps": true
+    "has_extended_steps": true,
+    "request_timestamp": "2026-02-10T12:05:00Z",
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   }
 }

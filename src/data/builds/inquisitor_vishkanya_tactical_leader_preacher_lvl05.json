@@ -62,15 +62,8 @@
   "build_source": "local spec",
   "class": "Inquisitor",
   "completeness": {
-    "status": "complete",
-    "missing": [],
-    "checklist": {
-      "statistics": true,
-      "equipment": true,
-      "spells": true,
-      "narrative": true,
-      "ledger": true
-    }
+    "errors": [],
+    "require_complete": true
   },
   "composite": {
     "build": {
@@ -230,20 +223,36 @@
         }
       ],
       "equipaggiamento": [
-        "Kukri rituale", 
+        "Kukri rituale",
         "Giaco di maglia benedetto",
         "Pergamena di Litany of Defense"
       ],
       "ledger_movimenti": [
-        {"voce": "Acquisto reliquie", "importo": -150},
-        {"voce": "Compenso inquisizione", "importo": 260}
+        {
+          "voce": "Acquisto reliquie",
+          "importo": -150
+        },
+        {
+          "voce": "Compenso inquisizione",
+          "importo": 260
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Acquisto reliquie", "importo": -150},
-          {"voce": "Compenso inquisizione", "importo": 260}
+          {
+            "voce": "Acquisto reliquie",
+            "importo": -150
+          },
+          {
+            "voce": "Compenso inquisizione",
+            "importo": 260
+          }
         ],
-        "currency": {"oro": 120, "argento": 18, "rame": 10}
+        "currency": {
+          "oro": 120,
+          "argento": 18,
+          "rame": 10
+        }
       },
       "sheet_markdown": "Percezione\nKukri rituale\nAcquisto reliquie"
     }
@@ -273,10 +282,12 @@
     "observed_step_total": 16,
     "step_total_ok": true,
     "step_labels_count": 16,
-    "has_extended_steps": true
-  },
-  "completeness": {
-    "errors": [],
-    "require_complete": true
+    "has_extended_steps": true,
+    "request_timestamp": null,
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   }
 }

@@ -73,40 +73,51 @@
     "missing": [],
     "checklist": {}
   },
-    "export": {
-      "modules": [
-        "base_profile.txt",
-        "Taverna_NPC.txt",
-        "narrative_flow.txt"
+  "export": {
+    "modules": [
+      "base_profile.txt",
+      "Taverna_NPC.txt",
+      "narrative_flow.txt"
+    ],
+    "sheet_payload": {
+      "output_prefix": "magus_kitsune_bladebound_hexcrafter",
+      "class": "Magus",
+      "race": "Kitsune",
+      "level": 5,
+      "archetype": "Bladebound Hexcrafter",
+      "skills": [
+        {
+          "nome": "Conoscenze (arcana)",
+          "gradi": 5,
+          "mod_car": 3,
+          "classe": true,
+          "totale": 12
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 5,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 12
+        }
       ],
-      "sheet_payload": {
-        "output_prefix": "magus_kitsune_bladebound_hexcrafter",
-        "class": "Magus",
-        "race": "Kitsune",
-        "level": 5,
-        "archetype": "Bladebound Hexcrafter",
-        "skills": [
-          {
-            "nome": "Conoscenze (arcana)",
-            "gradi": 5,
-            "mod_car": 3,
-            "classe": true,
-            "totale": 12
-          },
-          {
-            "nome": "Acrobazia",
-            "gradi": 5,
-            "mod_car": 4,
-            "classe": true,
-            "totale": 12
-          }
-        ],
-        "equipaggiamento": [
-          "Falchion Black Blade",
-          "Bracciali dell'armatura +1",
-          "Anello di protezione +1"
-        ],
-        "ledger_movimenti": [
+      "equipaggiamento": [
+        "Falchion Black Blade",
+        "Bracciali dell'armatura +1",
+        "Anello di protezione +1"
+      ],
+      "ledger_movimenti": [
+        {
+          "voce": "Affilatura Black Blade avanzata",
+          "importo": -250
+        },
+        {
+          "voce": "Ricompensa duelista cittadino",
+          "importo": 400
+        }
+      ],
+      "ledger": {
+        "movimenti": [
           {
             "voce": "Affilatura Black Blade avanzata",
             "importo": -250
@@ -116,26 +127,15 @@
             "importo": 400
           }
         ],
-        "ledger": {
-          "movimenti": [
-            {
-              "voce": "Affilatura Black Blade avanzata",
-              "importo": -250
-            },
-            {
-              "voce": "Ricompensa duelista cittadino",
-              "importo": 400
-            }
-          ],
-          "currency": {
-            "oro": 220,
-            "argento": 18,
-            "rame": 9
-          }
-        },
-        "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nAffilatura Black Blade avanzata"
-      }
-    },
+        "currency": {
+          "oro": 220,
+          "argento": 18,
+          "rame": 9
+        }
+      },
+      "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nAffilatura Black Blade avanzata"
+    }
+  },
   "ledger": "Arcane Pool a +3, Black Blade con ego crescente e telepatia; incantesimi chiave: Intensified Shocking Grasp, Frostbite Rime, Haste via magus arcana, Hexes Fortune/Misfortune attivi su priorità del gruppo.",
   "narrative": "La Black Blade matura e guida la kitsune verso duelli d'onore. Ruling Expert conferma la compatibilità di Arcane Accuracy con l'hex Misfortune e lo stacking di Keen. MinMax ha scartato la variante katana DES per minor DPR, mantenendo la falchion keen. La Taverna aggiunge la reputazione di 'Volpe del Fulmine' con duelli messi in scena per coprire le missioni della setta.",
   "metadata": {
@@ -201,6 +201,12 @@
     "observed_step_total": 16,
     "step_total_ok": true,
     "step_labels_count": 16,
-    "has_extended_steps": true
+    "has_extended_steps": true,
+    "request_timestamp": null,
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   }
 }

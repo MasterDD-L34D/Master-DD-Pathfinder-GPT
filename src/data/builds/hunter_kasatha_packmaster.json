@@ -213,6 +213,12 @@
     "step_total_ok": true,
     "step_labels_count": 16,
     "has_extended_steps": true,
-    "normalized_mode": "extended"
+    "normalized_mode": "extended",
+    "request_timestamp": "2025-01-12T00:00:00Z",
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   }
 }

@@ -345,7 +345,55 @@
     },
     "step_audit": {
       "type": "object",
+      "required": [
+        "request_timestamp",
+        "client_fingerprint_hash",
+        "outcome",
+        "attempt_count",
+        "backoff_reason"
+      ],
       "properties": {
+        "request_timestamp": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "description": "Timestamp ISO8601 della richiesta che ha generato o negato la build"
+        },
+        "client_fingerprint_hash": {
+          "type": "string",
+          "minLength": 32,
+          "description": "Hash (es. SHA-256) della chiave API o fingerprint client usato per la richiesta"
+        },
+        "request_ip": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "IP pubblico visto dal backend al momento della richiesta"
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "denied",
+            "backoff"
+          ],
+          "description": "Esito della richiesta rispetto ai gate di autenticazione/backoff"
+        },
+        "attempt_count": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Conteggio dei tentativi consecutivi per quella chiave/IP al momento della decisione"
+        },
+        "backoff_reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Motivazione del backoff applicato (null se non applicato)"
+        },
         "normalized_mode": {
           "type": [
             "string",

@@ -86,24 +86,52 @@
       "level": 1,
       "archetype": "Bladebound Hexcrafter",
       "skills": [
-        {"nome": "Conoscenze (arcana)", "gradi": 1, "mod_car": 3, "classe": true, "totale": 7},
-        {"nome": "Acrobazia", "gradi": 1, "mod_car": 4, "classe": true, "totale": 8}
+        {
+          "nome": "Conoscenze (arcana)",
+          "gradi": 1,
+          "mod_car": 3,
+          "classe": true,
+          "totale": 7
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 1,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 8
+        }
       ],
       "equipaggiamento": [
-        "Falchion Black Blade", 
+        "Falchion Black Blade",
         "Armatura di cuoio borchiato",
         "Anello di protezione +1"
       ],
       "ledger_movimenti": [
-        {"voce": "Affilatura Black Blade", "importo": -120},
-        {"voce": "Ingaggio duello dimostrativo", "importo": 200}
+        {
+          "voce": "Affilatura Black Blade",
+          "importo": -120
+        },
+        {
+          "voce": "Ingaggio duello dimostrativo",
+          "importo": 200
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Affilatura Black Blade", "importo": -120},
-          {"voce": "Ingaggio duello dimostrativo", "importo": 200}
+          {
+            "voce": "Affilatura Black Blade",
+            "importo": -120
+          },
+          {
+            "voce": "Ingaggio duello dimostrativo",
+            "importo": 200
+          }
         ],
-        "currency": {"oro": 85, "argento": 12, "rame": 5}
+        "currency": {
+          "oro": 85,
+          "argento": 12,
+          "rame": 5
+        }
       },
       "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nAffilatura Black Blade"
     }
@@ -173,6 +201,12 @@
     "observed_step_total": 16,
     "step_total_ok": true,
     "step_labels_count": 16,
-    "has_extended_steps": true
+    "has_extended_steps": true,
+    "request_timestamp": null,
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   }
 }

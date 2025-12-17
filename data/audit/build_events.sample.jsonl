@@ -1,0 +1,2 @@
+{"timestamp":"2025-01-15T10:01:00Z","client_fingerprint_hash":"0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef","request_ip":"198.51.100.42","payload_file":"src/data/builds/gunslinger_tengu_pistolero_bolt_ace.json","outcome":"accepted","attempt_count":1,"backoff_reason":null}
+{"timestamp":"2025-01-15T10:02:12Z","client_fingerprint_hash":"fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210","request_ip":"198.51.100.42","payload_file":null,"outcome":"backoff","attempt_count":6,"backoff_reason":"AUTH_BACKOFF_THRESHOLD"}

@@ -102,20 +102,36 @@
         }
       ],
       "equipaggiamento": [
-        "Falchion Black Blade", 
+        "Falchion Black Blade",
         "Cintura della forza +4",
         "Anello di protezione +2"
       ],
       "ledger_movimenti": [
-        {"voce": "Manutenzione Black Blade", "importo": -500},
-        {"voce": "Ingaggio mercantile protetto", "importo": 750}
+        {
+          "voce": "Manutenzione Black Blade",
+          "importo": -500
+        },
+        {
+          "voce": "Ingaggio mercantile protetto",
+          "importo": 750
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Manutenzione Black Blade", "importo": -500},
-          {"voce": "Ingaggio mercantile protetto", "importo": 750}
+          {
+            "voce": "Manutenzione Black Blade",
+            "importo": -500
+          },
+          {
+            "voce": "Ingaggio mercantile protetto",
+            "importo": 750
+          }
         ],
-        "currency": {"oro": 420, "argento": 30, "rame": 12}
+        "currency": {
+          "oro": 420,
+          "argento": 30,
+          "rame": 12
+        }
       },
       "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nManutenzione Black Blade"
     }
@@ -185,6 +201,12 @@
     "observed_step_total": 16,
     "step_total_ok": true,
     "step_labels_count": 16,
-    "has_extended_steps": true
+    "has_extended_steps": true,
+    "request_timestamp": null,
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   }
 }
