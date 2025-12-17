@@ -8,7 +8,7 @@
     },
     "feats": {
       "path": "data/reference/feats.json",
-      "entries": 81
+      "entries": 82
     },
     "items": {
       "path": "data/reference/items.json",
