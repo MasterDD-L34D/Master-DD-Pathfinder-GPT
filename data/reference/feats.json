@@ -5114,10 +5114,10 @@
   },
   {
     "name": "Trick Riding",
-    "source": "",
+    "source": "Advanced Player's Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Advanced Player's Guide"
     ],
     "references": [
       "Archives of Nethys: Trick Riding"
@@ -20800,10 +20800,10 @@
   },
   {
     "name": "Dual Enhancement",
-    "source": "",
+    "source": "Advanced Class Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Advanced Class Guide"
     ],
     "references": [
       "Archives of Nethys: Dual Enhancement"
@@ -21612,10 +21612,10 @@
   },
   {
     "name": "Pommel Strike Deed",
-    "source": "",
+    "source": "Advanced Class Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Advanced Class Guide"
     ],
     "references": [
       "Archives of Nethys: Pommel Strike Deed"
@@ -21752,10 +21752,10 @@
   },
   {
     "name": "Reactive Healing",
-    "source": "",
+    "source": "Advanced Class Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Advanced Class Guide"
     ],
     "references": [
       "Archives of Nethys: Reactive Healing"
@@ -21766,10 +21766,10 @@
   },
   {
     "name": "Reckless Rage",
-    "source": "",
+    "source": "Advanced Class Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Advanced Class Guide"
     ],
     "references": [
       "Archives of Nethys: Reckless Rage"
@@ -21850,10 +21850,10 @@
   },
   {
     "name": "Silent Kill",
-    "source": "",
+    "source": "Advanced Class Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Advanced Class Guide"
     ],
     "references": [
       "Archives of Nethys: Silent Kill"
@@ -21934,10 +21934,10 @@
   },
   {
     "name": "Spirit Talker",
-    "source": "",
+    "source": "Advanced Class Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Advanced Class Guide"
     ],
     "references": [
       "Archives of Nethys: Spirit Talker"
@@ -22060,10 +22060,10 @@
   },
   {
     "name": "Surprise Maneuver",
-    "source": "",
+    "source": "Advanced Class Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Advanced Class Guide"
     ],
     "references": [
       "Archives of Nethys: Surprise Maneuver"
@@ -25672,10 +25672,10 @@
   },
   {
     "name": "Tattoo Attunement",
-    "source": "",
+    "source": "Monster Summoner's Handbook",
     "prerequisites": [],
     "tags": [
-      ""
+      "Monster Summoner's Handbook"
     ],
     "references": [
       "Archives of Nethys: Tattoo Attunement"
@@ -25700,10 +25700,10 @@
   },
   {
     "name": "Tattoo Transformation",
-    "source": "",
+    "source": "Monster Summoner's Handbook",
     "prerequisites": [],
     "tags": [
-      ""
+      "Monster Summoner's Handbook"
     ],
     "references": [
       "Archives of Nethys: Tattoo Transformation"
@@ -26890,10 +26890,10 @@
   },
   {
     "name": "Xenoglossy",
-    "source": "",
+    "source": "Occult Adventures",
     "prerequisites": [],
     "tags": [
-      ""
+      "Occult Adventures"
     ],
     "references": [
       "Archives of Nethys: Xenoglossy"
@@ -26904,10 +26904,10 @@
   },
   {
     "name": "Deep Toxin",
-    "source": "",
+    "source": "Dirty Tactics Toolbox",
     "prerequisites": [],
     "tags": [
-      ""
+      "Dirty Tactics Toolbox"
     ],
     "references": [
       "Archives of Nethys: Deep Toxin"
@@ -26918,10 +26918,10 @@
   },
   {
     "name": "Powerful Poisoning",
-    "source": "",
+    "source": "Dirty Tactics Toolbox",
     "prerequisites": [],
     "tags": [
-      ""
+      "Dirty Tactics Toolbox"
     ],
     "references": [
       "Archives of Nethys: Powerful Poisoning"
@@ -27058,10 +27058,10 @@
   },
   {
     "name": "Inspired Sneak Attack",
-    "source": "",
+    "source": "Dirty Tactics Toolbox",
     "prerequisites": [],
     "tags": [
-      ""
+      "Dirty Tactics Toolbox"
     ],
     "references": [
       "Archives of Nethys: Inspired Sneak Attack"
@@ -28962,10 +28962,10 @@
   },
   {
     "name": "Ascetic Form",
-    "source": "",
+    "source": "Weapon Master's Handbook",
     "prerequisites": [],
     "tags": [
-      ""
+      "Weapon Master's Handbook"
     ],
     "references": [
       "Archives of Nethys: Ascetic Form"
@@ -29018,10 +29018,10 @@
   },
   {
     "name": "Outslug Style",
-    "source": "",
+    "source": "Weapon Master's Handbook",
     "prerequisites": [],
     "tags": [
-      ""
+      "Weapon Master's Handbook"
     ],
     "references": [
       "Archives of Nethys: Outslug Style"
@@ -32518,10 +32518,10 @@
   },
   {
     "name": "Lost In The Crowd",
-    "source": "",
+    "source": "Osirion Land Of Pharaohs",
     "prerequisites": [],
     "tags": [
-      ""
+      "Osirion Land Of Pharaohs"
     ],
     "references": [
       "Archives of Nethys: Lost In The Crowd"
@@ -34520,10 +34520,10 @@
   },
   {
     "name": "Engulf Horror",
-    "source": "",
+    "source": "Horror Adventures",
     "prerequisites": [],
     "tags": [
-      ""
+      "Horror Adventures"
     ],
     "references": [
       "Archives of Nethys: Engulf Horror"
@@ -34870,10 +34870,10 @@
   },
   {
     "name": "Putrid Summons",
-    "source": "",
+    "source": "Horror Adventures",
     "prerequisites": [],
     "tags": [
-      ""
+      "Horror Adventures"
     ],
     "references": [
       "Archives of Nethys: Putrid Summons"
@@ -36326,10 +36326,10 @@
   },
   {
     "name": "Improved Position Of Strength",
-    "source": "",
+    "source": "Villain Codex",
     "prerequisites": [],
     "tags": [
-      ""
+      "Villain Codex"
     ],
     "references": [
       "Archives of Nethys: Improved Position Of Strength"
@@ -38258,10 +38258,10 @@
   },
   {
     "name": "Sinister Reputation",
-    "source": "",
+    "source": "Adventurer's Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Adventurer's Guide"
     ],
     "references": [
       "Archives of Nethys: Sinister Reputation"
@@ -38272,10 +38272,10 @@
   },
   {
     "name": "Tag-Team Interrogation",
-    "source": "",
+    "source": "Adventurer's Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Adventurer's Guide"
     ],
     "references": [
       "Archives of Nethys: Tag-Team Interrogation"
@@ -38944,10 +38944,10 @@
   },
   {
     "name": "Unblinking Flame Feint",
-    "source": "",
+    "source": "Adventurer's Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Adventurer's Guide"
     ],
     "references": [
       "Archives of Nethys: Unblinking Flame Feint"
@@ -38986,10 +38986,10 @@
   },
   {
     "name": "Unfolding Wind Strike",
-    "source": "",
+    "source": "Adventurer's Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Adventurer's Guide"
     ],
     "references": [
       "Archives of Nethys: Unfolding Wind Strike"
@@ -39056,10 +39056,10 @@
   },
   {
     "name": "Masked By Fear",
-    "source": "",
+    "source": "Adventurer's Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Adventurer's Guide"
     ],
     "references": [
       "Archives of Nethys: Masked By Fear"
@@ -39252,10 +39252,10 @@
   },
   {
     "name": "Diva Strike",
-    "source": "",
+    "source": "Adventurer's Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Adventurer's Guide"
     ],
     "references": [
       "Archives of Nethys: Diva Strike"
@@ -39266,10 +39266,10 @@
   },
   {
     "name": "Diva Style",
-    "source": "",
+    "source": "Adventurer's Guide",
     "prerequisites": [],
     "tags": [
-      ""
+      "Adventurer's Guide"
     ],
     "references": [
       "Archives of Nethys: Diva Style"
@@ -39629,7 +39629,7 @@
     ]
   },
   {
-    "name": "Abilità focalizzata (Sopravvivenza)",
+    "name": "Abilit\u00e0 focalizzata (Sopravvivenza)",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
@@ -40006,7 +40006,7 @@
     ]
   },
   {
-    "name": "Mobilità",
+    "name": "Mobilit\u00e0",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [
@@ -40314,7 +40314,7 @@
     ]
   },
   {
-    "name": "Focalizzazione Abilità: Intrattenere",
+    "name": "Focalizzazione Abilit\u00e0: Intrattenere",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [],
