@@ -18,6 +18,103 @@
     ]
   },
   {
+    "name": "Improved Two-Weapon Fighting",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Dexterity 17",
+      "Two-Weapon Fighting",
+      "Base attack bonus +6"
+    ],
+    "tags": [
+      "combat",
+      "dual-wield",
+      "offhand"
+    ],
+    "references": [
+      "d20PFSRD: Improved Two-Weapon Fighting",
+      "https://www.d20pfsrd.com/feats/combat-feats/improved-two-weapon-fighting-combat/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Improved%20Two-Weapon%20Fighting",
+      "https://www.d20pfsrd.com/feats/combat-feats/improved-two-weapon-fighting-combat/"
+    ]
+  },
+  {
+    "name": "Greater Two-Weapon Fighting",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Dexterity 19",
+      "Improved Two-Weapon Fighting",
+      "Two-Weapon Fighting",
+      "Base attack bonus +11"
+    ],
+    "tags": [
+      "combat",
+      "dual-wield",
+      "offhand"
+    ],
+    "references": [
+      "d20PFSRD: Greater Two-Weapon Fighting",
+      "https://www.d20pfsrd.com/feats/combat-feats/greater-two-weapon-fighting-combat/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Greater%20Two-Weapon%20Fighting",
+      "https://www.d20pfsrd.com/feats/combat-feats/greater-two-weapon-fighting-combat/"
+    ]
+  },
+  {
+    "name": "Greater Trip",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Combat Expertise",
+      "Improved Trip",
+      "Base attack bonus +6"
+    ],
+    "tags": [
+      "combat",
+      "trip",
+      "maneuver"
+    ],
+    "references": [
+      "d20PFSRD: Greater Trip",
+      "https://www.d20pfsrd.com/feats/combat-feats/greater-trip-combat/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Greater%20Trip",
+      "https://www.d20pfsrd.com/feats/combat-feats/greater-trip-combat/"
+    ]
+  },
+  {
+    "name": "Whirlwind Attack",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Dexterity 13",
+      "Intelligence 13",
+      "Combat Expertise",
+      "Dodge",
+      "Mobility",
+      "Spring Attack",
+      "Base attack bonus +4"
+    ],
+    "tags": [
+      "combat",
+      "maneuver",
+      "defense"
+    ],
+    "references": [
+      "d20PFSRD: Whirlwind Attack",
+      "https://www.d20pfsrd.com/feats/combat-feats/whirlwind-attack-combat/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Whirlwind%20Attack",
+      "https://www.d20pfsrd.com/feats/combat-feats/whirlwind-attack-combat/"
+    ]
+  },
+  {
     "name": "Accuratezza Magica",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
@@ -1437,6 +1534,205 @@
     "reference_urls": [
       "https://aonprd.com/FeatDisplay.aspx?ItemName=Weapon%20Focus",
       "https://www.d20pfsrd.com/feats/combat-feats/weapon-focus-combat/"
+    ]
+  },
+  {
+    "name": "Combat Casting",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Ability to cast spells"
+    ],
+    "tags": [
+      "general",
+      "magic",
+      "defense"
+    ],
+    "references": [
+      "d20PFSRD: Combat Casting",
+      "https://www.d20pfsrd.com/feats/general-feats/combat-casting-final/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Combat%20Casting",
+      "https://www.d20pfsrd.com/feats/general-feats/combat-casting-final/"
+    ]
+  },
+  {
+    "name": "Great Fortitude",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [],
+    "tags": [
+      "general",
+      "defense"
+    ],
+    "references": [
+      "d20PFSRD: Great Fortitude",
+      "https://www.d20pfsrd.com/feats/general-feats/great-fortitude-final/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Great%20Fortitude",
+      "https://www.d20pfsrd.com/feats/general-feats/great-fortitude-final/"
+    ]
+  },
+  {
+    "name": "Iron Will",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [],
+    "tags": [
+      "general",
+      "defense"
+    ],
+    "references": [
+      "d20PFSRD: Iron Will",
+      "https://www.d20pfsrd.com/feats/general-feats/iron-will-final/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Iron%20Will",
+      "https://www.d20pfsrd.com/feats/general-feats/iron-will-final/"
+    ]
+  },
+  {
+    "name": "Lightning Reflexes",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [],
+    "tags": [
+      "general",
+      "defense"
+    ],
+    "references": [
+      "d20PFSRD: Lightning Reflexes",
+      "https://www.d20pfsrd.com/feats/general-feats/lightning-reflexes-final/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Lightning%20Reflexes",
+      "https://www.d20pfsrd.com/feats/general-feats/lightning-reflexes-final/"
+    ]
+  },
+  {
+    "name": "Weapon Specialization (Longsword)",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Fighter level 4",
+      "Weapon Focus (longsword)"
+    ],
+    "tags": [
+      "combat",
+      "weapon",
+      "fighter"
+    ],
+    "references": [
+      "d20PFSRD: Weapon Specialization",
+      "https://www.d20pfsrd.com/feats/combat-feats/weapon-specialization-combat/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Weapon%20Specialization",
+      "https://www.d20pfsrd.com/feats/combat-feats/weapon-specialization-combat/"
+    ]
+  },
+  {
+    "name": "Empower Spell",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Spell Focus"
+    ],
+    "tags": [
+      "metamagic",
+      "magic"
+    ],
+    "references": [
+      "d20PFSRD: Empower Spell",
+      "https://www.d20pfsrd.com/feats/metamagic-feats/empower-spell-metamagic/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Empower%20Spell",
+      "https://www.d20pfsrd.com/feats/metamagic-feats/empower-spell-metamagic/"
+    ]
+  },
+  {
+    "name": "Greater Spell Focus",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Spell Focus",
+      "caster level 8th"
+    ],
+    "tags": [
+      "magic",
+      "specialist"
+    ],
+    "references": [
+      "d20PFSRD: Greater Spell Focus",
+      "https://www.d20pfsrd.com/feats/general-feats/greater-spell-focus/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Greater%20Spell%20Focus",
+      "https://www.d20pfsrd.com/feats/general-feats/greater-spell-focus/"
+    ]
+  },
+  {
+    "name": "Maximize Spell",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Spell Focus"
+    ],
+    "tags": [
+      "metamagic",
+      "magic"
+    ],
+    "references": [
+      "d20PFSRD: Maximize Spell",
+      "https://www.d20pfsrd.com/feats/metamagic-feats/maximize-spell-metamagic/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Maximize%20Spell",
+      "https://www.d20pfsrd.com/feats/metamagic-feats/maximize-spell-metamagic/"
+    ]
+  },
+  {
+    "name": "Quicken Spell",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Spell Focus",
+      "caster level 10th"
+    ],
+    "tags": [
+      "metamagic",
+      "magic"
+    ],
+    "references": [
+      "d20PFSRD: Quicken Spell",
+      "https://www.d20pfsrd.com/feats/metamagic-feats/quicken-spell-metamagic/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Quicken%20Spell",
+      "https://www.d20pfsrd.com/feats/metamagic-feats/quicken-spell-metamagic/"
+    ]
+  },
+  {
+    "name": "Spell Focus",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "caster level 1st"
+    ],
+    "tags": [
+      "magic",
+      "specialist"
+    ],
+    "references": [
+      "d20PFSRD: Spell Focus",
+      "https://www.d20pfsrd.com/feats/general-feats/spell-focus/"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Spell%20Focus",
+      "https://www.d20pfsrd.com/feats/general-feats/spell-focus/"
     ]
   }
 ]
