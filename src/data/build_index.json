@@ -1,5 +1,8 @@
 {
-  "generated_at": "2025-12-17T02:44:47Z",
+  "generated_at": "2025-12-17T03:08:30Z",
+  "api_url": null,
+  "mode": null,
+  "spec_file": null,
   "entries": [
     {
       "file": "src/data/builds/alchemist-goblin-vivisectionist.json",
@@ -224,10 +227,6 @@
         10
       ],
       "level": 1,
-      "error": "Prerequisiti catalogo non soddisfatti: Furious Focus: Power Attack",
-      "completeness_errors": [
-        "Prerequisiti catalogo non soddisfatti: Furious Focus: Power Attack"
-      ],
       "prerequisite_violations": [
         "Furious Focus: Power Attack"
       ],
@@ -253,11 +252,6 @@
         10
       ],
       "level": 5,
-      "error": "Elementi non presenti nel catalogo: feats:Superstition; Prerequisiti catalogo non soddisfatti: Furious Focus: Power Attack",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Superstition",
-        "Prerequisiti catalogo non soddisfatti: Furious Focus: Power Attack"
-      ],
       "missing_catalog_entries": [
         "feats:Superstition"
       ],
@@ -286,11 +280,6 @@
         10
       ],
       "level": 10,
-      "error": "Elementi non presenti nel catalogo: feats:Come and Get Me, feats:Superstition; Prerequisiti catalogo non soddisfatti: Furious Focus: Power Attack",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Come and Get Me, feats:Superstition",
-        "Prerequisiti catalogo non soddisfatti: Furious Focus: Power Attack"
-      ],
       "missing_catalog_entries": [
         "feats:Come and Get Me",
         "feats:Superstition"
@@ -694,7 +683,7 @@
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "druid_half-orc_feral_shifter",
       "class": "Druid",
       "race": "Half-Orc",
@@ -710,20 +699,13 @@
         10
       ],
       "level": 5,
-      "error": "Elementi non presenti nel catalogo: feats:Incantesimi naturali",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Incantesimi naturali"
-      ],
-      "missing_catalog_entries": [
-        "feats:Incantesimi naturali"
-      ],
       "catalog_version": [
         "2026.03.01"
       ]
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
-      "status": "invalid",
+      "status": "ok",
       "output_prefix": "druid_half-orc_feral_shifter",
       "class": "Druid",
       "race": "Half-Orc",
@@ -739,14 +721,6 @@
         10
       ],
       "level": 10,
-      "error": "Elementi non presenti nel catalogo: feats:Critico migliorato (artiglio), feats:Incantesimi naturali",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Critico migliorato (artiglio), feats:Incantesimi naturali"
-      ],
-      "missing_catalog_entries": [
-        "feats:Critico migliorato (artiglio)",
-        "feats:Incantesimi naturali"
-      ],
       "catalog_version": [
         "2026.03.01"
       ]
@@ -2175,20 +2149,20 @@
     "1": {
       "total": 14,
       "invalid": 4,
-      "schema_errors": 4,
-      "completeness_errors": 4
+      "schema_errors": 3,
+      "completeness_errors": 3
     },
     "5": {
       "total": 15,
       "invalid": 6,
-      "schema_errors": 6,
-      "completeness_errors": 6
+      "schema_errors": 4,
+      "completeness_errors": 4
     },
     "10": {
       "total": 15,
       "invalid": 6,
-      "schema_errors": 6,
-      "completeness_errors": 6
+      "schema_errors": 4,
+      "completeness_errors": 4
     }
   }
 }

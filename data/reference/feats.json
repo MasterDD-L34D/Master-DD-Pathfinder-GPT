@@ -244,6 +244,29 @@
     ]
   },
   {
+    "name": "Arma focalizzata (artiglio)",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Proficiency with claws",
+      "Base attack bonus +1"
+    ],
+    "tags": [
+      "combat",
+      "weapon:claw",
+      "accuracy",
+      "natural-weapon"
+    ],
+    "references": [
+      "Archives of Nethys: Weapon Focus (Claw)",
+      "d20PFSRD: Weapon Focus"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Weapon%20Focus",
+      "https://www.d20pfsrd.com/feats/combat-feats/weapon-focus-combat/"
+    ]
+  },
+  {
     "name": "Arma focalizzata superiore (pugnale)",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
@@ -589,6 +612,28 @@
     ]
   },
   {
+    "name": "Critico migliorato (artiglio)",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Base Attack Bonus +8",
+      "Proficiency with selected weapon"
+    ],
+    "tags": [
+      "combat",
+      "critical",
+      "natural-weapon"
+    ],
+    "references": [
+      "Archives of Nethys: Improved Critical",
+      "d20PFSRD: Improved Critical"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Improved%20Critical",
+      "https://www.d20pfsrd.com/feats/combat-feats/improved-critical-combat---final/"
+    ]
+  },
+  {
     "name": "Deadly Aim",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
@@ -855,6 +900,28 @@
   },
   {
     "name": "Natural Spell",
+    "source": "Pathfinder Core Rulebook",
+    "source_id": "CRB",
+    "prerequisites": [
+      "Wild shape class feature",
+      "Druid level 4"
+    ],
+    "tags": [
+      "magic",
+      "wild shape",
+      "metamagic"
+    ],
+    "references": [
+      "Archives of Nethys: Natural Spell",
+      "d20PFSRD: Natural Spell"
+    ],
+    "reference_urls": [
+      "https://aonprd.com/FeatDisplay.aspx?ItemName=Natural%20Spell",
+      "https://www.d20pfsrd.com/feats/general-feats/natural-spell/"
+    ]
+  },
+  {
+    "name": "Incantesimi naturali",
     "source": "Pathfinder Core Rulebook",
     "source_id": "CRB",
     "prerequisites": [
