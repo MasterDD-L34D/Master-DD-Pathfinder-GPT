@@ -5175,6 +5175,12 @@ def build_index_entry(
                 "mode_normalized": step_audit.get("normalized_mode"),
                 "extended_steps_available": step_audit.get("has_extended_steps"),
                 "step_total_ok": step_audit.get("step_total_ok"),
+                "request_timestamp": step_audit.get("request_timestamp"),
+                "client_fingerprint_hash": step_audit.get("client_fingerprint_hash"),
+                "request_ip": step_audit.get("request_ip"),
+                "auth_outcome": step_audit.get("outcome"),
+                "auth_attempt_count": step_audit.get("attempt_count"),
+                "backoff_reason": step_audit.get("backoff_reason"),
             }
         )
     return entry

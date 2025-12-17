@@ -155,23 +155,45 @@
             "narrative_flow.txt"
           ],
           "skills": [
-            {"nome": "Percezione", "totale": 8},
-            {"nome": "Furtività", "totale": 10}
+            {
+              "nome": "Percezione",
+              "totale": 8
+            },
+            {
+              "nome": "Furtività",
+              "totale": 10
+            }
           ],
           "equipaggiamento": [
             "Bastone lunare scolpito",
             "Mantello d'ombra wayang"
           ],
           "ledger_movimenti": [
-            {"voce": "Equipaggiamento iniziale", "importo": -120},
-            {"voce": "Ricompensa missione", "importo": 180}
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -120
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 180
+            }
           ],
           "ledger": {
             "movimenti": [
-              {"voce": "Equipaggiamento iniziale", "importo": -120},
-              {"voce": "Ricompensa missione", "importo": 180}
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -120
+              },
+              {
+                "voce": "Ricompensa missione",
+                "importo": 180
+              }
             ],
-            "currency": {"oro": 75, "argento": 18, "rame": 40}
+            "currency": {
+              "oro": 75,
+              "argento": 18,
+              "rame": 40
+            }
           },
           "sheet_markdown": "Percezione +8, Furtività +10, Bastone lunare scolpito, Ricompensa missione"
         }
@@ -230,23 +252,45 @@
         "narrative_flow.txt"
       ],
       "skills": [
-        {"nome": "Percezione", "totale": 8},
-        {"nome": "Furtività", "totale": 10}
+        {
+          "nome": "Percezione",
+          "totale": 8
+        },
+        {
+          "nome": "Furtività",
+          "totale": 10
+        }
       ],
       "equipaggiamento": [
         "Bastone lunare scolpito",
         "Mantello d'ombra wayang"
       ],
       "ledger_movimenti": [
-        {"voce": "Equipaggiamento iniziale", "importo": -120},
-        {"voce": "Ricompensa missione", "importo": 180}
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -120
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 180
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Equipaggiamento iniziale", "importo": -120},
-          {"voce": "Ricompensa missione", "importo": 180}
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -120
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 180
+          }
         ],
-        "currency": {"oro": 75, "argento": 18, "rame": 40}
+        "currency": {
+          "oro": 75,
+          "argento": 18,
+          "rame": 40
+        }
       },
       "sheet_markdown": "Percezione +8, Furtività +10, Bastone lunare scolpito, Ricompensa missione"
     }
@@ -310,6 +354,12 @@
     "observed_step_total": 16,
     "step_total_ok": true,
     "step_labels_count": 16,
-    "has_extended_steps": true
+    "has_extended_steps": true,
+    "request_timestamp": "2026-02-10T12:00:00Z",
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   }
 }

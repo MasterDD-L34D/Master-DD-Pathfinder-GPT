@@ -125,15 +125,31 @@
         "note": "Build tanky ma mobile: harness alare per mantenere glide nonostante la corazza."
       },
       "ledger_movimenti": [
-        {"voce": "Manutenzione moschetto", "importo": -220},
-        {"voce": "Contratto sentinella", "importo": 300}
+        {
+          "voce": "Manutenzione moschetto",
+          "importo": -220
+        },
+        {
+          "voce": "Contratto sentinella",
+          "importo": 300
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Manutenzione moschetto", "importo": -220},
-          {"voce": "Contratto sentinella", "importo": 300}
+          {
+            "voce": "Manutenzione moschetto",
+            "importo": -220
+          },
+          {
+            "voce": "Contratto sentinella",
+            "importo": 300
+          }
         ],
-        "currency": {"oro": 95, "argento": 18, "rame": 12}
+        "currency": {
+          "oro": 95,
+          "argento": 18,
+          "rame": 12
+        }
       },
       "sheet_markdown": "Percezione\nMusket pesante forgiato in mithral\nManutenzione moschetto",
       "pf_per_livello": "d10 (Gun Tank + COS)",
@@ -164,7 +180,13 @@
     "observed_step_total": 16,
     "step_total_ok": true,
     "step_labels_count": 16,
-    "has_extended_steps": true
+    "has_extended_steps": true,
+    "request_timestamp": "2025-12-12T14:11:00Z",
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   },
   "completeness": {
     "status": "complete",

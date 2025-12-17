@@ -7,7 +7,7 @@
 ## Sintesi delle strutture (DDL logico)
 ### Build payload (core)
 - **Struttura:** oggetto con campi obbligatori `build_state`, `benchmark`, `export`; altre sezioni (`narrative`, `sheet`, `ledger`, `request`, `query_params`, `body_params`, `step_audit`, `completeness`, `composite`) sono facoltative e ammettono proprietà aggiuntive.【F:schemas/build_core.schema.json†L1-L242】
-- **Vincoli espliciti:** solo obbligatorietà dei tre campi core; i sottoschemi `build_state`, `benchmark`, `export` e `textual_block` non definiscono proprietà richieste, né tipi più stretti, quindi accettano qualsiasi oggetto/array/stringa/null.【F:schemas/build_core.schema.json†L11-L241】
+- **Vincoli espliciti:** solo obbligatorietà dei tre campi core; i sottoschemi `build_state`, `benchmark`, `export` e `textual_block` non definiscono proprietà richieste, né tipi più stretti, quindi accettano qualsiasi oggetto/array/stringa/null. Il sottoschema `step_audit` ora richiede timestamp richiesta, hash della chiave client, esito (`accepted`/`denied`/`backoff`), conteggio tentativi e motivazione di backoff (null se assente), più IP opzionale.【F:schemas/build_core.schema.json†L11-L241】【F:schemas/build_core.schema.json†L328-L369】
 - **Note DDL:** può essere visto come tabella `build_core(build_state JSON NOT NULL, benchmark JSON NOT NULL, export JSON NOT NULL, …)` senza chiave primaria.
 
 ### Build payload (extended)

@@ -47,7 +47,7 @@
   "bench_log": [
     "Ruling Expert: validati i tratti vishkanya (poison use, toxic skin) con giudizio/sermon senza HR; note PFS su veleni legali applicate.",
     "MinMax: condividere Precise Strike via Tactician + Solo Tactics fornisce precisione/sneak costante; debuff da Blistering Invective + poison DC 14/17/20.",
-    "Narrative/Taverna: inquisitrice emissaria velenosa al servizio del tempio, specializzata in coordinamento di cellule furtive." 
+    "Narrative/Taverna: inquisitrice emissaria velenosa al servizio del tempio, specializzata in coordinamento di cellule furtive."
   ],
   "body_params": {
     "race": "Vishkanya",
@@ -58,15 +58,8 @@
   "build_source": "local spec",
   "class": "Inquisitor",
   "completeness": {
-    "status": "complete",
-    "missing": [],
-    "checklist": {
-      "statistics": true,
-      "equipment": true,
-      "spells": true,
-      "narrative": true,
-      "ledger": true
-    }
+    "errors": [],
+    "require_complete": true
   },
   "composite": {
     "build": {
@@ -155,24 +148,52 @@
             "narrative_flow.txt"
           ],
           "skills": [
-            {"nome": "Percezione", "gradi": 1, "mod_car": 3, "classe": true, "totale": 7},
-            {"nome": "Intimidire", "gradi": 1, "mod_car": 0, "classe": true, "totale": 5}
+            {
+              "nome": "Percezione",
+              "gradi": 1,
+              "mod_car": 3,
+              "classe": true,
+              "totale": 7
+            },
+            {
+              "nome": "Intimidire",
+              "gradi": 1,
+              "mod_car": 0,
+              "classe": true,
+              "totale": 5
+            }
           ],
           "equipaggiamento": [
-            "Kukri rituale", 
-            "Giaco di maglia", 
+            "Kukri rituale",
+            "Giaco di maglia",
             "Santino del tempio"
           ],
           "ledger_movimenti": [
-            {"voce": "Donazione al tempio", "importo": -40},
-            {"voce": "Incarico tattico", "importo": 80}
+            {
+              "voce": "Donazione al tempio",
+              "importo": -40
+            },
+            {
+              "voce": "Incarico tattico",
+              "importo": 80
+            }
           ],
           "ledger": {
             "movimenti": [
-              {"voce": "Donazione al tempio", "importo": -40},
-              {"voce": "Incarico tattico", "importo": 80}
+              {
+                "voce": "Donazione al tempio",
+                "importo": -40
+              },
+              {
+                "voce": "Incarico tattico",
+                "importo": 80
+              }
             ],
-            "currency": {"oro": 45, "argento": 8, "rame": 4}
+            "currency": {
+              "oro": 45,
+              "argento": 8,
+              "rame": 4
+            }
           },
           "sheet_markdown": "Percezione\nKukri rituale\nDonazione al tempio"
         }
@@ -225,34 +246,62 @@
         5,
         10
       ],
-        "modules": [
-          "base_profile.txt",
-          "Taverna_NPC.txt",
-          "narrative_flow.txt"
-        ],
-        "skills": [
-          {"nome": "Percezione", "gradi": 1, "mod_car": 3, "classe": true, "totale": 7},
-          {"nome": "Intimidire", "gradi": 1, "mod_car": 0, "classe": true, "totale": 5}
-        ],
-        "equipaggiamento": [
-          "Kukri rituale", 
-          "Giaco di maglia", 
-          "Santino del tempio"
-        ],
-        "ledger_movimenti": [
-          {"voce": "Donazione al tempio", "importo": -40},
-          {"voce": "Incarico tattico", "importo": 80}
-        ],
-        "ledger": {
-          "movimenti": [
-            {"voce": "Donazione al tempio", "importo": -40},
-            {"voce": "Incarico tattico", "importo": 80}
-          ],
-          "currency": {"oro": 45, "argento": 8, "rame": 4}
+      "modules": [
+        "base_profile.txt",
+        "Taverna_NPC.txt",
+        "narrative_flow.txt"
+      ],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "gradi": 1,
+          "mod_car": 3,
+          "classe": true,
+          "totale": 7
         },
-        "sheet_markdown": "Percezione\nKukri rituale\nDonazione al tempio"
-      }
-    },
+        {
+          "nome": "Intimidire",
+          "gradi": 1,
+          "mod_car": 0,
+          "classe": true,
+          "totale": 5
+        }
+      ],
+      "equipaggiamento": [
+        "Kukri rituale",
+        "Giaco di maglia",
+        "Santino del tempio"
+      ],
+      "ledger_movimenti": [
+        {
+          "voce": "Donazione al tempio",
+          "importo": -40
+        },
+        {
+          "voce": "Incarico tattico",
+          "importo": 80
+        }
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Donazione al tempio",
+            "importo": -40
+          },
+          {
+            "voce": "Incarico tattico",
+            "importo": 80
+          }
+        ],
+        "currency": {
+          "oro": 45,
+          "argento": 8,
+          "rame": 4
+        }
+      },
+      "sheet_markdown": "Percezione\nKukri rituale\nDonazione al tempio"
+    }
+  },
   "mode": "extended",
   "mode_normalized": "extended",
   "output_prefix": "inquisitor_vishkanya_tactical_leader_preacher",
@@ -278,10 +327,12 @@
     "observed_step_total": 16,
     "step_total_ok": true,
     "step_labels_count": 16,
-    "has_extended_steps": true
-  },
-  "completeness": {
-    "errors": [],
-    "require_complete": true
+    "has_extended_steps": true,
+    "request_timestamp": null,
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   }
 }

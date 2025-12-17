@@ -155,23 +155,45 @@
             "narrative_flow.txt"
           ],
           "skills": [
-            {"nome": "Percezione", "totale": 18},
-            {"nome": "Furtività", "totale": 21}
+            {
+              "nome": "Percezione",
+              "totale": 18
+            },
+            {
+              "nome": "Furtività",
+              "totale": 21
+            }
           ],
           "equipaggiamento": [
             "Anello della luce lunare",
             "Veste d'ombra maggiore"
           ],
           "ledger_movimenti": [
-            {"voce": "Equipaggiamento iniziale", "importo": -220},
-            {"voce": "Ricompensa missione", "importo": 340}
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -220
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 340
+            }
           ],
           "ledger": {
             "movimenti": [
-              {"voce": "Equipaggiamento iniziale", "importo": -220},
-              {"voce": "Ricompensa missione", "importo": 340}
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -220
+              },
+              {
+                "voce": "Ricompensa missione",
+                "importo": 340
+              }
             ],
-            "currency": {"oro": 240, "argento": 40, "rame": 80}
+            "currency": {
+              "oro": 240,
+              "argento": 40,
+              "rame": 80
+            }
           },
           "sheet_markdown": "Percezione +18, Furtività +21, Anello della luce lunare, Ricompensa missione"
         }
@@ -230,23 +252,45 @@
         "narrative_flow.txt"
       ],
       "skills": [
-        {"nome": "Percezione", "totale": 18},
-        {"nome": "Furtività", "totale": 21}
+        {
+          "nome": "Percezione",
+          "totale": 18
+        },
+        {
+          "nome": "Furtività",
+          "totale": 21
+        }
       ],
       "equipaggiamento": [
         "Anello della luce lunare",
         "Veste d'ombra maggiore"
       ],
       "ledger_movimenti": [
-        {"voce": "Equipaggiamento iniziale", "importo": -220},
-        {"voce": "Ricompensa missione", "importo": 340}
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -220
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 340
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Equipaggiamento iniziale", "importo": -220},
-          {"voce": "Ricompensa missione", "importo": 340}
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -220
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 340
+          }
         ],
-        "currency": {"oro": 240, "argento": 40, "rame": 80}
+        "currency": {
+          "oro": 240,
+          "argento": 40,
+          "rame": 80
+        }
       },
       "sheet_markdown": "Percezione +18, Furtività +21, Anello della luce lunare, Ricompensa missione"
     }
@@ -310,6 +354,12 @@
     "observed_step_total": 16,
     "step_total_ok": true,
     "step_labels_count": 16,
-    "has_extended_steps": true
+    "has_extended_steps": true,
+    "request_timestamp": "2026-02-10T12:10:00Z",
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
   }
 }

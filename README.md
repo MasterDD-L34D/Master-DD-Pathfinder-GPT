@@ -66,6 +66,8 @@ curl -H "x-api-key:chiave-sbagliata" http://localhost:8000/modules/minmax_builde
 
 Se incontri errori `401` o `429`, ricordati che il blocco/backoff sullo header `x-api-key` è controllato da `AUTH_BACKOFF_THRESHOLD` e `AUTH_BACKOFF_SECONDS`: aumentali o disattiva la chiave per verificare se gli esiti derivano dalla soglia di tentativi o dal timer di blocco. Consulta il [backoff di autenticazione](#backoff-autenticazione-auth_backoff_) per i dettagli.
 
+> **Audit:** ogni richiesta di build (accettata o bloccata) va tracciata nel blocco `step_audit` del payload e loggata come riga JSON in `data/audit/build_events.jsonl` (esempio in `data/audit/build_events.sample.jsonl`) con timestamp, hash della chiave, IP e stato di backoff.
+
 #### Backoff autenticazione (`AUTH_BACKOFF_*`)
 
 Per mitigare tentativi ripetuti con chiavi errate, puoi regolare il backoff sugli
