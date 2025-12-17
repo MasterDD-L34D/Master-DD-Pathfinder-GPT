@@ -145,9 +145,17 @@
       },
       "sheet_markdown": "Acrobazia\nHandwraps +3 furious\nManutenzione handwraps",
       "talenti": [
+        "Tiger Style",
+        "Crane Style",
+        "Dodge",
+        "Mobility",
+        "Power Attack",
+        "Tiger Claws",
+        "Dragon Style",
+        "Crane Wing",
+        "Dragon Ferocity",
         "Medusa's Wrath",
         "Crane Riposte",
-        "Dragon Ferocity",
         "Spring Attack",
         "Improved Initiative"
       ],
@@ -172,7 +180,7 @@
           ]
         },
         {
-          "talento": "Tiger Claws",
+          "talento": "Power Attack + Tiger Claws",
           "privilegi": [
             "High Jump"
           ]
