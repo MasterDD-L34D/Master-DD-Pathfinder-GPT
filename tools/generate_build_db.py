@@ -1296,8 +1296,15 @@ def schema_for_mode(mode: str) -> str:
 def validate_with_schema(
     schema_filename: str, payload: Mapping, context: str, *, strict: bool
 ) -> str | None:
+    augmented_payload = payload
+    if "reference_catalog_version" not in payload:
+        manifest_version = (get_reference_manifest() or {}).get("version")
+        if manifest_version:
+            augmented_payload = dict(payload)
+            augmented_payload["reference_catalog_version"] = str(manifest_version)
+
     validator = get_validator(schema_filename)
-    errors = sorted(validator.iter_errors(payload), key=lambda err: err.path)
+    errors = sorted(validator.iter_errors(augmented_payload), key=lambda err: err.path)
     if not errors:
         return None
 
@@ -1566,9 +1573,7 @@ def review_local_database(
                         )
                     )
             elif payload_catalog_version:
-                manifest_mismatch = (
-                    "reference_catalog_version presente ma manifest locale senza versione"
-                )
+                manifest_mismatch = "reference_catalog_version presente ma manifest locale senza versione"
             validation_error = validate_with_schema(
                 schema_for_mode(payload.get("mode", DEFAULT_MODE)),
                 payload,
@@ -1576,11 +1581,14 @@ def review_local_database(
                 strict=strict,
             )
             if manifest_mismatch:
-                validation_error = (
-                    manifest_mismatch
-                    if validation_error is None
-                    else f"{validation_error}; {manifest_mismatch}"
-                )
+                if strict:
+                    validation_error = (
+                        manifest_mismatch
+                        if validation_error is None
+                        else f"{validation_error}; {manifest_mismatch}"
+                    )
+                else:
+                    entry.setdefault("warnings", []).append(manifest_mismatch)
             sheet_payload = payload.get("export", {}).get(
                 "sheet_payload"
             ) or payload.get("sheet_payload")
