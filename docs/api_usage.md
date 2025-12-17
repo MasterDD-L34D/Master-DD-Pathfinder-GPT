@@ -122,6 +122,8 @@ Risposta JSON semplificata:
 }
 ```
 
+> **Nota sulla validazione**: gli snapshot del builder seguono gli schemi JSON `schemas/build_core.schema.json` e `schemas/build_full_pg.schema.json`. I blocchi `build_state`, `benchmark` e `export` hanno campi espliciti (es. `mode` ∈ {`core`,`extended`,`full-pg`}, `step`/`step_total` numerici e `step_labels` con chiavi numeriche) e il sotto-blocco `composite.build` riutilizza gli stessi riferimenti per mantenere identica struttura e versioni. Nei payload full-PG, `sheet_payload` è obbligatoria sia al livello root sia in `composite.build`, mentre `ledger` accetta sia testi sia movimenti strutturati con `voce`/`importo`.
+
 ### `GET /knowledge`
 Elenca i file in `src/data` (PDF, markdown di supporto). Non restituisce il contenuto dei manuali Paizo protetti.
 

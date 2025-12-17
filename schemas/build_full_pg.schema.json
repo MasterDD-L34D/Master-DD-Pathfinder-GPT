@@ -31,7 +31,7 @@
       "description": "Contesto opzionale per il template scheda_pg_markdown_template.md"
     },
     "ledger": {
-      "$ref": "build_core.schema.json#/$defs/textual_block"
+      "$ref": "build_core.schema.json#/$defs/ledger"
     },
     "composite": {
       "type": "object",
@@ -40,29 +40,24 @@
       ],
       "properties": {
         "build": {
-          "type": "object",
-          "required": [
-            "build_state",
-            "benchmark",
-            "export",
-            "sheet_payload"
-          ],
-          "properties": {
-            "build_state": {
-              "$ref": "build_core.schema.json#/$defs/build_state"
+          "allOf": [
+            {
+              "$ref": "build_core.schema.json#/$defs/build_bundle"
             },
-            "benchmark": {
-              "$ref": "build_core.schema.json#/$defs/benchmark"
-            },
-            "export": {
-              "$ref": "build_core.schema.json#/$defs/export"
-            },
-            "sheet_payload": {
-              "$ref": "scheda_pg.schema.json",
-              "description": "Contesto opzionale per il template scheda_pg_markdown_template.md"
+            {
+              "type": "object",
+              "required": [
+                "sheet_payload"
+              ],
+              "properties": {
+                "sheet_payload": {
+                  "$ref": "scheda_pg.schema.json",
+                  "description": "Contesto opzionale per il template scheda_pg_markdown_template.md"
+                }
+              },
+              "additionalProperties": false
             }
-          },
-          "additionalProperties": true
+          ]
         },
         "narrative": {
           "$ref": "build_core.schema.json#/$defs/textual_block"
@@ -75,7 +70,7 @@
           "description": "Contesto opzionale per il template scheda_pg_markdown_template.md"
         },
         "ledger": {
-          "$ref": "build_core.schema.json#/$defs/textual_block"
+          "$ref": "build_core.schema.json#/$defs/ledger"
         }
       },
       "anyOf": [
@@ -95,7 +90,7 @@
           ]
         }
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
   "additionalProperties": true

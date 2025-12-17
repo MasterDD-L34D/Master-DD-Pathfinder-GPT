@@ -25,7 +25,7 @@
       "$ref": "#/$defs/textual_block"
     },
     "ledger": {
-      "$ref": "#/$defs/textual_block"
+      "$ref": "#/$defs/ledger"
     },
     "class": {
       "type": [
@@ -123,13 +123,135 @@
   },
   "$defs": {
     "build_state": {
-      "type": "object"
+      "type": "object",
+      "required": [
+        "class",
+        "mode",
+        "step",
+        "step_total",
+        "step_labels"
+      ],
+      "properties": {
+        "class": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "$ref": "#/$defs/build_mode"
+        },
+        "race": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "archetype": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "step": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "step_total": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "step_labels": {
+          "type": "object",
+          "minProperties": 1,
+          "patternProperties": {
+            "^[0-9]+$": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "step_labels_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
     },
     "benchmark": {
-      "type": "object"
+      "type": "object",
+      "required": [
+        "meta_tier"
+      ],
+      "properties": {
+        "meta_tier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ruling_badge": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "dpr_snapshot": {
+          "type": "object",
+          "patternProperties": {
+            "^livello_[0-9]+$": {
+              "type": "object",
+              "properties": {
+                "media": {
+                  "type": [
+                    "number",
+                    "integer"
+                  ]
+                },
+                "picco": {
+                  "type": [
+                    "number",
+                    "integer"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
     },
     "export": {
-      "type": "object"
+      "type": "object",
+      "properties": {
+        "sheet_payload": {
+          "$ref": "scheda_pg.schema.json"
+        },
+        "sheet_locale": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sheet_format": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
     },
     "textual_block": {
       "type": [
@@ -137,6 +259,58 @@
         "object",
         "array",
         "null"
+      ]
+    },
+    "ledger": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/textual_block"
+        },
+        {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "movimenti": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "voce",
+                  "importo"
+                ],
+                "properties": {
+                  "voce": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "importo": {
+                    "type": [
+                      "number",
+                      "integer"
+                    ]
+                  },
+                  "categoria": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "saldo": {
+              "type": [
+                "number",
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        }
       ]
     },
     "step_audit": {
@@ -179,7 +353,7 @@
           ]
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "completeness": {
       "type": "object",
@@ -197,7 +371,35 @@
           ]
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
+    },
+    "build_mode": {
+      "type": "string",
+      "enum": [
+        "core",
+        "extended",
+        "full-pg"
+      ]
+    },
+    "build_bundle": {
+      "type": "object",
+      "required": [
+        "build_state",
+        "benchmark",
+        "export"
+      ],
+      "properties": {
+        "build_state": {
+          "$ref": "#/$defs/build_state"
+        },
+        "benchmark": {
+          "$ref": "#/$defs/benchmark"
+        },
+        "export": {
+          "$ref": "#/$defs/export"
+        }
+      },
+      "additionalProperties": false
     },
     "composite": {
       "type": "object",
@@ -206,24 +408,7 @@
       ],
       "properties": {
         "build": {
-          "type": "object",
-          "required": [
-            "build_state",
-            "benchmark",
-            "export"
-          ],
-          "properties": {
-            "build_state": {
-              "$ref": "#/$defs/build_state"
-            },
-            "benchmark": {
-              "$ref": "#/$defs/benchmark"
-            },
-            "export": {
-              "$ref": "#/$defs/export"
-            }
-          },
-          "additionalProperties": true
+          "$ref": "#/$defs/build_bundle"
         },
         "narrative": {
           "$ref": "#/$defs/textual_block"
@@ -232,10 +417,10 @@
           "$ref": "#/$defs/textual_block"
         },
         "ledger": {
-          "$ref": "#/$defs/textual_block"
+          "$ref": "#/$defs/ledger"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
   "additionalProperties": true
