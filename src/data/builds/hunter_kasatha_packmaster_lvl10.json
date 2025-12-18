@@ -6,7 +6,14 @@
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=10",
   "request": {
     "path": "/modules/minmax_builder.txt",
-    "method": "GET"
+    "method": "GET",
+    "race": "Kasatha",
+    "archetype": "Packmaster",
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "query_params": {
     "mode": "extended",
@@ -24,12 +31,6 @@
     "archetype": "Packmaster",
     "step": 16,
     "step_total": 16,
-    "level_checkpoints": [
-      1,
-      5,
-      10
-    ],
-    "checkpoint": 10,
     "statistics": {
       "FOR": 20,
       "DES": 18,
@@ -37,7 +38,27 @@
       "INT": 10,
       "SAG": 18,
       "CAR": 8
-    }
+    },
+    "mode": "extended",
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "ruling_badge": "validated",
   "ruling_sources": [
@@ -47,7 +68,6 @@
   ],
   "benchmark": {
     "meta_tier": "T3",
-    "bench_log": "Checkpoint 10 strict: confermata dalla pipeline l'interazione tra Companion multipli potenziati e Coordinated Maneuvers; Ruling Expert mantiene badge RAW/RAI/PFS, MinMax conferma spike DPR con Animal Focus + Instant Enemy.",
     "dpr_snapshot": {
       "livello_1": {
         "media": 8,
@@ -77,7 +97,17 @@
     "checkpoints": {
       "1": "ok",
       "5": "ok",
-      "10": "ok"
+      "10": "ok",
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "bench_log": "Checkpoint 10 strict: confermata dalla pipeline l'interazione tra Companion multipli potenziati e Coordinated Maneuvers; Ruling Expert mantiene badge RAW/RAI/PFS, MinMax conferma spike DPR con Animal Focus + Instant Enemy.",
+      "missing": [],
+      "status": "complete",
+      "checklist": {},
+      "checkpoint": 10
     }
   },
   "narrative": "Al 10° livello la kasatha è una maestra di muta: tre compagni coordinati, bastone bipenne kasatha keen e magie di controllo terreno. La pipeline strict annota l'allineamento RAW/RAI/PFS; i raptor applicano Dirty Trick mentre l'ankylosaurus ancora i bersagli. La Taverna racconta di come le carovane attivino fuochi di segnalazione e la muta arrivi dal cielo stellato.",
@@ -207,9 +237,6 @@
     ]
   },
   "completeness": {
-    "status": "complete",
-    "missing": [],
-    "checklist": {},
     "require_complete": true
   },
   "step_audit": {
@@ -225,5 +252,309 @@
     "attempt_count": 1,
     "backoff_reason": null,
     "request_ip": null
+  },
+  "reference_catalog_version": "2026.03.22",
+  "build_id": "build-20cf8f70598542097c06331c",
+  "composite": {
+    "build": {
+      "build_id": "build-20cf8f70598542097c06331c",
+      "build_state": {
+        "class": "Hunter",
+        "race": "Kasatha",
+        "archetype": "Packmaster",
+        "step": 16,
+        "step_total": 16,
+        "statistics": {
+          "FOR": 20,
+          "DES": 18,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 18,
+          "CAR": 8
+        },
+        "mode": "extended",
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 8,
+            "picco": 12
+          },
+          "livello_5": {
+            "media": 28,
+            "picco": 44
+          },
+          "livello_10": {
+            "media": 63,
+            "picco": 92
+          }
+        },
+        "statistics": {
+          "attacco": "+20",
+          "danni": "2d6+18",
+          "ca": 29
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Hunter",
+              "livelli": 10,
+              "archetipi": [
+                "Packmaster"
+              ]
+            }
+          ],
+          "razza": "Kasatha",
+          "statistiche": {
+            "FOR": 20,
+            "DES": 18,
+            "COS": 14,
+            "INT": 10,
+            "SAG": 18,
+            "CAR": 8,
+            "attacco": "+20",
+            "danni": "2d6+18",
+            "ca": 29
+          },
+          "teamwork": [
+            "Outflank",
+            "Pack Flanking",
+            "Precise Strike",
+            "Coordinated Charge",
+            "Coordinated Maneuvers"
+          ],
+          "compagni_animali": [
+            "Velociraptor alpha",
+            "Velociraptor scout",
+            "Ankylosaurus sentinella"
+          ],
+          "modules": {
+            "pipeline": [
+              "Ruling Expert",
+              "MinMax",
+              "Taverna/Narrative"
+            ]
+          },
+          "benchmarks": {
+            "meta_tier": "T3",
+            "dpr_snapshot": {
+              "1": 8,
+              "5": 28,
+              "10": 63
+            }
+          },
+          "skills": [
+            {
+              "nome": "Percezione",
+              "gradi": 10,
+              "mod_car": 4,
+              "classe": true,
+              "totale": 21
+            },
+            {
+              "nome": "Sopravvivenza",
+              "gradi": 10,
+              "mod_car": 4,
+              "classe": true,
+              "totale": 20
+            }
+          ],
+          "equipaggiamento": [
+            "Lancia lunga tribale maestro",
+            "Cotta di maglia leggera rinforzata",
+            "Kit di comando da carovana"
+          ],
+          "ledger_movimenti": [
+            {
+              "voce": "Addestramento branchia di dinosauri alpha",
+              "importo": -360
+            },
+            {
+              "voce": "Comando convoglio stellare",
+              "importo": 620
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Addestramento branchia di dinosauri alpha",
+                "importo": -360
+              },
+              {
+                "voce": "Comando convoglio stellare",
+                "importo": 620
+              }
+            ],
+            "currency": {
+              "oro": 260,
+              "argento": 40,
+              "rame": 18
+            }
+          },
+          "sheet_markdown": "Percezione\nLancia lunga tribale maestro\nAddestramento branchia di dinosauri alpha"
+        },
+        "fonti": [
+          "local-refresh",
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=10"
+        ]
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "normalized_mode": "extended",
+        "request_timestamp": "2025-01-12T00:10:00Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Hunter",
+            "livelli": 10,
+            "archetipi": [
+              "Packmaster"
+            ]
+          }
+        ],
+        "razza": "Kasatha",
+        "statistiche": {
+          "FOR": 20,
+          "DES": 18,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 18,
+          "CAR": 8,
+          "attacco": "+20",
+          "danni": "2d6+18",
+          "ca": 29
+        },
+        "teamwork": [
+          "Outflank",
+          "Pack Flanking",
+          "Precise Strike",
+          "Coordinated Charge",
+          "Coordinated Maneuvers"
+        ],
+        "compagni_animali": [
+          "Velociraptor alpha",
+          "Velociraptor scout",
+          "Ankylosaurus sentinella"
+        ],
+        "modules": {
+          "pipeline": [
+            "Ruling Expert",
+            "MinMax",
+            "Taverna/Narrative"
+          ]
+        },
+        "benchmarks": {
+          "meta_tier": "T3",
+          "dpr_snapshot": {
+            "1": 8,
+            "5": 28,
+            "10": 63
+          }
+        },
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 10,
+            "mod_car": 4,
+            "classe": true,
+            "totale": 21
+          },
+          {
+            "nome": "Sopravvivenza",
+            "gradi": 10,
+            "mod_car": 4,
+            "classe": true,
+            "totale": 20
+          }
+        ],
+        "equipaggiamento": [
+          "Lancia lunga tribale maestro",
+          "Cotta di maglia leggera rinforzata",
+          "Kit di comando da carovana"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Addestramento branchia di dinosauri alpha",
+            "importo": -360
+          },
+          {
+            "voce": "Comando convoglio stellare",
+            "importo": 620
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Addestramento branchia di dinosauri alpha",
+              "importo": -360
+            },
+            {
+              "voce": "Comando convoglio stellare",
+              "importo": 620
+            }
+          ],
+          "currency": {
+            "oro": 260,
+            "argento": 40,
+            "rame": 18
+          }
+        },
+        "sheet_markdown": "Percezione\nLancia lunga tribale maestro\nAddestramento branchia di dinosauri alpha"
+      }
+    },
+    "narrative": "Al 10° livello la kasatha è una maestra di muta: tre compagni coordinati, bastone bipenne kasatha keen e magie di controllo terreno. La pipeline strict annota l'allineamento RAW/RAI/PFS; i raptor applicano Dirty Trick mentre l'ankylosaurus ancora i bersagli. La Taverna racconta di come le carovane attivino fuochi di segnalazione e la muta arrivi dal cielo stellato.",
+    "sheet": "### 🧙 Scheda Personaggio in Markdown\n\n---\n\n# Hunter — Liv. 10 (Kasatha · Packmaster)\n\n**Background rapido:** Custode delle vie stellari desertiche, ora guida spedizioni archeologiche tra città di vetro sommerso.\n\n**Stile di gioco:** Coordinated Maneuvers + Coordinated Charge per bloccare linee nemiche, Instant Enemy per bypassare RD, Gravity Bow per spike DPR.\n\n**Pipeline strict:** Ruling Expert → MinMax → Taverna/Narrative (checkpoint 10 validato).\n\n**Benchmark DPR/CA:** 2d6+18 sulla falcata lunga keen, DPR medio/picco 63/92, CA 29 con Barkskin + barding rinforzato.\n\n**Risorse chiave:** Instant Enemy, Gravity Bow, Animal Focus (orso/falco), teamwork Coordinated Maneuvers/Outflank/Precise Strike/Pack Flanking.\n",
+    "ledger": {
+      "entries": [
+        {
+          "voce": "Upgrade barding rinforzato",
+          "importo": -3200,
+          "note": "barding in mithral per raptor"
+        },
+        {
+          "voce": "Contratto scorta stellare",
+          "importo": 4500,
+          "note": "spedizione archeologica"
+        }
+      ],
+      "currency": {
+        "oro": 5200,
+        "argento": 80,
+        "rame": 300
+      }
+    }
   }
 }

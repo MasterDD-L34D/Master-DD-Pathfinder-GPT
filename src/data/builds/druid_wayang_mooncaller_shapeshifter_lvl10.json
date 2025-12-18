@@ -14,7 +14,26 @@
       "SAG": 22,
       "CAR": 8,
       "level": 10
-    }
+    },
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T2",
@@ -37,18 +56,8 @@
       "attacco": "+18",
       "danni": "artiglio 2d6+10 / morso 1d8+10 (forma elementale)",
       "ca": 28
-    },
-    "bench_log": [
-      "Varianti testate: (1) Wayang Mooncaller + Shapeshifter focalizzato su nebbia/lupino; (2) Grippli Mooncaller con focus veleno; (3) Wayang puro Shapeshifter con feral focus.",
-      "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata ai checkpoint 1/5/10: badge RAW/RAI/PFS confermato, bench offensivi/difensivi annotati nei metadati.",
-      "Variante selezionata: Wayang Mooncaller/Shapeshifter (controllo oscurità + wild shape predatoria) con miglior combinazione di DPR medio e CA reattiva."
-    ]
+    }
   },
-  "bench_log": [
-    "Ruling Expert: confermata compatibilità di Mooncaller con Shapeshifter e visione nelle ombre Wayang (niente HR richieste).",
-    "MinMax: wild shape predatoria + oscurità mobile mantiene DPR medio 9/32/80 e CA 28 ai checkpoint.",
-    "Narrative/Taverna: arco 'Custode delle Ombre Lunari' integrato come ambasciatore dei popoli sotterranei."
-  ],
   "body_params": {
     "race": "Wayang",
     "archetype_primary": "Mooncaller",
@@ -57,19 +66,10 @@
   },
   "build_source": "local spec",
   "class": "Druid",
-  "completeness": {
-    "status": "complete",
-    "missing": [],
-    "checklist": {
-      "statistics": true,
-      "equipment": true,
-      "spells": true,
-      "narrative": true,
-      "ledger": true
-    }
-  },
+  "completeness": {},
   "composite": {
     "build": {
+      "build_id": "build-97fcdae8f6d50c52440475b3",
       "build_state": {
         "class": "Druid",
         "mode": "extended",
@@ -85,7 +85,26 @@
           "SAG": 22,
           "CAR": 8,
           "level": 10
-        }
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T2",
@@ -108,12 +127,7 @@
           "attacco": "+18",
           "danni": "artiglio 2d6+10 / morso 1d8+10 (forma elementale)",
           "ca": 28
-        },
-        "bench_log": [
-          "Varianti testate: (1) Wayang Mooncaller + Shapeshifter focalizzato su nebbia/lupino; (2) Grippli Mooncaller con focus veleno; (3) Wayang puro Shapeshifter con feral focus.",
-          "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata ai checkpoint 1/5/10: badge RAW/RAI/PFS confermato, bench offensivi/difensivi annotati nei metadati.",
-          "Variante selezionata: Wayang Mooncaller/Shapeshifter (controllo oscurità + wild shape predatoria) con miglior combinazione di DPR medio e CA reattiva."
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -197,6 +211,102 @@
           },
           "sheet_markdown": "Percezione +18, Furtività +21, Anello della luce lunare, Ricompensa missione"
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2026-02-10T12:10:00Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Druid",
+            "livelli": 1,
+            "archetipi": [
+              "Mooncaller",
+              "Shapeshifter"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 16,
+          "DES": 18,
+          "COS": 18,
+          "INT": 12,
+          "SAG": 22,
+          "CAR": 8,
+          "attacco": "+18",
+          "danni": "artiglio 2d6+10 / morso 1d8+10",
+          "ca": 28
+        },
+        "statistiche_chiave": {
+          "attacco": "+18",
+          "danni": "artiglio 2d6+10 / morso 1d8+10",
+          "ca": 28
+        },
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "modules": [
+          "base_profile.txt",
+          "Taverna_NPC.txt",
+          "narrative_flow.txt"
+        ],
+        "skills": [
+          {
+            "nome": "Percezione",
+            "totale": 18
+          },
+          {
+            "nome": "Furtività",
+            "totale": 21
+          }
+        ],
+        "equipaggiamento": [
+          "Anello della luce lunare",
+          "Veste d'ombra maggiore"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -220
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 340
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -220
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 340
+            }
+          ],
+          "currency": {
+            "oro": 240,
+            "argento": 40,
+            "rame": 80
+          }
+        },
+        "sheet_markdown": "Percezione +18, Furtività +21, Anello della luce lunare, Ricompensa missione"
       }
     },
     "narrative": {
@@ -296,12 +406,6 @@
     }
   },
   "fetched_at": "2026-02-10T12:10:00Z",
-  "level": 10,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
   "metadata": {
     "ruling_log": [
       "Ruling Expert badge RAW/RAI/PFS validato: Mooncaller howls non interferiscono con shapeshift e PFS non richiede HR.",
@@ -336,7 +440,6 @@
     "race": "Wayang",
     "archetype": "Mooncaller Shapeshifter"
   },
-  "race": "Wayang",
   "archetypes": [
     "Mooncaller",
     "Shapeshifter"
@@ -346,7 +449,13 @@
     "mode": "extended",
     "race": "Wayang",
     "archetype": "Mooncaller Shapeshifter",
-    "spec_id": "druid_wayang_mooncaller_shapeshifter"
+    "spec_id": "druid_wayang_mooncaller_shapeshifter",
+    "level": 10,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "step_audit": {
     "normalized_mode": "extended",
@@ -361,5 +470,31 @@
     "attempt_count": 1,
     "backoff_reason": null,
     "request_ip": null
-  }
+  },
+  "reference_catalog_version": "2026.03.22",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Ruling Expert: confermata compatibilità di Mooncaller con Shapeshifter e visione nelle ombre Wayang (niente HR richieste).",
+        "MinMax: wild shape predatoria + oscurità mobile mantiene DPR medio 9/32/80 e CA 28 ai checkpoint.",
+        "Narrative/Taverna: arco 'Custode delle Ombre Lunari' integrato come ambasciatore dei popoli sotterranei."
+      ],
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete",
+      "checklist": {
+        "statistics": true,
+        "equipment": true,
+        "spells": true,
+        "narrative": true,
+        "ledger": true
+      }
+    }
+  },
+  "build_id": "build-97fcdae8f6d50c52440475b3"
 }

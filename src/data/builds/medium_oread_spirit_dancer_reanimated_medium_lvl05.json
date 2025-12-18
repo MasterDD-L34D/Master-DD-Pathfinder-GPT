@@ -18,7 +18,8 @@
     "statistics": {
       "level": 5,
       "placeholder": true
-    }
+    },
+    "step_labels_count": 3
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -62,5 +63,69 @@
   "narrative": {
     "summary": "Medium oread che danza con le anime pietrose dei canyon",
     "notes": "Profilo placeholder generato offline per Medium Spirit Dancer + Reanimated Medium."
-  }
+  },
+  "mode_normalized": "extended",
+  "qa": {
+    "checkpoints": {
+      "level": 5,
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
+  },
+  "composite": {
+    "build": {
+      "build_id": "medium_oread_spirit_dancer_reanimated_medium-lvl05",
+      "build_state": {
+        "class": "Medium",
+        "mode": "extended",
+        "race": "Oread",
+        "archetype": "Spirit Dancer + Reanimated Medium",
+        "step": 1,
+        "step_total": 3,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Validazione schema",
+          "3": "Export sintetico"
+        },
+        "statistics": {
+          "level": 5,
+          "placeholder": true
+        },
+        "step_labels_count": 3
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "placeholder",
+        "notes": "Snapshot placeholder generato offline per medium_oread_spirit_dancer_reanimated_medium lvl 5."
+      },
+      "export": {
+        "sheet_payload": {},
+        "sheet_locale": "it-IT",
+        "sheet_format": "placeholder"
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T16:48:46Z",
+        "client_fingerprint_hash": "offline-placeholder-client-hash-000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 3,
+        "observed_step_total": 3,
+        "step_total_ok": true,
+        "step_labels_count": 3,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {}
+    },
+    "narrative": {
+      "summary": "Medium oread che danza con le anime pietrose dei canyon",
+      "notes": "Profilo placeholder generato offline per Medium Spirit Dancer + Reanimated Medium."
+    }
+  },
+  "completeness": {}
 }

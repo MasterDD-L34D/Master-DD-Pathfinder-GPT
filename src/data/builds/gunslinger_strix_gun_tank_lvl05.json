@@ -32,7 +32,8 @@
       "SAG": 12,
       "CAR": 8,
       "level": 5
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T2",
@@ -55,8 +56,7 @@
       "attacco": "+13",
       "danni": "1d12+11",
       "ca": 26
-    },
-    "bench_log": "Pipeline strict Ruling Expert → MinMax → Taverna/Narrative: validato badge RAW/RAI/PFS, benchmark offensivi/difensivi e arco narrativo allineati al profilo Gun Tank volante."
+    }
   },
   "export": {
     "sheet_payload": {
@@ -162,7 +162,15 @@
   "fetched_at": "2025-12-12T14:15:00Z",
   "request": {
     "path": "/modules/minmax_builder.txt",
-    "method": "GET"
+    "method": "GET",
+    "race": "Strix",
+    "archetype": "Gun Tank",
+    "level": 5,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "query_params": {
     "mode": "extended",
@@ -189,9 +197,6 @@
     "request_ip": null
   },
   "completeness": {
-    "status": "complete",
-    "missing": [],
-    "checklist": {},
     "require_complete": true
   },
   "ruling_badge": "RAW/RAI/PFS",
@@ -204,7 +209,24 @@
     "notes": [
       "Badge RAW/RAI/PFS validato in strict con report Ruling Expert allegato.",
       "Bench offensivo/difensivo e narrativa verificati contro la pipeline MinMax + Taverna."
-    ]
+    ],
+    "checkpoints": {
+      "bench_log": [
+        "Pipeline strict Ruling Expert → MinMax → Taverna/Narrative: validato badge RAW/RAI/PFS, benchmark offensivi/difensivi e arco narrativo allineati al profilo Gun Tank volante.",
+        "Sentinella aerea: overwatch con moschetto pesante e glide strix per mantenere copertura sopra il party.",
+        "Tank mobile: Armor Training + Gunslinger's Dodge per ridurre il malus in armatura mantenendo CA alta.",
+        "Debuff concussivo: cartucce scatter/stordenti per controllare minacce volanti e cariche a distanza."
+      ],
+      "level": 5,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete",
+      "checklist": {}
+    }
   },
   "spec_id": "gunslinger_strix_gun_tank",
   "narrative": {
@@ -238,24 +260,318 @@
   "sheet": "### 🧙 Scheda Personaggio in Markdown\\n\\n---\\n\\n# Gunslinger — Liv. 5 (Strix · Gun Tank)\\n\\n**Background rapido:** Veterana delle pattuglie notturne, ora mette il moschetto al servizio di caravan mercenari che attraversano gole ventose.\\n\\n**Stile di gioco:** alterna overwatch da quota con coperture mobili e colpi scatter; usa Gunslinger's Dodge + Armor Training per restare in aria nonostante la corazza.\\n\\n**Linee di progressione testate:**\\n- Sentinella aerea: Ready vs charge + Stand Still per proteggere gli alleati sulle creste.\\n- Tank mobile: Bodyguard e Covering Fire per tenere alta la CA del party.\\n- Debuff concussivo: munizioni concussive e stagger lock via Scatter Gun.\\n\\n**Benchmark DPR/CA:** 1d12+11 su moschetto, CA 26; DPR medio/picco 38/57 sul checkpoint 5.\\n",
   "class": "Gunslinger",
   "mode": "extended",
-  "race": "Strix",
-  "archetype": "Gun Tank",
   "output_prefix": "gunslinger_strix_gun_tank",
-  "level": 5,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
-  "bench_log": [
-    "Pipeline strict Ruling Expert → MinMax → Taverna/Narrative: validato badge RAW/RAI/PFS, benchmark offensivi/difensivi e arco narrativo allineati al profilo Gun Tank volante.",
-    "Sentinella aerea: overwatch con moschetto pesante e glide strix per mantenere copertura sopra il party.",
-    "Tank mobile: Armor Training + Gunslinger's Dodge per ridurre il malus in armatura mantenendo CA alta.",
-    "Debuff concussivo: cartucce scatter/stordenti per controllare minacce volanti e cariche a distanza."
-  ],
   "ruling_log": [
     "Ruling Expert: Gun Tank compatibile con glide strix; l'armatura limita la manovrabilità ma non nega il volo planato.",
     "Badge RAW/RAI/PFS confermato in strict: nessun HR richiesto, sostituzioni di deed/armor training non confliggono.",
     "MinMax: scelta la linea tanky aerea per massimizzare CA e controllo, rinunciando a crit-fishing puro."
-  ]
+  ],
+  "reference_catalog_version": "2026.03.22",
+  "build_id": "build-3ee602b26fd8a50d36fccf96",
+  "composite": {
+    "build": {
+      "build_id": "build-3ee602b26fd8a50d36fccf96",
+      "build_state": {
+        "class": "Gunslinger",
+        "mode": "extended",
+        "race": "Strix",
+        "archetype": "Gun Tank",
+        "step": 16,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 14,
+          "DES": 20,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8,
+          "level": 5
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T2",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 14,
+            "picco": 21
+          },
+          "livello_5": {
+            "media": 38,
+            "picco": 57
+          },
+          "livello_10": {
+            "media": 78,
+            "picco": 122
+          }
+        },
+        "statistics": {
+          "attacco": "+13",
+          "danni": "1d12+11",
+          "ca": 26
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Gunslinger",
+              "livelli": 5,
+              "archetipi": [
+                "Gun Tank"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 14,
+            "DES": 20,
+            "COS": 14,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 8,
+            "attacco": "+13",
+            "danni": "1d12+11",
+            "ca": 26
+          },
+          "benchmarks": {
+            "meta_tier": "T2"
+          },
+          "salvezze": {
+            "Tempra": "TS elevati grazie a COS e addestramento da Gun Tank",
+            "Riflessi": "Bonus DES elevato + Gunslinger dodge",
+            "Volontà": "Disciplina da sentinella strix e addestramento tattico"
+          },
+          "skills": [
+            {
+              "nome": "Percezione",
+              "gradi": 5,
+              "mod_car": 1,
+              "var": 6,
+              "classe": true,
+              "totale": 12
+            },
+            {
+              "nome": "Volare",
+              "gradi": 5,
+              "mod_car": 5,
+              "var": 2,
+              "classe": true,
+              "totale": 12
+            },
+            {
+              "nome": "Intimidire",
+              "gradi": 5,
+              "mod_car": -1,
+              "var": 3,
+              "classe": true,
+              "totale": 7
+            }
+          ],
+          "equipaggiamento": [
+            "Musket pesante in mithral con baionetta a scatto",
+            "Scudo torre pieghevole per difese aeree",
+            "Corazza lamellare +1 con cinghie aerodinamiche",
+            "Cartucce concussive e polvere nera raffinata"
+          ],
+          "equipment_summary": {
+            "peso_totale": "medio",
+            "note": "Build tanky ma mobile: harness alare per mantenere glide nonostante la corazza."
+          },
+          "ledger_movimenti": [
+            {
+              "voce": "Upgrade scudo torre",
+              "importo": -320
+            },
+            {
+              "voce": "Contratto guardia aerea",
+              "importo": 500
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Upgrade scudo torre",
+                "importo": -320
+              },
+              {
+                "voce": "Contratto guardia aerea",
+                "importo": 500
+              }
+            ],
+            "currency": {
+              "oro": 210,
+              "argento": 22,
+              "rame": 14
+            }
+          },
+          "sheet_markdown": "Percezione\nMusket pesante in mithral con baionetta a scatto\nUpgrade scudo torre",
+          "pf_per_livello": "d10 (Gun Tank + COS)",
+          "fonti": [
+            "local-refresh"
+          ]
+        }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2025-12-12T14:15:00Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Gunslinger",
+            "livelli": 5,
+            "archetipi": [
+              "Gun Tank"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 14,
+          "DES": 20,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8,
+          "attacco": "+13",
+          "danni": "1d12+11",
+          "ca": 26
+        },
+        "benchmarks": {
+          "meta_tier": "T2"
+        },
+        "salvezze": {
+          "Tempra": "TS elevati grazie a COS e addestramento da Gun Tank",
+          "Riflessi": "Bonus DES elevato + Gunslinger dodge",
+          "Volontà": "Disciplina da sentinella strix e addestramento tattico"
+        },
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 5,
+            "mod_car": 1,
+            "var": 6,
+            "classe": true,
+            "totale": 12
+          },
+          {
+            "nome": "Volare",
+            "gradi": 5,
+            "mod_car": 5,
+            "var": 2,
+            "classe": true,
+            "totale": 12
+          },
+          {
+            "nome": "Intimidire",
+            "gradi": 5,
+            "mod_car": -1,
+            "var": 3,
+            "classe": true,
+            "totale": 7
+          }
+        ],
+        "equipaggiamento": [
+          "Musket pesante in mithral con baionetta a scatto",
+          "Scudo torre pieghevole per difese aeree",
+          "Corazza lamellare +1 con cinghie aerodinamiche",
+          "Cartucce concussive e polvere nera raffinata"
+        ],
+        "equipment_summary": {
+          "peso_totale": "medio",
+          "note": "Build tanky ma mobile: harness alare per mantenere glide nonostante la corazza."
+        },
+        "ledger_movimenti": [
+          {
+            "voce": "Upgrade scudo torre",
+            "importo": -320
+          },
+          {
+            "voce": "Contratto guardia aerea",
+            "importo": 500
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Upgrade scudo torre",
+              "importo": -320
+            },
+            {
+              "voce": "Contratto guardia aerea",
+              "importo": 500
+            }
+          ],
+          "currency": {
+            "oro": 210,
+            "argento": 22,
+            "rame": 14
+          }
+        },
+        "sheet_markdown": "Percezione\nMusket pesante in mithral con baionetta a scatto\nUpgrade scudo torre",
+        "pf_per_livello": "d10 (Gun Tank + COS)",
+        "fonti": [
+          "local-refresh"
+        ]
+      }
+    },
+    "narrative": {
+      "hook": "Mercenaria strix che pattuglia canyon e creste per scortare carovane.",
+      "taverna": "Descrive esercitazioni in caduta controllata per bloccare cariche nemiche usando lo scudo torre.",
+      "badge": "RAW/RAI/PFS",
+      "bench": {
+        "offensivo": "1d12+11",
+        "difensivo": 26,
+        "note": "Pipeline potenziata con badge strict e benchmark MinMax/Taverna sincronizzati."
+      }
+    },
+    "sheet": "### 🧙 Scheda Personaggio in Markdown\\n\\n---\\n\\n# Gunslinger — Liv. 5 (Strix · Gun Tank)\\n\\n**Background rapido:** Veterana delle pattuglie notturne, ora mette il moschetto al servizio di caravan mercenari che attraversano gole ventose.\\n\\n**Stile di gioco:** alterna overwatch da quota con coperture mobili e colpi scatter; usa Gunslinger's Dodge + Armor Training per restare in aria nonostante la corazza.\\n\\n**Linee di progressione testate:**\\n- Sentinella aerea: Ready vs charge + Stand Still per proteggere gli alleati sulle creste.\\n- Tank mobile: Bodyguard e Covering Fire per tenere alta la CA del party.\\n- Debuff concussivo: munizioni concussive e stagger lock via Scatter Gun.\\n\\n**Benchmark DPR/CA:** 1d12+11 su moschetto, CA 26; DPR medio/picco 38/57 sul checkpoint 5.\\n",
+    "ledger": {
+      "movimenti": [
+        {
+          "voce": "Upgrade armatura e mirino",
+          "importo": -2300
+        },
+        {
+          "voce": "Taglia su cultisti di Deskari",
+          "importo": 2450
+        }
+      ],
+      "currency": {
+        "oro": 480,
+        "argento": 20,
+        "rame": 0
+      },
+      "saldo": 150
+    }
+  }
 }

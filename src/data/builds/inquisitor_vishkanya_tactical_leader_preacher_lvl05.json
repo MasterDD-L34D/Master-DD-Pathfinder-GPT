@@ -14,7 +14,26 @@
       "SAG": 18,
       "CAR": 8,
       "level": 5
-    }
+    },
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T2",
@@ -37,18 +56,8 @@
       "attacco": "+10",
       "danni": "kukri 1d4+5 +2d6 precision (Flanking + Precise Strike condiviso)",
       "ca": 22
-    },
-    "bench_log": [
-      "Pipeline potenziata: 3 combinazioni (poison control ranged, frontliner sermon, debuff control).",
-      "MinMax: frontliner sermon mantiene DPR medio 32 con difesa CA 22/TS reattivi grazie a sermon e Inquisition Protection (collocato in T2).",
-      "Ruling: badge RAW/RAI/PFS confermato, teamwork condivisi (Outflank, Precise Strike) legali in PFS quando condivisi da Tacitian."
-    ]
+    }
   },
-  "bench_log": [
-    "Ruling Expert: confermato stacking di Tactician (bonus morale) con Sermon; nessun conflitto archetipale.",
-    "MinMax: debuff Blistering Invective + Litany of Sloth abbassa CA nemica consentendo extra attacchi di opportunità condivisi.",
-    "Narrative/Taverna: comandante silenziosa che dirige squadre d'assalto con segnali velenosi e benedizioni urgenti."
-  ],
   "bench_summary": {
     "offense_score": 0.72,
     "defense_score": 0.66
@@ -67,6 +76,7 @@
   },
   "composite": {
     "build": {
+      "build_id": "build-a4da411abe1c697985e23862",
       "build_state": {
         "class": "Inquisitor",
         "mode": "extended",
@@ -82,7 +92,26 @@
           "SAG": 18,
           "CAR": 8,
           "level": 5
-        }
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T2",
@@ -103,14 +132,9 @@
         },
         "statistics": {
           "attacco": "+10",
-          "danni": "kukri 1d4+5 +2d6 precision",
+          "danni": "kukri 1d4+5 +2d6 precision (Flanking + Precise Strike condiviso)",
           "ca": 22
-        },
-        "bench_log": [
-          "Pipeline potenziata: 3 combinazioni (poison control ranged, frontliner sermon, debuff control).",
-          "MinMax: frontliner sermon mantiene DPR medio 32 con difesa CA 22/TS reattivi grazie a sermon e Inquisition Protection (collocato in T2).",
-          "Ruling: badge RAW/RAI/PFS confermato, teamwork condivisi (Outflank, Precise Strike) legali in PFS quando condivisi da Tacitian."
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -150,8 +174,160 @@
             "base_profile.txt",
             "Taverna_NPC.txt",
             "narrative_flow.txt"
-          ]
+          ],
+          "skills": [
+            {
+              "nome": "Percezione",
+              "gradi": 5,
+              "mod_car": 4,
+              "classe": true,
+              "totale": 13
+            },
+            {
+              "nome": "Intimidire",
+              "gradi": 5,
+              "mod_car": 0,
+              "classe": true,
+              "totale": 8
+            }
+          ],
+          "equipaggiamento": [
+            "Kukri rituale",
+            "Giaco di maglia benedetto",
+            "Pergamena di Litany of Defense"
+          ],
+          "ledger_movimenti": [
+            {
+              "voce": "Acquisto reliquie",
+              "importo": -150
+            },
+            {
+              "voce": "Compenso inquisizione",
+              "importo": 260
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Acquisto reliquie",
+                "importo": -150
+              },
+              {
+                "voce": "Compenso inquisizione",
+                "importo": 260
+              }
+            ],
+            "currency": {
+              "oro": 120,
+              "argento": 18,
+              "rame": 10
+            }
+          },
+          "sheet_markdown": "Percezione\nKukri rituale\nAcquisto reliquie"
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": null,
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Inquisitor",
+            "livelli": 5,
+            "archetipi": [
+              "Tactical Leader",
+              "Preacher"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 14,
+          "DES": 18,
+          "COS": 12,
+          "INT": 10,
+          "SAG": 18,
+          "CAR": 8,
+          "attacco": "+10",
+          "danni": "kukri 1d4+5 +2d6 precision",
+          "ca": 22
+        },
+        "statistiche_chiave": {
+          "attacco": "+10",
+          "danni": "1d4+5",
+          "ca": 22
+        },
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "modules": [
+          "base_profile.txt",
+          "Taverna_NPC.txt",
+          "narrative_flow.txt"
+        ],
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 5,
+            "mod_car": 4,
+            "classe": true,
+            "totale": 13
+          },
+          {
+            "nome": "Intimidire",
+            "gradi": 5,
+            "mod_car": 0,
+            "classe": true,
+            "totale": 8
+          }
+        ],
+        "equipaggiamento": [
+          "Kukri rituale",
+          "Giaco di maglia benedetto",
+          "Pergamena di Litany of Defense"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Acquisto reliquie",
+            "importo": -150
+          },
+          {
+            "voce": "Compenso inquisizione",
+            "importo": 260
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Acquisto reliquie",
+              "importo": -150
+            },
+            {
+              "voce": "Compenso inquisizione",
+              "importo": 260
+            }
+          ],
+          "currency": {
+            "oro": 120,
+            "argento": 18,
+            "rame": 10
+          }
+        },
+        "sheet_markdown": "Percezione\nKukri rituale\nAcquisto reliquie"
       }
     },
     "narrative": {
@@ -264,7 +440,6 @@
     "race": "Vishkanya",
     "archetype": "Tactical Leader Preacher"
   },
-  "race": "Vishkanya",
   "archetypes": [
     "Tactical Leader",
     "Preacher"
@@ -274,7 +449,12 @@
     "mode": "extended",
     "race": "Vishkanya",
     "archetype": "Tactical Leader Preacher",
-    "spec_id": "inquisitor_vishkanya_tactical_leader_preacher"
+    "spec_id": "inquisitor_vishkanya_tactical_leader_preacher",
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "step_audit": {
     "normalized_mode": "extended",
@@ -289,5 +469,21 @@
     "attempt_count": 1,
     "backoff_reason": null,
     "request_ip": null
-  }
+  },
+  "reference_catalog_version": "2026.03.22",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Ruling Expert: confermato stacking di Tactician (bonus morale) con Sermon; nessun conflitto archetipale.",
+        "MinMax: debuff Blistering Invective + Litany of Sloth abbassa CA nemica consentendo extra attacchi di opportunità condivisi.",
+        "Narrative/Taverna: comandante silenziosa che dirige squadre d'assalto con segnali velenosi e benedizioni urgenti."
+      ],
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
+  },
+  "build_id": "build-a4da411abe1c697985e23862"
 }

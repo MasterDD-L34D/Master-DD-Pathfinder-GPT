@@ -958,6 +958,17 @@ def _normalize_levels(
     return normalized or list(fallback)
 
 
+def _coerce_catalog_version(*values: object) -> str | None:
+    for value in values:
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+        if isinstance(value, Sequence) and not isinstance(value, (str, bytes)):
+            for candidate in value:
+                if isinstance(candidate, str) and candidate.strip():
+                    return candidate.strip()
+    return None
+
+
 def _is_placeholder(value: object) -> bool:
     if value is None:
         return True
@@ -1469,7 +1480,7 @@ def _checkpoint_summary_from_entries(
             checkpoints,
             entry.get("level"),
             str(entry.get("status") or "ok"),
-            schema_error=bool(entry.get("error")),
+            schema_error=bool(entry.get("error")) and not entry.get("completeness_errors"),
             completeness_error=bool(entry.get("completeness_errors")),
         )
 
@@ -1741,7 +1752,7 @@ def review_local_database(
             checkpoints,
             target_level,
             status,
-            schema_error=bool(validation_error),
+            schema_error=bool(validation_error and not completeness_errors),
             completeness_error=bool(completeness_errors),
         )
         builds_section["entries"].append(entry)
@@ -4182,6 +4193,253 @@ def _apply_level_checkpoint(
             sheet_payload[key] = truncated
 
 
+def _normalize_build_payload(
+    payload: MutableMapping[str, object],
+    *,
+    request: BuildRequest | None = None,
+    reference_catalog_version: str | None = None,
+    manifest_version: str | None = None,
+    target_level: int | None = None,
+    normalized_mode: str | None = None,
+) -> MutableMapping[str, object]:
+    if not isinstance(payload, MutableMapping):
+        return payload
+
+    catalog_version = _coerce_catalog_version(
+        payload.get("reference_catalog_version"),
+        reference_catalog_version,
+        manifest_version,
+    )
+    if catalog_version:
+        payload["reference_catalog_version"] = str(catalog_version)
+
+    request_ctx: dict[str, object] = (
+        request.metadata()
+        if request
+        else (
+            dict(payload.get("request"))
+            if isinstance(payload.get("request"), Mapping)
+            else {}
+        )
+    )
+    build_state = payload.get("build_state")
+    build_state = dict(build_state) if isinstance(build_state, Mapping) else {}
+    payload["build_state"] = build_state
+
+    state_level = build_state.pop("level", None)
+    state_checkpoints = build_state.pop("level_checkpoints", None)
+    state_checkpoint = build_state.pop("checkpoint", None)
+
+    normalized_mode_value = normalize_mode(
+        request_ctx.get("mode")
+        or payload.get("mode")
+        or build_state.get("mode")
+        or normalized_mode
+        or DEFAULT_MODE
+    )
+    payload["mode"] = payload.get("mode") or request_ctx.get("mode") or normalized_mode_value
+    payload.setdefault("mode_normalized", normalized_mode_value)
+
+    if request_ctx.get("class") and not payload.get("class"):
+        payload["class"] = request_ctx["class"]
+
+    race_value = (
+        payload.pop("race", None)
+        or request_ctx.get("race")
+        or build_state.get("race")
+        or request_ctx.get("query_params", {}).get("race")
+    )
+    archetype_value = (
+        payload.pop("archetype", None)
+        or request_ctx.get("archetype")
+        or build_state.get("archetype")
+        or request_ctx.get("query_params", {}).get("archetype")
+    )
+    if race_value is not None:
+        build_state.setdefault("race", race_value)
+        request_ctx.setdefault("race", race_value)
+    if archetype_value is not None:
+        build_state.setdefault("archetype", archetype_value)
+        request_ctx.setdefault("archetype", archetype_value)
+
+    if target_level is not None:
+        request_ctx.setdefault("level", target_level)
+    if state_level is not None and "level" not in request_ctx:
+        request_ctx["level"] = state_level
+    stray_level = payload.pop("level", None)
+    if stray_level is not None and "level" not in request_ctx:
+        request_ctx["level"] = stray_level
+
+    normalized_checkpoints = _normalize_levels(
+        request_ctx.get("level_checkpoints"), (1, 5, 10)
+    )
+    if state_checkpoints and not request_ctx.get("level_checkpoints"):
+        request_ctx["level_checkpoints"] = _normalize_levels(
+            state_checkpoints, normalized_checkpoints or (1, 5, 10)
+        )
+    if normalized_checkpoints:
+        request_ctx["level_checkpoints"] = normalized_checkpoints
+    stray_checkpoints = payload.pop("level_checkpoints", None)
+    if stray_checkpoints:
+        request_ctx["level_checkpoints"] = _normalize_levels(
+            stray_checkpoints, normalized_checkpoints or (1, 5, 10)
+        )
+
+    build_state.setdefault("mode", normalized_mode_value)
+    if request_ctx.get("class"):
+        build_state.setdefault("class", request_ctx["class"])
+
+    step_total: int | None
+    try:
+        step_total = (
+            int(build_state["step_total"])
+            if "step_total" in build_state
+            else expected_step_total_for_mode(normalized_mode_value)
+        )
+    except (TypeError, ValueError):
+        step_total = expected_step_total_for_mode(normalized_mode_value)
+    build_state["step_total"] = step_total
+
+    step_labels = (
+        build_state.get("step_labels")
+        if isinstance(build_state.get("step_labels"), Mapping)
+        else None
+    )
+    if not step_labels:
+        build_state["step_labels"] = {
+            str(idx): f"Step {idx}" for idx in range(1, step_total + 1)
+        }
+        step_labels = build_state["step_labels"]
+    if isinstance(step_labels, Mapping):
+        build_state.setdefault("step_labels_count", len(step_labels))
+
+    benchmark_ctx = (
+        dict(payload.get("benchmark"))
+        if isinstance(payload.get("benchmark"), Mapping)
+        else {}
+    )
+    bench_log = benchmark_ctx.pop("bench_log", None)
+    payload["benchmark"] = benchmark_ctx
+
+    completeness_ctx = (
+        dict(payload.get("completeness"))
+        if isinstance(payload.get("completeness"), Mapping)
+        else {}
+    )
+    payload["completeness"] = completeness_ctx
+    relocated_from_completeness: dict[str, object] = {}
+    for key in ("bench_log", "missing", "status", "checkpoint", "checklist", "level", "level_checkpoints"):
+        value = completeness_ctx.pop(key, None)
+        if value is not None:
+            relocated_from_completeness[key] = value
+
+    qa_ctx = dict(payload.get("qa")) if isinstance(payload.get("qa"), Mapping) else {}
+    checkpoints_ctx = (
+        dict(qa_ctx.get("checkpoints"))
+        if isinstance(qa_ctx.get("checkpoints"), Mapping)
+        else {}
+    )
+    state_relocations: dict[str, object] = {}
+    if bench_log is not None and "bench_log" not in checkpoints_ctx:
+        checkpoints_ctx["bench_log"] = bench_log
+    if state_checkpoint is not None:
+        state_relocations["checkpoint"] = state_checkpoint
+    for key in ("bench_log", "missing", "status"):
+        value = payload.pop(key, None)
+        if value is not None and key not in checkpoints_ctx:
+            checkpoints_ctx[key] = value
+    for key, value in relocated_from_completeness.items():
+        if key not in checkpoints_ctx:
+            checkpoints_ctx[key] = value
+    for key, value in state_relocations.items():
+        if key not in checkpoints_ctx:
+            checkpoints_ctx[key] = value
+    if request_ctx.get("level") is not None and "level" not in checkpoints_ctx:
+        checkpoints_ctx["level"] = request_ctx.get("level")
+    if request_ctx.get("level_checkpoints") and "levels" not in checkpoints_ctx:
+        checkpoints_ctx["levels"] = list(request_ctx["level_checkpoints"])
+    if checkpoints_ctx:
+        qa_ctx["checkpoints"] = checkpoints_ctx
+    if qa_ctx:
+        payload["qa"] = qa_ctx
+
+    payload["request"] = request_ctx
+
+    build_id = payload.get("build_id")
+    if not isinstance(build_id, str) or not build_id.strip():
+        seed = json.dumps(
+            {
+                "class": build_state.get("class"),
+                "mode": normalized_mode_value,
+                "level": request_ctx.get("level"),
+                "race": build_state.get("race"),
+                "archetype": build_state.get("archetype"),
+                "levels": request_ctx.get("level_checkpoints"),
+            },
+            sort_keys=True,
+            default=str,
+        ).encode("utf-8")
+        build_id = f"build-{hashlib.sha256(seed).hexdigest()[:24]}"
+        payload["build_id"] = build_id
+    else:
+        payload["build_id"] = build_id.strip()
+
+    existing_step_audit = (
+        payload.get("step_audit") if isinstance(payload.get("step_audit"), Mapping) else {}
+    )
+    step_audit = dict(existing_step_audit)
+    step_audit.setdefault("request_timestamp", now_iso_utc())
+    step_audit.setdefault(
+        "client_fingerprint_hash", "stub-fingerprint-00000000000000000000000000000000"
+    )
+    step_audit.setdefault("outcome", "accepted")
+    step_audit.setdefault("attempt_count", 1)
+    step_audit.setdefault("backoff_reason", None)
+    step_audit.setdefault("normalized_mode", normalized_mode_value)
+    step_audit.setdefault("expected_step_total", step_total)
+    step_audit.setdefault(
+        "observed_step_total", step_audit.get("expected_step_total") or step_total
+    )
+    if step_audit.get("step_total_ok") is None and step_audit.get("observed_step_total") is not None:
+        step_audit["step_total_ok"] = (
+            step_audit.get("observed_step_total") == step_audit.get("expected_step_total")
+        )
+    step_audit.setdefault(
+        "step_labels_count", len(step_labels) if isinstance(step_labels, Mapping) else None
+    )
+    step_audit.setdefault("has_extended_steps", normalized_mode_value == "extended")
+    payload["step_audit"] = step_audit
+
+    composite = dict(payload.get("composite")) if isinstance(payload.get("composite"), Mapping) else {}
+    export_ctx = payload.get("export") if isinstance(payload.get("export"), Mapping) else {}
+    sheet_payload = None
+    if isinstance(export_ctx, Mapping):
+        sheet_payload = export_ctx.get("sheet_payload")
+    if sheet_payload is None and isinstance(payload.get("sheet_payload"), Mapping):
+        sheet_payload = payload.get("sheet_payload")
+
+    composite_build = {
+        "build_id": payload["build_id"],
+        "build_state": build_state,
+        "benchmark": payload.get("benchmark") or {},
+        "export": export_ctx or {},
+        "reference_catalog_version": payload.get("reference_catalog_version"),
+        "step_audit": step_audit,
+    }
+    if "catalog_references" in payload:
+        composite_build["catalog_references"] = payload["catalog_references"]
+    if sheet_payload is not None:
+        composite_build["sheet_payload"] = sheet_payload
+    composite["build"] = composite_build
+
+    for section in ("narrative", "sheet", "sheet_payload", "ledger"):
+        if section in payload and section not in composite:
+            composite[section] = payload[section]
+    payload["composite"] = composite
+
+    return payload
+
+
 def _progression_level_errors(
     sheet_payload: Mapping[str, object] | None, target_level: int | None
 ) -> list[str]:
@@ -5400,9 +5658,16 @@ async def run_harvest(
     }
 
     existing_module_entries: dict[str, Mapping] = {}
+    module_index_meta: dict[str, object] = {}
     if module_index_path.is_file():
         try:
             cached = json.loads(module_index_path.read_text(encoding="utf-8"))
+            module_index_meta.update(
+                {
+                    "catalog_version": cached.get("catalog_version"),
+                    "reference_catalog": cached.get("reference_catalog"),
+                }
+            )
             for entry in cached.get("entries", []):
                 name = entry.get("module")
                 if name:
@@ -5418,6 +5683,17 @@ async def run_harvest(
     exclude_filters = exclude_filters or []
     reference_catalog = get_reference_catalog(reference_dir, strict=strict)
     reference_manifest = get_reference_manifest(reference_dir)
+    manifest_version = (
+        str(reference_manifest.get("version"))
+        if isinstance(reference_manifest, Mapping)
+        else None
+    )
+    reference_catalog_version = _coerce_catalog_version(
+        module_index_meta.get("catalog_version"), manifest_version
+    )
+    if reference_catalog_version:
+        builds_index["catalog_version"] = [reference_catalog_version]
+        modules_index["catalog_version"] = [reference_catalog_version]
     discovery_info: Mapping[str, object] | None = None
 
     semaphore = asyncio.Semaphore(max(1, concurrency))
@@ -5589,6 +5865,22 @@ async def run_harvest(
                         )
                     else:
                         _apply_level_checkpoint(payload, request.level)
+                        normalized_payload_before = json.dumps(
+                            payload, sort_keys=True, default=str
+                        )
+                        payload = _normalize_build_payload(
+                            payload,
+                            request=request,
+                            reference_catalog_version=reference_catalog_version,
+                            manifest_version=manifest_version,
+                            target_level=request.level,
+                            normalized_mode=normalize_mode(request.mode),
+                        )
+                        if json.dumps(payload, sort_keys=True, default=str) != normalized_payload_before:
+                            destination.write_text(
+                                json.dumps(payload, indent=2, ensure_ascii=False),
+                                encoding="utf-8",
+                            )
                         validation_error = validate_with_schema(
                             schema_for_mode(request.mode),
                             payload,
@@ -5787,6 +6079,14 @@ async def run_harvest(
                             f"Impossibile recuperare payload per {request.class_name}"
                         )
                     _apply_level_checkpoint(payload, request.level)
+                    payload = _normalize_build_payload(
+                        payload,
+                        request=request,
+                        reference_catalog_version=reference_catalog_version,
+                        manifest_version=manifest_version,
+                        target_level=request.level,
+                        normalized_mode=normalize_mode(request.mode),
+                    )
                     validation_error = validate_with_schema(
                         schema_for_mode(request.mode),
                         payload,

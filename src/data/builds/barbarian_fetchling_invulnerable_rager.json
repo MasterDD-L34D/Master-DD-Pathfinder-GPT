@@ -14,7 +14,26 @@
       "SAG": 12,
       "CAR": 8,
       "level": 1
-    }
+    },
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -37,12 +56,7 @@
       "attacco": "+6",
       "danni": "1d12+6",
       "ca": 17
-    },
-    "bench_log": [
-      "Varianti testate: ombra-dual (DES), colosso-ira (FOR), guardia-notte (difensiva).",
-      "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge validato, arco esportato, QA difensivo/offensivo registrato.",
-      "Scelta finale: colosso-ira per DPR e robustezza superiori; mantenuti tool di ombra da fetchling."
-    ]
+    }
   },
   "export": {
     "sheet_payload": {
@@ -192,22 +206,16 @@
   ],
   "fetched_at": "2025-12-10T22:45:30Z",
   "source_url": "http://localhost:8000/modules/minmax_builder.txt",
-  "level": 1,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
-  "bench_log": [
-    "Varianti testate: ombra-dual (DES), colosso-ira (FOR), guardia-notte (difensiva).",
-    "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge validato, arco esportato, QA difensivo/offensivo registrato.",
-    "Scelta finale: colosso-ira per DPR e robustezza superiori; mantenuti tool di ombra da fetchling."
-  ],
   "request": {
     "class": "Barbarian",
     "race": "Fetchling",
     "archetype": "Invulnerable Rager",
-    "level": 1
+    "level": 1,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "query_params": {
     "class": "Barbarian",
@@ -218,6 +226,7 @@
   "body_params": {},
   "composite": {
     "build": {
+      "build_id": "build-6e324f5c85f59bd73d562321",
       "build_state": {
         "class": "Barbarian",
         "mode": "extended",
@@ -233,7 +242,26 @@
           "SAG": 12,
           "CAR": 8,
           "level": 1
-        }
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T3",
@@ -256,12 +284,7 @@
           "attacco": "+6",
           "danni": "1d12+6",
           "ca": 17
-        },
-        "bench_log": [
-          "Varianti testate: ombra-dual (DES), colosso-ira (FOR), guardia-notte (difensiva).",
-          "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge validato, arco esportato, QA difensivo/offensivo registrato.",
-          "Scelta finale: colosso-ira per DPR e robustezza superiori; mantenuti tool di ombra da fetchling."
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -358,8 +381,192 @@
             "totale": 17
           },
           "iniziativa": 2,
-          "velocita": 9
+          "velocita": 9,
+          "skills": [
+            {
+              "nome": "Acrobazia",
+              "totale": 5
+            },
+            {
+              "nome": "Percezione",
+              "totale": 6
+            },
+            {
+              "nome": "Intimidire",
+              "totale": 7
+            },
+            {
+              "nome": "Furtività",
+              "totale": 8
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Ricompensa",
+                "oggetto": "Barbarian",
+                "importo": 0,
+                "note": "Movimento auto-generato per QA"
+              }
+            ],
+            "saldo": 0
+          },
+          "ledger_movimenti": [
+            {
+              "voce": "Ricompensa",
+              "oggetto": "Barbarian",
+              "importo": 0,
+              "note": "Movimento auto-generato per QA"
+            }
+          ]
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:46:09Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Barbarian",
+            "livelli": 1,
+            "archetipi": [
+              "Invulnerable Rager"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 18,
+          "DES": 14,
+          "COS": 16,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8,
+          "attacco": "+6",
+          "danni": "1d12+6",
+          "ca": 17
+        },
+        "statistiche_chiave": {
+          "attacco": "+6",
+          "danni": "1d12+6",
+          "ca": 17
+        },
+        "hp": {
+          "totali": 16,
+          "per_livello": [
+            16
+          ]
+        },
+        "pf_totali": 16,
+        "salvezze": {
+          "Tempra": 4,
+          "Riflessi": 2,
+          "Volontà": 1
+        },
+        "skills_map": {
+          "Acrobazia": {
+            "totale": 5
+          },
+          "Percezione": {
+            "totale": 6
+          },
+          "Intimidire": {
+            "totale": 7
+          },
+          "Furtività": {
+            "totale": 8
+          }
+        },
+        "benchmarks": {
+          "meta_tier": "T3",
+          "ruling_badge": "validated",
+          "bench_log": [
+            "Varianti testate: ombra-dual (DES), colosso-ira (FOR), guardia-notte (difensiva).",
+            "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge validato, arco esportato, QA difensivo/offensivo registrato.",
+            "Scelta finale: colosso-ira per DPR e robustezza superiori; mantenuti tool di ombra da fetchling."
+          ]
+        },
+        "notes": "Variante colosso-ira selezionata dopo confronto con build DES e difensiva.",
+        "talenti": [
+          "Power Attack",
+          "Furious Focus"
+        ],
+        "capacita_classe": [
+          "Ira",
+          "DR Invulnerable Rager",
+          "Shadow blending fetchling"
+        ],
+        "equipaggiamento": [
+          "Ascia bipenne adamantina +1",
+          "Corazza lamellare d'ombra (+2 CA)",
+          "Anello di protezione +1"
+        ],
+        "inventario": [
+          "Pozione di cura moderate",
+          "Kit da esploratore"
+        ],
+        "magia": {
+          "0": [
+            "N/A (classe non incantatrice; slot dedicati a poteri d'ira)"
+          ]
+        },
+        "ac_breakdown": {
+          "armatura": 7,
+          "destrezza": 2,
+          "naturale": 1,
+          "schivare": 1,
+          "vario": 1,
+          "totale": 17
+        },
+        "iniziativa": 2,
+        "velocita": 9,
+        "skills": [
+          {
+            "nome": "Acrobazia",
+            "totale": 5
+          },
+          {
+            "nome": "Percezione",
+            "totale": 6
+          },
+          {
+            "nome": "Intimidire",
+            "totale": 7
+          },
+          {
+            "nome": "Furtività",
+            "totale": 8
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Ricompensa",
+              "oggetto": "Barbarian",
+              "importo": 0,
+              "note": "Movimento auto-generato per QA"
+            }
+          ],
+          "saldo": 0
+        },
+        "ledger_movimenti": [
+          {
+            "voce": "Ricompensa",
+            "oggetto": "Barbarian",
+            "importo": 0,
+            "note": "Movimento auto-generato per QA"
+          }
+        ]
       }
     },
     "narrative": {
@@ -372,8 +579,37 @@
       "text": "Ledger riepilogato"
     }
   },
-  "completeness": {
-    "status": "complete",
-    "missing": []
+  "completeness": {},
+  "reference_catalog_version": "2026.03.22",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Varianti testate: ombra-dual (DES), colosso-ira (FOR), guardia-notte (difensiva).",
+        "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge validato, arco esportato, QA difensivo/offensivo registrato.",
+        "Scelta finale: colosso-ira per DPR e robustezza superiori; mantenuti tool di ombra da fetchling."
+      ],
+      "level": 1,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete"
+    }
+  },
+  "build_id": "build-6e324f5c85f59bd73d562321",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:46:09Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
   }
 }

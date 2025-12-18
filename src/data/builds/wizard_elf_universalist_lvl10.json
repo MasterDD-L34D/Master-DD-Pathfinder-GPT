@@ -18,7 +18,8 @@
     "statistics": {
       "level": 10,
       "placeholder": true
-    }
+    },
+    "step_labels_count": 3
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -62,5 +63,69 @@
   "narrative": {
     "summary": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
     "notes": "Profilo placeholder generato offline per Wizard Universalist."
-  }
+  },
+  "mode_normalized": "extended",
+  "qa": {
+    "checkpoints": {
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
+  },
+  "composite": {
+    "build": {
+      "build_id": "wizard_elf_universalist-lvl10",
+      "build_state": {
+        "class": "Wizard",
+        "mode": "extended",
+        "race": "Elf",
+        "archetype": "Universalist",
+        "step": 1,
+        "step_total": 3,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Validazione schema",
+          "3": "Export sintetico"
+        },
+        "statistics": {
+          "level": 10,
+          "placeholder": true
+        },
+        "step_labels_count": 3
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "placeholder",
+        "notes": "Snapshot placeholder generato offline per wizard_elf_universalist lvl 10."
+      },
+      "export": {
+        "sheet_payload": {},
+        "sheet_locale": "it-IT",
+        "sheet_format": "placeholder"
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T16:48:46Z",
+        "client_fingerprint_hash": "offline-placeholder-client-hash-000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 3,
+        "observed_step_total": 3,
+        "step_total_ok": true,
+        "step_labels_count": 3,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {}
+    },
+    "narrative": {
+      "summary": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
+      "notes": "Profilo placeholder generato offline per Wizard Universalist."
+    }
+  },
+  "completeness": {}
 }

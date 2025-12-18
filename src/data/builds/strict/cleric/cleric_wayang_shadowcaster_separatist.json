@@ -32,12 +32,7 @@
       "SAG": 18,
       "CAR": 14
     },
-    "level": 1,
-    "level_checkpoints": [
-      1,
-      5,
-      10
-    ]
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T1",
@@ -60,12 +55,7 @@
       "attacco": "+5",
       "danni": "1d6+3 (colpo di scimitarra d'ombra)",
       "ca": 19
-    },
-    "bench_log": [
-      "Pipeline Ruling Expert → MinMax → Taverna/Narrative: valutate 3 varianti (ombra debuff, controllo zone, supporto canali).",
-      "Ruling Expert: confermata compatibilità Shadowcaster + Separatist e badge RAW/RAI/PFS anche con domini disallineati.",
-      "MinMax: scelta la variante T1 con focus su illusioni d'ombra, selettivi e canali flessibili; log salvato nei metadati."
-    ]
+    }
   },
   "export": {
     "sheet_payload": {
@@ -151,11 +141,6 @@
     }
   },
   "narrative": "Wayang nato dall'ombra che separa il culto dal dogma, incanalando penombre e benedizioni dissonanti per proteggere la comunità sotterranea.",
-  "bench_log": [
-    "Ruling Expert: compatibilità Shadowcaster + Separatist verificata, domini ombra + comunità ammessi.",
-    "MinMax: preferita rotazione di debuff d'ombra e channel selettivo per mantenere T1.",
-    "Taverna/Narrative: predicatore sussurrante che anima le lanterne d'ombra nei vicoli."
-  ],
   "body_params": {
     "race": "Wayang (Umbral)",
     "archetype_primary": "Shadowcaster",
@@ -216,6 +201,19 @@
         "hook": "Propone liturgie segrete ai clan wayang",
         "voice": "sussurri cavi e riverberanti"
       }
+    },
+    "checkpoints": {
+      "bench_log": [
+        "Pipeline Ruling Expert → MinMax → Taverna/Narrative: valutate 3 varianti (ombra debuff, controllo zone, supporto canali).",
+        "Ruling Expert: confermata compatibilità Shadowcaster + Separatist e badge RAW/RAI/PFS anche con domini disallineati.",
+        "MinMax: scelta la variante T1 con focus su illusioni d'ombra, selettivi e canali flessibili; log salvato nei metadati."
+      ],
+      "level": 1,
+      "levels": [
+        1,
+        5,
+        10
+      ]
     }
   },
   "checkpoints": [
@@ -239,16 +237,275 @@
     }
   ],
   "output_prefix": "cleric_wayang_shadowcaster_separatist",
-  "race": "Wayang (Umbral)",
-  "archetype": "Shadowcaster + Separatist",
   "spec_id": "cleric_wayang_shadowcaster_separatist",
   "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
-  "level": 1,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
   "mode": "extended",
-  "mode_normalized": "extended"
+  "mode_normalized": "extended",
+  "reference_catalog_version": "2026.03.22",
+  "request": {
+    "race": "Wayang (Umbral)",
+    "archetype": "Shadowcaster + Separatist",
+    "level": 1,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "build_id": "build-741f823f1a7aca08a0f8a8dd",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:49:49Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  },
+  "composite": {
+    "build": {
+      "build_id": "build-741f823f1a7aca08a0f8a8dd",
+      "build_state": {
+        "class": "Cleric",
+        "mode": "extended",
+        "race": "Wayang (Umbral)",
+        "archetype": "Shadowcaster + Separatist",
+        "step": 1,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 10,
+          "DES": 14,
+          "COS": 12,
+          "INT": 12,
+          "SAG": 18,
+          "CAR": 14
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 9,
+            "picco": 15
+          },
+          "livello_5": {
+            "media": 24,
+            "picco": 38
+          },
+          "livello_10": {
+            "media": 48,
+            "picco": 72
+          }
+        },
+        "statistics": {
+          "attacco": "+5",
+          "danni": "1d6+3 (colpo di scimitarra d'ombra)",
+          "ca": 19
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Cleric",
+              "livelli": 1,
+              "archetipi": [
+                "Shadowcaster",
+                "Separatist"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 10,
+            "DES": 14,
+            "COS": 12,
+            "INT": 12,
+            "SAG": 18,
+            "CAR": 14,
+            "attacco": "+5",
+            "danni": "1d6+3 ombra",
+            "ca": 19
+          },
+          "statistiche_chiave": {
+            "attacco": "+5 con scimitarra d'ombra",
+            "danni": "Illusioni d'ombra + channel selettivo",
+            "ca": 19
+          },
+          "benchmarks": {
+            "meta_tier": "T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          "salvezze": {
+            "Tempra": 3,
+            "Riflessi": 4,
+            "Volontà": 6
+          },
+          "attack_bonus": {
+            "melee": "+5",
+            "ranged": "+3",
+            "special": "+7 (raggio d'ombra)"
+          },
+          "damage": {
+            "melee": "1d6+3",
+            "special": "ombra persistente + channel"
+          },
+          "skills": [
+            {
+              "nome": "Percezione",
+              "gradi": 1,
+              "mod_car": 2,
+              "var": 1,
+              "classe": true,
+              "totale": 4
+            },
+            {
+              "nome": "Conoscenze (religioni)",
+              "gradi": 1,
+              "mod_car": 4,
+              "var": 3,
+              "classe": true,
+              "totale": 8
+            },
+            {
+              "nome": "Furtività",
+              "gradi": 1,
+              "mod_car": 2,
+              "var": 4,
+              "classe": true,
+              "totale": 7
+            }
+          ],
+          "equipaggiamento": [
+            "Scimitarra d'ombra rituale",
+            "Veste oscurante wayang",
+            "Sacro simbolo invertito separatista"
+          ],
+          "bench_log": [
+            "Checkpoint 1: validata build shadow/support T1 (Ruling Expert → MinMax → Taverna/Narrative)."
+          ],
+          "rules_status_text": "Badge RAW/RAI/PFS confermato; pipeline shadowcaster separata ok"
+        }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:49:49Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Cleric",
+            "livelli": 1,
+            "archetipi": [
+              "Shadowcaster",
+              "Separatist"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 10,
+          "DES": 14,
+          "COS": 12,
+          "INT": 12,
+          "SAG": 18,
+          "CAR": 14,
+          "attacco": "+5",
+          "danni": "1d6+3 ombra",
+          "ca": 19
+        },
+        "statistiche_chiave": {
+          "attacco": "+5 con scimitarra d'ombra",
+          "danni": "Illusioni d'ombra + channel selettivo",
+          "ca": 19
+        },
+        "benchmarks": {
+          "meta_tier": "T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        "salvezze": {
+          "Tempra": 3,
+          "Riflessi": 4,
+          "Volontà": 6
+        },
+        "attack_bonus": {
+          "melee": "+5",
+          "ranged": "+3",
+          "special": "+7 (raggio d'ombra)"
+        },
+        "damage": {
+          "melee": "1d6+3",
+          "special": "ombra persistente + channel"
+        },
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 1,
+            "mod_car": 2,
+            "var": 1,
+            "classe": true,
+            "totale": 4
+          },
+          {
+            "nome": "Conoscenze (religioni)",
+            "gradi": 1,
+            "mod_car": 4,
+            "var": 3,
+            "classe": true,
+            "totale": 8
+          },
+          {
+            "nome": "Furtività",
+            "gradi": 1,
+            "mod_car": 2,
+            "var": 4,
+            "classe": true,
+            "totale": 7
+          }
+        ],
+        "equipaggiamento": [
+          "Scimitarra d'ombra rituale",
+          "Veste oscurante wayang",
+          "Sacro simbolo invertito separatista"
+        ],
+        "bench_log": [
+          "Checkpoint 1: validata build shadow/support T1 (Ruling Expert → MinMax → Taverna/Narrative)."
+        ],
+        "rules_status_text": "Badge RAW/RAI/PFS confermato; pipeline shadowcaster separata ok"
+      }
+    },
+    "narrative": "Wayang nato dall'ombra che separa il culto dal dogma, incanalando penombre e benedizioni dissonanti per proteggere la comunità sotterranea."
+  }
 }

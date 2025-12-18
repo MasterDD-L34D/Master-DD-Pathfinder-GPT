@@ -31,7 +31,8 @@
       "INT": 10,
       "SAG": 12,
       "CAR": 8
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -317,6 +318,7 @@
   "mode": "extended",
   "composite": {
     "build": {
+      "build_id": "build-7165ffa3c68cdce55802d1f4",
       "build_state": {
         "class": "Brawler",
         "mode": "extended",
@@ -349,7 +351,8 @@
           "INT": 10,
           "SAG": 12,
           "CAR": 8
-        }
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T3",
@@ -595,7 +598,277 @@
           "progressione": [],
           "ca": 19
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2025-12-11T00:50:27Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Brawler",
+            "livelli": 1,
+            "archetipi": [
+              "Mutagenic Mauler",
+              "Strangler"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 16,
+          "DES": 18,
+          "COS": 12,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8,
+          "attacco": "+6",
+          "danni": "1d6+5",
+          "ca": 19
+        },
+        "statistiche_chiave": {
+          "attacco": "+4",
+          "danni": "1d8+3",
+          "ca": 17
+        },
+        "benchmarks": {
+          "dpr": {
+            "livello_1": {
+              "media": 10,
+              "picco": 16
+            },
+            "livello_5": {
+              "media": 27,
+              "picco": 42
+            },
+            "livello_10": {
+              "media": 55,
+              "picco": 84
+            }
+          },
+          "meta_tier": "T3"
+        },
+        "salvezze": {
+          "Tempra": "n/d (TS Tempra non fornito)",
+          "Riflessi": "n/d (TS Riflessi non fornito)",
+          "Volontà": "n/d (TS Volontà non fornito)",
+          "tempra": "n/d (TS tempra non fornito)",
+          "riflessi": "n/d (TS riflessi non fornito)",
+          "volonta": "n/d (TS volonta non fornito)"
+        },
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Kit avventuriero",
+              "importo": -10
+            },
+            {
+              "voce": "Strumenti da scasso",
+              "importo": -30
+            }
+          ],
+          "currency": {
+            "oro": 110,
+            "argento": 0,
+            "rame": 0
+          },
+          "saldo": 110
+        },
+        "print_mode": false,
+        "show_minmax": true,
+        "show_vtt": true,
+        "show_qa": true,
+        "show_explain": true,
+        "show_ledger": true,
+        "decimal_comma": true,
+        "AC_arm": 0,
+        "AC_scudo": 0,
+        "AC_des": 0,
+        "AC_defl": 0,
+        "AC_nat": 0,
+        "AC_dodge": 0,
+        "AC_misc": 0,
+        "AC_base": 10,
+        "AC_tot": 19,
+        "CA_touch": 10,
+        "CA_ff": 10,
+        "velocita": 0,
+        "iniziativa": 0,
+        "pf_totali": "n/d (PF totali non fornito)",
+        "skill_points": 0,
+        "salvezze_breakdown": {
+          "Tempra": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": "n/d (TS Tempra non fornito)"
+          },
+          "Riflessi": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": "n/d (TS Riflessi non fornito)"
+          },
+          "Volontà": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": "n/d (TS Volontà non fornito)"
+          },
+          "tempra": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": "n/d (TS tempra non fornito)"
+          },
+          "riflessi": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": "n/d (TS riflessi non fornito)"
+          },
+          "volonta": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": "n/d (TS volonta non fornito)"
+          }
+        },
+        "BAB": 0,
+        "init": "+5",
+        "speed": "9 m",
+        "razza": "Grippli",
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 1,
+            "mod_car": 3,
+            "var": 1,
+            "classe": true,
+            "totale": 5
+          },
+          {
+            "nome": "Furtività",
+            "gradi": 1,
+            "mod_car": 3,
+            "var": 0,
+            "classe": true,
+            "totale": 4
+          },
+          {
+            "nome": "Acrobazia",
+            "gradi": 1,
+            "mod_car": 3,
+            "var": 0,
+            "classe": false,
+            "totale": 4
+          }
+        ],
+        "equipaggiamento": [
+          "Arma semplice",
+          "Armatura leggera",
+          "Strumenti da scasso",
+          "Kit avventuriero"
+        ],
+        "equipment_summary": {
+          "peso_totale": "leggero",
+          "note": "gear essenziale incluso nel kit base"
+        },
+        "ledger_movimenti": [
+          {
+            "voce": "Kit avventuriero",
+            "importo": -10,
+            "oggetto": "Kit avventuriero",
+            "tot": -10,
+            "delta_gp": -10,
+            "tipo": "spesa",
+            "data": "Sessione 1",
+            "qty": 1,
+            "vu": null
+          },
+          {
+            "voce": "Strumenti da scasso",
+            "importo": -30,
+            "oggetto": "Strumenti da scasso",
+            "tot": -30,
+            "delta_gp": -30,
+            "tipo": "spesa",
+            "data": "Sessione 1",
+            "qty": 1,
+            "vu": null
+          }
+        ],
+        "ledger_parcels": [],
+        "ledger_crafting": [],
+        "currency": {
+          "oro": 110,
+          "argento": 0,
+          "rame": 0
+        },
+        "fonti": [
+          "local-refresh",
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+        ],
+        "pf_per_livello": "n/d (PF per livello non fornito)",
+        "modules": {},
+        "sheet_markdown": "",
+        "skills_map": {},
+        "spell_levels": [],
+        "magia": {},
+        "lingue": [],
+        "sensi": [],
+        "condizioni": [],
+        "inventario": [],
+        "talenti": [],
+        "capacita_classe": [],
+        "progressione": [],
+        "ca": 19
       }
+    },
+    "narrative": "Grippli mutageno strettoio: pattinatore di palude che sfrutta mutageno da rana velenosa e strangolamenti acrobatici.",
+    "sheet": "",
+    "ledger": {
+      "movimenti": [
+        {
+          "voce": "Kit avventuriero",
+          "importo": -10,
+          "oggetto": "Kit avventuriero",
+          "tot": -10,
+          "delta_gp": -10,
+          "tipo": "spesa",
+          "data": "Sessione 1",
+          "qty": 1,
+          "vu": null
+        },
+        {
+          "voce": "Strumenti da scasso",
+          "importo": -30,
+          "oggetto": "Strumenti da scasso",
+          "tot": -30,
+          "delta_gp": -30,
+          "tipo": "spesa",
+          "data": "Sessione 1",
+          "qty": 1,
+          "vu": null
+        }
+      ],
+      "currency": {
+        "oro": 110,
+        "argento": 0,
+        "rame": 0
+      },
+      "parcels": [],
+      "crafting": []
     }
   },
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli&level=1",
@@ -670,29 +943,16 @@
         "pfs_mode": null
       }
     },
-    "checkpoints": [
-      {
-        "level": 1,
-        "status": "ok",
-        "bench_log": "3 varianti testate: venefico (tossine da lingua), grapple puro, mutageno+strozzate. Tenuta la terza: DPR e CA più alti dopo rul",
-        "ruling_badge": "full",
-        "notes": "Badge full da Ruling Expert; narrativa di rana spia con catena lunga sincronizzata."
-      },
-      {
-        "level": 5,
-        "status": "ok",
-        "bench_log": "3 varianti testate: presa lampo+catene, strangolamento veloce, mutageno ferino + strozzate. Conservata la mutageno ferino per picco DPR e CA grazie a dodge/riflessi.",
-        "ruling_badge": "full",
-        "notes": "MinMax conferma vantaggio offensivo/difensivo; Taverna arc con clan di palude."
-      },
-      {
-        "level": 10,
-        "status": "ok",
-        "bench_log": "2 varianti finali: strangolatore velenoso vs strangolatore acrobatico. Scelto acrobatico: miglior DPR sostenuto e difesa elevata, badge full.",
-        "ruling_badge": "full",
-        "notes": "Ruling narrativo ok; migliore combinazione acrobatica mantenuta."
-      }
-    ]
+    "checkpoints": {
+      "level": 1,
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
   },
-  "spec_id": "brawler_grippli_mutagenic_mauler_strangler"
+  "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
+  "reference_catalog_version": "2026.03.22",
+  "build_id": "build-7165ffa3c68cdce55802d1f4"
 }

@@ -32,7 +32,8 @@
       "SAG": 12,
       "CAR": 10,
       "level": 10
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T2",
@@ -55,8 +56,7 @@
       "attacco": "+20",
       "danni": "2d6+22",
       "ca": 28
-    },
-    "bench_log": "Pipeline Ruling Expert → MinMax → Taverna/Narrative: varianti crit-fishing, debuff a distanza, difese evasive. Selezionata la linea Tengu Pistolero+Bolt Ace (crit/bleed + dirty trick a distanza) per DPR e CA migliori dopo ruling RAW/RAI/PFS."
+    }
   },
   "export": {
     "sheet_payload": {
@@ -163,7 +163,15 @@
   "fetched_at": "2025-12-11T11:30:27Z",
   "request": {
     "path": "/modules/minmax_builder.txt",
-    "method": "GET"
+    "method": "GET",
+    "race": "Tengu",
+    "archetype": "Pistolero + Bolt Ace",
+    "level": 10,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "query_params": {
     "mode": "extended",
@@ -190,9 +198,6 @@
     "request_ip": null
   },
   "completeness": {
-    "status": "complete",
-    "missing": [],
-    "checklist": {},
     "require_complete": true
   },
   "ruling_badge": "RAW/RAI/PFS",
@@ -205,7 +210,24 @@
     "notes": [
       "Badge RAW/RAI/PFS confermato con ruling log incluso nei metadati.",
       "Bench offensivo/difensivo riportato in narrative per controllo rapido."
-    ]
+    ],
+    "checkpoints": {
+      "bench_log": [
+        "Pipeline Ruling Expert → MinMax → Taverna/Narrative: varianti crit-fishing, debuff a distanza, difese evasive. Selezionata la linea Tengu Pistolero+Bolt Ace (crit/bleed + dirty trick a distanza) per DPR e CA migliori dopo ruling RAW/RAI/PFS.",
+        "Crit-fishing: duelist pistol + bolt ricurvi, focus su Improved Critical/Signature Deed per moltiplicare i grit.",
+        "Debuff a distanza: utilità Bolt Ace con dirty trick ranged e dispacci di polvere/stordenti per ridurre DPR nemico.",
+        "Difese evasive: Tengu con Gunslinger's Dodge, Evasion via bolt deeds e coperture mobili da cloud step."
+      ],
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete",
+      "checklist": {}
+    }
   },
   "spec_id": "gunslinger_tengu_pistolero_bolt_ace",
   "narrative": {
@@ -239,24 +261,320 @@
   "sheet": "### 🧙 Scheda Personaggio in Markdown\n\n---\n\n# Gunslinger — Liv. 10 (Tengu · Pistolero + Bolt Ace)\n\n**Background rapido:** Corsaro tengu che ha studiato sia il Pistolero che il Bolt Ace per combinare grit, colpi mirati e dirty trick a distanza.\n\n**Stile di gioco:** alterna pistola e balestra a ripetizione; usa Rapid Reload e Signature Deed per pescare critici, applica debuff con dirty trick a 9m, mantiene Gunslinger's Dodge + Evasion come difesa.\n\n**Linee di progressione testate:**\n- Crit-fishing: focus su Improved Critical/Signature Deed con cartucce alchemiche.\n- Debuff a distanza: bulloni polvere/dispaccio per negare azioni e creare aperture per il party.\n- Difese evasive: movimento laterale + copertura mobile per evitare AO e blast.\n\n**Benchmark DPR/CA:** 2d6+22 per colpo, 28 CA reattiva; DPR medio/picco 86/132 sul checkpoint 10.\n",
   "class": "Gunslinger",
   "mode": "extended",
-  "race": "Tengu",
-  "archetype": "Pistolero + Bolt Ace",
   "output_prefix": "gunslinger_tengu_pistolero_bolt_ace",
-  "level": 10,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
-  "bench_log": [
-    "Pipeline Ruling Expert → MinMax → Taverna/Narrative: varianti crit-fishing, debuff a distanza, difese evasive. Selezionata la linea Tengu Pistolero+Bolt Ace (crit/bleed + dirty trick a distanza) per DPR e CA migliori dopo ruling RAW/RAI/PFS.",
-    "Crit-fishing: duelist pistol + bolt ricurvi, focus su Improved Critical/Signature Deed per moltiplicare i grit.",
-    "Debuff a distanza: utilità Bolt Ace con dirty trick ranged e dispacci di polvere/stordenti per ridurre DPR nemico.",
-    "Difese evasive: Tengu con Gunslinger's Dodge, Evasion via bolt deeds e coperture mobili da cloud step."
-  ],
   "ruling_log": [
     "Ruling Expert: compatibilità RAW tra Pistolero e Bolt Ace confermata (sostituzioni di gun training e deeds non sovrapposte).",
     "Badge RAW/RAI/PFS mantenuto: niente HR, uso di ricarica rapida con hand crossbow/pistola consentito da exotic proficiency tengu.",
     "MinMax: scelta la build che massimizza crit multipli con Rapid Reload/Deadly Aim e debuff da Dirty Trick a 9m come opzione difensiva."
-  ]
+  ],
+  "reference_catalog_version": "2026.03.22",
+  "build_id": "build-8c7a343f61ee01cd7d186a0a",
+  "composite": {
+    "build": {
+      "build_id": "build-8c7a343f61ee01cd7d186a0a",
+      "build_state": {
+        "class": "Gunslinger",
+        "mode": "extended",
+        "race": "Tengu",
+        "archetype": "Pistolero + Bolt Ace",
+        "step": 16,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 12,
+          "DES": 22,
+          "COS": 16,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 10,
+          "level": 10
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T2",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 15,
+            "picco": 23
+          },
+          "livello_5": {
+            "media": 40,
+            "picco": 60
+          },
+          "livello_10": {
+            "media": 86,
+            "picco": 132
+          }
+        },
+        "statistics": {
+          "attacco": "+20",
+          "danni": "2d6+22",
+          "ca": 28
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Gunslinger",
+              "livelli": 10,
+              "archetipi": [
+                "Pistolero",
+                "Bolt Ace"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 12,
+            "DES": 22,
+            "COS": 16,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 10,
+            "attacco": "+20",
+            "danni": "2d6+22",
+            "ca": 28
+          },
+          "benchmarks": {
+            "meta_tier": "T2"
+          },
+          "salvezze": {
+            "Tempra": "TS ottimizzati su COS + Gunslinger's Dodge",
+            "Riflessi": "Evasion via deeds e alta DES",
+            "Volontà": "Mantle of calm + tratti tengu"
+          },
+          "skills": [
+            {
+              "nome": "Percezione",
+              "gradi": 10,
+              "mod_car": 4,
+              "var": 2,
+              "classe": true,
+              "totale": 16
+            },
+            {
+              "nome": "Acrobazia",
+              "gradi": 10,
+              "mod_car": 4,
+              "var": 1,
+              "classe": true,
+              "totale": 15
+            },
+            {
+              "nome": "Rapidità di mano",
+              "gradi": 10,
+              "mod_car": 4,
+              "var": 2,
+              "classe": true,
+              "totale": 16
+            }
+          ],
+          "equipaggiamento": [
+            "Dueling pistol forgiata per critico",
+            "Hand crossbow rinforzata Bolt Ace",
+            "Giaco di maglia leggera +1",
+            "Kit da pistoliere con polveri e bulloni speciali"
+          ],
+          "equipment_summary": {
+            "peso_totale": "leggero",
+            "note": "Setup bilanciato per crit/dirty trick; spazio per bomb grade e cartucce alchemiche"
+          },
+          "ledger_movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -350
+            },
+            {
+              "voce": "Taglia su pirati del Porto",
+              "importo": 450
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -350
+              },
+              {
+                "voce": "Taglia su pirati del Porto",
+                "importo": 450
+              }
+            ],
+            "currency": {
+              "oro": 200,
+              "argento": 35,
+              "rame": 0
+            }
+          },
+          "sheet_markdown": "Percezione\nDueling pistol forgiata per critico\nEquipaggiamento iniziale",
+          "pf_per_livello": "d10 (media + COS)",
+          "fonti": [
+            "local-refresh"
+          ]
+        }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2025-12-11T11:30:27Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Gunslinger",
+            "livelli": 10,
+            "archetipi": [
+              "Pistolero",
+              "Bolt Ace"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 12,
+          "DES": 22,
+          "COS": 16,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 10,
+          "attacco": "+20",
+          "danni": "2d6+22",
+          "ca": 28
+        },
+        "benchmarks": {
+          "meta_tier": "T2"
+        },
+        "salvezze": {
+          "Tempra": "TS ottimizzati su COS + Gunslinger's Dodge",
+          "Riflessi": "Evasion via deeds e alta DES",
+          "Volontà": "Mantle of calm + tratti tengu"
+        },
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 10,
+            "mod_car": 4,
+            "var": 2,
+            "classe": true,
+            "totale": 16
+          },
+          {
+            "nome": "Acrobazia",
+            "gradi": 10,
+            "mod_car": 4,
+            "var": 1,
+            "classe": true,
+            "totale": 15
+          },
+          {
+            "nome": "Rapidità di mano",
+            "gradi": 10,
+            "mod_car": 4,
+            "var": 2,
+            "classe": true,
+            "totale": 16
+          }
+        ],
+        "equipaggiamento": [
+          "Dueling pistol forgiata per critico",
+          "Hand crossbow rinforzata Bolt Ace",
+          "Giaco di maglia leggera +1",
+          "Kit da pistoliere con polveri e bulloni speciali"
+        ],
+        "equipment_summary": {
+          "peso_totale": "leggero",
+          "note": "Setup bilanciato per crit/dirty trick; spazio per bomb grade e cartucce alchemiche"
+        },
+        "ledger_movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -350
+          },
+          {
+            "voce": "Taglia su pirati del Porto",
+            "importo": 450
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -350
+            },
+            {
+              "voce": "Taglia su pirati del Porto",
+              "importo": 450
+            }
+          ],
+          "currency": {
+            "oro": 200,
+            "argento": 35,
+            "rame": 0
+          }
+        },
+        "sheet_markdown": "Percezione\nDueling pistol forgiata per critico\nEquipaggiamento iniziale",
+        "pf_per_livello": "d10 (media + COS)",
+        "fonti": [
+          "local-refresh"
+        ]
+      }
+    },
+    "narrative": {
+      "hook": "Tengu corsaro che alterna pistola e balestra a ripetizione per destabilizzare bersagli con colpi di precisione.",
+      "taverna": "Racconta di aver studiato i manuali dei pistoleri di Absalom per unire grit e trucchi da Bolt Ace.",
+      "badge": "RAW/RAI/PFS",
+      "bench": {
+        "offensivo": "2d6+22",
+        "difensivo": 28,
+        "note": "Crit-fishing e debuff a distanza mantengono DPR medio competitivo mantenendo CA/evasion attive."
+      }
+    },
+    "sheet": "### 🧙 Scheda Personaggio in Markdown\n\n---\n\n# Gunslinger — Liv. 10 (Tengu · Pistolero + Bolt Ace)\n\n**Background rapido:** Corsaro tengu che ha studiato sia il Pistolero che il Bolt Ace per combinare grit, colpi mirati e dirty trick a distanza.\n\n**Stile di gioco:** alterna pistola e balestra a ripetizione; usa Rapid Reload e Signature Deed per pescare critici, applica debuff con dirty trick a 9m, mantiene Gunslinger's Dodge + Evasion come difesa.\n\n**Linee di progressione testate:**\n- Crit-fishing: focus su Improved Critical/Signature Deed con cartucce alchemiche.\n- Debuff a distanza: bulloni polvere/dispaccio per negare azioni e creare aperture per il party.\n- Difese evasive: movimento laterale + copertura mobile per evitare AO e blast.\n\n**Benchmark DPR/CA:** 2d6+22 per colpo, 28 CA reattiva; DPR medio/picco 86/132 sul checkpoint 10.\n",
+    "ledger": {
+      "movimenti": [
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -350
+        },
+        {
+          "voce": "Taglia su pirati del Porto",
+          "importo": 450
+        }
+      ],
+      "currency": {
+        "oro": 200,
+        "argento": 35,
+        "rame": 0
+      },
+      "saldo": 100
+    }
+  }
 }

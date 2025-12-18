@@ -43,7 +43,8 @@
       "intelligenza": 14,
       "saggezza": 10,
       "carisma": 8
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -379,6 +380,7 @@
   "mode": "extended",
   "composite": {
     "build": {
+      "build_id": "build-f37351a514fef0e2d99445df",
       "build_state": {
         "class": "Alchemist",
         "mode": "extended",
@@ -423,19 +425,24 @@
           "intelligenza": 14,
           "saggezza": 10,
           "carisma": 8
-        }
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T3",
         "ruling_badge": "validated",
         "dpr_snapshot": {
           "livello_1": {
-            "media": 6,
-            "picco": 9
+            "media": 7,
+            "picco": 12
           },
           "livello_5": {
-            "media": 18,
-            "picco": 26
+            "media": 22,
+            "picco": 34
+          },
+          "livello_10": {
+            "media": 42,
+            "picco": 62
           }
         },
         "statistics": {
@@ -571,7 +578,8 @@
               "oro": 100,
               "argento": 25,
               "rame": 40
-            }
+            },
+            "saldo": 0
           },
           "razza": "Goblin",
           "salvezze_breakdown": {
@@ -619,7 +627,20 @@
           "show_explain": true,
           "show_ledger": true,
           "decimal_comma": true,
-          "skills": [],
+          "skills": [
+            {
+              "nome": "Percezione",
+              "totale": 5
+            },
+            {
+              "nome": "Acrobazia",
+              "totale": 4
+            },
+            {
+              "nome": "Conoscenze",
+              "totale": 3
+            }
+          ],
           "spell_levels": [],
           "magia": {},
           "lingue": [],
@@ -627,8 +648,198 @@
           "condizioni": []
         }
       },
-      "race": "Goblin",
-      "archetype": "Vivisectionist"
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2025-12-10T21:22:32Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Alchemist",
+            "livelli": 1,
+            "archetipi": [
+              "Vivisectionist"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 12,
+          "DES": 18,
+          "COS": 12,
+          "INT": 14,
+          "SAG": 10,
+          "CAR": 8,
+          "attacco": "+5",
+          "danni": "1d6+2",
+          "ca": 19
+        },
+        "statistiche_chiave": {
+          "attacco": "+5",
+          "danni": "1d6+2",
+          "ca": 19
+        },
+        "pf_totali": 12,
+        "hp": {
+          "totali": 12,
+          "per_livello": [
+            12
+          ]
+        },
+        "salvezze": {
+          "Tempra": 4,
+          "Riflessi": 3,
+          "Volontà": 4
+        },
+        "skills_map": {
+          "Percezione": {
+            "totale": 5
+          },
+          "Acrobazia": {
+            "totale": 4
+          },
+          "Conoscenze": {
+            "totale": 3
+          }
+        },
+        "skill_points": 5,
+        "talenti": [
+          "Colpo possente",
+          "Iniziativa migliorata"
+        ],
+        "capacita_classe": [
+          "Addestramento marziale",
+          "Specializzazione",
+          "Privilegio 1",
+          "Tecnica distintiva Vivisectionist"
+        ],
+        "equipaggiamento": [
+          "Arma preferita"
+        ],
+        "inventario": [
+          "Arma preferita",
+          "Armatura leggera",
+          "Kit da avventuriero",
+          "Pozione di cura x2"
+        ],
+        "slot_incantesimi": "Liv1:4/Liv2:3",
+        "ac_breakdown": {
+          "totale": 18,
+          "armatura": 5,
+          "destrezza": 2,
+          "scudo": 1
+        },
+        "iniziativa": 2,
+        "velocita": 9,
+        "progressione": [
+          {
+            "livello": 1,
+            "privilegi": [
+              "Privilegio 1",
+              "Tecnica distintiva Vivisectionist"
+            ],
+            "talenti": [
+              "Talento di livello 1"
+            ]
+          }
+        ],
+        "benchmarks": {
+          "meta_tier": "T3"
+        },
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 250
+            }
+          ],
+          "currency": {
+            "oro": 100,
+            "argento": 25,
+            "rame": 40
+          },
+          "saldo": 0
+        },
+        "razza": "Goblin",
+        "salvezze_breakdown": {
+          "Tempra": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": 4
+          },
+          "Riflessi": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": 3
+          },
+          "Volontà": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": 4
+          }
+        },
+        "pf_per_livello": "n/d (PF per livello non fornito)",
+        "AC_arm": 0,
+        "AC_scudo": 0,
+        "AC_des": 0,
+        "AC_defl": 0,
+        "AC_nat": 0,
+        "AC_dodge": 0,
+        "AC_misc": 0,
+        "AC_base": 10,
+        "AC_tot": 18,
+        "CA_touch": 10,
+        "CA_ff": 10,
+        "BAB": "n/d (BAB non fornito)",
+        "init": 2,
+        "speed": 9,
+        "fonti": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
+        ],
+        "print_mode": false,
+        "show_minmax": true,
+        "show_vtt": true,
+        "show_qa": true,
+        "show_explain": true,
+        "show_ledger": true,
+        "decimal_comma": true,
+        "skills": [
+          {
+            "nome": "Percezione",
+            "totale": 5
+          },
+          {
+            "nome": "Acrobazia",
+            "totale": 4
+          },
+          {
+            "nome": "Conoscenze",
+            "totale": 3
+          }
+        ],
+        "spell_levels": [],
+        "magia": {},
+        "lingue": [],
+        "sensi": [],
+        "condizioni": []
+      }
     },
     "narrative": "Goblin Vivisectionist ottimizzata con mutageno, ferite furtive e toolkit da laboratorio; flusso Ruling→MinMax→Taverna validato.",
     "sheet": {
@@ -814,26 +1025,16 @@
         "pfs_mode": "RAI"
       }
     },
-    "checkpoints": [
-      {
-        "level": 1,
-        "status": "ok",
-        "bench_log": "mutageno+bisturi furtivo+infusioni persistenti",
-        "ruling_badge": "full"
-      },
-      {
-        "level": 5,
-        "status": "ok",
-        "bench_log": "scoppi controllati + precise strike + ferite anatomiche",
-        "ruling_badge": "full"
-      },
-      {
-        "level": 10,
-        "status": "ok",
-        "bench_log": "mutageno maggiore, bisturi agilità, scoppi a contatto RAI",
-        "ruling_badge": "full"
-      }
-    ]
+    "checkpoints": {
+      "level": 1,
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
   },
-  "spec_id": "Alchemist::Goblin::Vivisectionist"
+  "spec_id": "Alchemist::Goblin::Vivisectionist",
+  "reference_catalog_version": "2026.03.22",
+  "build_id": "build-f37351a514fef0e2d99445df"
 }

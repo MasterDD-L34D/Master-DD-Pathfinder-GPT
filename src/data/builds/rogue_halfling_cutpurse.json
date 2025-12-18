@@ -31,7 +31,8 @@
       "INT": 14,
       "SAG": 10,
       "CAR": 8
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -377,6 +378,7 @@
   "mode": "extended",
   "composite": {
     "build": {
+      "build_id": "build-646ab83ee6d29dcd4720ef36",
       "build_state": {
         "class": "Rogue",
         "mode": "extended",
@@ -409,7 +411,8 @@
           "INT": 14,
           "SAG": 10,
           "CAR": 8
-        }
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T3",
@@ -549,7 +552,8 @@
               "oro": 100,
               "argento": 25,
               "rame": 40
-            }
+            },
+            "saldo": 0
           },
           "razza": "Halfling",
           "salvezze_breakdown": {
@@ -597,13 +601,244 @@
           "show_explain": true,
           "show_ledger": true,
           "decimal_comma": true,
-          "skills": [],
+          "skills": [
+            {
+              "nome": "Furtività",
+              "totale": 9
+            },
+            {
+              "nome": "Rapidità di mano",
+              "totale": 9
+            },
+            {
+              "nome": "Percezione",
+              "totale": 6
+            },
+            {
+              "nome": "Acrobazia",
+              "totale": 8
+            },
+            {
+              "nome": "Disattivare Congegni",
+              "totale": 9
+            }
+          ],
           "spell_levels": [],
           "magia": {},
           "lingue": [],
           "sensi": [],
           "condizioni": []
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2025-12-10T20:09:53Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Rogue",
+            "livelli": 1,
+            "archetipi": [
+              "Cutpurse"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 12,
+          "DES": 18,
+          "COS": 12,
+          "INT": 14,
+          "SAG": 10,
+          "CAR": 8,
+          "attacco": "+6 (pugnale) / +5 (fionda)",
+          "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
+          "ca": 18
+        },
+        "statistiche_chiave": {
+          "attacco": "+6 (pugnale) / +5 (fionda)",
+          "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
+          "ca": 18
+        },
+        "pf_totali": 11,
+        "hp": {
+          "totali": 11,
+          "per_livello": [
+            11
+          ]
+        },
+        "salvezze": {
+          "Tempra": 2,
+          "Riflessi": 4,
+          "Volontà": 1
+        },
+        "skills_map": {
+          "Furtività": {
+            "totale": 9
+          },
+          "Rapidità di mano": {
+            "totale": 9
+          },
+          "Percezione": {
+            "totale": 6
+          },
+          "Acrobazia": {
+            "totale": 8
+          },
+          "Disattivare Congegni": {
+            "totale": 9
+          }
+        },
+        "skill_points": 10,
+        "talenti": [
+          "Arma accurata"
+        ],
+        "capacita_classe": [
+          "Attacco furtivo +1d6",
+          "Cutpurse: Mano lesta (Pickpocket)",
+          "PF 11 | TS +2/+4/+1 | CA 18",
+          "Percepire trappole +1"
+        ],
+        "equipaggiamento": [
+          "Armatura di cuoio borchiato"
+        ],
+        "inventario": [
+          "Armatura di cuoio borchiato",
+          "Attrezzi da scasso di qualità",
+          "Fionda con 20 proiettili",
+          "Kit da avventuriero",
+          "Pozione di cura x2",
+          "Pugnale bilanciato"
+        ],
+        "slot_incantesimi": "Non incantatore",
+        "ac_breakdown": {
+          "totale": 18,
+          "armatura": 3,
+          "destrezza": 4,
+          "misc": 1,
+          "scudo": 0
+        },
+        "iniziativa": 4,
+        "velocita": 6,
+        "progressione": [
+          {
+            "livello": 1,
+            "privilegi": [
+              "Attacco furtivo +1d6",
+              "Percepire trappole +1",
+              "Cutpurse: Mano lesta (Pickpocket)",
+              "PF 11 | TS +2/+4/+1 | CA 18"
+            ],
+            "talenti": [
+              "Arma accurata"
+            ]
+          }
+        ],
+        "benchmarks": {
+          "meta_tier": "T3"
+        },
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 250
+            }
+          ],
+          "currency": {
+            "oro": 100,
+            "argento": 25,
+            "rame": 40
+          },
+          "saldo": 0
+        },
+        "razza": "Halfling",
+        "salvezze_breakdown": {
+          "Tempra": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": 2
+          },
+          "Riflessi": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": 4
+          },
+          "Volontà": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": 1
+          }
+        },
+        "pf_per_livello": "n/d (PF per livello non fornito)",
+        "AC_arm": 0,
+        "AC_scudo": 0,
+        "AC_des": 0,
+        "AC_defl": 0,
+        "AC_nat": 0,
+        "AC_dodge": 0,
+        "AC_misc": 0,
+        "AC_base": 10,
+        "AC_tot": 18,
+        "CA_touch": 10,
+        "CA_ff": 10,
+        "BAB": "n/d (BAB non fornito)",
+        "init": 4,
+        "speed": 6,
+        "fonti": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=1&race=Halfling&archetype=Cutpurse"
+        ],
+        "print_mode": false,
+        "show_minmax": true,
+        "show_vtt": true,
+        "show_qa": true,
+        "show_explain": true,
+        "show_ledger": true,
+        "decimal_comma": true,
+        "skills": [
+          {
+            "nome": "Furtività",
+            "totale": 9
+          },
+          {
+            "nome": "Rapidità di mano",
+            "totale": 9
+          },
+          {
+            "nome": "Percezione",
+            "totale": 6
+          },
+          {
+            "nome": "Acrobazia",
+            "totale": 8
+          },
+          {
+            "nome": "Disattivare Congegni",
+            "totale": 9
+          }
+        ],
+        "spell_levels": [],
+        "magia": {},
+        "lingue": [],
+        "sensi": [],
+        "condizioni": []
       }
     },
     "narrative": "Halfling Cutpurse pronta/o per il campo, specializzata/o in tattiche da Rogue.",
@@ -797,6 +1032,16 @@
         "meta_sources": null,
         "pfs_mode": null
       }
+    },
+    "checkpoints": {
+      "level": 1,
+      "levels": [
+        1,
+        5,
+        10
+      ]
     }
-  }
+  },
+  "reference_catalog_version": "2026.03.22",
+  "build_id": "build-646ab83ee6d29dcd4720ef36"
 }

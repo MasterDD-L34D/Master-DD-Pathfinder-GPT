@@ -18,7 +18,8 @@
     "statistics": {
       "level": 5,
       "placeholder": true
-    }
+    },
+    "step_labels_count": 3
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -62,5 +63,69 @@
   "narrative": {
     "summary": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
     "notes": "Profilo placeholder generato offline per Druid Feral."
-  }
+  },
+  "mode_normalized": "extended",
+  "qa": {
+    "checkpoints": {
+      "level": 5,
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
+  },
+  "composite": {
+    "build": {
+      "build_id": "druid_half_orc_feral-lvl05",
+      "build_state": {
+        "class": "Druid",
+        "mode": "extended",
+        "race": "Half Orc",
+        "archetype": "Feral",
+        "step": 1,
+        "step_total": 3,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Validazione schema",
+          "3": "Export sintetico"
+        },
+        "statistics": {
+          "level": 5,
+          "placeholder": true
+        },
+        "step_labels_count": 3
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "placeholder",
+        "notes": "Snapshot placeholder generato offline per druid_half_orc_feral lvl 5."
+      },
+      "export": {
+        "sheet_payload": {},
+        "sheet_locale": "it-IT",
+        "sheet_format": "placeholder"
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T16:48:46Z",
+        "client_fingerprint_hash": "offline-placeholder-client-hash-000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 3,
+        "observed_step_total": 3,
+        "step_total_ok": true,
+        "step_labels_count": 3,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {}
+    },
+    "narrative": {
+      "summary": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
+      "notes": "Profilo placeholder generato offline per Druid Feral."
+    }
+  },
+  "completeness": {}
 }

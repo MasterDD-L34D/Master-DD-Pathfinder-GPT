@@ -31,7 +31,8 @@
       "INT": 14,
       "SAG": 10,
       "CAR": 8
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -535,6 +536,7 @@
   "mode": "extended",
   "composite": {
     "build": {
+      "build_id": "build-8a4cf38432b636053fa7abe9",
       "build_state": {
         "class": "Rogue",
         "mode": "extended",
@@ -567,7 +569,8 @@
           "INT": 14,
           "SAG": 10,
           "CAR": 8
-        }
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T3",
@@ -784,7 +787,8 @@
               "oro": 100,
               "argento": 25,
               "rame": 40
-            }
+            },
+            "saldo": 0
           },
           "razza": "Halfling",
           "salvezze_breakdown": {
@@ -832,13 +836,321 @@
           "show_explain": true,
           "show_ledger": true,
           "decimal_comma": true,
-          "skills": [],
+          "skills": [
+            {
+              "nome": "Furtività",
+              "totale": 13
+            },
+            {
+              "nome": "Rapidità di mano",
+              "totale": 13
+            },
+            {
+              "nome": "Percezione",
+              "totale": 10
+            },
+            {
+              "nome": "Acrobazia",
+              "totale": 12
+            },
+            {
+              "nome": "Disattivare Congegni",
+              "totale": 13
+            }
+          ],
           "spell_levels": [],
           "magia": {},
           "lingue": [],
           "sensi": [],
           "condizioni": []
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2025-12-10T20:09:53Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Rogue",
+            "livelli": 5,
+            "archetipi": [
+              "Cutpurse"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 12,
+          "DES": 18,
+          "COS": 12,
+          "INT": 14,
+          "SAG": 10,
+          "CAR": 8,
+          "attacco": "+11/+11 (pugnali)",
+          "danni": "1d4+4 (pugnale) +3d6 furtivo",
+          "ca": 21
+        },
+        "statistiche_chiave": {
+          "attacco": "+11/+11 (pugnali)",
+          "danni": "1d4+4 (pugnale) +3d6 furtivo",
+          "ca": 21
+        },
+        "pf_totali": 42,
+        "hp": {
+          "totali": 42,
+          "per_livello": [
+            11,
+            18,
+            26,
+            34,
+            42
+          ]
+        },
+        "salvezze": {
+          "Tempra": 4,
+          "Riflessi": 8,
+          "Volontà": 3
+        },
+        "skills_map": {
+          "Furtività": {
+            "totale": 13
+          },
+          "Rapidità di mano": {
+            "totale": 13
+          },
+          "Percezione": {
+            "totale": 10
+          },
+          "Acrobazia": {
+            "totale": 12
+          },
+          "Disattivare Congegni": {
+            "totale": 13
+          }
+        },
+        "skill_points": 50,
+        "talenti": [
+          "Arma accurata",
+          "Arma focalizzata (pugnale)",
+          "Combattere con due armi",
+          "Schivare",
+          "Iniziativa migliorata"
+        ],
+        "capacita_classe": [
+          "Attacco furtivo +1d6",
+          "Attacco furtivo +2d6",
+          "Attacco furtivo +3d6",
+          "Cutpurse: Afferrare oggetti (Quick Steal)",
+          "Cutpurse: Mano lesta (Pickpocket)",
+          "PF 11 | TS +2/+4/+1 | CA 18",
+          "PF 18 | TS +3/+5/+1 | CA 19",
+          "PF 26 | TS +3/+6/+2 | CA 19",
+          "PF 34 | TS +4/+7/+2 | CA 20",
+          "PF 42 | TS +4/+8/+3 | CA 21",
+          "Percepire trappole +1",
+          "Scherma agile (Finesse Training)",
+          "Talento ladresco: Arma improvvisata",
+          "Talento ladresco: Attacco debilitante",
+          "Talento ladresco: Furtività rapida",
+          "Uncanny Dodge"
+        ],
+        "equipaggiamento": [
+          "Anello di protezione +1",
+          "Armatura di cuoio borchiato",
+          "Attrezzi da scasso di qualità",
+          "Cappa elfica grigia",
+          "Cintura dell'agilità +2"
+        ],
+        "inventario": [
+          "Anello di protezione +1",
+          "Armatura di cuoio borchiato",
+          "Attrezzi da scasso di qualità",
+          "Cappa elfica grigia",
+          "Cintura dell'agilità +2",
+          "Fionda con 20 proiettili",
+          "Giaco di maglia ombreggiato",
+          "Guanti da ladro",
+          "Kit da avventuriero",
+          "Mantello della resistenza +1",
+          "Pozione di cura x2",
+          "Pugnale +1",
+          "Pugnale bilanciato",
+          "Pugnale masterwork"
+        ],
+        "slot_incantesimi": "Non incantatore",
+        "ac_breakdown": {
+          "totale": 21,
+          "armatura": 4,
+          "destrezza": 4,
+          "schivare": 1,
+          "misc": 2,
+          "scudo": 0
+        },
+        "iniziativa": 4,
+        "velocita": 6,
+        "progressione": [
+          {
+            "livello": 1,
+            "privilegi": [
+              "Attacco furtivo +1d6",
+              "Percepire trappole +1",
+              "Cutpurse: Mano lesta (Pickpocket)",
+              "PF 11 | TS +2/+4/+1 | CA 18"
+            ],
+            "talenti": [
+              "Arma accurata"
+            ]
+          },
+          {
+            "livello": 2,
+            "privilegi": [
+              "Talento ladresco: Furtività rapida",
+              "Cutpurse: Afferrare oggetti (Quick Steal)",
+              "PF 18 | TS +3/+5/+1 | CA 19"
+            ],
+            "talenti": [
+              "Iniziativa migliorata"
+            ]
+          },
+          {
+            "livello": 3,
+            "privilegi": [
+              "Attacco furtivo +2d6",
+              "Scherma agile (Finesse Training)",
+              "PF 26 | TS +3/+6/+2 | CA 19"
+            ],
+            "talenti": [
+              "Schivare"
+            ]
+          },
+          {
+            "livello": 4,
+            "privilegi": [
+              "Talento ladresco: Arma improvvisata",
+              "Uncanny Dodge",
+              "PF 34 | TS +4/+7/+2 | CA 20"
+            ],
+            "talenti": [
+              "Arma focalizzata (pugnale)"
+            ]
+          },
+          {
+            "livello": 5,
+            "privilegi": [
+              "Attacco furtivo +3d6",
+              "Talento ladresco: Attacco debilitante",
+              "PF 42 | TS +4/+8/+3 | CA 21"
+            ],
+            "talenti": [
+              "Combattere con due armi"
+            ]
+          }
+        ],
+        "benchmarks": {
+          "meta_tier": "T3"
+        },
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 250
+            }
+          ],
+          "currency": {
+            "oro": 100,
+            "argento": 25,
+            "rame": 40
+          },
+          "saldo": 0
+        },
+        "razza": "Halfling",
+        "salvezze_breakdown": {
+          "Tempra": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": 4
+          },
+          "Riflessi": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": 8
+          },
+          "Volontà": {
+            "base": null,
+            "modificatore": null,
+            "misc": null,
+            "totale": 3
+          }
+        },
+        "pf_per_livello": "n/d (PF per livello non fornito)",
+        "AC_arm": 0,
+        "AC_scudo": 0,
+        "AC_des": 0,
+        "AC_defl": 0,
+        "AC_nat": 0,
+        "AC_dodge": 0,
+        "AC_misc": 0,
+        "AC_base": 10,
+        "AC_tot": 21,
+        "CA_touch": 10,
+        "CA_ff": 10,
+        "BAB": "n/d (BAB non fornito)",
+        "init": 4,
+        "speed": 6,
+        "fonti": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=5&race=Halfling&archetype=Cutpurse"
+        ],
+        "print_mode": false,
+        "show_minmax": true,
+        "show_vtt": true,
+        "show_qa": true,
+        "show_explain": true,
+        "show_ledger": true,
+        "decimal_comma": true,
+        "skills": [
+          {
+            "nome": "Furtività",
+            "totale": 13
+          },
+          {
+            "nome": "Rapidità di mano",
+            "totale": 13
+          },
+          {
+            "nome": "Percezione",
+            "totale": 10
+          },
+          {
+            "nome": "Acrobazia",
+            "totale": 12
+          },
+          {
+            "nome": "Disattivare Congegni",
+            "totale": 13
+          }
+        ],
+        "spell_levels": [],
+        "magia": {},
+        "lingue": [],
+        "sensi": [],
+        "condizioni": []
       }
     },
     "narrative": "Halfling Cutpurse pronta/o per il campo, specializzata/o in tattiche da Rogue.",
@@ -1117,6 +1429,16 @@
         "meta_sources": null,
         "pfs_mode": null
       }
+    },
+    "checkpoints": {
+      "level": 5,
+      "levels": [
+        1,
+        5,
+        10
+      ]
     }
-  }
+  },
+  "reference_catalog_version": "2026.03.22",
+  "build_id": "build-8a4cf38432b636053fa7abe9"
 }

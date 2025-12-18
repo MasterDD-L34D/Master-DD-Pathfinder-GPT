@@ -32,7 +32,8 @@
       "SAG": 12,
       "CAR": 8,
       "level": 10
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T2",
@@ -55,8 +56,7 @@
       "attacco": "+20/+15",
       "danni": "1d12+18",
       "ca": 30
-    },
-    "bench_log": "Pipeline strict Ruling Expert → MinMax → Taverna/Narrative: validato badge RAW/RAI/PFS, benchmark offensivi/difensivi e arco narrativo allineati al profilo Gun Tank volante."
+    }
   },
   "export": {
     "sheet_payload": {
@@ -162,7 +162,15 @@
   "fetched_at": "2025-12-12T14:20:00Z",
   "request": {
     "path": "/modules/minmax_builder.txt",
-    "method": "GET"
+    "method": "GET",
+    "race": "Strix",
+    "archetype": "Gun Tank",
+    "level": 10,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "query_params": {
     "mode": "extended",
@@ -189,9 +197,6 @@
     "request_ip": null
   },
   "completeness": {
-    "status": "complete",
-    "missing": [],
-    "checklist": {},
     "require_complete": true
   },
   "ruling_badge": "RAW/RAI/PFS",
@@ -204,7 +209,24 @@
     "notes": [
       "Badge RAW/RAI/PFS validato in strict con report Ruling Expert allegato.",
       "Bench offensivo/difensivo e narrativa verificati contro la pipeline MinMax + Taverna."
-    ]
+    ],
+    "checkpoints": {
+      "bench_log": [
+        "Pipeline strict Ruling Expert → MinMax → Taverna/Narrative: validato badge RAW/RAI/PFS, benchmark offensivi/difensivi e arco narrativo allineati al profilo Gun Tank volante.",
+        "Sentinella aerea: overwatch con moschetto pesante e glide strix per mantenere copertura sopra il party.",
+        "Tank mobile: Armor Training + Gunslinger's Dodge per ridurre il malus in armatura mantenendo CA alta.",
+        "Debuff concussivo: cartucce scatter/stordenti per controllare minacce volanti e cariche a distanza."
+      ],
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete",
+      "checklist": {}
+    }
   },
   "spec_id": "gunslinger_strix_gun_tank",
   "narrative": {
@@ -238,24 +260,318 @@
   "sheet": "### 🧙 Scheda Personaggio in Markdown\\n\\n---\\n\\n# Gunslinger — Liv. 10 (Strix · Gun Tank)\\n\\n**Background rapido:** Capitano delle pattuglie alari di Cilret, incaricata di addestrare reclute terrestri a combattere da postazioni elevate.\\n\\n**Stile di gioco:** mantiene overwatch costante, scambiando CA altissima per controllo dell'area; alterna scatter e precise shot per coprire i buchi della linea difensiva.\\n\\n**Linee di progressione testate:**\\n- Sentinella aerea: volley di fuoco preparato con Deadeye e Stop Bleeding, sfruttando glide per riposizionarsi.\\n- Tank mobile: combinazione di Bodyguard migliorato e Gunslinger's Dodge per garantire copertura aerea.\\n- Debuff concussivo: cartucce concussive + lunghezza di canna per stordire i bersagli più resistenti.\\n\\n**Benchmark DPR/CA:** 1d12+18 su moschetto, CA 30; DPR medio/picco 88/136 sul checkpoint 10.\\n",
   "class": "Gunslinger",
   "mode": "extended",
-  "race": "Strix",
-  "archetype": "Gun Tank",
   "output_prefix": "gunslinger_strix_gun_tank",
-  "level": 10,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
-  "bench_log": [
-    "Pipeline strict Ruling Expert → MinMax → Taverna/Narrative: validato badge RAW/RAI/PFS, benchmark offensivi/difensivi e arco narrativo allineati al profilo Gun Tank volante.",
-    "Sentinella aerea: overwatch con moschetto pesante e glide strix per mantenere copertura sopra il party.",
-    "Tank mobile: Armor Training + Gunslinger's Dodge per ridurre il malus in armatura mantenendo CA alta.",
-    "Debuff concussivo: cartucce scatter/stordenti per controllare minacce volanti e cariche a distanza."
-  ],
   "ruling_log": [
     "Ruling Expert: Gun Tank compatibile con glide strix; l'armatura limita la manovrabilità ma non nega il volo planato.",
     "Badge RAW/RAI/PFS confermato in strict: nessun HR richiesto, sostituzioni di deed/armor training non confliggono.",
     "MinMax: scelta la linea tanky aerea per massimizzare CA e controllo, rinunciando a crit-fishing puro."
-  ]
+  ],
+  "reference_catalog_version": "2026.03.22",
+  "build_id": "build-509b7c7701c3d86e552a0b14",
+  "composite": {
+    "build": {
+      "build_id": "build-509b7c7701c3d86e552a0b14",
+      "build_state": {
+        "class": "Gunslinger",
+        "mode": "extended",
+        "race": "Strix",
+        "archetype": "Gun Tank",
+        "step": 16,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 14,
+          "DES": 22,
+          "COS": 16,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8,
+          "level": 10
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T2",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 16,
+            "picco": 24
+          },
+          "livello_5": {
+            "media": 42,
+            "picco": 63
+          },
+          "livello_10": {
+            "media": 88,
+            "picco": 136
+          }
+        },
+        "statistics": {
+          "attacco": "+20/+15",
+          "danni": "1d12+18",
+          "ca": 30
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Gunslinger",
+              "livelli": 10,
+              "archetipi": [
+                "Gun Tank"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 14,
+            "DES": 22,
+            "COS": 16,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 8,
+            "attacco": "+20/+15",
+            "danni": "1d12+18",
+            "ca": 30
+          },
+          "benchmarks": {
+            "meta_tier": "T2"
+          },
+          "salvezze": {
+            "Tempra": "TS elevati grazie a COS e addestramento da Gun Tank",
+            "Riflessi": "Bonus DES elevato + Gunslinger dodge",
+            "Volontà": "Disciplina da sentinella strix e addestramento tattico"
+          },
+          "skills": [
+            {
+              "nome": "Percezione",
+              "gradi": 10,
+              "mod_car": 1,
+              "var": 6,
+              "classe": true,
+              "totale": 20
+            },
+            {
+              "nome": "Volare",
+              "gradi": 10,
+              "mod_car": 6,
+              "var": 2,
+              "classe": true,
+              "totale": 20
+            },
+            {
+              "nome": "Intimidire",
+              "gradi": 10,
+              "mod_car": -1,
+              "var": 3,
+              "classe": true,
+              "totale": 12
+            }
+          ],
+          "equipaggiamento": [
+            "Musket pesante +2 con mirino a cristallo nero",
+            "Scudo torre pieghevole +1",
+            "Corazza lamellare +2 con harness alare",
+            "Munizioni adamantine e scatter, cartucce concussive di riserva"
+          ],
+          "equipment_summary": {
+            "peso_totale": "medio",
+            "note": "Build tanky ma mobile: harness alare per mantenere glide nonostante la corazza."
+          },
+          "ledger_movimenti": [
+            {
+              "voce": "Upgrade moschetto e harness",
+              "importo": -520
+            },
+            {
+              "voce": "Ingaggio pattuglie volanti",
+              "importo": 800
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Upgrade moschetto e harness",
+                "importo": -520
+              },
+              {
+                "voce": "Ingaggio pattuglie volanti",
+                "importo": 800
+              }
+            ],
+            "currency": {
+              "oro": 360,
+              "argento": 24,
+              "rame": 18
+            }
+          },
+          "sheet_markdown": "Percezione\nMusket pesante +2 con mirino a cristallo nero\nUpgrade moschetto e harness",
+          "pf_per_livello": "d10 (Gun Tank + COS)",
+          "fonti": [
+            "local-refresh"
+          ]
+        }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2025-12-12T14:20:00Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Gunslinger",
+            "livelli": 10,
+            "archetipi": [
+              "Gun Tank"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 14,
+          "DES": 22,
+          "COS": 16,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8,
+          "attacco": "+20/+15",
+          "danni": "1d12+18",
+          "ca": 30
+        },
+        "benchmarks": {
+          "meta_tier": "T2"
+        },
+        "salvezze": {
+          "Tempra": "TS elevati grazie a COS e addestramento da Gun Tank",
+          "Riflessi": "Bonus DES elevato + Gunslinger dodge",
+          "Volontà": "Disciplina da sentinella strix e addestramento tattico"
+        },
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 10,
+            "mod_car": 1,
+            "var": 6,
+            "classe": true,
+            "totale": 20
+          },
+          {
+            "nome": "Volare",
+            "gradi": 10,
+            "mod_car": 6,
+            "var": 2,
+            "classe": true,
+            "totale": 20
+          },
+          {
+            "nome": "Intimidire",
+            "gradi": 10,
+            "mod_car": -1,
+            "var": 3,
+            "classe": true,
+            "totale": 12
+          }
+        ],
+        "equipaggiamento": [
+          "Musket pesante +2 con mirino a cristallo nero",
+          "Scudo torre pieghevole +1",
+          "Corazza lamellare +2 con harness alare",
+          "Munizioni adamantine e scatter, cartucce concussive di riserva"
+        ],
+        "equipment_summary": {
+          "peso_totale": "medio",
+          "note": "Build tanky ma mobile: harness alare per mantenere glide nonostante la corazza."
+        },
+        "ledger_movimenti": [
+          {
+            "voce": "Upgrade moschetto e harness",
+            "importo": -520
+          },
+          {
+            "voce": "Ingaggio pattuglie volanti",
+            "importo": 800
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Upgrade moschetto e harness",
+              "importo": -520
+            },
+            {
+              "voce": "Ingaggio pattuglie volanti",
+              "importo": 800
+            }
+          ],
+          "currency": {
+            "oro": 360,
+            "argento": 24,
+            "rame": 18
+          }
+        },
+        "sheet_markdown": "Percezione\nMusket pesante +2 con mirino a cristallo nero\nUpgrade moschetto e harness",
+        "pf_per_livello": "d10 (Gun Tank + COS)",
+        "fonti": [
+          "local-refresh"
+        ]
+      }
+    },
+    "narrative": {
+      "hook": "Capitano strix che forma squadre miste per difendere i nidi con fuoco di moschetto.",
+      "taverna": "Tiene dimostrazioni tattiche su come sparare in picchiata senza perdere la linea di tiro.",
+      "badge": "RAW/RAI/PFS",
+      "bench": {
+        "offensivo": "1d12+18",
+        "difensivo": 30,
+        "note": "Pipeline potenziata con badge strict e benchmark MinMax/Taverna sincronizzati."
+      }
+    },
+    "sheet": "### 🧙 Scheda Personaggio in Markdown\\n\\n---\\n\\n# Gunslinger — Liv. 10 (Strix · Gun Tank)\\n\\n**Background rapido:** Capitano delle pattuglie alari di Cilret, incaricata di addestrare reclute terrestri a combattere da postazioni elevate.\\n\\n**Stile di gioco:** mantiene overwatch costante, scambiando CA altissima per controllo dell'area; alterna scatter e precise shot per coprire i buchi della linea difensiva.\\n\\n**Linee di progressione testate:**\\n- Sentinella aerea: volley di fuoco preparato con Deadeye e Stop Bleeding, sfruttando glide per riposizionarsi.\\n- Tank mobile: combinazione di Bodyguard migliorato e Gunslinger's Dodge per garantire copertura aerea.\\n- Debuff concussivo: cartucce concussive + lunghezza di canna per stordire i bersagli più resistenti.\\n\\n**Benchmark DPR/CA:** 1d12+18 su moschetto, CA 30; DPR medio/picco 88/136 sul checkpoint 10.\\n",
+    "ledger": {
+      "movimenti": [
+        {
+          "voce": "Addestramento elite Gun Tank",
+          "importo": -6200
+        },
+        {
+          "voce": "Ricompensa per abbattere chimera volante",
+          "importo": 7800
+        }
+      ],
+      "currency": {
+        "oro": 910,
+        "argento": 75,
+        "rame": 10
+      },
+      "saldo": 500
+    }
+  }
 }

@@ -14,7 +14,26 @@
       "SAG": 12,
       "CAR": 10,
       "level": 5
-    }
+    },
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -37,17 +56,8 @@
       "attacco": "+13",
       "danni": "lancia lunga + cavallo da guerra 2d6+18 (Spirited Charge)",
       "ca": 27
-    },
-    "bench_log": [
-      "Livello 5: confronto tra set difesa a cavallo (Mounted Shield + Bodyguard) e carica ottimizzata (Spirited Charge + Ordine del Drago); Strategist fornisce ordini coordinati per il party.",
-      "Benchmark offensivo/difensivo: media DPR 32, picco 52; CA 27/29 con Bodyguard in reazione. Variante carica ottimizzata + supporto tattico risulta la più alta.",
-      "Badge RAW/RAI/PFS mantenuto: ruling su stacking di Bodyguard e Tactician validato (log incluso)."
-    ]
+    }
   },
-  "bench_log": [
-    "Checkpoint 5: Spirited Charge + pennon Honor Guard per coprire alleati in avvicinamento; ordini condivisi ogni 2 round grazie a Strategist.",
-    "Ruling Expert: confermata compatibilità di Share Training con Mount e Bodyguard; nessun conflitto RAI con tratto volante Strix."
-  ],
   "body_params": {
     "race": "Strix",
     "archetype_primary": "Strategist",
@@ -56,12 +66,10 @@
   },
   "build_source": "local spec",
   "class": "Cavalier",
-  "completeness": {
-    "status": "complete",
-    "missing": []
-  },
+  "completeness": {},
   "composite": {
     "build": {
+      "build_id": "build-99c826977ab3c9e6774dc5df",
       "build_state": {
         "class": "Cavalier",
         "mode": "extended",
@@ -77,7 +85,26 @@
           "SAG": 12,
           "CAR": 10,
           "level": 5
-        }
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T3",
@@ -100,12 +127,7 @@
           "attacco": "+13",
           "danni": "lancia lunga + cavallo da guerra 2d6+18 (Spirited Charge)",
           "ca": 27
-        },
-        "bench_log": [
-          "Livello 5: confronto tra set difesa a cavallo (Mounted Shield + Bodyguard) e carica ottimizzata (Spirited Charge + Ordine del Drago); Strategist fornisce ordini coordinati per il party.",
-          "Benchmark offensivo/difensivo: media DPR 32, picco 52; CA 27/29 con Bodyguard in reazione. Variante carica ottimizzata + supporto tattico risulta la più alta.",
-          "Badge RAW/RAI/PFS mantenuto: ruling su stacking di Bodyguard e Tactician validato (log incluso)."
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -147,26 +169,143 @@
             "narrative_flow.txt"
           ],
           "skills": [
-            {"nome": "Percezione", "totale": 10},
-            {"nome": "Volare", "totale": 13}
+            {
+              "nome": "Percezione",
+              "totale": 10
+            },
+            {
+              "nome": "Volare",
+              "totale": 13
+            }
           ],
           "equipaggiamento": [
             "Lancia lunga rinforzata",
             "Corazza strix"
           ],
           "ledger_movimenti": [
-            {"voce": "Equipaggiamento iniziale", "importo": -220},
-            {"voce": "Ricompensa pattuglia aerea", "importo": 320}
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -220
+            },
+            {
+              "voce": "Ricompensa pattuglia aerea",
+              "importo": 320
+            }
           ],
           "ledger": {
             "movimenti": [
-              {"voce": "Equipaggiamento iniziale", "importo": -220},
-              {"voce": "Ricompensa pattuglia aerea", "importo": 320}
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -220
+              },
+              {
+                "voce": "Ricompensa pattuglia aerea",
+                "importo": 320
+              }
             ],
-            "currency": {"oro": 200, "argento": 40, "rame": 75}
+            "currency": {
+              "oro": 200,
+              "argento": 40,
+              "rame": 75
+            }
           },
           "sheet_markdown": "Percezione +10, Volare +13, Lancia lunga rinforzata, Ricompensa pattuglia aerea"
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:46:09Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Cavalier",
+            "livelli": 5,
+            "archetipi": [
+              "Strategist",
+              "Honor Guard"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 20,
+          "DES": 16,
+          "COS": 16,
+          "INT": 12,
+          "SAG": 12,
+          "CAR": 10,
+          "attacco": "+13",
+          "danni": "2d6+18 (carica)",
+          "ca": 27
+        },
+        "statistiche_chiave": {
+          "attacco": "+13",
+          "danni": "2d6+18",
+          "ca": 27
+        },
+        "level": 5,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "modules": [
+          "base_profile.txt",
+          "Taverna_NPC.txt",
+          "narrative_flow.txt"
+        ],
+        "skills": [
+          {
+            "nome": "Percezione",
+            "totale": 10
+          },
+          {
+            "nome": "Volare",
+            "totale": 13
+          }
+        ],
+        "equipaggiamento": [
+          "Lancia lunga rinforzata",
+          "Corazza strix"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -220
+          },
+          {
+            "voce": "Ricompensa pattuglia aerea",
+            "importo": 320
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -220
+            },
+            {
+              "voce": "Ricompensa pattuglia aerea",
+              "importo": 320
+            }
+          ],
+          "currency": {
+            "oro": 200,
+            "argento": 40,
+            "rame": 75
+          }
+        },
+        "sheet_markdown": "Percezione +10, Volare +13, Lancia lunga rinforzata, Ricompensa pattuglia aerea"
       }
     },
     "narrative": {
@@ -221,23 +360,45 @@
         "narrative_flow.txt"
       ],
       "skills": [
-        {"nome": "Percezione", "totale": 10},
-        {"nome": "Volare", "totale": 13}
+        {
+          "nome": "Percezione",
+          "totale": 10
+        },
+        {
+          "nome": "Volare",
+          "totale": 13
+        }
       ],
       "equipaggiamento": [
         "Lancia lunga rinforzata",
         "Corazza strix"
       ],
       "ledger_movimenti": [
-        {"voce": "Equipaggiamento iniziale", "importo": -220},
-        {"voce": "Ricompensa pattuglia aerea", "importo": 320}
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -220
+        },
+        {
+          "voce": "Ricompensa pattuglia aerea",
+          "importo": 320
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Equipaggiamento iniziale", "importo": -220},
-          {"voce": "Ricompensa pattuglia aerea", "importo": 320}
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -220
+          },
+          {
+            "voce": "Ricompensa pattuglia aerea",
+            "importo": 320
+          }
         ],
-        "currency": {"oro": 200, "argento": 40, "rame": 75}
+        "currency": {
+          "oro": 200,
+          "argento": 40,
+          "rame": 75
+        }
       },
       "sheet_markdown": "Percezione +10, Volare +13, Lancia lunga rinforzata, Ricompensa pattuglia aerea"
     }
@@ -246,12 +407,6 @@
   "ledger": {
     "notes": "import manuale pipeline potenziata"
   },
-  "level": 5,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
   "mode": "extended",
   "mode_normalized": "extended",
   "narrative": {
@@ -295,5 +450,35 @@
   },
   "source_url": "local://cavalier/strix/strategist-honor-guard",
   "spec_id": "cavalier_strix_strategist_honor_guard",
-  "archetype": ""
+  "reference_catalog_version": "2026.03.22",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Checkpoint 5: Spirited Charge + pennon Honor Guard per coprire alleati in avvicinamento; ordini condivisi ogni 2 round grazie a Strategist.",
+        "Ruling Expert: confermata compatibilità di Share Training con Mount e Bodyguard; nessun conflitto RAI con tratto volante Strix."
+      ],
+      "level": 5,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete"
+    }
+  },
+  "build_id": "build-99c826977ab3c9e6774dc5df",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:46:09Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  }
 }

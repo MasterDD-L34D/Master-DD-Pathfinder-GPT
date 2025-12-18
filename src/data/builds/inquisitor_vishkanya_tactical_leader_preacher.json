@@ -14,7 +14,26 @@
       "SAG": 16,
       "CAR": 8,
       "level": 1
-    }
+    },
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T2",
@@ -37,18 +56,8 @@
       "attacco": "+4",
       "danni": "kukri 1d4+3 +1d6 precision (Studied Target + Precise Strike condiviso)",
       "ca": 17
-    },
-    "bench_log": [
-      "Varianti testate (Ruling Expert → MinMax → Taverna): (1) Vishkanya Sanctified Slayer/Tactical Leader stealth tiratore; (2) Vishkanya Tactical Leader/Preacher da mischia con precise strike; (3) Wayang Erudite tactician per debuff a distanza.",
-      "Ruling/RAW: scelta la linea Tactical Leader + Preacher (niente conflitti di sostituzione; compatibile con poison use vishkanya) con badge RAW/RAI/PFS confermato.",
-      "Bench: variante 2 mantiene DPR medio/safe più alto ai checkpoint e CA/ts migliori grazie a litany + sermon difensivo; collocata in T2 e conservata come linea principale."
-    ]
+    }
   },
-  "bench_log": [
-    "Ruling Expert: validati i tratti vishkanya (poison use, toxic skin) con giudizio/sermon senza HR; note PFS su veleni legali applicate.",
-    "MinMax: condividere Precise Strike via Tactician + Solo Tactics fornisce precisione/sneak costante; debuff da Blistering Invective + poison DC 14/17/20.",
-    "Narrative/Taverna: inquisitrice emissaria velenosa al servizio del tempio, specializzata in coordinamento di cellule furtive."
-  ],
   "body_params": {
     "race": "Vishkanya",
     "archetype_primary": "Tactical Leader",
@@ -63,6 +72,7 @@
   },
   "composite": {
     "build": {
+      "build_id": "build-a4da411abe1c697985e23862",
       "build_state": {
         "class": "Inquisitor",
         "mode": "extended",
@@ -78,7 +88,26 @@
           "SAG": 16,
           "CAR": 8,
           "level": 1
-        }
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T2",
@@ -99,14 +128,9 @@
         },
         "statistics": {
           "attacco": "+4",
-          "danni": "kukri 1d4+3 +1d6 precision",
+          "danni": "kukri 1d4+3 +1d6 precision (Studied Target + Precise Strike condiviso)",
           "ca": 17
-        },
-        "bench_log": [
-          "Varianti testate (Ruling Expert → MinMax → Taverna): (1) Vishkanya Sanctified Slayer/Tactical Leader stealth tiratore; (2) Vishkanya Tactical Leader/Preacher da mischia con precise strike; (3) Wayang Erudite tactician per debuff a distanza.",
-          "Ruling/RAW: scelta la linea Tactical Leader + Preacher (niente conflitti di sostituzione; compatibile con poison use vishkanya) con badge RAW/RAI/PFS confermato.",
-          "Bench: variante 2 mantiene DPR medio/safe più alto ai checkpoint e CA/ts migliori grazie a litany + sermon difensivo; collocata in T2 e conservata come linea principale."
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -197,6 +221,109 @@
           },
           "sheet_markdown": "Percezione\nKukri rituale\nDonazione al tempio"
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": null,
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Inquisitor",
+            "livelli": 1,
+            "archetipi": [
+              "Tactical Leader",
+              "Preacher"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 14,
+          "DES": 16,
+          "COS": 12,
+          "INT": 10,
+          "SAG": 16,
+          "CAR": 8,
+          "attacco": "+4",
+          "danni": "kukri 1d4+3 +1d6 precision",
+          "ca": 17
+        },
+        "statistiche_chiave": {
+          "attacco": "+4",
+          "danni": "1d4+3",
+          "ca": 17
+        },
+        "level": 1,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "modules": [
+          "base_profile.txt",
+          "Taverna_NPC.txt",
+          "narrative_flow.txt"
+        ],
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 1,
+            "mod_car": 3,
+            "classe": true,
+            "totale": 7
+          },
+          {
+            "nome": "Intimidire",
+            "gradi": 1,
+            "mod_car": 0,
+            "classe": true,
+            "totale": 5
+          }
+        ],
+        "equipaggiamento": [
+          "Kukri rituale",
+          "Giaco di maglia",
+          "Santino del tempio"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Donazione al tempio",
+            "importo": -40
+          },
+          {
+            "voce": "Incarico tattico",
+            "importo": 80
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Donazione al tempio",
+              "importo": -40
+            },
+            {
+              "voce": "Incarico tattico",
+              "importo": 80
+            }
+          ],
+          "currency": {
+            "oro": 45,
+            "argento": 8,
+            "rame": 4
+          }
+        },
+        "sheet_markdown": "Percezione\nKukri rituale\nDonazione al tempio"
       }
     },
     "narrative": {
@@ -309,7 +436,6 @@
     "race": "Vishkanya",
     "archetype": "Tactical Leader Preacher"
   },
-  "race": "Vishkanya",
   "archetypes": [
     "Tactical Leader",
     "Preacher"
@@ -319,7 +445,12 @@
     "mode": "extended",
     "race": "Vishkanya",
     "archetype": "Tactical Leader Preacher",
-    "spec_id": "inquisitor_vishkanya_tactical_leader_preacher"
+    "spec_id": "inquisitor_vishkanya_tactical_leader_preacher",
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "step_audit": {
     "normalized_mode": "extended",
@@ -334,5 +465,21 @@
     "attempt_count": 1,
     "backoff_reason": null,
     "request_ip": null
-  }
+  },
+  "reference_catalog_version": "2026.03.22",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Ruling Expert: validati i tratti vishkanya (poison use, toxic skin) con giudizio/sermon senza HR; note PFS su veleni legali applicate.",
+        "MinMax: condividere Precise Strike via Tactician + Solo Tactics fornisce precisione/sneak costante; debuff da Blistering Invective + poison DC 14/17/20.",
+        "Narrative/Taverna: inquisitrice emissaria velenosa al servizio del tempio, specializzata in coordinamento di cellule furtive."
+      ],
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
+  },
+  "build_id": "build-a4da411abe1c697985e23862"
 }
