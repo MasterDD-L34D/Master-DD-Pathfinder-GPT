@@ -193,7 +193,9 @@ def test_minmax_builder_stub_contains_full_payload(client, auth_headers):
     payload = response.json()
 
     expected_keys = {
+        "build_id",
         "build_state",
+        "step_audit",
         "benchmark",
         "export",
         "narrative",

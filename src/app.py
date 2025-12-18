@@ -24,7 +24,7 @@ from prometheus_client import CONTENT_TYPE_LATEST, Counter, Gauge, generate_late
 from jsonschema.exceptions import ValidationError
 
 from .config import MODULES_DIR, DATA_DIR, settings
-from tools.generate_build_db import schema_for_mode, validate_with_schema
+from tools.generate_build_db import schema_for_mode, slugify, validate_with_schema
 
 
 REFERENCE_MANIFEST_PATH = (
@@ -1513,8 +1513,31 @@ async def get_module_content(
                 detail="Reference catalog manifest non disponibile",
             )
 
+        build_id = (
+            f"stub-{normalized_mode}-"
+            f"{slugify(class_name or 'unknown')}-"
+            f"{slugify(resolved_race or 'race')}-"
+            f"{slugify(resolved_archetype or 'archetype')}"
+        )
+        step_audit = {
+            "request_timestamp": None,
+            "client_fingerprint_hash": "stub-client-fingerprint-hash-000000000000",
+            "request_ip": None,
+            "outcome": "accepted",
+            "attempt_count": 1,
+            "backoff_reason": None,
+            "normalized_mode": normalized_mode,
+            "expected_step_total": step_total,
+            "observed_step_total": step_total,
+            "step_total_ok": True,
+            "step_labels_count": len(step_labels),
+            "has_extended_steps": normalized_mode == "extended",
+        }
+
         payload: Dict = {
+            "build_id": build_id,
             "build_state": base_build_state,
+            "step_audit": step_audit,
             "benchmark": benchmark,
             "export": export_block,
             "narrative": narrative,
@@ -1528,7 +1551,9 @@ async def get_module_content(
 
         payload["composite"] = {
             "build": {
+                "build_id": build_id,
                 "build_state": payload["build_state"],
+                "step_audit": step_audit,
                 "benchmark": payload["benchmark"],
                 "export": payload["export"],
                 "sheet_payload": sheet_payload,
