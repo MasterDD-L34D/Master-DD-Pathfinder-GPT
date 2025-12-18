@@ -1297,7 +1297,11 @@ def validate_with_schema(
     schema_filename: str, payload: Mapping, context: str, *, strict: bool
 ) -> str | None:
     augmented_payload = payload
-    if "reference_catalog_version" not in payload:
+
+    # Reference catalog entries are lists, not mappings; only inject metadata when
+    # a mapping payload is provided. This prevents attempting to coerce a list
+    # to a dict, which raises a ValueError and stops report generation.
+    if isinstance(payload, Mapping) and "reference_catalog_version" not in payload:
         manifest_version = (get_reference_manifest() or {}).get("version")
         if manifest_version:
             augmented_payload = dict(payload)
