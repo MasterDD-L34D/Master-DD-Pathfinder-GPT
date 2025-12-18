@@ -14,7 +14,26 @@
       "SAG": 12,
       "CAR": 8,
       "level": 10
-    }
+    },
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T2",
@@ -37,12 +56,7 @@
       "attacco": "+9",
       "danni": "raggio occulto 3d6+INT",
       "ca": 18
-    },
-    "bench_log": [
-      "Varianti testate per ogni checkpoint: maledizioni a contatto (Hexcrafter), blaster infernale (Bloodline), controllo utility (metamagia rapida).",
-      "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge RAW/RAI/PFS confermato, simulazioni offensive/difensive annotate, background coerente con lignaggio tiefling.",
-      "Scelta finale: ibrido Hexcrafter + Blood Arcanist con focus hex debuff + raggi di sangue; mantiene sinergie di talento/metamagia e flessibilità di preparazione arcanist."
-    ]
+    }
   },
   "export": {
     "sheet_payload": {
@@ -241,17 +255,6 @@
   ],
   "fetched_at": "2025-12-10T23:34:32Z",
   "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Arcanist&race=Tiefling",
-  "level": 10,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
-  "bench_log": [
-    "Varianti testate per ogni checkpoint: maledizioni a contatto (Hexcrafter), blaster infernale (Bloodline), controllo utility (metamagia rapida).",
-    "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge RAW/RAI/PFS confermato, simulazioni offensive/difensive annotate, background coerente con lignaggio tiefling.",
-    "Scelta finale: ibrido Hexcrafter + Blood Arcanist con focus hex debuff + raggi di sangue; mantiene sinergie di talento/metamagia e flessibilità di preparazione arcanist."
-  ],
   "request": {
     "class": "arcanist",
     "race": "tiefling",
@@ -259,7 +262,13 @@
       "Hexcrafter",
       "Blood Arcanist"
     ],
-    "level": 10
+    "level": 10,
+    "archetype": "Hexcrafter + Blood Arcanist",
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "query_params": {
     "mode": "extended",
@@ -271,6 +280,7 @@
   "body_params": {},
   "composite": {
     "build": {
+      "build_id": "build-82ec6bd18eadbcfe6fd23e05",
       "build_state": {
         "class": "Arcanist",
         "mode": "extended",
@@ -286,7 +296,26 @@
           "SAG": 12,
           "CAR": 8,
           "level": 10
-        }
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T2",
@@ -309,12 +338,7 @@
           "attacco": "+9",
           "danni": "raggio occulto 3d6+INT",
           "ca": 18
-        },
-        "bench_log": [
-          "Varianti testate per ogni checkpoint: maledizioni a contatto (Hexcrafter), blaster infernale (Bloodline), controllo utility (metamagia rapida).",
-          "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge RAW/RAI/PFS confermato, simulazioni offensive/difensive annotate, background coerente con lignaggio tiefling.",
-          "Scelta finale: ibrido Hexcrafter + Blood Arcanist con focus hex debuff + raggi di sangue; mantiene sinergie di talento/metamagia e flessibilità di preparazione arcanist."
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -461,8 +485,226 @@
             "totale": 18
           },
           "iniziativa": 2,
-          "velocita": 9
+          "velocita": 9,
+          "skills": [
+            {
+              "nome": "Conoscenze (arcane)",
+              "totale": 14
+            },
+            {
+              "nome": "Linguistica",
+              "totale": 7
+            },
+            {
+              "nome": "Percezione",
+              "totale": 4
+            }
+          ],
+          "ledger": {
+            "saldo": 0
+          },
+          "ledger_movimenti": [
+            {
+              "voce": "Componenti magiche",
+              "importo": -150,
+              "note": "Acquisti recenti"
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 600,
+              "note": "Pago in oro"
+            }
+          ]
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:46:09Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Arcanist",
+            "livelli": 10,
+            "archetipi": [
+              "Hexcrafter",
+              "Blood Arcanist"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 10,
+          "DES": 14,
+          "COS": 14,
+          "INT": 22,
+          "SAG": 12,
+          "CAR": 8,
+          "attacco": "+9",
+          "danni": "raggio occulto 3d6+INT",
+          "ca": 18
+        },
+        "statistiche_chiave": {
+          "attacco": "+9",
+          "danni": "raggio occulto 3d6+INT",
+          "ca": 18
+        },
+        "hp": {
+          "totali": 150,
+          "per_livello": [
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            15
+          ]
+        },
+        "pf_totali": 150,
+        "salvezze": {
+          "Tempra": 5,
+          "Riflessi": 4,
+          "Volontà": 7
+        },
+        "skills_map": {
+          "Conoscenze (arcane)": {
+            "totale": 14
+          },
+          "Linguistica": {
+            "totale": 7
+          },
+          "Percezione": {
+            "totale": 4
+          }
+        },
+        "benchmarks": {
+          "meta_tier": "T2",
+          "ruling_badge": "validated",
+          "dpr_snapshot": {
+            "livello_1": {
+              "media": 9,
+              "picco": 14
+            },
+            "livello_5": {
+              "media": 28,
+              "picco": 42
+            },
+            "livello_10": {
+              "media": 72,
+              "picco": 110
+            }
+          },
+          "statistics": {
+            "attacco": "+9",
+            "danni": "raggio occulto 3d6+INT",
+            "ca": 18
+          },
+          "bench_log": [
+            "Varianti testate per ogni checkpoint: maledizioni a contatto (Hexcrafter), blaster infernale (Bloodline), controllo utility (metamagia rapida).",
+            "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge RAW/RAI/PFS confermato, simulazioni offensive/difensive annotate, background coerente con lignaggio tiefling.",
+            "Scelta finale: ibrido Hexcrafter + Blood Arcanist con focus hex debuff + raggi di sangue; mantiene sinergie di talento/metamagia e flessibilità di preparazione arcanist."
+          ]
+        },
+        "notes": "Profilo aggiornato con doppi archetipi sinergici e slot flessibili per hex + magie di sangue.",
+        "talenti": [
+          "Accuratezza Magica",
+          "Metamagia Rapida",
+          "Spell Focus (necromanzia)",
+          "Raggi Potenziati"
+        ],
+        "capacita_classe": [
+          "Arcane Reservoir",
+          "Bloodline Arcana (infernale)",
+          "Hexes da Hexcrafter",
+          "Magie preparate flessibili"
+        ],
+        "equipaggiamento": [
+          "Bastone scuro con rune",
+          "Mantello di resistenza +1",
+          "Anello di protezione +1"
+        ],
+        "inventario": [
+          "Componenti arcane",
+          "Diario di formula arcanist",
+          "Pozione di invisibilità"
+        ],
+        "magia": {
+          "0": [
+            "individuazione del magico",
+            "mano magica",
+            "luce",
+            "tocco gelido"
+          ],
+          "1": [
+            "maledizione da strega",
+            "scagliare raggio",
+            "scudo"
+          ],
+          "2": [
+            "raggio rovente",
+            "foschia occultante",
+            "potere del sangue"
+          ],
+          "3": [
+            "raggio di stanchezza potenziato",
+            "velocità"
+          ],
+          "4": [
+            "porta dimensionale",
+            "maledizione maggiore"
+          ]
+        },
+        "ac_breakdown": {
+          "armatura": 4,
+          "destrezza": 2,
+          "naturale": 1,
+          "vario": 1,
+          "totale": 18
+        },
+        "iniziativa": 2,
+        "velocita": 9,
+        "skills": [
+          {
+            "nome": "Conoscenze (arcane)",
+            "totale": 14
+          },
+          {
+            "nome": "Linguistica",
+            "totale": 7
+          },
+          {
+            "nome": "Percezione",
+            "totale": 4
+          }
+        ],
+        "ledger": {
+          "saldo": 0
+        },
+        "ledger_movimenti": [
+          {
+            "voce": "Componenti magiche",
+            "importo": -150,
+            "note": "Acquisti recenti"
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 600,
+            "note": "Pago in oro"
+          }
+        ]
       }
     },
     "narrative": {
@@ -475,8 +717,37 @@
       "text": "Ledger riepilogato"
     }
   },
-  "completeness": {
-    "status": "complete",
-    "missing": []
+  "completeness": {},
+  "reference_catalog_version": "2026.03.22",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Varianti testate per ogni checkpoint: maledizioni a contatto (Hexcrafter), blaster infernale (Bloodline), controllo utility (metamagia rapida).",
+        "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge RAW/RAI/PFS confermato, simulazioni offensive/difensive annotate, background coerente con lignaggio tiefling.",
+        "Scelta finale: ibrido Hexcrafter + Blood Arcanist con focus hex debuff + raggi di sangue; mantiene sinergie di talento/metamagia e flessibilità di preparazione arcanist."
+      ],
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete"
+    }
+  },
+  "build_id": "build-82ec6bd18eadbcfe6fd23e05",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:46:09Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
   }
 }

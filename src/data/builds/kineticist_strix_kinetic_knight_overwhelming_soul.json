@@ -31,7 +31,8 @@
       "INT": 10,
       "SAG": 12,
       "CAR": 16
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T1",
@@ -54,12 +55,7 @@
       "attacco": "+6",
       "danni": "lancia di forza 2d6+6 (empowered infusion)",
       "ca": 19
-    },
-    "bench_log": [
-      "Varianti testate (Ruling Expert → MinMax → Taverna/Narrative): (1) Strix Kinetic Knight/Overwhelming Soul con armatura celata, (2) Vishkanya Aero-Kineticist + Kinetic Knight sniper, (3) Strix Elemental Annihilator + Psychokineticist da mischia aerea.",
-      "Ruling: confermata la compatibilità tra Overwhelming Soul e Kinetic Knight (nessuna sostituzione in conflitto, focus su CHA e difesa da armatura) con badge RAW/RAI/PFS.",
-      "Benchmark: la variante 1 mantiene il DPR più alto ai checkpoint e sinergizza con le ali strix per posizionamento; promossa e conservata con meta_tier T1 e log di bench allegati."
-    ]
+    }
   },
   "export": {
     "sheet_payload": {
@@ -157,11 +153,6 @@
       "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale"
     }
   },
-  "bench_log": [
-    "Ruling Expert: validati i replacement Overwhelming Soul (CHA focus) con il carapace armato di Kinetic Knight; nessun overlap con infusions base.",
-    "MinMax: confronto fra varianti a distanza e mischia aerea; la build knight/soul mantiene DPR e CA migliori grazie a heavy shield + gather difensivo.",
-    "Narrative/Taverna: pattuglia strix dell'ordine celestiale che sfrutta ali e scudi cinetici per proteggere la rocca."
-  ],
   "body_params": {
     "race": "Strix",
     "archetype_primary": "Kinetic Knight",
@@ -223,6 +214,19 @@
         "hook": "Custode dei cieli sopra il monastero delle strix",
         "voice": "tono metallico e disciplinato"
       }
+    },
+    "checkpoints": {
+      "bench_log": [
+        "Ruling Expert: validati i replacement Overwhelming Soul (CHA focus) con il carapace armato di Kinetic Knight; nessun overlap con infusions base.",
+        "MinMax: confronto fra varianti a distanza e mischia aerea; la build knight/soul mantiene DPR e CA migliori grazie a heavy shield + gather difensivo.",
+        "Narrative/Taverna: pattuglia strix dell'ordine celestiale che sfrutta ali e scudi cinetici per proteggere la rocca."
+      ],
+      "level": 1,
+      "levels": [
+        1,
+        5,
+        10
+      ]
     }
   },
   "checkpoints": [
@@ -246,17 +250,302 @@
     }
   ],
   "output_prefix": "kineticist_strix_kinetic_knight_overwhelming_soul",
-  "race": "Strix",
-  "archetype": "Kinetic Knight + Overwhelming Soul",
   "spec_id": "kineticist_strix_kinetic_knight_overwhelming_soul",
   "background": "Guardia alata delle cittadelle strix",
-  "level": 1,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
   "mode": "extended",
   "mode_normalized": "extended",
-  "narrative": "Guardia strix che sfrutta Kinetic Knight e Overwhelming Soul per proteggere le cittadelle alate."
+  "narrative": "Guardia strix che sfrutta Kinetic Knight e Overwhelming Soul per proteggere le cittadelle alate.",
+  "reference_catalog_version": "2026.03.22",
+  "request": {
+    "race": "Strix",
+    "archetype": "Kinetic Knight + Overwhelming Soul",
+    "level": 1,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "build_id": "build-c2fba435427ff74d580e4d12",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:46:09Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  },
+  "composite": {
+    "build": {
+      "build_id": "build-c2fba435427ff74d580e4d12",
+      "build_state": {
+        "class": "Kineticist",
+        "mode": "extended",
+        "race": "Strix",
+        "archetype": "Kinetic Knight + Overwhelming Soul",
+        "step": 1,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 12,
+          "DES": 18,
+          "COS": 12,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 16
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 12,
+            "picco": 18
+          },
+          "livello_5": {
+            "media": 32,
+            "picco": 48
+          },
+          "livello_10": {
+            "media": 62,
+            "picco": 92
+          }
+        },
+        "statistics": {
+          "attacco": "+6",
+          "danni": "lancia di forza 2d6+6 (empowered infusion)",
+          "ca": 19
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Kineticist",
+              "livelli": 1,
+              "archetipi": [
+                "Kinetic Knight",
+                "Overwhelming Soul"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 12,
+            "DES": 18,
+            "COS": 12,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 16,
+            "attacco": "+6",
+            "danni": "lancia di forza 2d6+6",
+            "ca": 19
+          },
+          "statistiche_chiave": {
+            "attacco": "+6",
+            "danni": "2d6+6",
+            "ca": 19
+          },
+          "benchmarks": {
+            "meta_tier": "T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          "salvezze": {
+            "Tempra": 4,
+            "Riflessi": 6,
+            "Volontà": 4
+          },
+          "attack_bonus": {
+            "melee": "+6",
+            "ranged": "+8"
+          },
+          "damage": {
+            "ranged": "blast 2d6+6",
+            "special": "blade rush difensivo"
+          },
+          "bench_log": [
+            "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Strix Kinetic Knight/Overwhelming Soul per DPR e badge validati."
+          ],
+          "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
+          "skills": [
+            {
+              "nome": "Acrobazia",
+              "gradi": 4,
+              "bonus": "+7"
+            },
+            {
+              "nome": "Volare",
+              "gradi": 4,
+              "bonus": "+9"
+            }
+          ],
+          "equipaggiamento": [
+            "Lancia di forza cinetica",
+            "Corazza di piastre leggermente rinforzata",
+            "Scudo pesante in adamantio"
+          ],
+          "ledger_movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa pattuglia strix",
+              "importo": 250
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -150
+              },
+              {
+                "voce": "Ricompensa pattuglia strix",
+                "importo": 250
+              }
+            ],
+            "currency": {
+              "oro": 120,
+              "argento": 35,
+              "rame": 10
+            }
+          },
+          "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale"
+        }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:46:09Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Kineticist",
+            "livelli": 1,
+            "archetipi": [
+              "Kinetic Knight",
+              "Overwhelming Soul"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 12,
+          "DES": 18,
+          "COS": 12,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 16,
+          "attacco": "+6",
+          "danni": "lancia di forza 2d6+6",
+          "ca": 19
+        },
+        "statistiche_chiave": {
+          "attacco": "+6",
+          "danni": "2d6+6",
+          "ca": 19
+        },
+        "benchmarks": {
+          "meta_tier": "T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        "salvezze": {
+          "Tempra": 4,
+          "Riflessi": 6,
+          "Volontà": 4
+        },
+        "attack_bonus": {
+          "melee": "+6",
+          "ranged": "+8"
+        },
+        "damage": {
+          "ranged": "blast 2d6+6",
+          "special": "blade rush difensivo"
+        },
+        "bench_log": [
+          "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Strix Kinetic Knight/Overwhelming Soul per DPR e badge validati."
+        ],
+        "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
+        "skills": [
+          {
+            "nome": "Acrobazia",
+            "gradi": 4,
+            "bonus": "+7"
+          },
+          {
+            "nome": "Volare",
+            "gradi": 4,
+            "bonus": "+9"
+          }
+        ],
+        "equipaggiamento": [
+          "Lancia di forza cinetica",
+          "Corazza di piastre leggermente rinforzata",
+          "Scudo pesante in adamantio"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa pattuglia strix",
+            "importo": 250
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa pattuglia strix",
+              "importo": 250
+            }
+          ],
+          "currency": {
+            "oro": 120,
+            "argento": 35,
+            "rame": 10
+          }
+        },
+        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale"
+      }
+    },
+    "narrative": "Guardia strix che sfrutta Kinetic Knight e Overwhelming Soul per proteggere le cittadelle alate."
+  }
 }

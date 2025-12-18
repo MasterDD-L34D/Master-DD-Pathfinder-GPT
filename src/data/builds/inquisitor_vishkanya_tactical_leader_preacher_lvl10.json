@@ -14,7 +14,26 @@
       "SAG": 20,
       "CAR": 8,
       "level": 10
-    }
+    },
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T2",
@@ -37,18 +56,8 @@
       "attacco": "+17",
       "danni": "kukri 1d4+10 +4d6 precision (Studied Target + Bane + Precise Strike)",
       "ca": 29
-    },
-    "bench_log": [
-      "Ruling Expert → MinMax → Taverna conclusi: confronto tra variante bane/precision, variante debuff veleno persistente, variante difensiva sermon spam.",
-      "Bench: linea bane/precision mantiene DPR medio 68 e CA effettiva 29 con Litany of Defense e teamwork difensivi (Shake It Off/Lookout), collocata in T2 per output offensivo/reattivo.",
-      "Ruling: badge RAW/RAI/PFS mantenuto; Bane + Precise Strike legale e tratti vishkanya compatibili con litany chain."
-    ]
+    }
   },
-  "bench_log": [
-    "Ruling Expert: confermata compatibilità di Solo Tactics con team feats multipli; nessun conflitto con Preacher sermon.",
-    "MinMax: Studied Target + Bane + Precise Strike + teamwork (Outflank, Broken Wing Gambit) genera 4d6 precision oltre ai bonus fissi; difesa via Stalwart/Divine Favor.",
-    "Narrative/Taverna: ormai capo cellula, funge da inquisitrice-mentore che addestra nuove reclute al veleno sacro."
-  ],
   "bench_summary": {
     "offense_score": 0.78,
     "defense_score": 0.7
@@ -67,6 +76,7 @@
   },
   "composite": {
     "build": {
+      "build_id": "build-a4da411abe1c697985e23862",
       "build_state": {
         "class": "Inquisitor",
         "mode": "extended",
@@ -82,7 +92,26 @@
           "SAG": 20,
           "CAR": 8,
           "level": 10
-        }
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T2",
@@ -103,14 +132,9 @@
         },
         "statistics": {
           "attacco": "+17",
-          "danni": "kukri 1d4+10 +4d6 precision",
+          "danni": "kukri 1d4+10 +4d6 precision (Studied Target + Bane + Precise Strike)",
           "ca": 29
-        },
-        "bench_log": [
-          "Ruling Expert → MinMax → Taverna conclusi: confronto tra variante bane/precision, variante debuff veleno persistente, variante difensiva sermon spam.",
-          "Bench: linea bane/precision mantiene DPR medio 68 e CA effettiva 29 con Litany of Defense e teamwork difensivi (Shake It Off/Lookout), collocata in T2 per output offensivo/reattivo.",
-          "Ruling: badge RAW/RAI/PFS mantenuto; Bane + Precise Strike legale e tratti vishkanya compatibili con litany chain."
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -150,8 +174,160 @@
             "base_profile.txt",
             "Taverna_NPC.txt",
             "narrative_flow.txt"
-          ]
+          ],
+          "skills": [
+            {
+              "nome": "Percezione",
+              "gradi": 10,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 18
+            },
+            {
+              "nome": "Diplomazia",
+              "gradi": 10,
+              "mod_car": 0,
+              "classe": true,
+              "totale": 13
+            }
+          ],
+          "equipaggiamento": [
+            "Kukri benedetto",
+            "Armatura di cuoio borchiato +2",
+            "Fiaschette di antitoxin superiore"
+          ],
+          "ledger_movimenti": [
+            {
+              "voce": "Decima del tempio",
+              "importo": -200
+            },
+            {
+              "voce": "Ricompensa missione campo",
+              "importo": 350
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Decima del tempio",
+                "importo": -200
+              },
+              {
+                "voce": "Ricompensa missione campo",
+                "importo": 350
+              }
+            ],
+            "currency": {
+              "oro": 150,
+              "argento": 25,
+              "rame": 10
+            }
+          },
+          "sheet_markdown": "Percezione\nKukri benedetto\nDecima del tempio"
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": null,
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Inquisitor",
+            "livelli": 10,
+            "archetipi": [
+              "Tactical Leader",
+              "Preacher"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 14,
+          "DES": 20,
+          "COS": 12,
+          "INT": 10,
+          "SAG": 20,
+          "CAR": 8,
+          "attacco": "+17",
+          "danni": "kukri 1d4+10 +4d6 precision",
+          "ca": 29
+        },
+        "statistiche_chiave": {
+          "attacco": "+17",
+          "danni": "1d4+10",
+          "ca": 29
+        },
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "modules": [
+          "base_profile.txt",
+          "Taverna_NPC.txt",
+          "narrative_flow.txt"
+        ],
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 10,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 18
+          },
+          {
+            "nome": "Diplomazia",
+            "gradi": 10,
+            "mod_car": 0,
+            "classe": true,
+            "totale": 13
+          }
+        ],
+        "equipaggiamento": [
+          "Kukri benedetto",
+          "Armatura di cuoio borchiato +2",
+          "Fiaschette di antitoxin superiore"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Decima del tempio",
+            "importo": -200
+          },
+          {
+            "voce": "Ricompensa missione campo",
+            "importo": 350
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Decima del tempio",
+              "importo": -200
+            },
+            {
+              "voce": "Ricompensa missione campo",
+              "importo": 350
+            }
+          ],
+          "currency": {
+            "oro": 150,
+            "argento": 25,
+            "rame": 10
+          }
+        },
+        "sheet_markdown": "Percezione\nKukri benedetto\nDecima del tempio"
       }
     },
     "narrative": {
@@ -264,7 +440,6 @@
     "race": "Vishkanya",
     "archetype": "Tactical Leader Preacher"
   },
-  "race": "Vishkanya",
   "archetypes": [
     "Tactical Leader",
     "Preacher"
@@ -274,7 +449,12 @@
     "mode": "extended",
     "race": "Vishkanya",
     "archetype": "Tactical Leader Preacher",
-    "spec_id": "inquisitor_vishkanya_tactical_leader_preacher"
+    "spec_id": "inquisitor_vishkanya_tactical_leader_preacher",
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
   },
   "step_audit": {
     "normalized_mode": "extended",
@@ -289,5 +469,21 @@
     "attempt_count": 1,
     "backoff_reason": null,
     "request_ip": null
-  }
+  },
+  "reference_catalog_version": "2026.03.22",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Ruling Expert: confermata compatibilità di Solo Tactics con team feats multipli; nessun conflitto con Preacher sermon.",
+        "MinMax: Studied Target + Bane + Precise Strike + teamwork (Outflank, Broken Wing Gambit) genera 4d6 precision oltre ai bonus fissi; difesa via Stalwart/Divine Favor.",
+        "Narrative/Taverna: ormai capo cellula, funge da inquisitrice-mentore che addestra nuove reclute al veleno sacro."
+      ],
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
+  },
+  "build_id": "build-a4da411abe1c697985e23862"
 }

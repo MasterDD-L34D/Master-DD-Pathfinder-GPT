@@ -14,12 +14,25 @@
       "SAG": 22,
       "CAR": 16
     },
-    "level": 10,
-    "level_checkpoints": [
-      1,
-      5,
-      10
-    ]
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T1",
@@ -42,12 +55,7 @@
       "attacco": "+13",
       "danni": "1d6+7 (colpo d'ombra) + miracle d'ombra",
       "ca": 24
-    },
-    "bench_log": [
-      "Checkpoint 10: pipeline Ruling Expert → MinMax → Taverna/Narrative confermata; log di bench/ruling inclusi nei metadati.",
-      "Ruling Expert: shadow miracle + domini disallineati rimangono RAW/RAI/PFS con separazione dogmatica.",
-      "MinMax: rotazione definitiva con miracle d'ombra, shadow evocation heightened e channel selettivo difensivo."
-    ]
+    }
   },
   "export": {
     "sheet_payload": {
@@ -102,11 +110,6 @@
     }
   },
   "narrative": "Sommo liturgista delle ombre, ponte fra culti opposti, che converte la penombra in miracoli tattici per la sua enclave wayang.",
-  "bench_log": [
-    "Ruling Expert: verificata la legalità di miracle d'ombra e scelte di dominio separate.",
-    "MinMax: rotazione finale con persistent shadow evocation e channel difensivi.",
-    "Taverna/Narrative: guida le processioni notturne che benedicono i tunnel sotterranei."
-  ],
   "body_params": {
     "race": "Wayang (Umbral)",
     "archetype_primary": "Shadowcaster",
@@ -167,6 +170,19 @@
         "hook": "Media tra culti rivali nelle profondità",
         "voice": "timbro cavernoso e pacato"
       }
+    },
+    "checkpoints": {
+      "bench_log": [
+        "Checkpoint 10: pipeline Ruling Expert → MinMax → Taverna/Narrative confermata; log di bench/ruling inclusi nei metadati.",
+        "Ruling Expert: shadow miracle + domini disallineati rimangono RAW/RAI/PFS con separazione dogmatica.",
+        "MinMax: rotazione definitiva con miracle d'ombra, shadow evocation heightened e channel selettivo difensivo."
+      ],
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ]
     }
   },
   "checkpoints": [
@@ -190,16 +206,213 @@
     }
   ],
   "output_prefix": "cleric_wayang_shadowcaster_separatist",
-  "race": "Wayang (Umbral)",
-  "archetype": "Shadowcaster + Separatist",
   "spec_id": "cleric_wayang_shadowcaster_separatist",
   "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
-  "level": 10,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
   "mode": "extended",
-  "mode_normalized": "extended"
+  "mode_normalized": "extended",
+  "reference_catalog_version": "2026.03.22",
+  "request": {
+    "race": "Wayang (Umbral)",
+    "archetype": "Shadowcaster + Separatist",
+    "level": 10,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "build_id": "build-e0a9adba6dca07253beded5c",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:49:49Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  },
+  "composite": {
+    "build": {
+      "build_id": "build-e0a9adba6dca07253beded5c",
+      "build_state": {
+        "class": "Cleric",
+        "mode": "extended",
+        "race": "Wayang (Umbral)",
+        "archetype": "Shadowcaster + Separatist",
+        "step": 16,
+        "step_total": 16,
+        "statistics": {
+          "FOR": 10,
+          "DES": 18,
+          "COS": 14,
+          "INT": 12,
+          "SAG": 22,
+          "CAR": 16
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 9,
+            "picco": 15
+          },
+          "livello_5": {
+            "media": 26,
+            "picco": 42
+          },
+          "livello_10": {
+            "media": 52,
+            "picco": 80
+          }
+        },
+        "statistics": {
+          "attacco": "+13",
+          "danni": "1d6+7 (colpo d'ombra) + miracle d'ombra",
+          "ca": 24
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Cleric",
+              "livelli": 10,
+              "archetipi": [
+                "Shadowcaster",
+                "Separatist"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 10,
+            "DES": 18,
+            "COS": 14,
+            "INT": 12,
+            "SAG": 22,
+            "CAR": 16,
+            "attacco": "+13",
+            "danni": "1d6+7 ombra",
+            "ca": 24
+          },
+          "statistiche_chiave": {
+            "attacco": "+13 con blessing d'ombra",
+            "danni": "Shadow miracle + controllo campo",
+            "ca": 24
+          },
+          "benchmarks": {
+            "meta_tier": "T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          "salvezze": {
+            "Tempra": 8,
+            "Riflessi": 7,
+            "Volontà": 13
+          },
+          "attack_bonus": {
+            "melee": "+13",
+            "ranged": "+10",
+            "special": "+15 (touch d'ombra)"
+          },
+          "damage": {
+            "melee": "1d6+7",
+            "special": "Shadow miracle/evocation + channel fortificato"
+          },
+          "bench_log": [
+            "Checkpoint 10: shadow miracle + domini separati restano T1"
+          ],
+          "rules_status_text": "Badge RAW/RAI/PFS confermato a lvl10; log pipeline in metadati"
+        }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:49:49Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Cleric",
+            "livelli": 10,
+            "archetipi": [
+              "Shadowcaster",
+              "Separatist"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 10,
+          "DES": 18,
+          "COS": 14,
+          "INT": 12,
+          "SAG": 22,
+          "CAR": 16,
+          "attacco": "+13",
+          "danni": "1d6+7 ombra",
+          "ca": 24
+        },
+        "statistiche_chiave": {
+          "attacco": "+13 con blessing d'ombra",
+          "danni": "Shadow miracle + controllo campo",
+          "ca": 24
+        },
+        "benchmarks": {
+          "meta_tier": "T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        "salvezze": {
+          "Tempra": 8,
+          "Riflessi": 7,
+          "Volontà": 13
+        },
+        "attack_bonus": {
+          "melee": "+13",
+          "ranged": "+10",
+          "special": "+15 (touch d'ombra)"
+        },
+        "damage": {
+          "melee": "1d6+7",
+          "special": "Shadow miracle/evocation + channel fortificato"
+        },
+        "bench_log": [
+          "Checkpoint 10: shadow miracle + domini separati restano T1"
+        ],
+        "rules_status_text": "Badge RAW/RAI/PFS confermato a lvl10; log pipeline in metadati"
+      }
+    },
+    "narrative": "Sommo liturgista delle ombre, ponte fra culti opposti, che converte la penombra in miracoli tattici per la sua enclave wayang."
+  }
 }

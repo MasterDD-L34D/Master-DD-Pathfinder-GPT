@@ -31,7 +31,8 @@
       "INT": 10,
       "SAG": 18,
       "CAR": 8
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -123,8 +124,20 @@
         }
       },
       "skills": [
-        {"nome": "Acrobazia", "gradi": 10, "mod_car": 5, "classe": true, "totale": 18},
-        {"nome": "Furtività", "gradi": 10, "mod_car": 5, "classe": true, "totale": 18}
+        {
+          "nome": "Acrobazia",
+          "gradi": 10,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 18
+        },
+        {
+          "nome": "Furtività",
+          "gradi": 10,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 18
+        }
       ],
       "equipaggiamento": [
         "Handwraps +3 furious",
@@ -133,15 +146,31 @@
         "Headband of Inspired Wisdom +2"
       ],
       "ledger_movimenti": [
-        {"voce": "Manutenzione handwraps", "importo": -280},
-        {"voce": "Cache premio tornei", "importo": 480}
+        {
+          "voce": "Manutenzione handwraps",
+          "importo": -280
+        },
+        {
+          "voce": "Cache premio tornei",
+          "importo": 480
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Manutenzione handwraps", "importo": -280},
-          {"voce": "Cache premio tornei", "importo": 480}
+          {
+            "voce": "Manutenzione handwraps",
+            "importo": -280
+          },
+          {
+            "voce": "Cache premio tornei",
+            "importo": 480
+          }
         ],
-        "currency": {"oro": 240, "argento": 40, "rame": 15}
+        "currency": {
+          "oro": 240,
+          "argento": 40,
+          "rame": 15
+        }
       },
       "sheet_markdown": "Acrobazia\nHandwraps +3 furious\nManutenzione handwraps",
       "talenti": [
@@ -269,21 +298,7 @@
   "sheet": "### 🧙 Scheda Personaggio in Markdown\n\n---\n\n# Monk — Liv. 10 (Vanara · Qinggong + Master of Many Styles)\n\n**Checkpoint 10:** Medusa's Wrath + Dragon Ferocity per concatenare stordimenti e bleed, Crane Riposte per protezione e contrattacchi. Abundant Step e Sandals of the Light Step mantengono la mobilità, mentre i debuff mirati (stun/prone) restano la chiave contro boss e caster.\n\n**Linee iterate:**\n- Combo Stance: Tiger/Dragon aperto, poi Crane Riposte dopo il primo flurry.\n- Difese/Mobilità: Improved Evasion + Abundant Step per evitare AoE e reindirizzare la linea di fuoco.\n- Debuff: Medusa's Wrath + Stunning Fist per bloccare bersagli a CA alta.\n\n**Benchmark DPR/CA:** 4 attacchi 2d8+12, CA 26; DPR medio/picco 54/82 con badge RAW/RAI/PFS confermato.\n",
   "class": "Monk",
   "mode": "extended",
-  "race": "Vanara",
-  "archetype": "Qinggong + Master of Many Styles",
   "output_prefix": "monk_vanara_qinggong_master_of_many_styles",
-  "level": 10,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
-  "bench_log": [
-    "Pipeline Ruling Expert → MinMax → Taverna: testate le versioni Medusa's Wrath (burst/debuff), Crane Riposte difensiva e Spring Attack kiting. Tenuta la linea Medusa + Dragon Ferocity per il miglior benchmark ai livelli 5/10.",
-    "Variante difensiva: Crane Riposte + Spring Attack ha alzato la sopravvivenza ma DPR medio 43.",
-    "Variante kiting: Wind Jump + reach weapon ha perso sinergia con Medusa's Wrath; scartata.",
-    "Linea finale: Abundant Step per ingaggiare, Medusa's Wrath + Dragon Ferocity per DPR e debuff, swap a Crane Riposte quando la CA viene messa alla prova."
-  ],
   "ruling_log": [
     "Ruling Expert: confermata la legittimità di Medusa's Wrath con Stunning Fist ripetuto grazie al Master of Many Styles (stance swap gratuito).",
     "RAW/RAI/PFS: Abundant Step e ki powers scelti sono core/PFS-legal; nessun stacking illegale con cinture/headband.",
@@ -304,9 +319,571 @@
     ]
   },
   "completeness": {
-    "status": "complete",
-    "missing": [],
-    "checklist": {},
     "require_complete": true
+  },
+  "reference_catalog_version": "2026.03.22",
+  "mode_normalized": "extended",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Pipeline Ruling Expert → MinMax → Taverna: testate le versioni Medusa's Wrath (burst/debuff), Crane Riposte difensiva e Spring Attack kiting. Tenuta la linea Medusa + Dragon Ferocity per il miglior benchmark ai livelli 5/10.",
+        "Variante difensiva: Crane Riposte + Spring Attack ha alzato la sopravvivenza ma DPR medio 43.",
+        "Variante kiting: Wind Jump + reach weapon ha perso sinergia con Medusa's Wrath; scartata.",
+        "Linea finale: Abundant Step per ingaggiare, Medusa's Wrath + Dragon Ferocity per DPR e debuff, swap a Crane Riposte quando la CA viene messa alla prova."
+      ],
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete",
+      "checklist": {}
+    }
+  },
+  "build_id": "build-d628538ad0f943e0d815762f",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:46:09Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  },
+  "composite": {
+    "build": {
+      "build_id": "build-d628538ad0f943e0d815762f",
+      "build_state": {
+        "class": "Monk",
+        "mode": "extended",
+        "race": "Vanara",
+        "archetype": "Qinggong + Master of Many Styles",
+        "step": 1,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 18,
+          "DES": 20,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 18,
+          "CAR": 8
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "validated",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 11,
+            "picco": 16
+          },
+          "livello_5": {
+            "media": 27,
+            "picco": 42
+          },
+          "livello_10": {
+            "media": 54,
+            "picco": 82
+          }
+        },
+        "statistics": {
+          "attacco": "+18",
+          "danni": "2d8+12",
+          "ca": 26,
+          "tempra": 9,
+          "riflessi": 11,
+          "volonta": 10
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Monk",
+              "livelli": 10,
+              "archetipi": [
+                "Qinggong",
+                "Master of Many Styles"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 18,
+            "DES": 20,
+            "COS": 14,
+            "INT": 10,
+            "SAG": 18,
+            "CAR": 8,
+            "attacco": "+18",
+            "danni": "2d8+12",
+            "ca": 26
+          },
+          "statistiche_chiave": {
+            "attacco": "+18",
+            "danni": "2d8+12",
+            "ca": 26
+          },
+          "pf_totali": 95,
+          "hp": {
+            "totali": 95,
+            "per_livello": [
+              11,
+              9,
+              9,
+              8,
+              8,
+              10,
+              10,
+              10,
+              10,
+              10
+            ]
+          },
+          "salvezze": {
+            "Tempra": 9,
+            "Riflessi": 11,
+            "Volontà": 10
+          },
+          "skills_map": {
+            "Acrobazia": {
+              "totale": 18
+            },
+            "Furtività": {
+              "totale": 18
+            },
+            "Percezione": {
+              "totale": 15
+            },
+            "Sapienza Magica": {
+              "totale": 12
+            }
+          },
+          "skills": [
+            {
+              "nome": "Acrobazia",
+              "gradi": 10,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 18
+            },
+            {
+              "nome": "Furtività",
+              "gradi": 10,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 18
+            }
+          ],
+          "equipaggiamento": [
+            "Handwraps +3 furious",
+            "Sandals of the Light Step",
+            "Cintura del gigante +2",
+            "Headband of Inspired Wisdom +2"
+          ],
+          "ledger_movimenti": [
+            {
+              "voce": "Manutenzione handwraps",
+              "importo": -280
+            },
+            {
+              "voce": "Cache premio tornei",
+              "importo": 480
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Manutenzione handwraps",
+                "importo": -280
+              },
+              {
+                "voce": "Cache premio tornei",
+                "importo": 480
+              }
+            ],
+            "currency": {
+              "oro": 240,
+              "argento": 40,
+              "rame": 15
+            }
+          },
+          "sheet_markdown": "Acrobazia\nHandwraps +3 furious\nManutenzione handwraps",
+          "talenti": [
+            "Tiger Style",
+            "Crane Style",
+            "Dodge",
+            "Mobility",
+            "Power Attack",
+            "Tiger Claws",
+            "Dragon Style",
+            "Crane Wing",
+            "Dragon Ferocity",
+            "Medusa's Wrath",
+            "Crane Riposte",
+            "Spring Attack",
+            "Improved Initiative"
+          ],
+          "capacita_classe": [
+            "Abundant Step",
+            "Ki power: Restoration",
+            "Improved Evasion",
+            "Quivering Palm"
+          ],
+          "progressione": [
+            {
+              "talento": "Tiger Style + Crane Style",
+              "privilegi": [
+                "Flurry of Blows",
+                "Ki Pool"
+              ]
+            },
+            {
+              "talento": "Dodge + Mobility",
+              "privilegi": [
+                "Evasion"
+              ]
+            },
+            {
+              "talento": "Power Attack + Tiger Claws",
+              "privilegi": [
+                "High Jump"
+              ]
+            },
+            {
+              "talento": "Dragon Style",
+              "privilegi": [
+                "Style Strike (Flying Kick)"
+              ]
+            },
+            {
+              "talento": "Crane Wing",
+              "privilegi": [
+                "Ki power: Barkskin"
+              ]
+            },
+            {
+              "talento": "Dragon Ferocity",
+              "privilegi": [
+                "Ki power: Restoration"
+              ]
+            },
+            {
+              "talento": "Medusa's Wrath",
+              "privilegi": [
+                "Improved Evasion"
+              ]
+            },
+            {
+              "talento": "Crane Riposte",
+              "privilegi": [
+                "Abundant Step"
+              ]
+            },
+            {
+              "talento": "Spring Attack",
+              "privilegi": [
+                "Quivering Palm"
+              ]
+            },
+            {
+              "talento": "Improved Initiative",
+              "privilegi": [
+                "Style Mastery"
+              ]
+            }
+          ],
+          "skill_points": 40,
+          "iniziativa": 8,
+          "velocita": 12,
+          "ac_breakdown": {
+            "base": 10,
+            "des": 5,
+            "sag": 4,
+            "dodge": 2,
+            "armatura": 5
+          },
+          "magia": {
+            "ki_powers": [
+              "barkskin",
+              "restoration",
+              "abundant step"
+            ]
+          }
+        }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:46:09Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Monk",
+            "livelli": 10,
+            "archetipi": [
+              "Qinggong",
+              "Master of Many Styles"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 18,
+          "DES": 20,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 18,
+          "CAR": 8,
+          "attacco": "+18",
+          "danni": "2d8+12",
+          "ca": 26
+        },
+        "statistiche_chiave": {
+          "attacco": "+18",
+          "danni": "2d8+12",
+          "ca": 26
+        },
+        "pf_totali": 95,
+        "hp": {
+          "totali": 95,
+          "per_livello": [
+            11,
+            9,
+            9,
+            8,
+            8,
+            10,
+            10,
+            10,
+            10,
+            10
+          ]
+        },
+        "salvezze": {
+          "Tempra": 9,
+          "Riflessi": 11,
+          "Volontà": 10
+        },
+        "skills_map": {
+          "Acrobazia": {
+            "totale": 18
+          },
+          "Furtività": {
+            "totale": 18
+          },
+          "Percezione": {
+            "totale": 15
+          },
+          "Sapienza Magica": {
+            "totale": 12
+          }
+        },
+        "skills": [
+          {
+            "nome": "Acrobazia",
+            "gradi": 10,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 18
+          },
+          {
+            "nome": "Furtività",
+            "gradi": 10,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 18
+          }
+        ],
+        "equipaggiamento": [
+          "Handwraps +3 furious",
+          "Sandals of the Light Step",
+          "Cintura del gigante +2",
+          "Headband of Inspired Wisdom +2"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Manutenzione handwraps",
+            "importo": -280
+          },
+          {
+            "voce": "Cache premio tornei",
+            "importo": 480
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Manutenzione handwraps",
+              "importo": -280
+            },
+            {
+              "voce": "Cache premio tornei",
+              "importo": 480
+            }
+          ],
+          "currency": {
+            "oro": 240,
+            "argento": 40,
+            "rame": 15
+          }
+        },
+        "sheet_markdown": "Acrobazia\nHandwraps +3 furious\nManutenzione handwraps",
+        "talenti": [
+          "Tiger Style",
+          "Crane Style",
+          "Dodge",
+          "Mobility",
+          "Power Attack",
+          "Tiger Claws",
+          "Dragon Style",
+          "Crane Wing",
+          "Dragon Ferocity",
+          "Medusa's Wrath",
+          "Crane Riposte",
+          "Spring Attack",
+          "Improved Initiative"
+        ],
+        "capacita_classe": [
+          "Abundant Step",
+          "Ki power: Restoration",
+          "Improved Evasion",
+          "Quivering Palm"
+        ],
+        "progressione": [
+          {
+            "talento": "Tiger Style + Crane Style",
+            "privilegi": [
+              "Flurry of Blows",
+              "Ki Pool"
+            ]
+          },
+          {
+            "talento": "Dodge + Mobility",
+            "privilegi": [
+              "Evasion"
+            ]
+          },
+          {
+            "talento": "Power Attack + Tiger Claws",
+            "privilegi": [
+              "High Jump"
+            ]
+          },
+          {
+            "talento": "Dragon Style",
+            "privilegi": [
+              "Style Strike (Flying Kick)"
+            ]
+          },
+          {
+            "talento": "Crane Wing",
+            "privilegi": [
+              "Ki power: Barkskin"
+            ]
+          },
+          {
+            "talento": "Dragon Ferocity",
+            "privilegi": [
+              "Ki power: Restoration"
+            ]
+          },
+          {
+            "talento": "Medusa's Wrath",
+            "privilegi": [
+              "Improved Evasion"
+            ]
+          },
+          {
+            "talento": "Crane Riposte",
+            "privilegi": [
+              "Abundant Step"
+            ]
+          },
+          {
+            "talento": "Spring Attack",
+            "privilegi": [
+              "Quivering Palm"
+            ]
+          },
+          {
+            "talento": "Improved Initiative",
+            "privilegi": [
+              "Style Mastery"
+            ]
+          }
+        ],
+        "skill_points": 40,
+        "iniziativa": 8,
+        "velocita": 12,
+        "ac_breakdown": {
+          "base": 10,
+          "des": 5,
+          "sag": 4,
+          "dodge": 2,
+          "armatura": 5
+        },
+        "magia": {
+          "ki_powers": [
+            "barkskin",
+            "restoration",
+            "abundant step"
+          ]
+        }
+      }
+    },
+    "narrative": "Checkpoint 10: lo stile selezionato combina Dragon Ferocity con Medusa's Wrath per punire i bersagli storditi, mentre Crane Riposte e Improved Evasion mantengono la CA 26 e riducono i danni. Abundant Step consente ingressi/uscite dal fronte con debuff mirati alle ginocchia e stun chain.",
+    "sheet": "### 🧙 Scheda Personaggio in Markdown\n\n---\n\n# Monk — Liv. 10 (Vanara · Qinggong + Master of Many Styles)\n\n**Checkpoint 10:** Medusa's Wrath + Dragon Ferocity per concatenare stordimenti e bleed, Crane Riposte per protezione e contrattacchi. Abundant Step e Sandals of the Light Step mantengono la mobilità, mentre i debuff mirati (stun/prone) restano la chiave contro boss e caster.\n\n**Linee iterate:**\n- Combo Stance: Tiger/Dragon aperto, poi Crane Riposte dopo il primo flurry.\n- Difese/Mobilità: Improved Evasion + Abundant Step per evitare AoE e reindirizzare la linea di fuoco.\n- Debuff: Medusa's Wrath + Stunning Fist per bloccare bersagli a CA alta.\n\n**Benchmark DPR/CA:** 4 attacchi 2d8+12, CA 26; DPR medio/picco 54/82 con badge RAW/RAI/PFS confermato.\n",
+    "ledger": {
+      "movimenti": [
+        {
+          "voce": "Aggiornamento handwraps +3",
+          "importo": -18000
+        },
+        {
+          "voce": "Premio torneo monastico",
+          "importo": 22000
+        }
+      ],
+      "currency": {
+        "oro": 2000,
+        "argento": 0,
+        "rame": 0
+      },
+      "saldo": 2000
+    }
   }
 }

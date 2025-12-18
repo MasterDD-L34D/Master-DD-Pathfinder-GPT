@@ -14,7 +14,26 @@
       "SAG": 12,
       "CAR": 10,
       "level": 1
-    }
+    },
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T3",
@@ -37,17 +56,8 @@
       "attacco": "+6",
       "danni": "lancia lunga 1d8+6 (carica a cavallo)",
       "ca": 19
-    },
-    "bench_log": [
-      "Varianti testate: (1) difesa a cavallo con Strix Honor Guard su destriero bardato; (2) cariche ottimizzate con lancia lunga e Tactician per Ordine del Drago; (3) supporto tattico Strategist con ordini condivisi e Bodyguard.",
-      "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata su livelli 1/5/10: ruling RAW/RAI/PFS confermato, simulazioni di bench offensive/difensive annotate nei metadati.",
-      "Variante selezionata: Strategist + Honor Guard con Strix (difesa a cavallo + supporto tattico), miglior punteggio combinato di DPR e CA, mantenendo badge PFS friendly."
-    ]
+    }
   },
-  "bench_log": [
-    "Checkpoint 1: difesa a cavallo attiva (Bodyguard, Mounted Combat) con CA 19/21 in reazione e DPR medio 11.",
-    "Note ruling: ordini condivisi tramite Strategist rispettano RAW/RAI; bonus guarding compatibili con PFS (Ruling Expert log allegato)."
-  ],
   "body_params": {
     "race": "Strix",
     "archetype_primary": "Strategist",
@@ -56,12 +66,10 @@
   },
   "build_source": "local spec",
   "class": "Cavalier",
-  "completeness": {
-    "status": "complete",
-    "missing": []
-  },
+  "completeness": {},
   "composite": {
     "build": {
+      "build_id": "build-7d85a600c48831acbc4b0af9",
       "build_state": {
         "class": "Cavalier",
         "mode": "extended",
@@ -77,7 +85,26 @@
           "SAG": 12,
           "CAR": 10,
           "level": 1
-        }
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
       },
       "benchmark": {
         "meta_tier": "T3",
@@ -100,12 +127,7 @@
           "attacco": "+6",
           "danni": "lancia lunga 1d8+6 (carica a cavallo)",
           "ca": 19
-        },
-        "bench_log": [
-          "Varianti testate: (1) difesa a cavallo con Strix Honor Guard su destriero bardato; (2) cariche ottimizzate con lancia lunga e Tactician per Ordine del Drago; (3) supporto tattico Strategist con ordini condivisi e Bodyguard.",
-          "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata su livelli 1/5/10: ruling RAW/RAI/PFS confermato, simulazioni di bench offensive/difensive annotate nei metadati.",
-          "Variante selezionata: Strategist + Honor Guard con Strix (difesa a cavallo + supporto tattico), miglior punteggio combinato di DPR e CA, mantenendo badge PFS friendly."
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -147,26 +169,143 @@
             "narrative_flow.txt"
           ],
           "skills": [
-            {"nome": "Percezione", "totale": 6},
-            {"nome": "Volare", "totale": 9}
+            {
+              "nome": "Percezione",
+              "totale": 6
+            },
+            {
+              "nome": "Volare",
+              "totale": 9
+            }
           ],
           "equipaggiamento": [
             "Lancia da cavalleria",
             "Armatura lamellare"
           ],
           "ledger_movimenti": [
-            {"voce": "Equipaggiamento iniziale", "importo": -150},
-            {"voce": "Ricompensa pattuglia aerea", "importo": 180}
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa pattuglia aerea",
+              "importo": 180
+            }
           ],
           "ledger": {
             "movimenti": [
-              {"voce": "Equipaggiamento iniziale", "importo": -150},
-              {"voce": "Ricompensa pattuglia aerea", "importo": 180}
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -150
+              },
+              {
+                "voce": "Ricompensa pattuglia aerea",
+                "importo": 180
+              }
             ],
-            "currency": {"oro": 140, "argento": 28, "rame": 60}
+            "currency": {
+              "oro": 140,
+              "argento": 28,
+              "rame": 60
+            }
           },
           "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea"
         }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:46:09Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Cavalier",
+            "livelli": 1,
+            "archetipi": [
+              "Strategist",
+              "Honor Guard"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 18,
+          "DES": 15,
+          "COS": 14,
+          "INT": 12,
+          "SAG": 12,
+          "CAR": 10,
+          "attacco": "+6",
+          "danni": "lancia lunga 1d8+6",
+          "ca": 19
+        },
+        "statistiche_chiave": {
+          "attacco": "+6",
+          "danni": "1d8+6",
+          "ca": 19
+        },
+        "level": 1,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "modules": [
+          "base_profile.txt",
+          "Taverna_NPC.txt",
+          "narrative_flow.txt"
+        ],
+        "skills": [
+          {
+            "nome": "Percezione",
+            "totale": 6
+          },
+          {
+            "nome": "Volare",
+            "totale": 9
+          }
+        ],
+        "equipaggiamento": [
+          "Lancia da cavalleria",
+          "Armatura lamellare"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa pattuglia aerea",
+            "importo": 180
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa pattuglia aerea",
+              "importo": 180
+            }
+          ],
+          "currency": {
+            "oro": 140,
+            "argento": 28,
+            "rame": 60
+          }
+        },
+        "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea"
       }
     },
     "narrative": {
@@ -221,23 +360,45 @@
         "narrative_flow.txt"
       ],
       "skills": [
-        {"nome": "Percezione", "totale": 6},
-        {"nome": "Volare", "totale": 9}
+        {
+          "nome": "Percezione",
+          "totale": 6
+        },
+        {
+          "nome": "Volare",
+          "totale": 9
+        }
       ],
       "equipaggiamento": [
         "Lancia da cavalleria",
         "Armatura lamellare"
       ],
       "ledger_movimenti": [
-        {"voce": "Equipaggiamento iniziale", "importo": -150},
-        {"voce": "Ricompensa pattuglia aerea", "importo": 180}
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
+        },
+        {
+          "voce": "Ricompensa pattuglia aerea",
+          "importo": 180
+        }
       ],
       "ledger": {
         "movimenti": [
-          {"voce": "Equipaggiamento iniziale", "importo": -150},
-          {"voce": "Ricompensa pattuglia aerea", "importo": 180}
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa pattuglia aerea",
+            "importo": 180
+          }
         ],
-        "currency": {"oro": 140, "argento": 28, "rame": 60}
+        "currency": {
+          "oro": 140,
+          "argento": 28,
+          "rame": 60
+        }
       },
       "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea"
     }
@@ -246,12 +407,6 @@
   "ledger": {
     "notes": "import manuale pipeline potenziata"
   },
-  "level": 1,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
   "mode": "extended",
   "mode_normalized": "extended",
   "narrative": {
@@ -295,5 +450,35 @@
   },
   "source_url": "local://cavalier/strix/strategist-honor-guard",
   "spec_id": "cavalier_strix_strategist_honor_guard",
-  "archetype": ""
+  "reference_catalog_version": "2026.03.22",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Checkpoint 1: difesa a cavallo attiva (Bodyguard, Mounted Combat) con CA 19/21 in reazione e DPR medio 11.",
+        "Note ruling: ordini condivisi tramite Strategist rispettano RAW/RAI; bonus guarding compatibili con PFS (Ruling Expert log allegato)."
+      ],
+      "level": 1,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete"
+    }
+  },
+  "build_id": "build-7d85a600c48831acbc4b0af9",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:46:09Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  }
 }

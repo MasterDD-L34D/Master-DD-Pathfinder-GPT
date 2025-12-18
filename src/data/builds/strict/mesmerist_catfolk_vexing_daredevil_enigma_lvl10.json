@@ -31,7 +31,8 @@
       "INT": 10,
       "SAG": 12,
       "CAR": 22
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T1",
@@ -54,11 +55,7 @@
       "attacco": "+20",
       "danni": "frusta +2 1d4+10 + greater dirty trick e stare",
       "ca": 26
-    },
-    "bench_log": [
-      "Bench finale: confermata variante Catfolk Vexing Daredevil + Enigma come unica T1 con log esportato nei metadati.",
-      "Badge ruling invariato; MinMax registra nova con Aura Enigma + confusion + full-attack dirty trick."
-    ]
+    }
   },
   "export": {
     "sheet_payload": {
@@ -132,7 +129,7 @@
         }
       ],
       "equipaggiamento": [
-        "Frusta +2 con cruel", 
+        "Frusta +2 con cruel",
         "Cintura della destrezza +2",
         "Anello di protezione +2",
         "Mantello della resistenza +3"
@@ -144,11 +141,6 @@
     }
   },
   "narrative": "Cronache del campione felino: esporta agli scribi di Taverna i duelli più estremi con badge RAW/RAI/PFS confermato.",
-  "bench_log": [
-    "Ruling Expert: nessuna violazione; log finale archiviato con meta_tier T1.",
-    "MinMax: nova confusion + whip control mantiene DPR medio 52, picco 78.",
-    "Narrative/Taverna: diventa leggenda d'arena, badge di ruling e log bench citati nel racconto."
-  ],
   "body_params": {
     "race": "Catfolk",
     "archetype_primary": "Vexing Daredevil",
@@ -210,6 +202,18 @@
         "hook": "Scrive un manifesto per allenare nuovi mesmerist acrobati",
         "voice": "purr ipnotico con risate strozzate"
       }
+    },
+    "checkpoints": {
+      "bench_log": [
+        "Bench finale: confermata variante Catfolk Vexing Daredevil + Enigma come unica T1 con log esportato nei metadati.",
+        "Badge ruling invariato; MinMax registra nova con Aura Enigma + confusion + full-attack dirty trick."
+      ],
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ]
     }
   },
   "checkpoints": [
@@ -233,16 +237,275 @@
     }
   ],
   "output_prefix": "mesmerist_catfolk_vexing_daredevil_enigma",
-  "race": "Catfolk",
-  "archetype": "Vexing Daredevil + Enigma",
   "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma",
   "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
-  "level": 10,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
   "mode": "extended",
-  "mode_normalized": "extended"
+  "mode_normalized": "extended",
+  "reference_catalog_version": "2026.03.22",
+  "request": {
+    "race": "Catfolk",
+    "archetype": "Vexing Daredevil + Enigma",
+    "level": 10,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "build_id": "build-55fdf3da2bc6705b6a1bdc24",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:49:49Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  },
+  "composite": {
+    "build": {
+      "build_id": "build-55fdf3da2bc6705b6a1bdc24",
+      "build_state": {
+        "class": "Mesmerist",
+        "mode": "extended",
+        "race": "Catfolk",
+        "archetype": "Vexing Daredevil + Enigma",
+        "step": 1,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 12,
+          "DES": 22,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 22
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 12,
+            "picco": 18
+          },
+          "livello_5": {
+            "media": 28,
+            "picco": 42
+          },
+          "livello_10": {
+            "media": 52,
+            "picco": 78
+          }
+        },
+        "statistics": {
+          "attacco": "+20",
+          "danni": "frusta +2 1d4+10 + greater dirty trick e stare",
+          "ca": 26
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Mesmerist",
+              "livelli": 10,
+              "archetipi": [
+                "Vexing Daredevil",
+                "Enigma"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 12,
+            "DES": 22,
+            "COS": 14,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 22,
+            "attacco": "+20",
+            "danni": "frusta +2 1d4+10",
+            "ca": 26
+          },
+          "statistiche_chiave": {
+            "attacco": "+20",
+            "danni": "frusta reach + greater dirty trick + enigma aura",
+            "ca": 26
+          },
+          "benchmarks": {
+            "meta_tier": "T1"
+          },
+          "salvezze": {
+            "Tempra": 6,
+            "Riflessi": 12,
+            "Volontà": 10
+          },
+          "attack_bonus": {
+            "melee": "+20",
+            "ranged": "+22 con frusta +2",
+            "special": "+24 (greater dirty trick + aura enigma)"
+          },
+          "damage": {
+            "melee": "frusta +2 1d4+10",
+            "special": "full-attack dirty trick + confusion"
+          },
+          "skills": [
+            {
+              "nome": "Acrobazia",
+              "gradi": 10,
+              "mod_car": 6,
+              "var": 4,
+              "classe": true,
+              "totale": 20
+            },
+            {
+              "nome": "Furtività",
+              "gradi": 10,
+              "mod_car": 6,
+              "var": 4,
+              "classe": true,
+              "totale": 20
+            },
+            {
+              "nome": "Raggirare",
+              "gradi": 10,
+              "mod_car": 6,
+              "var": 5,
+              "classe": true,
+              "totale": 21
+            }
+          ],
+          "equipaggiamento": [
+            "Frusta +2 con cruel",
+            "Cintura della destrezza +2",
+            "Anello di protezione +2",
+            "Mantello della resistenza +3"
+          ],
+          "bench_log": [
+            "Aura enigma + greater dirty trick a volontà con DC alta e badge RAW/RAI/PFS"
+          ],
+          "rules_status_text": "Badge RAW/RAI/PFS confermato; combo greater dirty trick + aura enigma legale PFS"
+        }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:49:49Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Mesmerist",
+            "livelli": 10,
+            "archetipi": [
+              "Vexing Daredevil",
+              "Enigma"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 12,
+          "DES": 22,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 22,
+          "attacco": "+20",
+          "danni": "frusta +2 1d4+10",
+          "ca": 26
+        },
+        "statistiche_chiave": {
+          "attacco": "+20",
+          "danni": "frusta reach + greater dirty trick + enigma aura",
+          "ca": 26
+        },
+        "benchmarks": {
+          "meta_tier": "T1"
+        },
+        "salvezze": {
+          "Tempra": 6,
+          "Riflessi": 12,
+          "Volontà": 10
+        },
+        "attack_bonus": {
+          "melee": "+20",
+          "ranged": "+22 con frusta +2",
+          "special": "+24 (greater dirty trick + aura enigma)"
+        },
+        "damage": {
+          "melee": "frusta +2 1d4+10",
+          "special": "full-attack dirty trick + confusion"
+        },
+        "skills": [
+          {
+            "nome": "Acrobazia",
+            "gradi": 10,
+            "mod_car": 6,
+            "var": 4,
+            "classe": true,
+            "totale": 20
+          },
+          {
+            "nome": "Furtività",
+            "gradi": 10,
+            "mod_car": 6,
+            "var": 4,
+            "classe": true,
+            "totale": 20
+          },
+          {
+            "nome": "Raggirare",
+            "gradi": 10,
+            "mod_car": 6,
+            "var": 5,
+            "classe": true,
+            "totale": 21
+          }
+        ],
+        "equipaggiamento": [
+          "Frusta +2 con cruel",
+          "Cintura della destrezza +2",
+          "Anello di protezione +2",
+          "Mantello della resistenza +3"
+        ],
+        "bench_log": [
+          "Aura enigma + greater dirty trick a volontà con DC alta e badge RAW/RAI/PFS"
+        ],
+        "rules_status_text": "Badge RAW/RAI/PFS confermato; combo greater dirty trick + aura enigma legale PFS"
+      }
+    },
+    "narrative": "Cronache del campione felino: esporta agli scribi di Taverna i duelli più estremi con badge RAW/RAI/PFS confermato."
+  }
 }

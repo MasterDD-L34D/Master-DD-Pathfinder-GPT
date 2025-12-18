@@ -31,7 +31,8 @@
       "INT": 10,
       "SAG": 12,
       "CAR": 20
-    }
+    },
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T1",
@@ -54,11 +55,7 @@
       "attacco": "+12",
       "danni": "frusta +1 1d4+7 + dazzled da Mesmeric Stare",
       "ca": 22
-    },
-    "bench_log": [
-      "Pipeline confermata: la variante Catfolk Vexing Daredevil + Enigma resta T1 dopo i retrain al 5.",
-      "Aggiustato il key-rotation con Mesmerist Trick dimenticanza e greater feint; nessuna incongruenza di ruling." 
-    ]
+    }
   },
   "export": {
     "sheet_payload": {
@@ -144,10 +141,6 @@
     }
   },
   "narrative": "Diario d'arena: addestra nuove reclute feline combinando mesmerist tricks e dirty trick contro i campioni locali.",
-  "bench_log": [
-    "MinMax: rotazione dirty trick + hypnotic stare mantiene DPR alto; nova Color Spray heightened + Whip trip.",
-    "Narrative/Taverna: ora mentore di ladri da arena, aggiunge motivazioni di clan nel log."
-  ],
   "body_params": {
     "race": "Catfolk",
     "archetype_primary": "Vexing Daredevil",
@@ -208,6 +201,18 @@
         "hook": "Testa combinazioni di sporchi trucchi per scalare il circuito dei colossei",
         "voice": "tono felpato con improvvisi sibili"
       }
+    },
+    "checkpoints": {
+      "bench_log": [
+        "Pipeline confermata: la variante Catfolk Vexing Daredevil + Enigma resta T1 dopo i retrain al 5.",
+        "Aggiustato il key-rotation con Mesmerist Trick dimenticanza e greater feint; nessuna incongruenza di ruling."
+      ],
+      "level": 5,
+      "levels": [
+        1,
+        5,
+        10
+      ]
     }
   },
   "checkpoints": [
@@ -231,16 +236,275 @@
     }
   ],
   "output_prefix": "mesmerist_catfolk_vexing_daredevil_enigma",
-  "race": "Catfolk",
-  "archetype": "Vexing Daredevil + Enigma",
   "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma",
   "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
-  "level": 5,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
   "mode": "extended",
-  "mode_normalized": "extended"
+  "mode_normalized": "extended",
+  "reference_catalog_version": "2026.03.22",
+  "request": {
+    "race": "Catfolk",
+    "archetype": "Vexing Daredevil + Enigma",
+    "level": 5,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "build_id": "build-0d47b08d7366d398eac3d397",
+  "step_audit": {
+    "request_timestamp": "2025-12-18T18:49:49Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true
+  },
+  "composite": {
+    "build": {
+      "build_id": "build-0d47b08d7366d398eac3d397",
+      "build_state": {
+        "class": "Mesmerist",
+        "mode": "extended",
+        "race": "Catfolk",
+        "archetype": "Vexing Daredevil + Enigma",
+        "step": 1,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 12,
+          "DES": 20,
+          "COS": 12,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 20
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T1",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 12,
+            "picco": 18
+          },
+          "livello_5": {
+            "media": 28,
+            "picco": 42
+          },
+          "livello_10": {
+            "media": 52,
+            "picco": 78
+          }
+        },
+        "statistics": {
+          "attacco": "+12",
+          "danni": "frusta +1 1d4+7 + dazzled da Mesmeric Stare",
+          "ca": 22
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Mesmerist",
+              "livelli": 5,
+              "archetipi": [
+                "Vexing Daredevil",
+                "Enigma"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 12,
+            "DES": 20,
+            "COS": 12,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 20,
+            "attacco": "+12",
+            "danni": "frusta +1 1d4+7",
+            "ca": 22
+          },
+          "statistiche_chiave": {
+            "attacco": "+12",
+            "danni": "frusta reach + mesmerist trick Dimenticanza",
+            "ca": 22
+          },
+          "benchmarks": {
+            "meta_tier": "T1"
+          },
+          "salvezze": {
+            "Tempra": 4,
+            "Riflessi": 8,
+            "Volontà": 7
+          },
+          "attack_bonus": {
+            "melee": "+12",
+            "ranged": "+14 con frusta +1",
+            "special": "+16 (greater feint + stare)"
+          },
+          "damage": {
+            "melee": "frusta +1 1d4+7",
+            "special": "dirty trick + mesmerist trick dimenticanza"
+          },
+          "skills": [
+            {
+              "nome": "Acrobazia",
+              "gradi": 5,
+              "mod_car": 5,
+              "var": 4,
+              "classe": true,
+              "totale": 14
+            },
+            {
+              "nome": "Furtività",
+              "gradi": 5,
+              "mod_car": 5,
+              "var": 4,
+              "classe": true,
+              "totale": 14
+            },
+            {
+              "nome": "Raggirare",
+              "gradi": 5,
+              "mod_car": 5,
+              "var": 4,
+              "classe": true,
+              "totale": 14
+            }
+          ],
+          "equipaggiamento": [
+            "Frusta +1 con fustigazione sporca",
+            "Mitria felina con focus psichico",
+            "Stivali dell'agilità",
+            "Mantello dell'ombra"
+          ],
+          "bench_log": [
+            "Ricognizione con mesmerist trick dimenticanza + riposizionamento felino con badge confermato"
+          ],
+          "rules_status_text": "Badge RAW/RAI/PFS confermato anche dopo upgrade equip"
+        }
+      },
+      "reference_catalog_version": "2026.03.22",
+      "step_audit": {
+        "request_timestamp": "2025-12-18T18:49:49Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Mesmerist",
+            "livelli": 5,
+            "archetipi": [
+              "Vexing Daredevil",
+              "Enigma"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 12,
+          "DES": 20,
+          "COS": 12,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 20,
+          "attacco": "+12",
+          "danni": "frusta +1 1d4+7",
+          "ca": 22
+        },
+        "statistiche_chiave": {
+          "attacco": "+12",
+          "danni": "frusta reach + mesmerist trick Dimenticanza",
+          "ca": 22
+        },
+        "benchmarks": {
+          "meta_tier": "T1"
+        },
+        "salvezze": {
+          "Tempra": 4,
+          "Riflessi": 8,
+          "Volontà": 7
+        },
+        "attack_bonus": {
+          "melee": "+12",
+          "ranged": "+14 con frusta +1",
+          "special": "+16 (greater feint + stare)"
+        },
+        "damage": {
+          "melee": "frusta +1 1d4+7",
+          "special": "dirty trick + mesmerist trick dimenticanza"
+        },
+        "skills": [
+          {
+            "nome": "Acrobazia",
+            "gradi": 5,
+            "mod_car": 5,
+            "var": 4,
+            "classe": true,
+            "totale": 14
+          },
+          {
+            "nome": "Furtività",
+            "gradi": 5,
+            "mod_car": 5,
+            "var": 4,
+            "classe": true,
+            "totale": 14
+          },
+          {
+            "nome": "Raggirare",
+            "gradi": 5,
+            "mod_car": 5,
+            "var": 4,
+            "classe": true,
+            "totale": 14
+          }
+        ],
+        "equipaggiamento": [
+          "Frusta +1 con fustigazione sporca",
+          "Mitria felina con focus psichico",
+          "Stivali dell'agilità",
+          "Mantello dell'ombra"
+        ],
+        "bench_log": [
+          "Ricognizione con mesmerist trick dimenticanza + riposizionamento felino con badge confermato"
+        ],
+        "rules_status_text": "Badge RAW/RAI/PFS confermato anche dopo upgrade equip"
+      }
+    },
+    "narrative": "Diario d'arena: addestra nuove reclute feline combinando mesmerist tricks e dirty trick contro i campioni locali."
+  }
 }
