@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-17T12:03:21Z",
+  "generated_at": "2025-12-18T14:50:40Z",
   "builds": {
     "total": 93,
-    "valid": 79,
-    "invalid": 14,
+    "valid": 0,
+    "invalid": 93,
     "errors": 0,
     "missing": 0,
     "entries": [
@@ -24,10 +24,14 @@
           10
         ],
         "level": 1,
+        "error": "'reference_catalog_version' is a required property; Additional properties are not allowed ('archetype', 'race' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl05.json",
@@ -46,10 +50,14 @@
           10
         ],
         "level": 5,
+        "error": "'reference_catalog_version' is a required property; Additional properties are not allowed ('archetype', 'race' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl10.json",
@@ -68,10 +76,14 @@
           10
         ],
         "level": 10,
+        "error": "'reference_catalog_version' is a required property; Additional properties are not allowed ('archetype', 'race' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/alchemist_goblin_bombardier.json",
@@ -90,10 +102,14 @@
           10
         ],
         "level": 1,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/alchemist_goblin_bombardier_lvl05.json",
@@ -112,10 +128,14 @@
           10
         ],
         "level": 5,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/alchemist_goblin_bombardier_lvl10.json",
@@ -134,10 +154,14 @@
           10
         ],
         "level": 10,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json",
@@ -156,10 +180,14 @@
           10
         ],
         "level": 1,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl05.json",
@@ -178,10 +206,14 @@
           10
         ],
         "level": 5,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl10.json",
@@ -200,10 +232,14 @@
           10
         ],
         "level": 10,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
@@ -222,10 +258,14 @@
           10
         ],
         "level": 1,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
@@ -244,10 +284,14 @@
           10
         ],
         "level": 5,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
@@ -266,10 +310,14 @@
           10
         ],
         "level": 10,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/bard_kitsune_sound_striker_sandman.json",
@@ -287,10 +335,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl05.json",
@@ -309,10 +361,14 @@
           10
         ],
         "level": 5,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json",
@@ -331,7 +387,7 @@
           10
         ],
         "level": 10,
-        "error": "Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration",
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration"
         ],
@@ -340,6 +396,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -360,10 +419,14 @@
           10
         ],
         "level": 1,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json",
@@ -382,10 +445,14 @@
           10
         ],
         "level": 5,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json",
@@ -404,10 +471,14 @@
           10
         ],
         "level": 10,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json",
@@ -426,10 +497,14 @@
           10
         ],
         "level": 1,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl05.json",
@@ -448,10 +523,14 @@
           10
         ],
         "level": 5,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl10.json",
@@ -470,10 +549,14 @@
           10
         ],
         "level": 10,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/cavalier_strix_strategist_honor_guard.json",
@@ -492,10 +575,14 @@
           10
         ],
         "level": 1,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl05.json",
@@ -514,10 +601,14 @@
           10
         ],
         "level": 5,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl10.json",
@@ -536,10 +627,14 @@
           10
         ],
         "level": 10,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/cleric_samsaran_cloistered_evangelist.json",
@@ -558,10 +653,14 @@
           10
         ],
         "level": 1,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl05.json",
@@ -580,10 +679,14 @@
           10
         ],
         "level": 5,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl10.json",
@@ -602,10 +705,14 @@
           10
         ],
         "level": 10,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral.json",
@@ -624,10 +731,14 @@
           10
         ],
         "level": 1,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
@@ -646,10 +757,14 @@
           10
         ],
         "level": 5,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
@@ -668,10 +783,14 @@
           10
         ],
         "level": 10,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
@@ -689,10 +808,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
@@ -710,10 +833,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
@@ -731,10 +858,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded.json",
@@ -753,10 +884,14 @@
           10
         ],
         "level": 1,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
@@ -775,10 +910,14 @@
           10
         ],
         "level": 5,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
@@ -797,10 +936,14 @@
           10
         ],
         "level": 10,
+        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/gunslinger_strix_gun_tank.json",
@@ -818,10 +961,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/gunslinger_strix_gun_tank_lvl05.json",
@@ -839,10 +986,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/gunslinger_strix_gun_tank_lvl10.json",
@@ -860,10 +1011,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace.json",
@@ -881,10 +1036,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl05.json",
@@ -902,10 +1061,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl10.json",
@@ -923,10 +1086,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/hunter_kasatha_packmaster.json",
@@ -944,10 +1111,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'mode' is a required property; 'step_labels' is a required property; Additional properties are not allowed ('checkpoint', 'level_checkpoints' were unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/hunter_kasatha_packmaster_lvl05.json",
@@ -965,10 +1136,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'mode' is a required property; 'step_labels' is a required property; Additional properties are not allowed ('checkpoint', 'level_checkpoints' were unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/hunter_kasatha_packmaster_lvl10.json",
@@ -986,10 +1161,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'mode' is a required property; 'step_labels' is a required property; Additional properties are not allowed ('checkpoint', 'level_checkpoints' were unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher.json",
@@ -1007,10 +1186,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl05.json",
@@ -1028,10 +1211,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl10.json",
@@ -1049,10 +1236,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective.json",
@@ -1071,10 +1262,14 @@
           10
         ],
         "level": 1,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl05.json",
@@ -1093,10 +1288,14 @@
           10
         ],
         "level": 5,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl10.json",
@@ -1115,10 +1314,14 @@
           10
         ],
         "level": 10,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul.json",
@@ -1136,10 +1339,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl05.json",
@@ -1157,10 +1364,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl10.json",
@@ -1178,10 +1389,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul.json",
@@ -1199,10 +1414,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl05.json",
@@ -1220,10 +1439,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl10.json",
@@ -1241,10 +1464,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter.json",
@@ -1262,7 +1489,7 @@
           5,
           10
         ],
-        "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
         ],
@@ -1271,6 +1498,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1290,10 +1520,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl10.json",
@@ -1311,10 +1545,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
@@ -1332,10 +1570,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json",
@@ -1353,10 +1595,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json",
@@ -1374,10 +1620,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
@@ -1396,7 +1646,7 @@
           10
         ],
         "level": 1,
-        "error": "Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
         ],
@@ -1406,6 +1656,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1426,7 +1679,7 @@
           10
         ],
         "level": 5,
-        "error": "Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
         ],
@@ -1441,6 +1694,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1461,7 +1717,7 @@
           10
         ],
         "level": 10,
-        "error": "Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
         ],
@@ -1481,6 +1737,9 @@
         "catalog_version": [
           "2026.03.22"
         ],
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
         "status": "invalid"
       },
       {
@@ -1499,7 +1758,7 @@
           5,
           10
         ],
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -1508,6 +1767,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1527,7 +1789,7 @@
           5,
           10
         ],
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -1536,6 +1798,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1555,7 +1820,7 @@
           5,
           10
         ],
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -1564,6 +1829,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1584,7 +1852,7 @@
           10
         ],
         "level": 1,
-        "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "'reference_catalog_version' is a required property; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
         ],
@@ -1593,6 +1861,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1613,7 +1884,7 @@
           10
         ],
         "level": 5,
-        "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "'reference_catalog_version' is a required property; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
         ],
@@ -1622,6 +1893,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1642,7 +1916,7 @@
           10
         ],
         "level": 10,
-        "error": "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale); Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "'reference_catalog_version' is a required property; Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale); Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)",
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
@@ -1655,6 +1929,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1675,10 +1952,14 @@
           10
         ],
         "level": 1,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl05.json",
@@ -1697,10 +1978,14 @@
           10
         ],
         "level": 5,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl10.json",
@@ -1719,10 +2004,14 @@
           10
         ],
         "level": 10,
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma.json",
@@ -1740,10 +2029,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl05.json",
@@ -1761,10 +2054,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl10.json",
@@ -1782,10 +2079,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant.json",
@@ -1803,10 +2104,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl05.json",
@@ -1824,10 +2129,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl10.json",
@@ -1845,10 +2154,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer.json",
@@ -1866,10 +2179,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl05.json",
@@ -1887,10 +2204,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl10.json",
@@ -1908,10 +2229,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant.json",
@@ -1929,7 +2254,7 @@
           5,
           10
         ],
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -1938,6 +2263,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1957,7 +2285,7 @@
           5,
           10
         ],
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -1966,6 +2294,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -1985,7 +2316,7 @@
           5,
           10
         ],
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -1994,6 +2325,9 @@
         ],
         "catalog_version": [
           "2026.03.22"
+        ],
+        "warnings": [
+          "reference_catalog_version mancante"
         ],
         "status": "invalid"
       },
@@ -2013,10 +2347,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl05.json",
@@ -2034,10 +2372,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl10.json",
@@ -2055,10 +2397,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch.json",
@@ -2076,10 +2422,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl05.json",
@@ -2097,10 +2447,14 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       },
       {
         "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl10.json",
@@ -2118,29 +2472,33 @@
           5,
           10
         ],
+        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
         "catalog_version": [
           "2026.03.22"
         ],
-        "status": "ok"
+        "warnings": [
+          "reference_catalog_version mancante"
+        ],
+        "status": "invalid"
       }
     ],
     "checkpoints": {
       "1": {
         "total": 14,
-        "invalid": 2,
-        "schema_errors": 2,
+        "invalid": 14,
+        "schema_errors": 14,
         "completeness_errors": 2
       },
       "5": {
         "total": 15,
-        "invalid": 2,
-        "schema_errors": 2,
+        "invalid": 15,
+        "schema_errors": 15,
         "completeness_errors": 2
       },
       "10": {
         "total": 15,
-        "invalid": 3,
-        "schema_errors": 3,
+        "invalid": 15,
+        "schema_errors": 15,
         "completeness_errors": 3
       }
     }
@@ -2152,18 +2510,6 @@
     "errors": 0,
     "missing": 0,
     "entries": [
-      {
-        "module": "Encounter_Designer.txt",
-        "file": "src/data/modules/Encounter_Designer.txt",
-        "status": "ok",
-        "size_bytes": 36198
-      },
-      {
-        "module": "Taverna_NPC.txt",
-        "file": "src/data/modules/Taverna_NPC.txt",
-        "status": "ok",
-        "size_bytes": 124135
-      },
       {
         "module": "adventurer_ledger.txt",
         "file": "src/data/modules/adventurer_ledger.txt",
@@ -2183,10 +2529,10 @@
         "size_bytes": 37655
       },
       {
-        "module": "preload_all_modules.txt",
-        "file": "src/data/modules/preload_all_modules.txt",
+        "module": "Encounter_Designer.txt",
+        "file": "src/data/modules/Encounter_Designer.txt",
         "status": "ok",
-        "size_bytes": 523
+        "size_bytes": 36198
       },
       {
         "module": "explain_methods.txt",
@@ -2210,13 +2556,19 @@
         "module": "minmax_builder.txt",
         "file": "src/data/modules/minmax_builder.txt",
         "status": "ok",
-        "size_bytes": 86355
+        "size_bytes": 88649
       },
       {
         "module": "narrative_flow.txt",
         "file": "src/data/modules/narrative_flow.txt",
         "status": "ok",
         "size_bytes": 35089
+      },
+      {
+        "module": "preload_all_modules.txt",
+        "file": "src/data/modules/preload_all_modules.txt",
+        "status": "ok",
+        "size_bytes": 523
       },
       {
         "module": "ruling_expert.txt",
@@ -2228,7 +2580,7 @@
         "module": "scheda_pg_markdown_template.md",
         "file": "src/data/modules/scheda_pg_markdown_template.md",
         "status": "ok",
-        "size_bytes": 23883
+        "size_bytes": 24875
       },
       {
         "module": "sigilli_runner_module.txt",
@@ -2241,17 +2593,23 @@
         "file": "src/data/modules/tavern_hub.json",
         "status": "ok",
         "size_bytes": 740
+      },
+      {
+        "module": "Taverna_NPC.txt",
+        "file": "src/data/modules/Taverna_NPC.txt",
+        "status": "ok",
+        "size_bytes": 124135
       }
     ]
   },
   "reference_urls": {
     "total": 4121,
-    "aon": 3921,
+    "aon": 4120,
     "d20_only": 1,
     "missing_aon_entries": [
       "feats:Focus: Suoni di Sabbia"
     ],
-    "aon_ratio": 0.951,
+    "aon_ratio": 1.0,
     "status": "invalid"
   },
   "build_index": "src/data/build_index.json",
