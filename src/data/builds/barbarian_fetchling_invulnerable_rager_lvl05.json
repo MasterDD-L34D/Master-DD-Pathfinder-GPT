@@ -196,7 +196,8 @@
           "importo": 0,
           "note": "Movimento auto-generato per QA"
         }
-      ]
+      ],
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
     }
   },
   "narrative": "Arc Taverna/Narrative importato e consolidato dopo QA MinMax; badge RAW/RAI validato.",
@@ -430,7 +431,8 @@
               "importo": 0,
               "note": "Movimento auto-generato per QA"
             }
-          ]
+          ],
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
         }
       },
       "reference_catalog_version": "2026.03.22",

@@ -247,7 +247,8 @@
       "magia": {},
       "lingue": [],
       "sensi": [],
-      "condizioni": []
+      "condizioni": [],
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
     }
   },
   "narrative": "Halfling Cutpurse pronta/o per il campo, specializzata/o in tattiche da Rogue.",
@@ -627,7 +628,8 @@
           "magia": {},
           "lingue": [],
           "sensi": [],
-          "condizioni": []
+          "condizioni": [],
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
         }
       },
       "reference_catalog_version": "2026.03.22",

@@ -27,7 +27,32 @@
     "notes": "Snapshot placeholder generato offline per druid_half_orc_feral lvl 10."
   },
   "export": {
-    "sheet_payload": {},
+    "sheet_payload": {
+      "skills": [
+        {
+          "nome": "Percezione",
+          "valore": "+1"
+        }
+      ],
+      "equipaggiamento": [
+        "Pugnale di servizio"
+      ],
+      "ledger_movimenti": [
+        {
+          "oggetto": "Kit di emergenza",
+          "importo": 0
+        }
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "oggetto": "Kit di emergenza",
+            "importo": 0
+          }
+        ]
+      },
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+    },
     "sheet_locale": "it-IT",
     "sheet_format": "placeholder"
   },
@@ -102,7 +127,32 @@
         "notes": "Snapshot placeholder generato offline per druid_half_orc_feral lvl 10."
       },
       "export": {
-        "sheet_payload": {},
+        "sheet_payload": {
+          "skills": [
+            {
+              "nome": "Percezione",
+              "valore": "+1"
+            }
+          ],
+          "equipaggiamento": [
+            "Pugnale di servizio"
+          ],
+          "ledger_movimenti": [
+            {
+              "oggetto": "Kit di emergenza",
+              "importo": 0
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "oggetto": "Kit di emergenza",
+                "importo": 0
+              }
+            ]
+          },
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+        },
         "sheet_locale": "it-IT",
         "sheet_format": "placeholder"
       },

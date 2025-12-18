@@ -27,7 +27,33 @@
     "notes": "Snapshot placeholder generato offline per fighter_dwarf_shielded lvl 10."
   },
   "export": {
-    "sheet_payload": {},
+    "sheet_payload": {
+      "skills": [
+        {
+          "nome": "Percezione",
+          "valore": "+5"
+        }
+      ],
+      "equipaggiamento": [
+        "Scudo pesante",
+        "Ascia da battaglia"
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "oggetto": "Scudo pesante",
+            "importo": 0
+          }
+        ]
+      },
+      "ledger_movimenti": [
+        {
+          "oggetto": "Scudo pesante",
+          "importo": 0
+        }
+      ],
+      "sheet_markdown": "Percezione Scudo pesante Scudo pesante"
+    },
     "sheet_locale": "it-IT",
     "sheet_format": "placeholder"
   },
@@ -102,7 +128,32 @@
         "notes": "Snapshot placeholder generato offline per fighter_dwarf_shielded lvl 10."
       },
       "export": {
-        "sheet_payload": {},
+        "sheet_payload": {
+          "skills": [
+            {
+              "nome": "Percezione",
+              "valore": "+1"
+            }
+          ],
+          "equipaggiamento": [
+            "Pugnale di servizio"
+          ],
+          "ledger_movimenti": [
+            {
+              "oggetto": "Kit di emergenza",
+              "importo": 0
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "oggetto": "Kit di emergenza",
+                "importo": 0
+              }
+            ]
+          },
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+        },
         "sheet_locale": "it-IT",
         "sheet_format": "placeholder"
       },
@@ -120,7 +171,33 @@
         "step_labels_count": 3,
         "has_extended_steps": true
       },
-      "sheet_payload": {}
+      "sheet_payload": {
+        "skills": [
+          {
+            "nome": "Percezione",
+            "valore": "+5"
+          }
+        ],
+        "equipaggiamento": [
+          "Scudo pesante",
+          "Ascia da battaglia"
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "oggetto": "Scudo pesante",
+              "importo": 0
+            }
+          ]
+        },
+        "ledger_movimenti": [
+          {
+            "oggetto": "Scudo pesante",
+            "importo": 0
+          }
+        ],
+        "sheet_markdown": "Percezione Scudo pesante Scudo pesante"
+      }
     },
     "narrative": {
       "summary": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
