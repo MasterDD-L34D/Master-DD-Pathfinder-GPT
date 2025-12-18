@@ -209,7 +209,8 @@
           "importo": 0,
           "note": "Movimento auto-generato per QA"
         }
-      ]
+      ],
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
     },
     "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 1\nFocus su danni sonici e debuff di sonno/illusione."
   },
@@ -447,7 +448,8 @@
               "importo": 0,
               "note": "Movimento auto-generato per QA"
             }
-          ]
+          ],
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
         },
         "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 1\nFocus su danni sonici e debuff di sonno/illusione."
       },

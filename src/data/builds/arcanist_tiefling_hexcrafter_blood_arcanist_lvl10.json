@@ -219,7 +219,13 @@
         }
       ],
       "ledger": {
-        "saldo": 0
+        "saldo": 0,
+        "movimenti": [
+          {
+            "oggetto": "Kit di emergenza",
+            "importo": 0
+          }
+        ]
       },
       "ledger_movimenti": [
         {
@@ -232,7 +238,8 @@
           "importo": 600,
           "note": "Pago in oro"
         }
-      ]
+      ],
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
     }
   },
   "narrative": {
@@ -501,7 +508,13 @@
             }
           ],
           "ledger": {
-            "saldo": 0
+            "saldo": 0,
+            "movimenti": [
+              {
+                "oggetto": "Kit di emergenza",
+                "importo": 0
+              }
+            ]
           },
           "ledger_movimenti": [
             {
@@ -514,7 +527,8 @@
               "importo": 600,
               "note": "Pago in oro"
             }
-          ]
+          ],
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
         }
       },
       "reference_catalog_version": "2026.03.22",

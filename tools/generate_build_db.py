@@ -1480,7 +1480,8 @@ def _checkpoint_summary_from_entries(
             checkpoints,
             entry.get("level"),
             str(entry.get("status") or "ok"),
-            schema_error=bool(entry.get("error")) and not entry.get("completeness_errors"),
+            schema_error=bool(entry.get("error"))
+            and not entry.get("completeness_errors"),
             completeness_error=bool(entry.get("completeness_errors")),
         )
 
@@ -2656,16 +2657,12 @@ def build_variant_matrix_requests(
     return requests
 
 
-def _ensure_spec_ids(
-    requests: Sequence[BuildRequest], spec_path: Path | None
-) -> None:
+def _ensure_spec_ids(requests: Sequence[BuildRequest], spec_path: Path | None) -> None:
     missing_spec_id = [req.class_name for req in requests if not req.spec_id]
     if not missing_spec_id:
         return
 
-    message = (
-        f"Spec {spec_path} privo di spec_id per {len(missing_spec_id)} richieste"
-    )
+    message = f"Spec {spec_path} privo di spec_id per {len(missing_spec_id)} richieste"
     logging.error("%s: %s", message, ", ".join(sorted(set(missing_spec_id))))
     raise ValueError(message)
 
@@ -2710,10 +2707,14 @@ def build_requests_from_args(
         _ensure_spec_ids(requests, spec_path)
         return requests, combo_matrix_used, spec_path
 
-    return [
-        BuildRequest(class_name=class_name, mode=args.mode)
-        for class_name in args.classes
-    ], combo_matrix_used, spec_path
+    return (
+        [
+            BuildRequest(class_name=class_name, mode=args.mode)
+            for class_name in args.classes
+        ],
+        combo_matrix_used,
+        spec_path,
+    )
 
 
 def filter_requests(
@@ -4237,7 +4238,9 @@ def _normalize_build_payload(
         or normalized_mode
         or DEFAULT_MODE
     )
-    payload["mode"] = payload.get("mode") or request_ctx.get("mode") or normalized_mode_value
+    payload["mode"] = (
+        payload.get("mode") or request_ctx.get("mode") or normalized_mode_value
+    )
     payload.setdefault("mode_normalized", normalized_mode_value)
 
     if request_ctx.get("class") and not payload.get("class"):
@@ -4328,7 +4331,15 @@ def _normalize_build_payload(
     )
     payload["completeness"] = completeness_ctx
     relocated_from_completeness: dict[str, object] = {}
-    for key in ("bench_log", "missing", "status", "checkpoint", "checklist", "level", "level_checkpoints"):
+    for key in (
+        "bench_log",
+        "missing",
+        "status",
+        "checkpoint",
+        "checklist",
+        "level",
+        "level_checkpoints",
+    ):
         value = completeness_ctx.pop(key, None)
         if value is not None:
             relocated_from_completeness[key] = value
@@ -4385,7 +4396,9 @@ def _normalize_build_payload(
         payload["build_id"] = build_id.strip()
 
     existing_step_audit = (
-        payload.get("step_audit") if isinstance(payload.get("step_audit"), Mapping) else {}
+        payload.get("step_audit")
+        if isinstance(payload.get("step_audit"), Mapping)
+        else {}
     )
     step_audit = dict(existing_step_audit)
     step_audit.setdefault("request_timestamp", now_iso_utc())
@@ -4400,18 +4413,28 @@ def _normalize_build_payload(
     step_audit.setdefault(
         "observed_step_total", step_audit.get("expected_step_total") or step_total
     )
-    if step_audit.get("step_total_ok") is None and step_audit.get("observed_step_total") is not None:
-        step_audit["step_total_ok"] = (
-            step_audit.get("observed_step_total") == step_audit.get("expected_step_total")
-        )
+    if (
+        step_audit.get("step_total_ok") is None
+        and step_audit.get("observed_step_total") is not None
+    ):
+        step_audit["step_total_ok"] = step_audit.get(
+            "observed_step_total"
+        ) == step_audit.get("expected_step_total")
     step_audit.setdefault(
-        "step_labels_count", len(step_labels) if isinstance(step_labels, Mapping) else None
+        "step_labels_count",
+        len(step_labels) if isinstance(step_labels, Mapping) else None,
     )
     step_audit.setdefault("has_extended_steps", normalized_mode_value == "extended")
     payload["step_audit"] = step_audit
 
-    composite = dict(payload.get("composite")) if isinstance(payload.get("composite"), Mapping) else {}
-    export_ctx = payload.get("export") if isinstance(payload.get("export"), Mapping) else {}
+    composite = (
+        dict(payload.get("composite"))
+        if isinstance(payload.get("composite"), Mapping)
+        else {}
+    )
+    export_ctx = (
+        payload.get("export") if isinstance(payload.get("export"), Mapping) else {}
+    )
     sheet_payload = None
     if isinstance(export_ctx, Mapping):
         sheet_payload = export_ctx.get("sheet_payload")
@@ -5876,7 +5899,10 @@ async def run_harvest(
                             target_level=request.level,
                             normalized_mode=normalize_mode(request.mode),
                         )
-                        if json.dumps(payload, sort_keys=True, default=str) != normalized_payload_before:
+                        if (
+                            json.dumps(payload, sort_keys=True, default=str)
+                            != normalized_payload_before
+                        ):
                             destination.write_text(
                                 json.dumps(payload, indent=2, ensure_ascii=False),
                                 encoding="utf-8",
@@ -6729,7 +6755,12 @@ async def backfill_ruling_badges(
 
 def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
     race_inventory = load_race_inventory(args.race_inventory)
-    requests, combo_matrix_used, spec_path = build_requests_from_args(args)
+    built_requests = build_requests_from_args(args)
+    try:
+        requests, combo_matrix_used, spec_path = built_requests
+    except ValueError:
+        requests, combo_matrix_used = built_requests
+        spec_path = None
     requests = [replace(req, stub=args.stub) for req in requests]
     requests = assign_missing_races(
         requests,

@@ -225,7 +225,8 @@
           "importo": 0,
           "note": "Movimento auto-generato per QA"
         }
-      ]
+      ],
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
     }
   },
   "narrative": {
@@ -500,7 +501,8 @@
               "importo": 0,
               "note": "Movimento auto-generato per QA"
             }
-          ]
+          ],
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
         }
       },
       "reference_catalog_version": "2026.03.22",

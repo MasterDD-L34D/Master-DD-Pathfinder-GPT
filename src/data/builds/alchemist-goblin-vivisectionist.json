@@ -263,7 +263,8 @@
       "magia": {},
       "lingue": [],
       "sensi": [],
-      "condizioni": []
+      "condizioni": [],
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
     }
   },
   "narrative": "Goblin Vivisectionist ottimizzata con mutageno, ferite furtive e toolkit da laboratorio; flusso Ruling→MinMax→Taverna validato.",
@@ -645,7 +646,8 @@
           "magia": {},
           "lingue": [],
           "sensi": [],
-          "condizioni": []
+          "condizioni": [],
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
         }
       },
       "reference_catalog_version": "2026.03.22",
