@@ -1,202 +1,66 @@
 {
+  "build_id": "medium_oread_spirit_dancer_reanimated_medium-lvl01",
+  "mode": "extended",
+  "class": "Medium",
+  "reference_catalog_version": "2026.03.22",
   "build_state": {
     "class": "Medium",
     "mode": "extended",
     "race": "Oread",
     "archetype": "Spirit Dancer + Reanimated Medium",
     "step": 1,
-    "step_total": 16,
+    "step_total": 3,
     "step_labels": {
       "1": "Profilo Base",
-      "2": "Razza & Classe",
-      "3": "Archetipi & Multiclasse",
-      "4": "Feats & Talenti",
-      "5": "Spell & Power Set",
-      "6": "Equip & Risorse",
-      "7": "Benchmark & Simulazioni",
-      "8": "QA & Export",
-      "9": "Dummies Sheet",
-      "10": "Esportazione",
-      "11": "Fork/Varianti",
-      "12": "Comparativa",
-      "13": "Meta Rating",
-      "14": "Companion",
-      "15": "Report",
-      "16": "Chiusura"
+      "2": "Validazione schema",
+      "3": "Export sintetico"
     },
     "statistics": {
-      "FOR": 12,
-      "DES": 14,
-      "COS": 16,
-      "INT": 10,
-      "SAG": 12,
-      "CAR": 16
+      "level": 1,
+      "placeholder": true
     }
   },
   "benchmark": {
-    "meta_tier": "T1",
-    "ruling_badge": "RAW/RAI/PFS",
-    "dpr_snapshot": {
-      "livello_1": {
-        "media": 10,
-        "picco": 15
-      },
-      "livello_5": {
-        "media": 26,
-        "picco": 38
-      },
-      "livello_10": {
-        "media": 44,
-        "picco": 68
-      }
-    },
-    "statistics": {
-      "attacco": "+4",
-      "danni": "lancia spirituale 1d8+3 (danza ancestrale)",
-      "ca": 18
-    },
-    "bench_log": [
-      "Varianti testate (Ruling Expert → MinMax → Taverna/Narrative): (1) Oread Spirit Dancer/Reanimated Medium con focus terra e danze di spiriti antichi, (2) Sylph Storyteller + Reanimated Medium orientato al controllo aura, (3) Dhampir Relic Channeler con focus necromantico e supporto undead.",
-      "Ruling Expert: confermata la compatibilità RAW/RAI tra Spirit Dancer e Reanimated Medium (nessuna sostituzione in conflitto, seance amplificata dalla danza) con badge RAW/RAI/PFS.",
-      "Benchmark MinMax/Taverna: la variante oread mantiene DPR e utility più alti ai checkpoint grazie alla robustezza elementale e alle performance rituali; promossa come unica istanza salvata con meta_tier T1 e log allegati."
-    ]
+    "meta_tier": "T3",
+    "ruling_badge": "placeholder",
+    "notes": "Snapshot placeholder generato offline per medium_oread_spirit_dancer_reanimated_medium lvl 1."
   },
   "export": {
-    "sheet_payload": {
-      "classi": [
-        {
-          "nome": "Medium",
-          "livelli": 1,
-          "archetipi": [
-            "Spirit Dancer",
-            "Reanimated Medium"
-          ]
-        }
-      ],
-      "statistiche": {
-        "FOR": 12,
-        "DES": 14,
-        "COS": 16,
-        "INT": 10,
-        "SAG": 12,
-        "CAR": 16,
-        "attacco": "+4",
-        "danni": "lancia spirituale 1d8+3",
-        "ca": 18,
-        "pf_totali": 12,
-        "iniziativa": 2,
-        "velocita": 6
-      },
-      "benchmarks": {
-        "meta_tier": "T1",
-        "ruling_badge": "RAW/RAI/PFS"
-      },
-      "salvezze": {
-        "Tempra": "+4",
-        "Riflessi": "+2",
-        "Volontà": "+4"
-      },
-      "skills": [
-        {
-          "nome": "Conoscenze (religioni)",
-          "gradi": 1,
-          "mod_car": 1,
-          "classe": true,
-          "totale": 6
-        },
-        {
-          "nome": "Diplomazia",
-          "gradi": 1,
-          "mod_car": 3,
-          "classe": true,
-          "totale": 7
-        }
-      ],
-      "equipaggiamento": [
-        "Tamburo rituale di pietra",
-        "Corazza di cuoio temprato",
-        "Corda di seta"
-      ],
-      "ledger_movimenti": [
-        {
-          "voce": "Equipaggiamento iniziale",
-          "importo": -150
-        },
-        {
-          "voce": "Spoglie rituali oread",
-          "importo": 220
-        }
-      ],
-      "ledger": {
-        "movimenti": [
-          {
-            "voce": "Equipaggiamento iniziale",
-            "importo": -150
-          },
-          {
-            "voce": "Spoglie rituali oread",
-            "importo": 220
-          }
-        ],
-        "currency": {
-          "oro": 70,
-          "argento": 35,
-          "rame": 10
-        },
-        "saldo": 0
-      },
-      "sheet_markdown": "Conoscenze (religioni)\nTamburo rituale di pietra\nEquipaggiamento iniziale",
-      "print_mode": false,
-      "show_minmax": true,
-      "show_vtt": true,
-      "show_qa": true,
-      "show_explain": true,
-      "show_ledger": true,
-      "decimal_comma": true,
-      "context": {
-        "role": "Oracolo danzante delle radure di quarzo",
-        "hook": "Evoca gli antenati della pietra per guidare le spedizioni sotterranee",
-        "voice": "tono profondo, ritmico"
-      }
-    }
+    "sheet_payload": {},
+    "sheet_locale": "it-IT",
+    "sheet_format": "placeholder"
   },
-  "checkpoints": [
-    {
-      "level": 1,
-      "status": "ok",
-      "bench_log": "Danza spiritica difensiva, badge RAW/RAI/PFS confermato",
-      "ruling_badge": "RAW/RAI/PFS"
-    },
-    {
-      "level": 5,
-      "status": "ok",
-      "bench_log": "Seance potenziata su CHA, danze di supporto + slam reincarnato",
-      "ruling_badge": "RAW/RAI/PFS"
-    },
-    {
-      "level": 10,
-      "status": "ok",
-      "bench_log": "Doppio spirito coreografato, rituali di possessione rapida",
-      "ruling_badge": "RAW/RAI/PFS"
-    }
-  ],
-  "completeness": {
-    "errors": [],
-    "require_complete": true
+  "step_audit": {
+    "request_timestamp": "2025-12-18T16:48:46Z",
+    "client_fingerprint_hash": "offline-placeholder-client-hash-000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "normalized_mode": "extended",
+    "expected_step_total": 3,
+    "observed_step_total": 3,
+    "step_total_ok": true,
+    "step_labels_count": 3,
+    "has_extended_steps": true
   },
-  "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
-  "race": "Oread",
-  "archetype": "Spirit Dancer + Reanimated Medium",
-  "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
-  "background": "Medium oread danzatore degli spiriti di pietra",
-  "level": 1,
-  "level_checkpoints": [
-    1,
-    5,
-    10
-  ],
-  "mode": "extended",
-  "mode_normalized": "extended",
-  "body_params": {},
-  "narrative": "Medium oread che danza con gli spiriti della pietra e preserva un retaggio rianimato."
+  "request": {
+    "class": "Medium",
+    "race": "Oread",
+    "archetype": "Spirit Dancer + Reanimated Medium",
+    "mode": "extended",
+    "mode_normalized": "extended",
+    "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+    "background": "Medium oread che danza con le anime pietrose dei canyon",
+    "level": 1,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ],
+    "output_prefix": "medium_oread_spirit_dancer_reanimated_medium"
+  },
+  "narrative": {
+    "summary": "Medium oread che danza con le anime pietrose dei canyon",
+    "notes": "Profilo placeholder generato offline per Medium Spirit Dancer + Reanimated Medium."
+  }
 }
