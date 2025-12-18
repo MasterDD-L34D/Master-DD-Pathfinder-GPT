@@ -22,8 +22,11 @@ jobs:
               pull_number: prNumber,
             }).then((res) => res.data.body || '').catch(() => context.payload.pull_request?.body || '') || '';
 
+            const startMarker = '<!-- AUTO-QA-START -->';
+            const endMarker = '<!-- AUTO-QA-END -->';
+
             const body = prBody.trim();
-            const hasAutoQaSection = body.includes('<!-- AUTO-QA-START -->') && body.includes('<!-- AUTO-QA-END -->');
+            const hasAutoQaSection = body.includes(startMarker) && body.includes(endMarker);
             if (!hasAutoQaSection) {
               core.notice('Sezione AUTO-QA non presente: la validazione della checklist verrà eseguita dopo l\'autofill.');
               return;
@@ -52,15 +55,28 @@ jobs:
               core.setFailed(`Segna come completati tutti i controlli obbligatori: manca ${missingChecks.join(', ')}.`);
             }
 
-            const bodyWithoutComments = body.replace(/<!--[\s\S]*?-->/g, '');
-            const placeholderPattern = /<(?!!--)[^>]*>/;
-            if (placeholderPattern.test(bodyWithoutComments)) {
+            const qaBlockMatch = body.match(new RegExp(`${escape(startMarker)}([\\s\\S]*?)${escape(endMarker)}`));
+            const qaContent = qaBlockMatch?.[1]?.replace(/<!--[\s\S]*?-->/g, '') || '';
+
+            const placeholderPattern = /<(?!!--)([^>]+)>/g;
+            const foundPlaceholders = [];
+
+            for (const match of qaContent.matchAll(placeholderPattern)) {
+              const value = match[1].trim();
+              const isAutolink = /^https?:\/\//i.test(value);
+              const isHtmlTag = /^\/?[a-z][\w-]*(\s+[^>]*)?$/i.test(value);
+              if (!value || isAutolink || isHtmlTag) continue;
+              foundPlaceholders.push(value);
+            }
+
+            if (foundPlaceholders.length) {
               core.setFailed('Sostituisci tutti i placeholder (<...>) con informazioni reali nelle evidenze di test.');
             }
 
+            const evidenceTarget = qaBlockMatch?.[0] || body;
             const missingEvidence = requiredChecks.filter((label) => {
               const rowPattern = new RegExp(`\\|\\s*${escape(label)}\\s*\\|(?:[^|<>]*\\|){2,}`, 'i');
-              return !rowPattern.test(body);
+              return !rowPattern.test(evidenceTarget);
             });
 
             if (missingEvidence.length) {

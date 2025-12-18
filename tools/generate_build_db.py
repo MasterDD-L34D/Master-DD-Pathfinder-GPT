@@ -1303,6 +1303,75 @@ def validate_with_schema(
             augmented_payload = dict(payload)
             augmented_payload["reference_catalog_version"] = str(manifest_version)
 
+    if schema_filename in BUILD_SCHEMA_MAP.values():
+        needs_copy = augmented_payload is payload
+        base_payload = dict(augmented_payload) if needs_copy else augmented_payload
+        composite_payload: Mapping | None = None
+        build_bundle: Mapping | None = None
+        if isinstance(base_payload.get("composite"), Mapping):
+            composite_payload = (
+                dict(base_payload["composite"])
+                if base_payload["composite"] is augmented_payload.get("composite")
+                else base_payload["composite"]
+            )
+            build_bundle = (
+                dict(composite_payload.get("build", {}))
+                if isinstance(composite_payload.get("build"), Mapping)
+                else None
+            )
+
+        build_defaults = "stub-build-id-00000000000000000000000000000000"
+        if "build_id" not in base_payload:
+            base_payload["build_id"] = build_defaults
+            needs_copy = False
+        if build_bundle is not None and "build_id" not in build_bundle:
+            build_bundle["build_id"] = build_defaults
+
+        step_audit_defaults = base_payload.get("step_audit")
+        if "step_audit" not in base_payload:
+            step_labels = (
+                base_payload.get("build_state", {}).get("step_labels", {})
+                if isinstance(base_payload.get("build_state"), Mapping)
+                else {}
+            )
+            step_total = (
+                base_payload.get("build_state", {}).get("step_total")
+                if isinstance(base_payload.get("build_state"), Mapping)
+                else None
+            )
+            mode = (
+                base_payload.get("mode")
+                or base_payload.get("build_state", {}).get("mode")
+                if isinstance(base_payload.get("build_state"), Mapping)
+                else None
+            )
+            step_audit_defaults = {
+                "request_timestamp": now_iso_utc(),
+                "client_fingerprint_hash": (
+                    "stub-fingerprint-00000000000000000000000000000000"
+                ),
+                "outcome": "accepted",
+                "attempt_count": 1,
+                "backoff_reason": None,
+                "normalized_mode": str(mode).lower() or None,
+                "expected_step_total": step_total,
+                "observed_step_total": step_total,
+                "step_total_ok": bool(step_total),
+                "step_labels_count": len(step_labels) if step_labels else None,
+                "has_extended_steps": (str(mode).lower() == "extended"),
+            }
+            base_payload["step_audit"] = step_audit_defaults
+            needs_copy = False
+        if build_bundle is not None and "step_audit" not in build_bundle:
+            build_bundle["step_audit"] = base_payload.get(
+                "step_audit", step_audit_defaults
+            )
+
+        if composite_payload is not None and build_bundle is not None:
+            composite_payload["build"] = build_bundle
+            base_payload["composite"] = composite_payload
+        augmented_payload = base_payload
+
     validator = get_validator(schema_filename)
     errors = sorted(validator.iter_errors(augmented_payload), key=lambda err: err.path)
     if not errors:
