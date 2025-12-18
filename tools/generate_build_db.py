@@ -2476,7 +2476,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--spec-file",
         type=Path,
+        default=DEFAULT_SPEC_FILE,
         help="File YAML/JSON con le richieste da processare (override di --mode/--classes)",
+    )
+    parser.add_argument(
+        "--no-default-spec",
+        action="store_true",
+        help="Disabilita l'uso del file spec predefinito (docs/examples/pg_variants.yml)",
     )
     parser.add_argument(
         "--combo-matrix",
@@ -2639,12 +2645,29 @@ def build_variant_matrix_requests(
     return requests
 
 
+def _ensure_spec_ids(
+    requests: Sequence[BuildRequest], spec_path: Path | None
+) -> None:
+    missing_spec_id = [req.class_name for req in requests if not req.spec_id]
+    if not missing_spec_id:
+        return
+
+    message = (
+        f"Spec {spec_path} privo di spec_id per {len(missing_spec_id)} richieste"
+    )
+    logging.error("%s: %s", message, ", ".join(sorted(set(missing_spec_id))))
+    raise ValueError(message)
+
+
 def build_requests_from_args(
     args: argparse.Namespace,
-) -> tuple[list[BuildRequest], bool]:
+) -> tuple[list[BuildRequest], bool, Path | None]:
     combo_matrix_used = False
-    if args.spec_file:
-        return load_spec_requests(args.spec_file, args.mode), combo_matrix_used
+    spec_path = None if args.no_default_spec else args.spec_file
+    if spec_path:
+        requests = load_spec_requests(spec_path, args.mode)
+        _ensure_spec_ids(requests, spec_path)
+        return requests, combo_matrix_used, spec_path
 
     if args.races or args.archetypes or args.background_hooks:
         return (
@@ -2656,26 +2679,30 @@ def build_requests_from_args(
                 args.background_hooks,
             ),
             combo_matrix_used,
+            spec_path,
         )
 
     if args.combo_matrix and args.combo_matrix.is_file():
         try:
             combo_requests = load_combo_matrix(args.combo_matrix, args.mode)
             combo_matrix_used = True
-            return combo_requests, combo_matrix_used
+            return combo_requests, combo_matrix_used, spec_path
         except Exception as exc:
             logging.warning(
                 "Impossibile caricare combo_matrix %s: %s", args.combo_matrix, exc
             )
 
-    if DEFAULT_SPEC_FILE.is_file():
+    if (not args.no_default_spec) and DEFAULT_SPEC_FILE.is_file():
         logging.info("Uso il file spec predefinito %s", DEFAULT_SPEC_FILE)
-        return load_spec_requests(DEFAULT_SPEC_FILE, args.mode), combo_matrix_used
+        spec_path = DEFAULT_SPEC_FILE
+        requests = load_spec_requests(spec_path, args.mode)
+        _ensure_spec_ids(requests, spec_path)
+        return requests, combo_matrix_used, spec_path
 
     return [
         BuildRequest(class_name=class_name, mode=args.mode)
         for class_name in args.classes
-    ], combo_matrix_used
+    ], combo_matrix_used, spec_path
 
 
 def filter_requests(
@@ -6402,7 +6429,7 @@ async def backfill_ruling_badges(
 
 def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
     race_inventory = load_race_inventory(args.race_inventory)
-    requests, combo_matrix_used = build_requests_from_args(args)
+    requests, combo_matrix_used, spec_path = build_requests_from_args(args)
     requests = [replace(req, stub=args.stub) for req in requests]
     requests = assign_missing_races(
         requests,
@@ -6459,7 +6486,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 strict_module_index,
                 args.concurrency,
                 args.max_retries,
-                args.spec_file,
+                spec_path,
                 args.discover_modules,
                 args.include,
                 args.exclude,
@@ -6533,7 +6560,7 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 args.module_index_path,
                 args.concurrency,
                 args.max_retries,
-                args.spec_file,
+                spec_path,
                 args.discover_modules,
                 args.include,
                 args.exclude,
@@ -6624,7 +6651,7 @@ def main() -> None:
         return
 
     race_inventory = load_race_inventory(args.race_inventory)
-    requests, combo_matrix_used = build_requests_from_args(args)
+    requests, combo_matrix_used, spec_path = build_requests_from_args(args)
     requests = [replace(req, stub=args.stub) for req in requests]
     requests = assign_missing_races(
         requests,
@@ -6694,7 +6721,7 @@ def main() -> None:
             args.module_index_path,
             args.concurrency,
             args.max_retries,
-            args.spec_file,
+            spec_path,
             args.discover_modules,
             args.include,
             args.exclude,

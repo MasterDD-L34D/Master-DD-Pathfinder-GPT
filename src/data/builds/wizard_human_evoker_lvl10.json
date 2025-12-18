@@ -1,13 +1,13 @@
 {
-  "build_id": "medium_oread_spirit_dancer_reanimated_medium-lvl10",
+  "build_id": "wizard_human_evoker-lvl10",
   "mode": "extended",
-  "class": "Medium",
+  "class": "Wizard",
   "reference_catalog_version": "2026.03.22",
   "build_state": {
-    "class": "Medium",
+    "class": "Wizard",
     "mode": "extended",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "race": "Human",
+    "archetype": "Evoker",
     "step": 1,
     "step_total": 3,
     "step_labels": {
@@ -23,7 +23,7 @@
   "benchmark": {
     "meta_tier": "T3",
     "ruling_badge": "placeholder",
-    "notes": "Snapshot placeholder generato offline per medium_oread_spirit_dancer_reanimated_medium lvl 10."
+    "notes": "Snapshot placeholder generato offline per wizard_human_evoker lvl 10."
   },
   "export": {
     "sheet_payload": {},
@@ -44,23 +44,23 @@
     "has_extended_steps": true
   },
   "request": {
-    "class": "Medium",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "class": "Wizard",
+    "race": "Human",
+    "archetype": "Evoker",
     "mode": "extended",
     "mode_normalized": "extended",
-    "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
-    "background": "Medium oread che danza con le anime pietrose dei canyon",
+    "spec_id": "wizard_human_evoker",
+    "background": "Piromane accademico in cerca di antiche pergamene elementali.",
     "level": 10,
     "level_checkpoints": [
       1,
       5,
       10
     ],
-    "output_prefix": "medium_oread_spirit_dancer_reanimated_medium"
+    "output_prefix": "wizard_human_evoker"
   },
   "narrative": {
-    "summary": "Medium oread che danza con le anime pietrose dei canyon",
-    "notes": "Profilo placeholder generato offline per Medium Spirit Dancer + Reanimated Medium."
+    "summary": "Piromane accademico in cerca di antiche pergamene elementali.",
+    "notes": "Profilo placeholder generato offline per Wizard Evoker."
   }
 }
