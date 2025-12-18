@@ -24,10 +24,46 @@
     },
     "compatibility": {
       "oneOf": [
-        { "type": "string" },
-        { "type": "object" },
-        { "type": "array" }
-      ]
+        { "$ref": "#/$defs/compatibility_target" },
+        {
+          "type": "array",
+          "items": { "$ref": "#/$defs/compatibility_target" },
+          "minItems": 1
+        },
+        { "type": "string" }
+      ],
+      "description": "Compatibilità dichiarata con piattaforme/versioni, normalizzata su target/version/notes"
+    }
+  },
+  "$defs": {
+    "compatibility_target": {
+      "type": "object",
+      "required": ["target"],
+      "properties": {
+        "target": {
+          "type": "string",
+          "enum": [
+            "foundry",
+            "vtt_generic",
+            "pdf",
+            "cli",
+            "other"
+          ]
+        },
+        "version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": true

@@ -6,6 +6,7 @@
   "items": {
     "$ref": "#/$defs/reference_entry"
   },
+  "uniqueItems": true,
   "minItems": 1,
   "$defs": {
     "reference_entry": {
@@ -13,9 +14,11 @@
       "required": [
         "name",
         "source",
+        "source_id",
         "prerequisites",
         "tags",
-        "references"
+        "references",
+        "reference_urls"
       ],
       "additionalProperties": false,
       "properties": {
@@ -28,6 +31,11 @@
           "type": "string",
           "minLength": 1,
           "description": "Fonte RAW/SRD di riferimento"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Identificativo normalizzato e univoco della fonte o dell'entry"
         },
         "prerequisites": {
           "type": "array",
@@ -47,6 +55,28 @@
           "uniqueItems": true,
           "default": []
         },
+        "category": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "feat",
+            "spell",
+            "item",
+            "other",
+            null
+          ],
+          "description": "Categoria analitica della voce catalogo"
+        },
+        "edition": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1,
+          "description": "Edizione o snapshot RAW/SRD di riferimento (es. 1E/2E)"
+        },
         "references": {
           "type": "array",
           "description": "Citazioni RAW/SRD a supporto dell'elemento",
@@ -58,22 +88,69 @@
         },
         "reference_urls": {
           "type": "array",
-          "description": "URL SRD/d20pfsrd che l'assistente deve citare come fonte primaria (campo opzionale)",
+          "description": "URL SRD/d20pfsrd che l'assistente deve citare come fonte primaria",
           "items": {
             "type": "string",
             "format": "uri",
             "minLength": 1
           },
+          "minItems": 1,
           "uniqueItems": true
-        },
-        "source_id": {
-          "type": "string",
-          "description": "Identificativo normalizzato della fonte RAW/SRD (es. CRB, APG); opzionale se la fonte è già esplicita in 'source'",
-          "minLength": 1
         },
         "notes": {
           "type": "string",
           "description": "Annotazioni libere opzionali"
+        },
+        "created_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "description": "Timestamp di creazione della voce catalogo"
+        },
+        "updated_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time",
+          "description": "Timestamp di ultima modifica"
+        },
+        "status": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "draft",
+            "in_review",
+            "approved",
+            "rejected",
+            null
+          ],
+          "description": "Stato di workflow della voce catalogo"
+        },
+        "validation_status": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "pending",
+            "passed",
+            "failed",
+            null
+          ],
+          "description": "Esito della validazione o QA sulla voce catalogo"
+        },
+        "reviewed_by": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1,
+          "description": "Revisore (umano o processo) che ha approvato la voce"
         }
       }
     }
