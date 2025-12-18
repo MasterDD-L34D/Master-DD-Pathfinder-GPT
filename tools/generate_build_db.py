@@ -1363,7 +1363,9 @@ def validate_with_schema(
             base_payload["step_audit"] = step_audit_defaults
             needs_copy = False
         if build_bundle is not None and "step_audit" not in build_bundle:
-            build_bundle["step_audit"] = base_payload.get("step_audit", step_audit_defaults)
+            build_bundle["step_audit"] = base_payload.get(
+                "step_audit", step_audit_defaults
+            )
 
         if composite_payload is not None and build_bundle is not None:
             composite_payload["build"] = build_bundle
