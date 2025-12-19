@@ -259,7 +259,7 @@
   "mode": "extended",
   "mode_normalized": "extended",
   "narrative": "Veggente sylph che unisce Gravewalker e Hedge Witch per guidare anime e curare con rituali del vento.",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Sylph",
     "archetype": "Gravewalker + Hedge Witch",
@@ -445,7 +445,7 @@
           "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico maggiore\nOfferte ai defunti illustri"
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "request_timestamp": "2025-12-18T18:46:09Z",
         "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",

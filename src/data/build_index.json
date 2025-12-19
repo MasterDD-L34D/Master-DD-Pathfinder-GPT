@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-19T01:33:39Z",
+  "generated_at": "2025-12-19T02:01:37Z",
   "api_url": null,
   "mode": "extended",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -22,7 +22,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -45,7 +44,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -68,7 +66,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -91,7 +88,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -114,7 +110,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -137,7 +132,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -160,7 +154,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -183,7 +176,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -206,7 +198,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -229,7 +220,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -252,7 +242,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -275,7 +264,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -298,7 +286,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -321,7 +308,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -344,7 +330,7 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration",
+      "error": "Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration"
       ],
@@ -373,7 +359,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -396,7 +381,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -419,7 +403,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -442,7 +425,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -465,7 +447,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -488,7 +469,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -511,7 +491,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -534,7 +513,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -557,7 +535,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -580,7 +557,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -603,7 +579,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -626,7 +601,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -649,12 +623,11 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -678,12 +651,11 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -707,12 +679,11 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -736,7 +707,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -759,7 +729,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -782,7 +751,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -805,13 +773,13 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
-      ],
       "missing_catalog_entries": [
         "items:Ascia da battaglia",
         "items:Scudo pesante"
+      ],
+      "prerequisite_violations": [
+        "Ascia da battaglia: Martial weapon proficiency",
+        "Scudo pesante: Shield proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -835,13 +803,13 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
-      ],
       "missing_catalog_entries": [
         "items:Ascia da battaglia",
         "items:Scudo pesante"
+      ],
+      "prerequisite_violations": [
+        "Ascia da battaglia: Martial weapon proficiency",
+        "Scudo pesante: Shield proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -865,13 +833,13 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
-      ],
       "missing_catalog_entries": [
         "items:Ascia da battaglia",
         "items:Scudo pesante"
+      ],
+      "prerequisite_violations": [
+        "Ascia da battaglia: Martial weapon proficiency",
+        "Scudo pesante: Shield proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -895,12 +863,11 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -924,12 +891,11 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -953,12 +919,11 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -982,7 +947,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1005,7 +969,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1028,7 +991,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1051,7 +1013,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1074,7 +1035,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1097,7 +1057,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1119,7 +1078,6 @@
         5,
         10
       ],
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1141,7 +1099,6 @@
         5,
         10
       ],
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1163,7 +1120,6 @@
         5,
         10
       ],
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1185,7 +1141,6 @@
         5,
         10
       ],
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1207,7 +1162,6 @@
         5,
         10
       ],
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1229,7 +1183,6 @@
         5,
         10
       ],
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1252,7 +1205,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1275,7 +1227,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1298,7 +1249,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1321,7 +1271,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1344,7 +1293,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1367,7 +1315,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1390,7 +1337,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1413,7 +1359,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1436,7 +1381,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1459,7 +1403,7 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
@@ -1488,7 +1432,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1511,7 +1454,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1534,12 +1476,11 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -1563,12 +1504,11 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -1592,12 +1532,11 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -1621,7 +1560,7 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+      "error": "Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
       ],
@@ -1651,7 +1590,7 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+      "error": "Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
       ],
@@ -1686,7 +1625,7 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+      "error": "Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
       ],
@@ -1725,7 +1664,7 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
       ],
@@ -1754,7 +1693,7 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
       ],
@@ -1783,7 +1722,7 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
       ],
@@ -1812,10 +1751,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
-      ],
       "missing_catalog_entries": [
         "items:Arco lungo",
         "items:Spada corta"
@@ -1842,10 +1777,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
-      ],
       "missing_catalog_entries": [
         "items:Arco lungo",
         "items:Spada corta"
@@ -1872,10 +1803,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
-      ],
       "missing_catalog_entries": [
         "items:Arco lungo",
         "items:Spada corta"
@@ -1902,7 +1829,7 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
@@ -1931,7 +1858,7 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
@@ -1960,9 +1887,8 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale); Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
-        "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)",
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
       "missing_catalog_entries": [
@@ -1993,7 +1919,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2016,7 +1941,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2039,7 +1963,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2062,7 +1985,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2085,7 +2007,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2108,7 +2029,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2131,7 +2051,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2154,7 +2073,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2177,7 +2095,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2200,7 +2117,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2223,7 +2139,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2246,7 +2161,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2269,7 +2183,7 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
       ],
@@ -2298,7 +2212,7 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
       ],
@@ -2327,7 +2241,7 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+      "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
       ],
@@ -2356,7 +2270,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2379,7 +2292,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2402,7 +2314,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2425,7 +2336,6 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2448,7 +2358,6 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2471,7 +2380,6 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -2494,12 +2402,11 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -2523,12 +2430,11 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -2552,12 +2458,11 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -2581,12 +2486,11 @@
         10
       ],
       "level": 1,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -2610,12 +2514,11 @@
         10
       ],
       "level": 5,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -2639,12 +2542,11 @@
         10
       ],
       "level": 10,
-      "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
-      "completeness_errors": [
-        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
-      ],
       "missing_catalog_entries": [
         "items:Pugnale di servizio"
+      ],
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
       ],
       "catalog_version": [
         "2026.04.03"
@@ -2655,20 +2557,20 @@
     "1": {
       "total": 33,
       "invalid": 33,
-      "schema_errors": 21,
-      "completeness_errors": 12
+      "schema_errors": 0,
+      "completeness_errors": 5
     },
     "5": {
       "total": 33,
       "invalid": 33,
-      "schema_errors": 22,
-      "completeness_errors": 11
+      "schema_errors": 0,
+      "completeness_errors": 4
     },
     "10": {
       "total": 33,
       "invalid": 33,
-      "schema_errors": 21,
-      "completeness_errors": 12
+      "schema_errors": 0,
+      "completeness_errors": 5
     }
   }
 }

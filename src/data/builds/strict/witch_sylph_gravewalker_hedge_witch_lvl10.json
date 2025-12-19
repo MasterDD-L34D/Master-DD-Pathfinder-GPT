@@ -209,7 +209,7 @@
   "background": "Veggente del vento che guida anime e cura con erbe sospese",
   "mode": "extended",
   "mode_normalized": "extended",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Sylph",
     "archetype": "Gravewalker + Hedge Witch",
@@ -346,7 +346,7 @@
           "rules_status_text": "Badge RAW/RAI/PFS confermato; meta_tier T1 con log bench salvati"
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "request_timestamp": "2025-12-18T18:49:49Z",
         "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",

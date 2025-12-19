@@ -245,7 +245,7 @@
   "ruling_sources": [
     "Ruling Expert stub: badge validated"
   ],
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "qa": {
     "checkpoints": {
       "bench_log": [
@@ -473,7 +473,7 @@
         },
         "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 10\nParola di rovina e illusioni di sabbia per danni e crowd control."
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "request_timestamp": "2025-12-18T18:46:09Z",
         "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",

@@ -267,7 +267,7 @@
     "Badge RAW/RAI/PFS mantenuto: niente HR, uso di ricarica rapida con hand crossbow/pistola consentito da exotic proficiency tengu.",
     "MinMax: scelta la build che massimizza crit multipli con Rapid Reload/Deadly Aim e debuff da Dirty Trick a 9m come opzione difensiva."
   ],
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_id": "build-8c7a343f61ee01cd7d186a0a",
   "composite": {
     "build": {
@@ -432,7 +432,7 @@
           ]
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "normalized_mode": "extended",
         "expected_step_total": 16,

@@ -2,7 +2,7 @@
   "build_id": "ranger_halfelf_skirmisher-lvl05",
   "mode": "extended",
   "class": "Ranger",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_state": {
     "class": "Ranger",
     "mode": "extended",
@@ -157,7 +157,7 @@
         "sheet_locale": "it-IT",
         "sheet_format": "placeholder"
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "request_timestamp": "2025-12-18T16:48:46Z",
         "client_fingerprint_hash": "offline-placeholder-client-hash-000000000000",

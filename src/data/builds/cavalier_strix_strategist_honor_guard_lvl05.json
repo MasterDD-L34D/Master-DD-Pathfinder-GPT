@@ -212,7 +212,7 @@
           "sheet_markdown": "Percezione +10, Volare +13, Lancia lunga rinforzata, Ricompensa pattuglia aerea"
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "request_timestamp": "2025-12-18T18:46:09Z",
         "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
@@ -450,7 +450,7 @@
   },
   "source_url": "local://cavalier/strix/strategist-honor-guard",
   "spec_id": "cavalier_strix_strategist_honor_guard",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "qa": {
     "checkpoints": {
       "bench_log": [

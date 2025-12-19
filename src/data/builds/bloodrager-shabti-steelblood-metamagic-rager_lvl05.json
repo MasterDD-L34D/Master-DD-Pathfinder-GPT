@@ -683,7 +683,7 @@
           "progressione": []
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "normalized_mode": "extended",
         "expected_step_total": 16,
@@ -956,7 +956,7 @@
     "Ruling Expert: badge RAW/RAI/PFS confermato su metamagic rage + armatura pesante (steelblood).",
     "MinMax bench: selezionata la variante con totali offensivi/difensivi più alti, scartate versioni tank-only e nova fragile."
   ],
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_id": "build-ee2dfedeeb79c8795f31be0e",
   "checkpoints": [
     {

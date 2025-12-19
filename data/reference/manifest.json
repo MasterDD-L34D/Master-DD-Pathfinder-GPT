@@ -8,11 +8,11 @@
     },
     "feats": {
       "path": "data/reference/feats.json",
-      "entries": 2838
+      "entries": 2839
     },
     "items": {
       "path": "data/reference/items.json",
-      "entries": 252
+      "entries": 257
     }
   }
 }

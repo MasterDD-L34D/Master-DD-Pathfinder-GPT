@@ -241,7 +241,7 @@
   "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
   "mode": "extended",
   "mode_normalized": "extended",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Ghoran",
     "archetype": "Battle Host + Panoply Savant",
@@ -410,7 +410,7 @@
           "rules_status_text": "Badge RAW/RAI/PFS confermato; progressione panoply senza conflitti"
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "request_timestamp": "2025-12-18T18:49:49Z",
         "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
