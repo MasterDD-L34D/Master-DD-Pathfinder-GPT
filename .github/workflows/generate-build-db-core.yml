@@ -8,6 +8,7 @@ on:
 jobs:
   build-db-core:
     name: Build DB core e archiviazione
+    if: ${{ secrets.BUILDER_API_URL != '' && secrets.BUILDER_API_KEY != '' }}
     runs-on: ubuntu-latest
     env:
       API_URL: ${{ secrets.BUILDER_API_URL }}
