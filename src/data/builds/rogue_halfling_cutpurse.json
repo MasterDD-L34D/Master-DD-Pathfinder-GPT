@@ -54,9 +54,6 @@
     },
     "prerequisite_violations": [
       "Armatura di cuoio borchiato: Light armor proficiency"
-    ],
-    "catalog_version": [
-      "2026.04.03"
     ]
   },
   "export": {
@@ -363,9 +360,6 @@
         },
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ]
       },
       "export": {
@@ -975,9 +969,6 @@
               },
               "prerequisite_violations": [
                 "Armatura di cuoio borchiato: Light armor proficiency"
-              ],
-              "catalog_version": [
-                "2026.04.03"
               ]
             },
             "export": {
@@ -1283,9 +1274,6 @@
                   },
                   "prerequisite_violations": [
                     "Armatura di cuoio borchiato: Light armor proficiency"
-                  ],
-                  "catalog_version": [
-                    "2026.04.03"
                   ]
                 },
                 "export": {
@@ -2401,9 +2389,6 @@
             "catalog_validation": {
               "prerequisite_violations": [
                 "Armatura di cuoio borchiato: Light armor proficiency"
-              ],
-              "catalog_version": [
-                "2026.04.03"
               ]
             },
             "catalog_manifest": {
@@ -2506,9 +2491,6 @@
   "catalog_validation": {
     "prerequisite_violations": [
       "Armatura di cuoio borchiato: Light armor proficiency"
-    ],
-    "catalog_version": [
-      "2026.04.03"
     ]
   },
   "catalog_manifest": {

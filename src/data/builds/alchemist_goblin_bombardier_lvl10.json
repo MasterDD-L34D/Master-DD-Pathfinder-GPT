@@ -85,10 +85,7 @@
       "intelligenza": 14,
       "saggezza": 10,
       "carisma": 8
-    },
-    "catalog_version": [
-      "2026.04.03"
-    ]
+    }
   },
   "export": {
     "sheet_payload": {
@@ -520,10 +517,7 @@
           "intelligenza": 14,
           "saggezza": 10,
           "carisma": 8
-        },
-        "catalog_version": [
-          "2026.04.03"
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -1354,10 +1348,7 @@
                 "intelligenza": 14,
                 "saggezza": 10,
                 "carisma": 8
-              },
-              "catalog_version": [
-                "2026.04.03"
-              ]
+              }
             },
             "export": {
               "sheet_payload": {
@@ -1788,10 +1779,7 @@
                     "intelligenza": 14,
                     "saggezza": 10,
                     "carisma": 8
-                  },
-                  "catalog_version": [
-                    "2026.04.03"
-                  ]
+                  }
                 },
                 "export": {
                   "sheet_payload": {
@@ -3279,11 +3267,7 @@
                 "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Bombardier"
               ]
             },
-            "catalog_validation": {
-              "catalog_version": [
-                "2026.04.03"
-              ]
-            },
+            "catalog_validation": {},
             "catalog_manifest": {
               "version": "2026.04.03",
               "source": "Pathfinder 1E RAW/SRD snapshot curato offline",
@@ -3389,11 +3373,7 @@
       "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Bombardier"
     ]
   },
-  "catalog_validation": {
-    "catalog_version": [
-      "2026.04.03"
-    ]
-  },
+  "catalog_validation": {},
   "catalog_manifest": {
     "version": "2026.04.03",
     "source": "Pathfinder 1E RAW/SRD snapshot curato offline",

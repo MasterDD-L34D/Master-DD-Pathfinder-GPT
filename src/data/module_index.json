@@ -673,9 +673,6 @@
       ]
     }
   ],
-  "catalog_version": [
-    "2026.04.03"
-  ],
   "module_plan": [
     "base_profile.txt",
     "Taverna_NPC.txt",

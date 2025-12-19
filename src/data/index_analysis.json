@@ -33,9 +33,6 @@
         "ledger_sheet_mismatches": [
           "Borsa di monete",
           "Pozione di cura"
-        ],
-        "catalog_version": [
-          "2026.03.01"
         ]
       },
       {
@@ -63,9 +60,6 @@
         "ledger_sheet_mismatches": [
           "Borsa di monete",
           "Pozione di cura"
-        ],
-        "catalog_version": [
-          "2026.03.01"
         ]
       },
       {
@@ -93,9 +87,6 @@
         "ledger_sheet_mismatches": [
           "Borsa di monete",
           "Pozione di cura"
-        ],
-        "catalog_version": [
-          "2026.03.01"
         ]
       },
       {
@@ -123,9 +114,6 @@
         "ledger_sheet_mismatches": [
           "Borsa di monete",
           "Pozione di cura"
-        ],
-        "catalog_version": [
-          "2026.03.01"
         ]
       },
       {
@@ -153,9 +141,6 @@
         "ledger_sheet_mismatches": [
           "Borsa di monete",
           "Pozione di cura"
-        ],
-        "catalog_version": [
-          "2026.03.01"
         ]
       },
       {
@@ -183,9 +168,6 @@
         "ledger_sheet_mismatches": [
           "Borsa di monete",
           "Pozione di cura"
-        ],
-        "catalog_version": [
-          "2026.03.01"
         ]
       },
       {
@@ -205,10 +187,7 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
-        "catalog_version": [
-          "2026.03.01"
-        ]
+        "error": "'sheet_payload' is a required property; 'composite' is a required property"
       },
       {
         "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl05.json",
@@ -227,10 +206,7 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
-        "catalog_version": [
-          "2026.03.01"
-        ]
+        "error": "'sheet_payload' is a required property; 'composite' is a required property"
       },
       {
         "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl10.json",
@@ -249,10 +225,7 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
-        "catalog_version": [
-          "2026.03.01"
-        ]
+        "error": "'sheet_payload' is a required property; 'composite' is a required property"
       },
       {
         "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch.json",
@@ -271,10 +244,7 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
-        "catalog_version": [
-          "2026.03.01"
-        ]
+        "error": "'sheet_payload' is a required property; 'composite' is a required property"
       },
       {
         "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl05.json",
@@ -293,10 +263,7 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
-        "catalog_version": [
-          "2026.03.01"
-        ]
+        "error": "'sheet_payload' is a required property; 'composite' is a required property"
       },
       {
         "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl10.json",
@@ -315,10 +282,7 @@
           5,
           10
         ],
-        "error": "'sheet_payload' is a required property; 'composite' is a required property",
-        "catalog_version": [
-          "2026.03.01"
-        ]
+        "error": "'sheet_payload' is a required property; 'composite' is a required property"
       }
     ]
   },

@@ -24,9 +24,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -46,9 +43,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -68,9 +62,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -94,9 +85,6 @@
         "expected_step_total": 16,
         "extended_steps_available": true,
         "step_total_ok": true,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -120,9 +108,6 @@
         "expected_step_total": 16,
         "extended_steps_available": true,
         "step_total_ok": true,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -146,9 +131,6 @@
         "expected_step_total": 16,
         "extended_steps_available": true,
         "step_total_ok": true,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -168,9 +150,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -190,9 +169,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -212,9 +188,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -234,9 +207,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -256,9 +226,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -285,9 +252,6 @@
         "prerequisite_violations": [
           "Greater Spell Penetration: Spell Penetration"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -307,9 +271,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -329,9 +290,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -351,9 +309,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -373,9 +328,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -395,9 +347,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -417,9 +366,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -443,9 +389,6 @@
         "expected_step_total": 16,
         "extended_steps_available": true,
         "step_total_ok": true,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -469,9 +412,6 @@
         "expected_step_total": 16,
         "extended_steps_available": true,
         "step_total_ok": true,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -495,9 +435,6 @@
         "expected_step_total": 16,
         "extended_steps_available": true,
         "step_total_ok": true,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -524,9 +461,6 @@
         "prerequisite_violations": [
           "Ascia da battaglia: Martial weapon proficiency",
           "Scudo pesante: Shield proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -555,9 +489,6 @@
           "Ascia da battaglia: Martial weapon proficiency",
           "Scudo pesante: Shield proficiency"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -585,9 +516,6 @@
           "Ascia da battaglia: Martial weapon proficiency",
           "Scudo pesante: Shield proficiency"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -611,9 +539,6 @@
         "expected_step_total": 3,
         "extended_steps_available": true,
         "step_total_ok": true,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "ok"
       },
       {
@@ -638,9 +563,6 @@
         ],
         "prerequisite_violations": [
           "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -667,9 +589,6 @@
         "prerequisite_violations": [
           "Pugnale di servizio: Simple weapon proficiency"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -689,9 +608,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -711,9 +627,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -733,9 +646,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -755,9 +665,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -777,9 +684,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -799,9 +703,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -819,9 +720,6 @@
           1,
           5,
           10
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -841,9 +739,6 @@
           5,
           10
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -861,9 +756,6 @@
           1,
           5,
           10
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -883,9 +775,6 @@
           5,
           10
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -904,9 +793,6 @@
           5,
           10
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -924,9 +810,6 @@
           1,
           5,
           10
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -947,9 +830,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -969,9 +849,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -991,9 +868,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1013,9 +887,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1035,9 +906,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1057,9 +925,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1079,9 +944,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1101,9 +963,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1123,9 +982,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1152,9 +1008,6 @@
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1174,9 +1027,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1196,9 +1046,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1223,9 +1070,6 @@
         ],
         "prerequisite_violations": [
           "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1252,9 +1096,6 @@
         "prerequisite_violations": [
           "Pugnale di servizio: Simple weapon proficiency"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1279,9 +1120,6 @@
         ],
         "prerequisite_violations": [
           "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1309,9 +1147,6 @@
         "prerequisite_violations": [
           "Crane Style: Improved Unarmed Strike",
           "Tiger Style: Improved Unarmed Strike"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1344,9 +1179,6 @@
           "Dragon Style: Improved Unarmed Strike",
           "Tiger Claws: Improved Unarmed Strike",
           "Tiger Style: Improved Unarmed Strike"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1384,9 +1216,6 @@
           "Tiger Claws: Improved Unarmed Strike",
           "Tiger Style: Improved Unarmed Strike"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1412,9 +1241,6 @@
         ],
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1442,9 +1268,6 @@
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1470,9 +1293,6 @@
         ],
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1504,9 +1324,6 @@
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1536,9 +1353,6 @@
         ],
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1570,9 +1384,6 @@
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1592,9 +1403,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1614,9 +1422,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1636,9 +1441,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1658,9 +1460,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1680,9 +1479,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1702,9 +1498,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1724,9 +1517,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1746,9 +1536,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1768,9 +1555,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1790,9 +1574,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1812,9 +1593,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1834,9 +1612,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1862,9 +1637,6 @@
         ],
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
-        ],
-        "catalog_version": [
-          "2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1892,9 +1664,6 @@
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1921,9 +1690,6 @@
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1943,9 +1709,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1965,9 +1728,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -1987,9 +1747,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -2009,9 +1766,6 @@
           10
         ],
         "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -2031,9 +1785,6 @@
           10
         ],
         "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       },
       {
@@ -2053,9 +1804,6 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
         "status": "invalid"
       }
     ],
