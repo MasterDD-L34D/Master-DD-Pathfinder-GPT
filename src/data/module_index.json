@@ -1,6 +1,6 @@
 {
-  "generated_at": "2025-12-19T16:11:44Z",
-  "api_url": "http://127.0.0.1:8000",
+  "generated_at": "2025-12-19T16:27:15Z",
+  "api_url": "http://localhost:8000",
   "entries": [
     {
       "module": "Encounter_Designer.txt",
@@ -68,6 +68,12 @@
             "action": "module_indexed",
             "status": "validated",
             "note": "cached module reuse"
+          },
+          {
+            "timestamp": "2025-12-19T16:28:01Z",
+            "actor": "generate_build_db",
+            "action": "module_indexed",
+            "status": "validated"
           }
         ],
         "hash_sha256": "ef5c2a4be0fd7f79a134ba611fdb9893513196ee427b32cc7623aab1c3193c47",
@@ -104,6 +110,12 @@
             "action": "module_indexed",
             "status": "validated",
             "note": "cached module reuse"
+          },
+          {
+            "timestamp": "2025-12-19T16:28:01Z",
+            "actor": "generate_build_db",
+            "action": "module_indexed",
+            "status": "validated"
           }
         ],
         "hash_sha256": "7fced25fde41a569c18663c5883797aa2903391899a3f07d6ad6dfc12df019b5",
@@ -195,6 +207,12 @@
             "action": "module_indexed",
             "status": "validated",
             "note": "cached module reuse"
+          },
+          {
+            "timestamp": "2025-12-19T16:28:01Z",
+            "actor": "generate_build_db",
+            "action": "module_indexed",
+            "status": "validated"
           }
         ],
         "hash_sha256": "0cddac85c1d7a6b15e922dd21728e2b88497196887cede08e150f57367d33ae4",
@@ -401,6 +419,12 @@
             "action": "module_indexed",
             "status": "validated",
             "note": "cached module reuse"
+          },
+          {
+            "timestamp": "2025-12-19T16:28:01Z",
+            "actor": "generate_build_db",
+            "action": "module_indexed",
+            "status": "validated"
           }
         ],
         "hash_sha256": "61ae9e4fcabcecc6f417e197e16f2ac4a6a23360513bdc3e4c9105c852b6f76e",
@@ -525,6 +549,12 @@
             "action": "module_indexed",
             "status": "validated",
             "note": "cached module reuse"
+          },
+          {
+            "timestamp": "2025-12-19T16:28:01Z",
+            "actor": "generate_build_db",
+            "action": "module_indexed",
+            "status": "validated"
           }
         ],
         "hash_sha256": "d8a08160fab99223de5e09ae9697b672c7977f7a803ceb15d9df2c1be5cbc06a",
@@ -622,37 +652,5 @@
     "narrative_flow.txt",
     "scheda_pg_markdown_template.md",
     "adventurer_ledger.txt"
-  ],
-  "discovery": {
-    "performed_at": "2025-12-19T16:12:00Z",
-    "include_filters": [
-      "scheda_*",
-      "narrative_*"
-    ],
-    "exclude_filters": [
-      "test_*"
-    ],
-    "raw": [
-      "Encounter_Designer.txt",
-      "Taverna_NPC.txt",
-      "adventurer_ledger.txt",
-      "archivist.txt",
-      "base_profile.txt",
-      "explain_methods.txt",
-      "knowledge_pack.md",
-      "meta_doc.txt",
-      "minmax_builder.txt",
-      "narrative_flow.txt",
-      "preload_all_modules.txt",
-      "ruling_expert.txt",
-      "scheda_pg_markdown_template.md",
-      "sigilli_runner_module.txt",
-      "tavern_hub.json"
-    ],
-    "raw_count": 15,
-    "selected": [
-      "narrative_flow.txt",
-      "scheda_pg_markdown_template.md"
-    ]
-  }
+  ]
 }
