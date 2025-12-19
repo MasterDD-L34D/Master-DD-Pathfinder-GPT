@@ -5495,19 +5495,6 @@ def _index_meta_from_payload(payload: Mapping[str, object] | None) -> dict[str, 
             elif log_value:
                 metadata["ruling_log"] = [str(log_value)]
 
-    record_status = payload.get("record_status")
-    if isinstance(record_status, str) and record_status.strip():
-        metadata["record_status"] = record_status
-
-    if "is_deleted" in payload:
-        metadata["is_deleted"] = bool(payload.get("is_deleted"))
-    if payload.get("deleted_at") is not None:
-        metadata["deleted_at"] = payload.get("deleted_at")
-
-    audit_log = payload.get("audit")
-    if isinstance(audit_log, Sequence) and not isinstance(audit_log, (str, bytes)):
-        metadata["audit"] = list(audit_log)
-
     return metadata
 
 
@@ -6154,33 +6141,33 @@ async def run_harvest(
                                         reuse_ok = False
 
                             if reuse_ok:
-                                    return destination.name, build_index_entry(
-                                        request,
-                                        destination,
-                                        status,
-                                        validation_error,
-                                        (
-                                            payload.get("step_audit")
-                                            if isinstance(payload, Mapping)
-                                            else None
-                                        ),
-                                        completeness_errors,
-                                        (
-                                            payload.get("ruling_badge")
-                                            if isinstance(payload, Mapping)
-                                            else None
-                                        ),
-                                        (
-                                            payload.get("ruling_sources")
-                                            if isinstance(payload, Mapping)
-                                            else None
-                                        ),
-                                        record_status=payload.get("record_status"),
-                                        audit=payload.get("audit"),
-                                        is_deleted=payload.get("is_deleted"),
-                                        deleted_at=payload.get("deleted_at"),
-                                        **meta_data,
-                                    )
+                                return destination.name, build_index_entry(
+                                    request,
+                                    destination,
+                                    status,
+                                    validation_error,
+                                    (
+                                        payload.get("step_audit")
+                                        if isinstance(payload, Mapping)
+                                        else None
+                                    ),
+                                    completeness_errors,
+                                    (
+                                        payload.get("ruling_badge")
+                                        if isinstance(payload, Mapping)
+                                        else None
+                                    ),
+                                    (
+                                        payload.get("ruling_sources")
+                                        if isinstance(payload, Mapping)
+                                        else None
+                                    ),
+                                    record_status=payload.get("record_status"),
+                                    audit=payload.get("audit"),
+                                    is_deleted=payload.get("is_deleted"),
+                                    deleted_at=payload.get("deleted_at"),
+                                    **meta_data,
+                                )
 
                 method = request.http_method()
                 logging.info(
@@ -6358,7 +6345,7 @@ async def run_harvest(
                         checkpoint=request.level,
                         source=request.output_name(),
                     )
-                    should_write = status == "ok" or keep_invalid
+                    should_write = (status == "ok" or keep_invalid) and not incomplete_payload
                     output_path: Path | None = None
                     if should_write and status != "pruned":
                         if skip_unchanged and destination.exists():
@@ -6624,7 +6611,11 @@ async def run_harvest(
                         name,
                         destination_path,
                         status,
-                        normalized_meta if validation_error is None else normalized_meta,
+                        (
+                            normalized_meta
+                            if validation_error is None
+                            else normalized_meta
+                        ),
                         validation_error,
                     )
                 except ValidationError:
