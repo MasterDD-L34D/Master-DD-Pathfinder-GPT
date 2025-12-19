@@ -32,6 +32,7 @@ from jinja2.nativetypes import NativeEnvironment
 import httpx
 from jsonschema import Draft202012Validator, RefResolver
 from jsonschema.exceptions import ValidationError
+from utils.aon_detector import is_aon_url
 
 # Lista di classi PF1e target supportate dal builder
 PF1E_CLASSES: List[str] = [
@@ -550,7 +551,8 @@ def _reference_url_coverage(
                 else []
             )
             normalized_urls = [str(url).strip() for url in urls if str(url).strip()]
-            has_aon = any("aonprd.com" in url for url in normalized_urls)
+            # Utilizziamo il rilevatore robusto per AoN
+            has_aon = any(is_aon_url(url) for url in normalized_urls)
             has_d20 = any("d20pfsrd" in url for url in normalized_urls)
 
             if has_aon:
