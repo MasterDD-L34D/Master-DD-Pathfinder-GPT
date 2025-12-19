@@ -16,4 +16,7 @@ echo "Checking for legacy AoN URLs..."
 echo "Running python -m compileall..."
 python -m compileall src tests
 
+echo "Cleaning up compiled bytecode artifacts..."
+find src tests -name "__pycache__" -type d -prune -exec rm -rf {} +
+
 echo "Static analysis completed successfully."

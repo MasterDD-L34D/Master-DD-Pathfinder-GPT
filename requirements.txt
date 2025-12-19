@@ -4,5 +4,7 @@ pydantic
 httpx
 pyyaml
 jsonschema
+pytest
+hypothesis>=6.0
 prometheus_client
 Jinja2
