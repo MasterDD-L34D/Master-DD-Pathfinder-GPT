@@ -368,6 +368,14 @@ uvicorn src.app:app --reload --port 8000
 
 L'endpoint di base sarà ad esempio: `http://localhost:8000`
 
+Variabili chiave (anche per run schedulati):
+
+- `API_KEY`: obbligatoria per tutti gli endpoint protetti; se non valorizzata, abilita eventualmente `ALLOW_ANONYMOUS=true` per test locali/stub.
+- `ALLOW_ANONYMOUS`: consente di saltare il controllo della chiave sugli endpoint principali, utile solo in ambienti controllati.
+- `METRICS_API_KEY` e `METRICS_IP_ALLOWLIST`: la prima abilita `/metrics` anche con la chiave generale, la seconda consente l'accesso tramite IP trusted.
+- `AUTH_BACKOFF_THRESHOLD`/`AUTH_BACKOFF_SECONDS`: soglia e finestra del blocco che restituisce `429` e header `Retry-After` quando la chiave non è valida; alza i valori se i run schedulati accumulano tentativi ravvicinati.
+- `API_URL`, `HEALTH_PATH`, `HEALTH_TIMEOUT`: endpoint base e probe usati da `generate_build_db.py` quando gira in cron/CI; `HEALTH_PATH` copre anche host che espongono health su percorsi diversi, `HEALTH_TIMEOUT` gestisce latenze elevate.
+
 Durante il setup nel GPT, forza sempre la modalità esplicita (`/set_mode core` oppure `/set_mode extended`) e verifica che l'avanzamento riporti `[step/step_total]` coerente: 8 step per `core`, 16 per `extended`.
 
 ### Generare il database di build (e i dump dei moduli)
@@ -386,6 +394,7 @@ python tools/generate_build_db.py --api-url http://localhost:8000 --mode extende
 # Esempio con endpoint remoto/containerizzato
 # API_URL="https://builder.example.com" python tools/generate_build_db.py --mode extended
 # Se l'endpoint non espone /health ma sai che è raggiungibile, aggiungi --skip-health-check
+# Se il probe richiede un path/timeout personalizzati puoi usare --health-path e --health-timeout
 
 # È possibile limitare le classi passandole come argomenti finali
 python tools/generate_build_db.py Alchemist Wizard Paladin
@@ -408,6 +417,8 @@ python tools/generate_build_db.py --max-items 10 --page 1 --page-size 10  # Equi
 python tools/generate_build_db.py --max-items 10 --page 2 --page-size 10  # Equivalente a offset 10
 # Ripeti incrementando l'offset/la pagina finché non hai coperto tutte le classi e i checkpoint richiesti
 ```
+
+Lo script si appoggia ai valori di ambiente `API_URL`, `API_KEY` e, se necessario, `HEALTH_PATH`/`HEALTH_TIMEOUT` per i probe iniziali (o `--health-*` da CLI). In caso di `401` o `429` con header `Retry-After` vengono registrati eventi in `data/audit/build_events.jsonl` per tracciare backoff e ritentativi dell'orchestratore schedulato.
 
 Per impostazione predefinita usa la modalità `extended` (16 step completi) e salva l'output in `src/data/builds/<classe>.json`, creando anche un indice riassuntivo in `src/data/build_index.json` con lo stato di ogni richiesta. In parallelo scarica i moduli RAW più usati dal flusso (per schede e PG completi) in `src/data/modules/` con indice `src/data/module_index.json`. L'header `x-api-key` viene popolato dalla variabile d'ambiente `API_KEY` salvo override esplicito tramite `--api-key`. Ogni chiamata include il parametro `mode=core|extended` e l'indice registra lo `step_total` osservato, così puoi verificare che i 16 step appaiano solo quando richiedi `extended`.
 
