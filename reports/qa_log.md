@@ -94,3 +94,9 @@
 - **Comando**: `tools/run_static_analysis.sh`.
 - **Risultato**: **PASS** — formattazione Black invariata, nessun legacy URL, compilazione bytecode completata su `src` e `tests`.
 - **Note/Errori**: nessuna anomalia rilevata; gate di static analysis concluso senza interruzioni.
+## QA 2025-12-19 — Pytest `tests/test_app.py -q`
+- **Comando**: `ALLOW_MODULE_DUMP=false pytest tests/test_app.py -q` con log archiviato in `reports/pytest_test_app_2025-12-19.log`.
+- **Esito**: 56 test **passati** con 2 warning di deprecazione `jsonschema.RefResolver` (nessun errore/blocco).
+- **Dump marker/header**: confermati marker `[contenuto troncato]` e header `X-Content-*` sugli estratti `.txt` quando il dump è disabilitato, con blocco 403 su PDF/binari.【F:tests/test_app.py†L272-L365】
+- **Gate CTA / naming export**: il flow Encounter Designer richiede `/validate_encounter` prima degli export e il MinMax Builder mantiene il naming condiviso `MinMax_<nome>.*` dietro il gate QA `export_requires`.【F:src/modules/Encounter_Designer.txt†L387-L438】【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1886-L1893】
+- **Endpoint protetti 401/403/429**: `/modules` e `/knowledge` respingono accessi senza/errata API key con 401 e backoff 429, mentre `/metrics` accetta solo chiave valida (403 su chiave errata).【F:tests/test_app.py†L542-L728】
