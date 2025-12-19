@@ -1,8 +1,8 @@
 {
-  "generated_at": "2025-12-17T12:23:23Z",
+  "generated_at": "2026-04-03T00:00:00Z",
   "api_url": null,
   "catalog_version": [
-    "2026.03.22"
+    "2026.04.03"
   ],
   "entries": [
     {
@@ -537,21 +537,21 @@
     {
       "path": "data/reference/spells.json",
       "entries": 1035,
-      "version": "2026.03.22"
+      "version": "2026.04.03"
     },
     {
       "path": "data/reference/feats.json",
       "entries": 2838,
-      "version": "2026.03.22"
+      "version": "2026.04.03"
     },
     {
       "path": "data/reference/items.json",
-      "entries": 250,
-      "version": "2026.03.22"
+      "entries": 252,
+      "version": "2026.04.03"
     },
     {
       "path": "data/reference/manifest.json",
-      "version": "2026.03.22"
+      "version": "2026.04.03"
     }
   ],
   "integrity_checks": {
