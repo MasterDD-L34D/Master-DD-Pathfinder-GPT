@@ -210,7 +210,9 @@
         "Arma semplice",
         "Armatura leggera",
         "Strumenti da scasso",
-        "Kit avventuriero"
+        "Kit avventuriero",
+        "Borsa di monete",
+        "Pozione di cura"
       ],
       "equipment_summary": {
         "peso_totale": "leggero",

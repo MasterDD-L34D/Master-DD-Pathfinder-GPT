@@ -55,10 +55,7 @@
       "attacco": "+6",
       "danni": "1d8+4 (cudgel sacro)",
       "ca": 21
-    },
-    "catalog_version": [
-      "2026.04.03"
-    ]
+    }
   },
   "export": {
     "sheet_payload": {
@@ -468,10 +465,7 @@
           "attacco": "+6",
           "danni": "1d8+4 (cudgel sacro)",
           "ca": 21
-        },
-        "catalog_version": [
-          "2026.04.03"
-        ]
+        }
       },
       "export": {
         "sheet_payload": {
@@ -1279,10 +1273,7 @@
                 "attacco": "+6",
                 "danni": "1d8+4 (cudgel sacro)",
                 "ca": 21
-              },
-              "catalog_version": [
-                "2026.04.03"
-              ]
+              }
             },
             "export": {
               "sheet_payload": {
@@ -1691,10 +1682,7 @@
                     "attacco": "+6",
                     "danni": "1d8+4 (cudgel sacro)",
                     "ca": 21
-                  },
-                  "catalog_version": [
-                    "2026.04.03"
-                  ]
+                  }
                 },
                 "export": {
                   "sheet_payload": {
@@ -2154,11 +2142,7 @@
                 "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
               ]
             },
-            "catalog_validation": {
-              "catalog_version": [
-                "2026.04.03"
-              ]
-            },
+            "catalog_validation": {},
             "catalog_manifest": {
               "version": "2026.04.03",
               "source": "Pathfinder 1E RAW/SRD snapshot curato offline",
@@ -2245,11 +2229,7 @@
       "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
     ]
   },
-  "catalog_validation": {
-    "catalog_version": [
-      "2026.04.03"
-    ]
-  },
+  "catalog_validation": {},
   "catalog_manifest": {
     "version": "2026.04.03",
     "source": "Pathfinder 1E RAW/SRD snapshot curato offline",
@@ -2270,7 +2250,6 @@
   },
   "record_status": "draft",
   "is_deleted": false,
-  "deleted_at": null,
   "audit": [
     {
       "timestamp": "2025-12-19T16:27:37Z",
