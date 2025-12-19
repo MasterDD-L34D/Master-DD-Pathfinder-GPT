@@ -21,10 +21,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl05.json",
@@ -43,10 +40,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl10.json",
@@ -65,10 +59,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/alchemist_goblin_bombardier.json",
@@ -87,10 +78,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/alchemist_goblin_bombardier_lvl05.json",
@@ -109,10 +97,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/alchemist_goblin_bombardier_lvl10.json",
@@ -131,10 +116,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json",
@@ -153,10 +135,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl05.json",
@@ -175,10 +154,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl10.json",
@@ -197,10 +173,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
@@ -219,10 +192,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
@@ -241,10 +211,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
@@ -263,10 +230,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman.json",
@@ -285,10 +249,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl05.json",
@@ -307,10 +268,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json",
@@ -336,9 +294,6 @@
       ],
       "prerequisite_violations": [
         "Greater Spell Penetration: Spell Penetration"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -358,10 +313,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json",
@@ -380,10 +332,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json",
@@ -402,10 +351,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json",
@@ -424,10 +370,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl05.json",
@@ -446,10 +389,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl10.json",
@@ -468,10 +408,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/cavalier_strix_strategist_honor_guard.json",
@@ -490,10 +427,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl05.json",
@@ -512,10 +446,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl10.json",
@@ -534,10 +465,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/cleric_samsaran_cloistered_evangelist.json",
@@ -556,10 +484,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl05.json",
@@ -578,10 +503,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl10.json",
@@ -600,10 +522,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/druid_half_orc_feral.json",
@@ -628,9 +547,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -656,9 +572,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -684,9 +597,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -706,10 +616,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
@@ -728,10 +635,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
@@ -750,10 +654,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded.json",
@@ -780,9 +681,6 @@
       "prerequisite_violations": [
         "Ascia da battaglia: Martial weapon proficiency",
         "Scudo pesante: Shield proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -810,9 +708,6 @@
       "prerequisite_violations": [
         "Ascia da battaglia: Martial weapon proficiency",
         "Scudo pesante: Shield proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -840,9 +735,6 @@
       "prerequisite_violations": [
         "Ascia da battaglia: Martial weapon proficiency",
         "Scudo pesante: Shield proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -868,9 +760,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -896,9 +785,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -924,9 +810,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -946,10 +829,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/gunslinger_strix_gun_tank_lvl05.json",
@@ -968,10 +848,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/gunslinger_strix_gun_tank_lvl10.json",
@@ -990,10 +867,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace.json",
@@ -1012,10 +886,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl05.json",
@@ -1034,10 +905,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl10.json",
@@ -1056,10 +924,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/hunter_kasatha_packmaster.json",
@@ -1077,9 +942,6 @@
         1,
         5,
         10
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1098,9 +960,6 @@
         1,
         5,
         10
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1119,9 +978,6 @@
         1,
         5,
         10
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1140,9 +996,6 @@
         1,
         5,
         10
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1161,9 +1014,6 @@
         1,
         5,
         10
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1182,9 +1032,6 @@
         1,
         5,
         10
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1204,10 +1051,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl05.json",
@@ -1226,10 +1070,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl10.json",
@@ -1248,10 +1089,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul.json",
@@ -1270,10 +1108,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl05.json",
@@ -1292,10 +1127,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl10.json",
@@ -1314,10 +1146,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul.json",
@@ -1336,10 +1165,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl05.json",
@@ -1358,10 +1184,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl10.json",
@@ -1380,10 +1203,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter.json",
@@ -1409,9 +1229,6 @@
       ],
       "prerequisite_violations": [
         "Armatura di cuoio borchiato: Light armor proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1431,10 +1248,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl10.json",
@@ -1453,10 +1267,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
@@ -1481,9 +1292,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1509,9 +1317,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1537,9 +1342,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1567,9 +1369,6 @@
       "prerequisite_violations": [
         "Crane Style: Improved Unarmed Strike",
         "Tiger Style: Improved Unarmed Strike"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1602,9 +1401,6 @@
         "Dragon Style: Improved Unarmed Strike",
         "Tiger Claws: Improved Unarmed Strike",
         "Tiger Style: Improved Unarmed Strike"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1641,9 +1437,6 @@
         "Medusa's Wrath: Stunning Fist",
         "Tiger Claws: Improved Unarmed Strike",
         "Tiger Style: Improved Unarmed Strike"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1670,9 +1463,6 @@
       ],
       "prerequisite_violations": [
         "Coordinated Charge: Combat Reflexes"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1699,9 +1489,6 @@
       ],
       "prerequisite_violations": [
         "Coordinated Charge: Combat Reflexes"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1728,9 +1515,6 @@
       ],
       "prerequisite_violations": [
         "Coordinated Charge: Combat Reflexes"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1754,9 +1538,6 @@
       "missing_catalog_entries": [
         "items:Arco lungo",
         "items:Spada corta"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1780,9 +1561,6 @@
       "missing_catalog_entries": [
         "items:Arco lungo",
         "items:Spada corta"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1806,9 +1584,6 @@
       "missing_catalog_entries": [
         "items:Arco lungo",
         "items:Spada corta"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1835,9 +1610,6 @@
       ],
       "prerequisite_violations": [
         "Armatura di cuoio borchiato: Light armor proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1864,9 +1636,6 @@
       ],
       "prerequisite_violations": [
         "Armatura di cuoio borchiato: Light armor proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1896,9 +1665,6 @@
       ],
       "prerequisite_violations": [
         "Armatura di cuoio borchiato: Light armor proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -1918,10 +1684,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl05.json",
@@ -1940,10 +1703,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl10.json",
@@ -1962,10 +1722,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma.json",
@@ -1984,10 +1741,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl05.json",
@@ -2006,10 +1760,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl10.json",
@@ -2028,10 +1779,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant.json",
@@ -2050,10 +1798,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl05.json",
@@ -2072,10 +1817,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl10.json",
@@ -2094,10 +1836,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer.json",
@@ -2116,10 +1855,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl05.json",
@@ -2138,10 +1874,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl10.json",
@@ -2160,10 +1893,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant.json",
@@ -2189,9 +1919,6 @@
       ],
       "prerequisite_violations": [
         "Coordinated Charge: Combat Reflexes"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -2218,9 +1945,6 @@
       ],
       "prerequisite_violations": [
         "Coordinated Charge: Combat Reflexes"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -2247,9 +1971,6 @@
       ],
       "prerequisite_violations": [
         "Coordinated Charge: Combat Reflexes"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -2269,10 +1990,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl05.json",
@@ -2291,10 +2009,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl10.json",
@@ -2313,10 +2028,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch.json",
@@ -2335,10 +2047,7 @@
         5,
         10
       ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 1
     },
     {
       "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl05.json",
@@ -2357,10 +2066,7 @@
         5,
         10
       ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 5
     },
     {
       "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl10.json",
@@ -2379,10 +2085,7 @@
         5,
         10
       ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
+      "level": 10
     },
     {
       "file": "src/data/builds/wizard_elf_universalist.json",
@@ -2407,9 +2110,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -2435,9 +2135,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -2463,9 +2160,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -2491,9 +2185,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -2519,9 +2210,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     },
     {
@@ -2547,9 +2235,6 @@
       ],
       "prerequisite_violations": [
         "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
       ]
     }
   ],
