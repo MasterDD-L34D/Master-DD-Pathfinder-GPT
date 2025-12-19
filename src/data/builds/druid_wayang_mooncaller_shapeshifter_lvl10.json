@@ -1,0 +1,528 @@
+{
+  "build_state": {
+    "class": "Druid",
+    "mode": "extended",
+    "race": "Wayang",
+    "archetype": "Mooncaller Shapeshifter",
+    "step": 16,
+    "step_total": 16,
+    "statistics": {
+      "FOR": 16,
+      "DES": 18,
+      "COS": 18,
+      "INT": 12,
+      "SAG": 22,
+      "CAR": 8,
+      "level": 10
+    },
+    "step_labels": {
+      "1": "Step 1",
+      "2": "Step 2",
+      "3": "Step 3",
+      "4": "Step 4",
+      "5": "Step 5",
+      "6": "Step 6",
+      "7": "Step 7",
+      "8": "Step 8",
+      "9": "Step 9",
+      "10": "Step 10",
+      "11": "Step 11",
+      "12": "Step 12",
+      "13": "Step 13",
+      "14": "Step 14",
+      "15": "Step 15",
+      "16": "Step 16"
+    },
+    "step_labels_count": 16
+  },
+  "benchmark": {
+    "meta_tier": "T2",
+    "ruling_badge": "RAW/RAI/PFS",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 9,
+        "picco": 14
+      },
+      "livello_5": {
+        "media": 32,
+        "picco": 48
+      },
+      "livello_10": {
+        "media": 80,
+        "picco": 118
+      }
+    },
+    "statistics": {
+      "attacco": "+18",
+      "danni": "artiglio 2d6+10 / morso 1d8+10 (forma elementale)",
+      "ca": 28
+    }
+  },
+  "body_params": {
+    "race": "Wayang",
+    "archetype_primary": "Mooncaller",
+    "archetype_secondary": "Shapeshifter",
+    "focus": "stealth control + feral forms"
+  },
+  "build_source": "local spec",
+  "class": "Druid",
+  "completeness": {},
+  "composite": {
+    "build": {
+      "build_id": "build-97fcdae8f6d50c52440475b3",
+      "build_state": {
+        "class": "Druid",
+        "mode": "extended",
+        "race": "Wayang",
+        "archetype": "Mooncaller Shapeshifter",
+        "step": 16,
+        "step_total": 16,
+        "statistics": {
+          "FOR": 16,
+          "DES": 18,
+          "COS": 18,
+          "INT": 12,
+          "SAG": 22,
+          "CAR": 8,
+          "level": 10
+        },
+        "step_labels": {
+          "1": "Step 1",
+          "2": "Step 2",
+          "3": "Step 3",
+          "4": "Step 4",
+          "5": "Step 5",
+          "6": "Step 6",
+          "7": "Step 7",
+          "8": "Step 8",
+          "9": "Step 9",
+          "10": "Step 10",
+          "11": "Step 11",
+          "12": "Step 12",
+          "13": "Step 13",
+          "14": "Step 14",
+          "15": "Step 15",
+          "16": "Step 16"
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T2",
+        "ruling_badge": "RAW/RAI/PFS",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 9,
+            "picco": 14
+          },
+          "livello_5": {
+            "media": 32,
+            "picco": 48
+          },
+          "livello_10": {
+            "media": 80,
+            "picco": 118
+          }
+        },
+        "statistics": {
+          "attacco": "+18",
+          "danni": "artiglio 2d6+10 / morso 1d8+10 (forma elementale)",
+          "ca": 28
+        }
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Druid",
+              "livelli": 1,
+              "archetipi": [
+                "Mooncaller",
+                "Shapeshifter"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 16,
+            "DES": 18,
+            "COS": 18,
+            "INT": 12,
+            "SAG": 22,
+            "CAR": 8,
+            "attacco": "+18",
+            "danni": "artiglio 2d6+10 / morso 1d8+10",
+            "ca": 28
+          },
+          "statistiche_chiave": {
+            "attacco": "+18",
+            "danni": "artiglio 2d6+10 / morso 1d8+10",
+            "ca": 28
+          },
+          "level": 10,
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "modules": [
+            "base_profile.txt",
+            "Taverna_NPC.txt",
+            "narrative_flow.txt"
+          ],
+          "skills": [
+            {
+              "nome": "Percezione",
+              "totale": 18
+            },
+            {
+              "nome": "Furtività",
+              "totale": 21
+            }
+          ],
+          "equipaggiamento": [
+            "Anello della luce lunare",
+            "Veste d'ombra maggiore"
+          ],
+          "ledger_movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -220
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 340
+            }
+          ],
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -220
+              },
+              {
+                "voce": "Ricompensa missione",
+                "importo": 340
+              }
+            ],
+            "currency": {
+              "oro": 240,
+              "argento": 40,
+              "rame": 80
+            }
+          },
+          "sheet_markdown": "Percezione +18, Furtività +21, Anello della luce lunare, Ricompensa missione"
+        }
+      },
+      "reference_catalog_version": "2026.04.03",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2026-02-10T12:10:00Z",
+        "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null,
+        "request_ip": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Druid",
+            "livelli": 1,
+            "archetipi": [
+              "Mooncaller",
+              "Shapeshifter"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 16,
+          "DES": 18,
+          "COS": 18,
+          "INT": 12,
+          "SAG": 22,
+          "CAR": 8,
+          "attacco": "+18",
+          "danni": "artiglio 2d6+10 / morso 1d8+10",
+          "ca": 28
+        },
+        "statistiche_chiave": {
+          "attacco": "+18",
+          "danni": "artiglio 2d6+10 / morso 1d8+10",
+          "ca": 28
+        },
+        "level": 10,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "modules": [
+          "base_profile.txt",
+          "Taverna_NPC.txt",
+          "narrative_flow.txt"
+        ],
+        "skills": [
+          {
+            "nome": "Percezione",
+            "totale": 18
+          },
+          {
+            "nome": "Furtività",
+            "totale": 21
+          }
+        ],
+        "equipaggiamento": [
+          "Anello della luce lunare",
+          "Veste d'ombra maggiore"
+        ],
+        "ledger_movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -220
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 340
+          }
+        ],
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -220
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 340
+            }
+          ],
+          "currency": {
+            "oro": 240,
+            "argento": 40,
+            "rame": 80
+          }
+        },
+        "sheet_markdown": "Percezione +18, Furtività +21, Anello della luce lunare, Ricompensa missione"
+      }
+    },
+    "narrative": {
+      "riassunto": "Guardiano wayang che incanala la luce lunare per plasmare oscurità e forme ferali, fungendo da scout occultato.",
+      "taverna_hook": "Offre vie sicure nelle gallerie in cambio di protezione dei rituali lunari wayang."
+    },
+    "sheet": {
+      "ready": true,
+      "print_mode": false
+    },
+    "ledger": {
+      "wallet": "15 gp",
+      "notes": "Erbe d'ombra raccolte durante la veglia lunare."
+    }
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Druid",
+          "livelli": 1,
+          "archetipi": [
+            "Mooncaller",
+            "Shapeshifter"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 16,
+        "DES": 18,
+        "COS": 18,
+        "INT": 12,
+        "SAG": 22,
+        "CAR": 8,
+        "attacco": "+18",
+        "danni": "artiglio 2d6+10 / morso 1d8+10",
+        "ca": 28
+      },
+      "statistiche_chiave": {
+        "attacco": "+18",
+        "danni": "artiglio 2d6+10 / morso 1d8+10",
+        "ca": 28
+      },
+      "level": 10,
+      "level_checkpoints": [
+        1,
+        5,
+        10
+      ],
+      "modules": [
+        "base_profile.txt",
+        "Taverna_NPC.txt",
+        "narrative_flow.txt"
+      ],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "totale": 18
+        },
+        {
+          "nome": "Furtività",
+          "totale": 21
+        }
+      ],
+      "equipaggiamento": [
+        "Anello della luce lunare",
+        "Veste d'ombra maggiore"
+      ],
+      "ledger_movimenti": [
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -220
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 340
+        }
+      ],
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -220
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 340
+          }
+        ],
+        "currency": {
+          "oro": 240,
+          "argento": 40,
+          "rame": 80
+        }
+      },
+      "sheet_markdown": "Percezione +18, Furtività +21, Anello della luce lunare, Ricompensa missione"
+    }
+  },
+  "fetched_at": "2026-02-10T12:10:00Z",
+  "metadata": {
+    "ruling_log": [
+      "Ruling Expert badge RAW/RAI/PFS validato: Mooncaller howls non interferiscono con shapeshift e PFS non richiede HR.",
+      "Fonti citate: APG Mooncaller, Ultimate Wilderness Shapeshifter, FAQ sulle forme ferine in oscurità."
+    ],
+    "benchmarks": [
+      {
+        "variant": "Wayang Mooncaller+Shapeshifter",
+        "offense_score": 1.07,
+        "defense_score": 1.12
+      },
+      {
+        "variant": "Grippli Mooncaller veleno",
+        "offense_score": 0.72,
+        "defense_score": 0.78
+      },
+      {
+        "variant": "Wayang Shapeshifter puro",
+        "offense_score": 0.79,
+        "defense_score": 0.74
+      }
+    ],
+    "selected_variant": "Wayang Mooncaller+Shapeshifter",
+    "narrative_log": [
+      "Taverna/Narrative: tema 'Custode delle Ombre Lunari' integrato con giuramenti notturni e legami con clan wayang."
+    ]
+  },
+  "mode": "extended",
+  "mode_normalized": "extended",
+  "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+  "query_params": {
+    "race": "Wayang",
+    "archetype": "Mooncaller Shapeshifter"
+  },
+  "archetypes": [
+    "Mooncaller",
+    "Shapeshifter"
+  ],
+  "request": {
+    "class": "Druid",
+    "mode": "extended",
+    "race": "Wayang",
+    "archetype": "Mooncaller Shapeshifter",
+    "spec_id": "druid_wayang_mooncaller_shapeshifter",
+    "level": 10,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "step_audit": {
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true,
+    "request_timestamp": "2026-02-10T12:10:00Z",
+    "client_fingerprint_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null,
+    "request_ip": null
+  },
+  "reference_catalog_version": "2026.04.03",
+  "qa": {
+    "checkpoints": {
+      "bench_log": [
+        "Ruling Expert: confermata compatibilità di Mooncaller con Shapeshifter e visione nelle ombre Wayang (niente HR richieste).",
+        "MinMax: wild shape predatoria + oscurità mobile mantiene DPR medio 9/32/80 e CA 28 ai checkpoint.",
+        "Narrative/Taverna: arco 'Custode delle Ombre Lunari' integrato come ambasciatore dei popoli sotterranei."
+      ],
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ],
+      "missing": [],
+      "status": "complete",
+      "checklist": {
+        "statistics": true,
+        "equipment": true,
+        "spells": true,
+        "narrative": true,
+        "ledger": true
+      }
+    }
+  },
+  "build_id": "build-97fcdae8f6d50c52440475b3",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "RAW/RAI/PFS",
+      "meta_tier": "T2"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "RAW/RAI/PFS",
+      "meta_tier": "T2"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "RAW/RAI/PFS",
+      "meta_tier": "T2"
+    }
+  ],
+  "feat_plan": [],
+  "citation": {
+    "sources": [],
+    "reference_urls": []
+  }
+}
