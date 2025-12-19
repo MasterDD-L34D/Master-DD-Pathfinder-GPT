@@ -746,5 +746,14 @@
       }
     },
     "narrative": "Stratega aasimar che coordina paladini e celestiali tramite aura tactician e servitore angelico."
+  },
+  "feat_plan": [
+    "Power Attack",
+    "Weapon Focus (longsword)",
+    "Coordinated Charge"
+  ],
+  "citation": {
+    "sources": [],
+    "reference_urls": []
   }
 }

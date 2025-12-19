@@ -954,5 +954,38 @@
   },
   "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
   "reference_catalog_version": "2026.03.22",
-  "build_id": "build-c069d8b12c33130ebea3058b"
+  "build_id": "build-c069d8b12c33130ebea3058b",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "full",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "full",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "full",
+      "meta_tier": "T3"
+    }
+  ],
+  "feat_plan": [],
+  "citation": {
+    "sources": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli",
+      "local-refresh"
+    ],
+    "reference_urls": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+    ]
+  }
 }

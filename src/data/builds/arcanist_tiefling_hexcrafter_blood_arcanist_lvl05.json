@@ -730,5 +730,38 @@
     "step_total_ok": true,
     "step_labels_count": 16,
     "has_extended_steps": true
+  },
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "validated",
+      "meta_tier": "T2"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "validated",
+      "meta_tier": "T2"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "validated",
+      "meta_tier": "T2"
+    }
+  ],
+  "feat_plan": [
+    "Accuratezza Magica",
+    "Metamagia Rapida",
+    "Spell Focus (necromanzia)",
+    "Raggi Potenziati"
+  ],
+  "citation": {
+    "sources": [],
+    "reference_urls": []
   }
 }

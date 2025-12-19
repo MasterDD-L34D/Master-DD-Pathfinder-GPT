@@ -942,5 +942,38 @@
   "spec_id": "investigator_catfolk_empiricist_psychic_detective",
   "background": "Detective psichico delle steppe felide",
   "reference_catalog_version": "2026.03.22",
-  "build_id": "build-024600fed9da595d4361160f"
+  "build_id": "build-024600fed9da595d4361160f",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "validated",
+      "meta_tier": "T1"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "validated",
+      "meta_tier": "T1"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "validated",
+      "meta_tier": "T1"
+    }
+  ],
+  "feat_plan": [],
+  "citation": {
+    "sources": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human",
+      "local-refresh"
+    ],
+    "reference_urls": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human"
+    ]
+  }
 }

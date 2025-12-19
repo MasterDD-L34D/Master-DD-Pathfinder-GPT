@@ -662,5 +662,14 @@
       }
     },
     "narrative": "Condottiero angelico che orchestra cariche coordinate e benedizioni."
+  },
+  "feat_plan": [
+    "Power Attack",
+    "Weapon Focus (longsword)",
+    "Coordinated Charge"
+  ],
+  "citation": {
+    "sources": [],
+    "reference_urls": []
   }
 }

@@ -1038,5 +1038,41 @@
   },
   "spec_id": "Alchemist::Goblin::Vivisectionist",
   "reference_catalog_version": "2026.03.22",
-  "build_id": "build-f37351a514fef0e2d99445df"
+  "build_id": "build-f37351a514fef0e2d99445df",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "full",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "full",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "full",
+      "meta_tier": "T3"
+    }
+  ],
+  "feat_plan": [
+    "Colpo possente",
+    "Iniziativa migliorata",
+    "Talento di livello 1"
+  ],
+  "citation": {
+    "sources": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
+    ],
+    "reference_urls": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
+    ]
+  }
 }

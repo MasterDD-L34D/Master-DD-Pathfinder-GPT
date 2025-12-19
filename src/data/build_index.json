@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-19T00:41:59Z",
+  "generated_at": "2025-12-19T00:56:11.728788+00:00",
   "api_url": null,
   "mode": "extended",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -24,7 +24,43 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Colpo possente",
+        "Iniziativa migliorata",
+        "Talento di livello 1"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
+        ]
+      }
     },
     {
       "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl05.json",
@@ -46,7 +82,47 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Colpo possente",
+        "Iniziativa migliorata",
+        "Talento di livello 1",
+        "Talento di livello 2",
+        "Talento di livello 3",
+        "Talento di livello 4",
+        "Talento di livello 5"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Vivisectionist"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Vivisectionist"
+        ]
+      }
     },
     {
       "file": "src/data/builds/alchemist-goblin-vivisectionist_lvl10.json",
@@ -68,7 +144,52 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Colpo possente",
+        "Iniziativa migliorata",
+        "Talento di livello 1",
+        "Talento di livello 2",
+        "Talento di livello 3",
+        "Talento di livello 4",
+        "Talento di livello 5",
+        "Talento di livello 6",
+        "Talento di livello 7",
+        "Talento di livello 8",
+        "Talento di livello 9",
+        "Talento di livello 10"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist"
+        ]
+      }
     },
     {
       "file": "src/data/builds/alchemist_goblin_bombardier.json",
@@ -90,7 +211,43 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Colpo possente",
+        "Iniziativa migliorata",
+        "Talento di livello 1"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Bombardier"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Bombardier"
+        ]
+      }
     },
     {
       "file": "src/data/builds/alchemist_goblin_bombardier_lvl05.json",
@@ -112,7 +269,47 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Colpo possente",
+        "Iniziativa migliorata",
+        "Talento di livello 1",
+        "Talento di livello 2",
+        "Talento di livello 3",
+        "Talento di livello 4",
+        "Talento di livello 5"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Bombardier"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Bombardier"
+        ]
+      }
     },
     {
       "file": "src/data/builds/alchemist_goblin_bombardier_lvl10.json",
@@ -134,7 +331,52 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Colpo possente",
+        "Iniziativa migliorata",
+        "Talento di livello 1",
+        "Talento di livello 2",
+        "Talento di livello 3",
+        "Talento di livello 4",
+        "Talento di livello 5",
+        "Talento di livello 6",
+        "Talento di livello 7",
+        "Talento di livello 8",
+        "Talento di livello 9",
+        "Talento di livello 10"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Bombardier"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Bombardier"
+        ]
+      }
     },
     {
       "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json",
@@ -156,7 +398,38 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [
+        "Accuratezza Magica",
+        "Spell Focus (maledizioni)"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl05.json",
@@ -178,7 +451,40 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [
+        "Accuratezza Magica",
+        "Metamagia Rapida",
+        "Spell Focus (necromanzia)",
+        "Raggi Potenziati"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl10.json",
@@ -200,7 +506,40 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [
+        "Accuratezza Magica",
+        "Metamagia Rapida",
+        "Spell Focus (necromanzia)",
+        "Raggi Potenziati"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
@@ -222,7 +561,38 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Power Attack",
+        "Furious Focus"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
@@ -244,7 +614,40 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Power Attack",
+        "Furious Focus",
+        "Raging Vitality",
+        "Superstition"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
@@ -266,7 +669,42 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Power Attack",
+        "Furious Focus",
+        "Raging Vitality",
+        "Superstition",
+        "Improved Initiative",
+        "Dodge"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman.json",
@@ -288,7 +726,39 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Armonia Letale (Sound Striker)",
+        "Scacciare Sogni (Sandman)",
+        "Focalizzazione Abilità: Intrattenere"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl05.json",
@@ -310,7 +780,39 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Melodic Casting",
+        "Lingering Performance",
+        "Focus: Suoni di Sabbia"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json",
@@ -339,7 +841,39 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Discordant Voice",
+        "Spell Focus (Illusion)",
+        "Greater Spell Penetration"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager.json",
@@ -361,7 +895,42 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "full",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "full",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "full",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [
+        "Arcane Strike",
+        "Blooded Strike"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=1&race=Shabti&archetype=Primalist+Blood+Conduit"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=1&race=Shabti&archetype=Primalist+Blood+Conduit"
+        ]
+      }
     },
     {
       "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json",
@@ -383,7 +952,43 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "full",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "full",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "full",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [
+        "Arcane Strike",
+        "Raging Vitality",
+        "Improved Initiative"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=5&race=Shabti&archetype=Primalist+Blood+Conduit"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=5&race=Shabti&archetype=Primalist+Blood+Conduit"
+        ]
+      }
     },
     {
       "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json",
@@ -405,7 +1010,45 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "full",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "full",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "full",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [
+        "Arcane Strike",
+        "Raging Vitality",
+        "Improved Initiative",
+        "Power Attack",
+        "Critical Focus"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=10&race=Shabti&archetype=Primalist+Blood+Conduit"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=10&race=Shabti&archetype=Primalist+Blood+Conduit"
+        ]
+      }
     },
     {
       "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json",
@@ -427,7 +1070,40 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli",
+          "local-refresh"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+        ]
+      }
     },
     {
       "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl05.json",
@@ -449,7 +1125,40 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli",
+          "local-refresh"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+        ]
+      }
     },
     {
       "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl10.json",
@@ -471,7 +1180,40 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "full",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli",
+          "local-refresh"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+        ]
+      }
     },
     {
       "file": "src/data/builds/cavalier_strix_strategist_honor_guard.json",
@@ -493,7 +1235,35 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl05.json",
@@ -515,7 +1285,35 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl10.json",
@@ -537,7 +1335,35 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/cleric_samsaran_cloistered_evangelist.json",
@@ -559,7 +1385,46 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated-rai-pfs",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated-rai-pfs",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated-rai-pfs",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Colpo possente",
+        "Iniziativa migliorata",
+        "Arma focalizzata (mazzafrusto)",
+        "Tenacia",
+        "Robustezza",
+        "Critico migliorato (mazzafrusto)"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
+        ]
+      }
     },
     {
       "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl05.json",
@@ -581,7 +1446,46 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated-rai-pfs",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated-rai-pfs",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated-rai-pfs",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Colpo possente",
+        "Iniziativa migliorata",
+        "Arma focalizzata (mazzafrusto)",
+        "Tenacia",
+        "Robustezza",
+        "Critico migliorato (mazzafrusto)"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
+        ]
+      }
     },
     {
       "file": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl10.json",
@@ -603,7 +1507,51 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated-rai-pfs",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated-rai-pfs",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated-rai-pfs",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Colpo possente",
+        "Iniziativa migliorata",
+        "Arma focalizzata (mazzafrusto)",
+        "Tenacia",
+        "Robustezza",
+        "Critico migliorato (mazzafrusto)",
+        "Incalzare",
+        "Arma focalizzata superiore (mazzafrusto)",
+        "Passo laterale",
+        "Stamina extra",
+        "Colpo vitale"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=10&race=Samsaran&archetype=Cloistered+Evangelist"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=10&race=Samsaran&archetype=Cloistered+Evangelist"
+        ]
+      }
     },
     {
       "file": "src/data/builds/druid_half_orc_feral.json",
@@ -632,7 +1580,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
@@ -661,7 +1637,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
@@ -690,7 +1694,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
@@ -712,7 +1744,35 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
@@ -734,7 +1794,35 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
@@ -756,7 +1844,35 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded.json",
@@ -786,7 +1902,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
@@ -816,7 +1960,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
@@ -846,7 +2018,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human.json",
@@ -875,7 +2075,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
@@ -904,7 +2132,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl10.json",
@@ -933,7 +2189,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/gunslinger_strix_gun_tank.json",
@@ -955,7 +2239,37 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "local-refresh"
+        ],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/gunslinger_strix_gun_tank_lvl05.json",
@@ -977,7 +2291,37 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "local-refresh"
+        ],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/gunslinger_strix_gun_tank_lvl10.json",
@@ -999,7 +2343,37 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "local-refresh"
+        ],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace.json",
@@ -1021,7 +2395,37 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "local-refresh"
+        ],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl05.json",
@@ -1043,7 +2447,37 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "local-refresh"
+        ],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl10.json",
@@ -1065,7 +2499,37 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "local-refresh"
+        ],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/hunter_kasatha_packmaster.json",
@@ -1086,7 +2550,40 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster",
+          "local-refresh"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster"
+        ]
+      }
     },
     {
       "file": "src/data/builds/hunter_kasatha_packmaster_lvl05.json",
@@ -1107,7 +2604,40 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=5",
+          "local-refresh"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=5"
+        ]
+      }
     },
     {
       "file": "src/data/builds/hunter_kasatha_packmaster_lvl10.json",
@@ -1128,7 +2658,40 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=10",
+          "local-refresh"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=10"
+        ]
+      }
     },
     {
       "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher.json",
@@ -1149,7 +2712,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl05.json",
@@ -1170,7 +2761,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl10.json",
@@ -1191,7 +2810,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T2"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective.json",
@@ -1213,7 +2860,40 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T1"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human",
+          "local-refresh"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human"
+        ]
+      }
     },
     {
       "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl05.json",
@@ -1235,7 +2915,40 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T1"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human",
+          "local-refresh"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human"
+        ]
+      }
     },
     {
       "file": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl10.json",
@@ -1257,7 +2970,40 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T1"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human",
+          "local-refresh"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human"
+        ]
+      }
     },
     {
       "file": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul.json",
@@ -1279,7 +3025,32 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "blast a forza con carica difensiva; badge RAW/RAI/PFS",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Elemental Overflow su CHA + shield cinetico; DPR medio 32",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Armor infusion + empower composite; controllo area aereo",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl05.json",
@@ -1301,7 +3072,32 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "blast a forza con carica difensiva; badge RAW/RAI/PFS",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Overflow su CHA e empower; DPR medio 34",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Composite a due elementi con volo tattico",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl10.json",
@@ -1323,7 +3119,32 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "blast a forza con carica difensiva; badge RAW/RAI/PFS",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Overflow su CHA e empower; DPR medio 34",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Deadly earth + empower; T1 confermato",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul.json",
@@ -1345,7 +3166,32 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "blast di forza con carica difensiva; badge RAW/RAI/PFS",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Elemental Overflow su CHA + shield cinetico; DPR medio 32",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Armor infusion + empower composite; controllo area elementale",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl05.json",
@@ -1367,7 +3213,32 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "blast di forza con carica difensiva; badge RAW/RAI/PFS",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Overflow su CHA e empower; DPR medio 34",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Composite a due elementi con barriera elementale",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl10.json",
@@ -1389,7 +3260,32 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "blast di forza con carica difensiva; badge RAW/RAI/PFS",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Overflow su CHA e empower; DPR medio 34",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Deadly earth + empower; T1 confermato",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter.json",
@@ -1418,7 +3314,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T1"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl05.json",
@@ -1440,7 +3364,35 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T1"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl10.json",
@@ -1462,7 +3414,35 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T1"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "RAW/RAI/PFS",
+          "meta_tier": "T1"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
@@ -1491,7 +3471,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json",
@@ -1520,7 +3528,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json",
@@ -1549,7 +3585,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
@@ -1579,7 +3643,40 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Tiger Style",
+        "Crane Style",
+        "Dodge",
+        "Tiger Style + Crane Style"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl05.json",
@@ -1614,7 +3711,47 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Tiger Style",
+        "Crane Style",
+        "Dodge",
+        "Mobility",
+        "Power Attack",
+        "Tiger Claws",
+        "Dragon Style",
+        "Crane Wing",
+        "Tiger Style + Crane Style",
+        "Dodge + Mobility",
+        "Power Attack + Tiger Claws"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl10.json",
@@ -1653,7 +3790,52 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Tiger Style",
+        "Crane Style",
+        "Dodge",
+        "Mobility",
+        "Power Attack",
+        "Tiger Claws",
+        "Dragon Style",
+        "Crane Wing",
+        "Dragon Ferocity",
+        "Medusa's Wrath",
+        "Crane Riposte",
+        "Spring Attack",
+        "Improved Initiative",
+        "Tiger Style + Crane Style",
+        "Dodge + Mobility",
+        "Power Attack + Tiger Claws"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl01.json",
@@ -1682,7 +3864,36 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [
+        "Power Attack",
+        "Weapon Focus (longsword)",
+        "Coordinated Charge"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl05.json",
@@ -1711,7 +3922,36 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [
+        "Power Attack",
+        "Weapon Focus (longsword)",
+        "Coordinated Charge"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl10.json",
@@ -1740,7 +3980,36 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [
+        "Power Attack",
+        "Weapon Focus (longsword)",
+        "Coordinated Charge"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher.json",
@@ -1770,7 +4039,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
@@ -1800,7 +4097,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
@@ -1830,7 +4155,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse.json",
@@ -1859,7 +4212,41 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Arma accurata"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=1&race=Halfling&archetype=Cutpurse"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=1&race=Halfling&archetype=Cutpurse"
+        ]
+      }
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
@@ -1888,7 +4275,45 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Arma accurata",
+        "Arma focalizzata (pugnale)",
+        "Combattere con due armi",
+        "Schivare",
+        "Iniziativa migliorata"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=5&race=Halfling&archetype=Cutpurse"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=5&race=Halfling&archetype=Cutpurse"
+        ]
+      }
     },
     {
       "file": "src/data/builds/rogue_halfling_cutpurse_lvl10.json",
@@ -1921,7 +4346,51 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "validated",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [
+        "Arma accurata",
+        "Colpo vitale",
+        "Arma focalizzata (pugnale)",
+        "Arma focalizzata superiore (pugnale)",
+        "Colpo senz'armi migliorato",
+        "Combattere con due armi",
+        "Mobilità",
+        "Riflessi in combattimento",
+        "Schivare",
+        "Iniziativa migliorata",
+        "Critico migliorato (pugnale)"
+      ],
+      "citation": {
+        "sources": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=10&race=Halfling&archetype=Cutpurse"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=10&race=Halfling&archetype=Cutpurse"
+        ]
+      }
     },
     {
       "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist.json",
@@ -1943,7 +4412,32 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Pipeline validata: shadow debuff + channel selettivo attivi",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Dominio separato online, ombre avanzate con metamagia reach",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Evocazioni d'ombra e bless permanenti mantengono T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl05.json",
@@ -1965,7 +4459,32 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Shadow debuff + channel selettivo stabili",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Conjuration d'ombra e domini separati promossi T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Preparazione per shadow miracle e bless permanenti",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl10.json",
@@ -1987,7 +4506,32 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Shadow debuff + channel selettivo stabili",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Conjuration d'ombra e domini separati promossi T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Shadow miracle + bless permanenti in pipeline strict",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma.json",
@@ -2009,7 +4553,32 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; feint swift + dirty trick online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Ricognizione con mesmerist trick dimenticanza + riposizionamento felino",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Aura enigma + greater dirty trick a volontà con DC alta",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl05.json",
@@ -2031,7 +4600,32 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; feint swift + dirty trick online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Ricognizione con mesmerist trick dimenticanza + riposizionamento felino",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Aura enigma + greater dirty trick a volontà con DC alta",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl10.json",
@@ -2053,7 +4647,32 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; feint swift + dirty trick online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Ricognizione con mesmerist trick dimenticanza + riposizionamento felino",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Aura enigma + greater dirty trick a volontà con DC alta",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant.json",
@@ -2075,7 +4694,32 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; armatura vivente + panoply knowledge online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Panoply Savant completa i set Aegis + Weapon; DPR e CA in crescita",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Resonant focus massimizzato; tanking T1 con control burst",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl05.json",
@@ -2097,7 +4741,32 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; armatura vivente + panoply knowledge online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Panoply Savant completa i set Aegis + Weapon; DPR e CA in crescita",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Resonant focus massimizzato; tanking T1 con control burst",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl10.json",
@@ -2119,7 +4788,32 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; armatura vivente + panoply knowledge online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Panoply Savant completa i set Aegis + Weapon; DPR e CA in crescita",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Resonant focus massimizzato; tanking T1 con control burst",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer.json",
@@ -2141,7 +4835,32 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; hex di supporto e reroll attivi",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Patrono Adaptation online; summon e controlli T1 consolidati",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Accesso a incantesimi di 6° e reroll ampliati; support/control T1 stabile",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl05.json",
@@ -2163,7 +4882,32 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; hex di supporto e reroll attivi",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Patrono Adaptation online; summon e controlli T1 consolidati",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Accesso a incantesimi di 6° e reroll ampliati; support/control T1 stabile",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl10.json",
@@ -2185,7 +4929,32 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; hex di supporto e reroll attivi",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Patrono Adaptation online; summon e controlli T1 consolidati",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Accesso a incantesimi di 6° e reroll ampliati; support/control T1 stabile",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant.json",
@@ -2214,7 +4983,36 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [
+        "Power Attack",
+        "Weapon Focus (longsword)",
+        "Coordinated Charge"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl05.json",
@@ -2243,7 +5041,36 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [
+        "Power Attack",
+        "Weapon Focus (longsword)",
+        "Coordinated Charge"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl10.json",
@@ -2272,7 +5099,36 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [
+        "Power Attack",
+        "Weapon Focus (longsword)",
+        "Coordinated Charge"
+      ],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch.json",
@@ -2294,7 +5150,32 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl05.json",
@@ -2316,7 +5197,32 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl10.json",
@@ -2338,7 +5244,32 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch.json",
@@ -2360,7 +5291,32 @@
       "level": 1,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl05.json",
@@ -2382,7 +5338,32 @@
       "level": 5,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl10.json",
@@ -2404,7 +5385,32 @@
       "level": 10,
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "ok",
+          "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 5,
+          "status": "ok",
+          "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+          "ruling_badge": "RAW/RAI/PFS"
+        },
+        {
+          "level": 10,
+          "status": "ok",
+          "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+          "ruling_badge": "RAW/RAI/PFS"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/wizard_elf_universalist.json",
@@ -2433,7 +5439,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
@@ -2462,7 +5496,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
@@ -2491,7 +5553,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/wizard_human_evoker.json",
@@ -2520,7 +5610,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/wizard_human_evoker_lvl05.json",
@@ -2549,7 +5667,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     },
     {
       "file": "src/data/builds/wizard_human_evoker_lvl10.json",
@@ -2578,7 +5724,35 @@
       ],
       "catalog_version": [
         "2026.04.03"
-      ]
+      ],
+      "checkpoints": [
+        {
+          "level": 1,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 1",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 5,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 5",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        },
+        {
+          "level": 10,
+          "status": "invalid",
+          "bench_log": "Checkpoint auto-generato livello 10",
+          "ruling_badge": "placeholder",
+          "meta_tier": "T3"
+        }
+      ],
+      "feat_plan": [],
+      "citation": {
+        "sources": [],
+        "reference_urls": []
+      }
     }
   ],
   "checkpoints": {

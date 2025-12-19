@@ -746,5 +746,14 @@
       }
     },
     "narrative": "Eroe angelico che mantiene T1 grazie a teamwork e servitore maggiore."
+  },
+  "feat_plan": [
+    "Power Attack",
+    "Weapon Focus (longsword)",
+    "Coordinated Charge"
+  ],
+  "citation": {
+    "sources": [],
+    "reference_urls": []
   }
 }

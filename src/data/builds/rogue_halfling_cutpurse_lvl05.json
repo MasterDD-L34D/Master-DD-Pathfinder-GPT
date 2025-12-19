@@ -1442,5 +1442,43 @@
     }
   },
   "reference_catalog_version": "2026.03.22",
-  "build_id": "build-8a4cf38432b636053fa7abe9"
+  "build_id": "build-8a4cf38432b636053fa7abe9",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    }
+  ],
+  "feat_plan": [
+    "Arma accurata",
+    "Arma focalizzata (pugnale)",
+    "Combattere con due armi",
+    "Schivare",
+    "Iniziativa migliorata"
+  ],
+  "citation": {
+    "sources": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=5&race=Halfling&archetype=Cutpurse"
+    ],
+    "reference_urls": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=5&race=Halfling&archetype=Cutpurse"
+    ]
+  }
 }
