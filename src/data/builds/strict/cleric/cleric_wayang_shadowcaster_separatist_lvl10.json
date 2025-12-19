@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Cleric",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Wayang (Umbral)",
     "archetype": "Shadowcaster + Separatist",
     "step": 16,
@@ -208,8 +208,8 @@
   "output_prefix": "cleric_wayang_shadowcaster_separatist",
   "spec_id": "cleric_wayang_shadowcaster_separatist",
   "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Wayang (Umbral)",
@@ -240,7 +240,7 @@
       "build_id": "build-e0a9adba6dca07253beded5c",
       "build_state": {
         "class": "Cleric",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Wayang (Umbral)",
         "archetype": "Shadowcaster + Separatist",
         "step": 16,
@@ -419,5 +419,55 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Cleric",
+        "livelli": 10,
+        "archetipi": [
+          "Shadowcaster",
+          "Separatist"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 10,
+      "DES": 18,
+      "COS": 14,
+      "INT": 12,
+      "SAG": 22,
+      "CAR": 16,
+      "attacco": "+13",
+      "danni": "1d6+7 ombra",
+      "ca": 24
+    },
+    "statistiche_chiave": {
+      "attacco": "+13 con blessing d'ombra",
+      "danni": "Shadow miracle + controllo campo",
+      "ca": 24
+    },
+    "benchmarks": {
+      "meta_tier": "T1",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    "salvezze": {
+      "Tempra": 8,
+      "Riflessi": 7,
+      "Volontà": 13
+    },
+    "attack_bonus": {
+      "melee": "+13",
+      "ranged": "+10",
+      "special": "+15 (touch d'ombra)"
+    },
+    "damage": {
+      "melee": "1d6+7",
+      "special": "Shadow miracle/evocation + channel fortificato"
+    },
+    "bench_log": [
+      "Checkpoint 10: shadow miracle + domini separati restano T1"
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato a lvl10; log pipeline in metadati"
   }
 }

@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Witch",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Sylph",
     "archetype": "Gravewalker + Hedge Witch",
     "step": 1,
@@ -208,8 +208,8 @@
   "output_prefix": "witch_sylph_gravewalker_hedge_witch",
   "spec_id": "witch_sylph_gravewalker_hedge_witch",
   "background": "Veggente del vento che guida anime e cura con erbe sospese",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Sylph",
@@ -240,7 +240,7 @@
       "build_id": "build-22e26558b7187fb06f18b394",
       "build_state": {
         "class": "Witch",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Sylph",
         "archetype": "Gravewalker + Hedge Witch",
         "step": 1,
@@ -417,5 +417,54 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Witch",
+        "livelli": 1,
+        "archetipi": [
+          "Gravewalker",
+          "Hedge Witch"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 8,
+      "DES": 16,
+      "COS": 12,
+      "INT": 18,
+      "SAG": 12,
+      "CAR": 14,
+      "attacco": "+3",
+      "danni": "raggio di gelo + hex",
+      "ca": 16
+    },
+    "statistiche_chiave": {
+      "attacco": "+3",
+      "danni": "1d3+INT",
+      "ca": 16
+    },
+    "benchmarks": {
+      "meta_tier": "T1",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    "salvezze": {
+      "Tempra": 2,
+      "Riflessi": 3,
+      "Volontà": 4
+    },
+    "attack_bonus": {
+      "ranged": "+3",
+      "special": "+5 (touch Hex)"
+    },
+    "damage": {
+      "ranged": "raggio di gelo 1d3+3",
+      "special": "Evil Eye / Misfortune"
+    },
+    "bench_log": [
+      "Pipeline confermata: variante Sylph Gravewalker + Hedge Witch mantiene badge RAW/RAI/PFS e T1."
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato; necromanzia e healing patron compatibili"
   }
 }

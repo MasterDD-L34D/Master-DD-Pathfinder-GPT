@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Paladin",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Aasimar",
     "archetype": "Holy Tactician + Sacred Servant",
     "step": 16,
@@ -286,8 +286,8 @@
       "ruling_badge": "RAW/RAI/PFS"
     }
   ],
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Aasimar",
@@ -318,7 +318,7 @@
       "build_id": "build-8ff1383e36146662ff1543b7",
       "build_state": {
         "class": "Paladin",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Aasimar",
         "archetype": "Holy Tactician + Sacred Servant",
         "step": 16,
@@ -671,5 +671,140 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Paladin",
+        "livelli": 10,
+        "archetipi": [
+          "Holy Tactician",
+          "Sacred Servant"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 20,
+      "DES": 14,
+      "COS": 18,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 22,
+      "attacco": "+16",
+      "danni": "1d8+14 smite",
+      "ca": 27
+    },
+    "statistiche_chiave": {
+      "attacco": "+16",
+      "danni": "1d8+14",
+      "ca": 27
+    },
+    "benchmarks": {
+      "meta_tier": "T1",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    "salvezze": {
+      "Tempra": 11,
+      "Riflessi": 7,
+      "Volontà": 10
+    },
+    "attack_bonus": {
+      "melee": "+16",
+      "smite": "+18"
+    },
+    "damage": {
+      "melee": "1d8+14",
+      "smite": "1d8+18 vs malvagi"
+    },
+    "bench_log": [
+      "Checkpoint 10 ok: servitore angelico maggiore + teamwork full"
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS stabile con meta_tier T1",
+    "pf_totali": 32,
+    "hp": {
+      "totale": 32
+    },
+    "skill_points": 4,
+    "skills_map": {
+      "Diplomacy": {
+        "totale": 23
+      },
+      "Perception": {
+        "totale": 16
+      },
+      "Knowledge (religion)": {
+        "totale": 18
+      }
+    },
+    "skills": [
+      {
+        "nome": "Diplomazia",
+        "gradi": 10,
+        "mod_car": 6,
+        "classe": true,
+        "totale": 23
+      },
+      {
+        "nome": "Conoscenze (religioni)",
+        "gradi": 10,
+        "mod_car": 1,
+        "classe": true,
+        "totale": 18
+      },
+      {
+        "nome": "Percezione",
+        "gradi": 10,
+        "mod_car": 1,
+        "classe": true,
+        "var": 2,
+        "totale": 16
+      }
+    ],
+    "talenti": [
+      "Power Attack",
+      "Weapon Focus (longsword)",
+      "Coordinated Charge"
+    ],
+    "capacita_classe": [
+      "Smite Evil",
+      "Lay on Hands",
+      "Aura of Courage",
+      "Tactician"
+    ],
+    "equipaggiamento": [
+      "Full plate benedetta",
+      "Spada lunga sacra"
+    ],
+    "inventario": [
+      "Simbolo sacro",
+      "Pozioni di cura"
+    ],
+    "spell_levels": [
+      {
+        "liv": 1,
+        "per_day": 4,
+        "spells": [
+          "Bless Weapon",
+          "Divine Favor"
+        ]
+      }
+    ],
+    "magia": {
+      "1": [
+        "Bless Weapon",
+        "Divine Favor"
+      ]
+    },
+    "slot_incantesimi": "Livello 1: 4",
+    "ac_breakdown": {
+      "base": 10,
+      "armatura": 8,
+      "scudo": 0,
+      "des": 2,
+      "defl": 1,
+      "varie": 0
+    },
+    "iniziativa": 2,
+    "velocita": 6
   }
 }

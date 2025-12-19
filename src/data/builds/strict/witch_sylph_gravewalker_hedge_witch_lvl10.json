@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Witch",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Sylph",
     "archetype": "Gravewalker + Hedge Witch",
     "step": 1,
@@ -207,8 +207,8 @@
   "output_prefix": "witch_sylph_gravewalker_hedge_witch",
   "spec_id": "witch_sylph_gravewalker_hedge_witch",
   "background": "Veggente del vento che guida anime e cura con erbe sospese",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Sylph",
@@ -239,7 +239,7 @@
       "build_id": "build-5fde228d1df8f241b04924d8",
       "build_state": {
         "class": "Witch",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Sylph",
         "archetype": "Gravewalker + Hedge Witch",
         "step": 1,
@@ -416,5 +416,54 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Witch",
+        "livelli": 10,
+        "archetipi": [
+          "Gravewalker",
+          "Hedge Witch"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 8,
+      "DES": 18,
+      "COS": 14,
+      "INT": 22,
+      "SAG": 12,
+      "CAR": 14,
+      "attacco": "+13",
+      "danni": "cone of cold 10d6+10",
+      "ca": 22
+    },
+    "statistiche_chiave": {
+      "attacco": "+13",
+      "danni": "10d6+10",
+      "ca": 22
+    },
+    "benchmarks": {
+      "meta_tier": "T1",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    "salvezze": {
+      "Tempra": 7,
+      "Riflessi": 7,
+      "Volontà": 11
+    },
+    "attack_bonus": {
+      "ranged": "+13",
+      "special": "+15 hex touch"
+    },
+    "damage": {
+      "ranged": "cone of cold 10d6+10",
+      "special": "Misfortune + Slumber + Life Giver"
+    },
+    "bench_log": [
+      "Checkpoint 10: major hex online, healing top-tier; badge RAW/RAI/PFS mantenuto"
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato; meta_tier T1 con log bench salvati"
   }
 }
