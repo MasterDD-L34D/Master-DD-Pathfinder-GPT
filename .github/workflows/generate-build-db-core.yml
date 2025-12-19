@@ -25,6 +25,7 @@ jobs:
       CURL_RETRY_DELAY_SECONDS: ${{ vars.CURL_RETRY_DELAY_SECONDS }}
     steps:
       - name: Verifica segreti BUILDER
+        id: verify-secrets
         run: |
           set -euo pipefail
 
@@ -38,29 +39,47 @@ jobs:
 
           if [ ${#missing_vars[@]} -gt 0 ]; then
             echo "Segreti mancanti: ${missing_vars[*]}"
-            exit 1
+            echo "ready=false" >>"${GITHUB_OUTPUT}"
+            echo "missing=${missing_vars[*]}" >>"${GITHUB_OUTPUT}"
+            exit 0
           fi
 
           echo "Segreti presenti: API_URL, API_KEY"
+          echo "ready=true" >>"${GITHUB_OUTPUT}"
+
+      - name: Salta esecuzione senza segreti
+        if: steps.verify-secrets.outputs.ready != 'true'
+        run: |
+          echo "Workflow bypassato: impostare i segreti richiesti prima di eseguire la build."
+          exit 0
 
       - uses: actions/checkout@v4
+        if: steps.verify-secrets.outputs.ready == 'true'
+
+      - name: Usa solo se i segreti sono presenti
+        if: steps.verify-secrets.outputs.ready == 'true'
+        run: echo "Esecuzione workflow con segreti configurati"
 
       - name: Setup Python
+        if: steps.verify-secrets.outputs.ready == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
+        if: steps.verify-secrets.outputs.ready == 'true'
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
       - name: Prepara cartelle output e log
+        if: steps.verify-secrets.outputs.ready == 'true'
         run: |
           set -euo pipefail
           mkdir -p "${OUTPUT_DIR}" "${MODULES_DIR}" "${LOG_PATH%/*}" || true
 
       - name: Valida /health e /metrics
+        if: steps.verify-secrets.outputs.ready == 'true'
         env:
           API_URL: ${{ env.API_URL }}
           API_KEY: ${{ env.API_KEY }}
@@ -99,6 +118,7 @@ jobs:
           curl "${curl_common_flags[@]}" -H "x-api-key: ${metrics_key}" "${API_URL%/}/metrics" >/dev/null
 
       - name: Esegui generate_build_db (core, strict)
+        if: steps.verify-secrets.outputs.ready == 'true'
         env:
           API_URL: ${{ env.API_URL }}
           API_KEY: ${{ env.API_KEY }}
@@ -128,6 +148,7 @@ jobs:
             --max-retries 3 ${skip_flag} 2>&1 | tee "${LOG_PATH}"
 
       - name: Archivia output build_db
+        if: steps.verify-secrets.outputs.ready == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: generate-build-db-core-artifacts
