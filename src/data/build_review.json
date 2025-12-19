@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-19T15:20:33Z",
+  "generated_at": "2025-12-19T02:51:09Z",
   "builds": {
     "total": 105,
     "valid": 0,
@@ -27,6 +27,18 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Colpo possente",
+          "feats:Iniziativa migliorata",
+          "items:Arma preferita",
+          "items:Armatura leggera",
+          "items:Kit da avventuriero",
+          "items:Pozione di cura x2"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
         "status": "invalid"
       },
       {
@@ -49,6 +61,18 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Colpo possente",
+          "feats:Iniziativa migliorata",
+          "items:Arma preferita",
+          "items:Armatura leggera",
+          "items:Kit da avventuriero",
+          "items:Pozione di cura x2"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
         "status": "invalid"
       },
       {
@@ -71,6 +95,18 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Colpo possente",
+          "feats:Iniziativa migliorata",
+          "items:Arma preferita",
+          "items:Armatura leggera",
+          "items:Kit da avventuriero",
+          "items:Pozione di cura x2"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
         "status": "invalid"
       },
       {
@@ -93,6 +129,18 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Colpo possente",
+          "feats:Iniziativa migliorata",
+          "items:Arma preferita",
+          "items:Armatura leggera",
+          "items:Kit da avventuriero",
+          "items:Pozione di cura x2"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
         "status": "invalid"
       },
       {
@@ -115,6 +163,18 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Colpo possente",
+          "feats:Iniziativa migliorata",
+          "items:Arma preferita",
+          "items:Armatura leggera",
+          "items:Kit da avventuriero",
+          "items:Pozione di cura x2"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
         "status": "invalid"
       },
       {
@@ -137,6 +197,18 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Colpo possente",
+          "feats:Iniziativa migliorata",
+          "items:Arma preferita",
+          "items:Armatura leggera",
+          "items:Kit da avventuriero",
+          "items:Pozione di cura x2"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Arma preferita, items:Armatura leggera, items:Kit da avventuriero, items:Pozione di cura x2",
         "status": "invalid"
       },
       {
@@ -159,6 +231,19 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Accuratezza Magica",
+          "feats:Spell Focus (maledizioni)",
+          "items:Bastone scuro con rune",
+          "items:Componenti arcane",
+          "items:Diario di formula arcanist",
+          "items:Mantello da apprendista",
+          "items:Pozione di cura moderata"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Spell Focus (maledizioni), items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello da apprendista, items:Pozione di cura moderata"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Spell Focus (maledizioni), items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello da apprendista, items:Pozione di cura moderata",
         "status": "invalid"
       },
       {
@@ -181,6 +266,22 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Accuratezza Magica",
+          "feats:Metamagia Rapida",
+          "feats:Raggi Potenziati",
+          "feats:Spell Focus (necromanzia)",
+          "items:Anello di protezione +1",
+          "items:Bastone scuro con rune",
+          "items:Componenti arcane",
+          "items:Diario di formula arcanist",
+          "items:Mantello di resistenza +1",
+          "items:Pozione di invisibilità"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Metamagia Rapida, feats:Raggi Potenziati, feats:Spell Focus (necromanzia), items:Anello di protezione +1, items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello di resistenza +1, items:Pozione di invisibilità"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Metamagia Rapida, feats:Raggi Potenziati, feats:Spell Focus (necromanzia), items:Anello di protezione +1, items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello di resistenza +1, items:Pozione di invisibilità",
         "status": "invalid"
       },
       {
@@ -203,6 +304,22 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Accuratezza Magica",
+          "feats:Metamagia Rapida",
+          "feats:Raggi Potenziati",
+          "feats:Spell Focus (necromanzia)",
+          "items:Anello di protezione +1",
+          "items:Bastone scuro con rune",
+          "items:Componenti arcane",
+          "items:Diario di formula arcanist",
+          "items:Mantello di resistenza +1",
+          "items:Pozione di invisibilità"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Metamagia Rapida, feats:Raggi Potenziati, feats:Spell Focus (necromanzia), items:Anello di protezione +1, items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello di resistenza +1, items:Pozione di invisibilità"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Accuratezza Magica, feats:Metamagia Rapida, feats:Raggi Potenziati, feats:Spell Focus (necromanzia), items:Anello di protezione +1, items:Bastone scuro con rune, items:Componenti arcane, items:Diario di formula arcanist, items:Mantello di resistenza +1, items:Pozione di invisibilità",
         "status": "invalid"
       },
       {
@@ -225,6 +342,19 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Furious Focus",
+          "feats:Power Attack",
+          "items:Anello di protezione +1",
+          "items:Ascia bipenne adamantina +1",
+          "items:Corazza lamellare d'ombra (+2 CA)",
+          "items:Kit da esploratore",
+          "items:Pozione di cura moderate"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Furious Focus, feats:Power Attack, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Furious Focus, feats:Power Attack, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate",
         "status": "invalid"
       },
       {
@@ -247,6 +377,21 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Furious Focus",
+          "feats:Power Attack",
+          "feats:Raging Vitality",
+          "feats:Superstition",
+          "items:Anello di protezione +1",
+          "items:Ascia bipenne adamantina +1",
+          "items:Corazza lamellare d'ombra (+2 CA)",
+          "items:Kit da esploratore",
+          "items:Pozione di cura moderate"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Furious Focus, feats:Power Attack, feats:Raging Vitality, feats:Superstition, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Furious Focus, feats:Power Attack, feats:Raging Vitality, feats:Superstition, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate",
         "status": "invalid"
       },
       {
@@ -269,6 +414,23 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Dodge",
+          "feats:Furious Focus",
+          "feats:Improved Initiative",
+          "feats:Power Attack",
+          "feats:Raging Vitality",
+          "feats:Superstition",
+          "items:Anello di protezione +1",
+          "items:Ascia bipenne adamantina +1",
+          "items:Corazza lamellare d'ombra (+2 CA)",
+          "items:Kit da esploratore",
+          "items:Pozione di cura moderate"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Dodge, feats:Furious Focus, feats:Improved Initiative, feats:Power Attack, feats:Raging Vitality, feats:Superstition, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Dodge, feats:Furious Focus, feats:Improved Initiative, feats:Power Attack, feats:Raging Vitality, feats:Superstition, items:Anello di protezione +1, items:Ascia bipenne adamantina +1, items:Corazza lamellare d'ombra (+2 CA), items:Kit da esploratore, items:Pozione di cura moderate",
         "status": "invalid"
       },
       {
@@ -291,6 +453,18 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Armonia Letale (Sound Striker)",
+          "feats:Focalizzazione Abilità: Intrattenere",
+          "feats:Scacciare Sogni (Sandman)",
+          "items:dagger",
+          "items:lira accordata",
+          "items:mantello dell'ombra kitsune"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Armonia Letale (Sound Striker), feats:Focalizzazione Abilità: Intrattenere, feats:Scacciare Sogni (Sandman), items:dagger, items:lira accordata, items:mantello dell'ombra kitsune"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Armonia Letale (Sound Striker), feats:Focalizzazione Abilità: Intrattenere, feats:Scacciare Sogni (Sandman), items:dagger, items:lira accordata, items:mantello dell'ombra kitsune",
         "status": "invalid"
       },
       {
@@ -313,6 +487,18 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Focus: Suoni di Sabbia",
+          "feats:Lingering Performance",
+          "feats:Melodic Casting",
+          "items:anello di protezione +1",
+          "items:cornamusa sonica",
+          "items:mantello elusivo"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Focus: Suoni di Sabbia, feats:Lingering Performance, feats:Melodic Casting, items:anello di protezione +1, items:cornamusa sonica, items:mantello elusivo"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Focus: Suoni di Sabbia, feats:Lingering Performance, feats:Melodic Casting, items:anello di protezione +1, items:cornamusa sonica, items:mantello elusivo",
         "status": "invalid"
       },
       {
@@ -332,15 +518,23 @@
           10
         ],
         "level": 10,
-        "error": "Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Discordant Voice, feats:Greater Spell Penetration, feats:Spell Focus (Illusion), items:cintura della destrezza +4, items:lira d'argento accordata, items:stivali dell'elusione",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration"
+          "Elementi non presenti nel catalogo: feats:Discordant Voice, feats:Greater Spell Penetration, feats:Spell Focus (Illusion), items:cintura della destrezza +4, items:lira d'argento accordata, items:stivali dell'elusione"
         ],
         "prerequisite_violations": [
           "Greater Spell Penetration: Spell Penetration"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Discordant Voice",
+          "feats:Greater Spell Penetration",
+          "feats:Spell Focus (Illusion)",
+          "items:cintura della destrezza +4",
+          "items:lira d'argento accordata",
+          "items:stivali dell'elusione"
         ],
         "status": "invalid"
       },
@@ -364,6 +558,21 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Kit avventuriero",
+          "items:Lancia conduttiva",
+          "items:Talenti totemici",
+          "items:corda di seta"
+        ],
+        "ledger_unknown_entries": [
+          "items:Kit avventuriero",
+          "items:corda di seta"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Kit avventuriero, items:Lancia conduttiva, items:Talenti totemici, items:corda di seta",
+          "Voci ledger fuori catalogo: items:Kit avventuriero, items:corda di seta"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Kit avventuriero, items:Lancia conduttiva, items:Talenti totemici, items:corda di seta; Voci ledger fuori catalogo: items:Kit avventuriero, items:corda di seta",
         "status": "invalid"
       },
       {
@@ -386,6 +595,21 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Corazza a scaglie +1",
+          "items:Kit del gladiatore",
+          "items:Lancia conduttiva +1",
+          "items:mantello del leone"
+        ],
+        "ledger_unknown_entries": [
+          "items:Kit del gladiatore",
+          "items:mantello del leone"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Corazza a scaglie +1, items:Kit del gladiatore, items:Lancia conduttiva +1, items:mantello del leone",
+          "Voci ledger fuori catalogo: items:Kit del gladiatore, items:mantello del leone"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Corazza a scaglie +1, items:Kit del gladiatore, items:Lancia conduttiva +1, items:mantello del leone; Voci ledger fuori catalogo: items:Kit del gladiatore, items:mantello del leone",
         "status": "invalid"
       },
       {
@@ -408,6 +632,21 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Corazza lamellare +3",
+          "items:Lancia conduttiva adamantina",
+          "items:cintura del gigante +4",
+          "items:elisir elementale"
+        ],
+        "ledger_unknown_entries": [
+          "items:cintura del gigante +4",
+          "items:elisir elementale"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Corazza lamellare +3, items:Lancia conduttiva adamantina, items:cintura del gigante +4, items:elisir elementale",
+          "Voci ledger fuori catalogo: items:cintura del gigante +4, items:elisir elementale"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Corazza lamellare +3, items:Lancia conduttiva adamantina, items:cintura del gigante +4, items:elisir elementale; Voci ledger fuori catalogo: items:cintura del gigante +4, items:elisir elementale",
         "status": "invalid"
       },
       {
@@ -430,6 +669,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Arma semplice",
+          "items:Armatura leggera",
+          "items:Kit avventuriero",
+          "items:Strumenti da scasso"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
         "status": "invalid"
       },
       {
@@ -452,6 +701,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Arma semplice",
+          "items:Armatura leggera",
+          "items:Kit avventuriero",
+          "items:Strumenti da scasso"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
         "status": "invalid"
       },
       {
@@ -474,6 +733,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Arma semplice",
+          "items:Armatura leggera",
+          "items:Kit avventuriero",
+          "items:Strumenti da scasso"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
         "status": "invalid"
       },
       {
@@ -496,6 +765,14 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Armatura lamellare",
+          "items:Lancia da cavalleria"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Armatura lamellare, items:Lancia da cavalleria"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Armatura lamellare, items:Lancia da cavalleria",
         "status": "invalid"
       },
       {
@@ -518,6 +795,14 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Corazza strix",
+          "items:Lancia lunga rinforzata"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Corazza strix, items:Lancia lunga rinforzata"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Corazza strix, items:Lancia lunga rinforzata",
         "status": "invalid"
       },
       {
@@ -540,6 +825,14 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Armatura a scaglie strix",
+          "items:Lancia pesante volante"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Armatura a scaglie strix, items:Lancia pesante volante"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Armatura a scaglie strix, items:Lancia pesante volante",
         "status": "invalid"
       },
       {
@@ -562,6 +855,21 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Colpo possente",
+          "feats:Iniziativa migliorata",
+          "items:Kit da avventuriero",
+          "items:L1: Armatura a scaglie benedetta",
+          "items:L1: Kit da avventuriero",
+          "items:L1: Mazzafrusto pesante",
+          "items:L1: Pozione di cura x2",
+          "items:L1: Scudo leggero d'acciaio",
+          "items:Razioni x5"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:Razioni x5"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:Razioni x5",
         "status": "invalid"
       },
       {
@@ -584,6 +892,21 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Colpo possente",
+          "feats:Iniziativa migliorata",
+          "items:Kit da avventuriero",
+          "items:L1: Armatura a scaglie benedetta",
+          "items:L1: Kit da avventuriero",
+          "items:L1: Mazzafrusto pesante",
+          "items:L1: Pozione di cura x2",
+          "items:L1: Scudo leggero d'acciaio",
+          "items:Razioni x5"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:Razioni x5"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:Razioni x5",
         "status": "invalid"
       },
       {
@@ -606,6 +929,26 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "feats:Colpo possente",
+          "feats:Iniziativa migliorata",
+          "items:Kit da avventuriero",
+          "items:L1: Armatura a scaglie benedetta",
+          "items:L1: Kit da avventuriero",
+          "items:L1: Mazzafrusto pesante",
+          "items:L1: Pozione di cura x2",
+          "items:L1: Scudo leggero d'acciaio",
+          "items:L3: Mantello della resistenza +1",
+          "items:L3: Pergamene di Benedizione",
+          "items:L5: Arma sacra +1",
+          "items:L5: Pozioni di protezione dal male x2",
+          "items:L7: Armatura completa +2",
+          "items:Razioni x5"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:L3: Mantello della resistenza +1, items:L3: Pergamene di Benedizione, items:L5: Arma sacra +1, items:L5: Pozioni di protezione dal male x2, items:L7: Armatura completa +2, items:Razioni x5"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Colpo possente, feats:Iniziativa migliorata, items:Kit da avventuriero, items:L1: Armatura a scaglie benedetta, items:L1: Kit da avventuriero, items:L1: Mazzafrusto pesante, items:L1: Pozione di cura x2, items:L1: Scudo leggero d'acciaio, items:L3: Mantello della resistenza +1, items:L3: Pergamene di Benedizione, items:L5: Arma sacra +1, items:L5: Pozioni di protezione dal male x2, items:L7: Armatura completa +2, items:Razioni x5",
         "status": "invalid"
       },
       {
@@ -634,6 +977,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -662,6 +1009,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -690,6 +1041,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -712,6 +1067,14 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Bastone lunare scolpito",
+          "items:Mantello d'ombra wayang"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Bastone lunare scolpito, items:Mantello d'ombra wayang"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Bastone lunare scolpito, items:Mantello d'ombra wayang",
         "status": "invalid"
       },
       {
@@ -734,6 +1097,14 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Pelle d'ombra",
+          "items:Talismano lunare"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pelle d'ombra, items:Talismano lunare"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pelle d'ombra, items:Talismano lunare",
         "status": "invalid"
       },
       {
@@ -756,6 +1127,14 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Anello della luce lunare",
+          "items:Veste d'ombra maggiore"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Anello della luce lunare, items:Veste d'ombra maggiore"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Anello della luce lunare, items:Veste d'ombra maggiore",
         "status": "invalid"
       },
       {
@@ -786,6 +1165,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
         "status": "invalid"
       },
       {
@@ -816,6 +1199,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
         "status": "invalid"
       },
       {
@@ -846,6 +1233,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
         "status": "invalid"
       },
       {
@@ -874,6 +1265,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -902,6 +1297,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -930,6 +1329,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -952,6 +1355,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Buckler rinforzato Gun Tank",
+          "items:Cartucce alchemiche e mirino telescopico leggero",
+          "items:Corazza lamellare alata (custom per volo strix)",
+          "items:Musket pesante forgiato in mithral"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Buckler rinforzato Gun Tank, items:Cartucce alchemiche e mirino telescopico leggero, items:Corazza lamellare alata (custom per volo strix), items:Musket pesante forgiato in mithral"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Buckler rinforzato Gun Tank, items:Cartucce alchemiche e mirino telescopico leggero, items:Corazza lamellare alata (custom per volo strix), items:Musket pesante forgiato in mithral",
         "status": "invalid"
       },
       {
@@ -974,6 +1387,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Cartucce concussive e polvere nera raffinata",
+          "items:Corazza lamellare +1 con cinghie aerodinamiche",
+          "items:Musket pesante in mithral con baionetta a scatto",
+          "items:Scudo torre pieghevole per difese aeree"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Cartucce concussive e polvere nera raffinata, items:Corazza lamellare +1 con cinghie aerodinamiche, items:Musket pesante in mithral con baionetta a scatto, items:Scudo torre pieghevole per difese aeree"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Cartucce concussive e polvere nera raffinata, items:Corazza lamellare +1 con cinghie aerodinamiche, items:Musket pesante in mithral con baionetta a scatto, items:Scudo torre pieghevole per difese aeree",
         "status": "invalid"
       },
       {
@@ -996,6 +1419,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Corazza lamellare +2 con harness alare",
+          "items:Munizioni adamantine e scatter, cartucce concussive di riserva",
+          "items:Musket pesante +2 con mirino a cristallo nero",
+          "items:Scudo torre pieghevole +1"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Corazza lamellare +2 con harness alare, items:Munizioni adamantine e scatter, cartucce concussive di riserva, items:Musket pesante +2 con mirino a cristallo nero, items:Scudo torre pieghevole +1"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Corazza lamellare +2 con harness alare, items:Munizioni adamantine e scatter, cartucce concussive di riserva, items:Musket pesante +2 con mirino a cristallo nero, items:Scudo torre pieghevole +1",
         "status": "invalid"
       },
       {
@@ -1018,6 +1451,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Dueling pistol forgiata per critico",
+          "items:Giaco di maglia leggera +1",
+          "items:Hand crossbow rinforzata Bolt Ace",
+          "items:Kit da pistoliere con polveri e bulloni speciali"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali",
         "status": "invalid"
       },
       {
@@ -1040,6 +1483,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Dueling pistol forgiata per critico",
+          "items:Giaco di maglia leggera +1",
+          "items:Hand crossbow rinforzata Bolt Ace",
+          "items:Kit da pistoliere con polveri e bulloni speciali"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali",
         "status": "invalid"
       },
       {
@@ -1062,6 +1515,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Dueling pistol forgiata per critico",
+          "items:Giaco di maglia leggera +1",
+          "items:Hand crossbow rinforzata Bolt Ace",
+          "items:Kit da pistoliere con polveri e bulloni speciali"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Dueling pistol forgiata per critico, items:Giaco di maglia leggera +1, items:Hand crossbow rinforzata Bolt Ace, items:Kit da pistoliere con polveri e bulloni speciali",
         "status": "invalid"
       },
       {
@@ -1083,6 +1546,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Armatura di cuoio rinforzata",
+          "items:Kit da esploratore del deserto",
+          "items:Lancia lunga tribale"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Armatura di cuoio rinforzata, items:Kit da esploratore del deserto, items:Lancia lunga tribale"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Armatura di cuoio rinforzata, items:Kit da esploratore del deserto, items:Lancia lunga tribale",
         "status": "invalid"
       },
       {
@@ -1104,6 +1576,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Kit scout del deserto",
+          "items:Lancia lunga tribale temprata",
+          "items:Pettorale rinforzato per cavalcature"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Kit scout del deserto, items:Lancia lunga tribale temprata, items:Pettorale rinforzato per cavalcature"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Kit scout del deserto, items:Lancia lunga tribale temprata, items:Pettorale rinforzato per cavalcature",
         "status": "invalid"
       },
       {
@@ -1125,6 +1606,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Cotta di maglia leggera rinforzata",
+          "items:Kit di comando da carovana",
+          "items:Lancia lunga tribale maestro"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Cotta di maglia leggera rinforzata, items:Kit di comando da carovana, items:Lancia lunga tribale maestro"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Cotta di maglia leggera rinforzata, items:Kit di comando da carovana, items:Lancia lunga tribale maestro",
         "status": "invalid"
       },
       {
@@ -1146,6 +1636,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Giaco di maglia",
+          "items:Kukri rituale",
+          "items:Santino del tempio"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Giaco di maglia, items:Kukri rituale, items:Santino del tempio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Giaco di maglia, items:Kukri rituale, items:Santino del tempio",
         "status": "invalid"
       },
       {
@@ -1167,6 +1666,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Giaco di maglia benedetto",
+          "items:Kukri rituale",
+          "items:Pergamena di Litany of Defense"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Giaco di maglia benedetto, items:Kukri rituale, items:Pergamena di Litany of Defense"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Giaco di maglia benedetto, items:Kukri rituale, items:Pergamena di Litany of Defense",
         "status": "invalid"
       },
       {
@@ -1188,6 +1696,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Armatura di cuoio borchiato +2",
+          "items:Fiaschette di antitoxin superiore",
+          "items:Kukri benedetto"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Armatura di cuoio borchiato +2, items:Fiaschette di antitoxin superiore, items:Kukri benedetto"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Armatura di cuoio borchiato +2, items:Fiaschette di antitoxin superiore, items:Kukri benedetto",
         "status": "invalid"
       },
       {
@@ -1210,6 +1727,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Arma semplice",
+          "items:Armatura leggera",
+          "items:Kit avventuriero",
+          "items:Strumenti da scasso"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
         "status": "invalid"
       },
       {
@@ -1232,6 +1759,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Arma semplice",
+          "items:Armatura leggera",
+          "items:Kit avventuriero",
+          "items:Strumenti da scasso"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
         "status": "invalid"
       },
       {
@@ -1254,6 +1791,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Arma semplice",
+          "items:Armatura leggera",
+          "items:Kit avventuriero",
+          "items:Strumenti da scasso"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Arma semplice, items:Armatura leggera, items:Kit avventuriero, items:Strumenti da scasso",
         "status": "invalid"
       },
       {
@@ -1276,6 +1823,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Corazza di piastre leggermente rinforzata",
+          "items:Lancia di forza cinetica",
+          "items:Scudo pesante in adamantio"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Corazza di piastre leggermente rinforzata, items:Lancia di forza cinetica, items:Scudo pesante in adamantio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Corazza di piastre leggermente rinforzata, items:Lancia di forza cinetica, items:Scudo pesante in adamantio",
         "status": "invalid"
       },
       {
@@ -1298,6 +1854,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Lancia di forza cinetica",
+          "items:Mantello resistente +2",
+          "items:Scudo pesante in adamantio"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +2, items:Scudo pesante in adamantio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +2, items:Scudo pesante in adamantio",
         "status": "invalid"
       },
       {
@@ -1320,6 +1885,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Lancia di forza cinetica",
+          "items:Mantello resistente +3",
+          "items:Scudo pesante in adamantio"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +3, items:Scudo pesante in adamantio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +3, items:Scudo pesante in adamantio",
         "status": "invalid"
       },
       {
@@ -1342,6 +1916,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Corazza rinforzata",
+          "items:Lancia di forza cinetica",
+          "items:Scudo pesante in adamantio"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Corazza rinforzata, items:Lancia di forza cinetica, items:Scudo pesante in adamantio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Corazza rinforzata, items:Lancia di forza cinetica, items:Scudo pesante in adamantio",
         "status": "invalid"
       },
       {
@@ -1364,6 +1947,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Lancia di forza cinetica",
+          "items:Mantello resistente +2",
+          "items:Scudo pesante in adamantio"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +2, items:Scudo pesante in adamantio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +2, items:Scudo pesante in adamantio",
         "status": "invalid"
       },
       {
@@ -1386,6 +1978,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Lancia di forza cinetica",
+          "items:Mantello resistente +3",
+          "items:Scudo pesante in adamantio"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +3, items:Scudo pesante in adamantio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Lancia di forza cinetica, items:Mantello resistente +3, items:Scudo pesante in adamantio",
         "status": "invalid"
       },
       {
@@ -1405,15 +2006,20 @@
           10
         ],
         "level": 1,
-        "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Anello di protezione +1, items:Armatura di cuoio borchiato, items:Falchion Black Blade",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
+          "Elementi non presenti nel catalogo: items:Anello di protezione +1, items:Armatura di cuoio borchiato, items:Falchion Black Blade"
         ],
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "items:Anello di protezione +1",
+          "items:Armatura di cuoio borchiato",
+          "items:Falchion Black Blade"
         ],
         "status": "invalid"
       },
@@ -1437,6 +2043,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Anello di protezione +1",
+          "items:Bracciali dell'armatura +1",
+          "items:Falchion Black Blade"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Anello di protezione +1, items:Bracciali dell'armatura +1, items:Falchion Black Blade"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Anello di protezione +1, items:Bracciali dell'armatura +1, items:Falchion Black Blade",
         "status": "invalid"
       },
       {
@@ -1459,6 +2074,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Anello di protezione +2",
+          "items:Cintura della forza +4",
+          "items:Falchion Black Blade"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Anello di protezione +2, items:Cintura della forza +4, items:Falchion Black Blade"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Anello di protezione +2, items:Cintura della forza +4, items:Falchion Black Blade",
         "status": "invalid"
       },
       {
@@ -1487,6 +2111,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -1515,6 +2143,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -1543,6 +2175,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -1562,9 +2198,9 @@
           10
         ],
         "level": 1,
-        "error": "Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Crane Style, feats:Dodge, feats:Tiger Style, items:Cintura dell'agilità, items:Corazza di seta, items:Kama bilanciati",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
+          "Elementi non presenti nel catalogo: feats:Crane Style, feats:Dodge, feats:Tiger Style, items:Cintura dell'agilità, items:Corazza di seta, items:Kama bilanciati"
         ],
         "prerequisite_violations": [
           "Crane Style: Improved Unarmed Strike",
@@ -1572,6 +2208,14 @@
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Crane Style",
+          "feats:Dodge",
+          "feats:Tiger Style",
+          "items:Cintura dell'agilità",
+          "items:Corazza di seta",
+          "items:Kama bilanciati"
         ],
         "status": "invalid"
       },
@@ -1592,9 +2236,9 @@
           10
         ],
         "level": 5,
-        "error": "Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Crane Style, feats:Crane Wing, feats:Dodge, feats:Dragon Style, feats:Mobility, feats:Power Attack, feats:Tiger Claws, feats:Tiger Style, items:Amuleto dell'armatura naturale +1, items:Handwraps +1 con Furious Focus, items:Stivali del salto del vento",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
+          "Elementi non presenti nel catalogo: feats:Crane Style, feats:Crane Wing, feats:Dodge, feats:Dragon Style, feats:Mobility, feats:Power Attack, feats:Tiger Claws, feats:Tiger Style, items:Amuleto dell'armatura naturale +1, items:Handwraps +1 con Furious Focus, items:Stivali del salto del vento"
         ],
         "prerequisite_violations": [
           "Amuleto dell'armatura naturale +1: Craft Wondrous Item",
@@ -1607,6 +2251,19 @@
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Crane Style",
+          "feats:Crane Wing",
+          "feats:Dodge",
+          "feats:Dragon Style",
+          "feats:Mobility",
+          "feats:Power Attack",
+          "feats:Tiger Claws",
+          "feats:Tiger Style",
+          "items:Amuleto dell'armatura naturale +1",
+          "items:Handwraps +1 con Furious Focus",
+          "items:Stivali del salto del vento"
         ],
         "status": "invalid"
       },
@@ -1627,9 +2284,9 @@
           10
         ],
         "level": 10,
-        "error": "Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Crane Riposte, feats:Crane Style, feats:Crane Wing, feats:Dodge, feats:Dragon Ferocity, feats:Dragon Style, feats:Improved Initiative, feats:Medusa's Wrath, feats:Mobility, feats:Power Attack, feats:Spring Attack, feats:Tiger Claws, feats:Tiger Style, items:Cintura del gigante +2, items:Handwraps +3 furious, items:Headband of Inspired Wisdom +2, items:Sandals of the Light Step",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
+          "Elementi non presenti nel catalogo: feats:Crane Riposte, feats:Crane Style, feats:Crane Wing, feats:Dodge, feats:Dragon Ferocity, feats:Dragon Style, feats:Improved Initiative, feats:Medusa's Wrath, feats:Mobility, feats:Power Attack, feats:Spring Attack, feats:Tiger Claws, feats:Tiger Style, items:Cintura del gigante +2, items:Handwraps +3 furious, items:Headband of Inspired Wisdom +2, items:Sandals of the Light Step"
         ],
         "prerequisite_violations": [
           "Crane Riposte: Improved Unarmed Strike",
@@ -1646,6 +2303,25 @@
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Crane Riposte",
+          "feats:Crane Style",
+          "feats:Crane Wing",
+          "feats:Dodge",
+          "feats:Dragon Ferocity",
+          "feats:Dragon Style",
+          "feats:Improved Initiative",
+          "feats:Medusa's Wrath",
+          "feats:Mobility",
+          "feats:Power Attack",
+          "feats:Spring Attack",
+          "feats:Tiger Claws",
+          "feats:Tiger Style",
+          "items:Cintura del gigante +2",
+          "items:Handwraps +3 furious",
+          "items:Headband of Inspired Wisdom +2",
+          "items:Sandals of the Light Step"
         ],
         "status": "invalid"
       },
@@ -1666,15 +2342,24 @@
           10
         ],
         "level": 1,
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+          "Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra"
         ],
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Coordinated Charge",
+          "feats:Power Attack",
+          "feats:Weapon Focus (longsword)",
+          "items:Full plate benedetta",
+          "items:Pozioni di cura",
+          "items:Simbolo sacro",
+          "items:Spada lunga sacra"
         ],
         "status": "invalid"
       },
@@ -1695,15 +2380,24 @@
           10
         ],
         "level": 5,
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+          "Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra"
         ],
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Coordinated Charge",
+          "feats:Power Attack",
+          "feats:Weapon Focus (longsword)",
+          "items:Full plate benedetta",
+          "items:Pozioni di cura",
+          "items:Simbolo sacro",
+          "items:Spada lunga sacra"
         ],
         "status": "invalid"
       },
@@ -1724,15 +2418,24 @@
           10
         ],
         "level": 10,
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+          "Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra"
         ],
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Coordinated Charge",
+          "feats:Power Attack",
+          "feats:Weapon Focus (longsword)",
+          "items:Full plate benedetta",
+          "items:Pozioni di cura",
+          "items:Simbolo sacro",
+          "items:Spada lunga sacra"
         ],
         "status": "invalid"
       },
@@ -1760,6 +2463,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
         "status": "invalid"
       },
       {
@@ -1786,6 +2493,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
         "status": "invalid"
       },
       {
@@ -1812,6 +2523,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
         "status": "invalid"
       },
       {
@@ -1831,15 +2546,24 @@
           10
         ],
         "level": 1,
-        "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Arma accurata, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Fionda con 20 proiettili, items:Kit da avventuriero, items:Pozione di cura x2, items:Pugnale bilanciato",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
+          "Elementi non presenti nel catalogo: feats:Arma accurata, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Fionda con 20 proiettili, items:Kit da avventuriero, items:Pozione di cura x2, items:Pugnale bilanciato"
         ],
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Arma accurata",
+          "items:Armatura di cuoio borchiato",
+          "items:Attrezzi da scasso di qualità",
+          "items:Fionda con 20 proiettili",
+          "items:Kit da avventuriero",
+          "items:Pozione di cura x2",
+          "items:Pugnale bilanciato"
         ],
         "status": "invalid"
       },
@@ -1860,15 +2584,36 @@
           10
         ],
         "level": 5,
-        "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Arma accurata, feats:Arma focalizzata (pugnale), feats:Combattere con due armi, feats:Iniziativa migliorata, feats:Schivare, items:Anello di protezione +1, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Cappa elfica grigia, items:Cintura dell'agilità +2, items:Fionda con 20 proiettili, items:Giaco di maglia ombreggiato, items:Guanti da ladro, items:Kit da avventuriero, items:Mantello della resistenza +1, items:Pozione di cura x2, items:Pugnale +1, items:Pugnale bilanciato, items:Pugnale masterwork",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
+          "Elementi non presenti nel catalogo: feats:Arma accurata, feats:Arma focalizzata (pugnale), feats:Combattere con due armi, feats:Iniziativa migliorata, feats:Schivare, items:Anello di protezione +1, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Cappa elfica grigia, items:Cintura dell'agilità +2, items:Fionda con 20 proiettili, items:Giaco di maglia ombreggiato, items:Guanti da ladro, items:Kit da avventuriero, items:Mantello della resistenza +1, items:Pozione di cura x2, items:Pugnale +1, items:Pugnale bilanciato, items:Pugnale masterwork"
         ],
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Arma accurata",
+          "feats:Arma focalizzata (pugnale)",
+          "feats:Combattere con due armi",
+          "feats:Iniziativa migliorata",
+          "feats:Schivare",
+          "items:Anello di protezione +1",
+          "items:Armatura di cuoio borchiato",
+          "items:Attrezzi da scasso di qualità",
+          "items:Cappa elfica grigia",
+          "items:Cintura dell'agilità +2",
+          "items:Fionda con 20 proiettili",
+          "items:Giaco di maglia ombreggiato",
+          "items:Guanti da ladro",
+          "items:Kit da avventuriero",
+          "items:Mantello della resistenza +1",
+          "items:Pozione di cura x2",
+          "items:Pugnale +1",
+          "items:Pugnale bilanciato",
+          "items:Pugnale masterwork"
         ],
         "status": "invalid"
       },
@@ -1889,12 +2634,46 @@
           10
         ],
         "level": 10,
-        "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Arma accurata, feats:Arma focalizzata (pugnale), feats:Arma focalizzata superiore (pugnale), feats:Colpo senz'armi migliorato, feats:Colpo vitale, feats:Combattere con due armi, feats:Critico migliorato (pugnale), feats:Iniziativa migliorata, feats:Mobilità, feats:Riflessi in combattimento, feats:Schivare, items:Anello di protezione +1, items:Anello di protezione +2, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Bracciali dell'armatura +1, items:Cappa elfica grigia, items:Cintura dell'agilità +2, items:Cintura dell'agilità +4, items:Fionda con 20 proiettili, items:Giaco di maglia ombreggiato, items:Giaco di maglia ombreggiato +2, items:Guanti da ladro, items:Guanti della destrezza +4, items:Kit da avventuriero, items:Mantello della resistenza +1, items:Mantello della resistenza +2, items:Pozione di cura x2, items:Pugnale +1, items:Pugnale +2 bilanciato, items:Pugnale agile +2, items:Pugnale bilanciato, items:Pugnale masterwork, items:Pugnale velocità +2, items:Stivali dell'agilità",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
+          "Elementi non presenti nel catalogo: feats:Arma accurata, feats:Arma focalizzata (pugnale), feats:Arma focalizzata superiore (pugnale), feats:Colpo senz'armi migliorato, feats:Colpo vitale, feats:Combattere con due armi, feats:Critico migliorato (pugnale), feats:Iniziativa migliorata, feats:Mobilità, feats:Riflessi in combattimento, feats:Schivare, items:Anello di protezione +1, items:Anello di protezione +2, items:Armatura di cuoio borchiato, items:Attrezzi da scasso di qualità, items:Bracciali dell'armatura +1, items:Cappa elfica grigia, items:Cintura dell'agilità +2, items:Cintura dell'agilità +4, items:Fionda con 20 proiettili, items:Giaco di maglia ombreggiato, items:Giaco di maglia ombreggiato +2, items:Guanti da ladro, items:Guanti della destrezza +4, items:Kit da avventuriero, items:Mantello della resistenza +1, items:Mantello della resistenza +2, items:Pozione di cura x2, items:Pugnale +1, items:Pugnale +2 bilanciato, items:Pugnale agile +2, items:Pugnale bilanciato, items:Pugnale masterwork, items:Pugnale velocità +2, items:Stivali dell'agilità"
         ],
         "missing_catalog_entries": [
-          "feats:Critico migliorato (pugnale)"
+          "feats:Arma accurata",
+          "feats:Arma focalizzata (pugnale)",
+          "feats:Arma focalizzata superiore (pugnale)",
+          "feats:Colpo senz'armi migliorato",
+          "feats:Colpo vitale",
+          "feats:Combattere con due armi",
+          "feats:Critico migliorato (pugnale)",
+          "feats:Iniziativa migliorata",
+          "feats:Mobilità",
+          "feats:Riflessi in combattimento",
+          "feats:Schivare",
+          "items:Anello di protezione +1",
+          "items:Anello di protezione +2",
+          "items:Armatura di cuoio borchiato",
+          "items:Attrezzi da scasso di qualità",
+          "items:Bracciali dell'armatura +1",
+          "items:Cappa elfica grigia",
+          "items:Cintura dell'agilità +2",
+          "items:Cintura dell'agilità +4",
+          "items:Fionda con 20 proiettili",
+          "items:Giaco di maglia ombreggiato",
+          "items:Giaco di maglia ombreggiato +2",
+          "items:Guanti da ladro",
+          "items:Guanti della destrezza +4",
+          "items:Kit da avventuriero",
+          "items:Mantello della resistenza +1",
+          "items:Mantello della resistenza +2",
+          "items:Pozione di cura x2",
+          "items:Pugnale +1",
+          "items:Pugnale +2 bilanciato",
+          "items:Pugnale agile +2",
+          "items:Pugnale bilanciato",
+          "items:Pugnale masterwork",
+          "items:Pugnale velocità +2",
+          "items:Stivali dell'agilità"
         ],
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
@@ -1924,6 +2703,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Sacro simbolo invertito separatista",
+          "items:Scimitarra d'ombra rituale",
+          "items:Veste oscurante wayang"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Sacro simbolo invertito separatista, items:Scimitarra d'ombra rituale, items:Veste oscurante wayang"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Sacro simbolo invertito separatista, items:Scimitarra d'ombra rituale, items:Veste oscurante wayang",
         "status": "invalid"
       },
       {
@@ -1946,6 +2734,7 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None",
         "status": "invalid"
       },
       {
@@ -1968,6 +2757,7 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None",
         "status": "invalid"
       },
       {
@@ -1990,6 +2780,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Focus psichico minore",
+          "items:Frusta potenziata per dirty trick",
+          "items:Giaco di maglia leggera",
+          "items:Kit da contorsionista"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Focus psichico minore, items:Frusta potenziata per dirty trick, items:Giaco di maglia leggera, items:Kit da contorsionista"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Focus psichico minore, items:Frusta potenziata per dirty trick, items:Giaco di maglia leggera, items:Kit da contorsionista",
         "status": "invalid"
       },
       {
@@ -2012,6 +2812,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Frusta +1 con fustigazione sporca",
+          "items:Mantello dell'ombra",
+          "items:Mitria felina con focus psichico",
+          "items:Stivali dell'agilità"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Frusta +1 con fustigazione sporca, items:Mantello dell'ombra, items:Mitria felina con focus psichico, items:Stivali dell'agilità"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Frusta +1 con fustigazione sporca, items:Mantello dell'ombra, items:Mitria felina con focus psichico, items:Stivali dell'agilità",
         "status": "invalid"
       },
       {
@@ -2034,6 +2844,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Anello di protezione +2",
+          "items:Cintura della destrezza +2",
+          "items:Frusta +2 con cruel",
+          "items:Mantello della resistenza +3"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Anello di protezione +2, items:Cintura della destrezza +2, items:Frusta +2 con cruel, items:Mantello della resistenza +3"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Anello di protezione +2, items:Cintura della destrezza +2, items:Frusta +2 con cruel, items:Mantello della resistenza +3",
         "status": "invalid"
       },
       {
@@ -2056,6 +2876,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Armatura legata in fibra di vite Ghoran",
+          "items:Implemento panoply (aegis + weapon) lucidato",
+          "items:Kit da studioso",
+          "items:Talismano di linfa per focus mentale"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Armatura legata in fibra di vite Ghoran, items:Implemento panoply (aegis + weapon) lucidato, items:Kit da studioso, items:Talismano di linfa per focus mentale"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Armatura legata in fibra di vite Ghoran, items:Implemento panoply (aegis + weapon) lucidato, items:Kit da studioso, items:Talismano di linfa per focus mentale",
         "status": "invalid"
       },
       {
@@ -2078,6 +2908,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Armatura vivente +1 con rune botaniche",
+          "items:Ciondolo di linfa rinforzata",
+          "items:Implemento panoply (aegis + weapon) masterwork",
+          "items:Manuale di tattica psichica"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Armatura vivente +1 con rune botaniche, items:Ciondolo di linfa rinforzata, items:Implemento panoply (aegis + weapon) masterwork, items:Manuale di tattica psichica"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Armatura vivente +1 con rune botaniche, items:Ciondolo di linfa rinforzata, items:Implemento panoply (aegis + weapon) masterwork, items:Manuale di tattica psichica",
         "status": "invalid"
       },
       {
@@ -2100,6 +2940,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Armatura vivente +2 con rune e spine",
+          "items:Cintura di linfa per forza e focus",
+          "items:Implemento panoply (aegis + weapon) potenziato",
+          "items:Manuale di comando panoply avanzato"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Armatura vivente +2 con rune e spine, items:Cintura di linfa per forza e focus, items:Implemento panoply (aegis + weapon) potenziato, items:Manuale di comando panoply avanzato"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Armatura vivente +2 con rune e spine, items:Cintura di linfa per forza e focus, items:Implemento panoply (aegis + weapon) potenziato, items:Manuale di comando panoply avanzato",
         "status": "invalid"
       },
       {
@@ -2122,6 +2972,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Bastone rituale di linfa",
+          "items:Focus druidico intrecciato",
+          "items:Set da veggente Ghoran",
+          "items:Tatuaggi di mistero lore"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore",
         "status": "invalid"
       },
       {
@@ -2144,6 +3004,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Bastone rituale di linfa",
+          "items:Focus druidico intrecciato",
+          "items:Set da veggente Ghoran",
+          "items:Tatuaggi di mistero lore"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore",
         "status": "invalid"
       },
       {
@@ -2166,6 +3036,16 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Bastone rituale di linfa",
+          "items:Focus druidico intrecciato",
+          "items:Set da veggente Ghoran",
+          "items:Tatuaggi di mistero lore"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Bastone rituale di linfa, items:Focus druidico intrecciato, items:Set da veggente Ghoran, items:Tatuaggi di mistero lore",
         "status": "invalid"
       },
       {
@@ -2185,15 +3065,24 @@
           10
         ],
         "level": 1,
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+          "Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra"
         ],
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Coordinated Charge",
+          "feats:Power Attack",
+          "feats:Weapon Focus (longsword)",
+          "items:Full plate benedetta",
+          "items:Pozioni di cura",
+          "items:Simbolo sacro",
+          "items:Spada lunga sacra"
         ],
         "status": "invalid"
       },
@@ -2214,15 +3103,24 @@
           10
         ],
         "level": 5,
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+          "Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra"
         ],
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Coordinated Charge",
+          "feats:Power Attack",
+          "feats:Weapon Focus (longsword)",
+          "items:Full plate benedetta",
+          "items:Pozioni di cura",
+          "items:Simbolo sacro",
+          "items:Spada lunga sacra"
         ],
         "status": "invalid"
       },
@@ -2243,15 +3141,24 @@
           10
         ],
         "level": 10,
-        "error": "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra",
         "completeness_errors": [
-          "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
+          "Elementi non presenti nel catalogo: feats:Coordinated Charge, feats:Power Attack, feats:Weapon Focus (longsword), items:Full plate benedetta, items:Pozioni di cura, items:Simbolo sacro, items:Spada lunga sacra"
         ],
         "prerequisite_violations": [
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
           "2026.04.03"
+        ],
+        "missing_catalog_entries": [
+          "feats:Coordinated Charge",
+          "feats:Power Attack",
+          "feats:Weapon Focus (longsword)",
+          "items:Full plate benedetta",
+          "items:Pozioni di cura",
+          "items:Simbolo sacro",
+          "items:Spada lunga sacra"
         ],
         "status": "invalid"
       },
@@ -2275,6 +3182,7 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None",
         "status": "invalid"
       },
       {
@@ -2297,6 +3205,7 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None",
         "status": "invalid"
       },
       {
@@ -2319,6 +3228,7 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None",
         "status": "invalid"
       },
       {
@@ -2341,6 +3251,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Feticcio necromantico",
+          "items:Grimoire di spine",
+          "items:Mantello del vento"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Feticcio necromantico, items:Grimoire di spine, items:Mantello del vento"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Feticcio necromantico, items:Grimoire di spine, items:Mantello del vento",
         "status": "invalid"
       },
       {
@@ -2363,6 +3282,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Feticcio necromantico",
+          "items:Libro degli incantesimi runico",
+          "items:Mantello del vento leggero"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Feticcio necromantico, items:Libro degli incantesimi runico, items:Mantello del vento leggero"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Feticcio necromantico, items:Libro degli incantesimi runico, items:Mantello del vento leggero",
         "status": "invalid"
       },
       {
@@ -2385,6 +3313,15 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "missing_catalog_entries": [
+          "items:Feticcio necromantico maggiore",
+          "items:Libro degli incantesimi runico avanzato",
+          "items:Mantello del vento tempestoso"
+        ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Feticcio necromantico maggiore, items:Libro degli incantesimi runico avanzato, items:Mantello del vento tempestoso"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Feticcio necromantico maggiore, items:Libro degli incantesimi runico avanzato, items:Mantello del vento tempestoso",
         "status": "invalid"
       },
       {
@@ -2413,6 +3350,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -2441,6 +3382,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -2469,6 +3414,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -2497,6 +3446,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -2525,6 +3478,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       },
       {
@@ -2553,6 +3510,10 @@
         "catalog_version": [
           "2026.04.03"
         ],
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "error": "reference_catalog_version 2026.04.03 diversa da None; Elementi non presenti nel catalogo: items:Pugnale di servizio",
         "status": "invalid"
       }
     ],
@@ -2560,20 +3521,20 @@
       "1": {
         "total": 33,
         "invalid": 33,
-        "schema_errors": 0,
-        "completeness_errors": 5
+        "schema_errors": 1,
+        "completeness_errors": 32
       },
       "5": {
         "total": 33,
         "invalid": 33,
-        "schema_errors": 0,
-        "completeness_errors": 4
+        "schema_errors": 2,
+        "completeness_errors": 31
       },
       "10": {
         "total": 33,
         "invalid": 33,
-        "schema_errors": 0,
-        "completeness_errors": 5
+        "schema_errors": 2,
+        "completeness_errors": 31
       }
     }
   },
@@ -2677,11 +3638,11 @@
     ]
   },
   "reference_urls": {
-    "total": 4129,
-    "aon": 4129,
+    "total": 0,
+    "aon": 0,
     "d20_only": 0,
     "missing_aon_entries": [],
-    "aon_ratio": 1.0,
+    "aon_ratio": 0.0,
     "status": "ok"
   },
   "build_index": "src/data/build_index.json",
