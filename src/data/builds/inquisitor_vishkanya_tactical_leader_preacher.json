@@ -222,7 +222,7 @@
           "sheet_markdown": "Percezione\nKukri rituale\nDonazione al tempio"
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "normalized_mode": "extended",
         "expected_step_total": 16,
@@ -466,7 +466,7 @@
     "backoff_reason": null,
     "request_ip": null
   },
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "qa": {
     "checkpoints": {
       "bench_log": [

@@ -709,7 +709,7 @@
           "condizioni": []
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "normalized_mode": "extended",
         "expected_step_total": 16,
@@ -1108,7 +1108,7 @@
       "bench_log": "Variant A: difesa Domini Protezione+Comunità con metamagia Reach. Variant B: Benedizioni Resilience+Defense con Channel metamagico. Variant C: Evangelist sermon + metamagia persisten/extend per buff di massa. Selezionata Variant C per il miglior bilanciamento dpr/survivability e badge RAW/RAI/PFS. | Checkpoint 1 ottimizzato"
     }
   },
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_id": "build-c4562774db53d6a35b079c5f",
   "checkpoints": [
     {

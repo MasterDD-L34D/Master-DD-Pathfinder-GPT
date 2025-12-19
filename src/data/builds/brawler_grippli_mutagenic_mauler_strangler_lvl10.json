@@ -599,7 +599,7 @@
           "ca": 28
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "normalized_mode": "extended",
         "expected_step_total": 16,
@@ -953,7 +953,7 @@
     }
   },
   "spec_id": "brawler_grippli_mutagenic_mauler_strangler",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_id": "build-c069d8b12c33130ebea3058b",
   "checkpoints": [
     {

@@ -255,7 +255,7 @@
   "mode": "extended",
   "mode_normalized": "extended",
   "narrative": "Guardia strix che sfrutta Kinetic Knight e Overwhelming Soul per proteggere le cittadelle alate.",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Strix",
     "archetype": "Kinetic Knight + Overwhelming Soul",
@@ -437,7 +437,7 @@
           "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale"
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "request_timestamp": "2025-12-18T18:46:09Z",
         "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",

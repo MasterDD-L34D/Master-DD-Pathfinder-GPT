@@ -650,7 +650,7 @@
           "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "normalized_mode": "extended",
         "expected_step_total": 16,
@@ -1037,7 +1037,7 @@
     }
   },
   "spec_id": "Alchemist::Goblin::Vivisectionist",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_id": "build-f37351a514fef0e2d99445df",
   "checkpoints": [
     {

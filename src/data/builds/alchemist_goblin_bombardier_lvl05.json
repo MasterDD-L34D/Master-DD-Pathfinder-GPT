@@ -657,7 +657,7 @@
           "condizioni": []
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "normalized_mode": "extended",
         "expected_step_total": 16,
@@ -1004,7 +1004,7 @@
     }
   },
   "spec_id": "Alchemist::Goblin::Bombardier",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_id": "build-ead261d541e6b5e36c10347d",
   "checkpoints": [
     {

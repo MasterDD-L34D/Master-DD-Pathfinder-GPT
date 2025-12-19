@@ -603,7 +603,7 @@
         "sheet": "### 🐾 Investigator Catfolk Empiricist/Psychic Detective (livello 5)\n- Setup investigativo con ispirazione empiricist e telepatia da detective.\n- Linea scelta dopo tre benchmark (skill-slinger, supporto tattico, psiche).\n- Badge Ruling Expert validato e note di benchmark annesse.",
         "narrative": "Tracciante catfolk che fonde ragionamento empirico e indagini psichiche per seguire piste urbane e dungeon, mantenendo comunicazione telepatica con il party."
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "normalized_mode": "extended",
         "expected_step_total": 16,
@@ -949,7 +949,7 @@
   },
   "spec_id": "investigator_catfolk_empiricist_psychic_detective",
   "background": "Detective psichico delle steppe felide",
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_id": "build-e402291f8a2fff7768c6c3ba",
   "checkpoints": [
     {

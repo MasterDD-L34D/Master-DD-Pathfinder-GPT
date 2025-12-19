@@ -449,7 +449,7 @@
           "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "request_timestamp": "2025-12-18T18:46:09Z",
         "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
@@ -621,7 +621,7 @@
     }
   },
   "completeness": {},
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "qa": {
     "checkpoints": {
       "bench_log": [

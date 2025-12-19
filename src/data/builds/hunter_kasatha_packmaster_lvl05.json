@@ -252,7 +252,7 @@
     "backoff_reason": null,
     "request_ip": null
   },
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_id": "build-20cf8f70598542097c06331c",
   "composite": {
     "build": {
@@ -418,7 +418,7 @@
           "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=5"
         ]
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "expected_step_total": 16,
         "observed_step_total": 16,

@@ -266,7 +266,7 @@
     "Badge RAW/RAI/PFS confermato in strict: nessun HR richiesto, sostituzioni di deed/armor training non confliggono.",
     "MinMax: scelta la linea tanky aerea per massimizzare CA e controllo, rinunciando a crit-fishing puro."
   ],
-  "reference_catalog_version": "2026.03.22",
+  "reference_catalog_version": "2026.04.03",
   "build_id": "build-509b7c7701c3d86e552a0b14",
   "composite": {
     "build": {
@@ -430,7 +430,7 @@
           ]
         }
       },
-      "reference_catalog_version": "2026.03.22",
+      "reference_catalog_version": "2026.04.03",
       "step_audit": {
         "normalized_mode": "extended",
         "expected_step_total": 16,
