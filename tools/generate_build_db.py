@@ -5644,7 +5644,9 @@ def analyze_indices(
             if source.exists():
                 _archive_payload(source, archive_dir / "modules", archived_files)
 
-    missing_core_classes = sorted(core for core in CORE_CLASSES if core not in ok_classes)
+    missing_core_classes = sorted(
+        core for core in CORE_CLASSES if core not in ok_classes
+    )
 
     repeated_module_errors: list[dict[str, object]] = []
     if invalid_modules:

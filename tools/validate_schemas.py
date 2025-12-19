@@ -45,7 +45,11 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    errors = [issue for schema in iter_schema_files(args.schemas_dir) if (issue := validate_schema(schema))]
+    errors = [
+        issue
+        for schema in iter_schema_files(args.schemas_dir)
+        if (issue := validate_schema(schema))
+    ]
 
     if errors:
         print("\n".join(errors), file=sys.stderr)
