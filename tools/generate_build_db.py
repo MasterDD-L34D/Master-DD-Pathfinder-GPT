@@ -6345,7 +6345,9 @@ async def run_harvest(
                         checkpoint=request.level,
                         source=request.output_name(),
                     )
-                    should_write = (status == "ok" or keep_invalid) and not incomplete_payload
+                    should_write = (
+                        status == "ok" or keep_invalid
+                    ) and not incomplete_payload
                     output_path: Path | None = None
                     if should_write and status != "pruned":
                         if skip_unchanged and destination.exists():
