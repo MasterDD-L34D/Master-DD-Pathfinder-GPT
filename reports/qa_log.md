@@ -100,3 +100,12 @@
 - **Dump marker/header**: confermati marker `[contenuto troncato]` e header `X-Content-*` sugli estratti `.txt` quando il dump è disabilitato, con blocco 403 su PDF/binari.【F:tests/test_app.py†L272-L365】
 - **Gate CTA / naming export**: il flow Encounter Designer richiede `/validate_encounter` prima degli export e il MinMax Builder mantiene il naming condiviso `MinMax_<nome>.*` dietro il gate QA `export_requires`.【F:src/modules/Encounter_Designer.txt†L387-L438】【F:src/modules/minmax_builder.txt†L940-L943】【F:src/modules/minmax_builder.txt†L1886-L1893】
 - **Endpoint protetti 401/403/429**: `/modules` e `/knowledge` respingono accessi senza/errata API key con 401 e backoff 429, mentre `/metrics` accetta solo chiave valida (403 su chiave errata).【F:tests/test_app.py†L542-L728】
+
+## QA 2025-12-20 — Reference DB e compilazione bytecode
+- **Comando**: `pytest tests/test_generate_build_db.py -k reference`.
+- **Esito**: **PASS** — 1 test eseguito, 2 warning di deprecazione `jsonschema.RefResolver`; nessun errore.
+- **Note manifest/index**: nessuna discrepanza riscontrata nei riferimenti generati.
+
+- **Comando**: `python -m compileall data/reference schemas`.
+- **Esito**: **PASS** — compilazione bytecode completata senza errori di sintassi o codifica UTF-8.
+- **Note manifest/index**: nessuna anomalia su manifest o index rilevata durante la compilazione.
