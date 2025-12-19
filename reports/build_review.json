@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-18T14:41:14Z",
+  "generated_at": "2025-12-19T01:33:39Z",
   "builds": {
-    "total": 93,
+    "total": 105,
     "valid": 0,
-    "invalid": 93,
+    "invalid": 105,
     "errors": 0,
     "missing": 0,
     "entries": [
@@ -24,13 +24,49 @@
           10
         ],
         "level": 1,
-        "error": "'reference_catalog_version' is a required property; Additional properties are not allowed ('archetype', 'race' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Colpo possente",
+          "Iniziativa migliorata",
+          "Talento di livello 1"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -50,13 +86,53 @@
           10
         ],
         "level": 5,
-        "error": "'reference_catalog_version' is a required property; Additional properties are not allowed ('archetype', 'race' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Colpo possente",
+          "Iniziativa migliorata",
+          "Talento di livello 1",
+          "Talento di livello 2",
+          "Talento di livello 3",
+          "Talento di livello 4",
+          "Talento di livello 5"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Vivisectionist"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Vivisectionist"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -76,13 +152,58 @@
           10
         ],
         "level": 10,
-        "error": "'reference_catalog_version' is a required property; Additional properties are not allowed ('archetype', 'race' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Colpo possente",
+          "Iniziativa migliorata",
+          "Talento di livello 1",
+          "Talento di livello 2",
+          "Talento di livello 3",
+          "Talento di livello 4",
+          "Talento di livello 5",
+          "Talento di livello 6",
+          "Talento di livello 7",
+          "Talento di livello 8",
+          "Talento di livello 9",
+          "Talento di livello 10"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -102,13 +223,49 @@
           10
         ],
         "level": 1,
-        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Colpo possente",
+          "Iniziativa migliorata",
+          "Talento di livello 1"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Bombardier"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Bombardier"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -128,13 +285,53 @@
           10
         ],
         "level": 5,
-        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Colpo possente",
+          "Iniziativa migliorata",
+          "Talento di livello 1",
+          "Talento di livello 2",
+          "Talento di livello 3",
+          "Talento di livello 4",
+          "Talento di livello 5"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Bombardier"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Bombardier"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -154,13 +351,58 @@
           10
         ],
         "level": 10,
-        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Colpo possente",
+          "Iniziativa migliorata",
+          "Talento di livello 1",
+          "Talento di livello 2",
+          "Talento di livello 3",
+          "Talento di livello 4",
+          "Talento di livello 5",
+          "Talento di livello 6",
+          "Talento di livello 7",
+          "Talento di livello 8",
+          "Talento di livello 9",
+          "Talento di livello 10"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Bombardier"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Bombardier"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -180,13 +422,44 @@
           10
         ],
         "level": 1,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [
+          "Accuratezza Magica",
+          "Spell Focus (maledizioni)"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -206,13 +479,46 @@
           10
         ],
         "level": 5,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [
+          "Accuratezza Magica",
+          "Metamagia Rapida",
+          "Spell Focus (necromanzia)",
+          "Raggi Potenziati"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -232,13 +538,46 @@
           10
         ],
         "level": 10,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [
+          "Accuratezza Magica",
+          "Metamagia Rapida",
+          "Spell Focus (necromanzia)",
+          "Raggi Potenziati"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -258,13 +597,44 @@
           10
         ],
         "level": 1,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Power Attack",
+          "Furious Focus"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -284,13 +654,46 @@
           10
         ],
         "level": 5,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Power Attack",
+          "Furious Focus",
+          "Raging Vitality",
+          "Superstition"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -310,13 +713,48 @@
           10
         ],
         "level": 10,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Power Attack",
+          "Furious Focus",
+          "Raging Vitality",
+          "Superstition",
+          "Improved Initiative",
+          "Dodge"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -335,13 +773,46 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Armonia Letale (Sound Striker)",
+          "Scacciare Sogni (Sandman)",
+          "Focalizzazione Abilità: Intrattenere"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -361,13 +832,45 @@
           10
         ],
         "level": 5,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Melodic Casting",
+          "Lingering Performance",
+          "Focus: Suoni di Sabbia"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -387,7 +890,7 @@
           10
         ],
         "level": 10,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration",
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Greater Spell Penetration: Spell Penetration"
         ],
@@ -395,10 +898,42 @@
           "Greater Spell Penetration: Spell Penetration"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Discordant Voice",
+          "Spell Focus (Illusion)",
+          "Greater Spell Penetration"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -419,13 +954,48 @@
           10
         ],
         "level": 1,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "full",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "full",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "full",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [
+          "Arcane Strike",
+          "Blooded Strike"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=1&race=Shabti&archetype=Primalist+Blood+Conduit"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=1&race=Shabti&archetype=Primalist+Blood+Conduit"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -445,13 +1015,49 @@
           10
         ],
         "level": 5,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "full",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "full",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "full",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [
+          "Arcane Strike",
+          "Raging Vitality",
+          "Improved Initiative"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=5&race=Shabti&archetype=Primalist+Blood+Conduit"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=5&race=Shabti&archetype=Primalist+Blood+Conduit"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -471,13 +1077,51 @@
           10
         ],
         "level": 10,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "full",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "full",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "full",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [
+          "Arcane Strike",
+          "Raging Vitality",
+          "Improved Initiative",
+          "Power Attack",
+          "Critical Focus"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=10&race=Shabti&archetype=Primalist+Blood+Conduit"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=10&race=Shabti&archetype=Primalist+Blood+Conduit"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -497,13 +1141,46 @@
           10
         ],
         "level": 1,
-        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli",
+            "local-refresh"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -523,13 +1200,46 @@
           10
         ],
         "level": 5,
-        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli",
+            "local-refresh"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -549,13 +1259,46 @@
           10
         ],
         "level": 10,
-        "error": "'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "full",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli",
+            "local-refresh"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Brawler&stub=true&race=Grippli"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -575,13 +1318,41 @@
           10
         ],
         "level": 1,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -601,13 +1372,41 @@
           10
         ],
         "level": 5,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -627,13 +1426,41 @@
           10
         ],
         "level": 10,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -653,13 +1480,52 @@
           10
         ],
         "level": 1,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated-rai-pfs",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated-rai-pfs",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated-rai-pfs",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Colpo possente",
+          "Iniziativa migliorata",
+          "Arma focalizzata (mazzafrusto)",
+          "Tenacia",
+          "Robustezza",
+          "Critico migliorato (mazzafrusto)"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -679,13 +1545,52 @@
           10
         ],
         "level": 5,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated-rai-pfs",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated-rai-pfs",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated-rai-pfs",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Colpo possente",
+          "Iniziativa migliorata",
+          "Arma focalizzata (mazzafrusto)",
+          "Tenacia",
+          "Robustezza",
+          "Critico migliorato (mazzafrusto)"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=5&race=Samsaran&archetype=Cloistered+Evangelist"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -705,25 +1610,69 @@
           10
         ],
         "level": 10,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated-rai-pfs",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated-rai-pfs",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated-rai-pfs",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Colpo possente",
+          "Iniziativa migliorata",
+          "Arma focalizzata (mazzafrusto)",
+          "Tenacia",
+          "Robustezza",
+          "Critico migliorato (mazzafrusto)",
+          "Incalzare",
+          "Arma focalizzata superiore (mazzafrusto)",
+          "Passo laterale",
+          "Stamina extra",
+          "Colpo vitale"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=10&race=Samsaran&archetype=Cloistered+Evangelist"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=10&race=Samsaran&archetype=Cloistered+Evangelist"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral.json",
-        "output_prefix": "druid_half-orc_feral_shifter",
+        "output_prefix": "druid_half_orc_feral",
         "class": "Druid",
-        "race": "Half-Orc",
-        "archetype": "Feral Shifter",
+        "race": "Half Orc",
+        "archetype": "Feral",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "druid_half-orc_feral_shifter",
-        "background": null,
+        "spec_id": "druid_half_orc_feral",
+        "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -731,25 +1680,59 @@
           10
         ],
         "level": 1,
-        "error": "'reference_catalog_version' is a required property",
-        "catalog_version": [
-          "2026.03.22"
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
         ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
-        "output_prefix": "druid_half-orc_feral_shifter",
+        "output_prefix": "druid_half_orc_feral",
         "class": "Druid",
-        "race": "Half-Orc",
-        "archetype": "Feral Shifter",
+        "race": "Half Orc",
+        "archetype": "Feral",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "druid_half-orc_feral_shifter",
-        "background": null,
+        "spec_id": "druid_half_orc_feral",
+        "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -757,25 +1740,59 @@
           10
         ],
         "level": 5,
-        "error": "'reference_catalog_version' is a required property",
-        "catalog_version": [
-          "2026.03.22"
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
         ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
       {
         "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
-        "output_prefix": "druid_half-orc_feral_shifter",
+        "output_prefix": "druid_half_orc_feral",
         "class": "Druid",
-        "race": "Half-Orc",
-        "archetype": "Feral Shifter",
+        "race": "Half Orc",
+        "archetype": "Feral",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "druid_half-orc_feral_shifter",
-        "background": null,
+        "spec_id": "druid_half_orc_feral",
+        "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -783,12 +1800,46 @@
           10
         ],
         "level": 10,
-        "error": "'reference_catalog_version' is a required property",
-        "catalog_version": [
-          "2026.03.22"
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
         ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -808,13 +1859,42 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -833,13 +1913,42 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -858,25 +1967,54 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded.json",
-        "output_prefix": "fighter_dwarf_shielded_fighter",
+        "output_prefix": "fighter_dwarf_shielded",
         "class": "Fighter",
         "race": "Dwarf",
         "archetype": "Shielded Fighter",
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "fighter_dwarf_shielded_fighter",
-        "background": null,
+        "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -884,25 +2022,60 @@
           10
         ],
         "level": 1,
-        "error": "'reference_catalog_version' is a required property",
-        "catalog_version": [
-          "2026.03.22"
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
         ],
+        "missing_catalog_entries": [
+          "items:Ascia da battaglia",
+          "items:Scudo pesante"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
-        "output_prefix": "fighter_dwarf_shielded_fighter",
+        "output_prefix": "fighter_dwarf_shielded",
         "class": "Fighter",
         "race": "Dwarf",
         "archetype": "Shielded Fighter",
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "fighter_dwarf_shielded_fighter",
-        "background": null,
+        "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -910,25 +2083,60 @@
           10
         ],
         "level": 5,
-        "error": "'reference_catalog_version' is a required property",
-        "catalog_version": [
-          "2026.03.22"
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
         ],
+        "missing_catalog_entries": [
+          "items:Ascia da battaglia",
+          "items:Scudo pesante"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
       {
         "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
-        "output_prefix": "fighter_dwarf_shielded_fighter",
+        "output_prefix": "fighter_dwarf_shielded",
         "class": "Fighter",
         "race": "Dwarf",
         "archetype": "Shielded Fighter",
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "fighter_dwarf_shielded_fighter",
-        "background": null,
+        "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -936,12 +2144,227 @@
           10
         ],
         "level": 10,
-        "error": "'reference_catalog_version' is a required property",
-        "catalog_version": [
-          "2026.03.22"
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
         ],
+        "missing_catalog_entries": [
+          "items:Ascia da battaglia",
+          "items:Scudo pesante"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/fighter_weapon_master_human.json",
+        "output_prefix": "fighter_weapon_master_human",
+        "class": "Fighter",
+        "race": "Human",
+        "archetype": "Weapon Master",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "fighter_human_weapon_master",
+        "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 1,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
+        "output_prefix": "fighter_weapon_master_human",
+        "class": "Fighter",
+        "race": "Human",
+        "archetype": "Weapon Master",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "fighter_human_weapon_master",
+        "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 5,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/fighter_weapon_master_human_lvl10.json",
+        "output_prefix": "fighter_weapon_master_human",
+        "class": "Fighter",
+        "race": "Human",
+        "archetype": "Weapon Master",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "fighter_human_weapon_master",
+        "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 10,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -961,13 +2384,44 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "local-refresh"
+          ],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -986,13 +2440,44 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "local-refresh"
+          ],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1011,13 +2496,44 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "local-refresh"
+          ],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1036,13 +2552,44 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "local-refresh"
+          ],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1061,13 +2608,44 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "local-refresh"
+          ],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1086,13 +2664,44 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "local-refresh"
+          ],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1111,13 +2720,46 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'mode' is a required property; 'step_labels' is a required property; Additional properties are not allowed ('checkpoint', 'level_checkpoints' were unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster",
+            "local-refresh"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1136,13 +2778,46 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'mode' is a required property; 'step_labels' is a required property; Additional properties are not allowed ('checkpoint', 'level_checkpoints' were unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=5",
+            "local-refresh"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=5"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1161,13 +2836,46 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'mode' is a required property; 'step_labels' is a required property; Additional properties are not allowed ('checkpoint', 'level_checkpoints' were unexpected); Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=10",
+            "local-refresh"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Hunter&race=Kasatha&archetype=Packmaster&level=10"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1186,13 +2894,41 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1211,13 +2947,41 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1236,13 +3000,41 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; 'reference_catalog_version' is a required property; Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T2"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1262,13 +3054,46 @@
           10
         ],
         "level": 1,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T1"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human",
+            "local-refresh"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1288,13 +3113,46 @@
           10
         ],
         "level": 5,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T1"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human",
+            "local-refresh"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1314,13 +3172,46 @@
           10
         ],
         "level": 10,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'reference_catalog_version' is a required property",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T1"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human",
+            "local-refresh"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Investigator&stub=true&race=Human"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1339,13 +3230,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "blast a forza con carica difensiva; badge RAW/RAI/PFS",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Elemental Overflow su CHA + shield cinetico; DPR medio 32",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Armor infusion + empower composite; controllo area aereo",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1364,13 +3281,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "blast a forza con carica difensiva; badge RAW/RAI/PFS",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Overflow su CHA e empower; DPR medio 34",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Composite a due elementi con volo tattico",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1389,13 +3332,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "blast a forza con carica difensiva; badge RAW/RAI/PFS",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Overflow su CHA e empower; DPR medio 34",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Deadly earth + empower; T1 confermato",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1414,13 +3383,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "blast di forza con carica difensiva; badge RAW/RAI/PFS",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Elemental Overflow su CHA + shield cinetico; DPR medio 32",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Armor infusion + empower composite; controllo area elementale",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1439,13 +3434,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "blast di forza con carica difensiva; badge RAW/RAI/PFS",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Overflow su CHA e empower; DPR medio 34",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Composite a due elementi con barriera elementale",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1464,13 +3485,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "blast di forza con carica difensiva; badge RAW/RAI/PFS",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Overflow su CHA e empower; DPR medio 34",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Deadly earth + empower; T1 confermato",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1489,7 +3536,8 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "level": 1,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
         ],
@@ -1497,10 +3545,38 @@
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T1"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1520,13 +3596,42 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T1"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1545,87 +3650,221 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T1"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "RAW/RAI/PFS",
+            "meta_tier": "T1"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
         "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
-        "output_prefix": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
+        "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
         "class": "Medium",
         "race": "Oread",
         "archetype": "Spirit Dancer + Reanimated Medium",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
-        "background": "Medium oread danzatore degli spiriti di pietra",
+        "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+        "background": "Medium oread che danza con le anime pietrose dei canyon",
         "model": null,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
-        "catalog_version": [
-          "2026.03.22"
+        "level": 1,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
         ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
       {
         "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json",
-        "output_prefix": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
+        "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
         "class": "Medium",
         "race": "Oread",
         "archetype": "Spirit Dancer + Reanimated Medium",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
-        "background": "Medium oread danzatore degli spiriti di pietra",
+        "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+        "background": "Medium oread che danza con le anime pietrose dei canyon",
         "model": null,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
-        "catalog_version": [
-          "2026.03.22"
+        "level": 5,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
         ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
       {
         "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json",
-        "output_prefix": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
+        "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
         "class": "Medium",
         "race": "Oread",
         "archetype": "Spirit Dancer + Reanimated Medium",
         "mode": "extended",
         "mode_normalized": "extended",
-        "spec_id": "medium_oread_spirit_dancer_reanimated_medium_medium_oread_danzatore_degli_spiriti_di_pietra",
-        "background": "Medium oread danzatore degli spiriti di pietra",
+        "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+        "background": "Medium oread che danza con le anime pietrose dei canyon",
         "model": null,
         "level_checkpoints": [
           1,
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
-        "catalog_version": [
-          "2026.03.22"
+        "level": 10,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
         ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1646,7 +3885,7 @@
           10
         ],
         "level": 1,
-        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Crane Style: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
         ],
@@ -1655,10 +3894,43 @@
           "Tiger Style: Improved Unarmed Strike"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Tiger Style",
+          "Crane Style",
+          "Dodge",
+          "Tiger Style + Crane Style"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1679,7 +3951,7 @@
           10
         ],
         "level": 5,
-        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Amuleto dell'armatura naturale +1: Craft Wondrous Item, Amuleto dell'armatura naturale +1: barkskin, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
         ],
@@ -1693,10 +3965,50 @@
           "Tiger Style: Improved Unarmed Strike"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Tiger Style",
+          "Crane Style",
+          "Dodge",
+          "Mobility",
+          "Power Attack",
+          "Tiger Claws",
+          "Dragon Style",
+          "Crane Wing",
+          "Tiger Style + Crane Style",
+          "Dodge + Mobility",
+          "Power Attack + Tiger Claws"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1717,7 +4029,7 @@
           10
         ],
         "level": 10,
-        "error": "Additional properties are not allowed ('checklist', 'missing', 'status' were unexpected); Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Crane Riposte: Improved Unarmed Strike, Crane Style: Improved Unarmed Strike, Crane Wing: Improved Unarmed Strike, Dragon Ferocity: Improved Unarmed Strike, Dragon Style: Improved Unarmed Strike, Headband of Inspired Wisdom +2: Craft Wondrous Item, Headband of Inspired Wisdom +2: owl's wisdom, Medusa's Wrath: Improved Unarmed Strike, Medusa's Wrath: Stunning Fist, Tiger Claws: Improved Unarmed Strike, Tiger Style: Improved Unarmed Strike"
         ],
@@ -1735,10 +4047,55 @@
           "Tiger Style: Improved Unarmed Strike"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Tiger Style",
+          "Crane Style",
+          "Dodge",
+          "Mobility",
+          "Power Attack",
+          "Tiger Claws",
+          "Dragon Style",
+          "Crane Wing",
+          "Dragon Ferocity",
+          "Medusa's Wrath",
+          "Crane Riposte",
+          "Spring Attack",
+          "Improved Initiative",
+          "Tiger Style + Crane Style",
+          "Dodge + Mobility",
+          "Power Attack + Tiger Claws"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1758,7 +4115,8 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "level": 1,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -1766,10 +4124,39 @@
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [
+          "Power Attack",
+          "Weapon Focus (longsword)",
+          "Coordinated Charge"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1789,7 +4176,8 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "level": 5,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -1797,10 +4185,39 @@
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [
+          "Power Attack",
+          "Weapon Focus (longsword)",
+          "Coordinated Charge"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1820,7 +4237,8 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "level": 10,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -1828,10 +4246,222 @@
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [
+          "Power Attack",
+          "Weapon Focus (longsword)",
+          "Coordinated Charge"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/ranger_halfelf_skirmisher.json",
+        "output_prefix": "ranger_halfelf_skirmisher",
+        "class": "Ranger",
+        "race": "Half-Elf",
+        "archetype": "Skirmisher",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "ranger_half-elf_skirmisher",
+        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 1,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
+        ],
+        "missing_catalog_entries": [
+          "items:Arco lungo",
+          "items:Spada corta"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
+        "output_prefix": "ranger_halfelf_skirmisher",
+        "class": "Ranger",
+        "race": "Half-Elf",
+        "archetype": "Skirmisher",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "ranger_half-elf_skirmisher",
+        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 5,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
+        ],
+        "missing_catalog_entries": [
+          "items:Arco lungo",
+          "items:Spada corta"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
+        "output_prefix": "ranger_halfelf_skirmisher",
+        "class": "Ranger",
+        "race": "Half-Elf",
+        "archetype": "Skirmisher",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "ranger_half-elf_skirmisher",
+        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 10,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
+        ],
+        "missing_catalog_entries": [
+          "items:Arco lungo",
+          "items:Spada corta"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1852,7 +4482,7 @@
           10
         ],
         "level": 1,
-        "error": "'reference_catalog_version' is a required property; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
         ],
@@ -1860,10 +4490,44 @@
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Arma accurata"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=1&race=Halfling&archetype=Cutpurse"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=1&race=Halfling&archetype=Cutpurse"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1884,7 +4548,7 @@
           10
         ],
         "level": 5,
-        "error": "'reference_catalog_version' is a required property; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
         ],
@@ -1892,10 +4556,48 @@
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Arma accurata",
+          "Arma focalizzata (pugnale)",
+          "Combattere con due armi",
+          "Schivare",
+          "Iniziativa migliorata"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=5&race=Halfling&archetype=Cutpurse"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=5&race=Halfling&archetype=Cutpurse"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1916,7 +4618,7 @@
           10
         ],
         "level": 10,
-        "error": "'reference_catalog_version' is a required property; Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale); Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale); Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Elementi non presenti nel catalogo: feats:Critico migliorato (pugnale)",
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
@@ -1928,10 +4630,54 @@
           "Armatura di cuoio borchiato: Light armor proficiency"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "validated",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [
+          "Arma accurata",
+          "Colpo vitale",
+          "Arma focalizzata (pugnale)",
+          "Arma focalizzata superiore (pugnale)",
+          "Colpo senz'armi migliorato",
+          "Combattere con due armi",
+          "Mobilità",
+          "Riflessi in combattimento",
+          "Schivare",
+          "Iniziativa migliorata",
+          "Critico migliorato (pugnale)"
+        ],
+        "citation": {
+          "sources": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=10&race=Halfling&archetype=Cutpurse"
+          ],
+          "reference_urls": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=10&race=Halfling&archetype=Cutpurse"
+          ]
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -1952,13 +4698,38 @@
           10
         ],
         "level": 1,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Pipeline validata: shadow debuff + channel selettivo attivi",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Dominio separato online, ombre avanzate con metamagia reach",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Evocazioni d'ombra e bless permanenti mantengono T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -1978,13 +4749,38 @@
           10
         ],
         "level": 5,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Shadow debuff + channel selettivo stabili",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Conjuration d'ombra e domini separati promossi T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Preparazione per shadow miracle e bless permanenti",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2004,13 +4800,38 @@
           10
         ],
         "level": 10,
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Additional properties are not allowed ('level', 'level_checkpoints' were unexpected)",
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Shadow debuff + channel selettivo stabili",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Conjuration d'ombra e domini separati promossi T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Shadow miracle + bless permanenti in pipeline strict",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2029,13 +4850,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; feint swift + dirty trick online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Ricognizione con mesmerist trick dimenticanza + riposizionamento felino",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Aura enigma + greater dirty trick a volontà con DC alta",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2054,13 +4901,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; feint swift + dirty trick online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Ricognizione con mesmerist trick dimenticanza + riposizionamento felino",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Aura enigma + greater dirty trick a volontà con DC alta",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2079,13 +4952,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; feint swift + dirty trick online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Ricognizione con mesmerist trick dimenticanza + riposizionamento felino",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Aura enigma + greater dirty trick a volontà con DC alta",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2104,13 +5003,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; armatura vivente + panoply knowledge online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Panoply Savant completa i set Aegis + Weapon; DPR e CA in crescita",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Resonant focus massimizzato; tanking T1 con control burst",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2129,13 +5054,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; armatura vivente + panoply knowledge online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Panoply Savant completa i set Aegis + Weapon; DPR e CA in crescita",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Resonant focus massimizzato; tanking T1 con control burst",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2154,13 +5105,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; armatura vivente + panoply knowledge online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Panoply Savant completa i set Aegis + Weapon; DPR e CA in crescita",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Resonant focus massimizzato; tanking T1 con control burst",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2179,13 +5156,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; hex di supporto e reroll attivi",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Patrono Adaptation online; summon e controlli T1 consolidati",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Accesso a incantesimi di 6° e reroll ampliati; support/control T1 stabile",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2204,13 +5207,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; hex di supporto e reroll attivi",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Patrono Adaptation online; summon e controlli T1 consolidati",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Accesso a incantesimi di 6° e reroll ampliati; support/control T1 stabile",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2229,13 +5258,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; hex di supporto e reroll attivi",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Patrono Adaptation online; summon e controlli T1 consolidati",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Accesso a incantesimi di 6° e reroll ampliati; support/control T1 stabile",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2254,7 +5309,8 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "level": 1,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -2262,10 +5318,39 @@
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [
+          "Power Attack",
+          "Weapon Focus (longsword)",
+          "Coordinated Charge"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -2285,7 +5370,8 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "level": 5,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -2293,10 +5379,39 @@
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [
+          "Power Attack",
+          "Weapon Focus (longsword)",
+          "Coordinated Charge"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -2316,7 +5431,8 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected); 'step_labels' is a required property; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
+        "level": 10,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Coordinated Charge: Combat Reflexes"
         ],
@@ -2324,10 +5440,39 @@
           "Coordinated Charge: Combat Reflexes"
         ],
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS e meta_tier T1 confermati al livello 1",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Coordinated Charge e Blessing domain online con tactician",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Servitore angelico maggiore + aura teamwork espansa, DPR T1",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [
+          "Power Attack",
+          "Weapon Focus (longsword)",
+          "Coordinated Charge"
+        ],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       },
@@ -2347,13 +5492,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2372,13 +5543,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2397,13 +5594,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2422,13 +5645,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 1,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2447,13 +5696,39 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 5,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
         "status": "invalid"
       },
       {
@@ -2472,139 +5747,540 @@
           5,
           10
         ],
-        "error": "Additional properties are not allowed ('bench_log' was unexpected)",
+        "level": 10,
         "catalog_version": [
-          "2026.03.22"
+          "2026.04.03"
         ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "ok",
+            "bench_log": "Badge RAW/RAI/PFS validato; Evil Eye + Healing Hex online",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 5,
+            "status": "ok",
+            "bench_log": "Cackle fly-by + Command Undead con +2 DC da Gravewalker",
+            "ruling_badge": "RAW/RAI/PFS"
+          },
+          {
+            "level": 10,
+            "status": "ok",
+            "bench_log": "Major hex Misfortune + Life Giver per supporto e lockdown",
+            "ruling_badge": "RAW/RAI/PFS"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
         "warnings": [
-          "reference_catalog_version mancante"
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected",
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/wizard_elf_universalist.json",
+        "output_prefix": "wizard_elf_universalist",
+        "class": "Wizard",
+        "race": "Elf",
+        "archetype": "Universalist",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "wizard_elf_universalist",
+        "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 1,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
+        "output_prefix": "wizard_elf_universalist",
+        "class": "Wizard",
+        "race": "Elf",
+        "archetype": "Universalist",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "wizard_elf_universalist",
+        "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 5,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
+        "output_prefix": "wizard_elf_universalist",
+        "class": "Wizard",
+        "race": "Elf",
+        "archetype": "Universalist",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "wizard_elf_universalist",
+        "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 10,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/wizard_human_evoker.json",
+        "output_prefix": "wizard_human_evoker",
+        "class": "Wizard",
+        "race": "Human",
+        "archetype": "Evoker",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "wizard_human_evoker",
+        "background": "Piromane accademico in cerca di antiche pergamene elementali.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 1,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/wizard_human_evoker_lvl05.json",
+        "output_prefix": "wizard_human_evoker",
+        "class": "Wizard",
+        "race": "Human",
+        "archetype": "Evoker",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "wizard_human_evoker",
+        "background": "Piromane accademico in cerca di antiche pergamene elementali.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 5,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
+        ],
+        "status": "invalid"
+      },
+      {
+        "file": "src/data/builds/wizard_human_evoker_lvl10.json",
+        "output_prefix": "wizard_human_evoker",
+        "class": "Wizard",
+        "race": "Human",
+        "archetype": "Evoker",
+        "mode": "extended",
+        "mode_normalized": "extended",
+        "spec_id": "wizard_human_evoker",
+        "background": "Piromane accademico in cerca di antiche pergamene elementali.",
+        "model": null,
+        "level_checkpoints": [
+          1,
+          5,
+          10
+        ],
+        "level": 10,
+        "error": "'2026.04.03' was expected; '2026.04.03' was expected; Elementi non presenti nel catalogo: items:Pugnale di servizio",
+        "completeness_errors": [
+          "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+        ],
+        "missing_catalog_entries": [
+          "items:Pugnale di servizio"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ],
+        "checkpoints": [
+          {
+            "level": 1,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 1",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 5,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 5",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          },
+          {
+            "level": 10,
+            "status": "invalid",
+            "bench_log": "Checkpoint auto-generato livello 10",
+            "ruling_badge": "placeholder",
+            "meta_tier": "T3"
+          }
+        ],
+        "feat_plan": [],
+        "citation": {
+          "sources": [],
+          "reference_urls": []
+        },
+        "warnings": [
+          "reference_catalog_version 2026.03.22 diversa da 2026.04.03"
         ],
         "status": "invalid"
       }
     ],
     "checkpoints": {
       "1": {
-        "total": 14,
-        "invalid": 14,
-        "schema_errors": 14,
-        "completeness_errors": 2
+        "total": 33,
+        "invalid": 33,
+        "schema_errors": 21,
+        "completeness_errors": 12
       },
       "5": {
-        "total": 15,
-        "invalid": 15,
-        "schema_errors": 15,
-        "completeness_errors": 2
+        "total": 33,
+        "invalid": 33,
+        "schema_errors": 22,
+        "completeness_errors": 11
       },
       "10": {
-        "total": 15,
-        "invalid": 15,
-        "schema_errors": 15,
-        "completeness_errors": 3
+        "total": 33,
+        "invalid": 33,
+        "schema_errors": 21,
+        "completeness_errors": 12
       }
     }
   },
   "modules": {
     "total": 15,
-    "valid": 15,
-    "invalid": 0,
+    "valid": 0,
+    "invalid": 15,
     "errors": 0,
     "missing": 0,
     "entries": [
       {
         "module": "adventurer_ledger.txt",
         "file": "src/data/modules/adventurer_ledger.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 78508
       },
       {
         "module": "archivist.txt",
         "file": "src/data/modules/archivist.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 31559
       },
       {
         "module": "base_profile.txt",
         "file": "src/data/modules/base_profile.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 37655
       },
       {
         "module": "Encounter_Designer.txt",
         "file": "src/data/modules/Encounter_Designer.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 36198
       },
       {
         "module": "explain_methods.txt",
         "file": "src/data/modules/explain_methods.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 14503
       },
       {
         "module": "knowledge_pack.md",
         "file": "src/data/modules/knowledge_pack.md",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 12428
       },
       {
         "module": "meta_doc.txt",
         "file": "src/data/modules/meta_doc.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 31371
       },
       {
         "module": "minmax_builder.txt",
         "file": "src/data/modules/minmax_builder.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 88649
       },
       {
         "module": "narrative_flow.txt",
         "file": "src/data/modules/narrative_flow.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 35089
       },
       {
         "module": "preload_all_modules.txt",
         "file": "src/data/modules/preload_all_modules.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 523
       },
       {
         "module": "ruling_expert.txt",
         "file": "src/data/modules/ruling_expert.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 24621
       },
       {
         "module": "scheda_pg_markdown_template.md",
         "file": "src/data/modules/scheda_pg_markdown_template.md",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 24875
       },
       {
         "module": "sigilli_runner_module.txt",
         "file": "src/data/modules/sigilli_runner_module.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 6868
       },
       {
         "module": "tavern_hub.json",
         "file": "src/data/modules/tavern_hub.json",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 740
       },
       {
         "module": "Taverna_NPC.txt",
         "file": "src/data/modules/Taverna_NPC.txt",
-        "status": "ok",
+        "error": "Additional properties are not allowed ('source' was unexpected); None is not of type 'string'",
+        "status": "invalid",
         "size_bytes": 124135
       }
     ]
   },
   "reference_urls": {
-    "total": 4121,
-    "aon": 4120,
+    "total": 4123,
+    "aon": 4122,
     "d20_only": 1,
     "missing_aon_entries": [
       "feats:Focus: Suoni di Sabbia"

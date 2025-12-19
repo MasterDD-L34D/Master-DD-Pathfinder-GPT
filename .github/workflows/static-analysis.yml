@@ -21,6 +21,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Validate JSON Schemas
+        run: |
+          python tools/validate_schemas.py
+
       - name: Verifica owner e checkpoint del piano
         run: |
           python tools/verify_owners.py --format markdown > verify_owners_report.md
@@ -29,6 +33,15 @@ jobs:
       - name: Validate module reports
         run: |
           python tools/refresh_module_reports.py --check
+
+      - name: Rigenera attestato copertura locale
+        run: |
+          python tools/generate_build_db.py \
+            --export-lists \
+            --output-dir src/data/builds \
+            --modules-output-dir src/data/modules \
+            --index-path src/data/build_index.json \
+            --module-index-path src/data/module_index.json
 
   static-analysis:
     runs-on: ubuntu-latest

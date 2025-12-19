@@ -130,6 +130,10 @@ def has_bullet(lines: Iterable[str]) -> bool:
     return any(line.strip().startswith("- ") for line in lines)
 
 
+def has_placeholder(lines: Iterable[str]) -> bool:
+    return any(line.strip().lower().startswith(PLACEHOLDER.lower()) for line in lines)
+
+
 def ensure_placeholder(lines: List[str], block: SectionBlock) -> None:
     insertion = block.end
     lines.insert(insertion, PLACEHOLDER)
@@ -169,6 +173,9 @@ def ensure_section(
             ensure_placeholder(lines, target)
             return None
         return f"Nessun bullet in sezione: {target.heading}"
+
+    if not write and has_placeholder(section_lines):
+        return f"Segnaposto da sostituire in sezione: {target.heading}"
 
     return None
 

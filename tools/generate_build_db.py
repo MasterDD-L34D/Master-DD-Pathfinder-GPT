@@ -74,6 +74,20 @@ PF1E_CLASSES: List[str] = [
     "Wizard",
 ]
 
+CORE_CLASSES: set[str] = {
+    "Barbarian",
+    "Bard",
+    "Cleric",
+    "Druid",
+    "Fighter",
+    "Monk",
+    "Paladin",
+    "Ranger",
+    "Rogue",
+    "Sorcerer",
+    "Wizard",
+}
+
 # Pool di razze comuni/featured PF1e usate come fallback quando si vuole
 # evitare duplicati automaticamente (può essere sovrascritto da CLI).
 PF1E_RACES: Sequence[str] = (
@@ -5591,12 +5605,16 @@ def analyze_indices(
     invalid_builds: list[Mapping[str, object]] = []
     invalid_modules: list[Mapping[str, object]] = []
     archived_files: list[str] = []
+    ok_classes: set[str] = set()
 
     for entry in build_entries:
         status = str(entry.get("status") or "error")
         build_stats["total"] += 1
         if status == "ok":
             build_stats["ok"] += 1
+            entry_class = entry.get("class")
+            if isinstance(entry_class, str) and entry_class.strip():
+                ok_classes.add(entry_class.strip())
             continue
         if status == "invalid":
             build_stats["invalid"] += 1
@@ -5626,6 +5644,22 @@ def analyze_indices(
             if source.exists():
                 _archive_payload(source, archive_dir / "modules", archived_files)
 
+    missing_core_classes = sorted(core for core in CORE_CLASSES if core not in ok_classes)
+
+    repeated_module_errors: list[dict[str, object]] = []
+    if invalid_modules:
+        from collections import Counter
+
+        counter: Counter[str] = Counter()
+        for entry in invalid_modules:
+            message = str(entry.get("error") or entry.get("status") or "unknown")
+            counter[message] += 1
+        repeated_module_errors = [
+            {"error": message, "count": count}
+            for message, count in counter.items()
+            if count >= 2
+        ]
+
     report = {
         "generated_at": now_iso_utc(),
         "build_index": str(build_index_path),
@@ -5639,6 +5673,10 @@ def analyze_indices(
             "invalid_entries": invalid_modules,
         },
         "archived_files": archived_files,
+        "alerts": {
+            "missing_core_classes": missing_core_classes,
+            "repeated_module_errors": repeated_module_errors,
+        },
     }
 
     return report
