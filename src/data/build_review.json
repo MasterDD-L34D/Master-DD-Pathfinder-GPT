@@ -3638,11 +3638,11 @@
     ]
   },
   "reference_urls": {
-    "total": 0,
-    "aon": 0,
+    "total": 4129,
+    "aon": 4129,
     "d20_only": 0,
     "missing_aon_entries": [],
-    "aon_ratio": 0.0,
+    "aon_ratio": 1.0,
     "status": "ok"
   },
   "build_index": "src/data/build_index.json",
