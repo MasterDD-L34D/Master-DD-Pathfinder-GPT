@@ -368,6 +368,8 @@ uvicorn src.app:app --reload --port 8000
 
 L'endpoint di base sarà ad esempio: `http://localhost:8000`
 
+Prima di lanciare `--discover-modules`, assicurati che l'API sia effettivamente raggiungibile: avvia `uvicorn src.app:app --reload --port 8000` oppure imposta `--api-url` verso un host già in esecuzione. Se l'API reale non è disponibile, puoi utilizzare lo stub locale `tools/mock_builder_server.py` per simulare le risposte necessarie.
+
 Variabili chiave (anche per run schedulati):
 
 - `API_KEY`: obbligatoria per tutti gli endpoint protetti; se non valorizzata, abilita eventualmente `ALLOW_ANONYMOUS=true` per test locali/stub.
