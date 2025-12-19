@@ -15,6 +15,10 @@ on:
         description: "Modalità di generazione"
         default: "core"
         required: false
+      ruling_expert_url:
+        description: "Endpoint del modulo ruling-expert (lascia vuoto per skip)"
+        default: ""
+        required: false
 
 jobs:
   build-db-core:
@@ -29,6 +33,7 @@ jobs:
       MODULES_DIR: build_artifacts/modules
       INDEX_PATH: build_artifacts/build_index.json
       MODULE_INDEX_PATH: build_artifacts/module_index.json
+      RULING_EXPERT_URL: ${{ inputs.ruling_expert_url || '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -46,8 +51,17 @@ jobs:
         env:
           API_URL: ${{ env.API_URL }}
           API_KEY: ${{ env.API_KEY }}
+          RULING_EXPERT_URL: ${{ env.RULING_EXPERT_URL }}
         run: |
+          set -euo pipefail
+
           mkdir -p "$OUTPUT_DIR" "$MODULES_DIR"
+
+          ruling_flag=(--skip-ruling-expert)
+          if [ -n "${RULING_EXPERT_URL:-}" ]; then
+            ruling_flag=(--ruling-expert-url "$RULING_EXPERT_URL")
+          fi
+
           python tools/generate_build_db.py \
             --api-url "$API_URL" \
             --api-key "$API_KEY" \
@@ -58,7 +72,8 @@ jobs:
             --index-path "$INDEX_PATH" \
             --module-index-path "$MODULE_INDEX_PATH" \
             --keep-invalid \
-            --skip-health-check
+            --skip-health-check \
+            "${ruling_flag[@]}"
 
       - name: Archivia output build_db
         uses: actions/upload-artifact@v4
