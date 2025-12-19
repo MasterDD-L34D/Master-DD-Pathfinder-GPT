@@ -1,5 +1,5 @@
 {
-  "version": "2026.03.22",
+  "version": "2026.04.03",
   "source": "Pathfinder 1E RAW/SRD snapshot curato offline",
   "files": {
     "spells": {
@@ -12,7 +12,7 @@
     },
     "items": {
       "path": "data/reference/items.json",
-      "entries": 250
+      "entries": 252
     }
   }
 }

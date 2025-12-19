@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-18T18:55:31Z",
+  "generated_at": "2025-12-19T00:41:59Z",
   "api_url": null,
   "mode": "extended",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -23,19 +23,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/alchemist-goblin-vivisectionist.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -57,19 +45,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/alchemist-goblin-vivisectionist_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -91,19 +67,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/alchemist-goblin-vivisectionist_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -125,19 +89,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/alchemist_goblin_bombardier.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -159,19 +111,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/alchemist_goblin_bombardier_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -193,19 +133,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/alchemist_goblin_bombardier_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -227,19 +155,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -261,19 +177,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -295,19 +199,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/arcanist_tiefling_hexcrafter_blood_arcanist_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -329,19 +221,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/barbarian_fetchling_invulnerable_rager.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -363,19 +243,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -397,19 +265,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -431,19 +287,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/bard_kitsune_sound_striker_sandman.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -465,19 +309,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -506,19 +338,7 @@
         "Greater Spell Penetration: Spell Penetration"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/bard_kitsune_sound_striker_sandman_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -540,19 +360,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -574,19 +382,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -608,19 +404,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -642,19 +426,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -676,19 +448,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -710,19 +470,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -744,19 +492,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/cavalier_strix_strategist_honor_guard.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -778,19 +514,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -812,19 +536,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/cavalier_strix_strategist_honor_guard_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -846,19 +558,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/cleric_samsaran_cloistered_evangelist.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -880,19 +580,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -914,24 +602,12 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/cleric_samsaran_cloistered_evangelist_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/druid_half_orc_feral.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "druid_half_orc_feral",
       "class": "Druid",
       "race": "Half Orc",
@@ -947,22 +623,20 @@
         10
       ],
       "level": 1,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/druid_half_orc_feral.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "druid_half_orc_feral",
       "class": "Druid",
       "race": "Half Orc",
@@ -978,22 +652,20 @@
         10
       ],
       "level": 5,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/druid_half_orc_feral_lvl05.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "druid_half_orc_feral",
       "class": "Druid",
       "race": "Half Orc",
@@ -1009,17 +681,15 @@
         10
       ],
       "level": 10,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/druid_half_orc_feral_lvl10.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
@@ -1041,19 +711,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1075,19 +733,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1109,24 +755,12 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "fighter_dwarf_shielded",
       "class": "Fighter",
       "race": "Dwarf",
@@ -1142,22 +776,21 @@
         10
       ],
       "level": 1,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/fighter_dwarf_shielded.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
+      ],
+      "missing_catalog_entries": [
+        "items:Ascia da battaglia",
+        "items:Scudo pesante"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "fighter_dwarf_shielded",
       "class": "Fighter",
       "race": "Dwarf",
@@ -1173,22 +806,21 @@
         10
       ],
       "level": 5,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/fighter_dwarf_shielded_lvl05.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
+      ],
+      "missing_catalog_entries": [
+        "items:Ascia da battaglia",
+        "items:Scudo pesante"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "fighter_dwarf_shielded",
       "class": "Fighter",
       "race": "Dwarf",
@@ -1204,22 +836,21 @@
         10
       ],
       "level": 10,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/fighter_dwarf_shielded_lvl10.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Ascia da battaglia, items:Scudo pesante"
+      ],
+      "missing_catalog_entries": [
+        "items:Ascia da battaglia",
+        "items:Scudo pesante"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "fighter_weapon_master_human",
       "class": "Fighter",
       "race": "Human",
@@ -1235,22 +866,20 @@
         10
       ],
       "level": 1,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/fighter_weapon_master_human.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "fighter_weapon_master_human",
       "class": "Fighter",
       "race": "Human",
@@ -1266,22 +895,20 @@
         10
       ],
       "level": 5,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/fighter_weapon_master_human_lvl05.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "fighter_weapon_master_human",
       "class": "Fighter",
       "race": "Human",
@@ -1297,17 +924,15 @@
         10
       ],
       "level": 10,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/fighter_weapon_master_human_lvl10.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
@@ -1329,19 +954,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/gunslinger_strix_gun_tank.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1363,19 +976,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/gunslinger_strix_gun_tank_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1397,19 +998,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/gunslinger_strix_gun_tank_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1431,19 +1020,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1465,19 +1042,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1499,19 +1064,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/gunslinger_tengu_pistolero_bolt_ace_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1532,19 +1085,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/hunter_kasatha_packmaster.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1565,19 +1106,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/hunter_kasatha_packmaster_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1598,19 +1127,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/hunter_kasatha_packmaster_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1631,19 +1148,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1664,19 +1169,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1697,19 +1190,7 @@
         10
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/inquisitor_vishkanya_tactical_leader_preacher_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1731,19 +1212,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/investigator_catfolk_empiricist_psychic_detective.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1765,19 +1234,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1799,19 +1256,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/investigator_catfolk_empiricist_psychic_detective_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1833,19 +1278,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1867,19 +1300,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1901,19 +1322,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/kineticist_strix_kinetic_knight_overwhelming_soul_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1935,19 +1344,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -1969,19 +1366,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2003,19 +1388,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/kineticist_suli_kinetic_knight_overwhelming_soul_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2044,19 +1417,7 @@
         "Armatura di cuoio borchiato: Light armor proficiency"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/magus_kitsune_bladebound_hexcrafter.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2078,19 +1439,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2112,24 +1461,12 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/magus_kitsune_bladebound_hexcrafter_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
       "class": "Medium",
       "race": "Oread",
@@ -2145,22 +1482,20 @@
         10
       ],
       "level": 1,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
       "class": "Medium",
       "race": "Oread",
@@ -2176,22 +1511,20 @@
         10
       ],
       "level": 5,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
       "class": "Medium",
       "race": "Oread",
@@ -2207,17 +1540,15 @@
         10
       ],
       "level": 10,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
@@ -2247,19 +1578,7 @@
         "Tiger Style: Improved Unarmed Strike"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2294,19 +1613,7 @@
         "Tiger Style: Improved Unarmed Strike"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2345,19 +1652,7 @@
         "Tiger Style: Improved Unarmed Strike"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/monk_vanara_qinggong_master_of_many_styles_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2386,19 +1681,7 @@
         "Coordinated Charge: Combat Reflexes"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl01.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2427,19 +1710,7 @@
         "Coordinated Charge: Combat Reflexes"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2468,24 +1739,12 @@
         "Coordinated Charge: Combat Reflexes"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/paladin_aasimar_holy_tactician_sacred_servant_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "ranger_halfelf_skirmisher",
       "class": "Ranger",
       "race": "Half-Elf",
@@ -2501,22 +1760,21 @@
         10
       ],
       "level": 1,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/ranger_halfelf_skirmisher.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
+      ],
+      "missing_catalog_entries": [
+        "items:Arco lungo",
+        "items:Spada corta"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "ranger_halfelf_skirmisher",
       "class": "Ranger",
       "race": "Half-Elf",
@@ -2532,22 +1790,21 @@
         10
       ],
       "level": 5,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
+      ],
+      "missing_catalog_entries": [
+        "items:Arco lungo",
+        "items:Spada corta"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "ranger_halfelf_skirmisher",
       "class": "Ranger",
       "race": "Half-Elf",
@@ -2563,17 +1820,16 @@
         10
       ],
       "level": 10,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Arco lungo, items:Spada corta"
+      ],
+      "missing_catalog_entries": [
+        "items:Arco lungo",
+        "items:Spada corta"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
@@ -2602,19 +1858,7 @@
         "Armatura di cuoio borchiato: Light armor proficiency"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/rogue_halfling_cutpurse.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2643,19 +1887,7 @@
         "Armatura di cuoio borchiato: Light armor proficiency"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/rogue_halfling_cutpurse_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2688,19 +1920,7 @@
         "Armatura di cuoio borchiato: Light armor proficiency"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/rogue_halfling_cutpurse_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2722,19 +1942,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2756,19 +1964,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2790,19 +1986,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/cleric/cleric_wayang_shadowcaster_separatist_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2824,19 +2008,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2858,19 +2030,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2892,19 +2052,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/mesmerist_catfolk_vexing_daredevil_enigma_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2926,19 +2074,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2960,19 +2096,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -2994,19 +2118,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/occultist/occultist_ghoran_battle_host_panoply_savant_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3028,19 +2140,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3062,19 +2162,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3096,19 +2184,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/oracle/oracle_ghoran_spirit_guide_seer_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3137,19 +2213,7 @@
         "Coordinated Charge: Combat Reflexes"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3178,19 +2242,7 @@
         "Coordinated Charge: Combat Reflexes"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3219,19 +2271,7 @@
         "Coordinated Charge: Combat Reflexes"
       ],
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/paladin/paladin_aasimar_holy_tactician_sacred_servant_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3253,19 +2293,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3287,19 +2315,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3321,19 +2337,7 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/strict/witch_sylph_gravewalker_hedge_witch_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3355,19 +2359,7 @@
       ],
       "level": 1,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/witch_sylph_gravewalker_hedge_witch.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3389,19 +2381,7 @@
       ],
       "level": 5,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl05.json"
-        }
+        "2026.04.03"
       ]
     },
     {
@@ -3423,24 +2403,12 @@
       ],
       "level": 10,
       "catalog_version": [
-        "2026.03.22"
-      ],
-      "record_status": "draft",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "draft",
-          "source": "src/data/builds/witch_sylph_gravewalker_hedge_witch_lvl10.json"
-        }
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/wizard_elf_universalist.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "wizard_elf_universalist",
       "class": "Wizard",
       "race": "Elf",
@@ -3456,22 +2424,20 @@
         10
       ],
       "level": 1,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/wizard_elf_universalist.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "wizard_elf_universalist",
       "class": "Wizard",
       "race": "Elf",
@@ -3487,22 +2453,20 @@
         10
       ],
       "level": 5,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/wizard_elf_universalist_lvl05.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "wizard_elf_universalist",
       "class": "Wizard",
       "race": "Elf",
@@ -3518,22 +2482,20 @@
         10
       ],
       "level": 10,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/wizard_elf_universalist_lvl10.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/wizard_human_evoker.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "wizard_human_evoker",
       "class": "Wizard",
       "race": "Human",
@@ -3549,22 +2511,20 @@
         10
       ],
       "level": 1,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/wizard_human_evoker.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/wizard_human_evoker_lvl05.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "wizard_human_evoker",
       "class": "Wizard",
       "race": "Human",
@@ -3580,22 +2540,20 @@
         10
       ],
       "level": 5,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/wizard_human_evoker_lvl05.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     },
     {
       "file": "src/data/builds/wizard_human_evoker_lvl10.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "wizard_human_evoker",
       "class": "Wizard",
       "race": "Human",
@@ -3611,42 +2569,36 @@
         10
       ],
       "level": 10,
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-18T18:55:31Z",
-          "actor": "generate_build_db",
-          "action": "file_index_backfill",
-          "status": "validated",
-          "source": "src/data/builds/wizard_human_evoker_lvl10.json"
-        }
+      "error": "Elementi non presenti nel catalogo: items:Pugnale di servizio",
+      "completeness_errors": [
+        "Elementi non presenti nel catalogo: items:Pugnale di servizio"
+      ],
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
+      ],
+      "catalog_version": [
+        "2026.04.03"
       ]
     }
   ],
   "checkpoints": {
     "1": {
       "total": 33,
-      "invalid": 26,
+      "invalid": 33,
       "schema_errors": 0,
-      "completeness_errors": 5
+      "completeness_errors": 12
     },
     "5": {
       "total": 33,
-      "invalid": 26,
+      "invalid": 33,
       "schema_errors": 0,
-      "completeness_errors": 4
+      "completeness_errors": 11
     },
     "10": {
       "total": 33,
-      "invalid": 26,
+      "invalid": 33,
       "schema_errors": 0,
-      "completeness_errors": 5
+      "completeness_errors": 12
     }
-  },
-  "integrity_checks": {
-    "missing_audit": [],
-    "missing_record_status": []
   }
 }
