@@ -385,7 +385,17 @@ Uno script di utilità (`tools/generate_build_db.py`) raccoglie automaticamente 
 ```bash
 # Assicurati di avere l'API in esecuzione e una chiave valida
 # Nota: valida sempre /health e /metrics con l'API key corretta prima dei run;
-# se ricevi 401/429 regola AUTH_BACKOFF_THRESHOLD/SECONDS per aumentare il margine.
+# usa curl con retry parametrizzabili per assorbire spike transitori (timeout/429):
+#
+#   HEALTH_RETRIES=${HEALTH_RETRIES:-5}
+#   HEALTH_RETRY_DELAY=${HEALTH_RETRY_DELAY:-2}
+#   METRICS_RETRIES=${METRICS_RETRIES:-5}
+#   METRICS_RETRY_DELAY=${METRICS_RETRY_DELAY:-2}
+#   curl --retry "$HEALTH_RETRIES" --retry-delay "$HEALTH_RETRY_DELAY" --retry-all-errors \
+#     -H "x-api-key: ${API_KEY}" "${API_URL:-http://localhost:8000}${HEALTH_PATH:-/health}"
+#   curl --retry "$METRICS_RETRIES" --retry-delay "$METRICS_RETRY_DELAY" --retry-all-errors \
+#     -H "x-api-key: ${METRICS_API_KEY:-$API_KEY}" "${API_URL:-http://localhost:8000}${METRICS_PATH:-/metrics}"
+# Se ricevi 401/429 regola AUTH_BACKOFF_THRESHOLD/SECONDS per aumentare il margine.
 # Se l'API non gira in locale, passa un endpoint raggiungibile oppure usa
 # la variabile API_URL per evitare errori di connessione su http://localhost:8000
 export API_KEY="la-tua-chiave-segreta"
