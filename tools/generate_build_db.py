@@ -1105,6 +1105,8 @@ def _is_placeholder(value: object) -> bool:
         return True
     if isinstance(value, str):
         lowered = value.strip().lower()
+        if "x-truncated=true" in lowered or "contenuto troncato" in lowered:
+            return True
         if lowered.startswith(("n/d", "nd", "n/a", "na")):
             return True
         return not lowered or "stub" in lowered or lowered in {"todo", "tbd"}
