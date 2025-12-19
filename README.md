@@ -405,6 +405,11 @@ python tools/generate_build_db.py --api-url http://localhost:8000 --mode extende
 # API_URL="https://builder.example.com" python tools/generate_build_db.py --mode extended
 # Se l'endpoint non espone /health ma sai che è raggiungibile, aggiungi --skip-health-check
 # Se il probe richiede un path/timeout personalizzati puoi usare --health-path e --health-timeout
+# Nota: quando non usi `--skip-ruling-expert` devi passare esplicitamente l'endpoint del ruling expert con
+# `--ruling-expert-url <endpoint>/modules/ruling-expert`, altrimenti la fase di ruling non parte. Esempio completo:
+python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --ruling-expert-url http://localhost:8000/modules/ruling-expert
+# Solo per debug/local stub puoi saltare il ruling expert con
+python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --skip-ruling-expert
 
 # È possibile limitare le classi passandole come argomenti finali
 python tools/generate_build_db.py Alchemist Wizard Paladin
