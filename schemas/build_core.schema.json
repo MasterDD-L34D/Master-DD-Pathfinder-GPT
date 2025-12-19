@@ -146,6 +146,19 @@
     },
     "composite": {
       "$ref": "#/$defs/composite"
+    },
+    "audit": {
+      "$ref": "#/$defs/audit_log"
+    },
+    "record_status": {
+      "$ref": "#/$defs/record_status"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "deleted_at": {
+      "$ref": "#/$defs/timestamp"
     }
   },
   "$defs": {
@@ -157,6 +170,15 @@
     "timestamp": {
       "type": "string",
       "format": "date-time"
+    },
+    "record_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "validated",
+        "archived"
+      ],
+      "description": "Stato del record nel data lake (diverso dallo stato funzionale della build)"
     },
     "reviewer": {
       "type": [
@@ -524,6 +546,56 @@
         }
       },
       "additionalProperties": false
+    },
+    "audit_entry": {
+      "type": "object",
+      "required": [
+        "timestamp",
+        "actor",
+        "action"
+      ],
+      "properties": {
+        "timestamp": {
+          "$ref": "#/$defs/timestamp"
+        },
+        "actor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "$ref": "#/$defs/record_status"
+        },
+        "note": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "checkpoint": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "source": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "audit_log": {
+      "type": "array",
+      "description": "Trail cronologico di modifiche/import delle build",
+      "items": {
+        "$ref": "#/$defs/audit_entry"
+      }
     },
     "completeness": {
       "type": "object",

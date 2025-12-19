@@ -4,6 +4,19 @@
     "last_updated": "2025-08-23",
     "core_version": "3.3"
   },
+  "status": "validated",
+  "record_status": "validated",
+  "is_deleted": false,
+  "deleted_at": null,
+  "audit": [
+    {
+      "timestamp": "2026-03-22T00:00:00Z",
+      "actor": "generate_build_db",
+      "action": "module_seeded",
+      "status": "validated",
+      "note": "Sincronizzazione metadati tavern_hub.json"
+    }
+  ],
   "feature_flags": {
     "pfs": false,
     "abp": false,

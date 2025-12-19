@@ -22,6 +22,19 @@
     "version": {
       "type": "string"
     },
+    "record_status": {
+      "$ref": "#/$defs/record_status"
+    },
+    "audit": {
+      "$ref": "#/$defs/audit_log"
+    },
+    "is_deleted": {
+      "type": "boolean",
+      "default": false
+    },
+    "deleted_at": {
+      "$ref": "#/$defs/timestamp"
+    },
     "compatibility": {
       "oneOf": [
         { "$ref": "#/$defs/compatibility_target" },
@@ -36,6 +49,34 @@
     }
   },
   "$defs": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "record_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "validated",
+        "archived"
+      ]
+    },
+    "audit_entry": {
+      "type": "object",
+      "required": ["timestamp", "actor", "action"],
+      "properties": {
+        "timestamp": { "$ref": "#/$defs/timestamp" },
+        "actor": { "type": "string", "minLength": 1 },
+        "action": { "type": "string", "minLength": 1 },
+        "status": { "$ref": "#/$defs/record_status" },
+        "note": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "audit_log": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/audit_entry" }
+    },
     "compatibility_target": {
       "type": "object",
       "required": ["target"],
