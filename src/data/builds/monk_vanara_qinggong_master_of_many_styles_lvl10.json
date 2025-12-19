@@ -885,5 +885,50 @@
       },
       "saldo": 2000
     }
+  },
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    }
+  ],
+  "feat_plan": [
+    "Tiger Style",
+    "Crane Style",
+    "Dodge",
+    "Mobility",
+    "Power Attack",
+    "Tiger Claws",
+    "Dragon Style",
+    "Crane Wing",
+    "Dragon Ferocity",
+    "Medusa's Wrath",
+    "Crane Riposte",
+    "Spring Attack",
+    "Improved Initiative",
+    "Tiger Style + Crane Style",
+    "Dodge + Mobility",
+    "Power Attack + Tiger Claws"
+  ],
+  "citation": {
+    "sources": [],
+    "reference_urls": []
   }
 }

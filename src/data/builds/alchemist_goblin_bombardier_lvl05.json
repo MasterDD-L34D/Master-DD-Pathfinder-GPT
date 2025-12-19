@@ -1005,5 +1005,45 @@
   },
   "spec_id": "Alchemist::Goblin::Bombardier",
   "reference_catalog_version": "2026.03.22",
-  "build_id": "build-ead261d541e6b5e36c10347d"
+  "build_id": "build-ead261d541e6b5e36c10347d",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    }
+  ],
+  "feat_plan": [
+    "Colpo possente",
+    "Iniziativa migliorata",
+    "Talento di livello 1",
+    "Talento di livello 2",
+    "Talento di livello 3",
+    "Talento di livello 4",
+    "Talento di livello 5"
+  ],
+  "citation": {
+    "sources": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Bombardier"
+    ],
+    "reference_urls": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=5&race=Goblin&archetype=Bombardier"
+    ]
+  }
 }

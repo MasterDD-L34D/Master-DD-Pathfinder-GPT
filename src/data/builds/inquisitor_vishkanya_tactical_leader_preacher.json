@@ -481,5 +481,33 @@
       ]
     }
   },
-  "build_id": "build-a4da411abe1c697985e23862"
+  "build_id": "build-a4da411abe1c697985e23862",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "RAW/RAI/PFS",
+      "meta_tier": "T2"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "RAW/RAI/PFS",
+      "meta_tier": "T2"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "RAW/RAI/PFS",
+      "meta_tier": "T2"
+    }
+  ],
+  "feat_plan": [],
+  "citation": {
+    "sources": [],
+    "reference_urls": []
+  }
 }

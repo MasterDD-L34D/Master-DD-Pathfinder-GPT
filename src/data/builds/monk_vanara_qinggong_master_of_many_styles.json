@@ -642,5 +642,38 @@
       },
       "saldo": 70
     }
+  },
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    }
+  ],
+  "feat_plan": [
+    "Tiger Style",
+    "Crane Style",
+    "Dodge",
+    "Tiger Style + Crane Style"
+  ],
+  "citation": {
+    "sources": [],
+    "reference_urls": []
   }
 }

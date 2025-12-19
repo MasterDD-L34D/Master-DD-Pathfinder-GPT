@@ -1390,5 +1390,49 @@
     }
   },
   "reference_catalog_version": "2026.03.22",
-  "build_id": "build-f99abd12594290cc4ac57c21"
+  "build_id": "build-f99abd12594290cc4ac57c21",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "validated-rai-pfs",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "validated-rai-pfs",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "validated-rai-pfs",
+      "meta_tier": "T3"
+    }
+  ],
+  "feat_plan": [
+    "Colpo possente",
+    "Iniziativa migliorata",
+    "Arma focalizzata (mazzafrusto)",
+    "Tenacia",
+    "Robustezza",
+    "Critico migliorato (mazzafrusto)",
+    "Incalzare",
+    "Arma focalizzata superiore (mazzafrusto)",
+    "Passo laterale",
+    "Stamina extra",
+    "Colpo vitale"
+  ],
+  "citation": {
+    "sources": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=10&race=Samsaran&archetype=Cloistered+Evangelist"
+    ],
+    "reference_urls": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Cleric&stub=true&level=10&race=Samsaran&archetype=Cloistered+Evangelist"
+    ]
+  }
 }

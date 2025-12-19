@@ -993,5 +993,43 @@
     "MinMax bench: selezionata la variante con totali offensivi/difensivi più alti, scartate versioni tank-only e nova fragile."
   ],
   "reference_catalog_version": "2026.03.22",
-  "build_id": "build-f28849d6602eca55efc13312"
+  "build_id": "build-f28849d6602eca55efc13312",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "full",
+      "meta_tier": "T2"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "full",
+      "meta_tier": "T2"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "full",
+      "meta_tier": "T2"
+    }
+  ],
+  "feat_plan": [
+    "Arcane Strike",
+    "Raging Vitality",
+    "Improved Initiative",
+    "Power Attack",
+    "Critical Focus"
+  ],
+  "citation": {
+    "sources": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=10&race=Shabti&archetype=Primalist+Blood+Conduit"
+    ],
+    "reference_urls": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=10&race=Shabti&archetype=Primalist+Blood+Conduit"
+    ]
+  }
 }

@@ -1937,5 +1937,49 @@
     }
   },
   "reference_catalog_version": "2026.03.22",
-  "build_id": "build-266169acbb098446baa6cbb1"
+  "build_id": "build-266169acbb098446baa6cbb1",
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "validated",
+      "meta_tier": "T3"
+    }
+  ],
+  "feat_plan": [
+    "Arma accurata",
+    "Colpo vitale",
+    "Arma focalizzata (pugnale)",
+    "Arma focalizzata superiore (pugnale)",
+    "Colpo senz'armi migliorato",
+    "Combattere con due armi",
+    "Mobilità",
+    "Riflessi in combattimento",
+    "Schivare",
+    "Iniziativa migliorata",
+    "Critico migliorato (pugnale)"
+  ],
+  "citation": {
+    "sources": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=10&race=Halfling&archetype=Cutpurse"
+    ],
+    "reference_urls": [
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Rogue&stub=true&level=10&race=Halfling&archetype=Cutpurse"
+    ]
+  }
 }

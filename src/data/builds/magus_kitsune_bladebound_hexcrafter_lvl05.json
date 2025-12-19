@@ -420,5 +420,33 @@
     },
     "narrative": "La Black Blade matura e guida la kitsune verso duelli d'onore. Ruling Expert conferma la compatibilità di Arcane Accuracy con l'hex Misfortune e lo stacking di Keen. MinMax ha scartato la variante katana DES per minor DPR, mantenendo la falchion keen. La Taverna aggiunge la reputazione di 'Volpe del Fulmine' con duelli messi in scena per coprire le missioni della setta.",
     "ledger": "Arcane Pool a +3, Black Blade con ego crescente e telepatia; incantesimi chiave: Intensified Shocking Grasp, Frostbite Rime, Haste via magus arcana, Hexes Fortune/Misfortune attivi su priorità del gruppo."
+  },
+  "checkpoints": [
+    {
+      "level": 1,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 1",
+      "ruling_badge": "RAW/RAI/PFS",
+      "meta_tier": "T1"
+    },
+    {
+      "level": 5,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 5",
+      "ruling_badge": "RAW/RAI/PFS",
+      "meta_tier": "T1"
+    },
+    {
+      "level": 10,
+      "status": "invalid",
+      "bench_log": "Checkpoint auto-generato livello 10",
+      "ruling_badge": "RAW/RAI/PFS",
+      "meta_tier": "T1"
+    }
+  ],
+  "feat_plan": [],
+  "citation": {
+    "sources": [],
+    "reference_urls": []
   }
 }

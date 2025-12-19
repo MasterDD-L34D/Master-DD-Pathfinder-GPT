@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-03T00:00:00Z",
+  "generated_at": "2025-12-19T00:56:11.744444+00:00",
   "api_url": null,
   "catalog_version": [
     "2026.04.03"
@@ -24,6 +24,29 @@
             "status": "validated",
             "source": "src/data/modules/adventurer_ledger.txt"
           }
+        ],
+        "hash_sha256": "7fced25fde41a569c18663c5883797aa2903391899a3f07d6ad6dfc12df019b5",
+        "tags": [
+          "Avventuriero",
+          "Libro",
+          "Mastro",
+          "crafting",
+          "dell",
+          "economy",
+          "loot"
+        ],
+        "reference_urls": [
+          "https://aonprd.com/corerulebook/equipment.html",
+          "https://example.com",
+          "https://www.aonprd.com/Rules.aspx?ID=401",
+          "https://www.d20pfsrd.com/magic-items/",
+          "https://www.d20pfsrd.com/magic-items/rings/ring-of-protection/",
+          "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/amulet-of-natural-armor/",
+          "https://www.d20pfsrd.com/magic-items/wondrous-items/b-c/belt-of-incredible-dexterity/",
+          "https://www.d20pfsrd.com/magic-items/wondrous-items/c-d/cloak-of-resistance/",
+          "https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/headband-of-inspired-wisdom/",
+          "https://www.reddit.com/r/Pathfinder_RPG/comments/2cv8z8/master_list_of_essentialuseful_magic_items/",
+          "https://zenithgames.blogspot.com/2013/11/improving-your-class-with-items.html"
         ]
       },
       "record_status": "validated",
@@ -58,7 +81,12 @@
             "status": "validated",
             "source": "src/data/modules/archivist.txt"
           }
-        ]
+        ],
+        "hash_sha256": "30277997e6a17d6e887bab76d8f300ac1672d453f60e3d81381290a0203f21ac",
+        "tags": [
+          "lore+qa+vtt"
+        ],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
@@ -92,7 +120,17 @@
             "status": "validated",
             "source": "src/data/modules/base_profile.txt"
           }
-        ]
+        ],
+        "hash_sha256": "0cddac85c1d7a6b15e922dd21728e2b88497196887cede08e150f57367d33ae4",
+        "tags": [
+          "\"core_internal\"",
+          "Base",
+          "DD",
+          "Master",
+          "Pathfinder",
+          "Profile"
+        ],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
@@ -126,7 +164,14 @@
             "status": "validated",
             "source": "src/data/modules/Encounter_Designer.txt"
           }
-        ]
+        ],
+        "hash_sha256": "b8fed138262d592ba748dcd0ce371d83b1a7919d1dd48d126861fffeb72c2a86",
+        "tags": [
+          "Designer",
+          "Encounter",
+          "module"
+        ],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
@@ -160,7 +205,12 @@
             "status": "validated",
             "source": "src/data/modules/explain_methods.txt"
           }
-        ]
+        ],
+        "hash_sha256": "be243e0faa3e5a415330c691b803b0835db8e15b9e48235169c9625ef13aa7d1",
+        "tags": [
+          "explain"
+        ],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
@@ -194,6 +244,14 @@
             "status": "validated",
             "source": "src/data/modules/knowledge_pack.md"
           }
+        ],
+        "hash_sha256": "f040223632b1da5f4e5a4b62659179e4c86cc723adeab5c48e64a1e68b5856dd",
+        "tags": [],
+        "reference_urls": [
+          "https://aonprd.com",
+          "https://paizo.com",
+          "https://www.d20pfsrd.com",
+          "https://www.facebook.com/groups/pathfindergdritalia"
         ]
       },
       "record_status": "validated",
@@ -228,6 +286,17 @@
             "status": "validated",
             "source": "src/data/modules/meta_doc.txt"
           }
+        ],
+        "hash_sha256": "e77955a3da64021b9926f3136d53a92122962c3ca649156a2b8654d3471e7bff",
+        "tags": [
+          "Documenti",
+          "module"
+        ],
+        "reference_urls": [
+          "http://localhost:8000/modules/meta_doc.txt",
+          "https://i.imgur.com/AXmp4cl.jpeg",
+          "https://i.imgur.com/AXmp4cl.jpeg){style:wrapLeft,max-width:35%",
+          "https://i.imgur.com/GZfjDWV.png"
         ]
       },
       "record_status": "validated",
@@ -262,7 +331,14 @@
             "status": "validated",
             "source": "src/data/modules/minmax_builder.txt"
           }
-        ]
+        ],
+        "hash_sha256": "3a890a0959675977f72b5e5ad497466349c225ed9b3c87c4165c61b519c775d4",
+        "tags": [
+          "Builder",
+          "MinMax",
+          "minmax"
+        ],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
@@ -296,7 +372,13 @@
             "status": "validated",
             "source": "src/data/modules/narrative_flow.txt"
           }
-        ]
+        ],
+        "hash_sha256": "61ae9e4fcabcecc6f417e197e16f2ac4a6a23360513bdc3e4c9105c852b6f76e",
+        "tags": [
+          "Narrativa",
+          "module"
+        ],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
@@ -330,7 +412,10 @@
             "status": "validated",
             "source": "src/data/modules/preload_all_modules.txt"
           }
-        ]
+        ],
+        "hash_sha256": "4ed5e5cfacd8ee940e225651336c5b1f55a52e5f3ea95658643be6f48adf13ef",
+        "tags": [],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
@@ -364,6 +449,24 @@
             "status": "validated",
             "source": "src/data/modules/ruling_expert.txt"
           }
+        ],
+        "hash_sha256": "f5a7c91e5d8b812de3db09e56cf64246b57cf1c49bc1b33df7c3f2e4f39a318c",
+        "tags": [
+          "Expert",
+          "Ruling",
+          "module"
+        ],
+        "reference_urls": [
+          "https://aonprd.com/FeatDisplay.aspx?ItemName={n",
+          "https://aonprd.com/Rules.aspx?Name=Combat%20Maneuvers",
+          "https://aonprd.com/Rules.aspx?Name=Concentration",
+          "https://aonprd.com/Rules.aspx?Name=Conditions",
+          "https://aonprd.com/Rules.aspx?Name=Types%20of%20Bonuses",
+          "https://aonprd.com/Search.aspx?Query={n",
+          "https://aonprd.com/Search.aspx?Query={n}%20site:aonprd.com",
+          "https://aonprd.com/Search.aspx?Query={urlencode(q",
+          "https://aonprd.com/SkillDisplay.aspx?ItemName={n",
+          "https://aonprd.com/SpellDisplay.aspx?ItemName={n"
         ]
       },
       "record_status": "validated",
@@ -398,7 +501,10 @@
             "status": "validated",
             "source": "src/data/modules/scheda_pg_markdown_template.md"
           }
-        ]
+        ],
+        "hash_sha256": "d8a08160fab99223de5e09ae9697b672c7977f7a803ceb15d9df2c1be5cbc06a",
+        "tags": [],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
@@ -432,6 +538,15 @@
             "status": "validated",
             "source": "src/data/modules/sigilli_runner_module.txt"
           }
+        ],
+        "hash_sha256": "2bd2401eca72eaed5e47e2da9348c0258515b47ce604b93b65d8986d0a56d609",
+        "tags": [
+          "\"decorator_logic\"",
+          "Runner",
+          "Sigilli"
+        ],
+        "reference_urls": [
+          "https://github.com/DelzE/Master-DD-Pathfinder-GPT"
         ]
       },
       "record_status": "validated",
@@ -466,7 +581,10 @@
             "status": "validated",
             "source": "src/data/modules/tavern_hub.json"
           }
-        ]
+        ],
+        "hash_sha256": "3882a80751a077198bf18b227d75a88671eef28c6ee5573611a73d0a851ffc38",
+        "tags": [],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
@@ -500,7 +618,14 @@
             "status": "validated",
             "source": "src/data/modules/Taverna_NPC.txt"
           }
-        ]
+        ],
+        "hash_sha256": "ef5c2a4be0fd7f79a134ba611fdb9893513196ee427b32cc7623aab1c3193c47",
+        "tags": [
+          "NPC",
+          "Taverna",
+          "module"
+        ],
+        "reference_urls": []
       },
       "record_status": "validated",
       "is_deleted": false,
