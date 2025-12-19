@@ -1,75 +1,795 @@
 {
-  "build_id": "fighter_dwarf_shielded-lvl01",
-  "mode": "extended",
-  "class": "Fighter",
-  "reference_catalog_version": "2026.04.03",
   "build_state": {
     "class": "Fighter",
     "mode": "extended",
     "race": "Dwarf",
     "archetype": "Shielded Fighter",
     "step": 1,
-    "step_total": 3,
+    "step_total": 16,
     "step_labels": {
       "1": "Profilo Base",
-      "2": "Validazione schema",
-      "3": "Export sintetico"
+      "2": "Razza & Classe",
+      "3": "Archetipi & Multiclasse",
+      "4": "Feats & Talenti",
+      "5": "Spell & Power Set",
+      "6": "Equip & Risorse",
+      "7": "Benchmark & Simulazioni",
+      "8": "QA & Export",
+      "9": "Dummies Sheet",
+      "10": "Esportazione",
+      "11": "Fork/Varianti",
+      "12": "Comparativa",
+      "13": "Meta Rating",
+      "14": "Companion",
+      "15": "Report",
+      "16": "Chiusura"
     },
     "statistics": {
-      "level": 1,
-      "placeholder": true
+      "FOR": 16,
+      "DES": 14,
+      "COS": 14,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 8
     },
-    "step_labels_count": 3
+    "step_labels_count": 16
   },
   "benchmark": {
     "meta_tier": "T3",
-    "ruling_badge": "placeholder",
-    "notes": "Snapshot placeholder generato offline per fighter_dwarf_shielded lvl 1."
+    "ruling_badge": "validated",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 6,
+        "picco": 9
+      },
+      "livello_5": {
+        "media": 18,
+        "picco": 26
+      }
+    },
+    "statistics": {
+      "attacco": "+4",
+      "danni": "1d8+3",
+      "ca": 18
+    },
+    "catalog_version": [
+      "2026.04.03"
+    ]
   },
   "export": {
     "sheet_payload": {
-      "skills": [
+      "classi": [
         {
-          "nome": "Percezione",
-          "valore": "+3"
+          "nome": "Fighter",
+          "livelli": 1,
+          "archetipi": [
+            "Shielded Fighter"
+          ]
         }
       ],
-      "equipaggiamento": [
-        "Scudo pesante",
-        "Ascia da battaglia"
+      "statistiche": {
+        "FOR": 16,
+        "DES": 14,
+        "COS": 14,
+        "INT": 10,
+        "SAG": 12,
+        "CAR": 8,
+        "attacco": "+4",
+        "danni": "1d8+3",
+        "ca": 18
+      },
+      "statistiche_chiave": {
+        "attacco": "+4",
+        "danni": "1d8+3",
+        "ca": 18,
+        "CA": 18
+      },
+      "pf_totali": 12,
+      "hp": {
+        "totali": 12,
+        "per_livello": [
+          12
+        ]
+      },
+      "salvezze": {
+        "Tempra": 4,
+        "Riflessi": 3,
+        "Volontà": 4
+      },
+      "skills_map": {
+        "Percezione": {
+          "totale": 5
+        },
+        "Acrobazia": {
+          "totale": 4
+        },
+        "Conoscenze": {
+          "totale": 3
+        }
+      },
+      "skill_points": 5,
+      "talenti": [
+        "Colpo possente",
+        "Iniziativa migliorata"
       ],
+      "capacita_classe": [
+        "Addestramento marziale",
+        "Specializzazione",
+        "Privilegio 1",
+        "Tecnica distintiva Shielded Fighter"
+      ],
+      "equipaggiamento": [
+        "Arma preferita"
+      ],
+      "inventario": [
+        "Arma preferita",
+        "Armatura leggera",
+        "Kit da avventuriero",
+        "Pozione di cura x2"
+      ],
+      "spell_levels": [
+        {
+          "liv": 1,
+          "per_day": 4
+        },
+        {
+          "liv": 2,
+          "per_day": 3
+        }
+      ],
+      "slot_incantesimi": "Liv1:4/Liv2:3",
+      "ac_breakdown": {
+        "totale": 18,
+        "armatura": 5,
+        "destrezza": 2,
+        "scudo": 1
+      },
+      "iniziativa": 2,
+      "velocita": 9,
+      "progressione": [
+        {
+          "livello": 1,
+          "privilegi": [
+            "Privilegio 1",
+            "Tecnica distintiva Shielded Fighter"
+          ],
+          "talenti": [
+            "Talento di livello 1"
+          ]
+        }
+      ],
+      "benchmarks": {
+        "meta_tier": "T3"
+      },
       "ledger": {
         "movimenti": [
           {
-            "oggetto": "Scudo pesante",
-            "importo": 0
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 250
           }
-        ]
+        ],
+        "currency": {
+          "oro": 100,
+          "argento": 25,
+          "rame": 40
+        }
       },
+      "razza": "Dwarf",
+      "salvezze_breakdown": {
+        "Tempra": {
+          "base": 2,
+          "modificatore": 2,
+          "misc": 0,
+          "totale": 4
+        },
+        "Riflessi": {
+          "base": 1,
+          "modificatore": 2,
+          "misc": 0,
+          "totale": 3
+        },
+        "Volontà": {
+          "base": 3,
+          "modificatore": 1,
+          "misc": 0,
+          "totale": 4
+        }
+      },
+      "pf_per_livello": "n/d (PF per livello non fornito)",
+      "AC_arm": 0,
+      "AC_scudo": 0,
+      "AC_des": 0,
+      "AC_defl": 0,
+      "AC_nat": 0,
+      "AC_dodge": 0,
+      "AC_misc": 0,
+      "AC_base": 10,
+      "AC_tot": 18,
+      "CA_touch": 10,
+      "CA_ff": 10,
+      "BAB": "n/d (BAB non fornito)",
+      "init": 2,
+      "CMB": "n/d (CMB non fornito)",
+      "cmb_disarm": "n/d (cmb disarm non fornito)",
+      "cmb_trip": "n/d (cmb trip non fornito)",
+      "cmb_grapple": "n/d (cmb grapple non fornito)",
+      "speed": 9,
+      "currency": {
+        "gp": 100,
+        "sp": 25,
+        "cp": 40
+      },
+      "gp": 100,
+      "sp": 25,
+      "cp": 40,
       "ledger_movimenti": [
         {
-          "oggetto": "Scudo pesante",
-          "importo": 0
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 250
         }
       ],
-      "sheet_markdown": "Percezione Scudo pesante Scudo pesante"
+      "magia": {
+        "1": 4,
+        "2": 3
+      },
+      "modules": {
+        "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
+      },
+      "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+      "fonti": [
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=1&race=Dwarf&archetype=Shielded+Fighter"
+      ],
+      "print_mode": false,
+      "show_minmax": true,
+      "show_vtt": true,
+      "show_qa": true,
+      "show_explain": true,
+      "show_ledger": true,
+      "decimal_comma": true,
+      "skills": [],
+      "lingue": [],
+      "sensi": [],
+      "condizioni": []
+    }
+  },
+  "narrative": "Dwarf Shielded Fighter pronta/o per il campo, specializzata/o in tattiche da Fighter.",
+  "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+  "ledger": {
+    "movimenti": [
+      {
+        "voce": "Equipaggiamento iniziale",
+        "importo": -150
+      },
+      {
+        "voce": "Ricompensa missione",
+        "importo": 250
+      }
+    ],
+    "currency": {
+      "oro": 100,
+      "argento": 25,
+      "rame": 40
+    }
+  },
+  "class": "Fighter",
+  "mode": "extended",
+  "composite": {
+    "build": {
+      "build_id": "build-ef17b20bdad10a8283c190eb",
+      "build_state": {
+        "class": "Fighter",
+        "mode": "extended",
+        "race": "Dwarf",
+        "archetype": "Shielded Fighter",
+        "step": 1,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 16,
+          "DES": 14,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "validated",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 6,
+            "picco": 9
+          },
+          "livello_5": {
+            "media": 18,
+            "picco": 26
+          }
+        },
+        "statistics": {
+          "attacco": "+4",
+          "danni": "1d8+3",
+          "ca": 18
+        },
+        "catalog_version": [
+          "2026.04.03"
+        ]
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Fighter",
+              "livelli": 1,
+              "archetipi": [
+                "Shielded Fighter"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 16,
+            "DES": 14,
+            "COS": 14,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 8,
+            "attacco": "+4",
+            "danni": "1d8+3",
+            "ca": 18
+          },
+          "statistiche_chiave": {
+            "attacco": "+4",
+            "danni": "1d8+3",
+            "ca": 18,
+            "CA": 18
+          },
+          "pf_totali": 12,
+          "hp": {
+            "totali": 12,
+            "per_livello": [
+              12
+            ]
+          },
+          "salvezze": {
+            "Tempra": 4,
+            "Riflessi": 3,
+            "Volontà": 4
+          },
+          "skills_map": {
+            "Percezione": {
+              "totale": 5
+            },
+            "Acrobazia": {
+              "totale": 4
+            },
+            "Conoscenze": {
+              "totale": 3
+            }
+          },
+          "skill_points": 5,
+          "talenti": [
+            "Colpo possente",
+            "Iniziativa migliorata"
+          ],
+          "capacita_classe": [
+            "Addestramento marziale",
+            "Specializzazione",
+            "Privilegio 1",
+            "Tecnica distintiva Shielded Fighter"
+          ],
+          "equipaggiamento": [
+            "Arma preferita"
+          ],
+          "inventario": [
+            "Arma preferita",
+            "Armatura leggera",
+            "Kit da avventuriero",
+            "Pozione di cura x2"
+          ],
+          "spell_levels": [
+            {
+              "liv": 1,
+              "per_day": 4
+            },
+            {
+              "liv": 2,
+              "per_day": 3
+            }
+          ],
+          "slot_incantesimi": "Liv1:4/Liv2:3",
+          "ac_breakdown": {
+            "totale": 18,
+            "armatura": 5,
+            "destrezza": 2,
+            "scudo": 1
+          },
+          "iniziativa": 2,
+          "velocita": 9,
+          "progressione": [
+            {
+              "livello": 1,
+              "privilegi": [
+                "Privilegio 1",
+                "Tecnica distintiva Shielded Fighter"
+              ],
+              "talenti": [
+                "Talento di livello 1"
+              ]
+            }
+          ],
+          "benchmarks": {
+            "meta_tier": "T3"
+          },
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -150
+              },
+              {
+                "voce": "Ricompensa missione",
+                "importo": 250
+              }
+            ],
+            "currency": {
+              "oro": 100,
+              "argento": 25,
+              "rame": 40
+            }
+          },
+          "razza": "Dwarf",
+          "salvezze_breakdown": {
+            "Tempra": {
+              "base": 2,
+              "modificatore": 2,
+              "misc": 0,
+              "totale": 4
+            },
+            "Riflessi": {
+              "base": 1,
+              "modificatore": 2,
+              "misc": 0,
+              "totale": 3
+            },
+            "Volontà": {
+              "base": 3,
+              "modificatore": 1,
+              "misc": 0,
+              "totale": 4
+            }
+          },
+          "pf_per_livello": "n/d (PF per livello non fornito)",
+          "AC_arm": 0,
+          "AC_scudo": 0,
+          "AC_des": 0,
+          "AC_defl": 0,
+          "AC_nat": 0,
+          "AC_dodge": 0,
+          "AC_misc": 0,
+          "AC_base": 10,
+          "AC_tot": 18,
+          "CA_touch": 10,
+          "CA_ff": 10,
+          "BAB": "n/d (BAB non fornito)",
+          "init": 2,
+          "CMB": "n/d (CMB non fornito)",
+          "cmb_disarm": "n/d (cmb disarm non fornito)",
+          "cmb_trip": "n/d (cmb trip non fornito)",
+          "cmb_grapple": "n/d (cmb grapple non fornito)",
+          "speed": 9,
+          "currency": {
+            "gp": 100,
+            "sp": 25,
+            "cp": 40
+          },
+          "gp": 100,
+          "sp": 25,
+          "cp": 40,
+          "ledger_movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 250
+            }
+          ],
+          "magia": {
+            "1": 4,
+            "2": 3
+          },
+          "modules": {
+            "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
+          },
+          "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+          "fonti": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=1&race=Dwarf&archetype=Shielded+Fighter"
+          ],
+          "print_mode": false,
+          "show_minmax": true,
+          "show_vtt": true,
+          "show_qa": true,
+          "show_explain": true,
+          "show_ledger": true,
+          "decimal_comma": true,
+          "skills": [],
+          "lingue": [],
+          "sensi": [],
+          "condizioni": []
+        }
+      },
+      "reference_catalog_version": "2026.04.03",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2025-12-19T18:29:42Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Fighter",
+            "livelli": 1,
+            "archetipi": [
+              "Shielded Fighter"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 16,
+          "DES": 14,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8,
+          "attacco": "+4",
+          "danni": "1d8+3",
+          "ca": 18
+        },
+        "statistiche_chiave": {
+          "attacco": "+4",
+          "danni": "1d8+3",
+          "ca": 18,
+          "CA": 18
+        },
+        "pf_totali": 12,
+        "hp": {
+          "totali": 12,
+          "per_livello": [
+            12
+          ]
+        },
+        "salvezze": {
+          "Tempra": 4,
+          "Riflessi": 3,
+          "Volontà": 4
+        },
+        "skills_map": {
+          "Percezione": {
+            "totale": 5
+          },
+          "Acrobazia": {
+            "totale": 4
+          },
+          "Conoscenze": {
+            "totale": 3
+          }
+        },
+        "skill_points": 5,
+        "talenti": [
+          "Colpo possente",
+          "Iniziativa migliorata"
+        ],
+        "capacita_classe": [
+          "Addestramento marziale",
+          "Specializzazione",
+          "Privilegio 1",
+          "Tecnica distintiva Shielded Fighter"
+        ],
+        "equipaggiamento": [
+          "Arma preferita"
+        ],
+        "inventario": [
+          "Arma preferita",
+          "Armatura leggera",
+          "Kit da avventuriero",
+          "Pozione di cura x2"
+        ],
+        "spell_levels": [
+          {
+            "liv": 1,
+            "per_day": 4
+          },
+          {
+            "liv": 2,
+            "per_day": 3
+          }
+        ],
+        "slot_incantesimi": "Liv1:4/Liv2:3",
+        "ac_breakdown": {
+          "totale": 18,
+          "armatura": 5,
+          "destrezza": 2,
+          "scudo": 1
+        },
+        "iniziativa": 2,
+        "velocita": 9,
+        "progressione": [
+          {
+            "livello": 1,
+            "privilegi": [
+              "Privilegio 1",
+              "Tecnica distintiva Shielded Fighter"
+            ],
+            "talenti": [
+              "Talento di livello 1"
+            ]
+          }
+        ],
+        "benchmarks": {
+          "meta_tier": "T3"
+        },
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 250
+            }
+          ],
+          "currency": {
+            "oro": 100,
+            "argento": 25,
+            "rame": 40
+          }
+        },
+        "razza": "Dwarf",
+        "salvezze_breakdown": {
+          "Tempra": {
+            "base": 2,
+            "modificatore": 2,
+            "misc": 0,
+            "totale": 4
+          },
+          "Riflessi": {
+            "base": 1,
+            "modificatore": 2,
+            "misc": 0,
+            "totale": 3
+          },
+          "Volontà": {
+            "base": 3,
+            "modificatore": 1,
+            "misc": 0,
+            "totale": 4
+          }
+        },
+        "pf_per_livello": "n/d (PF per livello non fornito)",
+        "AC_arm": 0,
+        "AC_scudo": 0,
+        "AC_des": 0,
+        "AC_defl": 0,
+        "AC_nat": 0,
+        "AC_dodge": 0,
+        "AC_misc": 0,
+        "AC_base": 10,
+        "AC_tot": 18,
+        "CA_touch": 10,
+        "CA_ff": 10,
+        "BAB": "n/d (BAB non fornito)",
+        "init": 2,
+        "CMB": "n/d (CMB non fornito)",
+        "cmb_disarm": "n/d (cmb disarm non fornito)",
+        "cmb_trip": "n/d (cmb trip non fornito)",
+        "cmb_grapple": "n/d (cmb grapple non fornito)",
+        "speed": 9,
+        "currency": {
+          "gp": 100,
+          "sp": 25,
+          "cp": 40
+        },
+        "gp": 100,
+        "sp": 25,
+        "cp": 40,
+        "ledger_movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 250
+          }
+        ],
+        "magia": {
+          "1": 4,
+          "2": 3
+        },
+        "modules": {
+          "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
+        },
+        "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+        "fonti": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=1&race=Dwarf&archetype=Shielded+Fighter"
+        ],
+        "print_mode": false,
+        "show_minmax": true,
+        "show_vtt": true,
+        "show_qa": true,
+        "show_explain": true,
+        "show_ledger": true,
+        "decimal_comma": true,
+        "skills": [],
+        "lingue": [],
+        "sensi": [],
+        "condizioni": []
+      }
     },
-    "sheet_locale": "it-IT",
-    "sheet_format": "placeholder"
+    "narrative": "Dwarf Shielded Fighter pronta/o per il campo, specializzata/o in tattiche da Fighter.",
+    "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+    "ledger": {
+      "movimenti": [
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 250
+        }
+      ],
+      "currency": {
+        "oro": 100,
+        "argento": 25,
+        "rame": 40
+      }
+    }
   },
-  "step_audit": {
-    "request_timestamp": "2025-12-18T16:48:46Z",
-    "client_fingerprint_hash": "offline-placeholder-client-hash-000000000000",
-    "outcome": "accepted",
-    "attempt_count": 1,
-    "backoff_reason": null,
-    "normalized_mode": "extended",
-    "expected_step_total": 3,
-    "observed_step_total": 3,
-    "step_total_ok": true,
-    "step_labels_count": 3,
-    "has_extended_steps": true
+  "catalog_validation": {
+    "catalog_version": [
+      "2026.04.03"
+    ]
   },
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=1&race=Dwarf&archetype=Shielded+Fighter",
+  "reference_catalog_version": "2026.04.03",
+  "fetched_at": "2025-12-19T18:29:42Z",
   "request": {
     "class": "Fighter",
     "race": "Dwarf",
@@ -77,21 +797,91 @@
     "mode": "extended",
     "mode_normalized": "extended",
     "spec_id": "fighter_dwarf_shielded",
+    "model": null,
     "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
     "level": 1,
     "level_checkpoints": [
       1,
       5,
       10
-    ],
-    "output_prefix": "fighter_dwarf_shielded"
+    ]
   },
-  "narrative": {
-    "summary": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
-    "notes": "Profilo placeholder generato offline per Fighter Shielded Fighter."
+  "query_params": {
+    "mode": "extended",
+    "class": "Fighter",
+    "stub": true,
+    "level": 1,
+    "race": "Dwarf",
+    "archetype": "Shielded Fighter"
   },
+  "body_params": {},
   "mode_normalized": "extended",
+  "step_audit": {
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true,
+    "request_timestamp": "2025-12-19T18:29:42Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null
+  },
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "catalog_manifest": {
+    "version": "2026.04.03",
+    "source": "Pathfinder 1E RAW/SRD snapshot curato offline",
+    "files": {
+      "spells": {
+        "path": "data/reference/spells.json",
+        "entries": 1035
+      },
+      "feats": {
+        "path": "data/reference/feats.json",
+        "entries": 2839
+      },
+      "items": {
+        "path": "data/reference/items.json",
+        "entries": 257
+      }
+    }
+  },
+  "ruling_badge": "validated",
+  "ruling_sources": [
+    "stub"
+  ],
   "qa": {
+    "ruling_expert": {
+      "badge": "validated",
+      "sources": [
+        "stub"
+      ],
+      "context": {
+        "class": "Fighter",
+        "level": 1,
+        "talenti_chiave": [
+          "Colpo possente",
+          "Iniziativa migliorata"
+        ],
+        "hr_sources": null,
+        "meta_sources": null,
+        "pfs_mode": null
+      },
+      "raw": {
+        "ruling_badge": "validated",
+        "sources": [
+          "stub"
+        ],
+        "violations": []
+      },
+      "cached": false,
+      "cache_key": null
+    },
     "checkpoints": {
       "level": 1,
       "levels": [
@@ -101,136 +891,19 @@
       ]
     }
   },
-  "composite": {
-    "build": {
-      "build_id": "fighter_dwarf_shielded-lvl01",
-      "build_state": {
-        "class": "Fighter",
-        "mode": "extended",
-        "race": "Dwarf",
-        "archetype": "Shielded Fighter",
-        "step": 1,
-        "step_total": 3,
-        "step_labels": {
-          "1": "Profilo Base",
-          "2": "Validazione schema",
-          "3": "Export sintetico"
-        },
-        "statistics": {
-          "level": 1,
-          "placeholder": true
-        },
-        "step_labels_count": 3
-      },
-      "benchmark": {
-        "meta_tier": "T3",
-        "ruling_badge": "placeholder",
-        "notes": "Snapshot placeholder generato offline per fighter_dwarf_shielded lvl 1."
-      },
-      "export": {
-        "sheet_payload": {
-          "skills": [
-            {
-              "nome": "Percezione",
-              "valore": "+1"
-            }
-          ],
-          "equipaggiamento": [
-            "Pugnale di servizio"
-          ],
-          "ledger_movimenti": [
-            {
-              "oggetto": "Kit di emergenza",
-              "importo": 0
-            }
-          ],
-          "ledger": {
-            "movimenti": [
-              {
-                "oggetto": "Kit di emergenza",
-                "importo": 0
-              }
-            ]
-          },
-          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
-        },
-        "sheet_locale": "it-IT",
-        "sheet_format": "placeholder"
-      },
-      "reference_catalog_version": "2026.04.03",
-      "step_audit": {
-        "request_timestamp": "2025-12-18T16:48:46Z",
-        "client_fingerprint_hash": "offline-placeholder-client-hash-000000000000",
-        "outcome": "accepted",
-        "attempt_count": 1,
-        "backoff_reason": null,
-        "normalized_mode": "extended",
-        "expected_step_total": 3,
-        "observed_step_total": 3,
-        "step_total_ok": true,
-        "step_labels_count": 3,
-        "has_extended_steps": true
-      },
-      "sheet_payload": {
-        "skills": [
-          {
-            "nome": "Percezione",
-            "valore": "+3"
-          }
-        ],
-        "equipaggiamento": [
-          "Scudo pesante",
-          "Ascia da battaglia"
-        ],
-        "ledger": {
-          "movimenti": [
-            {
-              "oggetto": "Scudo pesante",
-              "importo": 0
-            }
-          ]
-        },
-        "ledger_movimenti": [
-          {
-            "oggetto": "Scudo pesante",
-            "importo": 0
-          }
-        ],
-        "sheet_markdown": "Percezione Scudo pesante Scudo pesante"
-      }
-    },
-    "narrative": {
-      "summary": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
-      "notes": "Profilo placeholder generato offline per Fighter Shielded Fighter."
+  "build_id": "build-ef17b20bdad10a8283c190eb",
+  "record_status": "draft",
+  "is_deleted": false,
+  "deleted_at": null,
+  "audit": [
+    {
+      "timestamp": "2025-12-19T18:29:42Z",
+      "actor": "generate_build_db",
+      "action": "harvest",
+      "status": "draft",
+      "note": "4 is not of type 'array'; 3 is not of type 'array'",
+      "checkpoint": 1,
+      "source": "fighter_dwarf_shielded"
     }
-  },
-  "completeness": {},
-  "checkpoints": [
-    {
-      "level": 1,
-      "status": "invalid",
-      "bench_log": "Checkpoint auto-generato livello 1",
-      "ruling_badge": "placeholder",
-      "meta_tier": "T3"
-    },
-    {
-      "level": 5,
-      "status": "invalid",
-      "bench_log": "Checkpoint auto-generato livello 5",
-      "ruling_badge": "placeholder",
-      "meta_tier": "T3"
-    },
-    {
-      "level": 10,
-      "status": "invalid",
-      "bench_log": "Checkpoint auto-generato livello 10",
-      "ruling_badge": "placeholder",
-      "meta_tier": "T3"
-    }
-  ],
-  "feat_plan": [],
-  "citation": {
-    "sources": [],
-    "reference_urls": []
-  }
+  ]
 }

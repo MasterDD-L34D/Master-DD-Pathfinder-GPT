@@ -1,9 +1,9 @@
 {
   "build_state": {
-    "class": "Medium",
+    "class": "Wizard",
     "mode": "extended",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "race": "Human",
+    "archetype": "Evoker",
     "step": 1,
     "step_total": 16,
     "step_labels": {
@@ -48,10 +48,15 @@
       }
     },
     "statistics": {
-      "attacco": "+4",
-      "danni": "1d8+3",
-      "ca": 18
+      "attacco": null,
+      "danni": null,
+      "ca": 15
     },
+    "missing_catalog_entries": [
+      "items:Abito da viaggiatore",
+      "items:Bastone ferrato",
+      "items:Spellbook"
+    ],
     "catalog_version": [
       "2026.04.03"
     ]
@@ -60,10 +65,10 @@
     "sheet_payload": {
       "classi": [
         {
-          "nome": "Medium",
-          "livelli": 5,
+          "nome": "Wizard",
+          "livelli": 1,
           "archetipi": [
-            "Spirit Dancer + Reanimated Medium"
+            "Evoker"
           ]
         }
       ],
@@ -74,80 +79,71 @@
         "INT": 10,
         "SAG": 12,
         "CAR": 8,
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 18
+        "ca": 15
       },
       "statistiche_chiave": {
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 18,
-        "CA": 18
+        "attacco": null,
+        "danni": null,
+        "ca": 15,
+        "CA": 15
       },
-      "pf_totali": 32,
+      "pf_totali": 12,
       "hp": {
-        "totali": 32,
+        "totali": 12,
         "per_livello": [
-          32
+          12
         ]
       },
       "salvezze": {
-        "Tempra": 4,
+        "Tempra": 2,
         "Riflessi": 3,
         "Volontà": 4
       },
       "skills_map": {
+        "Conoscenze (arcana)": {
+          "totale": 6
+        },
+        "Sapienza Magica": {
+          "totale": 6
+        },
         "Percezione": {
           "totale": 5
-        },
-        "Acrobazia": {
-          "totale": 4
-        },
-        "Conoscenze": {
-          "totale": 3
         }
       },
-      "skill_points": 25,
+      "skill_points": 5,
       "talenti": [
-        "Colpo possente",
         "Iniziativa migliorata"
       ],
       "capacita_classe": [
-        "Addestramento marziale",
-        "Specializzazione",
-        "Privilegio 1",
-        "Tecnica distintiva Spirit Dancer + Reanimated Medium",
-        "Privilegio 2",
-        "Privilegio 3",
-        "Privilegio 4",
-        "Privilegio 5"
+        "Legame arcano (famiglio)",
+        "PF 12 | TS +2/+3/+4 | CA 15",
+        "Scuola di Invocazione — Intensified Spells",
+        "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
       ],
       "equipaggiamento": [
-        "Arma preferita",
-        "Armatura leggera"
+        "Abito da viaggiatore"
       ],
       "inventario": [
-        "Arma preferita",
-        "Armatura leggera",
+        "Abito da viaggiatore",
+        "Bastone ferrato",
         "Kit da avventuriero",
-        "Pozione di cura x2"
+        "Pozione di cura x2",
+        "Spellbook"
       ],
       "spell_levels": [
         {
           "liv": 1,
           "per_day": 4
-        },
-        {
-          "liv": 2,
-          "per_day": 3
         }
       ],
-      "slot_incantesimi": "Liv1:4/Liv2:3",
+      "slot_incantesimi": "1°: 4",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
+        "totale": 15,
+        "armatura": 3,
         "destrezza": 2,
-        "scudo": 1
+        "deflessione": 0,
+        "misc": 0,
+        "scudo": 0
       },
       "iniziativa": 2,
       "velocita": 9,
@@ -155,51 +151,13 @@
         {
           "livello": 1,
           "privilegi": [
-            "Privilegio 1",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Legame arcano (famiglio)",
+            "Scuola di Invocazione — Intensified Spells",
+            "PF 12 | TS +2/+3/+4 | CA 15",
+            "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
           ],
           "talenti": [
-            "Talento di livello 1"
-          ]
-        },
-        {
-          "livello": 2,
-          "privilegi": [
-            "Privilegio 2",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-          ],
-          "talenti": [
-            "Talento di livello 2"
-          ]
-        },
-        {
-          "livello": 3,
-          "privilegi": [
-            "Privilegio 3",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-          ],
-          "talenti": [
-            "Talento di livello 3"
-          ]
-        },
-        {
-          "livello": 4,
-          "privilegi": [
-            "Privilegio 4",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-          ],
-          "talenti": [
-            "Talento di livello 4"
-          ]
-        },
-        {
-          "livello": 5,
-          "privilegi": [
-            "Privilegio 5",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-          ],
-          "talenti": [
-            "Talento di livello 5"
+            "Iniziativa migliorata"
           ]
         }
       ],
@@ -223,13 +181,13 @@
           "rame": 40
         }
       },
-      "razza": "Oread",
+      "razza": "Human",
       "salvezze_breakdown": {
         "Tempra": {
-          "base": 2,
+          "base": 0,
           "modificatore": 2,
           "misc": 0,
-          "totale": 4
+          "totale": 2
         },
         "Riflessi": {
           "base": 1,
@@ -253,7 +211,7 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
+      "AC_tot": 15,
       "CA_touch": 10,
       "CA_ff": 10,
       "BAB": "n/d (BAB non fornito)",
@@ -282,15 +240,14 @@
         }
       ],
       "magia": {
-        "1": 4,
-        "2": 3
+        "1": 4
       },
       "modules": {
         "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
       },
       "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
       "fonti": [
-        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=1&race=Human&archetype=Evoker"
       ],
       "print_mode": false,
       "show_minmax": true,
@@ -305,7 +262,7 @@
       "condizioni": []
     }
   },
-  "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",
+  "narrative": "Human Evoker pronta/o per il campo, specializzata/o in tattiche da Wizard.",
   "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
   "ledger": {
     "movimenti": [
@@ -324,16 +281,16 @@
       "rame": 40
     }
   },
-  "class": "Medium",
+  "class": "Wizard",
   "mode": "extended",
   "composite": {
     "build": {
-      "build_id": "build-030f26e4b7158e4e9aa27eb6",
+      "build_id": "build-3e851dbd61a5667b0135f1a8",
       "build_state": {
-        "class": "Medium",
+        "class": "Wizard",
         "mode": "extended",
-        "race": "Oread",
-        "archetype": "Spirit Dancer + Reanimated Medium",
+        "race": "Human",
+        "archetype": "Evoker",
         "step": 1,
         "step_total": 16,
         "step_labels": {
@@ -378,10 +335,15 @@
           }
         },
         "statistics": {
-          "attacco": "+4",
-          "danni": "1d8+3",
-          "ca": 18
+          "attacco": null,
+          "danni": null,
+          "ca": 15
         },
+        "missing_catalog_entries": [
+          "items:Abito da viaggiatore",
+          "items:Bastone ferrato",
+          "items:Spellbook"
+        ],
         "catalog_version": [
           "2026.04.03"
         ]
@@ -390,10 +352,10 @@
         "sheet_payload": {
           "classi": [
             {
-              "nome": "Medium",
-              "livelli": 5,
+              "nome": "Wizard",
+              "livelli": 1,
               "archetipi": [
-                "Spirit Dancer + Reanimated Medium"
+                "Evoker"
               ]
             }
           ],
@@ -404,80 +366,71 @@
             "INT": 10,
             "SAG": 12,
             "CAR": 8,
-            "attacco": "+4",
-            "danni": "1d8+3",
-            "ca": 18
+            "ca": 15
           },
           "statistiche_chiave": {
-            "attacco": "+4",
-            "danni": "1d8+3",
-            "ca": 18,
-            "CA": 18
+            "attacco": null,
+            "danni": null,
+            "ca": 15,
+            "CA": 15
           },
-          "pf_totali": 32,
+          "pf_totali": 12,
           "hp": {
-            "totali": 32,
+            "totali": 12,
             "per_livello": [
-              32
+              12
             ]
           },
           "salvezze": {
-            "Tempra": 4,
+            "Tempra": 2,
             "Riflessi": 3,
             "Volontà": 4
           },
           "skills_map": {
+            "Conoscenze (arcana)": {
+              "totale": 6
+            },
+            "Sapienza Magica": {
+              "totale": 6
+            },
             "Percezione": {
               "totale": 5
-            },
-            "Acrobazia": {
-              "totale": 4
-            },
-            "Conoscenze": {
-              "totale": 3
             }
           },
-          "skill_points": 25,
+          "skill_points": 5,
           "talenti": [
-            "Colpo possente",
             "Iniziativa migliorata"
           ],
           "capacita_classe": [
-            "Addestramento marziale",
-            "Specializzazione",
-            "Privilegio 1",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium",
-            "Privilegio 2",
-            "Privilegio 3",
-            "Privilegio 4",
-            "Privilegio 5"
+            "Legame arcano (famiglio)",
+            "PF 12 | TS +2/+3/+4 | CA 15",
+            "Scuola di Invocazione — Intensified Spells",
+            "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
           ],
           "equipaggiamento": [
-            "Arma preferita",
-            "Armatura leggera"
+            "Abito da viaggiatore"
           ],
           "inventario": [
-            "Arma preferita",
-            "Armatura leggera",
+            "Abito da viaggiatore",
+            "Bastone ferrato",
             "Kit da avventuriero",
-            "Pozione di cura x2"
+            "Pozione di cura x2",
+            "Spellbook"
           ],
           "spell_levels": [
             {
               "liv": 1,
               "per_day": 4
-            },
-            {
-              "liv": 2,
-              "per_day": 3
             }
           ],
-          "slot_incantesimi": "Liv1:4/Liv2:3",
+          "slot_incantesimi": "1°: 4",
           "ac_breakdown": {
-            "totale": 18,
-            "armatura": 5,
+            "totale": 15,
+            "armatura": 3,
             "destrezza": 2,
-            "scudo": 1
+            "deflessione": 0,
+            "misc": 0,
+            "scudo": 0
           },
           "iniziativa": 2,
           "velocita": 9,
@@ -485,51 +438,13 @@
             {
               "livello": 1,
               "privilegi": [
-                "Privilegio 1",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Legame arcano (famiglio)",
+                "Scuola di Invocazione — Intensified Spells",
+                "PF 12 | TS +2/+3/+4 | CA 15",
+                "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
               ],
               "talenti": [
-                "Talento di livello 1"
-              ]
-            },
-            {
-              "livello": 2,
-              "privilegi": [
-                "Privilegio 2",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-              ],
-              "talenti": [
-                "Talento di livello 2"
-              ]
-            },
-            {
-              "livello": 3,
-              "privilegi": [
-                "Privilegio 3",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-              ],
-              "talenti": [
-                "Talento di livello 3"
-              ]
-            },
-            {
-              "livello": 4,
-              "privilegi": [
-                "Privilegio 4",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-              ],
-              "talenti": [
-                "Talento di livello 4"
-              ]
-            },
-            {
-              "livello": 5,
-              "privilegi": [
-                "Privilegio 5",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-              ],
-              "talenti": [
-                "Talento di livello 5"
+                "Iniziativa migliorata"
               ]
             }
           ],
@@ -553,13 +468,13 @@
               "rame": 40
             }
           },
-          "razza": "Oread",
+          "razza": "Human",
           "salvezze_breakdown": {
             "Tempra": {
-              "base": 2,
+              "base": 0,
               "modificatore": 2,
               "misc": 0,
-              "totale": 4
+              "totale": 2
             },
             "Riflessi": {
               "base": 1,
@@ -583,7 +498,7 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
+          "AC_tot": 15,
           "CA_touch": 10,
           "CA_ff": 10,
           "BAB": "n/d (BAB non fornito)",
@@ -612,15 +527,14 @@
             }
           ],
           "magia": {
-            "1": 4,
-            "2": 3
+            "1": 4
           },
           "modules": {
             "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
           },
           "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
           "fonti": [
-            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=1&race=Human&archetype=Evoker"
           ],
           "print_mode": false,
           "show_minmax": true,
@@ -652,10 +566,10 @@
       "sheet_payload": {
         "classi": [
           {
-            "nome": "Medium",
-            "livelli": 5,
+            "nome": "Wizard",
+            "livelli": 1,
             "archetipi": [
-              "Spirit Dancer + Reanimated Medium"
+              "Evoker"
             ]
           }
         ],
@@ -666,80 +580,71 @@
           "INT": 10,
           "SAG": 12,
           "CAR": 8,
-          "attacco": "+4",
-          "danni": "1d8+3",
-          "ca": 18
+          "ca": 15
         },
         "statistiche_chiave": {
-          "attacco": "+4",
-          "danni": "1d8+3",
-          "ca": 18,
-          "CA": 18
+          "attacco": null,
+          "danni": null,
+          "ca": 15,
+          "CA": 15
         },
-        "pf_totali": 32,
+        "pf_totali": 12,
         "hp": {
-          "totali": 32,
+          "totali": 12,
           "per_livello": [
-            32
+            12
           ]
         },
         "salvezze": {
-          "Tempra": 4,
+          "Tempra": 2,
           "Riflessi": 3,
           "Volontà": 4
         },
         "skills_map": {
+          "Conoscenze (arcana)": {
+            "totale": 6
+          },
+          "Sapienza Magica": {
+            "totale": 6
+          },
           "Percezione": {
             "totale": 5
-          },
-          "Acrobazia": {
-            "totale": 4
-          },
-          "Conoscenze": {
-            "totale": 3
           }
         },
-        "skill_points": 25,
+        "skill_points": 5,
         "talenti": [
-          "Colpo possente",
           "Iniziativa migliorata"
         ],
         "capacita_classe": [
-          "Addestramento marziale",
-          "Specializzazione",
-          "Privilegio 1",
-          "Tecnica distintiva Spirit Dancer + Reanimated Medium",
-          "Privilegio 2",
-          "Privilegio 3",
-          "Privilegio 4",
-          "Privilegio 5"
+          "Legame arcano (famiglio)",
+          "PF 12 | TS +2/+3/+4 | CA 15",
+          "Scuola di Invocazione — Intensified Spells",
+          "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
         ],
         "equipaggiamento": [
-          "Arma preferita",
-          "Armatura leggera"
+          "Abito da viaggiatore"
         ],
         "inventario": [
-          "Arma preferita",
-          "Armatura leggera",
+          "Abito da viaggiatore",
+          "Bastone ferrato",
           "Kit da avventuriero",
-          "Pozione di cura x2"
+          "Pozione di cura x2",
+          "Spellbook"
         ],
         "spell_levels": [
           {
             "liv": 1,
             "per_day": 4
-          },
-          {
-            "liv": 2,
-            "per_day": 3
           }
         ],
-        "slot_incantesimi": "Liv1:4/Liv2:3",
+        "slot_incantesimi": "1°: 4",
         "ac_breakdown": {
-          "totale": 18,
-          "armatura": 5,
+          "totale": 15,
+          "armatura": 3,
           "destrezza": 2,
-          "scudo": 1
+          "deflessione": 0,
+          "misc": 0,
+          "scudo": 0
         },
         "iniziativa": 2,
         "velocita": 9,
@@ -747,51 +652,13 @@
           {
             "livello": 1,
             "privilegi": [
-              "Privilegio 1",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Legame arcano (famiglio)",
+              "Scuola di Invocazione — Intensified Spells",
+              "PF 12 | TS +2/+3/+4 | CA 15",
+              "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
             ],
             "talenti": [
-              "Talento di livello 1"
-            ]
-          },
-          {
-            "livello": 2,
-            "privilegi": [
-              "Privilegio 2",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-            ],
-            "talenti": [
-              "Talento di livello 2"
-            ]
-          },
-          {
-            "livello": 3,
-            "privilegi": [
-              "Privilegio 3",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-            ],
-            "talenti": [
-              "Talento di livello 3"
-            ]
-          },
-          {
-            "livello": 4,
-            "privilegi": [
-              "Privilegio 4",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-            ],
-            "talenti": [
-              "Talento di livello 4"
-            ]
-          },
-          {
-            "livello": 5,
-            "privilegi": [
-              "Privilegio 5",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
-            ],
-            "talenti": [
-              "Talento di livello 5"
+              "Iniziativa migliorata"
             ]
           }
         ],
@@ -815,13 +682,13 @@
             "rame": 40
           }
         },
-        "razza": "Oread",
+        "razza": "Human",
         "salvezze_breakdown": {
           "Tempra": {
-            "base": 2,
+            "base": 0,
             "modificatore": 2,
             "misc": 0,
-            "totale": 4
+            "totale": 2
           },
           "Riflessi": {
             "base": 1,
@@ -845,7 +712,7 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
+        "AC_tot": 15,
         "CA_touch": 10,
         "CA_ff": 10,
         "BAB": "n/d (BAB non fornito)",
@@ -874,15 +741,14 @@
           }
         ],
         "magia": {
-          "1": 4,
-          "2": 3
+          "1": 4
         },
         "modules": {
           "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
         },
         "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
         "fonti": [
-          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=1&race=Human&archetype=Evoker"
         ],
         "print_mode": false,
         "show_minmax": true,
@@ -897,7 +763,7 @@
         "condizioni": []
       }
     },
-    "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",
+    "narrative": "Human Evoker pronta/o per il campo, specializzata/o in tattiche da Wizard.",
     "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
     "ledger": {
       "movimenti": [
@@ -917,24 +783,69 @@
       }
     }
   },
+  "qa": {
+    "catalog": {
+      "warnings": [
+        "Elementi non presenti nel catalogo: items:Abito da viaggiatore, items:Bastone ferrato, items:Spellbook"
+      ]
+    },
+    "ruling_expert": {
+      "badge": "validated",
+      "sources": [
+        "stub"
+      ],
+      "context": {
+        "class": "Wizard",
+        "level": 1,
+        "talenti_chiave": [
+          "Iniziativa migliorata"
+        ],
+        "hr_sources": null,
+        "meta_sources": null,
+        "pfs_mode": null
+      },
+      "raw": {
+        "ruling_badge": "validated",
+        "sources": [
+          "stub"
+        ],
+        "violations": []
+      },
+      "cached": false,
+      "cache_key": null
+    },
+    "checkpoints": {
+      "level": 1,
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
+  },
   "catalog_validation": {
+    "missing_catalog_entries": [
+      "items:Abito da viaggiatore",
+      "items:Bastone ferrato",
+      "items:Spellbook"
+    ],
     "catalog_version": [
       "2026.04.03"
     ]
   },
-  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium",
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=1&race=Human&archetype=Evoker",
   "reference_catalog_version": "2026.04.03",
   "fetched_at": "2025-12-19T18:29:42Z",
   "request": {
-    "class": "Medium",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "class": "Wizard",
+    "race": "Human",
+    "archetype": "Evoker",
     "mode": "extended",
     "mode_normalized": "extended",
-    "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+    "spec_id": "wizard_human_evoker",
     "model": null,
-    "background": "Medium oread che danza con le anime pietrose dei canyon",
-    "level": 5,
+    "background": "Piromane accademico in cerca di antiche pergamene elementali.",
+    "level": 1,
     "level_checkpoints": [
       1,
       5,
@@ -943,11 +854,11 @@
   },
   "query_params": {
     "mode": "extended",
-    "class": "Medium",
+    "class": "Wizard",
     "stub": true,
-    "level": 5,
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium"
+    "level": 1,
+    "race": "Human",
+    "archetype": "Evoker"
   },
   "body_params": {},
   "mode_normalized": "extended",
@@ -990,43 +901,7 @@
   "ruling_sources": [
     "stub"
   ],
-  "qa": {
-    "ruling_expert": {
-      "badge": "validated",
-      "sources": [
-        "stub"
-      ],
-      "context": {
-        "class": "Medium",
-        "level": 5,
-        "talenti_chiave": [
-          "Colpo possente",
-          "Iniziativa migliorata"
-        ],
-        "hr_sources": null,
-        "meta_sources": null,
-        "pfs_mode": null
-      },
-      "raw": {
-        "ruling_badge": "validated",
-        "sources": [
-          "stub"
-        ],
-        "violations": []
-      },
-      "cached": false,
-      "cache_key": null
-    },
-    "checkpoints": {
-      "level": 5,
-      "levels": [
-        1,
-        5,
-        10
-      ]
-    }
-  },
-  "build_id": "build-030f26e4b7158e4e9aa27eb6",
+  "build_id": "build-3e851dbd61a5667b0135f1a8",
   "record_status": "draft",
   "is_deleted": false,
   "deleted_at": null,
@@ -1036,9 +911,9 @@
       "actor": "generate_build_db",
       "action": "harvest",
       "status": "draft",
-      "note": "4 is not of type 'array'; 3 is not of type 'array'",
-      "checkpoint": 5,
-      "source": "medium_oread_spirit_dancer_reanimated_medium"
+      "note": "4 is not of type 'array'",
+      "checkpoint": 1,
+      "source": "wizard_human_evoker"
     }
   ]
 }

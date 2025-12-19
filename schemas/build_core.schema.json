@@ -362,6 +362,41 @@
           },
           "additionalProperties": false
         },
+        "missing_catalog_entries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Voci di catalogo richieste dalla scheda ma assenti dal reference locale"
+        },
+        "ledger_unknown_entries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Elementi nel ledger non riconosciuti dal catalogo di riferimento"
+        },
+        "ledger_sheet_mismatches": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Disallineamenti tra ledger e scheda derivati dal controllo di catalogo"
+        },
+        "prerequisite_violations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Prerequisiti RAW/SRD non soddisfatti per le scelte effettuate"
+        },
+        "catalog_version": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Snapshot del catalogo di riferimento usato durante la validazione"
+        },
         "notes": {
           "type": [
             "string",

@@ -1,0 +1,1553 @@
+{
+  "build_state": {
+    "class": "Wizard",
+    "mode": "extended",
+    "race": "Human",
+    "archetype": "Evoker",
+    "step": 1,
+    "step_total": 16,
+    "step_labels": {
+      "1": "Profilo Base",
+      "2": "Razza & Classe",
+      "3": "Archetipi & Multiclasse",
+      "4": "Feats & Talenti",
+      "5": "Spell & Power Set",
+      "6": "Equip & Risorse",
+      "7": "Benchmark & Simulazioni",
+      "8": "QA & Export",
+      "9": "Dummies Sheet",
+      "10": "Esportazione",
+      "11": "Fork/Varianti",
+      "12": "Comparativa",
+      "13": "Meta Rating",
+      "14": "Companion",
+      "15": "Report",
+      "16": "Chiusura"
+    },
+    "statistics": {
+      "FOR": 16,
+      "DES": 14,
+      "COS": 14,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 8
+    },
+    "step_labels_count": 16
+  },
+  "benchmark": {
+    "meta_tier": "T3",
+    "ruling_badge": "validated",
+    "dpr_snapshot": {
+      "livello_1": {
+        "media": 6,
+        "picco": 9
+      },
+      "livello_5": {
+        "media": 18,
+        "picco": 26
+      }
+    },
+    "statistics": {
+      "attacco": null,
+      "danni": null,
+      "ca": 20
+    },
+    "missing_catalog_entries": [
+      "feats:Incantesimi focalizzati (Invocazione)",
+      "feats:Incantesimi focalizzati superiori (Invocazione)",
+      "feats:Incantesimi massimizzati (metamagia)",
+      "feats:Incantesimi potenziati (metamagia)",
+      "feats:Incantesimi rapidi migliorati",
+      "feats:Magia focalizzata superiore (Invocazione)",
+      "feats:Metamagia (Incantesimi Estesi)",
+      "feats:Penetrare resistenza magica",
+      "feats:Penetrare resistenza magica migliorato",
+      "feats:Talento bonus (Difensivo)",
+      "feats:Talento bonus (Mago) — Incantesimi rapidi",
+      "items:Abito da viaggiatore",
+      "items:Bacchetta di dardo incantato (CL3)",
+      "items:Bacchetta di fulmine (CL9)",
+      "items:Bacchetta di palla di fuoco (CL6)",
+      "items:Bastone ferrato",
+      "items:Mantello resistente +1",
+      "items:Pagina di pergamena",
+      "items:Pergamena di muro di forza",
+      "items:Perla di potere I",
+      "items:Perla di potere IV",
+      "items:Spellbook",
+      "items:Testa di bacco runica",
+      "items:Veste da mago rinforzata"
+    ],
+    "catalog_version": [
+      "2026.04.03"
+    ]
+  },
+  "export": {
+    "sheet_payload": {
+      "classi": [
+        {
+          "nome": "Wizard",
+          "livelli": 10,
+          "archetipi": [
+            "Evoker"
+          ]
+        }
+      ],
+      "statistiche": {
+        "FOR": 16,
+        "DES": 14,
+        "COS": 14,
+        "INT": 10,
+        "SAG": 12,
+        "CAR": 8,
+        "ca": 20
+      },
+      "statistiche_chiave": {
+        "attacco": null,
+        "danni": null,
+        "ca": 20,
+        "CA": 20
+      },
+      "pf_totali": 84,
+      "hp": {
+        "totali": 84,
+        "per_livello": [
+          12,
+          20,
+          28,
+          36,
+          44,
+          52,
+          60,
+          68,
+          76,
+          84
+        ]
+      },
+      "salvezze": {
+        "Tempra": 7,
+        "Riflessi": 8,
+        "Volontà": 13
+      },
+      "skills_map": {
+        "Conoscenze (arcana)": {
+          "totale": 18
+        },
+        "Sapienza Magica": {
+          "totale": 18
+        },
+        "Percezione": {
+          "totale": 11
+        }
+      },
+      "skill_points": 50,
+      "talenti": [
+        "Incantesimi focalizzati (Invocazione)",
+        "Incantesimi focalizzati superiori (Invocazione)",
+        "Incantesimi massimizzati (metamagia)",
+        "Incantesimi potenziati (metamagia)",
+        "Incantesimi rapidi migliorati",
+        "Iniziativa migliorata",
+        "Magia focalizzata superiore (Invocazione)",
+        "Metamagia (Incantesimi Estesi)",
+        "Penetrare resistenza magica",
+        "Penetrare resistenza magica migliorato",
+        "Talento bonus (Difensivo)",
+        "Talento bonus (Mago) — Incantesimi rapidi"
+      ],
+      "capacita_classe": [
+        "Legame arcano (famiglio)",
+        "PF 12 | TS +2/+3/+4 | CA 15",
+        "PF 20 | TS +3/+4/+5 | CA 15",
+        "PF 28 | TS +3/+4/+6 | CA 16",
+        "PF 36 | TS +4/+5/+7 | CA 16",
+        "PF 44 | TS +4/+5/+8 | CA 17",
+        "PF 52 | TS +5/+6/+9 | CA 17",
+        "PF 60 | TS +5/+6/+10 | CA 18",
+        "PF 68 | TS +6/+7/+11 | CA 18",
+        "PF 76 | TS +6/+7/+12 | CA 19",
+        "PF 84 | TS +7/+8/+13 | CA 20",
+        "Potere di scuola (Evoker's Admixture)",
+        "Potere di scuola avanzato (Force Missile)",
+        "Potere di scuola maggiore (elemental mastery)",
+        "Ricerca superiore (arcane discovery)",
+        "Scoperta arcana: specializzazione intensificata",
+        "Scuola di Invocazione — Intensified Spells",
+        "Scuola di opposizione consolidata",
+        "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore",
+        "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1",
+        "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)",
+        "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata",
+        "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1",
+        "Slot 1°:7 / 2°:6 / 3°:6 / 4°:4 | Equip: bacchetta di palla di fuoco (CL6)",
+        "Slot 1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3 | Equip: cintura della destrezza +2",
+        "Slot 1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4 | Equip: pergamena di muro di forza",
+        "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5 | Equip: bacchetta di fulmine (CL9)",
+        "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6 | Equip: perla di potere IV, focus arcani runici",
+        "Talento bonus (metamagia di scuola)",
+        "Talento bonus del mago",
+        "Talento bonus del mago (difesa arcana)"
+      ],
+      "equipaggiamento": [
+        "Abito da viaggiatore",
+        "Anello di protezione +1",
+        "Bacchetta di dardo incantato (CL3)",
+        "Bacchetta di fulmine (CL9)",
+        "Bacchetta di palla di fuoco (CL6)",
+        "Bastone ferrato",
+        "Cintura della destrezza +2",
+        "Mantello resistente +1",
+        "Pagina di pergamena",
+        "Pergamena di muro di forza"
+      ],
+      "inventario": [
+        "Abito da viaggiatore",
+        "Anello di protezione +1",
+        "Bacchetta di dardo incantato (CL3)",
+        "Bacchetta di fulmine (CL9)",
+        "Bacchetta di palla di fuoco (CL6)",
+        "Bastone ferrato",
+        "Cintura della destrezza +2",
+        "Kit da avventuriero",
+        "Mantello resistente +1",
+        "Pagina di pergamena",
+        "Pergamena di muro di forza",
+        "Perla di potere I",
+        "Perla di potere IV",
+        "Pozione di cura x2",
+        "Spellbook",
+        "Testa di bacco runica",
+        "Veste da mago rinforzata"
+      ],
+      "spell_levels": [
+        {
+          "liv": 1,
+          "per_day": 8
+        },
+        {
+          "liv": 2,
+          "per_day": 7
+        },
+        {
+          "liv": 3,
+          "per_day": 7
+        },
+        {
+          "liv": 4,
+          "per_day": 7
+        },
+        {
+          "liv": 5,
+          "per_day": 6
+        }
+      ],
+      "slot_incantesimi": "1°: 8 / 2°: 7 / 3°: 7 / 4°: 7 / 5°: 6",
+      "ac_breakdown": {
+        "totale": 20,
+        "armatura": 3,
+        "destrezza": 3,
+        "deflessione": 2,
+        "misc": 2,
+        "scudo": 0
+      },
+      "iniziativa": 2,
+      "velocita": 9,
+      "progressione": [
+        {
+          "livello": 1,
+          "privilegi": [
+            "Legame arcano (famiglio)",
+            "Scuola di Invocazione — Intensified Spells",
+            "PF 12 | TS +2/+3/+4 | CA 15",
+            "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
+          ],
+          "talenti": [
+            "Iniziativa migliorata"
+          ]
+        },
+        {
+          "livello": 2,
+          "privilegi": [
+            "Potere di scuola (Evoker's Admixture)",
+            "PF 20 | TS +3/+4/+5 | CA 15",
+            "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1"
+          ],
+          "talenti": [
+            "Metamagia (Incantesimi Estesi)"
+          ]
+        },
+        {
+          "livello": 3,
+          "privilegi": [
+            "Talento bonus del mago",
+            "PF 28 | TS +3/+4/+6 | CA 16",
+            "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)"
+          ],
+          "talenti": [
+            "Incantesimi focalizzati (Invocazione)"
+          ]
+        },
+        {
+          "livello": 4,
+          "privilegi": [
+            "Scoperta arcana: specializzazione intensificata",
+            "PF 36 | TS +4/+5/+7 | CA 16",
+            "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata"
+          ],
+          "talenti": [
+            "Magia focalizzata superiore (Invocazione)"
+          ]
+        },
+        {
+          "livello": 5,
+          "privilegi": [
+            "Scuola di opposizione consolidata",
+            "PF 44 | TS +4/+5/+8 | CA 17",
+            "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1"
+          ],
+          "talenti": [
+            "Incantesimi massimizzati (metamagia)"
+          ]
+        },
+        {
+          "livello": 6,
+          "privilegi": [
+            "Potere di scuola avanzato (Force Missile)",
+            "PF 52 | TS +5/+6/+9 | CA 17",
+            "Slot 1°:7 / 2°:6 / 3°:6 / 4°:4 | Equip: bacchetta di palla di fuoco (CL6)"
+          ],
+          "talenti": [
+            "Talento bonus (Mago) — Incantesimi rapidi"
+          ]
+        },
+        {
+          "livello": 7,
+          "privilegi": [
+            "Talento bonus del mago (difesa arcana)",
+            "PF 60 | TS +5/+6/+10 | CA 18",
+            "Slot 1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3 | Equip: cintura della destrezza +2"
+          ],
+          "talenti": [
+            "Incantesimi focalizzati superiori (Invocazione)",
+            "Talento bonus (Difensivo)"
+          ]
+        },
+        {
+          "livello": 8,
+          "privilegi": [
+            "Ricerca superiore (arcane discovery)",
+            "PF 68 | TS +6/+7/+11 | CA 18",
+            "Slot 1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4 | Equip: pergamena di muro di forza"
+          ],
+          "talenti": [
+            "Penetrare resistenza magica"
+          ]
+        },
+        {
+          "livello": 9,
+          "privilegi": [
+            "Talento bonus (metamagia di scuola)",
+            "PF 76 | TS +6/+7/+12 | CA 19",
+            "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5 | Equip: bacchetta di fulmine (CL9)"
+          ],
+          "talenti": [
+            "Incantesimi rapidi migliorati"
+          ]
+        },
+        {
+          "livello": 10,
+          "privilegi": [
+            "Potere di scuola maggiore (elemental mastery)",
+            "PF 84 | TS +7/+8/+13 | CA 20",
+            "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6 | Equip: perla di potere IV, focus arcani runici"
+          ],
+          "talenti": [
+            "Incantesimi potenziati (metamagia)",
+            "Penetrare resistenza magica migliorato"
+          ]
+        }
+      ],
+      "benchmarks": {
+        "meta_tier": "T3"
+      },
+      "ledger": {
+        "movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 250
+          }
+        ],
+        "currency": {
+          "oro": 100,
+          "argento": 25,
+          "rame": 40
+        }
+      },
+      "razza": "Human",
+      "salvezze_breakdown": {
+        "Tempra": {
+          "base": 5,
+          "modificatore": 2,
+          "misc": 0,
+          "totale": 7
+        },
+        "Riflessi": {
+          "base": 6,
+          "modificatore": 2,
+          "misc": 0,
+          "totale": 8
+        },
+        "Volontà": {
+          "base": 12,
+          "modificatore": 1,
+          "misc": 0,
+          "totale": 13
+        }
+      },
+      "pf_per_livello": "n/d (PF per livello non fornito)",
+      "AC_arm": 0,
+      "AC_scudo": 0,
+      "AC_des": 0,
+      "AC_defl": 0,
+      "AC_nat": 0,
+      "AC_dodge": 0,
+      "AC_misc": 0,
+      "AC_base": 10,
+      "AC_tot": 20,
+      "CA_touch": 10,
+      "CA_ff": 10,
+      "BAB": "n/d (BAB non fornito)",
+      "init": 2,
+      "CMB": "n/d (CMB non fornito)",
+      "cmb_disarm": "n/d (cmb disarm non fornito)",
+      "cmb_trip": "n/d (cmb trip non fornito)",
+      "cmb_grapple": "n/d (cmb grapple non fornito)",
+      "speed": 9,
+      "currency": {
+        "gp": 100,
+        "sp": 25,
+        "cp": 40
+      },
+      "gp": 100,
+      "sp": 25,
+      "cp": 40,
+      "ledger_movimenti": [
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 250
+        }
+      ],
+      "magia": {
+        "1": 8,
+        "2": 7,
+        "3": 7,
+        "4": 7,
+        "5": 6
+      },
+      "modules": {
+        "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
+      },
+      "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+      "fonti": [
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=10&race=Human&archetype=Evoker"
+      ],
+      "print_mode": false,
+      "show_minmax": true,
+      "show_vtt": true,
+      "show_qa": true,
+      "show_explain": true,
+      "show_ledger": true,
+      "decimal_comma": true,
+      "skills": [],
+      "lingue": [],
+      "sensi": [],
+      "condizioni": []
+    }
+  },
+  "narrative": "Human Evoker pronta/o per il campo, specializzata/o in tattiche da Wizard.",
+  "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+  "ledger": {
+    "movimenti": [
+      {
+        "voce": "Equipaggiamento iniziale",
+        "importo": -150
+      },
+      {
+        "voce": "Ricompensa missione",
+        "importo": 250
+      }
+    ],
+    "currency": {
+      "oro": 100,
+      "argento": 25,
+      "rame": 40
+    }
+  },
+  "class": "Wizard",
+  "mode": "extended",
+  "composite": {
+    "build": {
+      "build_id": "build-0be36f9157ffe53ce0f0ac7b",
+      "build_state": {
+        "class": "Wizard",
+        "mode": "extended",
+        "race": "Human",
+        "archetype": "Evoker",
+        "step": 1,
+        "step_total": 16,
+        "step_labels": {
+          "1": "Profilo Base",
+          "2": "Razza & Classe",
+          "3": "Archetipi & Multiclasse",
+          "4": "Feats & Talenti",
+          "5": "Spell & Power Set",
+          "6": "Equip & Risorse",
+          "7": "Benchmark & Simulazioni",
+          "8": "QA & Export",
+          "9": "Dummies Sheet",
+          "10": "Esportazione",
+          "11": "Fork/Varianti",
+          "12": "Comparativa",
+          "13": "Meta Rating",
+          "14": "Companion",
+          "15": "Report",
+          "16": "Chiusura"
+        },
+        "statistics": {
+          "FOR": 16,
+          "DES": 14,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8
+        },
+        "step_labels_count": 16
+      },
+      "benchmark": {
+        "meta_tier": "T3",
+        "ruling_badge": "validated",
+        "dpr_snapshot": {
+          "livello_1": {
+            "media": 6,
+            "picco": 9
+          },
+          "livello_5": {
+            "media": 18,
+            "picco": 26
+          }
+        },
+        "statistics": {
+          "attacco": null,
+          "danni": null,
+          "ca": 20
+        },
+        "missing_catalog_entries": [
+          "feats:Incantesimi focalizzati (Invocazione)",
+          "feats:Incantesimi focalizzati superiori (Invocazione)",
+          "feats:Incantesimi massimizzati (metamagia)",
+          "feats:Incantesimi potenziati (metamagia)",
+          "feats:Incantesimi rapidi migliorati",
+          "feats:Magia focalizzata superiore (Invocazione)",
+          "feats:Metamagia (Incantesimi Estesi)",
+          "feats:Penetrare resistenza magica",
+          "feats:Penetrare resistenza magica migliorato",
+          "feats:Talento bonus (Difensivo)",
+          "feats:Talento bonus (Mago) — Incantesimi rapidi",
+          "items:Abito da viaggiatore",
+          "items:Bacchetta di dardo incantato (CL3)",
+          "items:Bacchetta di fulmine (CL9)",
+          "items:Bacchetta di palla di fuoco (CL6)",
+          "items:Bastone ferrato",
+          "items:Mantello resistente +1",
+          "items:Pagina di pergamena",
+          "items:Pergamena di muro di forza",
+          "items:Perla di potere I",
+          "items:Perla di potere IV",
+          "items:Spellbook",
+          "items:Testa di bacco runica",
+          "items:Veste da mago rinforzata"
+        ],
+        "catalog_version": [
+          "2026.04.03"
+        ]
+      },
+      "export": {
+        "sheet_payload": {
+          "classi": [
+            {
+              "nome": "Wizard",
+              "livelli": 10,
+              "archetipi": [
+                "Evoker"
+              ]
+            }
+          ],
+          "statistiche": {
+            "FOR": 16,
+            "DES": 14,
+            "COS": 14,
+            "INT": 10,
+            "SAG": 12,
+            "CAR": 8,
+            "ca": 20
+          },
+          "statistiche_chiave": {
+            "attacco": null,
+            "danni": null,
+            "ca": 20,
+            "CA": 20
+          },
+          "pf_totali": 84,
+          "hp": {
+            "totali": 84,
+            "per_livello": [
+              12,
+              20,
+              28,
+              36,
+              44,
+              52,
+              60,
+              68,
+              76,
+              84
+            ]
+          },
+          "salvezze": {
+            "Tempra": 7,
+            "Riflessi": 8,
+            "Volontà": 13
+          },
+          "skills_map": {
+            "Conoscenze (arcana)": {
+              "totale": 18
+            },
+            "Sapienza Magica": {
+              "totale": 18
+            },
+            "Percezione": {
+              "totale": 11
+            }
+          },
+          "skill_points": 50,
+          "talenti": [
+            "Incantesimi focalizzati (Invocazione)",
+            "Incantesimi focalizzati superiori (Invocazione)",
+            "Incantesimi massimizzati (metamagia)",
+            "Incantesimi potenziati (metamagia)",
+            "Incantesimi rapidi migliorati",
+            "Iniziativa migliorata",
+            "Magia focalizzata superiore (Invocazione)",
+            "Metamagia (Incantesimi Estesi)",
+            "Penetrare resistenza magica",
+            "Penetrare resistenza magica migliorato",
+            "Talento bonus (Difensivo)",
+            "Talento bonus (Mago) — Incantesimi rapidi"
+          ],
+          "capacita_classe": [
+            "Legame arcano (famiglio)",
+            "PF 12 | TS +2/+3/+4 | CA 15",
+            "PF 20 | TS +3/+4/+5 | CA 15",
+            "PF 28 | TS +3/+4/+6 | CA 16",
+            "PF 36 | TS +4/+5/+7 | CA 16",
+            "PF 44 | TS +4/+5/+8 | CA 17",
+            "PF 52 | TS +5/+6/+9 | CA 17",
+            "PF 60 | TS +5/+6/+10 | CA 18",
+            "PF 68 | TS +6/+7/+11 | CA 18",
+            "PF 76 | TS +6/+7/+12 | CA 19",
+            "PF 84 | TS +7/+8/+13 | CA 20",
+            "Potere di scuola (Evoker's Admixture)",
+            "Potere di scuola avanzato (Force Missile)",
+            "Potere di scuola maggiore (elemental mastery)",
+            "Ricerca superiore (arcane discovery)",
+            "Scoperta arcana: specializzazione intensificata",
+            "Scuola di Invocazione — Intensified Spells",
+            "Scuola di opposizione consolidata",
+            "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore",
+            "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1",
+            "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)",
+            "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata",
+            "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1",
+            "Slot 1°:7 / 2°:6 / 3°:6 / 4°:4 | Equip: bacchetta di palla di fuoco (CL6)",
+            "Slot 1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3 | Equip: cintura della destrezza +2",
+            "Slot 1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4 | Equip: pergamena di muro di forza",
+            "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5 | Equip: bacchetta di fulmine (CL9)",
+            "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6 | Equip: perla di potere IV, focus arcani runici",
+            "Talento bonus (metamagia di scuola)",
+            "Talento bonus del mago",
+            "Talento bonus del mago (difesa arcana)"
+          ],
+          "equipaggiamento": [
+            "Abito da viaggiatore",
+            "Anello di protezione +1",
+            "Bacchetta di dardo incantato (CL3)",
+            "Bacchetta di fulmine (CL9)",
+            "Bacchetta di palla di fuoco (CL6)",
+            "Bastone ferrato",
+            "Cintura della destrezza +2",
+            "Mantello resistente +1",
+            "Pagina di pergamena",
+            "Pergamena di muro di forza"
+          ],
+          "inventario": [
+            "Abito da viaggiatore",
+            "Anello di protezione +1",
+            "Bacchetta di dardo incantato (CL3)",
+            "Bacchetta di fulmine (CL9)",
+            "Bacchetta di palla di fuoco (CL6)",
+            "Bastone ferrato",
+            "Cintura della destrezza +2",
+            "Kit da avventuriero",
+            "Mantello resistente +1",
+            "Pagina di pergamena",
+            "Pergamena di muro di forza",
+            "Perla di potere I",
+            "Perla di potere IV",
+            "Pozione di cura x2",
+            "Spellbook",
+            "Testa di bacco runica",
+            "Veste da mago rinforzata"
+          ],
+          "spell_levels": [
+            {
+              "liv": 1,
+              "per_day": 8
+            },
+            {
+              "liv": 2,
+              "per_day": 7
+            },
+            {
+              "liv": 3,
+              "per_day": 7
+            },
+            {
+              "liv": 4,
+              "per_day": 7
+            },
+            {
+              "liv": 5,
+              "per_day": 6
+            }
+          ],
+          "slot_incantesimi": "1°: 8 / 2°: 7 / 3°: 7 / 4°: 7 / 5°: 6",
+          "ac_breakdown": {
+            "totale": 20,
+            "armatura": 3,
+            "destrezza": 3,
+            "deflessione": 2,
+            "misc": 2,
+            "scudo": 0
+          },
+          "iniziativa": 2,
+          "velocita": 9,
+          "progressione": [
+            {
+              "livello": 1,
+              "privilegi": [
+                "Legame arcano (famiglio)",
+                "Scuola di Invocazione — Intensified Spells",
+                "PF 12 | TS +2/+3/+4 | CA 15",
+                "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
+              ],
+              "talenti": [
+                "Iniziativa migliorata"
+              ]
+            },
+            {
+              "livello": 2,
+              "privilegi": [
+                "Potere di scuola (Evoker's Admixture)",
+                "PF 20 | TS +3/+4/+5 | CA 15",
+                "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1"
+              ],
+              "talenti": [
+                "Metamagia (Incantesimi Estesi)"
+              ]
+            },
+            {
+              "livello": 3,
+              "privilegi": [
+                "Talento bonus del mago",
+                "PF 28 | TS +3/+4/+6 | CA 16",
+                "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)"
+              ],
+              "talenti": [
+                "Incantesimi focalizzati (Invocazione)"
+              ]
+            },
+            {
+              "livello": 4,
+              "privilegi": [
+                "Scoperta arcana: specializzazione intensificata",
+                "PF 36 | TS +4/+5/+7 | CA 16",
+                "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata"
+              ],
+              "talenti": [
+                "Magia focalizzata superiore (Invocazione)"
+              ]
+            },
+            {
+              "livello": 5,
+              "privilegi": [
+                "Scuola di opposizione consolidata",
+                "PF 44 | TS +4/+5/+8 | CA 17",
+                "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1"
+              ],
+              "talenti": [
+                "Incantesimi massimizzati (metamagia)"
+              ]
+            },
+            {
+              "livello": 6,
+              "privilegi": [
+                "Potere di scuola avanzato (Force Missile)",
+                "PF 52 | TS +5/+6/+9 | CA 17",
+                "Slot 1°:7 / 2°:6 / 3°:6 / 4°:4 | Equip: bacchetta di palla di fuoco (CL6)"
+              ],
+              "talenti": [
+                "Talento bonus (Mago) — Incantesimi rapidi"
+              ]
+            },
+            {
+              "livello": 7,
+              "privilegi": [
+                "Talento bonus del mago (difesa arcana)",
+                "PF 60 | TS +5/+6/+10 | CA 18",
+                "Slot 1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3 | Equip: cintura della destrezza +2"
+              ],
+              "talenti": [
+                "Incantesimi focalizzati superiori (Invocazione)",
+                "Talento bonus (Difensivo)"
+              ]
+            },
+            {
+              "livello": 8,
+              "privilegi": [
+                "Ricerca superiore (arcane discovery)",
+                "PF 68 | TS +6/+7/+11 | CA 18",
+                "Slot 1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4 | Equip: pergamena di muro di forza"
+              ],
+              "talenti": [
+                "Penetrare resistenza magica"
+              ]
+            },
+            {
+              "livello": 9,
+              "privilegi": [
+                "Talento bonus (metamagia di scuola)",
+                "PF 76 | TS +6/+7/+12 | CA 19",
+                "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5 | Equip: bacchetta di fulmine (CL9)"
+              ],
+              "talenti": [
+                "Incantesimi rapidi migliorati"
+              ]
+            },
+            {
+              "livello": 10,
+              "privilegi": [
+                "Potere di scuola maggiore (elemental mastery)",
+                "PF 84 | TS +7/+8/+13 | CA 20",
+                "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6 | Equip: perla di potere IV, focus arcani runici"
+              ],
+              "talenti": [
+                "Incantesimi potenziati (metamagia)",
+                "Penetrare resistenza magica migliorato"
+              ]
+            }
+          ],
+          "benchmarks": {
+            "meta_tier": "T3"
+          },
+          "ledger": {
+            "movimenti": [
+              {
+                "voce": "Equipaggiamento iniziale",
+                "importo": -150
+              },
+              {
+                "voce": "Ricompensa missione",
+                "importo": 250
+              }
+            ],
+            "currency": {
+              "oro": 100,
+              "argento": 25,
+              "rame": 40
+            }
+          },
+          "razza": "Human",
+          "salvezze_breakdown": {
+            "Tempra": {
+              "base": 5,
+              "modificatore": 2,
+              "misc": 0,
+              "totale": 7
+            },
+            "Riflessi": {
+              "base": 6,
+              "modificatore": 2,
+              "misc": 0,
+              "totale": 8
+            },
+            "Volontà": {
+              "base": 12,
+              "modificatore": 1,
+              "misc": 0,
+              "totale": 13
+            }
+          },
+          "pf_per_livello": "n/d (PF per livello non fornito)",
+          "AC_arm": 0,
+          "AC_scudo": 0,
+          "AC_des": 0,
+          "AC_defl": 0,
+          "AC_nat": 0,
+          "AC_dodge": 0,
+          "AC_misc": 0,
+          "AC_base": 10,
+          "AC_tot": 20,
+          "CA_touch": 10,
+          "CA_ff": 10,
+          "BAB": "n/d (BAB non fornito)",
+          "init": 2,
+          "CMB": "n/d (CMB non fornito)",
+          "cmb_disarm": "n/d (cmb disarm non fornito)",
+          "cmb_trip": "n/d (cmb trip non fornito)",
+          "cmb_grapple": "n/d (cmb grapple non fornito)",
+          "speed": 9,
+          "currency": {
+            "gp": 100,
+            "sp": 25,
+            "cp": 40
+          },
+          "gp": 100,
+          "sp": 25,
+          "cp": 40,
+          "ledger_movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 250
+            }
+          ],
+          "magia": {
+            "1": 8,
+            "2": 7,
+            "3": 7,
+            "4": 7,
+            "5": 6
+          },
+          "modules": {
+            "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
+          },
+          "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+          "fonti": [
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=10&race=Human&archetype=Evoker"
+          ],
+          "print_mode": false,
+          "show_minmax": true,
+          "show_vtt": true,
+          "show_qa": true,
+          "show_explain": true,
+          "show_ledger": true,
+          "decimal_comma": true,
+          "skills": [],
+          "lingue": [],
+          "sensi": [],
+          "condizioni": []
+        }
+      },
+      "reference_catalog_version": "2026.04.03",
+      "step_audit": {
+        "normalized_mode": "extended",
+        "expected_step_total": 16,
+        "observed_step_total": 16,
+        "step_total_ok": true,
+        "step_labels_count": 16,
+        "has_extended_steps": true,
+        "request_timestamp": "2025-12-19T18:29:42Z",
+        "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+        "outcome": "accepted",
+        "attempt_count": 1,
+        "backoff_reason": null
+      },
+      "sheet_payload": {
+        "classi": [
+          {
+            "nome": "Wizard",
+            "livelli": 10,
+            "archetipi": [
+              "Evoker"
+            ]
+          }
+        ],
+        "statistiche": {
+          "FOR": 16,
+          "DES": 14,
+          "COS": 14,
+          "INT": 10,
+          "SAG": 12,
+          "CAR": 8,
+          "ca": 20
+        },
+        "statistiche_chiave": {
+          "attacco": null,
+          "danni": null,
+          "ca": 20,
+          "CA": 20
+        },
+        "pf_totali": 84,
+        "hp": {
+          "totali": 84,
+          "per_livello": [
+            12,
+            20,
+            28,
+            36,
+            44,
+            52,
+            60,
+            68,
+            76,
+            84
+          ]
+        },
+        "salvezze": {
+          "Tempra": 7,
+          "Riflessi": 8,
+          "Volontà": 13
+        },
+        "skills_map": {
+          "Conoscenze (arcana)": {
+            "totale": 18
+          },
+          "Sapienza Magica": {
+            "totale": 18
+          },
+          "Percezione": {
+            "totale": 11
+          }
+        },
+        "skill_points": 50,
+        "talenti": [
+          "Incantesimi focalizzati (Invocazione)",
+          "Incantesimi focalizzati superiori (Invocazione)",
+          "Incantesimi massimizzati (metamagia)",
+          "Incantesimi potenziati (metamagia)",
+          "Incantesimi rapidi migliorati",
+          "Iniziativa migliorata",
+          "Magia focalizzata superiore (Invocazione)",
+          "Metamagia (Incantesimi Estesi)",
+          "Penetrare resistenza magica",
+          "Penetrare resistenza magica migliorato",
+          "Talento bonus (Difensivo)",
+          "Talento bonus (Mago) — Incantesimi rapidi"
+        ],
+        "capacita_classe": [
+          "Legame arcano (famiglio)",
+          "PF 12 | TS +2/+3/+4 | CA 15",
+          "PF 20 | TS +3/+4/+5 | CA 15",
+          "PF 28 | TS +3/+4/+6 | CA 16",
+          "PF 36 | TS +4/+5/+7 | CA 16",
+          "PF 44 | TS +4/+5/+8 | CA 17",
+          "PF 52 | TS +5/+6/+9 | CA 17",
+          "PF 60 | TS +5/+6/+10 | CA 18",
+          "PF 68 | TS +6/+7/+11 | CA 18",
+          "PF 76 | TS +6/+7/+12 | CA 19",
+          "PF 84 | TS +7/+8/+13 | CA 20",
+          "Potere di scuola (Evoker's Admixture)",
+          "Potere di scuola avanzato (Force Missile)",
+          "Potere di scuola maggiore (elemental mastery)",
+          "Ricerca superiore (arcane discovery)",
+          "Scoperta arcana: specializzazione intensificata",
+          "Scuola di Invocazione — Intensified Spells",
+          "Scuola di opposizione consolidata",
+          "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore",
+          "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1",
+          "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)",
+          "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata",
+          "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1",
+          "Slot 1°:7 / 2°:6 / 3°:6 / 4°:4 | Equip: bacchetta di palla di fuoco (CL6)",
+          "Slot 1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3 | Equip: cintura della destrezza +2",
+          "Slot 1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4 | Equip: pergamena di muro di forza",
+          "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5 | Equip: bacchetta di fulmine (CL9)",
+          "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6 | Equip: perla di potere IV, focus arcani runici",
+          "Talento bonus (metamagia di scuola)",
+          "Talento bonus del mago",
+          "Talento bonus del mago (difesa arcana)"
+        ],
+        "equipaggiamento": [
+          "Abito da viaggiatore",
+          "Anello di protezione +1",
+          "Bacchetta di dardo incantato (CL3)",
+          "Bacchetta di fulmine (CL9)",
+          "Bacchetta di palla di fuoco (CL6)",
+          "Bastone ferrato",
+          "Cintura della destrezza +2",
+          "Mantello resistente +1",
+          "Pagina di pergamena",
+          "Pergamena di muro di forza"
+        ],
+        "inventario": [
+          "Abito da viaggiatore",
+          "Anello di protezione +1",
+          "Bacchetta di dardo incantato (CL3)",
+          "Bacchetta di fulmine (CL9)",
+          "Bacchetta di palla di fuoco (CL6)",
+          "Bastone ferrato",
+          "Cintura della destrezza +2",
+          "Kit da avventuriero",
+          "Mantello resistente +1",
+          "Pagina di pergamena",
+          "Pergamena di muro di forza",
+          "Perla di potere I",
+          "Perla di potere IV",
+          "Pozione di cura x2",
+          "Spellbook",
+          "Testa di bacco runica",
+          "Veste da mago rinforzata"
+        ],
+        "spell_levels": [
+          {
+            "liv": 1,
+            "per_day": 8
+          },
+          {
+            "liv": 2,
+            "per_day": 7
+          },
+          {
+            "liv": 3,
+            "per_day": 7
+          },
+          {
+            "liv": 4,
+            "per_day": 7
+          },
+          {
+            "liv": 5,
+            "per_day": 6
+          }
+        ],
+        "slot_incantesimi": "1°: 8 / 2°: 7 / 3°: 7 / 4°: 7 / 5°: 6",
+        "ac_breakdown": {
+          "totale": 20,
+          "armatura": 3,
+          "destrezza": 3,
+          "deflessione": 2,
+          "misc": 2,
+          "scudo": 0
+        },
+        "iniziativa": 2,
+        "velocita": 9,
+        "progressione": [
+          {
+            "livello": 1,
+            "privilegi": [
+              "Legame arcano (famiglio)",
+              "Scuola di Invocazione — Intensified Spells",
+              "PF 12 | TS +2/+3/+4 | CA 15",
+              "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
+            ],
+            "talenti": [
+              "Iniziativa migliorata"
+            ]
+          },
+          {
+            "livello": 2,
+            "privilegi": [
+              "Potere di scuola (Evoker's Admixture)",
+              "PF 20 | TS +3/+4/+5 | CA 15",
+              "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1"
+            ],
+            "talenti": [
+              "Metamagia (Incantesimi Estesi)"
+            ]
+          },
+          {
+            "livello": 3,
+            "privilegi": [
+              "Talento bonus del mago",
+              "PF 28 | TS +3/+4/+6 | CA 16",
+              "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)"
+            ],
+            "talenti": [
+              "Incantesimi focalizzati (Invocazione)"
+            ]
+          },
+          {
+            "livello": 4,
+            "privilegi": [
+              "Scoperta arcana: specializzazione intensificata",
+              "PF 36 | TS +4/+5/+7 | CA 16",
+              "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata"
+            ],
+            "talenti": [
+              "Magia focalizzata superiore (Invocazione)"
+            ]
+          },
+          {
+            "livello": 5,
+            "privilegi": [
+              "Scuola di opposizione consolidata",
+              "PF 44 | TS +4/+5/+8 | CA 17",
+              "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1"
+            ],
+            "talenti": [
+              "Incantesimi massimizzati (metamagia)"
+            ]
+          },
+          {
+            "livello": 6,
+            "privilegi": [
+              "Potere di scuola avanzato (Force Missile)",
+              "PF 52 | TS +5/+6/+9 | CA 17",
+              "Slot 1°:7 / 2°:6 / 3°:6 / 4°:4 | Equip: bacchetta di palla di fuoco (CL6)"
+            ],
+            "talenti": [
+              "Talento bonus (Mago) — Incantesimi rapidi"
+            ]
+          },
+          {
+            "livello": 7,
+            "privilegi": [
+              "Talento bonus del mago (difesa arcana)",
+              "PF 60 | TS +5/+6/+10 | CA 18",
+              "Slot 1°:8 / 2°:7 / 3°:7 / 4°:5 / 5°:3 | Equip: cintura della destrezza +2"
+            ],
+            "talenti": [
+              "Incantesimi focalizzati superiori (Invocazione)",
+              "Talento bonus (Difensivo)"
+            ]
+          },
+          {
+            "livello": 8,
+            "privilegi": [
+              "Ricerca superiore (arcane discovery)",
+              "PF 68 | TS +6/+7/+11 | CA 18",
+              "Slot 1°:8 / 2°:7 / 3°:7 / 4°:6 / 5°:4 | Equip: pergamena di muro di forza"
+            ],
+            "talenti": [
+              "Penetrare resistenza magica"
+            ]
+          },
+          {
+            "livello": 9,
+            "privilegi": [
+              "Talento bonus (metamagia di scuola)",
+              "PF 76 | TS +6/+7/+12 | CA 19",
+              "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:5 | Equip: bacchetta di fulmine (CL9)"
+            ],
+            "talenti": [
+              "Incantesimi rapidi migliorati"
+            ]
+          },
+          {
+            "livello": 10,
+            "privilegi": [
+              "Potere di scuola maggiore (elemental mastery)",
+              "PF 84 | TS +7/+8/+13 | CA 20",
+              "Slot 1°:8 / 2°:7 / 3°:7 / 4°:7 / 5°:6 | Equip: perla di potere IV, focus arcani runici"
+            ],
+            "talenti": [
+              "Incantesimi potenziati (metamagia)",
+              "Penetrare resistenza magica migliorato"
+            ]
+          }
+        ],
+        "benchmarks": {
+          "meta_tier": "T3"
+        },
+        "ledger": {
+          "movimenti": [
+            {
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
+            },
+            {
+              "voce": "Ricompensa missione",
+              "importo": 250
+            }
+          ],
+          "currency": {
+            "oro": 100,
+            "argento": 25,
+            "rame": 40
+          }
+        },
+        "razza": "Human",
+        "salvezze_breakdown": {
+          "Tempra": {
+            "base": 5,
+            "modificatore": 2,
+            "misc": 0,
+            "totale": 7
+          },
+          "Riflessi": {
+            "base": 6,
+            "modificatore": 2,
+            "misc": 0,
+            "totale": 8
+          },
+          "Volontà": {
+            "base": 12,
+            "modificatore": 1,
+            "misc": 0,
+            "totale": 13
+          }
+        },
+        "pf_per_livello": "n/d (PF per livello non fornito)",
+        "AC_arm": 0,
+        "AC_scudo": 0,
+        "AC_des": 0,
+        "AC_defl": 0,
+        "AC_nat": 0,
+        "AC_dodge": 0,
+        "AC_misc": 0,
+        "AC_base": 10,
+        "AC_tot": 20,
+        "CA_touch": 10,
+        "CA_ff": 10,
+        "BAB": "n/d (BAB non fornito)",
+        "init": 2,
+        "CMB": "n/d (CMB non fornito)",
+        "cmb_disarm": "n/d (cmb disarm non fornito)",
+        "cmb_trip": "n/d (cmb trip non fornito)",
+        "cmb_grapple": "n/d (cmb grapple non fornito)",
+        "speed": 9,
+        "currency": {
+          "gp": 100,
+          "sp": 25,
+          "cp": 40
+        },
+        "gp": 100,
+        "sp": 25,
+        "cp": 40,
+        "ledger_movimenti": [
+          {
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
+          },
+          {
+            "voce": "Ricompensa missione",
+            "importo": 250
+          }
+        ],
+        "magia": {
+          "1": 8,
+          "2": 7,
+          "3": 7,
+          "4": 7,
+          "5": 6
+        },
+        "modules": {
+          "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
+        },
+        "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+        "fonti": [
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=10&race=Human&archetype=Evoker"
+        ],
+        "print_mode": false,
+        "show_minmax": true,
+        "show_vtt": true,
+        "show_qa": true,
+        "show_explain": true,
+        "show_ledger": true,
+        "decimal_comma": true,
+        "skills": [],
+        "lingue": [],
+        "sensi": [],
+        "condizioni": []
+      }
+    },
+    "narrative": "Human Evoker pronta/o per il campo, specializzata/o in tattiche da Wizard.",
+    "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+    "ledger": {
+      "movimenti": [
+        {
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
+        },
+        {
+          "voce": "Ricompensa missione",
+          "importo": 250
+        }
+      ],
+      "currency": {
+        "oro": 100,
+        "argento": 25,
+        "rame": 40
+      }
+    }
+  },
+  "qa": {
+    "catalog": {
+      "warnings": [
+        "Elementi non presenti nel catalogo: feats:Incantesimi focalizzati (Invocazione), feats:Incantesimi focalizzati superiori (Invocazione), feats:Incantesimi massimizzati (metamagia), feats:Incantesimi potenziati (metamagia), feats:Incantesimi rapidi migliorati, feats:Magia focalizzata superiore (Invocazione), feats:Metamagia (Incantesimi Estesi), feats:Penetrare resistenza magica, feats:Penetrare resistenza magica migliorato, feats:Talento bonus (Difensivo), feats:Talento bonus (Mago) — Incantesimi rapidi, items:Abito da viaggiatore, items:Bacchetta di dardo incantato (CL3), items:Bacchetta di fulmine (CL9), items:Bacchetta di palla di fuoco (CL6), items:Bastone ferrato, items:Mantello resistente +1, items:Pagina di pergamena, items:Pergamena di muro di forza, items:Perla di potere I, items:Perla di potere IV, items:Spellbook, items:Testa di bacco runica, items:Veste da mago rinforzata"
+      ]
+    },
+    "ruling_expert": {
+      "badge": "validated",
+      "sources": [
+        "stub"
+      ],
+      "context": {
+        "class": "Wizard",
+        "level": 10,
+        "talenti_chiave": [
+          "Incantesimi focalizzati (Invocazione)",
+          "Incantesimi focalizzati superiori (Invocazione)",
+          "Incantesimi massimizzati (metamagia)",
+          "Incantesimi potenziati (metamagia)",
+          "Incantesimi rapidi migliorati"
+        ],
+        "hr_sources": null,
+        "meta_sources": null,
+        "pfs_mode": null
+      },
+      "raw": {
+        "ruling_badge": "validated",
+        "sources": [
+          "stub"
+        ],
+        "violations": []
+      },
+      "cached": false,
+      "cache_key": null
+    },
+    "checkpoints": {
+      "level": 10,
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
+  },
+  "catalog_validation": {
+    "missing_catalog_entries": [
+      "feats:Incantesimi focalizzati (Invocazione)",
+      "feats:Incantesimi focalizzati superiori (Invocazione)",
+      "feats:Incantesimi massimizzati (metamagia)",
+      "feats:Incantesimi potenziati (metamagia)",
+      "feats:Incantesimi rapidi migliorati",
+      "feats:Magia focalizzata superiore (Invocazione)",
+      "feats:Metamagia (Incantesimi Estesi)",
+      "feats:Penetrare resistenza magica",
+      "feats:Penetrare resistenza magica migliorato",
+      "feats:Talento bonus (Difensivo)",
+      "feats:Talento bonus (Mago) — Incantesimi rapidi",
+      "items:Abito da viaggiatore",
+      "items:Bacchetta di dardo incantato (CL3)",
+      "items:Bacchetta di fulmine (CL9)",
+      "items:Bacchetta di palla di fuoco (CL6)",
+      "items:Bastone ferrato",
+      "items:Mantello resistente +1",
+      "items:Pagina di pergamena",
+      "items:Pergamena di muro di forza",
+      "items:Perla di potere I",
+      "items:Perla di potere IV",
+      "items:Spellbook",
+      "items:Testa di bacco runica",
+      "items:Veste da mago rinforzata"
+    ],
+    "catalog_version": [
+      "2026.04.03"
+    ]
+  },
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=10&race=Human&archetype=Evoker",
+  "reference_catalog_version": "2026.04.03",
+  "fetched_at": "2025-12-19T18:29:42Z",
+  "request": {
+    "class": "Wizard",
+    "race": "Human",
+    "archetype": "Evoker",
+    "mode": "extended",
+    "mode_normalized": "extended",
+    "spec_id": "wizard_human_evoker",
+    "model": null,
+    "background": "Piromane accademico in cerca di antiche pergamene elementali.",
+    "level": 10,
+    "level_checkpoints": [
+      1,
+      5,
+      10
+    ]
+  },
+  "query_params": {
+    "mode": "extended",
+    "class": "Wizard",
+    "stub": true,
+    "level": 10,
+    "race": "Human",
+    "archetype": "Evoker"
+  },
+  "body_params": {},
+  "mode_normalized": "extended",
+  "step_audit": {
+    "normalized_mode": "extended",
+    "expected_step_total": 16,
+    "observed_step_total": 16,
+    "step_total_ok": true,
+    "step_labels_count": 16,
+    "has_extended_steps": true,
+    "request_timestamp": "2025-12-19T18:29:42Z",
+    "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+    "outcome": "accepted",
+    "attempt_count": 1,
+    "backoff_reason": null
+  },
+  "completeness": {
+    "errors": [],
+    "require_complete": true
+  },
+  "catalog_manifest": {
+    "version": "2026.04.03",
+    "source": "Pathfinder 1E RAW/SRD snapshot curato offline",
+    "files": {
+      "spells": {
+        "path": "data/reference/spells.json",
+        "entries": 1035
+      },
+      "feats": {
+        "path": "data/reference/feats.json",
+        "entries": 2839
+      },
+      "items": {
+        "path": "data/reference/items.json",
+        "entries": 257
+      }
+    }
+  },
+  "ruling_badge": "validated",
+  "ruling_sources": [
+    "stub"
+  ],
+  "build_id": "build-0be36f9157ffe53ce0f0ac7b",
+  "record_status": "draft",
+  "is_deleted": false,
+  "deleted_at": null,
+  "audit": [
+    {
+      "timestamp": "2025-12-19T18:29:42Z",
+      "actor": "generate_build_db",
+      "action": "harvest",
+      "status": "draft",
+      "note": "8 is not of type 'array'; 7 is not of type 'array'; 7 is not of type 'array'; 7 is not of type 'array'; 6 is not of type 'array'",
+      "checkpoint": 10,
+      "source": "wizard_human_evoker"
+    }
+  ]
+}

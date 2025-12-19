@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-19T18:01:37Z",
+  "generated_at": "2025-12-19T18:29:27Z",
   "api_url": "http://localhost:8000",
   "entries": [
     {
@@ -49,111 +49,31 @@
       "status": "ok",
       "meta": {
         "name": "Taverna_NPC.txt",
+        "size_bytes": 134376,
         "suffix": ".txt",
-        "size_bytes": 124135,
+        "version": "3.5",
         "record_status": "validated",
         "is_deleted": false,
         "deleted_at": null,
         "audit": [
           {
-            "timestamp": "2025-12-17T12:23:23Z",
-            "actor": "generate_build_db",
-            "action": "module_index_backfill",
-            "status": "validated",
-            "source": "src/data/modules/Taverna_NPC.txt"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
-          },
-          {
-            "timestamp": "2025-12-19T16:28:01Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated"
-          },
-          {
-            "timestamp": "2025-12-19T18:01:57Z",
+            "timestamp": "2025-12-19T18:29:42Z",
             "actor": "generate_build_db",
             "action": "module_indexed",
             "status": "validated"
           }
-        ],
-        "hash_sha256": "ef5c2a4be0fd7f79a134ba611fdb9893513196ee427b32cc7623aab1c3193c47",
-        "tags": [
-          "NPC",
-          "Taverna",
-          "module"
-        ],
-        "reference_urls": []
+        ]
       }
     },
     {
       "module": "adventurer_ledger.txt",
-      "file": "src/data/modules/adventurer_ledger.txt",
-      "status": "ok",
-      "meta": {
-        "name": "adventurer_ledger.txt",
-        "suffix": ".txt",
-        "size_bytes": 78508,
-        "record_status": "validated",
-        "is_deleted": false,
-        "deleted_at": null,
-        "audit": [
-          {
-            "timestamp": "2025-12-17T12:23:23Z",
-            "actor": "generate_build_db",
-            "action": "module_index_backfill",
-            "status": "validated",
-            "source": "src/data/modules/adventurer_ledger.txt"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
-          },
-          {
-            "timestamp": "2025-12-19T16:28:01Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated"
-          },
-          {
-            "timestamp": "2025-12-19T18:01:57Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated"
-          }
-        ],
-        "hash_sha256": "7fced25fde41a569c18663c5883797aa2903391899a3f07d6ad6dfc12df019b5",
-        "tags": [
-          "Avventuriero",
-          "Libro",
-          "Mastro",
-          "crafting",
-          "dell",
-          "economy",
-          "loot"
-        ],
-        "reference_urls": [
-          "https://aonprd.com/corerulebook/equipment.html",
-          "https://example.com",
-          "https://www.aonprd.com/Rules.aspx?ID=401",
-          "https://www.d20pfsrd.com/magic-items/",
-          "https://www.d20pfsrd.com/magic-items/rings/ring-of-protection/",
-          "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/amulet-of-natural-armor/",
-          "https://www.d20pfsrd.com/magic-items/wondrous-items/b-c/belt-of-incredible-dexterity/",
-          "https://www.d20pfsrd.com/magic-items/wondrous-items/c-d/cloak-of-resistance/",
-          "https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/headband-of-inspired-wisdom/",
-          "https://www.reddit.com/r/Pathfinder_RPG/comments/2cv8z8/master_list_of_essentialuseful_magic_items/",
-          "https://zenithgames.blogspot.com/2013/11/improving-your-class-with-items.html"
-        ]
-      }
+      "file": null,
+      "status": "error",
+      "issues": [
+        "missing_audit",
+        "missing_record_status"
+      ],
+      "error": "Client error '403 Forbidden' for url 'http://localhost:8000/modules/adventurer_ledger.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
     },
     {
       "module": "archivist.txt",
@@ -200,49 +120,20 @@
       "status": "ok",
       "meta": {
         "name": "base_profile.txt",
+        "size_bytes": 37942,
         "suffix": ".txt",
-        "size_bytes": 37655,
+        "version": "3.7-kernel",
         "record_status": "validated",
         "is_deleted": false,
         "deleted_at": null,
         "audit": [
           {
-            "timestamp": "2025-12-17T12:23:23Z",
-            "actor": "generate_build_db",
-            "action": "module_index_backfill",
-            "status": "validated",
-            "source": "src/data/modules/base_profile.txt"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
-          },
-          {
-            "timestamp": "2025-12-19T16:28:01Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated"
-          },
-          {
-            "timestamp": "2025-12-19T18:01:57Z",
+            "timestamp": "2025-12-19T18:29:42Z",
             "actor": "generate_build_db",
             "action": "module_indexed",
             "status": "validated"
           }
-        ],
-        "hash_sha256": "0cddac85c1d7a6b15e922dd21728e2b88497196887cede08e150f57367d33ae4",
-        "tags": [
-          "\"core_internal\"",
-          "Base",
-          "DD",
-          "Master",
-          "Pathfinder",
-          "Profile"
-        ],
-        "reference_urls": []
+        ]
       }
     },
     {
@@ -418,45 +309,21 @@
       "status": "ok",
       "meta": {
         "name": "narrative_flow.txt",
+        "size_bytes": 38147,
         "suffix": ".txt",
-        "size_bytes": 35089,
+        "version": "2.3",
+        "compatibility": "Compatibile con MinMax, Taverna NPC, Encounter Designer, Ledger, Explain e Ruling Expert.",
         "record_status": "validated",
         "is_deleted": false,
         "deleted_at": null,
         "audit": [
           {
-            "timestamp": "2025-12-17T12:23:23Z",
-            "actor": "generate_build_db",
-            "action": "module_index_backfill",
-            "status": "validated",
-            "source": "src/data/modules/narrative_flow.txt"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
-          },
-          {
-            "timestamp": "2025-12-19T16:28:01Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated"
-          },
-          {
-            "timestamp": "2025-12-19T18:01:57Z",
+            "timestamp": "2025-12-19T18:29:42Z",
             "actor": "generate_build_db",
             "action": "module_indexed",
             "status": "validated"
           }
-        ],
-        "hash_sha256": "61ae9e4fcabcecc6f417e197e16f2ac4a6a23360513bdc3e4c9105c852b6f76e",
-        "tags": [
-          "Narrativa",
-          "module"
-        ],
-        "reference_urls": []
+        ]
       }
     },
     {
@@ -551,46 +418,36 @@
     {
       "module": "scheda_pg_markdown_template.md",
       "file": "src/data/modules/scheda_pg_markdown_template.md",
-      "status": "ok",
+      "status": "invalid",
       "meta": {
         "name": "scheda_pg_markdown_template.md",
+        "size_bytes": 29742,
         "suffix": ".md",
-        "size_bytes": 24875,
-        "record_status": "validated",
+        "version": "1.1",
+        "compatibility": {
+          "core_min": "3.3",
+          "integrates_with": [
+            "MinMax Builder",
+            "Adventurer Ledger",
+            "Explain Methods",
+            "Ruling Expert",
+            "Hook VTT"
+          ]
+        },
+        "record_status": "draft",
         "is_deleted": false,
         "deleted_at": null,
         "audit": [
           {
-            "timestamp": "2025-12-17T12:23:23Z",
-            "actor": "generate_build_db",
-            "action": "module_index_backfill",
-            "status": "validated",
-            "source": "src/data/modules/scheda_pg_markdown_template.md"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
+            "timestamp": "2025-12-19T18:29:42Z",
             "actor": "generate_build_db",
             "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
-          },
-          {
-            "timestamp": "2025-12-19T16:28:01Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated"
-          },
-          {
-            "timestamp": "2025-12-19T18:01:57Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated"
+            "status": "draft",
+            "note": "meta validation: {'core_min': '3.3', 'integrates_with': ['MinMax Builder', 'Adventurer Ledger', 'Explain Methods', 'Ruling Expert', 'Hook VTT']} is not valid under any of the given schemas"
           }
-        ],
-        "hash_sha256": "d8a08160fab99223de5e09ae9697b672c7977f7a803ceb15d9df2c1be5cbc06a",
-        "tags": [],
-        "reference_urls": []
-      }
+        ]
+      },
+      "error": "{'core_min': '3.3', 'integrates_with': ['MinMax Builder', 'Adventurer Ledger', 'Explain Methods', 'Ruling Expert', 'Hook VTT']} is not valid under any of the given schemas"
     },
     {
       "module": "sigilli_runner_module.txt",

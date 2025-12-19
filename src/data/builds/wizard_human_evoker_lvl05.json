@@ -1,9 +1,9 @@
 {
   "build_state": {
-    "class": "Medium",
+    "class": "Wizard",
     "mode": "extended",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "race": "Human",
+    "archetype": "Evoker",
     "step": 1,
     "step_total": 16,
     "step_labels": {
@@ -48,10 +48,24 @@
       }
     },
     "statistics": {
-      "attacco": "+4",
-      "danni": "1d8+3",
-      "ca": 18
+      "attacco": null,
+      "danni": null,
+      "ca": 17
     },
+    "missing_catalog_entries": [
+      "feats:Incantesimi focalizzati (Invocazione)",
+      "feats:Incantesimi massimizzati (metamagia)",
+      "feats:Magia focalizzata superiore (Invocazione)",
+      "feats:Metamagia (Incantesimi Estesi)",
+      "items:Abito da viaggiatore",
+      "items:Bacchetta di dardo incantato (CL3)",
+      "items:Bastone ferrato",
+      "items:Mantello resistente +1",
+      "items:Pagina di pergamena",
+      "items:Perla di potere I",
+      "items:Spellbook",
+      "items:Veste da mago rinforzata"
+    ],
     "catalog_version": [
       "2026.04.03"
     ]
@@ -60,10 +74,10 @@
     "sheet_payload": {
       "classi": [
         {
-          "nome": "Medium",
+          "nome": "Wizard",
           "livelli": 5,
           "archetipi": [
-            "Spirit Dancer + Reanimated Medium"
+            "Evoker"
           ]
         }
       ],
@@ -74,80 +88,113 @@
         "INT": 10,
         "SAG": 12,
         "CAR": 8,
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 18
+        "ca": 17
       },
       "statistiche_chiave": {
-        "attacco": "+4",
-        "danni": "1d8+3",
-        "ca": 18,
-        "CA": 18
+        "attacco": null,
+        "danni": null,
+        "ca": 17,
+        "CA": 17
       },
-      "pf_totali": 32,
+      "pf_totali": 44,
       "hp": {
-        "totali": 32,
+        "totali": 44,
         "per_livello": [
-          32
+          12,
+          20,
+          28,
+          36,
+          44
         ]
       },
       "salvezze": {
         "Tempra": 4,
-        "Riflessi": 3,
-        "Volontà": 4
+        "Riflessi": 5,
+        "Volontà": 8
       },
       "skills_map": {
+        "Conoscenze (arcana)": {
+          "totale": 12
+        },
+        "Sapienza Magica": {
+          "totale": 12
+        },
         "Percezione": {
-          "totale": 5
-        },
-        "Acrobazia": {
-          "totale": 4
-        },
-        "Conoscenze": {
-          "totale": 3
+          "totale": 8
         }
       },
       "skill_points": 25,
       "talenti": [
-        "Colpo possente",
-        "Iniziativa migliorata"
+        "Incantesimi focalizzati (Invocazione)",
+        "Incantesimi massimizzati (metamagia)",
+        "Iniziativa migliorata",
+        "Magia focalizzata superiore (Invocazione)",
+        "Metamagia (Incantesimi Estesi)"
       ],
       "capacita_classe": [
-        "Addestramento marziale",
-        "Specializzazione",
-        "Privilegio 1",
-        "Tecnica distintiva Spirit Dancer + Reanimated Medium",
-        "Privilegio 2",
-        "Privilegio 3",
-        "Privilegio 4",
-        "Privilegio 5"
+        "Legame arcano (famiglio)",
+        "PF 12 | TS +2/+3/+4 | CA 15",
+        "PF 20 | TS +3/+4/+5 | CA 15",
+        "PF 28 | TS +3/+4/+6 | CA 16",
+        "PF 36 | TS +4/+5/+7 | CA 16",
+        "PF 44 | TS +4/+5/+8 | CA 17",
+        "Potere di scuola (Evoker's Admixture)",
+        "Scoperta arcana: specializzazione intensificata",
+        "Scuola di Invocazione — Intensified Spells",
+        "Scuola di opposizione consolidata",
+        "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore",
+        "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1",
+        "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)",
+        "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata",
+        "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1",
+        "Talento bonus del mago"
       ],
       "equipaggiamento": [
-        "Arma preferita",
-        "Armatura leggera"
+        "Abito da viaggiatore",
+        "Anello di protezione +1",
+        "Bacchetta di dardo incantato (CL3)",
+        "Bastone ferrato",
+        "Mantello resistente +1"
       ],
       "inventario": [
-        "Arma preferita",
-        "Armatura leggera",
+        "Abito da viaggiatore",
+        "Anello di protezione +1",
+        "Bacchetta di dardo incantato (CL3)",
+        "Bastone ferrato",
         "Kit da avventuriero",
-        "Pozione di cura x2"
+        "Mantello resistente +1",
+        "Pagina di pergamena",
+        "Perla di potere I",
+        "Pozione di cura x2",
+        "Spellbook",
+        "Veste da mago rinforzata"
       ],
       "spell_levels": [
         {
           "liv": 1,
-          "per_day": 4
+          "per_day": 7
         },
         {
           "liv": 2,
+          "per_day": 6
+        },
+        {
+          "liv": 3,
+          "per_day": 5
+        },
+        {
+          "liv": 4,
           "per_day": 3
         }
       ],
-      "slot_incantesimi": "Liv1:4/Liv2:3",
+      "slot_incantesimi": "1°: 7 / 2°: 6 / 3°: 5 / 4°: 3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
+        "totale": 17,
+        "armatura": 3,
         "destrezza": 2,
-        "scudo": 1
+        "deflessione": 1,
+        "misc": 1,
+        "scudo": 0
       },
       "iniziativa": 2,
       "velocita": 9,
@@ -155,51 +202,57 @@
         {
           "livello": 1,
           "privilegi": [
-            "Privilegio 1",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Legame arcano (famiglio)",
+            "Scuola di Invocazione — Intensified Spells",
+            "PF 12 | TS +2/+3/+4 | CA 15",
+            "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
           ],
           "talenti": [
-            "Talento di livello 1"
+            "Iniziativa migliorata"
           ]
         },
         {
           "livello": 2,
           "privilegi": [
-            "Privilegio 2",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Potere di scuola (Evoker's Admixture)",
+            "PF 20 | TS +3/+4/+5 | CA 15",
+            "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1"
           ],
           "talenti": [
-            "Talento di livello 2"
+            "Metamagia (Incantesimi Estesi)"
           ]
         },
         {
           "livello": 3,
           "privilegi": [
-            "Privilegio 3",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Talento bonus del mago",
+            "PF 28 | TS +3/+4/+6 | CA 16",
+            "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)"
           ],
           "talenti": [
-            "Talento di livello 3"
+            "Incantesimi focalizzati (Invocazione)"
           ]
         },
         {
           "livello": 4,
           "privilegi": [
-            "Privilegio 4",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Scoperta arcana: specializzazione intensificata",
+            "PF 36 | TS +4/+5/+7 | CA 16",
+            "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata"
           ],
           "talenti": [
-            "Talento di livello 4"
+            "Magia focalizzata superiore (Invocazione)"
           ]
         },
         {
           "livello": 5,
           "privilegi": [
-            "Privilegio 5",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Scuola di opposizione consolidata",
+            "PF 44 | TS +4/+5/+8 | CA 17",
+            "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1"
           ],
           "talenti": [
-            "Talento di livello 5"
+            "Incantesimi massimizzati (metamagia)"
           ]
         }
       ],
@@ -223,7 +276,7 @@
           "rame": 40
         }
       },
-      "razza": "Oread",
+      "razza": "Human",
       "salvezze_breakdown": {
         "Tempra": {
           "base": 2,
@@ -232,16 +285,16 @@
           "totale": 4
         },
         "Riflessi": {
-          "base": 1,
+          "base": 3,
           "modificatore": 2,
           "misc": 0,
-          "totale": 3
+          "totale": 5
         },
         "Volontà": {
-          "base": 3,
+          "base": 7,
           "modificatore": 1,
           "misc": 0,
-          "totale": 4
+          "totale": 8
         }
       },
       "pf_per_livello": "n/d (PF per livello non fornito)",
@@ -253,7 +306,7 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
+      "AC_tot": 17,
       "CA_touch": 10,
       "CA_ff": 10,
       "BAB": "n/d (BAB non fornito)",
@@ -282,15 +335,17 @@
         }
       ],
       "magia": {
-        "1": 4,
-        "2": 3
+        "1": 7,
+        "2": 6,
+        "3": 5,
+        "4": 3
       },
       "modules": {
         "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
       },
       "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
       "fonti": [
-        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=5&race=Human&archetype=Evoker"
       ],
       "print_mode": false,
       "show_minmax": true,
@@ -305,7 +360,7 @@
       "condizioni": []
     }
   },
-  "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",
+  "narrative": "Human Evoker pronta/o per il campo, specializzata/o in tattiche da Wizard.",
   "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
   "ledger": {
     "movimenti": [
@@ -324,16 +379,16 @@
       "rame": 40
     }
   },
-  "class": "Medium",
+  "class": "Wizard",
   "mode": "extended",
   "composite": {
     "build": {
-      "build_id": "build-030f26e4b7158e4e9aa27eb6",
+      "build_id": "build-12f4dfb73be2ddf226e120c4",
       "build_state": {
-        "class": "Medium",
+        "class": "Wizard",
         "mode": "extended",
-        "race": "Oread",
-        "archetype": "Spirit Dancer + Reanimated Medium",
+        "race": "Human",
+        "archetype": "Evoker",
         "step": 1,
         "step_total": 16,
         "step_labels": {
@@ -378,10 +433,24 @@
           }
         },
         "statistics": {
-          "attacco": "+4",
-          "danni": "1d8+3",
-          "ca": 18
+          "attacco": null,
+          "danni": null,
+          "ca": 17
         },
+        "missing_catalog_entries": [
+          "feats:Incantesimi focalizzati (Invocazione)",
+          "feats:Incantesimi massimizzati (metamagia)",
+          "feats:Magia focalizzata superiore (Invocazione)",
+          "feats:Metamagia (Incantesimi Estesi)",
+          "items:Abito da viaggiatore",
+          "items:Bacchetta di dardo incantato (CL3)",
+          "items:Bastone ferrato",
+          "items:Mantello resistente +1",
+          "items:Pagina di pergamena",
+          "items:Perla di potere I",
+          "items:Spellbook",
+          "items:Veste da mago rinforzata"
+        ],
         "catalog_version": [
           "2026.04.03"
         ]
@@ -390,10 +459,10 @@
         "sheet_payload": {
           "classi": [
             {
-              "nome": "Medium",
+              "nome": "Wizard",
               "livelli": 5,
               "archetipi": [
-                "Spirit Dancer + Reanimated Medium"
+                "Evoker"
               ]
             }
           ],
@@ -404,80 +473,113 @@
             "INT": 10,
             "SAG": 12,
             "CAR": 8,
-            "attacco": "+4",
-            "danni": "1d8+3",
-            "ca": 18
+            "ca": 17
           },
           "statistiche_chiave": {
-            "attacco": "+4",
-            "danni": "1d8+3",
-            "ca": 18,
-            "CA": 18
+            "attacco": null,
+            "danni": null,
+            "ca": 17,
+            "CA": 17
           },
-          "pf_totali": 32,
+          "pf_totali": 44,
           "hp": {
-            "totali": 32,
+            "totali": 44,
             "per_livello": [
-              32
+              12,
+              20,
+              28,
+              36,
+              44
             ]
           },
           "salvezze": {
             "Tempra": 4,
-            "Riflessi": 3,
-            "Volontà": 4
+            "Riflessi": 5,
+            "Volontà": 8
           },
           "skills_map": {
+            "Conoscenze (arcana)": {
+              "totale": 12
+            },
+            "Sapienza Magica": {
+              "totale": 12
+            },
             "Percezione": {
-              "totale": 5
-            },
-            "Acrobazia": {
-              "totale": 4
-            },
-            "Conoscenze": {
-              "totale": 3
+              "totale": 8
             }
           },
           "skill_points": 25,
           "talenti": [
-            "Colpo possente",
-            "Iniziativa migliorata"
+            "Incantesimi focalizzati (Invocazione)",
+            "Incantesimi massimizzati (metamagia)",
+            "Iniziativa migliorata",
+            "Magia focalizzata superiore (Invocazione)",
+            "Metamagia (Incantesimi Estesi)"
           ],
           "capacita_classe": [
-            "Addestramento marziale",
-            "Specializzazione",
-            "Privilegio 1",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium",
-            "Privilegio 2",
-            "Privilegio 3",
-            "Privilegio 4",
-            "Privilegio 5"
+            "Legame arcano (famiglio)",
+            "PF 12 | TS +2/+3/+4 | CA 15",
+            "PF 20 | TS +3/+4/+5 | CA 15",
+            "PF 28 | TS +3/+4/+6 | CA 16",
+            "PF 36 | TS +4/+5/+7 | CA 16",
+            "PF 44 | TS +4/+5/+8 | CA 17",
+            "Potere di scuola (Evoker's Admixture)",
+            "Scoperta arcana: specializzazione intensificata",
+            "Scuola di Invocazione — Intensified Spells",
+            "Scuola di opposizione consolidata",
+            "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore",
+            "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1",
+            "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)",
+            "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata",
+            "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1",
+            "Talento bonus del mago"
           ],
           "equipaggiamento": [
-            "Arma preferita",
-            "Armatura leggera"
+            "Abito da viaggiatore",
+            "Anello di protezione +1",
+            "Bacchetta di dardo incantato (CL3)",
+            "Bastone ferrato",
+            "Mantello resistente +1"
           ],
           "inventario": [
-            "Arma preferita",
-            "Armatura leggera",
+            "Abito da viaggiatore",
+            "Anello di protezione +1",
+            "Bacchetta di dardo incantato (CL3)",
+            "Bastone ferrato",
             "Kit da avventuriero",
-            "Pozione di cura x2"
+            "Mantello resistente +1",
+            "Pagina di pergamena",
+            "Perla di potere I",
+            "Pozione di cura x2",
+            "Spellbook",
+            "Veste da mago rinforzata"
           ],
           "spell_levels": [
             {
               "liv": 1,
-              "per_day": 4
+              "per_day": 7
             },
             {
               "liv": 2,
+              "per_day": 6
+            },
+            {
+              "liv": 3,
+              "per_day": 5
+            },
+            {
+              "liv": 4,
               "per_day": 3
             }
           ],
-          "slot_incantesimi": "Liv1:4/Liv2:3",
+          "slot_incantesimi": "1°: 7 / 2°: 6 / 3°: 5 / 4°: 3",
           "ac_breakdown": {
-            "totale": 18,
-            "armatura": 5,
+            "totale": 17,
+            "armatura": 3,
             "destrezza": 2,
-            "scudo": 1
+            "deflessione": 1,
+            "misc": 1,
+            "scudo": 0
           },
           "iniziativa": 2,
           "velocita": 9,
@@ -485,51 +587,57 @@
             {
               "livello": 1,
               "privilegi": [
-                "Privilegio 1",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Legame arcano (famiglio)",
+                "Scuola di Invocazione — Intensified Spells",
+                "PF 12 | TS +2/+3/+4 | CA 15",
+                "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
               ],
               "talenti": [
-                "Talento di livello 1"
+                "Iniziativa migliorata"
               ]
             },
             {
               "livello": 2,
               "privilegi": [
-                "Privilegio 2",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Potere di scuola (Evoker's Admixture)",
+                "PF 20 | TS +3/+4/+5 | CA 15",
+                "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1"
               ],
               "talenti": [
-                "Talento di livello 2"
+                "Metamagia (Incantesimi Estesi)"
               ]
             },
             {
               "livello": 3,
               "privilegi": [
-                "Privilegio 3",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Talento bonus del mago",
+                "PF 28 | TS +3/+4/+6 | CA 16",
+                "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)"
               ],
               "talenti": [
-                "Talento di livello 3"
+                "Incantesimi focalizzati (Invocazione)"
               ]
             },
             {
               "livello": 4,
               "privilegi": [
-                "Privilegio 4",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Scoperta arcana: specializzazione intensificata",
+                "PF 36 | TS +4/+5/+7 | CA 16",
+                "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata"
               ],
               "talenti": [
-                "Talento di livello 4"
+                "Magia focalizzata superiore (Invocazione)"
               ]
             },
             {
               "livello": 5,
               "privilegi": [
-                "Privilegio 5",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Scuola di opposizione consolidata",
+                "PF 44 | TS +4/+5/+8 | CA 17",
+                "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1"
               ],
               "talenti": [
-                "Talento di livello 5"
+                "Incantesimi massimizzati (metamagia)"
               ]
             }
           ],
@@ -553,7 +661,7 @@
               "rame": 40
             }
           },
-          "razza": "Oread",
+          "razza": "Human",
           "salvezze_breakdown": {
             "Tempra": {
               "base": 2,
@@ -562,16 +670,16 @@
               "totale": 4
             },
             "Riflessi": {
-              "base": 1,
+              "base": 3,
               "modificatore": 2,
               "misc": 0,
-              "totale": 3
+              "totale": 5
             },
             "Volontà": {
-              "base": 3,
+              "base": 7,
               "modificatore": 1,
               "misc": 0,
-              "totale": 4
+              "totale": 8
             }
           },
           "pf_per_livello": "n/d (PF per livello non fornito)",
@@ -583,7 +691,7 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
+          "AC_tot": 17,
           "CA_touch": 10,
           "CA_ff": 10,
           "BAB": "n/d (BAB non fornito)",
@@ -612,15 +720,17 @@
             }
           ],
           "magia": {
-            "1": 4,
-            "2": 3
+            "1": 7,
+            "2": 6,
+            "3": 5,
+            "4": 3
           },
           "modules": {
             "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
           },
           "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
           "fonti": [
-            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=5&race=Human&archetype=Evoker"
           ],
           "print_mode": false,
           "show_minmax": true,
@@ -652,10 +762,10 @@
       "sheet_payload": {
         "classi": [
           {
-            "nome": "Medium",
+            "nome": "Wizard",
             "livelli": 5,
             "archetipi": [
-              "Spirit Dancer + Reanimated Medium"
+              "Evoker"
             ]
           }
         ],
@@ -666,80 +776,113 @@
           "INT": 10,
           "SAG": 12,
           "CAR": 8,
-          "attacco": "+4",
-          "danni": "1d8+3",
-          "ca": 18
+          "ca": 17
         },
         "statistiche_chiave": {
-          "attacco": "+4",
-          "danni": "1d8+3",
-          "ca": 18,
-          "CA": 18
+          "attacco": null,
+          "danni": null,
+          "ca": 17,
+          "CA": 17
         },
-        "pf_totali": 32,
+        "pf_totali": 44,
         "hp": {
-          "totali": 32,
+          "totali": 44,
           "per_livello": [
-            32
+            12,
+            20,
+            28,
+            36,
+            44
           ]
         },
         "salvezze": {
           "Tempra": 4,
-          "Riflessi": 3,
-          "Volontà": 4
+          "Riflessi": 5,
+          "Volontà": 8
         },
         "skills_map": {
+          "Conoscenze (arcana)": {
+            "totale": 12
+          },
+          "Sapienza Magica": {
+            "totale": 12
+          },
           "Percezione": {
-            "totale": 5
-          },
-          "Acrobazia": {
-            "totale": 4
-          },
-          "Conoscenze": {
-            "totale": 3
+            "totale": 8
           }
         },
         "skill_points": 25,
         "talenti": [
-          "Colpo possente",
-          "Iniziativa migliorata"
+          "Incantesimi focalizzati (Invocazione)",
+          "Incantesimi massimizzati (metamagia)",
+          "Iniziativa migliorata",
+          "Magia focalizzata superiore (Invocazione)",
+          "Metamagia (Incantesimi Estesi)"
         ],
         "capacita_classe": [
-          "Addestramento marziale",
-          "Specializzazione",
-          "Privilegio 1",
-          "Tecnica distintiva Spirit Dancer + Reanimated Medium",
-          "Privilegio 2",
-          "Privilegio 3",
-          "Privilegio 4",
-          "Privilegio 5"
+          "Legame arcano (famiglio)",
+          "PF 12 | TS +2/+3/+4 | CA 15",
+          "PF 20 | TS +3/+4/+5 | CA 15",
+          "PF 28 | TS +3/+4/+6 | CA 16",
+          "PF 36 | TS +4/+5/+7 | CA 16",
+          "PF 44 | TS +4/+5/+8 | CA 17",
+          "Potere di scuola (Evoker's Admixture)",
+          "Scoperta arcana: specializzazione intensificata",
+          "Scuola di Invocazione — Intensified Spells",
+          "Scuola di opposizione consolidata",
+          "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore",
+          "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1",
+          "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)",
+          "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata",
+          "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1",
+          "Talento bonus del mago"
         ],
         "equipaggiamento": [
-          "Arma preferita",
-          "Armatura leggera"
+          "Abito da viaggiatore",
+          "Anello di protezione +1",
+          "Bacchetta di dardo incantato (CL3)",
+          "Bastone ferrato",
+          "Mantello resistente +1"
         ],
         "inventario": [
-          "Arma preferita",
-          "Armatura leggera",
+          "Abito da viaggiatore",
+          "Anello di protezione +1",
+          "Bacchetta di dardo incantato (CL3)",
+          "Bastone ferrato",
           "Kit da avventuriero",
-          "Pozione di cura x2"
+          "Mantello resistente +1",
+          "Pagina di pergamena",
+          "Perla di potere I",
+          "Pozione di cura x2",
+          "Spellbook",
+          "Veste da mago rinforzata"
         ],
         "spell_levels": [
           {
             "liv": 1,
-            "per_day": 4
+            "per_day": 7
           },
           {
             "liv": 2,
+            "per_day": 6
+          },
+          {
+            "liv": 3,
+            "per_day": 5
+          },
+          {
+            "liv": 4,
             "per_day": 3
           }
         ],
-        "slot_incantesimi": "Liv1:4/Liv2:3",
+        "slot_incantesimi": "1°: 7 / 2°: 6 / 3°: 5 / 4°: 3",
         "ac_breakdown": {
-          "totale": 18,
-          "armatura": 5,
+          "totale": 17,
+          "armatura": 3,
           "destrezza": 2,
-          "scudo": 1
+          "deflessione": 1,
+          "misc": 1,
+          "scudo": 0
         },
         "iniziativa": 2,
         "velocita": 9,
@@ -747,51 +890,57 @@
           {
             "livello": 1,
             "privilegi": [
-              "Privilegio 1",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Legame arcano (famiglio)",
+              "Scuola di Invocazione — Intensified Spells",
+              "PF 12 | TS +2/+3/+4 | CA 15",
+              "Slot 1°:4 | Equip: bastone ferrato, spellbook, abito da viaggiatore"
             ],
             "talenti": [
-              "Talento di livello 1"
+              "Iniziativa migliorata"
             ]
           },
           {
             "livello": 2,
             "privilegi": [
-              "Privilegio 2",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Potere di scuola (Evoker's Admixture)",
+              "PF 20 | TS +3/+4/+5 | CA 15",
+              "Slot 1°:5 / 2°:2 | Equip: pergamene aggiuntive, mantello resistente +1"
             ],
             "talenti": [
-              "Talento di livello 2"
+              "Metamagia (Incantesimi Estesi)"
             ]
           },
           {
             "livello": 3,
             "privilegi": [
-              "Privilegio 3",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Talento bonus del mago",
+              "PF 28 | TS +3/+4/+6 | CA 16",
+              "Slot 1°:6 / 2°:4 / 3°:2 | Equip: bacchetta di dardo incantato (CL3)"
             ],
             "talenti": [
-              "Talento di livello 3"
+              "Incantesimi focalizzati (Invocazione)"
             ]
           },
           {
             "livello": 4,
             "privilegi": [
-              "Privilegio 4",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Scoperta arcana: specializzazione intensificata",
+              "PF 36 | TS +4/+5/+7 | CA 16",
+              "Slot 1°:6 / 2°:5 / 3°:4 | Equip: veste da mago rinforzata"
             ],
             "talenti": [
-              "Talento di livello 4"
+              "Magia focalizzata superiore (Invocazione)"
             ]
           },
           {
             "livello": 5,
             "privilegi": [
-              "Privilegio 5",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Scuola di opposizione consolidata",
+              "PF 44 | TS +4/+5/+8 | CA 17",
+              "Slot 1°:7 / 2°:6 / 3°:5 / 4°:3 | Equip: perla di potere I, anello di protezione +1"
             ],
             "talenti": [
-              "Talento di livello 5"
+              "Incantesimi massimizzati (metamagia)"
             ]
           }
         ],
@@ -815,7 +964,7 @@
             "rame": 40
           }
         },
-        "razza": "Oread",
+        "razza": "Human",
         "salvezze_breakdown": {
           "Tempra": {
             "base": 2,
@@ -824,16 +973,16 @@
             "totale": 4
           },
           "Riflessi": {
-            "base": 1,
+            "base": 3,
             "modificatore": 2,
             "misc": 0,
-            "totale": 3
+            "totale": 5
           },
           "Volontà": {
-            "base": 3,
+            "base": 7,
             "modificatore": 1,
             "misc": 0,
-            "totale": 4
+            "totale": 8
           }
         },
         "pf_per_livello": "n/d (PF per livello non fornito)",
@@ -845,7 +994,7 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
+        "AC_tot": 17,
         "CA_touch": 10,
         "CA_ff": 10,
         "BAB": "n/d (BAB non fornito)",
@@ -874,15 +1023,17 @@
           }
         ],
         "magia": {
-          "1": 4,
-          "2": 3
+          "1": 7,
+          "2": 6,
+          "3": 5,
+          "4": 3
         },
         "modules": {
           "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
         },
         "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
         "fonti": [
-          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=5&race=Human&archetype=Evoker"
         ],
         "print_mode": false,
         "show_minmax": true,
@@ -897,7 +1048,7 @@
         "condizioni": []
       }
     },
-    "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",
+    "narrative": "Human Evoker pronta/o per il campo, specializzata/o in tattiche da Wizard.",
     "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
     "ledger": {
       "movimenti": [
@@ -917,23 +1068,81 @@
       }
     }
   },
+  "qa": {
+    "catalog": {
+      "warnings": [
+        "Elementi non presenti nel catalogo: feats:Incantesimi focalizzati (Invocazione), feats:Incantesimi massimizzati (metamagia), feats:Magia focalizzata superiore (Invocazione), feats:Metamagia (Incantesimi Estesi), items:Abito da viaggiatore, items:Bacchetta di dardo incantato (CL3), items:Bastone ferrato, items:Mantello resistente +1, items:Pagina di pergamena, items:Perla di potere I, items:Spellbook, items:Veste da mago rinforzata"
+      ]
+    },
+    "ruling_expert": {
+      "badge": "validated",
+      "sources": [
+        "stub"
+      ],
+      "context": {
+        "class": "Wizard",
+        "level": 5,
+        "talenti_chiave": [
+          "Incantesimi focalizzati (Invocazione)",
+          "Incantesimi massimizzati (metamagia)",
+          "Iniziativa migliorata",
+          "Magia focalizzata superiore (Invocazione)",
+          "Metamagia (Incantesimi Estesi)"
+        ],
+        "hr_sources": null,
+        "meta_sources": null,
+        "pfs_mode": null
+      },
+      "raw": {
+        "ruling_badge": "validated",
+        "sources": [
+          "stub"
+        ],
+        "violations": []
+      },
+      "cached": false,
+      "cache_key": null
+    },
+    "checkpoints": {
+      "level": 5,
+      "levels": [
+        1,
+        5,
+        10
+      ]
+    }
+  },
   "catalog_validation": {
+    "missing_catalog_entries": [
+      "feats:Incantesimi focalizzati (Invocazione)",
+      "feats:Incantesimi massimizzati (metamagia)",
+      "feats:Magia focalizzata superiore (Invocazione)",
+      "feats:Metamagia (Incantesimi Estesi)",
+      "items:Abito da viaggiatore",
+      "items:Bacchetta di dardo incantato (CL3)",
+      "items:Bastone ferrato",
+      "items:Mantello resistente +1",
+      "items:Pagina di pergamena",
+      "items:Perla di potere I",
+      "items:Spellbook",
+      "items:Veste da mago rinforzata"
+    ],
     "catalog_version": [
       "2026.04.03"
     ]
   },
-  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium",
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=5&race=Human&archetype=Evoker",
   "reference_catalog_version": "2026.04.03",
   "fetched_at": "2025-12-19T18:29:42Z",
   "request": {
-    "class": "Medium",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "class": "Wizard",
+    "race": "Human",
+    "archetype": "Evoker",
     "mode": "extended",
     "mode_normalized": "extended",
-    "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+    "spec_id": "wizard_human_evoker",
     "model": null,
-    "background": "Medium oread che danza con le anime pietrose dei canyon",
+    "background": "Piromane accademico in cerca di antiche pergamene elementali.",
     "level": 5,
     "level_checkpoints": [
       1,
@@ -943,11 +1152,11 @@
   },
   "query_params": {
     "mode": "extended",
-    "class": "Medium",
+    "class": "Wizard",
     "stub": true,
     "level": 5,
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium"
+    "race": "Human",
+    "archetype": "Evoker"
   },
   "body_params": {},
   "mode_normalized": "extended",
@@ -990,43 +1199,7 @@
   "ruling_sources": [
     "stub"
   ],
-  "qa": {
-    "ruling_expert": {
-      "badge": "validated",
-      "sources": [
-        "stub"
-      ],
-      "context": {
-        "class": "Medium",
-        "level": 5,
-        "talenti_chiave": [
-          "Colpo possente",
-          "Iniziativa migliorata"
-        ],
-        "hr_sources": null,
-        "meta_sources": null,
-        "pfs_mode": null
-      },
-      "raw": {
-        "ruling_badge": "validated",
-        "sources": [
-          "stub"
-        ],
-        "violations": []
-      },
-      "cached": false,
-      "cache_key": null
-    },
-    "checkpoints": {
-      "level": 5,
-      "levels": [
-        1,
-        5,
-        10
-      ]
-    }
-  },
-  "build_id": "build-030f26e4b7158e4e9aa27eb6",
+  "build_id": "build-12f4dfb73be2ddf226e120c4",
   "record_status": "draft",
   "is_deleted": false,
   "deleted_at": null,
@@ -1036,9 +1209,9 @@
       "actor": "generate_build_db",
       "action": "harvest",
       "status": "draft",
-      "note": "4 is not of type 'array'; 3 is not of type 'array'",
+      "note": "7 is not of type 'array'; 6 is not of type 'array'; 5 is not of type 'array'; 3 is not of type 'array'",
       "checkpoint": 5,
-      "source": "medium_oread_spirit_dancer_reanimated_medium"
+      "source": "wizard_human_evoker"
     }
   ]
 }
