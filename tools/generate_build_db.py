@@ -456,7 +456,15 @@ def load_reference_catalog(
         path = directory / filename
         if not path.is_file():
             continue
-        entries = json.loads(path.read_text(encoding="utf-8"))
+        try:
+            entries = json.loads(path.read_text(encoding="utf-8"))
+        except Exception as exc:  # pragma: no cover - defensive log
+            logging.warning(
+                "Impossibile leggere il catalogo di riferimento %s: %s", path, exc
+            )
+            if strict:
+                raise
+            continue
         validate_with_schema(REFERENCE_SCHEMA, entries, filename, strict=strict)
         normalized: dict[str, Mapping[str, object]] = {}
         for entry in entries:
