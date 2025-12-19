@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Occultist",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Ghoran",
     "archetype": "Battle Host + Panoply Savant",
     "step": 1,
@@ -239,8 +239,8 @@
   "output_prefix": "occultist_ghoran_battle_host_panoply_savant",
   "spec_id": "occultist_ghoran_battle_host_panoply_savant",
   "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Ghoran",
@@ -271,7 +271,7 @@
       "build_id": "build-329ddb150f18608b39b30b17",
       "build_state": {
         "class": "Occultist",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Ghoran",
         "archetype": "Battle Host + Panoply Savant",
         "step": 1,
@@ -512,5 +512,86 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Occultist",
+        "livelli": 10,
+        "archetipi": [
+          "Battle Host",
+          "Panoply Savant"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 14,
+      "DES": 14,
+      "COS": 18,
+      "INT": 22,
+      "SAG": 12,
+      "CAR": 8,
+      "attacco": "+17",
+      "danni": "1d8+11",
+      "ca": 28
+    },
+    "statistiche_chiave": {
+      "attacco": "+17 con implementi legati",
+      "danni": "arma legata 1d8+11 + resonant focus",
+      "ca": 28
+    },
+    "benchmarks": {
+      "meta_tier": "T1"
+    },
+    "salvezze": {
+      "Tempra": 11,
+      "Riflessi": 6,
+      "Volontà": 12
+    },
+    "attack_bonus": {
+      "melee": "+17",
+      "ranged": "+14",
+      "special": "+19 (maneuver con focus panoply)"
+    },
+    "damage": {
+      "melee": "arma legata 1d8+11",
+      "special": "implement focus + panoply resonance"
+    },
+    "skills": [
+      {
+        "nome": "Conoscenze (arcane)",
+        "gradi": 10,
+        "mod_car": 6,
+        "var": 3,
+        "classe": true,
+        "totale": 19
+      },
+      {
+        "nome": "Conoscenze (religioni)",
+        "gradi": 10,
+        "mod_car": 6,
+        "var": 3,
+        "classe": true,
+        "totale": 19
+      },
+      {
+        "nome": "Percezione",
+        "gradi": 10,
+        "mod_car": 1,
+        "var": 4,
+        "classe": true,
+        "totale": 15
+      }
+    ],
+    "equipaggiamento": [
+      "Armatura vivente +2 con rune e spine",
+      "Implemento panoply (aegis + weapon) potenziato",
+      "Cintura di linfa per forza e focus",
+      "Manuale di comando panoply avanzato"
+    ],
+    "bench_log": [
+      "Pipeline confermata: Battle Host + Panoply Savant mantiene badge RAW/RAI/PFS e T1."
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato; sinergia panoply stabile fino al livello 10"
   }
 }

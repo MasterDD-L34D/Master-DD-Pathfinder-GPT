@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Cleric",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Wayang (Umbral)",
     "archetype": "Shadowcaster + Separatist",
     "step": 16,
@@ -208,8 +208,8 @@
   "output_prefix": "cleric_wayang_shadowcaster_separatist",
   "spec_id": "cleric_wayang_shadowcaster_separatist",
   "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Wayang (Umbral)",
@@ -240,7 +240,7 @@
       "build_id": "build-22c2e3923ffec6d03b25542d",
       "build_state": {
         "class": "Cleric",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Wayang (Umbral)",
         "archetype": "Shadowcaster + Separatist",
         "step": 16,
@@ -419,5 +419,55 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Cleric",
+        "livelli": 5,
+        "archetipi": [
+          "Shadowcaster",
+          "Separatist"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 10,
+      "DES": 16,
+      "COS": 12,
+      "INT": 12,
+      "SAG": 20,
+      "CAR": 14,
+      "attacco": "+9",
+      "danni": "1d6+5 ombra",
+      "ca": 21
+    },
+    "statistiche_chiave": {
+      "attacco": "+9 con scimitarra d'ombra",
+      "danni": "Shadow conjuration + channel control",
+      "ca": 21
+    },
+    "benchmarks": {
+      "meta_tier": "T1",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    "salvezze": {
+      "Tempra": 5,
+      "Riflessi": 5,
+      "Volontà": 9
+    },
+    "attack_bonus": {
+      "melee": "+9",
+      "ranged": "+6",
+      "special": "+11 (touch d'ombra)"
+    },
+    "damage": {
+      "melee": "1d6+5",
+      "special": "Evocazioni d'ombra e channel selettivo"
+    },
+    "bench_log": [
+      "Checkpoint 5 validato: domini disallineati + shadow conjuration stabili"
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato a lvl5; pipeline strict ok"
   }
 }

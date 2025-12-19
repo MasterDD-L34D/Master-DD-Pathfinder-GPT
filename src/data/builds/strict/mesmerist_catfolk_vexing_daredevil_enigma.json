@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Mesmerist",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Catfolk",
     "archetype": "Vexing Daredevil + Enigma",
     "step": 1,
@@ -239,8 +239,8 @@
   "output_prefix": "mesmerist_catfolk_vexing_daredevil_enigma",
   "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma",
   "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Catfolk",
@@ -271,7 +271,7 @@
       "build_id": "build-37e70360fa010fd05c094e1a",
       "build_state": {
         "class": "Mesmerist",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Catfolk",
         "archetype": "Vexing Daredevil + Enigma",
         "step": 1,
@@ -512,5 +512,86 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Mesmerist",
+        "livelli": 1,
+        "archetipi": [
+          "Vexing Daredevil",
+          "Enigma"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 12,
+      "DES": 18,
+      "COS": 12,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 18,
+      "attacco": "+6",
+      "danni": "frusta 1d4+5",
+      "ca": 18
+    },
+    "statistiche_chiave": {
+      "attacco": "+6",
+      "danni": "frusta 1d4+5 + Imbued Trick",
+      "ca": 18
+    },
+    "benchmarks": {
+      "meta_tier": "T1"
+    },
+    "salvezze": {
+      "Tempra": 2,
+      "Riflessi": 5,
+      "Volontà": 4
+    },
+    "attack_bonus": {
+      "melee": "+6",
+      "ranged": "+8 con frusta",
+      "special": "+9 (dirty trick su target sotto stare)"
+    },
+    "damage": {
+      "melee": "frusta 1d4+5",
+      "special": "dirty trick + mesmerist trick a tocco"
+    },
+    "skills": [
+      {
+        "nome": "Acrobazia",
+        "gradi": 1,
+        "mod_car": 4,
+        "var": 3,
+        "classe": true,
+        "totale": 8
+      },
+      {
+        "nome": "Furtività",
+        "gradi": 1,
+        "mod_car": 4,
+        "var": 4,
+        "classe": true,
+        "totale": 9
+      },
+      {
+        "nome": "Raggirare",
+        "gradi": 1,
+        "mod_car": 4,
+        "var": 3,
+        "classe": true,
+        "totale": 8
+      }
+    ],
+    "equipaggiamento": [
+      "Frusta potenziata per dirty trick",
+      "Giaco di maglia leggera",
+      "Kit da contorsionista",
+      "Focus psichico minore"
+    ],
+    "bench_log": [
+      "Pipeline confermata: Catfolk Vexing Daredevil + Enigma mantiene badge RAW/RAI/PFS e T1."
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato; combo feint/dirty trick compatibile con mesmerist tricks"
   }
 }

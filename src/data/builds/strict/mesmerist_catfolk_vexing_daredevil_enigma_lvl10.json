@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Mesmerist",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Catfolk",
     "archetype": "Vexing Daredevil + Enigma",
     "step": 1,
@@ -239,8 +239,8 @@
   "output_prefix": "mesmerist_catfolk_vexing_daredevil_enigma",
   "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma",
   "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Catfolk",
@@ -271,7 +271,7 @@
       "build_id": "build-55fdf3da2bc6705b6a1bdc24",
       "build_state": {
         "class": "Mesmerist",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Catfolk",
         "archetype": "Vexing Daredevil + Enigma",
         "step": 1,
@@ -512,5 +512,86 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Mesmerist",
+        "livelli": 10,
+        "archetipi": [
+          "Vexing Daredevil",
+          "Enigma"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 12,
+      "DES": 22,
+      "COS": 14,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 22,
+      "attacco": "+20",
+      "danni": "frusta +2 1d4+10",
+      "ca": 26
+    },
+    "statistiche_chiave": {
+      "attacco": "+20",
+      "danni": "frusta reach + greater dirty trick + enigma aura",
+      "ca": 26
+    },
+    "benchmarks": {
+      "meta_tier": "T1"
+    },
+    "salvezze": {
+      "Tempra": 6,
+      "Riflessi": 12,
+      "Volontà": 10
+    },
+    "attack_bonus": {
+      "melee": "+20",
+      "ranged": "+22 con frusta +2",
+      "special": "+24 (greater dirty trick + aura enigma)"
+    },
+    "damage": {
+      "melee": "frusta +2 1d4+10",
+      "special": "full-attack dirty trick + confusion"
+    },
+    "skills": [
+      {
+        "nome": "Acrobazia",
+        "gradi": 10,
+        "mod_car": 6,
+        "var": 4,
+        "classe": true,
+        "totale": 20
+      },
+      {
+        "nome": "Furtività",
+        "gradi": 10,
+        "mod_car": 6,
+        "var": 4,
+        "classe": true,
+        "totale": 20
+      },
+      {
+        "nome": "Raggirare",
+        "gradi": 10,
+        "mod_car": 6,
+        "var": 5,
+        "classe": true,
+        "totale": 21
+      }
+    ],
+    "equipaggiamento": [
+      "Frusta +2 con cruel",
+      "Cintura della destrezza +2",
+      "Anello di protezione +2",
+      "Mantello della resistenza +3"
+    ],
+    "bench_log": [
+      "Aura enigma + greater dirty trick a volontà con DC alta e badge RAW/RAI/PFS"
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato; combo greater dirty trick + aura enigma legale PFS"
   }
 }

@@ -1,9 +1,9 @@
 {
-  "generated_at": "2025-12-19T15:20:33Z",
+  "generated_at": "2025-12-19T17:11:36Z",
   "builds": {
-    "total": 105,
-    "valid": 0,
-    "invalid": 105,
+    "total": 84,
+    "valid": 1,
+    "invalid": 83,
     "errors": 0,
     "missing": 0,
     "entries": [
@@ -82,7 +82,7 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "alchemist_goblin_bombardier",
-        "background": null,
+        "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -90,6 +90,10 @@
           10
         ],
         "level": 1,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "catalog_version": [
           "2026.04.03"
         ],
@@ -104,7 +108,7 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "alchemist_goblin_bombardier",
-        "background": null,
+        "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -112,6 +116,10 @@
           10
         ],
         "level": 5,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "catalog_version": [
           "2026.04.03"
         ],
@@ -126,7 +134,7 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "alchemist_goblin_bombardier",
-        "background": null,
+        "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -134,6 +142,10 @@
           10
         ],
         "level": 10,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "catalog_version": [
           "2026.04.03"
         ],
@@ -192,72 +204,6 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
-        "output_prefix": "barbarian_fetchling_invulnerable_rager",
-        "class": "Barbarian",
-        "race": "Fetchling",
-        "archetype": "Invulnerable Rager",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "barbarian_fetchling_invulnerable_rager",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
-        "output_prefix": "barbarian_fetchling_invulnerable_rager",
-        "class": "Barbarian",
-        "race": "Fetchling",
-        "archetype": "Invulnerable Rager",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "barbarian_fetchling_invulnerable_rager",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
-        "output_prefix": "barbarian_fetchling_invulnerable_rager",
-        "class": "Barbarian",
-        "race": "Fetchling",
-        "archetype": "Invulnerable Rager",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "barbarian_fetchling_invulnerable_rager",
         "background": null,
         "model": null,
         "level_checkpoints": [
@@ -339,72 +285,6 @@
         "prerequisite_violations": [
           "Greater Spell Penetration: Spell Penetration"
         ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager.json",
-        "output_prefix": "bloodrager_shabti_steelblood_metamagic_rager",
-        "class": "Bloodrager",
-        "race": "Shabti",
-        "archetype": "Steelblood Metamagic Rager",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json",
-        "output_prefix": "bloodrager_shabti_steelblood_metamagic_rager",
-        "class": "Bloodrager",
-        "race": "Shabti",
-        "archetype": "Steelblood Metamagic Rager",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json",
-        "output_prefix": "bloodrager_shabti_steelblood_metamagic_rager",
-        "class": "Bloodrager",
-        "race": "Shabti",
-        "archetype": "Steelblood Metamagic Rager",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 10,
         "catalog_version": [
           "2026.04.03"
         ],
@@ -551,7 +431,7 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "cleric_samsaran_cloistered_evangelist",
-        "background": null,
+        "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -559,6 +439,10 @@
           10
         ],
         "level": 1,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "catalog_version": [
           "2026.04.03"
         ],
@@ -573,7 +457,7 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "cleric_samsaran_cloistered_evangelist",
-        "background": null,
+        "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -581,6 +465,10 @@
           10
         ],
         "level": 5,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "catalog_version": [
           "2026.04.03"
         ],
@@ -595,7 +483,7 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "cleric_samsaran_cloistered_evangelist",
-        "background": null,
+        "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -603,156 +491,10 @@
           10
         ],
         "level": 10,
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/druid_half_orc_feral.json",
-        "output_prefix": "druid_half_orc_feral",
-        "class": "Druid",
-        "race": "Half Orc",
-        "archetype": "Feral",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_half_orc_feral",
-        "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
-        "output_prefix": "druid_half_orc_feral",
-        "class": "Druid",
-        "race": "Half Orc",
-        "archetype": "Feral",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_half_orc_feral",
-        "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
-        "output_prefix": "druid_half_orc_feral",
-        "class": "Druid",
-        "race": "Half Orc",
-        "archetype": "Feral",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_half_orc_feral",
-        "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 10,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
-        "output_prefix": "druid_wayang_mooncaller_shapeshifter",
-        "class": "Druid",
-        "race": "Wayang",
-        "archetype": "Mooncaller Shapeshifter",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_wayang_mooncaller_shapeshifter",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
-        "output_prefix": "druid_wayang_mooncaller_shapeshifter",
-        "class": "Druid",
-        "race": "Wayang",
-        "archetype": "Mooncaller Shapeshifter",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_wayang_mooncaller_shapeshifter",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
-        "output_prefix": "druid_wayang_mooncaller_shapeshifter",
-        "class": "Druid",
-        "race": "Wayang",
-        "archetype": "Mooncaller Shapeshifter",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "druid_wayang_mooncaller_shapeshifter",
-        "background": null,
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 10,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "catalog_version": [
           "2026.04.03"
         ],
@@ -865,16 +607,14 @@
           10
         ],
         "level": 1,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
+        "step_total": 3,
+        "expected_step_total": 3,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "catalog_version": [
           "2026.04.03"
         ],
-        "status": "invalid"
+        "status": "ok"
       },
       {
         "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
@@ -1737,84 +1477,6 @@
         "status": "invalid"
       },
       {
-        "file": "src/data/builds/ranger_halfelf_skirmisher.json",
-        "output_prefix": "ranger_halfelf_skirmisher",
-        "class": "Ranger",
-        "race": "Half-Elf",
-        "archetype": "Skirmisher",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "ranger_half-elf_skirmisher",
-        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "missing_catalog_entries": [
-          "items:Arco lungo",
-          "items:Spada corta"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
-        "output_prefix": "ranger_halfelf_skirmisher",
-        "class": "Ranger",
-        "race": "Half-Elf",
-        "archetype": "Skirmisher",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "ranger_half-elf_skirmisher",
-        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "missing_catalog_entries": [
-          "items:Arco lungo",
-          "items:Spada corta"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
-        "output_prefix": "ranger_halfelf_skirmisher",
-        "class": "Ranger",
-        "race": "Half-Elf",
-        "archetype": "Skirmisher",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "ranger_half-elf_skirmisher",
-        "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 10,
-        "missing_catalog_entries": [
-          "items:Arco lungo",
-          "items:Spada corta"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
         "file": "src/data/builds/rogue_halfling_cutpurse.json",
         "output_prefix": "rogue_halfling_cutpurse",
         "class": "Rogue",
@@ -1823,7 +1485,7 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "rogue_halfling_cutpurse",
-        "background": null,
+        "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -1831,6 +1493,10 @@
           10
         ],
         "level": 1,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
@@ -1852,7 +1518,7 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "rogue_halfling_cutpurse",
-        "background": null,
+        "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -1860,6 +1526,10 @@
           10
         ],
         "level": 5,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
@@ -1881,7 +1551,7 @@
         "mode": "extended",
         "mode_normalized": "extended",
         "spec_id": "rogue_halfling_cutpurse",
-        "background": null,
+        "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
         "model": null,
         "level_checkpoints": [
           1,
@@ -1889,12 +1559,13 @@
           10
         ],
         "level": 10,
+        "step_total": 16,
+        "expected_step_total": 16,
+        "extended_steps_available": true,
+        "step_total_ok": true,
         "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
         "completeness_errors": [
           "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
-        ],
-        "missing_catalog_entries": [
-          "feats:Critico migliorato (pugnale)"
         ],
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
@@ -1910,7 +1581,7 @@
         "class": "Cleric",
         "race": "Wayang (Umbral)",
         "archetype": "Shadowcaster + Separatist",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "cleric_wayang_umbral_shadowcaster_separatist_cleric_wayang_ombra_che_separa_dottrina_e_fede_per_massimizzare_controllo_t1",
         "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
@@ -1932,7 +1603,7 @@
         "class": "Cleric",
         "race": "Wayang (Umbral)",
         "archetype": "Shadowcaster + Separatist",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "cleric_wayang_umbral_shadowcaster_separatist_cleric_wayang_ombra_che_separa_dottrina_e_fede_per_massimizzare_controllo_t1",
         "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
@@ -1954,7 +1625,7 @@
         "class": "Cleric",
         "race": "Wayang (Umbral)",
         "archetype": "Shadowcaster + Separatist",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "cleric_wayang_umbral_shadowcaster_separatist_cleric_wayang_ombra_che_separa_dottrina_e_fede_per_massimizzare_controllo_t1",
         "background": "Cleric wayang ombra che separa dottrina e fede per massimizzare controllo T1",
@@ -1976,7 +1647,7 @@
         "class": "Mesmerist",
         "race": "Catfolk",
         "archetype": "Vexing Daredevil + Enigma",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
         "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
@@ -1998,7 +1669,7 @@
         "class": "Mesmerist",
         "race": "Catfolk",
         "archetype": "Vexing Daredevil + Enigma",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
         "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
@@ -2020,7 +1691,7 @@
         "class": "Mesmerist",
         "race": "Catfolk",
         "archetype": "Vexing Daredevil + Enigma",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma_acrobata_da_arena_che_ipnotizza_e_strappa_vantaggi_sporchi_per_il_clan",
         "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
@@ -2042,7 +1713,7 @@
         "class": "Occultist",
         "race": "Ghoran",
         "archetype": "Battle Host + Panoply Savant",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "occultist_ghoran_battle_host_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
         "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
@@ -2064,7 +1735,7 @@
         "class": "Occultist",
         "race": "Ghoran",
         "archetype": "Battle Host + Panoply Savant",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "occultist_ghoran_battle_host_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
         "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
@@ -2086,7 +1757,7 @@
         "class": "Occultist",
         "race": "Ghoran",
         "archetype": "Battle Host + Panoply Savant",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "occultist_ghoran_battle_host_panoply_savant_guardiano_ghoran_che_vincola_panoply_viventi_alla_propria_armatura_di_linfa",
         "background": "Guardiano Ghoran che vincola panoply viventi alla propria armatura di linfa",
@@ -2108,7 +1779,7 @@
         "class": "Oracle",
         "race": "Ghoran",
         "archetype": "Spirit Guide + Seer",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "oracle_ghoran_spirit_guide_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
         "background": "Oracolo Ghoran che intreccia presagi vegetali e patroni shamanici",
@@ -2130,7 +1801,7 @@
         "class": "Oracle",
         "race": "Ghoran",
         "archetype": "Spirit Guide + Seer",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "oracle_ghoran_spirit_guide_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
         "background": "Oracolo Ghoran che intreccia presagi vegetali e patroni shamanici",
@@ -2152,7 +1823,7 @@
         "class": "Oracle",
         "race": "Ghoran",
         "archetype": "Spirit Guide + Seer",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "oracle_ghoran_spirit_guide_seer_oracolo_ghoran_che_intreccia_presagi_vegetali_e_patroni_shamanici",
         "background": "Oracolo Ghoran che intreccia presagi vegetali e patroni shamanici",
@@ -2174,7 +1845,7 @@
         "class": "Paladin",
         "race": "Aasimar",
         "archetype": "Holy Tactician + Sacred Servant",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
         "background": null,
@@ -2203,7 +1874,7 @@
         "class": "Paladin",
         "race": "Aasimar",
         "archetype": "Holy Tactician + Sacred Servant",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
         "background": null,
@@ -2232,7 +1903,7 @@
         "class": "Paladin",
         "race": "Aasimar",
         "archetype": "Holy Tactician + Sacred Servant",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "paladin_aasimar_holy_tactician_sacred_servant",
         "background": null,
@@ -2261,7 +1932,7 @@
         "class": "Witch",
         "race": "Sylph",
         "archetype": "Gravewalker + Hedge Witch",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
         "background": "Veggente del vento che guida anime e cura con erbe sospese",
@@ -2283,7 +1954,7 @@
         "class": "Witch",
         "race": "Sylph",
         "archetype": "Gravewalker + Hedge Witch",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
         "background": "Veggente del vento che guida anime e cura con erbe sospese",
@@ -2305,7 +1976,7 @@
         "class": "Witch",
         "race": "Sylph",
         "archetype": "Gravewalker + Hedge Witch",
-        "mode": "extended",
+        "mode": "full-pg",
         "mode_normalized": "extended",
         "spec_id": "witch_sylph_gravewalker_hedge_witch_veggente_del_vento_che_guida_anime_e_cura_con_erbe_sospese",
         "background": "Veggente del vento che guida anime e cura con erbe sospese",
@@ -2386,192 +2057,24 @@
           "2026.04.03"
         ],
         "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/wizard_elf_universalist.json",
-        "output_prefix": "wizard_elf_universalist",
-        "class": "Wizard",
-        "race": "Elf",
-        "archetype": "Universalist",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_elf_universalist",
-        "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
-        "output_prefix": "wizard_elf_universalist",
-        "class": "Wizard",
-        "race": "Elf",
-        "archetype": "Universalist",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_elf_universalist",
-        "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
-        "output_prefix": "wizard_elf_universalist",
-        "class": "Wizard",
-        "race": "Elf",
-        "archetype": "Universalist",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_elf_universalist",
-        "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 10,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/wizard_human_evoker.json",
-        "output_prefix": "wizard_human_evoker",
-        "class": "Wizard",
-        "race": "Human",
-        "archetype": "Evoker",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_human_evoker",
-        "background": "Piromane accademico in cerca di antiche pergamene elementali.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 1,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/wizard_human_evoker_lvl05.json",
-        "output_prefix": "wizard_human_evoker",
-        "class": "Wizard",
-        "race": "Human",
-        "archetype": "Evoker",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_human_evoker",
-        "background": "Piromane accademico in cerca di antiche pergamene elementali.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 5,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
-      },
-      {
-        "file": "src/data/builds/wizard_human_evoker_lvl10.json",
-        "output_prefix": "wizard_human_evoker",
-        "class": "Wizard",
-        "race": "Human",
-        "archetype": "Evoker",
-        "mode": "extended",
-        "mode_normalized": "extended",
-        "spec_id": "wizard_human_evoker",
-        "background": "Piromane accademico in cerca di antiche pergamene elementali.",
-        "model": null,
-        "level_checkpoints": [
-          1,
-          5,
-          10
-        ],
-        "level": 10,
-        "missing_catalog_entries": [
-          "items:Pugnale di servizio"
-        ],
-        "prerequisite_violations": [
-          "Pugnale di servizio: Simple weapon proficiency"
-        ],
-        "catalog_version": [
-          "2026.04.03"
-        ],
-        "status": "invalid"
       }
     ],
     "checkpoints": {
       "1": {
-        "total": 33,
-        "invalid": 33,
+        "total": 26,
+        "invalid": 25,
         "schema_errors": 0,
         "completeness_errors": 5
       },
       "5": {
-        "total": 33,
-        "invalid": 33,
+        "total": 26,
+        "invalid": 26,
         "schema_errors": 0,
         "completeness_errors": 4
       },
       "10": {
-        "total": 33,
-        "invalid": 33,
+        "total": 26,
+        "invalid": 26,
         "schema_errors": 0,
         "completeness_errors": 5
       }
@@ -2584,6 +2087,18 @@
     "errors": 0,
     "missing": 0,
     "entries": [
+      {
+        "module": "Encounter_Designer.txt",
+        "file": "src/data/modules/Encounter_Designer.txt",
+        "status": "ok",
+        "size_bytes": 36198
+      },
+      {
+        "module": "Taverna_NPC.txt",
+        "file": "src/data/modules/Taverna_NPC.txt",
+        "status": "ok",
+        "size_bytes": 124135
+      },
       {
         "module": "adventurer_ledger.txt",
         "file": "src/data/modules/adventurer_ledger.txt",
@@ -2601,12 +2116,6 @@
         "file": "src/data/modules/base_profile.txt",
         "status": "ok",
         "size_bytes": 37655
-      },
-      {
-        "module": "Encounter_Designer.txt",
-        "file": "src/data/modules/Encounter_Designer.txt",
-        "status": "ok",
-        "size_bytes": 36198
       },
       {
         "module": "explain_methods.txt",
@@ -2667,12 +2176,6 @@
         "file": "src/data/modules/tavern_hub.json",
         "status": "ok",
         "size_bytes": 740
-      },
-      {
-        "module": "Taverna_NPC.txt",
-        "file": "src/data/modules/Taverna_NPC.txt",
-        "status": "ok",
-        "size_bytes": 124135
       }
     ]
   },

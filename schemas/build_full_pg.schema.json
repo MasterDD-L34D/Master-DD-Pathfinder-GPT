@@ -67,7 +67,7 @@
                   "description": "Contesto opzionale per il template scheda_pg_markdown_template.md"
                 }
               },
-              "additionalProperties": false
+              "additionalProperties": true
             }
           ]
         },

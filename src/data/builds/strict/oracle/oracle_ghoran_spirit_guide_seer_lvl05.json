@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Oracle",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Ghoran",
     "archetype": "Spirit Guide + Seer",
     "step": 1,
@@ -239,8 +239,8 @@
   "output_prefix": "oracle_ghoran_spirit_guide_seer",
   "spec_id": "oracle_ghoran_spirit_guide_seer",
   "background": "Oracolo Ghoran che intreccia presagi vegetali e patroni shamanici",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Ghoran",
@@ -271,7 +271,7 @@
       "build_id": "build-a539d051eca29cfc3bdfbdaf",
       "build_state": {
         "class": "Oracle",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Ghoran",
         "archetype": "Spirit Guide + Seer",
         "step": 1,
@@ -512,5 +512,86 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Oracle",
+        "livelli": 1,
+        "archetipi": [
+          "Spirit Guide",
+          "Seer"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 10,
+      "DES": 12,
+      "COS": 16,
+      "INT": 10,
+      "SAG": 15,
+      "CAR": 20,
+      "attacco": "+9",
+      "danni": "1d6+4+buff",
+      "ca": 21
+    },
+    "statistiche_chiave": {
+      "attacco": "+9 con blessing e reroll",
+      "danni": "controllo/summon T1 con hex condivisi",
+      "ca": 21
+    },
+    "benchmarks": {
+      "meta_tier": "T1"
+    },
+    "salvezze": {
+      "Tempra": 5,
+      "Riflessi": 3,
+      "Volontà": 9
+    },
+    "attack_bonus": {
+      "melee": "+9",
+      "ranged": "+7",
+      "special": "+12 (raggio di tocco benedetto)"
+    },
+    "damage": {
+      "melee": "bastone 1d6+4+blessing",
+      "special": "summon/buff condivisi + hex"
+    },
+    "skills": [
+      {
+        "nome": "Conoscenze (religioni)",
+        "gradi": 1,
+        "mod_car": 2,
+        "var": 3,
+        "classe": true,
+        "totale": 9
+      },
+      {
+        "nome": "Conoscenze (arcane)",
+        "gradi": 1,
+        "mod_car": 0,
+        "var": 3,
+        "classe": true,
+        "totale": 7
+      },
+      {
+        "nome": "Percezione",
+        "gradi": 1,
+        "mod_car": 2,
+        "var": 1,
+        "classe": true,
+        "totale": 6
+      }
+    ],
+    "equipaggiamento": [
+      "Bastone rituale di linfa",
+      "Focus druidico intrecciato",
+      "Set da veggente Ghoran",
+      "Tatuaggi di mistero lore"
+    ],
+    "bench_log": [
+      "Pipeline confermata: Spirit Guide + Seer mantiene badge RAW/RAI/PFS e posizionamento T1."
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato; patroni shaman e reroll Seer compatibili"
   }
 }

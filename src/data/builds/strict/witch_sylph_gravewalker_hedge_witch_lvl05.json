@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Witch",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Sylph",
     "archetype": "Gravewalker + Hedge Witch",
     "step": 1,
@@ -203,8 +203,8 @@
   "output_prefix": "witch_sylph_gravewalker_hedge_witch",
   "spec_id": "witch_sylph_gravewalker_hedge_witch",
   "background": "Veggente del vento che guida anime e cura con erbe sospese",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Sylph",
@@ -235,7 +235,7 @@
       "build_id": "build-13d49b53531d7519e5bed59d",
       "build_state": {
         "class": "Witch",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Sylph",
         "archetype": "Gravewalker + Hedge Witch",
         "step": 1,
@@ -408,5 +408,54 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Witch",
+        "livelli": 5,
+        "archetipi": [
+          "Gravewalker",
+          "Hedge Witch"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 8,
+      "DES": 18,
+      "COS": 12,
+      "INT": 20,
+      "SAG": 12,
+      "CAR": 14,
+      "attacco": "+8",
+      "danni": "snowball 5d6+5",
+      "ca": 20
+    },
+    "statistiche_chiave": {
+      "attacco": "+8",
+      "danni": "5d6+5",
+      "ca": 20
+    },
+    "benchmarks": {
+      "meta_tier": "T1",
+      "ruling_badge": "RAW/RAI/PFS"
+    },
+    "salvezze": {
+      "Tempra": 4,
+      "Riflessi": 5,
+      "Volontà": 7
+    },
+    "attack_bonus": {
+      "ranged": "+8",
+      "special": "+10 hex touch"
+    },
+    "damage": {
+      "ranged": "snowball 5d6+5",
+      "special": "Command Undead / Misfortune"
+    },
+    "bench_log": [
+      "Checkpoint 5: hex + fly-by Cackle, healing patron online; badge RAW/RAI/PFS valido"
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato; focus debuff/curing mantenuto"
   }
 }

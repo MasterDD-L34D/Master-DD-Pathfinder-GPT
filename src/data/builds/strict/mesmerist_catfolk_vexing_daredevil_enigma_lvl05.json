@@ -1,7 +1,7 @@
 {
   "build_state": {
     "class": "Mesmerist",
-    "mode": "extended",
+    "mode": "full-pg",
     "race": "Catfolk",
     "archetype": "Vexing Daredevil + Enigma",
     "step": 1,
@@ -238,8 +238,8 @@
   "output_prefix": "mesmerist_catfolk_vexing_daredevil_enigma",
   "spec_id": "mesmerist_catfolk_vexing_daredevil_enigma",
   "background": "Acrobata da arena che ipnotizza e strappa vantaggi sporchi per il clan",
-  "mode": "extended",
-  "mode_normalized": "extended",
+  "mode": "full-pg",
+  "mode_normalized": "full-pg",
   "reference_catalog_version": "2026.04.03",
   "request": {
     "race": "Catfolk",
@@ -270,7 +270,7 @@
       "build_id": "build-0d47b08d7366d398eac3d397",
       "build_state": {
         "class": "Mesmerist",
-        "mode": "extended",
+        "mode": "full-pg",
         "race": "Catfolk",
         "archetype": "Vexing Daredevil + Enigma",
         "step": 1,
@@ -511,5 +511,86 @@
   "citation": {
     "sources": [],
     "reference_urls": []
+  },
+  "sheet_payload": {
+    "classi": [
+      {
+        "nome": "Mesmerist",
+        "livelli": 5,
+        "archetipi": [
+          "Vexing Daredevil",
+          "Enigma"
+        ]
+      }
+    ],
+    "statistiche": {
+      "FOR": 12,
+      "DES": 20,
+      "COS": 12,
+      "INT": 10,
+      "SAG": 12,
+      "CAR": 20,
+      "attacco": "+12",
+      "danni": "frusta +1 1d4+7",
+      "ca": 22
+    },
+    "statistiche_chiave": {
+      "attacco": "+12",
+      "danni": "frusta reach + mesmerist trick Dimenticanza",
+      "ca": 22
+    },
+    "benchmarks": {
+      "meta_tier": "T1"
+    },
+    "salvezze": {
+      "Tempra": 4,
+      "Riflessi": 8,
+      "Volontà": 7
+    },
+    "attack_bonus": {
+      "melee": "+12",
+      "ranged": "+14 con frusta +1",
+      "special": "+16 (greater feint + stare)"
+    },
+    "damage": {
+      "melee": "frusta +1 1d4+7",
+      "special": "dirty trick + mesmerist trick dimenticanza"
+    },
+    "skills": [
+      {
+        "nome": "Acrobazia",
+        "gradi": 5,
+        "mod_car": 5,
+        "var": 4,
+        "classe": true,
+        "totale": 14
+      },
+      {
+        "nome": "Furtività",
+        "gradi": 5,
+        "mod_car": 5,
+        "var": 4,
+        "classe": true,
+        "totale": 14
+      },
+      {
+        "nome": "Raggirare",
+        "gradi": 5,
+        "mod_car": 5,
+        "var": 4,
+        "classe": true,
+        "totale": 14
+      }
+    ],
+    "equipaggiamento": [
+      "Frusta +1 con fustigazione sporca",
+      "Mitria felina con focus psichico",
+      "Stivali dell'agilità",
+      "Mantello dell'ombra"
+    ],
+    "bench_log": [
+      "Ricognizione con mesmerist trick dimenticanza + riposizionamento felino con badge confermato"
+    ],
+    "rules_status_text": "Badge RAW/RAI/PFS confermato anche dopo upgrade equip"
   }
 }
