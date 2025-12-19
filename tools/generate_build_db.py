@@ -3035,7 +3035,10 @@ async def request_with_retry(
             await asyncio.sleep(actual_delay)
             continue
 
-        if response.status_code not in retryable_statuses and response.status_code < 500:
+        if (
+            response.status_code not in retryable_statuses
+            and response.status_code < 500
+        ):
             response.raise_for_status()
             return response
 
@@ -3060,7 +3063,9 @@ async def request_with_retry(
                     "status_code": response.status_code,
                     "attempt": attempt,
                     "retry_after": retry_after,
-                    "reason": "auth_backoff" if response.status_code == 401 else "rate_limit",
+                    "reason": (
+                        "auth_backoff" if response.status_code == 401 else "rate_limit"
+                    ),
                 }
             )
 
@@ -3093,7 +3098,9 @@ async def assert_api_reachable(
 
     headers = {"x-api-key": api_key} if api_key else {}
     try:
-        response = await client.get(health_path, headers=headers, timeout=health_timeout)
+        response = await client.get(
+            health_path, headers=headers, timeout=health_timeout
+        )
     except httpx.RequestError as exc:  # pragma: no cover - network dependent
         raise RuntimeError(
             f"API non raggiungibile su {client.base_url}: {exc}. "
