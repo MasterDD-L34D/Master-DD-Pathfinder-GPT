@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-19T17:11:36Z",
+  "generated_at": "2025-12-19T18:03:51Z",
   "api_url": null,
   "mode": "extended",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -92,6 +92,7 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'; 4 is not of type 'array'; 3 is not of type 'array'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -118,6 +119,7 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'; 4 is not of type 'array'; 3 is not of type 'array'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -144,6 +146,7 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'; 4 is not of type 'array'; 3 is not of type 'array'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -441,6 +444,7 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -467,6 +471,7 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -493,6 +498,7 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -1495,7 +1501,7 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true,
-      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "error": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); None is not of type 'string'; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
@@ -1528,7 +1534,7 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true,
-      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "error": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); None is not of type 'string'; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
@@ -1561,7 +1567,7 @@
       "expected_step_total": 16,
       "extended_steps_available": true,
       "step_total_ok": true,
-      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "error": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); None is not of type 'string'; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
@@ -2060,19 +2066,19 @@
     "1": {
       "total": 26,
       "invalid": 25,
-      "schema_errors": 0,
+      "schema_errors": 2,
       "completeness_errors": 5
     },
     "5": {
       "total": 26,
       "invalid": 26,
-      "schema_errors": 0,
+      "schema_errors": 2,
       "completeness_errors": 4
     },
     "10": {
       "total": 26,
       "invalid": 26,
-      "schema_errors": 0,
+      "schema_errors": 2,
       "completeness_errors": 5
     }
   }

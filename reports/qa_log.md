@@ -109,3 +109,8 @@
 - **Comando**: `python -m compileall data/reference schemas`.
 - **Esito**: **PASS** — compilazione bytecode completata senza errori di sintassi o codifica UTF-8.
 - **Note manifest/index**: nessuna anomalia su manifest o index rilevata durante la compilazione.
+
+## QA 2025-12-20 — Dual-pass `generate_build_db` (extended)
+- **Comando**: `python tools/generate_build_db.py --api-url http://localhost:8000 --mode extended --dual-pass --dual-pass-report reports/dual_pass.json --keep-invalid --ruling-expert-url http://localhost:8000/ruling`.
+- **Esito**: **FAIL PARZIALE** — passaggio strict respinto per `catalog_version`, passaggio tollerante completato con keep-invalid (vedi [reports/dual_pass.json](reports/dual_pass.json)).
+- **Delta indici**: build validi invariati (1→1) mentre le voci non valide/errori sono salite 83→113 (83 invalid + 30 error) dopo l'import dei nuovi snapshot.
