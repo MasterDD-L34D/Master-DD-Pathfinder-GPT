@@ -5,7 +5,7 @@
     "build_index": "src/data/build_index.strict.json",
     "module_index": "src/data/module_index.strict.json",
     "status": "failed",
-    "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)"
+    "error": "4 is not of type 'array'; 3 is not of type 'array'"
   },
   "tolerant": {
     "output_dir": "src/data/builds",
@@ -16,18 +16,99 @@
     "status": "ok"
   },
   "analysis": {
-    "generated_at": "2025-12-19T18:01:57Z",
+    "generated_at": "2025-12-19T18:29:42Z",
     "build_index": "src/data/build_index.json",
     "module_index": "src/data/module_index.json",
     "builds": {
-      "total": 114,
-      "ok": 1,
-      "invalid": 83,
-      "errors": 30,
+      "total": 144,
+      "ok": 3,
+      "invalid": 102,
+      "errors": 39,
       "invalid_entries": [
         {
           "file": null,
           "status": "error",
+          "output_prefix": "alchemist_goblin_bombardier",
+          "level": 1,
+          "class": "Alchemist",
+          "race": "Goblin",
+          "archetype": "Bombardier",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "alchemist_goblin_bombardier",
+          "model": null,
+          "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "completeness_errors": [
+            null
+          ],
+          "record_status": "draft",
+          "issues": [
+            "missing_audit"
+          ]
+        },
+        {
+          "file": null,
+          "status": "error",
+          "output_prefix": "alchemist_goblin_bombardier",
+          "level": 10,
+          "class": "Alchemist",
+          "race": "Goblin",
+          "archetype": "Bombardier",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "alchemist_goblin_bombardier",
+          "model": null,
+          "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "completeness_errors": [
+            null
+          ],
+          "record_status": "draft",
+          "issues": [
+            "missing_audit"
+          ]
+        },
+        {
+          "file": null,
+          "status": "error",
+          "output_prefix": "alchemist_goblin_bombardier",
+          "level": 5,
+          "class": "Alchemist",
+          "race": "Goblin",
+          "archetype": "Bombardier",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "alchemist_goblin_bombardier",
+          "model": null,
+          "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "completeness_errors": [
+            null
+          ],
+          "record_status": "draft",
+          "issues": [
+            "missing_audit"
+          ]
+        },
+        {
+          "file": null,
+          "status": "error",
           "output_prefix": "barbarian_fetchling_invulnerable_rager",
           "level": 1,
           "class": "Barbarian",
@@ -43,7 +124,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Barbarian&stub=true&level=1&race=Fetchling&archetype=Invulnerable+Rager'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -70,7 +151,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Barbarian&stub=true&level=10&race=Fetchling&archetype=Invulnerable+Rager'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -97,7 +178,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Barbarian&stub=true&level=5&race=Fetchling&archetype=Invulnerable+Rager'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -124,7 +205,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=1&race=Shabti&archetype=Steelblood+Metamagic+Rager'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -151,7 +232,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=10&race=Shabti&archetype=Steelblood+Metamagic+Rager'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -178,7 +259,88 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Bloodrager&stub=true&level=5&race=Shabti&archetype=Steelblood+Metamagic+Rager'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "completeness_errors": [
+            null
+          ],
+          "record_status": "draft",
+          "issues": [
+            "missing_audit"
+          ]
+        },
+        {
+          "file": null,
+          "status": "error",
+          "output_prefix": "cleric_samsaran_cloistered_evangelist",
+          "level": 1,
+          "class": "Cleric",
+          "race": "Samsaran",
+          "archetype": "Cloistered Evangelist",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "cleric_samsaran_cloistered_evangelist",
+          "model": null,
+          "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "completeness_errors": [
+            null
+          ],
+          "record_status": "draft",
+          "issues": [
+            "missing_audit"
+          ]
+        },
+        {
+          "file": null,
+          "status": "error",
+          "output_prefix": "cleric_samsaran_cloistered_evangelist",
+          "level": 10,
+          "class": "Cleric",
+          "race": "Samsaran",
+          "archetype": "Cloistered Evangelist",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "cleric_samsaran_cloistered_evangelist",
+          "model": null,
+          "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "completeness_errors": [
+            null
+          ],
+          "record_status": "draft",
+          "issues": [
+            "missing_audit"
+          ]
+        },
+        {
+          "file": null,
+          "status": "error",
+          "output_prefix": "cleric_samsaran_cloistered_evangelist",
+          "level": 5,
+          "class": "Cleric",
+          "race": "Samsaran",
+          "archetype": "Cloistered Evangelist",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "cleric_samsaran_cloistered_evangelist",
+          "model": null,
+          "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -205,7 +367,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=1&race=Half+Orc&archetype=Feral'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -232,7 +394,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=10&race=Half+Orc&archetype=Feral'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -259,7 +421,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=5&race=Half+Orc&archetype=Feral'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -286,7 +448,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=1&race=Wayang&archetype=Mooncaller+Shapeshifter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -313,7 +475,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=10&race=Wayang&archetype=Mooncaller+Shapeshifter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -340,7 +502,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=5&race=Wayang&archetype=Mooncaller+Shapeshifter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -367,7 +529,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=1&race=Dwarf&archetype=Shielded+Fighter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -394,7 +556,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=10&race=Dwarf&archetype=Shielded+Fighter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -421,7 +583,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=5&race=Dwarf&archetype=Shielded+Fighter'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -448,7 +610,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=1&race=Human&archetype=Weapon+Master'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -475,7 +637,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=10&race=Human&archetype=Weapon+Master'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -502,7 +664,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Fighter&stub=true&level=5&race=Human&archetype=Weapon+Master'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -529,7 +691,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=1&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -556,7 +718,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=10&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -583,7 +745,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -610,7 +772,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Ranger&stub=true&level=1&race=Half-Elf&archetype=Skirmisher'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -637,7 +799,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Ranger&stub=true&level=10&race=Half-Elf&archetype=Skirmisher'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -664,7 +826,88 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Ranger&stub=true&level=5&race=Half-Elf&archetype=Skirmisher'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "completeness_errors": [
+            null
+          ],
+          "record_status": "draft",
+          "issues": [
+            "missing_audit"
+          ]
+        },
+        {
+          "file": null,
+          "status": "error",
+          "output_prefix": "rogue_halfling_cutpurse",
+          "level": 1,
+          "class": "Rogue",
+          "race": "Halfling",
+          "archetype": "Cutpurse",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "rogue_halfling_cutpurse",
+          "model": null,
+          "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "completeness_errors": [
+            null
+          ],
+          "record_status": "draft",
+          "issues": [
+            "missing_audit"
+          ]
+        },
+        {
+          "file": null,
+          "status": "error",
+          "output_prefix": "rogue_halfling_cutpurse",
+          "level": 10,
+          "class": "Rogue",
+          "race": "Halfling",
+          "archetype": "Cutpurse",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "rogue_halfling_cutpurse",
+          "model": null,
+          "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "completeness_errors": [
+            null
+          ],
+          "record_status": "draft",
+          "issues": [
+            "missing_audit"
+          ]
+        },
+        {
+          "file": null,
+          "status": "error",
+          "output_prefix": "rogue_halfling_cutpurse",
+          "level": 5,
+          "class": "Rogue",
+          "race": "Halfling",
+          "archetype": "Cutpurse",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "rogue_halfling_cutpurse",
+          "model": null,
+          "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -757,14 +1000,14 @@
             5,
             10
           ],
-          "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); 4 is not of type 'array'; 3 is not of type 'array'",
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
           "ruling_badge": "validated",
           "ruling_sources": [
-            "mock_ruling_expert"
+            "stub"
           ],
           "meta_tier": "T3",
-          "benchmark_offense": 62,
-          "benchmark_defense": 19,
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
           ],
@@ -772,20 +1015,11 @@
           "is_deleted": false,
           "audit": [
             {
-              "timestamp": "2025-12-19T16:27:49Z",
+              "timestamp": "2025-12-19T18:29:42Z",
               "actor": "generate_build_db",
               "action": "harvest",
               "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); 4 is not of type 'array'; 3 is not of type 'array'",
-              "checkpoint": 1,
-              "source": "alchemist_goblin_bombardier"
-            },
-            {
-              "timestamp": "2025-12-19T18:01:57Z",
-              "actor": "generate_build_db",
-              "action": "harvest",
-              "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); 4 is not of type 'array'; 3 is not of type 'array'",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
               "checkpoint": 1,
               "source": "alchemist_goblin_bombardier"
             }
@@ -794,7 +1028,7 @@
           "expected_step_total": 16,
           "extended_steps_available": true,
           "step_total_ok": true,
-          "request_timestamp": "2025-12-19T18:01:57Z",
+          "request_timestamp": "2025-12-19T18:29:42Z",
           "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
           "request_ip": null,
           "auth_outcome": "accepted",
@@ -819,14 +1053,14 @@
             5,
             10
           ],
-          "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); 4 is not of type 'array'; 3 is not of type 'array'",
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
           "ruling_badge": "validated",
           "ruling_sources": [
-            "mock_ruling_expert"
+            "stub"
           ],
           "meta_tier": "T3",
-          "benchmark_offense": 62,
-          "benchmark_defense": 23,
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
           ],
@@ -834,20 +1068,11 @@
           "is_deleted": false,
           "audit": [
             {
-              "timestamp": "2025-12-19T16:27:49Z",
+              "timestamp": "2025-12-19T18:29:42Z",
               "actor": "generate_build_db",
               "action": "harvest",
               "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); 4 is not of type 'array'; 3 is not of type 'array'",
-              "checkpoint": 5,
-              "source": "alchemist_goblin_bombardier"
-            },
-            {
-              "timestamp": "2025-12-19T18:01:57Z",
-              "actor": "generate_build_db",
-              "action": "harvest",
-              "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); 4 is not of type 'array'; 3 is not of type 'array'",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
               "checkpoint": 5,
               "source": "alchemist_goblin_bombardier"
             }
@@ -856,7 +1081,7 @@
           "expected_step_total": 16,
           "extended_steps_available": true,
           "step_total_ok": true,
-          "request_timestamp": "2025-12-19T18:01:57Z",
+          "request_timestamp": "2025-12-19T18:29:42Z",
           "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
           "request_ip": null,
           "auth_outcome": "accepted",
@@ -881,14 +1106,14 @@
             5,
             10
           ],
-          "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); 4 is not of type 'array'; 3 is not of type 'array'",
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
           "ruling_badge": "validated",
           "ruling_sources": [
-            "mock_ruling_expert"
+            "stub"
           ],
           "meta_tier": "T3",
-          "benchmark_offense": 78,
-          "benchmark_defense": 27,
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
           ],
@@ -896,20 +1121,11 @@
           "is_deleted": false,
           "audit": [
             {
-              "timestamp": "2025-12-19T16:27:49Z",
+              "timestamp": "2025-12-19T18:29:42Z",
               "actor": "generate_build_db",
               "action": "harvest",
               "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); 4 is not of type 'array'; 3 is not of type 'array'",
-              "checkpoint": 10,
-              "source": "alchemist_goblin_bombardier"
-            },
-            {
-              "timestamp": "2025-12-19T18:01:57Z",
-              "actor": "generate_build_db",
-              "action": "harvest",
-              "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); 4 is not of type 'array'; 3 is not of type 'array'",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
               "checkpoint": 10,
               "source": "alchemist_goblin_bombardier"
             }
@@ -918,7 +1134,7 @@
           "expected_step_total": 16,
           "extended_steps_available": true,
           "step_total_ok": true,
-          "request_timestamp": "2025-12-19T18:01:57Z",
+          "request_timestamp": "2025-12-19T18:29:42Z",
           "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
           "request_ip": null,
           "auth_outcome": "accepted",
@@ -992,6 +1208,165 @@
           ]
         },
         {
+          "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
+          "status": "invalid",
+          "output_prefix": "barbarian_fetchling_invulnerable_rager",
+          "level": 1,
+          "class": "Barbarian",
+          "race": "Fetchling",
+          "archetype": "Invulnerable Rager",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "barbarian_fetchling_invulnerable_rager",
+          "model": null,
+          "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 1,
+              "source": "barbarian_fetchling_invulnerable_rager"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
+          "status": "invalid",
+          "output_prefix": "barbarian_fetchling_invulnerable_rager",
+          "level": 5,
+          "class": "Barbarian",
+          "race": "Fetchling",
+          "archetype": "Invulnerable Rager",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "barbarian_fetchling_invulnerable_rager",
+          "model": null,
+          "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 5,
+              "source": "barbarian_fetchling_invulnerable_rager"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
+          "status": "invalid",
+          "output_prefix": "barbarian_fetchling_invulnerable_rager",
+          "level": 10,
+          "class": "Barbarian",
+          "race": "Fetchling",
+          "archetype": "Invulnerable Rager",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "barbarian_fetchling_invulnerable_rager",
+          "model": null,
+          "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 10,
+              "source": "barbarian_fetchling_invulnerable_rager"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
           "file": "src/data/builds/bard_kitsune_sound_striker_sandman.json",
           "status": "invalid",
           "output_prefix": "bard_kitsune_sound_striker_sandman",
@@ -1063,6 +1438,165 @@
           "catalog_version": [
             "2026.04.03"
           ]
+        },
+        {
+          "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager.json",
+          "status": "invalid",
+          "output_prefix": "bloodrager-shabti-steelblood-metamagic-rager",
+          "level": 1,
+          "class": "Bloodrager",
+          "race": "Shabti",
+          "archetype": "Steelblood Metamagic Rager",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
+          "model": null,
+          "background": "Costrutto celestiale forgiato come guardia reale, ora incanala la furia metamagica protetto da piastre d'oricalco.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 1,
+              "source": "bloodrager-shabti-steelblood-metamagic-rager"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json",
+          "status": "invalid",
+          "output_prefix": "bloodrager-shabti-steelblood-metamagic-rager",
+          "level": 5,
+          "class": "Bloodrager",
+          "race": "Shabti",
+          "archetype": "Steelblood Metamagic Rager",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
+          "model": null,
+          "background": "Costrutto celestiale forgiato come guardia reale, ora incanala la furia metamagica protetto da piastre d'oricalco.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 5,
+              "source": "bloodrager-shabti-steelblood-metamagic-rager"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json",
+          "status": "invalid",
+          "output_prefix": "bloodrager-shabti-steelblood-metamagic-rager",
+          "level": 10,
+          "class": "Bloodrager",
+          "race": "Shabti",
+          "archetype": "Steelblood Metamagic Rager",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
+          "model": null,
+          "background": "Costrutto celestiale forgiato come guardia reale, ora incanala la furia metamagica protetto da piastre d'oricalco.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 10,
+              "source": "bloodrager-shabti-steelblood-metamagic-rager"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
         },
         {
           "file": "src/data/builds/brawler_grippli_mutagenic_mauler_strangler.json",
@@ -1214,11 +1748,14 @@
             5,
             10
           ],
-          "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)",
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
           "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
           "meta_tier": "T3",
           "benchmark_offense": 26,
-          "benchmark_defense": 21,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
           ],
@@ -1226,20 +1763,11 @@
           "is_deleted": false,
           "audit": [
             {
-              "timestamp": "2025-12-19T16:27:37Z",
+              "timestamp": "2025-12-19T18:29:42Z",
               "actor": "generate_build_db",
               "action": "harvest",
               "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)",
-              "checkpoint": 1,
-              "source": "cleric_samsaran_cloistered_evangelist"
-            },
-            {
-              "timestamp": "2025-12-19T18:01:56Z",
-              "actor": "generate_build_db",
-              "action": "harvest",
-              "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
               "checkpoint": 1,
               "source": "cleric_samsaran_cloistered_evangelist"
             }
@@ -1248,7 +1776,7 @@
           "expected_step_total": 16,
           "extended_steps_available": true,
           "step_total_ok": true,
-          "request_timestamp": "2025-12-19T18:01:56Z",
+          "request_timestamp": "2025-12-19T18:29:42Z",
           "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
           "request_ip": null,
           "auth_outcome": "accepted",
@@ -1273,11 +1801,14 @@
             5,
             10
           ],
-          "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)",
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
           "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
           "meta_tier": "T3",
-          "benchmark_offense": 72,
-          "benchmark_defense": 21,
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
           ],
@@ -1285,20 +1816,11 @@
           "is_deleted": false,
           "audit": [
             {
-              "timestamp": "2025-12-19T16:27:37Z",
+              "timestamp": "2025-12-19T18:29:42Z",
               "actor": "generate_build_db",
               "action": "harvest",
               "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)",
-              "checkpoint": 5,
-              "source": "cleric_samsaran_cloistered_evangelist"
-            },
-            {
-              "timestamp": "2025-12-19T18:01:57Z",
-              "actor": "generate_build_db",
-              "action": "harvest",
-              "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
               "checkpoint": 5,
               "source": "cleric_samsaran_cloistered_evangelist"
             }
@@ -1307,7 +1829,7 @@
           "expected_step_total": 16,
           "extended_steps_available": true,
           "step_total_ok": true,
-          "request_timestamp": "2025-12-19T18:01:57Z",
+          "request_timestamp": "2025-12-19T18:29:42Z",
           "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
           "request_ip": null,
           "auth_outcome": "accepted",
@@ -1332,14 +1854,14 @@
             5,
             10
           ],
-          "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)",
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
           "ruling_badge": "validated",
           "ruling_sources": [
-            "mock-ruling"
+            "stub"
           ],
           "meta_tier": "T3",
-          "benchmark_offense": 72,
-          "benchmark_defense": 21,
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
           ],
@@ -1347,20 +1869,11 @@
           "is_deleted": false,
           "audit": [
             {
-              "timestamp": "2025-12-19T16:27:37Z",
+              "timestamp": "2025-12-19T18:29:42Z",
               "actor": "generate_build_db",
               "action": "harvest",
               "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)",
-              "checkpoint": 10,
-              "source": "cleric_samsaran_cloistered_evangelist"
-            },
-            {
-              "timestamp": "2025-12-19T18:01:57Z",
-              "actor": "generate_build_db",
-              "action": "harvest",
-              "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected)",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
               "checkpoint": 10,
               "source": "cleric_samsaran_cloistered_evangelist"
             }
@@ -1369,7 +1882,325 @@
           "expected_step_total": 16,
           "extended_steps_available": true,
           "step_total_ok": true,
-          "request_timestamp": "2025-12-19T18:01:57Z",
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/druid_half_orc_feral.json",
+          "status": "invalid",
+          "output_prefix": "druid_half_orc_feral",
+          "level": 1,
+          "class": "Druid",
+          "race": "Half Orc",
+          "archetype": "Feral",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "druid_half_orc_feral",
+          "model": null,
+          "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 1,
+              "source": "druid_half_orc_feral"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
+          "status": "invalid",
+          "output_prefix": "druid_half_orc_feral",
+          "level": 5,
+          "class": "Druid",
+          "race": "Half Orc",
+          "archetype": "Feral",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "druid_half_orc_feral",
+          "model": null,
+          "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 5,
+              "source": "druid_half_orc_feral"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
+          "status": "invalid",
+          "output_prefix": "druid_half_orc_feral",
+          "level": 10,
+          "class": "Druid",
+          "race": "Half Orc",
+          "archetype": "Feral",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "druid_half_orc_feral",
+          "model": null,
+          "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 10,
+              "source": "druid_half_orc_feral"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
+          "status": "invalid",
+          "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+          "level": 1,
+          "class": "Druid",
+          "race": "Wayang",
+          "archetype": "Mooncaller Shapeshifter",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "druid_wayang_mooncaller_shapeshifter",
+          "model": null,
+          "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 1,
+              "source": "druid_wayang_mooncaller_shapeshifter"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
+          "status": "invalid",
+          "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+          "level": 5,
+          "class": "Druid",
+          "race": "Wayang",
+          "archetype": "Mooncaller Shapeshifter",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "druid_wayang_mooncaller_shapeshifter",
+          "model": null,
+          "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 5,
+              "source": "druid_wayang_mooncaller_shapeshifter"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
+          "status": "invalid",
+          "output_prefix": "druid_wayang_mooncaller_shapeshifter",
+          "level": 10,
+          "class": "Druid",
+          "race": "Wayang",
+          "archetype": "Mooncaller Shapeshifter",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "druid_wayang_mooncaller_shapeshifter",
+          "model": null,
+          "background": "Custode delle ombre lunari wayang che sfrutta ululati e forme ferali per schermare il party in oscurità.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 10,
+              "source": "druid_wayang_mooncaller_shapeshifter"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
           "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
           "request_ip": null,
           "auth_outcome": "accepted",
@@ -1380,147 +2211,319 @@
           "file": "src/data/builds/fighter_dwarf_shielded.json",
           "status": "invalid",
           "output_prefix": "fighter_dwarf_shielded",
+          "level": 1,
           "class": "Fighter",
           "race": "Dwarf",
           "archetype": "Shielded Fighter",
           "mode": "extended",
           "mode_normalized": "extended",
-          "spec_id": "fighter_dwarf_shielded_fighter",
-          "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
+          "spec_id": "fighter_dwarf_shielded",
           "model": null,
+          "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "level": 1,
-          "missing_catalog_entries": [
-            "items:Ascia da battaglia",
-            "items:Scudo pesante"
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
           ],
-          "prerequisite_violations": [
-            "Ascia da battaglia: Martial weapon proficiency",
-            "Scudo pesante: Shield proficiency"
-          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
-          ]
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 1,
+              "source": "fighter_dwarf_shielded"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
         },
         {
           "file": "src/data/builds/fighter_dwarf_shielded_lvl05.json",
           "status": "invalid",
           "output_prefix": "fighter_dwarf_shielded",
+          "level": 5,
           "class": "Fighter",
           "race": "Dwarf",
           "archetype": "Shielded Fighter",
           "mode": "extended",
           "mode_normalized": "extended",
-          "spec_id": "fighter_dwarf_shielded_fighter",
-          "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
+          "spec_id": "fighter_dwarf_shielded",
           "model": null,
+          "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "level": 5,
-          "missing_catalog_entries": [
-            "items:Ascia da battaglia",
-            "items:Scudo pesante"
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
           ],
-          "prerequisite_violations": [
-            "Ascia da battaglia: Martial weapon proficiency",
-            "Scudo pesante: Shield proficiency"
-          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
-          ]
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 5,
+              "source": "fighter_dwarf_shielded"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
         },
         {
           "file": "src/data/builds/fighter_dwarf_shielded_lvl10.json",
           "status": "invalid",
           "output_prefix": "fighter_dwarf_shielded",
+          "level": 10,
           "class": "Fighter",
           "race": "Dwarf",
           "archetype": "Shielded Fighter",
           "mode": "extended",
           "mode_normalized": "extended",
-          "spec_id": "fighter_dwarf_shielded_fighter",
-          "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
+          "spec_id": "fighter_dwarf_shielded",
           "model": null,
+          "background": "Guardia cittadina temprata, specializzata in difesa di scudi pesanti.",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "level": 10,
-          "missing_catalog_entries": [
-            "items:Ascia da battaglia",
-            "items:Scudo pesante"
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
           ],
-          "prerequisite_violations": [
-            "Ascia da battaglia: Martial weapon proficiency",
-            "Scudo pesante: Shield proficiency"
-          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
-          ]
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 10,
+              "source": "fighter_dwarf_shielded"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/fighter_weapon_master_human.json",
+          "status": "invalid",
+          "output_prefix": "fighter_weapon_master_human",
+          "level": 1,
+          "class": "Fighter",
+          "race": "Human",
+          "archetype": "Weapon Master",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "fighter_weapon_master_human",
+          "model": null,
+          "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 1,
+              "source": "fighter_weapon_master_human"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
         },
         {
           "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
           "status": "invalid",
           "output_prefix": "fighter_weapon_master_human",
+          "level": 5,
           "class": "Fighter",
           "race": "Human",
           "archetype": "Weapon Master",
           "mode": "extended",
           "mode_normalized": "extended",
-          "spec_id": "fighter_human_weapon_master",
-          "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+          "spec_id": "fighter_weapon_master_human",
           "model": null,
+          "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "level": 5,
-          "missing_catalog_entries": [
-            "items:Pugnale di servizio"
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
           ],
-          "prerequisite_violations": [
-            "Pugnale di servizio: Simple weapon proficiency"
-          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
-          ]
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 5,
+              "source": "fighter_weapon_master_human"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
         },
         {
           "file": "src/data/builds/fighter_weapon_master_human_lvl10.json",
           "status": "invalid",
           "output_prefix": "fighter_weapon_master_human",
+          "level": 10,
           "class": "Fighter",
           "race": "Human",
           "archetype": "Weapon Master",
           "mode": "extended",
           "mode_normalized": "extended",
-          "spec_id": "fighter_human_weapon_master",
-          "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+          "spec_id": "fighter_weapon_master_human",
           "model": null,
+          "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "level": 10,
-          "missing_catalog_entries": [
-            "items:Pugnale di servizio"
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
           ],
-          "prerequisite_violations": [
-            "Pugnale di servizio: Simple weapon proficiency"
-          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
-          ]
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 10,
+              "source": "fighter_weapon_master_human"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
         },
         {
           "file": "src/data/builds/gunslinger_strix_gun_tank.json",
@@ -2055,85 +3058,160 @@
           "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium.json",
           "status": "invalid",
           "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
+          "level": 1,
           "class": "Medium",
           "race": "Oread",
           "archetype": "Spirit Dancer + Reanimated Medium",
           "mode": "extended",
           "mode_normalized": "extended",
           "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
-          "background": "Medium oread che danza con le anime pietrose dei canyon",
           "model": null,
+          "background": "Medium oread che danza con le anime pietrose dei canyon",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "level": 1,
-          "missing_catalog_entries": [
-            "items:Pugnale di servizio"
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
           ],
-          "prerequisite_violations": [
-            "Pugnale di servizio: Simple weapon proficiency"
-          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
-          ]
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 1,
+              "source": "medium_oread_spirit_dancer_reanimated_medium"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
         },
         {
           "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl05.json",
           "status": "invalid",
           "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
+          "level": 5,
           "class": "Medium",
           "race": "Oread",
           "archetype": "Spirit Dancer + Reanimated Medium",
           "mode": "extended",
           "mode_normalized": "extended",
           "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
-          "background": "Medium oread che danza con le anime pietrose dei canyon",
           "model": null,
+          "background": "Medium oread che danza con le anime pietrose dei canyon",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "level": 5,
-          "missing_catalog_entries": [
-            "items:Pugnale di servizio"
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
           ],
-          "prerequisite_violations": [
-            "Pugnale di servizio: Simple weapon proficiency"
-          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
-          ]
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 5,
+              "source": "medium_oread_spirit_dancer_reanimated_medium"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
         },
         {
           "file": "src/data/builds/medium_oread_spirit_dancer_reanimated_medium_lvl10.json",
           "status": "invalid",
           "output_prefix": "medium_oread_spirit_dancer_reanimated_medium",
+          "level": 10,
           "class": "Medium",
           "race": "Oread",
           "archetype": "Spirit Dancer + Reanimated Medium",
           "mode": "extended",
           "mode_normalized": "extended",
           "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
-          "background": "Medium oread che danza con le anime pietrose dei canyon",
           "model": null,
+          "background": "Medium oread che danza con le anime pietrose dei canyon",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "level": 10,
-          "missing_catalog_entries": [
-            "items:Pugnale di servizio"
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
           ],
-          "prerequisite_violations": [
-            "Pugnale di servizio: Simple weapon proficiency"
-          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
-          ]
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 10,
+              "source": "medium_oread_spirit_dancer_reanimated_medium"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
         },
         {
           "file": "src/data/builds/monk_vanara_qinggong_master_of_many_styles.json",
@@ -2327,24 +3405,24 @@
           ]
         },
         {
-          "file": "src/data/builds/rogue_halfling_cutpurse.json",
+          "file": "src/data/builds/ranger_halfelf_skirmisher.json",
           "status": "invalid",
-          "output_prefix": "rogue_halfling_cutpurse",
+          "output_prefix": "ranger_halfelf_skirmisher",
           "level": 1,
-          "class": "Rogue",
-          "race": "Halfling",
-          "archetype": "Cutpurse",
+          "class": "Ranger",
+          "race": "Half-Elf",
+          "archetype": "Skirmisher",
           "mode": "extended",
           "mode_normalized": "extended",
-          "spec_id": "rogue_halfling_cutpurse",
+          "spec_id": "ranger_halfelf_skirmisher",
           "model": null,
-          "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
+          "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "error": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected)",
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
           "ruling_badge": "validated",
           "ruling_sources": [
             "stub"
@@ -2352,9 +3430,6 @@
           "meta_tier": "T3",
           "benchmark_offense": 26,
           "benchmark_defense": 18,
-          "prerequisite_violations": [
-            "Armatura di cuoio borchiato: Light armor proficiency"
-          ],
           "catalog_version": [
             "2026.04.03"
           ],
@@ -2362,29 +3437,20 @@
           "is_deleted": false,
           "audit": [
             {
-              "timestamp": "2025-12-19T16:27:37Z",
+              "timestamp": "2025-12-19T18:29:42Z",
               "actor": "generate_build_db",
               "action": "harvest",
               "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected)",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
               "checkpoint": 1,
-              "source": "rogue_halfling_cutpurse"
-            },
-            {
-              "timestamp": "2025-12-19T18:01:57Z",
-              "actor": "generate_build_db",
-              "action": "harvest",
-              "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected)",
-              "checkpoint": 1,
-              "source": "rogue_halfling_cutpurse"
+              "source": "ranger_halfelf_skirmisher"
             }
           ],
           "step_total": 16,
           "expected_step_total": 16,
           "extended_steps_available": true,
           "step_total_ok": true,
-          "request_timestamp": "2025-12-19T18:01:57Z",
+          "request_timestamp": "2025-12-19T18:29:42Z",
           "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
           "request_ip": null,
           "auth_outcome": "accepted",
@@ -2392,34 +3458,31 @@
           "backoff_reason": null
         },
         {
-          "file": "src/data/builds/rogue_halfling_cutpurse_lvl05.json",
+          "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
           "status": "invalid",
-          "output_prefix": "rogue_halfling_cutpurse",
+          "output_prefix": "ranger_halfelf_skirmisher",
           "level": 5,
-          "class": "Rogue",
-          "race": "Halfling",
-          "archetype": "Cutpurse",
+          "class": "Ranger",
+          "race": "Half-Elf",
+          "archetype": "Skirmisher",
           "mode": "extended",
           "mode_normalized": "extended",
-          "spec_id": "rogue_halfling_cutpurse",
+          "spec_id": "ranger_halfelf_skirmisher",
           "model": null,
-          "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
+          "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "error": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected)",
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
           "ruling_badge": "validated",
           "ruling_sources": [
             "stub"
           ],
           "meta_tier": "T3",
           "benchmark_offense": 26,
-          "benchmark_defense": 21,
-          "prerequisite_violations": [
-            "Armatura di cuoio borchiato: Light armor proficiency"
-          ],
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
           ],
@@ -2427,29 +3490,20 @@
           "is_deleted": false,
           "audit": [
             {
-              "timestamp": "2025-12-19T16:27:37Z",
+              "timestamp": "2025-12-19T18:29:42Z",
               "actor": "generate_build_db",
               "action": "harvest",
               "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected)",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
               "checkpoint": 5,
-              "source": "rogue_halfling_cutpurse"
-            },
-            {
-              "timestamp": "2025-12-19T18:01:57Z",
-              "actor": "generate_build_db",
-              "action": "harvest",
-              "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected)",
-              "checkpoint": 5,
-              "source": "rogue_halfling_cutpurse"
+              "source": "ranger_halfelf_skirmisher"
             }
           ],
           "step_total": 16,
           "expected_step_total": 16,
           "extended_steps_available": true,
           "step_total_ok": true,
-          "request_timestamp": "2025-12-19T18:01:57Z",
+          "request_timestamp": "2025-12-19T18:29:42Z",
           "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
           "request_ip": null,
           "auth_outcome": "accepted",
@@ -2457,34 +3511,31 @@
           "backoff_reason": null
         },
         {
-          "file": "src/data/builds/rogue_halfling_cutpurse_lvl10.json",
+          "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
           "status": "invalid",
-          "output_prefix": "rogue_halfling_cutpurse",
+          "output_prefix": "ranger_halfelf_skirmisher",
           "level": 10,
-          "class": "Rogue",
-          "race": "Halfling",
-          "archetype": "Cutpurse",
+          "class": "Ranger",
+          "race": "Half-Elf",
+          "archetype": "Skirmisher",
           "mode": "extended",
           "mode_normalized": "extended",
-          "spec_id": "rogue_halfling_cutpurse",
+          "spec_id": "ranger_halfelf_skirmisher",
           "model": null,
-          "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
+          "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
           "level_checkpoints": [
             1,
             5,
             10
           ],
-          "error": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected)",
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
           "ruling_badge": "validated",
           "ruling_sources": [
             "stub"
           ],
           "meta_tier": "T3",
           "benchmark_offense": 26,
-          "benchmark_defense": 26,
-          "prerequisite_violations": [
-            "Armatura di cuoio borchiato: Light armor proficiency"
-          ],
+          "benchmark_defense": 18,
           "catalog_version": [
             "2026.04.03"
           ],
@@ -2492,29 +3543,20 @@
           "is_deleted": false,
           "audit": [
             {
-              "timestamp": "2025-12-19T16:27:37Z",
+              "timestamp": "2025-12-19T18:29:42Z",
               "actor": "generate_build_db",
               "action": "harvest",
               "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected)",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
               "checkpoint": 10,
-              "source": "rogue_halfling_cutpurse"
-            },
-            {
-              "timestamp": "2025-12-19T18:01:57Z",
-              "actor": "generate_build_db",
-              "action": "harvest",
-              "status": "draft",
-              "note": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected)",
-              "checkpoint": 10,
-              "source": "rogue_halfling_cutpurse"
+              "source": "ranger_halfelf_skirmisher"
             }
           ],
           "step_total": 16,
           "expected_step_total": 16,
           "extended_steps_available": true,
           "step_total_ok": true,
-          "request_timestamp": "2025-12-19T18:01:57Z",
+          "request_timestamp": "2025-12-19T18:29:42Z",
           "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
           "request_ip": null,
           "auth_outcome": "accepted",
@@ -3005,6 +4047,369 @@
           ]
         },
         {
+          "file": "src/data/builds/wizard_elf_universalist.json",
+          "status": "invalid",
+          "output_prefix": "wizard_elf_universalist",
+          "level": 1,
+          "class": "Wizard",
+          "race": "Elf",
+          "archetype": "Universalist",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "wizard_elf_universalist",
+          "model": null,
+          "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 1,
+              "source": "wizard_elf_universalist"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
+          "status": "invalid",
+          "output_prefix": "wizard_elf_universalist",
+          "level": 5,
+          "class": "Wizard",
+          "race": "Elf",
+          "archetype": "Universalist",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "wizard_elf_universalist",
+          "model": null,
+          "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 5,
+              "source": "wizard_elf_universalist"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
+          "status": "invalid",
+          "output_prefix": "wizard_elf_universalist",
+          "level": 10,
+          "class": "Wizard",
+          "race": "Elf",
+          "archetype": "Universalist",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "wizard_elf_universalist",
+          "model": null,
+          "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 18,
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 10,
+              "source": "wizard_elf_universalist"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/wizard_human_evoker.json",
+          "status": "invalid",
+          "output_prefix": "wizard_human_evoker",
+          "level": 1,
+          "class": "Wizard",
+          "race": "Human",
+          "archetype": "Evoker",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "wizard_human_evoker",
+          "model": null,
+          "background": "Piromane accademico in cerca di antiche pergamene elementali.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "4 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 15,
+          "missing_catalog_entries": [
+            "items:Abito da viaggiatore",
+            "items:Bastone ferrato",
+            "items:Spellbook"
+          ],
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "4 is not of type 'array'",
+              "checkpoint": 1,
+              "source": "wizard_human_evoker"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/wizard_human_evoker_lvl05.json",
+          "status": "invalid",
+          "output_prefix": "wizard_human_evoker",
+          "level": 5,
+          "class": "Wizard",
+          "race": "Human",
+          "archetype": "Evoker",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "wizard_human_evoker",
+          "model": null,
+          "background": "Piromane accademico in cerca di antiche pergamene elementali.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "7 is not of type 'array'; 6 is not of type 'array'; 5 is not of type 'array'; 3 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 17,
+          "missing_catalog_entries": [
+            "feats:Incantesimi focalizzati (Invocazione)",
+            "feats:Incantesimi massimizzati (metamagia)",
+            "feats:Magia focalizzata superiore (Invocazione)",
+            "feats:Metamagia (Incantesimi Estesi)",
+            "items:Abito da viaggiatore",
+            "items:Bacchetta di dardo incantato (CL3)",
+            "items:Bastone ferrato",
+            "items:Mantello resistente +1",
+            "items:Pagina di pergamena",
+            "items:Perla di potere I",
+            "items:Spellbook",
+            "items:Veste da mago rinforzata"
+          ],
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "7 is not of type 'array'; 6 is not of type 'array'; 5 is not of type 'array'; 3 is not of type 'array'",
+              "checkpoint": 5,
+              "source": "wizard_human_evoker"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
+          "file": "src/data/builds/wizard_human_evoker_lvl10.json",
+          "status": "invalid",
+          "output_prefix": "wizard_human_evoker",
+          "level": 10,
+          "class": "Wizard",
+          "race": "Human",
+          "archetype": "Evoker",
+          "mode": "extended",
+          "mode_normalized": "extended",
+          "spec_id": "wizard_human_evoker",
+          "model": null,
+          "background": "Piromane accademico in cerca di antiche pergamene elementali.",
+          "level_checkpoints": [
+            1,
+            5,
+            10
+          ],
+          "error": "8 is not of type 'array'; 7 is not of type 'array'; 7 is not of type 'array'; 7 is not of type 'array'; 6 is not of type 'array'",
+          "ruling_badge": "validated",
+          "ruling_sources": [
+            "stub"
+          ],
+          "meta_tier": "T3",
+          "benchmark_offense": 26,
+          "benchmark_defense": 20,
+          "missing_catalog_entries": [
+            "feats:Incantesimi focalizzati (Invocazione)",
+            "feats:Incantesimi focalizzati superiori (Invocazione)",
+            "feats:Incantesimi massimizzati (metamagia)",
+            "feats:Incantesimi potenziati (metamagia)",
+            "feats:Incantesimi rapidi migliorati",
+            "feats:Magia focalizzata superiore (Invocazione)",
+            "feats:Metamagia (Incantesimi Estesi)",
+            "feats:Penetrare resistenza magica",
+            "feats:Penetrare resistenza magica migliorato",
+            "feats:Talento bonus (Difensivo)",
+            "feats:Talento bonus (Mago) — Incantesimi rapidi",
+            "items:Abito da viaggiatore",
+            "items:Bacchetta di dardo incantato (CL3)",
+            "items:Bacchetta di fulmine (CL9)",
+            "items:Bacchetta di palla di fuoco (CL6)",
+            "items:Bastone ferrato",
+            "items:Mantello resistente +1",
+            "items:Pagina di pergamena",
+            "items:Pergamena di muro di forza",
+            "items:Perla di potere I",
+            "items:Perla di potere IV",
+            "items:Spellbook",
+            "items:Testa di bacco runica",
+            "items:Veste da mago rinforzata"
+          ],
+          "catalog_version": [
+            "2026.04.03"
+          ],
+          "record_status": "draft",
+          "is_deleted": false,
+          "audit": [
+            {
+              "timestamp": "2025-12-19T18:29:42Z",
+              "actor": "generate_build_db",
+              "action": "harvest",
+              "status": "draft",
+              "note": "8 is not of type 'array'; 7 is not of type 'array'; 7 is not of type 'array'; 7 is not of type 'array'; 6 is not of type 'array'",
+              "checkpoint": 10,
+              "source": "wizard_human_evoker"
+            }
+          ],
+          "step_total": 16,
+          "expected_step_total": 16,
+          "extended_steps_available": true,
+          "step_total_ok": true,
+          "request_timestamp": "2025-12-19T18:29:42Z",
+          "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
+          "request_ip": null,
+          "auth_outcome": "accepted",
+          "auth_attempt_count": 1,
+          "backoff_reason": null
+        },
+        {
           "file": null,
           "status": "error",
           "output_prefix": "wizard_elf_universalist",
@@ -3022,7 +4427,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=1&race=Elf&archetype=Universalist'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -3049,7 +4454,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=10&race=Elf&archetype=Universalist'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -3076,7 +4481,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=5&race=Elf&archetype=Universalist'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -3103,7 +4508,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=1&race=Human&archetype=Evoker'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -3130,7 +4535,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=10&race=Human&archetype=Evoker'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -3157,7 +4562,7 @@
             5,
             10
           ],
-          "error": "Client error '404 Not Found' for url 'http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Wizard&stub=true&level=5&race=Human&archetype=Evoker'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
+          "error": "Client error '404 Not Found' for url 'http://localhost:8000/ruling'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404",
           "completeness_errors": [
             null
           ],
@@ -3170,10 +4575,55 @@
     },
     "modules": {
       "total": 15,
-      "ok": 15,
-      "invalid": 0,
-      "errors": 0,
-      "invalid_entries": []
+      "ok": 13,
+      "invalid": 1,
+      "errors": 1,
+      "invalid_entries": [
+        {
+          "module": "adventurer_ledger.txt",
+          "file": null,
+          "status": "error",
+          "issues": [
+            "missing_audit",
+            "missing_record_status"
+          ],
+          "error": "Client error '403 Forbidden' for url 'http://localhost:8000/modules/adventurer_ledger.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+        },
+        {
+          "module": "scheda_pg_markdown_template.md",
+          "file": "src/data/modules/scheda_pg_markdown_template.md",
+          "status": "invalid",
+          "meta": {
+            "name": "scheda_pg_markdown_template.md",
+            "size_bytes": 29742,
+            "suffix": ".md",
+            "version": "1.1",
+            "compatibility": {
+              "core_min": "3.3",
+              "integrates_with": [
+                "MinMax Builder",
+                "Adventurer Ledger",
+                "Explain Methods",
+                "Ruling Expert",
+                "Hook VTT"
+              ]
+            },
+            "record_status": "draft",
+            "is_deleted": false,
+            "deleted_at": null,
+            "audit": [
+              {
+                "timestamp": "2025-12-19T18:29:42Z",
+                "actor": "generate_build_db",
+                "action": "module_indexed",
+                "status": "draft",
+                "note": "meta validation: {'core_min': '3.3', 'integrates_with': ['MinMax Builder', 'Adventurer Ledger', 'Explain Methods', 'Ruling Expert', 'Hook VTT']} is not valid under any of the given schemas"
+              }
+            ]
+          },
+          "error": "{'core_min': '3.3', 'integrates_with': ['MinMax Builder', 'Adventurer Ledger', 'Explain Methods', 'Ruling Expert', 'Hook VTT']} is not valid under any of the given schemas"
+        }
+      ]
     },
     "archived_files": [],
     "alerts": {
@@ -3182,10 +4632,10 @@
         "Bard",
         "Cleric",
         "Druid",
+        "Fighter",
         "Monk",
         "Paladin",
         "Ranger",
-        "Rogue",
         "Sorcerer",
         "Wizard"
       ],

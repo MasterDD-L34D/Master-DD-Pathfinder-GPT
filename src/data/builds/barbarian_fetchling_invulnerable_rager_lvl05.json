@@ -1,9 +1,9 @@
 {
   "build_state": {
-    "class": "Medium",
+    "class": "Barbarian",
     "mode": "extended",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "race": "Fetchling",
+    "archetype": "Invulnerable Rager",
     "step": 1,
     "step_total": 16,
     "step_labels": {
@@ -60,10 +60,10 @@
     "sheet_payload": {
       "classi": [
         {
-          "nome": "Medium",
+          "nome": "Barbarian",
           "livelli": 5,
           "archetipi": [
-            "Spirit Dancer + Reanimated Medium"
+            "Invulnerable Rager"
           ]
         }
       ],
@@ -116,7 +116,7 @@
         "Addestramento marziale",
         "Specializzazione",
         "Privilegio 1",
-        "Tecnica distintiva Spirit Dancer + Reanimated Medium",
+        "Tecnica distintiva Invulnerable Rager",
         "Privilegio 2",
         "Privilegio 3",
         "Privilegio 4",
@@ -156,7 +156,7 @@
           "livello": 1,
           "privilegi": [
             "Privilegio 1",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Invulnerable Rager"
           ],
           "talenti": [
             "Talento di livello 1"
@@ -166,7 +166,7 @@
           "livello": 2,
           "privilegi": [
             "Privilegio 2",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Invulnerable Rager"
           ],
           "talenti": [
             "Talento di livello 2"
@@ -176,7 +176,7 @@
           "livello": 3,
           "privilegi": [
             "Privilegio 3",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Invulnerable Rager"
           ],
           "talenti": [
             "Talento di livello 3"
@@ -186,7 +186,7 @@
           "livello": 4,
           "privilegi": [
             "Privilegio 4",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Invulnerable Rager"
           ],
           "talenti": [
             "Talento di livello 4"
@@ -196,7 +196,7 @@
           "livello": 5,
           "privilegi": [
             "Privilegio 5",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Invulnerable Rager"
           ],
           "talenti": [
             "Talento di livello 5"
@@ -223,7 +223,7 @@
           "rame": 40
         }
       },
-      "razza": "Oread",
+      "razza": "Fetchling",
       "salvezze_breakdown": {
         "Tempra": {
           "base": 2,
@@ -290,7 +290,7 @@
       },
       "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
       "fonti": [
-        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Barbarian&stub=true&level=5&race=Fetchling&archetype=Invulnerable+Rager"
       ],
       "print_mode": false,
       "show_minmax": true,
@@ -305,7 +305,7 @@
       "condizioni": []
     }
   },
-  "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",
+  "narrative": "Fetchling Invulnerable Rager pronta/o per il campo, specializzata/o in tattiche da Barbarian.",
   "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
   "ledger": {
     "movimenti": [
@@ -324,16 +324,16 @@
       "rame": 40
     }
   },
-  "class": "Medium",
+  "class": "Barbarian",
   "mode": "extended",
   "composite": {
     "build": {
-      "build_id": "build-030f26e4b7158e4e9aa27eb6",
+      "build_id": "build-883a4db3eb34c65cda9b98ee",
       "build_state": {
-        "class": "Medium",
+        "class": "Barbarian",
         "mode": "extended",
-        "race": "Oread",
-        "archetype": "Spirit Dancer + Reanimated Medium",
+        "race": "Fetchling",
+        "archetype": "Invulnerable Rager",
         "step": 1,
         "step_total": 16,
         "step_labels": {
@@ -390,10 +390,10 @@
         "sheet_payload": {
           "classi": [
             {
-              "nome": "Medium",
+              "nome": "Barbarian",
               "livelli": 5,
               "archetipi": [
-                "Spirit Dancer + Reanimated Medium"
+                "Invulnerable Rager"
               ]
             }
           ],
@@ -446,7 +446,7 @@
             "Addestramento marziale",
             "Specializzazione",
             "Privilegio 1",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium",
+            "Tecnica distintiva Invulnerable Rager",
             "Privilegio 2",
             "Privilegio 3",
             "Privilegio 4",
@@ -486,7 +486,7 @@
               "livello": 1,
               "privilegi": [
                 "Privilegio 1",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Invulnerable Rager"
               ],
               "talenti": [
                 "Talento di livello 1"
@@ -496,7 +496,7 @@
               "livello": 2,
               "privilegi": [
                 "Privilegio 2",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Invulnerable Rager"
               ],
               "talenti": [
                 "Talento di livello 2"
@@ -506,7 +506,7 @@
               "livello": 3,
               "privilegi": [
                 "Privilegio 3",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Invulnerable Rager"
               ],
               "talenti": [
                 "Talento di livello 3"
@@ -516,7 +516,7 @@
               "livello": 4,
               "privilegi": [
                 "Privilegio 4",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Invulnerable Rager"
               ],
               "talenti": [
                 "Talento di livello 4"
@@ -526,7 +526,7 @@
               "livello": 5,
               "privilegi": [
                 "Privilegio 5",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Invulnerable Rager"
               ],
               "talenti": [
                 "Talento di livello 5"
@@ -553,7 +553,7 @@
               "rame": 40
             }
           },
-          "razza": "Oread",
+          "razza": "Fetchling",
           "salvezze_breakdown": {
             "Tempra": {
               "base": 2,
@@ -620,7 +620,7 @@
           },
           "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
           "fonti": [
-            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Barbarian&stub=true&level=5&race=Fetchling&archetype=Invulnerable+Rager"
           ],
           "print_mode": false,
           "show_minmax": true,
@@ -652,10 +652,10 @@
       "sheet_payload": {
         "classi": [
           {
-            "nome": "Medium",
+            "nome": "Barbarian",
             "livelli": 5,
             "archetipi": [
-              "Spirit Dancer + Reanimated Medium"
+              "Invulnerable Rager"
             ]
           }
         ],
@@ -708,7 +708,7 @@
           "Addestramento marziale",
           "Specializzazione",
           "Privilegio 1",
-          "Tecnica distintiva Spirit Dancer + Reanimated Medium",
+          "Tecnica distintiva Invulnerable Rager",
           "Privilegio 2",
           "Privilegio 3",
           "Privilegio 4",
@@ -748,7 +748,7 @@
             "livello": 1,
             "privilegi": [
               "Privilegio 1",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Invulnerable Rager"
             ],
             "talenti": [
               "Talento di livello 1"
@@ -758,7 +758,7 @@
             "livello": 2,
             "privilegi": [
               "Privilegio 2",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Invulnerable Rager"
             ],
             "talenti": [
               "Talento di livello 2"
@@ -768,7 +768,7 @@
             "livello": 3,
             "privilegi": [
               "Privilegio 3",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Invulnerable Rager"
             ],
             "talenti": [
               "Talento di livello 3"
@@ -778,7 +778,7 @@
             "livello": 4,
             "privilegi": [
               "Privilegio 4",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Invulnerable Rager"
             ],
             "talenti": [
               "Talento di livello 4"
@@ -788,7 +788,7 @@
             "livello": 5,
             "privilegi": [
               "Privilegio 5",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Invulnerable Rager"
             ],
             "talenti": [
               "Talento di livello 5"
@@ -815,7 +815,7 @@
             "rame": 40
           }
         },
-        "razza": "Oread",
+        "razza": "Fetchling",
         "salvezze_breakdown": {
           "Tempra": {
             "base": 2,
@@ -882,7 +882,7 @@
         },
         "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
         "fonti": [
-          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Barbarian&stub=true&level=5&race=Fetchling&archetype=Invulnerable+Rager"
         ],
         "print_mode": false,
         "show_minmax": true,
@@ -897,7 +897,7 @@
         "condizioni": []
       }
     },
-    "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",
+    "narrative": "Fetchling Invulnerable Rager pronta/o per il campo, specializzata/o in tattiche da Barbarian.",
     "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
     "ledger": {
       "movimenti": [
@@ -922,18 +922,18 @@
       "2026.04.03"
     ]
   },
-  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium",
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Barbarian&stub=true&level=5&race=Fetchling&archetype=Invulnerable+Rager",
   "reference_catalog_version": "2026.04.03",
   "fetched_at": "2025-12-19T18:29:42Z",
   "request": {
-    "class": "Medium",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "class": "Barbarian",
+    "race": "Fetchling",
+    "archetype": "Invulnerable Rager",
     "mode": "extended",
     "mode_normalized": "extended",
-    "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+    "spec_id": "barbarian_fetchling_invulnerable_rager",
     "model": null,
-    "background": "Medium oread che danza con le anime pietrose dei canyon",
+    "background": "Guardiano delle ombre che sfrutta la resistenza del rager invulnerable per proteggere il clan.",
     "level": 5,
     "level_checkpoints": [
       1,
@@ -943,11 +943,11 @@
   },
   "query_params": {
     "mode": "extended",
-    "class": "Medium",
+    "class": "Barbarian",
     "stub": true,
     "level": 5,
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium"
+    "race": "Fetchling",
+    "archetype": "Invulnerable Rager"
   },
   "body_params": {},
   "mode_normalized": "extended",
@@ -997,7 +997,7 @@
         "stub"
       ],
       "context": {
-        "class": "Medium",
+        "class": "Barbarian",
         "level": 5,
         "talenti_chiave": [
           "Colpo possente",
@@ -1026,7 +1026,7 @@
       ]
     }
   },
-  "build_id": "build-030f26e4b7158e4e9aa27eb6",
+  "build_id": "build-883a4db3eb34c65cda9b98ee",
   "record_status": "draft",
   "is_deleted": false,
   "deleted_at": null,
@@ -1038,7 +1038,7 @@
       "status": "draft",
       "note": "4 is not of type 'array'; 3 is not of type 'array'",
       "checkpoint": 5,
-      "source": "medium_oread_spirit_dancer_reanimated_medium"
+      "source": "barbarian_fetchling_invulnerable_rager"
     }
   ]
 }

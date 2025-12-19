@@ -1,9 +1,9 @@
 {
   "build_state": {
-    "class": "Medium",
+    "class": "Ranger",
     "mode": "extended",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "race": "Half-Elf",
+    "archetype": "Skirmisher",
     "step": 1,
     "step_total": 16,
     "step_labels": {
@@ -60,10 +60,10 @@
     "sheet_payload": {
       "classi": [
         {
-          "nome": "Medium",
-          "livelli": 5,
+          "nome": "Ranger",
+          "livelli": 10,
           "archetipi": [
-            "Spirit Dancer + Reanimated Medium"
+            "Skirmisher"
           ]
         }
       ],
@@ -84,11 +84,11 @@
         "ca": 18,
         "CA": 18
       },
-      "pf_totali": 32,
+      "pf_totali": 57,
       "hp": {
-        "totali": 32,
+        "totali": 57,
         "per_livello": [
-          32
+          57
         ]
       },
       "salvezze": {
@@ -107,7 +107,7 @@
           "totale": 3
         }
       },
-      "skill_points": 25,
+      "skill_points": 50,
       "talenti": [
         "Colpo possente",
         "Iniziativa migliorata"
@@ -116,11 +116,16 @@
         "Addestramento marziale",
         "Specializzazione",
         "Privilegio 1",
-        "Tecnica distintiva Spirit Dancer + Reanimated Medium",
+        "Tecnica distintiva Skirmisher",
         "Privilegio 2",
         "Privilegio 3",
         "Privilegio 4",
-        "Privilegio 5"
+        "Privilegio 5",
+        "Privilegio 6",
+        "Privilegio 7",
+        "Privilegio 8",
+        "Privilegio 9",
+        "Privilegio 10"
       ],
       "equipaggiamento": [
         "Arma preferita",
@@ -156,7 +161,7 @@
           "livello": 1,
           "privilegi": [
             "Privilegio 1",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Skirmisher"
           ],
           "talenti": [
             "Talento di livello 1"
@@ -166,7 +171,7 @@
           "livello": 2,
           "privilegi": [
             "Privilegio 2",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Skirmisher"
           ],
           "talenti": [
             "Talento di livello 2"
@@ -176,7 +181,7 @@
           "livello": 3,
           "privilegi": [
             "Privilegio 3",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Skirmisher"
           ],
           "talenti": [
             "Talento di livello 3"
@@ -186,7 +191,7 @@
           "livello": 4,
           "privilegi": [
             "Privilegio 4",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Skirmisher"
           ],
           "talenti": [
             "Talento di livello 4"
@@ -196,10 +201,60 @@
           "livello": 5,
           "privilegi": [
             "Privilegio 5",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+            "Tecnica distintiva Skirmisher"
           ],
           "talenti": [
             "Talento di livello 5"
+          ]
+        },
+        {
+          "livello": 6,
+          "privilegi": [
+            "Privilegio 6",
+            "Tecnica distintiva Skirmisher"
+          ],
+          "talenti": [
+            "Talento di livello 6"
+          ]
+        },
+        {
+          "livello": 7,
+          "privilegi": [
+            "Privilegio 7",
+            "Tecnica distintiva Skirmisher"
+          ],
+          "talenti": [
+            "Talento di livello 7"
+          ]
+        },
+        {
+          "livello": 8,
+          "privilegi": [
+            "Privilegio 8",
+            "Tecnica distintiva Skirmisher"
+          ],
+          "talenti": [
+            "Talento di livello 8"
+          ]
+        },
+        {
+          "livello": 9,
+          "privilegi": [
+            "Privilegio 9",
+            "Tecnica distintiva Skirmisher"
+          ],
+          "talenti": [
+            "Talento di livello 9"
+          ]
+        },
+        {
+          "livello": 10,
+          "privilegi": [
+            "Privilegio 10",
+            "Tecnica distintiva Skirmisher"
+          ],
+          "talenti": [
+            "Talento di livello 10"
           ]
         }
       ],
@@ -223,7 +278,7 @@
           "rame": 40
         }
       },
-      "razza": "Oread",
+      "razza": "Half-Elf",
       "salvezze_breakdown": {
         "Tempra": {
           "base": 2,
@@ -290,7 +345,7 @@
       },
       "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
       "fonti": [
-        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Ranger&stub=true&level=10&race=Half-Elf&archetype=Skirmisher"
       ],
       "print_mode": false,
       "show_minmax": true,
@@ -305,7 +360,7 @@
       "condizioni": []
     }
   },
-  "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",
+  "narrative": "Half-Elf Skirmisher pronta/o per il campo, specializzata/o in tattiche da Ranger.",
   "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
   "ledger": {
     "movimenti": [
@@ -324,16 +379,16 @@
       "rame": 40
     }
   },
-  "class": "Medium",
+  "class": "Ranger",
   "mode": "extended",
   "composite": {
     "build": {
-      "build_id": "build-030f26e4b7158e4e9aa27eb6",
+      "build_id": "build-5d0a91c404e97cfec2632a7d",
       "build_state": {
-        "class": "Medium",
+        "class": "Ranger",
         "mode": "extended",
-        "race": "Oread",
-        "archetype": "Spirit Dancer + Reanimated Medium",
+        "race": "Half-Elf",
+        "archetype": "Skirmisher",
         "step": 1,
         "step_total": 16,
         "step_labels": {
@@ -390,10 +445,10 @@
         "sheet_payload": {
           "classi": [
             {
-              "nome": "Medium",
-              "livelli": 5,
+              "nome": "Ranger",
+              "livelli": 10,
               "archetipi": [
-                "Spirit Dancer + Reanimated Medium"
+                "Skirmisher"
               ]
             }
           ],
@@ -414,11 +469,11 @@
             "ca": 18,
             "CA": 18
           },
-          "pf_totali": 32,
+          "pf_totali": 57,
           "hp": {
-            "totali": 32,
+            "totali": 57,
             "per_livello": [
-              32
+              57
             ]
           },
           "salvezze": {
@@ -437,7 +492,7 @@
               "totale": 3
             }
           },
-          "skill_points": 25,
+          "skill_points": 50,
           "talenti": [
             "Colpo possente",
             "Iniziativa migliorata"
@@ -446,11 +501,16 @@
             "Addestramento marziale",
             "Specializzazione",
             "Privilegio 1",
-            "Tecnica distintiva Spirit Dancer + Reanimated Medium",
+            "Tecnica distintiva Skirmisher",
             "Privilegio 2",
             "Privilegio 3",
             "Privilegio 4",
-            "Privilegio 5"
+            "Privilegio 5",
+            "Privilegio 6",
+            "Privilegio 7",
+            "Privilegio 8",
+            "Privilegio 9",
+            "Privilegio 10"
           ],
           "equipaggiamento": [
             "Arma preferita",
@@ -486,7 +546,7 @@
               "livello": 1,
               "privilegi": [
                 "Privilegio 1",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Skirmisher"
               ],
               "talenti": [
                 "Talento di livello 1"
@@ -496,7 +556,7 @@
               "livello": 2,
               "privilegi": [
                 "Privilegio 2",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Skirmisher"
               ],
               "talenti": [
                 "Talento di livello 2"
@@ -506,7 +566,7 @@
               "livello": 3,
               "privilegi": [
                 "Privilegio 3",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Skirmisher"
               ],
               "talenti": [
                 "Talento di livello 3"
@@ -516,7 +576,7 @@
               "livello": 4,
               "privilegi": [
                 "Privilegio 4",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Skirmisher"
               ],
               "talenti": [
                 "Talento di livello 4"
@@ -526,10 +586,60 @@
               "livello": 5,
               "privilegi": [
                 "Privilegio 5",
-                "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+                "Tecnica distintiva Skirmisher"
               ],
               "talenti": [
                 "Talento di livello 5"
+              ]
+            },
+            {
+              "livello": 6,
+              "privilegi": [
+                "Privilegio 6",
+                "Tecnica distintiva Skirmisher"
+              ],
+              "talenti": [
+                "Talento di livello 6"
+              ]
+            },
+            {
+              "livello": 7,
+              "privilegi": [
+                "Privilegio 7",
+                "Tecnica distintiva Skirmisher"
+              ],
+              "talenti": [
+                "Talento di livello 7"
+              ]
+            },
+            {
+              "livello": 8,
+              "privilegi": [
+                "Privilegio 8",
+                "Tecnica distintiva Skirmisher"
+              ],
+              "talenti": [
+                "Talento di livello 8"
+              ]
+            },
+            {
+              "livello": 9,
+              "privilegi": [
+                "Privilegio 9",
+                "Tecnica distintiva Skirmisher"
+              ],
+              "talenti": [
+                "Talento di livello 9"
+              ]
+            },
+            {
+              "livello": 10,
+              "privilegi": [
+                "Privilegio 10",
+                "Tecnica distintiva Skirmisher"
+              ],
+              "talenti": [
+                "Talento di livello 10"
               ]
             }
           ],
@@ -553,7 +663,7 @@
               "rame": 40
             }
           },
-          "razza": "Oread",
+          "razza": "Half-Elf",
           "salvezze_breakdown": {
             "Tempra": {
               "base": 2,
@@ -620,7 +730,7 @@
           },
           "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
           "fonti": [
-            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Ranger&stub=true&level=10&race=Half-Elf&archetype=Skirmisher"
           ],
           "print_mode": false,
           "show_minmax": true,
@@ -652,10 +762,10 @@
       "sheet_payload": {
         "classi": [
           {
-            "nome": "Medium",
-            "livelli": 5,
+            "nome": "Ranger",
+            "livelli": 10,
             "archetipi": [
-              "Spirit Dancer + Reanimated Medium"
+              "Skirmisher"
             ]
           }
         ],
@@ -676,11 +786,11 @@
           "ca": 18,
           "CA": 18
         },
-        "pf_totali": 32,
+        "pf_totali": 57,
         "hp": {
-          "totali": 32,
+          "totali": 57,
           "per_livello": [
-            32
+            57
           ]
         },
         "salvezze": {
@@ -699,7 +809,7 @@
             "totale": 3
           }
         },
-        "skill_points": 25,
+        "skill_points": 50,
         "talenti": [
           "Colpo possente",
           "Iniziativa migliorata"
@@ -708,11 +818,16 @@
           "Addestramento marziale",
           "Specializzazione",
           "Privilegio 1",
-          "Tecnica distintiva Spirit Dancer + Reanimated Medium",
+          "Tecnica distintiva Skirmisher",
           "Privilegio 2",
           "Privilegio 3",
           "Privilegio 4",
-          "Privilegio 5"
+          "Privilegio 5",
+          "Privilegio 6",
+          "Privilegio 7",
+          "Privilegio 8",
+          "Privilegio 9",
+          "Privilegio 10"
         ],
         "equipaggiamento": [
           "Arma preferita",
@@ -748,7 +863,7 @@
             "livello": 1,
             "privilegi": [
               "Privilegio 1",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Skirmisher"
             ],
             "talenti": [
               "Talento di livello 1"
@@ -758,7 +873,7 @@
             "livello": 2,
             "privilegi": [
               "Privilegio 2",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Skirmisher"
             ],
             "talenti": [
               "Talento di livello 2"
@@ -768,7 +883,7 @@
             "livello": 3,
             "privilegi": [
               "Privilegio 3",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Skirmisher"
             ],
             "talenti": [
               "Talento di livello 3"
@@ -778,7 +893,7 @@
             "livello": 4,
             "privilegi": [
               "Privilegio 4",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Skirmisher"
             ],
             "talenti": [
               "Talento di livello 4"
@@ -788,10 +903,60 @@
             "livello": 5,
             "privilegi": [
               "Privilegio 5",
-              "Tecnica distintiva Spirit Dancer + Reanimated Medium"
+              "Tecnica distintiva Skirmisher"
             ],
             "talenti": [
               "Talento di livello 5"
+            ]
+          },
+          {
+            "livello": 6,
+            "privilegi": [
+              "Privilegio 6",
+              "Tecnica distintiva Skirmisher"
+            ],
+            "talenti": [
+              "Talento di livello 6"
+            ]
+          },
+          {
+            "livello": 7,
+            "privilegi": [
+              "Privilegio 7",
+              "Tecnica distintiva Skirmisher"
+            ],
+            "talenti": [
+              "Talento di livello 7"
+            ]
+          },
+          {
+            "livello": 8,
+            "privilegi": [
+              "Privilegio 8",
+              "Tecnica distintiva Skirmisher"
+            ],
+            "talenti": [
+              "Talento di livello 8"
+            ]
+          },
+          {
+            "livello": 9,
+            "privilegi": [
+              "Privilegio 9",
+              "Tecnica distintiva Skirmisher"
+            ],
+            "talenti": [
+              "Talento di livello 9"
+            ]
+          },
+          {
+            "livello": 10,
+            "privilegi": [
+              "Privilegio 10",
+              "Tecnica distintiva Skirmisher"
+            ],
+            "talenti": [
+              "Talento di livello 10"
             ]
           }
         ],
@@ -815,7 +980,7 @@
             "rame": 40
           }
         },
-        "razza": "Oread",
+        "razza": "Half-Elf",
         "salvezze_breakdown": {
           "Tempra": {
             "base": 2,
@@ -882,7 +1047,7 @@
         },
         "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
         "fonti": [
-          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium"
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Ranger&stub=true&level=10&race=Half-Elf&archetype=Skirmisher"
         ],
         "print_mode": false,
         "show_minmax": true,
@@ -897,7 +1062,7 @@
         "condizioni": []
       }
     },
-    "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",
+    "narrative": "Half-Elf Skirmisher pronta/o per il campo, specializzata/o in tattiche da Ranger.",
     "sheet": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
     "ledger": {
       "movimenti": [
@@ -922,19 +1087,19 @@
       "2026.04.03"
     ]
   },
-  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Medium&stub=true&level=5&race=Oread&archetype=Spirit+Dancer+%2B+Reanimated+Medium",
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Ranger&stub=true&level=10&race=Half-Elf&archetype=Skirmisher",
   "reference_catalog_version": "2026.04.03",
   "fetched_at": "2025-12-19T18:29:42Z",
   "request": {
-    "class": "Medium",
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium",
+    "class": "Ranger",
+    "race": "Half-Elf",
+    "archetype": "Skirmisher",
     "mode": "extended",
     "mode_normalized": "extended",
-    "spec_id": "medium_oread_spirit_dancer_reanimated_medium",
+    "spec_id": "ranger_halfelf_skirmisher",
     "model": null,
-    "background": "Medium oread che danza con le anime pietrose dei canyon",
-    "level": 5,
+    "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
+    "level": 10,
     "level_checkpoints": [
       1,
       5,
@@ -943,11 +1108,11 @@
   },
   "query_params": {
     "mode": "extended",
-    "class": "Medium",
+    "class": "Ranger",
     "stub": true,
-    "level": 5,
-    "race": "Oread",
-    "archetype": "Spirit Dancer + Reanimated Medium"
+    "level": 10,
+    "race": "Half-Elf",
+    "archetype": "Skirmisher"
   },
   "body_params": {},
   "mode_normalized": "extended",
@@ -997,8 +1162,8 @@
         "stub"
       ],
       "context": {
-        "class": "Medium",
-        "level": 5,
+        "class": "Ranger",
+        "level": 10,
         "talenti_chiave": [
           "Colpo possente",
           "Iniziativa migliorata"
@@ -1018,7 +1183,7 @@
       "cache_key": null
     },
     "checkpoints": {
-      "level": 5,
+      "level": 10,
       "levels": [
         1,
         5,
@@ -1026,7 +1191,7 @@
       ]
     }
   },
-  "build_id": "build-030f26e4b7158e4e9aa27eb6",
+  "build_id": "build-5d0a91c404e97cfec2632a7d",
   "record_status": "draft",
   "is_deleted": false,
   "deleted_at": null,
@@ -1037,8 +1202,8 @@
       "action": "harvest",
       "status": "draft",
       "note": "4 is not of type 'array'; 3 is not of type 'array'",
-      "checkpoint": 5,
-      "source": "medium_oread_spirit_dancer_reanimated_medium"
+      "checkpoint": 10,
+      "source": "ranger_halfelf_skirmisher"
     }
   ]
 }
