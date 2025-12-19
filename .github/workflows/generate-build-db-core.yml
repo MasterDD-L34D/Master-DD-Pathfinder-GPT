@@ -8,7 +8,6 @@ on:
 jobs:
   build-db-core:
     name: Build DB core e archiviazione
-    if: ${{ secrets.BUILDER_API_URL != '' && secrets.BUILDER_API_KEY != '' }}
     runs-on: ubuntu-latest
     env:
       API_URL: ${{ secrets.BUILDER_API_URL }}
@@ -23,6 +22,25 @@ jobs:
       MODULE_INDEX_PATH: build_artifacts/module_index.json
       LOG_PATH: build_artifacts/generate_build_db_core.log
     steps:
+      - name: Verifica segreti BUILDER
+        run: |
+          set -euo pipefail
+
+          missing_vars=()
+
+          for var in API_URL API_KEY; do
+            if [ -z "${!var:-}" ]; then
+              missing_vars+=("${var}")
+            fi
+          done
+
+          if [ ${#missing_vars[@]} -gt 0 ]; then
+            echo "Segreti mancanti: ${missing_vars[*]}"
+            exit 1
+          fi
+
+          echo "Segreti presenti: API_URL, API_KEY"
+
       - uses: actions/checkout@v4
 
       - name: Setup Python
