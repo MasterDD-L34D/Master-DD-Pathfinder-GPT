@@ -34,10 +34,12 @@ jobs:
         run: |
           python tools/refresh_module_reports.py --check
 
-      - name: Rigenera attestato copertura locale
+      - name: Rigenera attestato copertura locale (offline)
         run: |
           python tools/generate_build_db.py \
             --export-lists \
+            --validate-db \
+            --skip-health-check \
             --output-dir src/data/builds \
             --modules-output-dir src/data/modules \
             --index-path src/data/build_index.json \
