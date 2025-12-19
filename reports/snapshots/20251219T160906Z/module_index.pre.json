@@ -1,84 +1,10 @@
 {
-  "generated_at": "2025-12-19T16:11:44Z",
-  "api_url": "http://127.0.0.1:8000",
+  "generated_at": "2025-12-19T00:56:11.744444+00:00",
+  "api_url": null,
+  "catalog_version": [
+    "2026.04.03"
+  ],
   "entries": [
-    {
-      "module": "Encounter_Designer.txt",
-      "file": "src/data/modules/Encounter_Designer.txt",
-      "status": "ok",
-      "meta": {
-        "name": "Encounter_Designer.txt",
-        "suffix": ".txt",
-        "size_bytes": 36198,
-        "record_status": "validated",
-        "is_deleted": false,
-        "deleted_at": null,
-        "audit": [
-          {
-            "timestamp": "2025-12-17T12:23:23Z",
-            "actor": "generate_build_db",
-            "action": "module_index_backfill",
-            "status": "validated",
-            "source": "src/data/modules/Encounter_Designer.txt"
-          }
-        ],
-        "hash_sha256": "b8fed138262d592ba748dcd0ce371d83b1a7919d1dd48d126861fffeb72c2a86",
-        "tags": [
-          "Designer",
-          "Encounter",
-          "module"
-        ],
-        "reference_urls": []
-      },
-      "record_status": "validated",
-      "is_deleted": false,
-      "deleted_at": null,
-      "audit": [
-        {
-          "timestamp": "2025-12-17T12:23:23Z",
-          "actor": "generate_build_db",
-          "action": "module_index_backfill",
-          "status": "validated",
-          "source": "src/data/modules/Encounter_Designer.txt"
-        }
-      ]
-    },
-    {
-      "module": "Taverna_NPC.txt",
-      "file": "src/data/modules/Taverna_NPC.txt",
-      "status": "ok",
-      "meta": {
-        "name": "Taverna_NPC.txt",
-        "suffix": ".txt",
-        "size_bytes": 124135,
-        "record_status": "validated",
-        "is_deleted": false,
-        "deleted_at": null,
-        "audit": [
-          {
-            "timestamp": "2025-12-17T12:23:23Z",
-            "actor": "generate_build_db",
-            "action": "module_index_backfill",
-            "status": "validated",
-            "source": "src/data/modules/Taverna_NPC.txt"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
-          }
-        ],
-        "hash_sha256": "ef5c2a4be0fd7f79a134ba611fdb9893513196ee427b32cc7623aab1c3193c47",
-        "tags": [
-          "NPC",
-          "Taverna",
-          "module"
-        ],
-        "reference_urls": []
-      }
-    },
     {
       "module": "adventurer_ledger.txt",
       "file": "src/data/modules/adventurer_ledger.txt",
@@ -97,13 +23,6 @@
             "action": "module_index_backfill",
             "status": "validated",
             "source": "src/data/modules/adventurer_ledger.txt"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
           }
         ],
         "hash_sha256": "7fced25fde41a569c18663c5883797aa2903391899a3f07d6ad6dfc12df019b5",
@@ -129,7 +48,19 @@
           "https://www.reddit.com/r/Pathfinder_RPG/comments/2cv8z8/master_list_of_essentialuseful_magic_items/",
           "https://zenithgames.blogspot.com/2013/11/improving-your-class-with-items.html"
         ]
-      }
+      },
+      "record_status": "validated",
+      "is_deleted": false,
+      "deleted_at": null,
+      "audit": [
+        {
+          "timestamp": "2025-12-17T12:23:23Z",
+          "actor": "generate_build_db",
+          "action": "module_index_backfill",
+          "status": "validated",
+          "source": "src/data/modules/adventurer_ledger.txt"
+        }
+      ]
     },
     {
       "module": "archivist.txt",
@@ -188,13 +119,6 @@
             "action": "module_index_backfill",
             "status": "validated",
             "source": "src/data/modules/base_profile.txt"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
           }
         ],
         "hash_sha256": "0cddac85c1d7a6b15e922dd21728e2b88497196887cede08e150f57367d33ae4",
@@ -207,7 +131,60 @@
           "Profile"
         ],
         "reference_urls": []
-      }
+      },
+      "record_status": "validated",
+      "is_deleted": false,
+      "deleted_at": null,
+      "audit": [
+        {
+          "timestamp": "2025-12-17T12:23:23Z",
+          "actor": "generate_build_db",
+          "action": "module_index_backfill",
+          "status": "validated",
+          "source": "src/data/modules/base_profile.txt"
+        }
+      ]
+    },
+    {
+      "module": "Encounter_Designer.txt",
+      "file": "src/data/modules/Encounter_Designer.txt",
+      "status": "ok",
+      "meta": {
+        "name": "Encounter_Designer.txt",
+        "suffix": ".txt",
+        "size_bytes": 36198,
+        "record_status": "validated",
+        "is_deleted": false,
+        "deleted_at": null,
+        "audit": [
+          {
+            "timestamp": "2025-12-17T12:23:23Z",
+            "actor": "generate_build_db",
+            "action": "module_index_backfill",
+            "status": "validated",
+            "source": "src/data/modules/Encounter_Designer.txt"
+          }
+        ],
+        "hash_sha256": "b8fed138262d592ba748dcd0ce371d83b1a7919d1dd48d126861fffeb72c2a86",
+        "tags": [
+          "Designer",
+          "Encounter",
+          "module"
+        ],
+        "reference_urls": []
+      },
+      "record_status": "validated",
+      "is_deleted": false,
+      "deleted_at": null,
+      "audit": [
+        {
+          "timestamp": "2025-12-17T12:23:23Z",
+          "actor": "generate_build_db",
+          "action": "module_index_backfill",
+          "status": "validated",
+          "source": "src/data/modules/Encounter_Designer.txt"
+        }
+      ]
     },
     {
       "module": "explain_methods.txt",
@@ -394,13 +371,6 @@
             "action": "module_index_backfill",
             "status": "validated",
             "source": "src/data/modules/narrative_flow.txt"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
           }
         ],
         "hash_sha256": "61ae9e4fcabcecc6f417e197e16f2ac4a6a23360513bdc3e4c9105c852b6f76e",
@@ -409,7 +379,19 @@
           "module"
         ],
         "reference_urls": []
-      }
+      },
+      "record_status": "validated",
+      "is_deleted": false,
+      "deleted_at": null,
+      "audit": [
+        {
+          "timestamp": "2025-12-17T12:23:23Z",
+          "actor": "generate_build_db",
+          "action": "module_index_backfill",
+          "status": "validated",
+          "source": "src/data/modules/narrative_flow.txt"
+        }
+      ]
     },
     {
       "module": "preload_all_modules.txt",
@@ -518,19 +500,24 @@
             "action": "module_index_backfill",
             "status": "validated",
             "source": "src/data/modules/scheda_pg_markdown_template.md"
-          },
-          {
-            "timestamp": "2025-12-19T16:12:00Z",
-            "actor": "generate_build_db",
-            "action": "module_indexed",
-            "status": "validated",
-            "note": "cached module reuse"
           }
         ],
         "hash_sha256": "d8a08160fab99223de5e09ae9697b672c7977f7a803ceb15d9df2c1be5cbc06a",
         "tags": [],
         "reference_urls": []
-      }
+      },
+      "record_status": "validated",
+      "is_deleted": false,
+      "deleted_at": null,
+      "audit": [
+        {
+          "timestamp": "2025-12-17T12:23:23Z",
+          "actor": "generate_build_db",
+          "action": "module_index_backfill",
+          "status": "validated",
+          "source": "src/data/modules/scheda_pg_markdown_template.md"
+        }
+      ]
     },
     {
       "module": "sigilli_runner_module.txt",
@@ -611,48 +598,89 @@
           "source": "src/data/modules/tavern_hub.json"
         }
       ]
+    },
+    {
+      "module": "Taverna_NPC.txt",
+      "file": "src/data/modules/Taverna_NPC.txt",
+      "status": "ok",
+      "meta": {
+        "name": "Taverna_NPC.txt",
+        "suffix": ".txt",
+        "size_bytes": 124135,
+        "record_status": "validated",
+        "is_deleted": false,
+        "deleted_at": null,
+        "audit": [
+          {
+            "timestamp": "2025-12-17T12:23:23Z",
+            "actor": "generate_build_db",
+            "action": "module_index_backfill",
+            "status": "validated",
+            "source": "src/data/modules/Taverna_NPC.txt"
+          }
+        ],
+        "hash_sha256": "ef5c2a4be0fd7f79a134ba611fdb9893513196ee427b32cc7623aab1c3193c47",
+        "tags": [
+          "NPC",
+          "Taverna",
+          "module"
+        ],
+        "reference_urls": []
+      },
+      "record_status": "validated",
+      "is_deleted": false,
+      "deleted_at": null,
+      "audit": [
+        {
+          "timestamp": "2025-12-17T12:23:23Z",
+          "actor": "generate_build_db",
+          "action": "module_index_backfill",
+          "status": "validated",
+          "source": "src/data/modules/Taverna_NPC.txt"
+        }
+      ]
     }
   ],
-  "catalog_version": [
-    "2026.04.03"
-  ],
   "module_plan": [
+    "adventurer_ledger.txt",
+    "archivist.txt",
     "base_profile.txt",
-    "Taverna_NPC.txt",
+    "Encounter_Designer.txt",
+    "explain_methods.txt",
+    "knowledge_pack.md",
+    "meta_doc.txt",
+    "minmax_builder.txt",
     "narrative_flow.txt",
+    "preload_all_modules.txt",
+    "ruling_expert.txt",
     "scheda_pg_markdown_template.md",
-    "adventurer_ledger.txt"
+    "sigilli_runner_module.txt",
+    "tavern_hub.json",
+    "Taverna_NPC.txt"
   ],
-  "discovery": {
-    "performed_at": "2025-12-19T16:12:00Z",
-    "include_filters": [
-      "scheda_*",
-      "narrative_*"
-    ],
-    "exclude_filters": [
-      "test_*"
-    ],
-    "raw": [
-      "Encounter_Designer.txt",
-      "Taverna_NPC.txt",
-      "adventurer_ledger.txt",
-      "archivist.txt",
-      "base_profile.txt",
-      "explain_methods.txt",
-      "knowledge_pack.md",
-      "meta_doc.txt",
-      "minmax_builder.txt",
-      "narrative_flow.txt",
-      "preload_all_modules.txt",
-      "ruling_expert.txt",
-      "scheda_pg_markdown_template.md",
-      "sigilli_runner_module.txt",
-      "tavern_hub.json"
-    ],
-    "raw_count": 15,
-    "selected": [
-      "narrative_flow.txt",
-      "scheda_pg_markdown_template.md"
-    ]
+  "reference_catalog": [
+    {
+      "path": "data/reference/spells.json",
+      "entries": 1035,
+      "version": "2026.04.03"
+    },
+    {
+      "path": "data/reference/feats.json",
+      "entries": 2838,
+      "version": "2026.04.03"
+    },
+    {
+      "path": "data/reference/items.json",
+      "entries": 252,
+      "version": "2026.04.03"
+    },
+    {
+      "path": "data/reference/manifest.json",
+      "version": "2026.04.03"
+    }
+  ],
+  "integrity_checks": {
+    "missing_audit": [],
+    "missing_record_status": []
   }
 }

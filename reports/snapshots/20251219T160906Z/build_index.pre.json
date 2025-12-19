@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-19T16:11:44Z",
+  "generated_at": "2025-12-19T15:20:33Z",
   "api_url": null,
   "mode": "extended",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -847,45 +847,31 @@
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human.json",
-      "status": "ok",
+      "status": "invalid",
       "output_prefix": "fighter_weapon_master_human",
-      "level": 1,
       "class": "Fighter",
       "race": "Human",
       "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_weapon_master_human",
-      "model": null,
+      "spec_id": "fighter_human_weapon_master",
       "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+      "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "meta_tier": "T3",
-      "record_status": "validated",
-      "is_deleted": false,
-      "audit": [
-        {
-          "timestamp": "2025-12-19T16:12:00Z",
-          "actor": "generate_build_db",
-          "action": "cached_payload",
-          "status": "validated",
-          "checkpoint": 1,
-          "source": "fighter_weapon_master_human"
-        }
+      "level": 1,
+      "missing_catalog_entries": [
+        "items:Pugnale di servizio"
       ],
-      "step_total": 3,
-      "expected_step_total": 3,
-      "extended_steps_available": true,
-      "step_total_ok": true,
-      "request_timestamp": "2025-12-18T16:48:46Z",
-      "client_fingerprint_hash": "offline-placeholder-client-hash-000000000000",
-      "request_ip": null,
-      "auth_outcome": "accepted",
-      "auth_attempt_count": 1,
-      "backoff_reason": null
+      "prerequisite_violations": [
+        "Pugnale di servizio: Simple weapon proficiency"
+      ],
+      "catalog_version": [
+        "2026.04.03"
+      ]
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
@@ -2567,13 +2553,10 @@
       ]
     }
   ],
-  "catalog_version": [
-    "2026.04.03"
-  ],
   "checkpoints": {
     "1": {
       "total": 33,
-      "invalid": 32,
+      "invalid": 33,
       "schema_errors": 0,
       "completeness_errors": 5
     },
