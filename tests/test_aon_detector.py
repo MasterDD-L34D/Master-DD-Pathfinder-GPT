@@ -14,17 +14,21 @@ from utils.aon_detector import is_aon_url
 
 
 # Strategie per domini AoN e non-AoN
-aon_domains = st.sampled_from([
-    "aonprd.com",
-    "2e.aonprd.com",
-    "legacy.aonprd.com",
-])
+aon_domains = st.sampled_from(
+    [
+        "aonprd.com",
+        "2e.aonprd.com",
+        "legacy.aonprd.com",
+    ]
+)
 
-non_aon_domains = st.sampled_from([
-    "example.com",
-    "d20pfsrd.com",
-    "prd.moe",
-])
+non_aon_domains = st.sampled_from(
+    [
+        "example.com",
+        "d20pfsrd.com",
+        "prd.moe",
+    ]
+)
 
 # Strategie per percorsi e query/frammenti
 paths = st.text(min_size=0, max_size=20).map(lambda s: "/" + s if s else "")
