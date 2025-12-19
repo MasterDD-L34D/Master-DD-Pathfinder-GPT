@@ -1,5 +1,14 @@
 # Command run log
 
+## CI preflight (schemi, report moduli, attestato coverage locale)
+- **Commands:**
+  - `python tools/validate_schemas.py`
+  - `python tools/refresh_module_reports.py --check`
+  - `python tools/generate_build_db.py --export-lists --output-dir src/data/builds --modules-output-dir src/data/modules --index-path src/data/build_index.json --module-index-path src/data/module_index.json`
+- **Result:** tutti gli schemi JSON risultano validi; i report in `reports/module_tests/` superano il lint anti-placeholder. La rigenerazione dell'attestato di copertura produce warning di validazione sugli artefatti esistenti ma conclude con i file aggiornati in `reports/` (inclusi `index_analysis.json` con alert sulle classi core mancanti).
+- **Next:** coprire almeno le classi core con build valide per eliminare gli alert e correggere i campi extra/metadati che violano `module_metadata.schema.json`.
+- **Timestamp:** 2025-12-27T10:15:00Z
+
 ## generate_module_plan smoke (heading combinati)
 - **Prep:** creato un report temporaneo con heading duplicati/combinati per Fix/Errori/Osservazioni e popolato con bullet distinti per verificare l'aggregazione.
 - **Command:**

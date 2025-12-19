@@ -12,14 +12,13 @@
 - **Health/metrics hardening**: estendere probe di `/health` e raccolta delle metriche per allinearsi ai workflow di avvio API e backoff descritti nel README, riducendo blocchi dovuti a `401/429` e time-out su endpoint remoti.
 
 ## Stato ultimo ciclo build
-- **Esecuzione**: `generate_build_db` completato in modalità `extended` con discovery dei moduli e validazione strict (indici aggiornati in `src/data/build_index.json` e `src/data/module_index.json`).
+- **Esecuzione:** preflight locale con `--export-lists` per rigenerare `reports/build_review.json` e `reports/index_analysis.json`; gli alert evidenziano che nessuna classe core ha build valide negli indici correnti.
 - **Follow-up rapido (handoff):**
-  - **Tech Lead:** ribadire priorità per il prossimo run (eventuali retry su classi che dovessero cambiare) e sbloccare merge dei fix.
-  - **Backend/API:** controllare flag di autenticazione/backoff, endpoint `/health` e `/metrics`, e opzioni di discovery prima di riavviare workflow schedulati.
-  - **Data/Validation:** rivedere gli indici per segnalare errori o payload borderline e proporre aggiustamenti a schemi o filtri.
-  - **Docs & Prompt:** aggiornare note operative (README/runbook) con nuove opzioni o deroghe emerse dall'analisi.
-  - **QA reportistica:** mantenere allineati i report in `reports/module_tests/` (niente placeholder) e far girare `python tools/refresh_module_reports.py --check` nel ciclo di release per prevenire regressioni.
-  - **Lint anti-placeholder:** aggiungere un controllo automatico (pre-commit/CI) che segnali parole chiave placeholder nei report dei moduli e nei template, così da mantenere i bullet sempre informativi.
+  - **Tech Lead:** priorizzare un run mirato per coprire almeno le classi core e ridurre gli alert CI appena introdotti.
+  - **Backend/API:** verificare le cause dei warning di validazione (es. versioni catalogo e campo `source` nei meta moduli) e proporre fix lato API/schema.
+  - **Data/Validation:** riprocessare i payload esistenti aggiornando catalogo/versioni e correggendo i metadati per rientrare negli schemi.
+  - **Docs & Prompt:** documentare nel README/runbook la presenza degli alert di copertura e le azioni richieste per chiudere il gap sulle classi core.
+  - **QA reportistica:** continuare a far girare `python tools/refresh_module_reports.py --check` (lint anti-placeholder) e validare gli output coverage generati in CI.
 
 ## Owner / Responsabili
 - **Tech Lead**: supervisione roadmap, priorità e merge decisioni.
