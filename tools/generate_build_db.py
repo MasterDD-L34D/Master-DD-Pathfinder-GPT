@@ -143,6 +143,8 @@ DEFAULT_BASE_URL = "http://localhost:8000"
 DEFAULT_SPEC_FILE = (
     Path(__file__).resolve().parent.parent / "docs/examples/pg_variants.yml"
 )
+AUTH_BACKOFF_SECONDS = int(os.environ.get("AUTH_BACKOFF_SECONDS", "60"))
+BUILD_AUDIT_PATH = Path("data/audit/build_events.jsonl")
 MODULE_ENDPOINT = "/modules/minmax_builder.txt"
 MODULE_DUMP_ENDPOINT = "/modules/{name}"
 MODULE_META_ENDPOINT = "/modules/{name}/meta"
@@ -173,6 +175,17 @@ def now_iso_utc() -> str:
     return (
         datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     )
+
+
+def log_build_event(event: Mapping[str, object]) -> None:
+    """Append an audit event to the build_events log."""
+
+    try:
+        BUILD_AUDIT_PATH.parent.mkdir(parents=True, exist_ok=True)
+        with BUILD_AUDIT_PATH.open("a", encoding="utf-8") as fp:
+            fp.write(json.dumps(event, ensure_ascii=False) + "\n")
+    except OSError:
+        logging.exception("Impossibile scrivere su %s", BUILD_AUDIT_PATH)
 
 
 @dataclass(slots=True)
@@ -2498,6 +2511,17 @@ def parse_args() -> argparse.Namespace:
         help="Salta il controllo di raggiungibilità dell'API (fallback per ambienti in cui /health non è disponibile)",
     )
     parser.add_argument(
+        "--health-path",
+        default=os.environ.get("HEALTH_PATH", "/health"),
+        help="Percorso dell'endpoint di health check (default: %(default)s)",
+    )
+    parser.add_argument(
+        "--health-timeout",
+        type=float,
+        default=float(os.environ.get("HEALTH_TIMEOUT", "10")),
+        help="Timeout del probe di health/metrics in secondi (default: %(default)s)",
+    )
+    parser.add_argument(
         "--skip-unchanged",
         action="store_true",
         help="Evita di riscrivere i payload invariati confrontando i JSON generati con i file già presenti",
@@ -2960,6 +2984,8 @@ async def request_with_retry(
     max_attempts = max_retries + 1
     attempt = 0
 
+    retryable_statuses = {401, 429}
+
     def _retry_after_seconds(value: str | None) -> float | None:
         if value is None:
             return None
@@ -3009,7 +3035,7 @@ async def request_with_retry(
             await asyncio.sleep(actual_delay)
             continue
 
-        if response.status_code not in {429} and response.status_code < 500:
+        if response.status_code not in retryable_statuses and response.status_code < 500:
             response.raise_for_status()
             return response
 
@@ -3023,6 +3049,20 @@ async def request_with_retry(
         delay = base_delay
         if retry_after is not None:
             delay = max(delay, retry_after)
+
+        if response.status_code in retryable_statuses:
+            delay = max(delay, AUTH_BACKOFF_SECONDS)
+            log_build_event(
+                {
+                    "timestamp": now_iso_utc(),
+                    "endpoint": url,
+                    "method": method,
+                    "status_code": response.status_code,
+                    "attempt": attempt,
+                    "retry_after": retry_after,
+                    "reason": "auth_backoff" if response.status_code == 401 else "rate_limit",
+                }
+            )
 
         if max_delay is not None:
             delay = min(delay, max_delay)
@@ -3044,13 +3084,16 @@ async def request_with_retry(
 
 
 async def assert_api_reachable(
-    client: httpx.AsyncClient, api_key: str | None, health_path: str = "/health"
+    client: httpx.AsyncClient,
+    api_key: str | None,
+    health_path: str = "/health",
+    health_timeout: float = 10.0,
 ) -> None:
     """Fail fast with a clear message if the API endpoint is unreachable."""
 
     headers = {"x-api-key": api_key} if api_key else {}
     try:
-        response = await client.get(health_path, headers=headers, timeout=5)
+        response = await client.get(health_path, headers=headers, timeout=health_timeout)
     except httpx.RequestError as exc:  # pragma: no cover - network dependent
         raise RuntimeError(
             f"API non raggiungibile su {client.base_url}: {exc}. "
@@ -5712,6 +5755,8 @@ async def run_harvest(
     keep_invalid: bool = False,
     require_complete: bool = True,
     skip_health_check: bool = False,
+    health_path: str = "/health",
+    health_timeout: float = 10.0,
     level_filters: Sequence[int] | None = None,
     skip_unchanged: bool = False,
     max_items: int | None = None,
@@ -5941,7 +5986,12 @@ async def run_harvest(
                 "su richiesta dell'utente" if skip_health_check else "",
             )
         else:
-            await assert_api_reachable(client, api_key)
+            await assert_api_reachable(
+                client,
+                api_key,
+                health_path=health_path,
+                health_timeout=health_timeout,
+            )
         if skip_modules:
             if discover:
                 logging.info("Skip modules attivo: ignoro --discover-modules")
@@ -7026,6 +7076,8 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 keep_invalid=False,
                 require_complete=args.require_complete,
                 skip_health_check=args.skip_health_check,
+                health_path=args.health_path,
+                health_timeout=args.health_timeout,
                 level_filters=args.filter_levels,
                 skip_unchanged=args.skip_unchanged,
                 max_items=args.max_items,
@@ -7100,6 +7152,8 @@ def run_dual_pass_harvest(args: argparse.Namespace) -> Mapping[str, Any]:
                 keep_invalid=True,
                 require_complete=args.require_complete,
                 skip_health_check=args.skip_health_check,
+                health_path=args.health_path,
+                health_timeout=args.health_timeout,
                 level_filters=args.filter_levels,
                 skip_unchanged=args.skip_unchanged,
                 max_items=args.max_items,
