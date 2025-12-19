@@ -10,6 +10,7 @@ import logging
 import os
 import random
 import shutil
+import sys
 import textwrap
 import re
 from fnmatch import fnmatchcase
@@ -32,6 +33,12 @@ from jinja2.nativetypes import NativeEnvironment
 import httpx
 from jsonschema import Draft202012Validator, RefResolver
 from jsonschema.exceptions import ValidationError
+REPO_ROOT = Path(__file__).resolve().parent.parent
+SRC_PATH = REPO_ROOT / "src"
+
+if str(SRC_PATH) not in sys.path:
+    sys.path.insert(0, str(SRC_PATH))
+
 from utils.aon_detector import is_aon_url
 
 # Lista di classi PF1e target supportate dal builder
