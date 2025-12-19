@@ -21,6 +21,8 @@ jobs:
       INDEX_PATH: build_artifacts/build_index.json
       MODULE_INDEX_PATH: build_artifacts/module_index.json
       LOG_PATH: build_artifacts/generate_build_db_core.log
+      CURL_RETRY_ATTEMPTS: ${{ vars.CURL_RETRY_ATTEMPTS }}
+      CURL_RETRY_DELAY_SECONDS: ${{ vars.CURL_RETRY_DELAY_SECONDS }}
     steps:
       - name: Verifica segreti BUILDER
         run: |
@@ -65,9 +67,20 @@ jobs:
           METRICS_API_KEY: ${{ env.METRICS_API_KEY }}
           SKIP_HEALTH_CHECK: ${{ env.SKIP_HEALTH_CHECK }}
           LOG_PATH: ${{ env.LOG_PATH }}
+          CURL_RETRY_ATTEMPTS: ${{ env.CURL_RETRY_ATTEMPTS }}
+          CURL_RETRY_DELAY_SECONDS: ${{ env.CURL_RETRY_DELAY_SECONDS }}
         run: |
           set -euo pipefail
           : "${API_URL:?API_URL mancante}"
+
+          retry_attempts="${CURL_RETRY_ATTEMPTS:-3}"
+          retry_delay="${CURL_RETRY_DELAY_SECONDS:-5}"
+          curl_common_flags=(
+            -f -sS
+            --retry "${retry_attempts}"
+            --retry-delay "${retry_delay}"
+            --retry-all-errors
+          )
 
           metrics_key="${METRICS_API_KEY:-${API_KEY:-}}"
           if [ -z "${metrics_key}" ]; then
@@ -78,12 +91,12 @@ jobs:
           if [ "${SKIP_HEALTH_CHECK:-}" = "true" ]; then
             echo "SKIP_HEALTH_CHECK attivo: salto probe /health su ${API_URL}" | tee -a "${LOG_PATH}"
           else
-            echo "Eseguo probe /health su ${API_URL}" | tee -a "${LOG_PATH}"
-            curl -f -sS -H "x-api-key: ${API_KEY}" "${API_URL%/}/health" | tee -a "${LOG_PATH}"
+            echo "Eseguo probe /health su ${API_URL} (retry=${retry_attempts}, delay=${retry_delay}s)" | tee -a "${LOG_PATH}"
+            curl "${curl_common_flags[@]}" -H "x-api-key: ${API_KEY}" "${API_URL%/}/health" | tee -a "${LOG_PATH}"
           fi
 
-          echo "Eseguo probe /metrics su ${API_URL} con chiave dedicata" | tee -a "${LOG_PATH}"
-          curl -f -sS -H "x-api-key: ${metrics_key}" "${API_URL%/}/metrics" >/dev/null
+          echo "Eseguo probe /metrics su ${API_URL} con chiave dedicata (retry=${retry_attempts}, delay=${retry_delay}s)" | tee -a "${LOG_PATH}"
+          curl "${curl_common_flags[@]}" -H "x-api-key: ${metrics_key}" "${API_URL%/}/metrics" >/dev/null
 
       - name: Esegui generate_build_db (core, strict)
         env:
