@@ -67,13 +67,67 @@
     },
     {
       "module": "adventurer_ledger.txt",
-      "file": null,
-      "status": "error",
-      "issues": [
-        "missing_audit",
-        "missing_record_status"
-      ],
-      "error": "Client error '403 Forbidden' for url 'http://localhost:8000/modules/adventurer_ledger.txt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      "file": "src/data/modules/adventurer_ledger.txt",
+      "status": "ok",
+      "meta": {
+        "name": "adventurer_ledger.txt",
+        "suffix": ".txt",
+        "size_bytes": 78508,
+        "record_status": "validated",
+        "is_deleted": false,
+        "deleted_at": null,
+        "audit": [
+          {
+            "timestamp": "2025-12-17T12:23:23Z",
+            "actor": "generate_build_db",
+            "action": "module_index_backfill",
+            "status": "validated",
+            "source": "src/data/modules/adventurer_ledger.txt"
+          },
+          {
+            "timestamp": "2025-12-19T16:12:00Z",
+            "actor": "generate_build_db",
+            "action": "module_indexed",
+            "status": "validated",
+            "note": "cached module reuse"
+          },
+          {
+            "timestamp": "2025-12-19T16:28:01Z",
+            "actor": "generate_build_db",
+            "action": "module_indexed",
+            "status": "validated"
+          },
+          {
+            "timestamp": "2025-12-19T18:01:57Z",
+            "actor": "generate_build_db",
+            "action": "module_indexed",
+            "status": "validated"
+          }
+        ],
+        "hash_sha256": "7fced25fde41a569c18663c5883797aa2903391899a3f07d6ad6dfc12df019b5",
+        "tags": [
+          "Avventuriero",
+          "Libro",
+          "Mastro",
+          "crafting",
+          "dell",
+          "economy",
+          "loot"
+        ],
+        "reference_urls": [
+          "https://aonprd.com/corerulebook/equipment.html",
+          "https://example.com",
+          "https://www.aonprd.com/Rules.aspx?ID=401",
+          "https://www.d20pfsrd.com/magic-items/",
+          "https://www.d20pfsrd.com/magic-items/rings/ring-of-protection/",
+          "https://www.d20pfsrd.com/magic-items/wondrous-items/a-b/amulet-of-natural-armor/",
+          "https://www.d20pfsrd.com/magic-items/wondrous-items/b-c/belt-of-incredible-dexterity/",
+          "https://www.d20pfsrd.com/magic-items/wondrous-items/c-d/cloak-of-resistance/",
+          "https://www.d20pfsrd.com/magic-items/wondrous-items/h-l/headband-of-inspired-wisdom/",
+          "https://www.reddit.com/r/Pathfinder_RPG/comments/2cv8z8/master_list_of_essentialuseful_magic_items/",
+          "https://zenithgames.blogspot.com/2013/11/improving-your-class-with-items.html"
+        ]
+      }
     },
     {
       "module": "archivist.txt",
