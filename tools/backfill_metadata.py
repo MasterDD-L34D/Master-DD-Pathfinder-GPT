@@ -66,7 +66,9 @@ def _extract_feat_plan(payload: Mapping) -> list[str]:
             for item in node:
                 visit(item, key_hint)
 
-    export_ctx = payload.get("export") if isinstance(payload.get("export"), Mapping) else {}
+    export_ctx = (
+        payload.get("export") if isinstance(payload.get("export"), Mapping) else {}
+    )
     visit(export_ctx)
     unique_feats = []
     seen: set[str] = set()
@@ -92,9 +94,11 @@ def _extract_citation(payload: Mapping) -> dict:
         if isinstance(node, Mapping):
             for key, value in node.items():
                 lowered = str(key).lower()
-                if lowered in {"sources", "fonte", "fonti"} and isinstance(
-                    value, Sequence
-                ) and not isinstance(value, (str, bytes)):
+                if (
+                    lowered in {"sources", "fonte", "fonti"}
+                    and isinstance(value, Sequence)
+                    and not isinstance(value, (str, bytes))
+                ):
                     for entry in value:
                         entry_str = str(entry).strip()
                         if entry_str:
@@ -133,7 +137,11 @@ def _build_checkpoints(entry: Mapping, payload: Mapping) -> list[dict]:
         if isinstance(level, (int, float)):
             levels = [int(level)]
 
-    benchmark = payload.get("benchmark") if isinstance(payload.get("benchmark"), Mapping) else {}
+    benchmark = (
+        payload.get("benchmark")
+        if isinstance(payload.get("benchmark"), Mapping)
+        else {}
+    )
     ruling_badge = (
         payload.get("ruling_badge")
         or benchmark.get("ruling_badge")
