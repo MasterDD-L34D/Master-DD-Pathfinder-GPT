@@ -89,3 +89,8 @@
 
 ### Canale di rilascio — RC draft
 > RC in preparazione: preload base_profile chiuso, dump policy `[contenuto troncato]`/header `X-Content-*` confermata nei regression log, naming export condiviso `MinMax_<nome>` attivo su Builder/Encounter. Data prevista tag `rc/2025-12-21` dopo sign-off owner/QA. Log QA di riferimento: sezioni "QA 2025-12-13" e "QA 2025-12-18" in `reports/qa_log.md`.
+
+## QA 2025-12-19 — Static analysis
+- **Comando**: `tools/run_static_analysis.sh`.
+- **Risultato**: **PASS** — formattazione Black invariata, nessun legacy URL, compilazione bytecode completata su `src` e `tests`.
+- **Note/Errori**: nessuna anomalia rilevata; gate di static analysis concluso senza interruzioni.
