@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-12-19T16:11:44Z",
+  "generated_at": "2025-12-19T16:29:03Z",
   "api_url": null,
   "mode": "extended",
   "spec_file": "docs/examples/pg_variants.yml",
@@ -80,7 +80,7 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "alchemist_goblin_bombardier",
-      "background": null,
+      "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -88,6 +88,11 @@
         10
       ],
       "level": 1,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'; 4 is not of type 'array'; 3 is not of type 'array'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -102,7 +107,7 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "alchemist_goblin_bombardier",
-      "background": null,
+      "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -110,6 +115,11 @@
         10
       ],
       "level": 5,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'; 4 is not of type 'array'; 3 is not of type 'array'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -124,7 +134,7 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "alchemist_goblin_bombardier",
-      "background": null,
+      "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -132,6 +142,11 @@
         10
       ],
       "level": 10,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'; 4 is not of type 'array'; 3 is not of type 'array'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -190,72 +205,6 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "arcanist_tiefling_hexcrafter_blood_arcanist",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/barbarian_fetchling_invulnerable_rager.json",
-      "status": "invalid",
-      "output_prefix": "barbarian_fetchling_invulnerable_rager",
-      "class": "Barbarian",
-      "race": "Fetchling",
-      "archetype": "Invulnerable Rager",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "barbarian_fetchling_invulnerable_rager",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "barbarian_fetchling_invulnerable_rager",
-      "class": "Barbarian",
-      "race": "Fetchling",
-      "archetype": "Invulnerable Rager",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "barbarian_fetchling_invulnerable_rager",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/barbarian_fetchling_invulnerable_rager_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "barbarian_fetchling_invulnerable_rager",
-      "class": "Barbarian",
-      "race": "Fetchling",
-      "archetype": "Invulnerable Rager",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "barbarian_fetchling_invulnerable_rager",
       "background": null,
       "model": null,
       "level_checkpoints": [
@@ -337,72 +286,6 @@
       "prerequisite_violations": [
         "Greater Spell Penetration: Spell Penetration"
       ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager.json",
-      "status": "invalid",
-      "output_prefix": "bloodrager_shabti_steelblood_metamagic_rager",
-      "class": "Bloodrager",
-      "race": "Shabti",
-      "archetype": "Steelblood Metamagic Rager",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "bloodrager_shabti_steelblood_metamagic_rager",
-      "class": "Bloodrager",
-      "race": "Shabti",
-      "archetype": "Steelblood Metamagic Rager",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/bloodrager-shabti-steelblood-metamagic-rager_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "bloodrager_shabti_steelblood_metamagic_rager",
-      "class": "Bloodrager",
-      "race": "Shabti",
-      "archetype": "Steelblood Metamagic Rager",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "bloodrager_shabti_steelblood_metamagic_rager",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 10,
       "catalog_version": [
         "2026.04.03"
       ]
@@ -549,7 +432,7 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_samsaran_cloistered_evangelist",
-      "background": null,
+      "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -557,6 +440,11 @@
         10
       ],
       "level": 1,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -571,7 +459,7 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_samsaran_cloistered_evangelist",
-      "background": null,
+      "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -579,6 +467,11 @@
         10
       ],
       "level": 5,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -593,7 +486,7 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "cleric_samsaran_cloistered_evangelist",
-      "background": null,
+      "background": "Mistico samsaran reincarnato che intreccia sermoni evangelist e preparazione da cloistered cleric per difendere il circolo.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -601,156 +494,11 @@
         10
       ],
       "level": 10,
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/druid_half_orc_feral.json",
-      "status": "invalid",
-      "output_prefix": "druid_half_orc_feral",
-      "class": "Druid",
-      "race": "Half Orc",
-      "archetype": "Feral",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "druid_half_orc_feral",
-      "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1,
-      "missing_catalog_entries": [
-        "items:Pugnale di servizio"
-      ],
-      "prerequisite_violations": [
-        "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/druid_half_orc_feral_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "druid_half_orc_feral",
-      "class": "Druid",
-      "race": "Half Orc",
-      "archetype": "Feral",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "druid_half_orc_feral",
-      "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 5,
-      "missing_catalog_entries": [
-        "items:Pugnale di servizio"
-      ],
-      "prerequisite_violations": [
-        "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/druid_half_orc_feral_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "druid_half_orc_feral",
-      "class": "Druid",
-      "race": "Half Orc",
-      "archetype": "Feral",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "druid_half_orc_feral",
-      "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 10,
-      "missing_catalog_entries": [
-        "items:Pugnale di servizio"
-      ],
-      "prerequisite_violations": [
-        "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter.json",
-      "status": "invalid",
-      "output_prefix": "druid_wayang_mooncaller_shapeshifter",
-      "class": "Druid",
-      "race": "Wayang",
-      "archetype": "Mooncaller Shapeshifter",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "druid_wayang_mooncaller_shapeshifter",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1,
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "druid_wayang_mooncaller_shapeshifter",
-      "class": "Druid",
-      "race": "Wayang",
-      "archetype": "Mooncaller Shapeshifter",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "druid_wayang_mooncaller_shapeshifter",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 5,
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/druid_wayang_mooncaller_shapeshifter_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "druid_wayang_mooncaller_shapeshifter",
-      "class": "Druid",
-      "race": "Wayang",
-      "archetype": "Mooncaller Shapeshifter",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "druid_wayang_mooncaller_shapeshifter",
-      "background": null,
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 10,
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version' was unexpected); Additional properties are not allowed ('catalog_version' was unexpected); None is not of type 'string'",
       "catalog_version": [
         "2026.04.03"
       ]
@@ -849,43 +597,27 @@
       "file": "src/data/builds/fighter_weapon_master_human.json",
       "status": "ok",
       "output_prefix": "fighter_weapon_master_human",
-      "level": 1,
       "class": "Fighter",
       "race": "Human",
       "archetype": "Weapon Master",
       "mode": "extended",
       "mode_normalized": "extended",
-      "spec_id": "fighter_weapon_master_human",
-      "model": null,
+      "spec_id": "fighter_human_weapon_master",
       "background": "Veterano delle Crociate che testa nuove combinazioni di armi.",
+      "model": null,
       "level_checkpoints": [
         1,
         5,
         10
       ],
-      "meta_tier": "T3",
-      "record_status": "validated",
-      "is_deleted": false,
-      "audit": [
-        {
-          "timestamp": "2025-12-19T16:12:00Z",
-          "actor": "generate_build_db",
-          "action": "cached_payload",
-          "status": "validated",
-          "checkpoint": 1,
-          "source": "fighter_weapon_master_human"
-        }
-      ],
+      "level": 1,
       "step_total": 3,
       "expected_step_total": 3,
       "extended_steps_available": true,
       "step_total_ok": true,
-      "request_timestamp": "2025-12-18T16:48:46Z",
-      "client_fingerprint_hash": "offline-placeholder-client-hash-000000000000",
-      "request_ip": null,
-      "auth_outcome": "accepted",
-      "auth_attempt_count": 1,
-      "backoff_reason": null
+      "catalog_version": [
+        "2026.04.03"
+      ]
     },
     {
       "file": "src/data/builds/fighter_weapon_master_human_lvl05.json",
@@ -1748,84 +1480,6 @@
       ]
     },
     {
-      "file": "src/data/builds/ranger_halfelf_skirmisher.json",
-      "status": "invalid",
-      "output_prefix": "ranger_halfelf_skirmisher",
-      "class": "Ranger",
-      "race": "Half-Elf",
-      "archetype": "Skirmisher",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "ranger_half-elf_skirmisher",
-      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1,
-      "missing_catalog_entries": [
-        "items:Arco lungo",
-        "items:Spada corta"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/ranger_halfelf_skirmisher_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "ranger_halfelf_skirmisher",
-      "class": "Ranger",
-      "race": "Half-Elf",
-      "archetype": "Skirmisher",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "ranger_half-elf_skirmisher",
-      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 5,
-      "missing_catalog_entries": [
-        "items:Arco lungo",
-        "items:Spada corta"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/ranger_halfelf_skirmisher_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "ranger_halfelf_skirmisher",
-      "class": "Ranger",
-      "race": "Half-Elf",
-      "archetype": "Skirmisher",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "ranger_half-elf_skirmisher",
-      "background": "Esploratore delle Terre Tenebrose con tattiche di guerriglia leggera.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 10,
-      "missing_catalog_entries": [
-        "items:Arco lungo",
-        "items:Spada corta"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
       "file": "src/data/builds/rogue_halfling_cutpurse.json",
       "status": "invalid",
       "output_prefix": "rogue_halfling_cutpurse",
@@ -1835,7 +1489,7 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
-      "background": null,
+      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -1843,7 +1497,11 @@
         10
       ],
       "level": 1,
-      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); None is not of type 'string'; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
@@ -1864,7 +1522,7 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
-      "background": null,
+      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -1872,7 +1530,11 @@
         10
       ],
       "level": 5,
-      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); None is not of type 'string'; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
       ],
@@ -1893,7 +1555,7 @@
       "mode": "extended",
       "mode_normalized": "extended",
       "spec_id": "rogue_halfling_cutpurse",
-      "background": null,
+      "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
       "model": null,
       "level_checkpoints": [
         1,
@@ -1901,12 +1563,13 @@
         10
       ],
       "level": 10,
-      "error": "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
+      "step_total": 16,
+      "expected_step_total": 16,
+      "extended_steps_available": true,
+      "step_total_ok": true,
+      "error": "Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); Additional properties are not allowed ('catalog_version', 'prerequisite_violations' were unexpected); None is not of type 'string'; Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency",
       "completeness_errors": [
         "Prerequisiti catalogo non soddisfatti: Armatura di cuoio borchiato: Light armor proficiency"
-      ],
-      "missing_catalog_entries": [
-        "feats:Critico migliorato (pugnale)"
       ],
       "prerequisite_violations": [
         "Armatura di cuoio borchiato: Light armor proficiency"
@@ -2397,196 +2060,25 @@
       "catalog_version": [
         "2026.04.03"
       ]
-    },
-    {
-      "file": "src/data/builds/wizard_elf_universalist.json",
-      "status": "invalid",
-      "output_prefix": "wizard_elf_universalist",
-      "class": "Wizard",
-      "race": "Elf",
-      "archetype": "Universalist",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "wizard_elf_universalist",
-      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1,
-      "missing_catalog_entries": [
-        "items:Pugnale di servizio"
-      ],
-      "prerequisite_violations": [
-        "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/wizard_elf_universalist_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "wizard_elf_universalist",
-      "class": "Wizard",
-      "race": "Elf",
-      "archetype": "Universalist",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "wizard_elf_universalist",
-      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 5,
-      "missing_catalog_entries": [
-        "items:Pugnale di servizio"
-      ],
-      "prerequisite_violations": [
-        "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/wizard_elf_universalist_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "wizard_elf_universalist",
-      "class": "Wizard",
-      "race": "Elf",
-      "archetype": "Universalist",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "wizard_elf_universalist",
-      "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 10,
-      "missing_catalog_entries": [
-        "items:Pugnale di servizio"
-      ],
-      "prerequisite_violations": [
-        "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/wizard_human_evoker.json",
-      "status": "invalid",
-      "output_prefix": "wizard_human_evoker",
-      "class": "Wizard",
-      "race": "Human",
-      "archetype": "Evoker",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "wizard_human_evoker",
-      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 1,
-      "missing_catalog_entries": [
-        "items:Pugnale di servizio"
-      ],
-      "prerequisite_violations": [
-        "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/wizard_human_evoker_lvl05.json",
-      "status": "invalid",
-      "output_prefix": "wizard_human_evoker",
-      "class": "Wizard",
-      "race": "Human",
-      "archetype": "Evoker",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "wizard_human_evoker",
-      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 5,
-      "missing_catalog_entries": [
-        "items:Pugnale di servizio"
-      ],
-      "prerequisite_violations": [
-        "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
-    },
-    {
-      "file": "src/data/builds/wizard_human_evoker_lvl10.json",
-      "status": "invalid",
-      "output_prefix": "wizard_human_evoker",
-      "class": "Wizard",
-      "race": "Human",
-      "archetype": "Evoker",
-      "mode": "extended",
-      "mode_normalized": "extended",
-      "spec_id": "wizard_human_evoker",
-      "background": "Piromane accademico in cerca di antiche pergamene elementali.",
-      "model": null,
-      "level_checkpoints": [
-        1,
-        5,
-        10
-      ],
-      "level": 10,
-      "missing_catalog_entries": [
-        "items:Pugnale di servizio"
-      ],
-      "prerequisite_violations": [
-        "Pugnale di servizio: Simple weapon proficiency"
-      ],
-      "catalog_version": [
-        "2026.04.03"
-      ]
     }
-  ],
-  "catalog_version": [
-    "2026.04.03"
   ],
   "checkpoints": {
     "1": {
-      "total": 33,
-      "invalid": 32,
-      "schema_errors": 0,
+      "total": 26,
+      "invalid": 25,
+      "schema_errors": 2,
       "completeness_errors": 5
     },
     "5": {
-      "total": 33,
-      "invalid": 33,
-      "schema_errors": 0,
+      "total": 26,
+      "invalid": 26,
+      "schema_errors": 2,
       "completeness_errors": 4
     },
     "10": {
-      "total": 33,
-      "invalid": 33,
-      "schema_errors": 0,
+      "total": 26,
+      "invalid": 26,
+      "schema_errors": 2,
       "completeness_errors": 5
     }
   }
