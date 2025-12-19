@@ -242,7 +242,7 @@
     },
     "reference_catalog_version": {
       "type": "string",
-      "const": "2026.03.22",
+      "const": "2026.04.03",
       "description": "Versione del catalogo RAW/SRD usato per la build, deve corrispondere a data/reference/manifest.json"
     },
     "build_state": {
