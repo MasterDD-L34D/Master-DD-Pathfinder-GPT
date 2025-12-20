@@ -17,6 +17,7 @@ dependencies:
       - httpcore==1.0.9
       - httptools==0.7.1
       - httpx==0.28.1
+      - hypothesis==6.148.7
       - idna==3.11
       - Jinja2==3.1.6
       - jsonschema==4.25.1
@@ -25,6 +26,7 @@ dependencies:
       - prometheus_client==0.23.1
       - pydantic==2.12.5
       - pydantic_core==2.41.5
+      - pytest==9.0.2
       - python-dotenv==1.2.1
       - PyYAML==6.0.3
       - referencing==0.37.0
