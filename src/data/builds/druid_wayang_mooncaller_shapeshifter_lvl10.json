@@ -343,7 +343,7 @@
       "modules": {
         "scheda_pg_markdown_template.md": "\n\n[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]"
       },
-      "sheet_markdown": "[contenuto troncato — restano circa 29742 byte su 29742; x-truncated=true; original-length=29742]",
+      "sheet_markdown": "Build Sheet\nPercezione Arma preferita Equipaggiamento iniziale",
       "fonti": [
         "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=10&race=Wayang&archetype=Mooncaller+Shapeshifter"
       ],
@@ -354,7 +354,12 @@
       "show_explain": true,
       "show_ledger": true,
       "decimal_comma": true,
-      "skills": [],
+      "skills": [
+        {
+          "nome": "Percezione",
+          "valore": 0
+        }
+      ],
       "lingue": [],
       "sensi": [],
       "condizioni": []

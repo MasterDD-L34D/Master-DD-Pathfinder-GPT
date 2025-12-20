@@ -34,6 +34,16 @@ from jsonschema import Draft202012Validator, RefResolver
 from jsonschema.exceptions import ValidationError
 from utils.aon_detector import is_aon_url
 
+# Alcuni ambienti (o versioni precedenti dello script) si aspettano un helper
+# is_aon_url in utils.aon_detector; gestiamo la mancanza con un fallback locale
+# per mantenere la compatibilità e permettere l'esecuzione dello script senza
+# dipendenze aggiuntive.
+try:  # pragma: no cover - percorso solo in ambienti con utils disponibile
+    from utils.aon_detector import is_aon_url  # type: ignore
+except ModuleNotFoundError:  # pragma: no cover - usato in CI/ambienti vanilla
+    def is_aon_url(url: str) -> bool:
+        return "aonprd.com" in (url or "").lower()
+
 # Lista di classi PF1e target supportate dal builder
 PF1E_CLASSES: List[str] = [
     "Alchemist",
@@ -551,7 +561,6 @@ def _reference_url_coverage(
                 else []
             )
             normalized_urls = [str(url).strip() for url in urls if str(url).strip()]
-            # Utilizziamo il rilevatore robusto per AoN
             has_aon = any(is_aon_url(url) for url in normalized_urls)
             has_d20 = any("d20pfsrd" in url for url in normalized_urls)
 
@@ -1097,6 +1106,8 @@ def _is_placeholder(value: object) -> bool:
         return True
     if isinstance(value, str):
         lowered = value.strip().lower()
+        if "x-truncated=true" in lowered or "contenuto troncato" in lowered:
+            return True
         if lowered.startswith(("n/d", "nd", "n/a", "na")):
             return True
         return not lowered or "stub" in lowered or lowered in {"todo", "tbd"}
