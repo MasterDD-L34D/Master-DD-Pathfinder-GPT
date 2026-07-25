@@ -134,7 +134,10 @@ def parse_archetypes(html: str) -> list[dict]:
             raw_replaces = clean(cells[1].get_text())
             raw_summary = clean(cells[2].get_text())
             blob = f"{raw_replaces} {raw_summary}"
-            race_req = sorted(set(_RACE_ONLY_RE.findall(blob))) or None
+            raw_races = set(_RACE_ONLY_RE.findall(blob))
+            # Marcatori compositi '(X and Y Only)' -> requisiti separati
+            # (semantica OR: l'archetipo e' prendibile da ciascuna razza).
+            race_req = sorted({r for raw in raw_races for r in raw.split(" and ")}) or None
             summary = clean(_RACE_ONLY_RE.sub("", raw_summary))
             replaces = [r.strip() for r in
                         _RACE_ONLY_RE.sub("", raw_replaces).split(";")

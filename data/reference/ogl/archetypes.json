@@ -14599,7 +14599,8 @@
           "Wild Shape"
         ],
         "race_req": [
-          "Elf and Vine Leshy"
+          "Elf",
+          "Vine Leshy"
         ],
         "features": [
           {
