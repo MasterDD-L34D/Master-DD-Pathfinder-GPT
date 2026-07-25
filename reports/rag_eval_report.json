@@ -1,32 +1,32 @@
 {
   "top_k": 5,
-  "hits": 6,
+  "hits": 14,
   "total": 18,
-  "rate": 0.3333333333333333,
+  "rate": 0.7777777777777778,
   "results": [
     {
       "id": "feat-power-attack",
       "query": "cosa fa il talento Attacco Poderoso?",
       "expected": "Power Attack",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::feats::Attacco poderoso"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::feats::Power Attack"
     },
     {
       "id": "feat-toughness",
       "query": "quanti pf dà Robustezza?",
       "expected": "Toughness",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::feats::Robustezza"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::feats::Toughness"
     },
     {
       "id": "spell-fireball",
       "query": "area e danni di Palla di Fuoco?",
       "expected": "Fireball",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::items::Munizioni adamantine e scatter, cartucce concussive di riserva"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::spells::Fireball"
     },
     {
       "id": "spell-ablative",
@@ -48,40 +48,40 @@
       "id": "equip-chainmail",
       "query": "quanto costa la cotta di maglia?",
       "expected": "Chainmail",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::equipment::Elven thornblade"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::equipment::Chainmail"
     },
     {
       "id": "equip-scalemail",
       "query": "bonus di armatura della corazza a scaglie?",
       "expected": "Scale mail",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::items::Armatura di cuoio rinforzata"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::equipment::Scale mail"
     },
     {
       "id": "equip-fullplate",
       "query": "la corazza di piastre completa quanto dà di CA?",
       "expected": "Full plate",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::items::Corazza di piastre leggermente rinforzata"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::equipment::Full plate"
     },
     {
       "id": "class-wizard",
       "query": "quanti incantesimi al giorno ha un mago di livello 5?",
       "expected": "Wizard",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::spells::Cloak of Dreams"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::classes::Wizard"
     },
     {
       "id": "class-bard-known",
       "query": "quanti incantesimi conosce un bardo di livello 1?",
       "expected": "Bard",
       "hit": true,
-      "rank": 5,
+      "rank": 4,
       "top_source": "reference::items::Armatura vivente +1 con rune botaniche"
     },
     {
@@ -105,8 +105,8 @@
       "query": "cosa sostituisce l'archetipo Treesinger del druido?",
       "expected": "Treesinger",
       "hit": true,
-      "rank": 1,
-      "top_source": "reference::archetypes::Treesinger"
+      "rank": 2,
+      "top_source": "reference::archetypes::Reincarnated Druid"
     },
     {
       "id": "archetype-archer",
@@ -122,15 +122,15 @@
       "expected": "Wyvern",
       "hit": false,
       "rank": null,
-      "top_source": "ruling_expert.txt"
+      "top_source": "scheda_pg_markdown_template.md"
     },
     {
       "id": "skill-perception",
       "query": "a che caratteristica è legata Percezione?",
       "expected": "Perception",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::feats::Obliviating Stare"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::skills::Perception"
     },
     {
       "id": "trait-reactionary",
@@ -138,7 +138,7 @@
       "expected": "Reactionary",
       "hit": false,
       "rank": null,
-      "top_source": "reference::spells::Pesh Vigor"
+      "top_source": "reference::traits::Unpredictable Reactions"
     },
     {
       "id": "ability-pointbuy",

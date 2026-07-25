@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -23,12 +24,47 @@ sys.path.insert(0, str(ROOT))
 QUESTIONS_PATH = ROOT / "data" / "rag_eval_questions.json"
 REPORT_PATH = ROOT / "reports" / "rag_eval_report.json"
 
+# Lessico minimo IT->EN dei termini di gioco (esperimento 2026-07-25):
+# traduzione dei soli termini presenti nel question set, per MISURARE se la
+# query-translation risolve il finding IT->EN (33% hit rate). Se funziona,
+# la mitigazione va valutata nel retriever di produzione (non qui).
+QUERY_LEXICON = {
+    "attacco poderoso": "power attack",
+    "robustezza": "toughness",
+    "palla di fuoco": "fireball",
+    "cotta di maglia": "chainmail",
+    "corazza a scaglie": "scale mail",
+    "corazza di piastre": "full plate",
+    "mago": "wizard",
+    "bardo": "bard",
+    "aasimar": "aasimar",
+    "coboldo": "kobold",
+    "viverna": "wyvern",
+    "percezione": "perception",
+    "reactionary": "reactionary",
+    "talento": "feat",
+    "guerriero": "fighter",
+    "druido": "druid",
+}
+
+
+def translate_query(query: str) -> str:
+    """Applica il lessico IT->EN alle frasi note (piu' lunghe prima),
+    preservando il case del testo non tradotto (il boost nome del retriever
+    e' case-sensitive sui nomi propri inglesi)."""
+    out = query
+    for it, en in sorted(QUERY_LEXICON.items(), key=lambda kv: -len(kv[0])):
+        out = re.sub(re.escape(it), en, out, flags=re.IGNORECASE)
+    return out
+
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--fail-under", type=float, default=None,
                     help="exit 1 se l'hit rate scende sotto questa soglia (0-1)")
+    ap.add_argument("--translate", action="store_true",
+                    help="applica il lessico IT->EN alle query (esperimento mitigazione)")
     args = ap.parse_args()
 
     spec = json.loads(QUESTIONS_PATH.read_text(encoding="utf-8"))
@@ -48,7 +84,8 @@ def main() -> int:
     hits = 0
     for q in spec["questions"]:
         expected = q["expected"].lower()
-        chunks = retriever.search(q["query"], top_k=top_k)
+        query = translate_query(q["query"]) if args.translate else q["query"]
+        chunks = retriever.search(query, top_k=top_k)
         found_at = None
         for i, c in enumerate(chunks, 1):
             if expected in c.get("source", "").lower():
