@@ -73,6 +73,10 @@ Per ogni nuovo catalogo, TUTTI questi passi (la dimenticanza di uno si paga dopo
 7. `python launch.py test` → TUTTE LE VERIFICHE OK; YAML-check dei moduli `.txt` toccati.
 8. Aggiornare `reports/data_quality_report.json` (rigenerato) e `sessione-2026-07-16/HANDOFF_ATTIVO.md`.
 
+## 6.2 Mostri v2 (2026-07-25)
+
+`monsters_local.json` (pi_local_only, non committato) include in `mechanics` i campi filtro Encounter_Designer (`type`, `size`, `alignment`, `environment`, `organization`, `initiative`) e il blocco combat completo (`subtypes`, `space`/`reach`/`reach_other`, `spell_like_abilities`, `spells`, `psychic_magic`, `auras`, `defensive_abilities`, `special_qualities`, `cmb_other`/`cmd_other`). Rigenerare con `tools/import_monsters.py` dopo aggiornamenti della fonte. Validazione report-only per CR-band: `tools/validate_monsters.py` → `reports/monsters_cr_band.md` (gitignored, tolleranza ±20%, nessuna auto-correzione). Espansione del dataset oltre i 199 attuali = lotto futuro dedicato (fetch seriale + triage PI).
+
 ## 6. Test (pattern)
 
 - **Parser: fixture HTML inline nei test** (stringhe), MAI rete. Includi i casi reali scoperti durante il build (righe-gruppo, en-dash, nomi con parentesi).
