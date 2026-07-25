@@ -37,3 +37,4 @@ sessione-*/ricerca/*/data/*.json
 # Report generati dai tool di verifica/filtro
 reports/legal_filter_report.*
 reports/embedding_advanced_benchmark.*
+reports/monsters_cr_band.*
