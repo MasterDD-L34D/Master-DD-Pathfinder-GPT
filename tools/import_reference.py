@@ -82,14 +82,19 @@ RACES_EXOTIC = ["Catfolk", "Fetchling", "Goblin", "Grippli", "Kasatha", "Kitsune
                 "Tiefling", "Vanara", "Vishkanya", "Wayang"]
 RACES_ALL = RACES_CORE + RACES_EXOTIC
 ABILITY_KEYS = {"strength": "str", "dexterity": "dex", "constitution": "con",
-                "intelligence": "int", "wisdom": "wis", "charisma": "cha"}
+                "intelligence": "int", "wisdom": "wis", "charisma": "cha",
+                # abbreviazioni AoN (Munavri, Rougarou: '+2 Str, +4 Dex, ...')
+                "str": "str", "dex": "dex", "con": "con",
+                "int": "int", "wis": "wis", "cha": "cha"}
 
 
 def _parse_ability_mods(text):
     """'+2 Constitution, +2 Wisdom, -2 Charisma' -> {'con': 2, 'wis': 2, 'cha': -2}.
     '+2 to one ability score (your choice)' -> {'any': 2}."""
     # AoN usa l'en-dash nei modificatori negativi ("–2 Charisma"): normalizza.
-    text = text.replace("–", "-")
+    # Il mojibake U+FFFD nelle pagine cache (cp1252 letto come UTF-8) e' lo
+    # stesso en-dash corrotto (Astomoi, Being of Ib, Munavri).
+    text = text.replace("–", "-").replace("�", "-")
     mods = {}
     for value, ability in re.findall(r"([+-]\d+)\s+([A-Za-z]+)", text):
         key = ABILITY_KEYS.get(ability.lower())
@@ -270,10 +275,16 @@ def parse_race(html, race_name):
             "alternate_traits": parse_race_alternate_traits(html)}
     for bold in _racial_traits_bolds(soup):
         # I label bold reali possono chiudere con i due punti ("Darkvision:").
-        label = clean(bold.get_text()).rstrip(":").strip()
+        # Il mojibake U+FFFD e' l'en-dash corrotto (cache cp1252): normalizzato
+        # per far matchare i mods con segno negativo in testa (Astomoi & co.).
+        label = clean(bold.get_text()).replace("�", "–").rstrip(":").strip()
         detail = _bold_detail(bold, label)
-        if re.match(r"^[+-]\d+\s", label):
-            mech["ability_mods"] = _parse_ability_mods(label)
+        if re.match(r"^[+–-]\d+\s", label):
+            # Solo assegnazioni non vuote: label numerici non-mods (es. '+2
+            # Natural Armor' Ghoran) non devono azzerare i mods gia' parsati.
+            mods = _parse_ability_mods(label)
+            if mods:
+                mech["ability_mods"] = mods
         elif label in ("Medium", "Small"):
             mech["size"] = label
         elif label in ("Slow and Steady", "Slow Speed") or label.startswith("Normal Speed"):

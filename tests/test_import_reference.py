@@ -209,6 +209,20 @@ RACE_NO_SECTIONS_HTML = """
 """
 
 
+def test_parse_race_mods_endash_start_abbreviations_and_mojibake():
+    """Mods con en-dash (o il suo mojibake U+FFFD da cache cp1252) IN TESTA al
+    label e abbreviazioni Str/Dex/... (Astomoi, Munavri, Being of Ib reali)."""
+    html = """
+<html><body>
+<h1 class="title">X Racial Traits</h1>
+<b>�2 Str, +4 Dex, +2 Con, +2 Int, +2 Wis, +2 Cha:</b> weird race.
+</body></html>
+"""
+    entry = parse_race(html, "X")
+    assert entry["mechanics"]["ability_mods"] == {
+        "str": -2, "dex": 4, "con": 2, "int": 2, "wis": 2, "cha": 2}
+
+
 def test_parse_race_without_sections_gives_empty_lists():
     entry = parse_race(RACE_NO_SECTIONS_HTML, "Human")
     assert entry["mechanics"]["subraces"] == []
