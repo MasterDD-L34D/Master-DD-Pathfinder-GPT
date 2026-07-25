@@ -166,7 +166,7 @@ def main():
     ))
 
     # Modelli embeddings Ollama disponibili
-    for ollama_model in ["nomic-embed-text:latest", "snowflake-arctic-embed2:568m"]:
+    for ollama_model in []:  # modelli ollama rimossi nel cleanup 2026-07-25 (solo sentence-transformers)
         try:
             report["models"].append(evaluate_model(
                 ollama_model, "ollama", make_ollama_encoder(ollama_model), entries

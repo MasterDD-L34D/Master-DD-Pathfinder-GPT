@@ -33,14 +33,10 @@ QUERIES = [
     },
 ]
 
+# Modelli attuali post-cleanup llmfit+eval 2026-07-25 (default: 14b, fallback: 7b).
 MODELS = [
-    "qwen2.5-coder:7b",
     "qwen2.5-coder:14b",
-    "qwen2.5:0.5b",
-    "mistral:latest",
-    "gemma3:12b",
-    "qwen3:8b",
-    "deepseek-coder-v2:16b",
+    "qwen2.5-coder:7b",
 ]
 
 

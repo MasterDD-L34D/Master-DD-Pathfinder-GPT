@@ -116,7 +116,7 @@ def main():
     entries = load_entries()
     print(f"Caricate {len(entries)} entry")
     report = {"models": []}
-    for model in ["nomic-embed-text:latest", "snowflake-arctic-embed2:568m"]:
+    for model in []:  # modelli ollama rimossi nel cleanup 2026-07-25 (solo sentence-transformers)
         try:
             report["models"].append(evaluate(model, entries))
         except Exception as exc:
