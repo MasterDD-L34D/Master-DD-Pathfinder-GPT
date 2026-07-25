@@ -23,6 +23,8 @@ from bs4 import BeautifulSoup
 
 from tools.legal_filter import _find_pi
 from tools.reference_fetch import fetch
+from tools.expand_spells_gist import is_pi_name
+from tools.sanitize_reference_pi import sanitize_text
 
 # Helper condivisi (costanti OGL, slug/clean, parsing tabelle, prerequisiti):
 # definiti in tools/reference_lib.py e re-esportati qui per compatibilita'.
@@ -312,11 +314,45 @@ def parse_race(html, race_name):
 RACE_LANGUAGES_PI = {"Azlanti"}
 
 
+def _race_index_names_from_html(html):
+    """Link RacesDisplay di una pagina indice -> nomi, dedup in ordine."""
+    out = []
+    for n in re.findall(r"RacesDisplay\.aspx\?ItemName=([^\"&]+)", html):
+        n = n.replace("%20", " ")
+        if n not in out:
+            out.append(n)
+    return out
+
+
+def race_index_names():
+    """Tutte le razze non-core dall'indice AoN (fetch seriale con cache)."""
+    html = fetch(BASE + "Races.aspx?Category=NonCore")
+    return _race_index_names_from_html(html)
+
+
+def _pi_split_race_sections(entry, local_out):
+    """Subraces/traits con nome PI -> local_out (campo race); description sanitize."""
+    mech = entry["mechanics"]
+    for key, kind in (("subraces", "subrace"), ("alternate_traits", "alternate_trait")):
+        kept = []
+        for item in mech.get(key, []):
+            item["description"] = sanitize_text(item.get("description") or "",
+                                                description=True)
+            if is_pi_name(item["name"]):
+                local_out.append({"race": entry["name"], "kind": kind, **item})
+            else:
+                kept.append(item)
+        mech[key] = kept
+
+
 def build_races(write=False):
     """Merge in place: aggiorna le entry esistenti di races.json preservando
     i campi curati (notes, status, reviewed_by, short_description) e l'header
     (alla fonte originale si aggiunge AoN). Le lingue PI (RACE_LANGUAGES_PI)
-    sono rimosse dalle liste languages con nota a video."""
+    sono rimosse dalle liste languages con nota a video. Lotto 2026-07-25:
+    razze enumerate dagli indici AoN (7 core + 70 non-core); ability_mods
+    mancanti = anomalia report-only (nessuna invenzione); subraces/traits con
+    nome PI -> pi_local_only/subraces_local.json (campo race)."""
     path = OGL_DIR / "races.json"
     with open(path, encoding="utf-8") as f:
         catalog = json.load(f)
@@ -324,25 +360,42 @@ def build_races(write=False):
     if "aonprd" not in source_text:
         source_text = source_text.rstrip(".") + "; Archives of Nethys (aonprd.com)."
     by_name = {e["name"]: e for e in catalog["entries"]}
-    for race in RACES_ALL:
+    races = RACES_CORE + [n for n in race_index_names() if n not in RACES_CORE]
+    anomalies = []
+    local_subraces = []
+    for race in races:
         url = BASE + f"RacesDisplay.aspx?ItemName={race.replace(' ', '%20')}"
         parsed = parse_race(fetch(url), race)
-        assert parsed["mechanics"]["ability_mods"], f"{race}: ability_mods non parsati"
+        if not parsed["mechanics"]["ability_mods"]:
+            anomalies.append(race)
+            print(f"nota: {race}: ability_mods non parsati (report-only)")
         langs = parsed["mechanics"]["languages"]
         for key in ("auto", "bonus"):
             dropped = [lang for lang in langs[key] if lang in RACE_LANGUAGES_PI]
             if dropped:
                 langs[key] = [lang for lang in langs[key] if lang not in RACE_LANGUAGES_PI]
                 print(f"nota: {race}: filtrate lingue PI: {', '.join(dropped)}")
+        _pi_split_race_sections(parsed, local_subraces)
         if race in by_name:
             by_name[race].update(parsed)
         else:
             catalog["entries"].append(parsed)
+    if anomalies:
+        print(f"ATTENZIONE: ability_mods mancanti per {len(anomalies)} razze: "
+              f"{', '.join(anomalies)}")
     if write:
         write_catalog(path, catalog["entries"],
                       license_text=catalog.get("_license", LICENSE), source_text=source_text)
+        local_path = path.parent.parent / "pi_local_only" / "subraces_local.json"
+        local_path.write_text(json.dumps({
+            "_license": "OGL-1.0a",
+            "_source": "Archives of Nethys (local only, not redistributed)",
+            "entries": local_subraces,
+        }, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"scritto {local_path} ({len(local_subraces)} entry, NON committare)")
     else:
-        print(f"report: {len(catalog['entries'])} entry (write=False, nessuna scrittura)")
+        print(f"report: {len(catalog['entries'])} entry, "
+              f"{len(local_subraces)} subraces/trait PI in local (write=False)")
 
 
 CLASSES_CORE = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",

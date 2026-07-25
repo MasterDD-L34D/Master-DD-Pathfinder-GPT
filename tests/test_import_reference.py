@@ -215,6 +215,38 @@ def test_parse_race_without_sections_gives_empty_lists():
     assert entry["mechanics"]["alternate_traits"] == []
 
 
+RACE_INDEX_HTML = """
+<html><body>
+<a href="RacesDisplay.aspx?ItemName=Aasimar">Aasimar</a>
+<a href="RacesDisplay.aspx?ItemName=Catfolk">Catfolk</a>
+<a href="RacesDisplay.aspx?ItemName=Aasimar">Aasimar</a>
+<a href="RacesDisplay.aspx?ItemName=Vine%20Leshy">Vine Leshy</a>
+</body></html>
+"""
+
+
+def test_race_index_names_from_html():
+    from tools.import_reference import _race_index_names_from_html
+    assert _race_index_names_from_html(RACE_INDEX_HTML) == [
+        "Aasimar", "Catfolk", "Vine Leshy"]
+
+
+def test_pi_split_moves_named_subraces():
+    """Nomi subrace/trait PI -> subraces_local con campo race; gli altri restano."""
+    from tools.import_reference import _pi_split_race_sections
+    entry = {"name": "Elf", "mechanics": {
+        "subraces": [{"name": "Aquatic Elves", "description": "x"},
+                     {"name": "Ekujae Elves", "description": "y"}],
+        "alternate_traits": [{"name": "Blightborn", "replaces": ["Elven Immunities"],
+                              "source": "Horror Adventures", "description": "z"}]}}
+    local = []
+    _pi_split_race_sections(entry, local)
+    assert [s["name"] for s in entry["mechanics"]["subraces"]] == ["Aquatic Elves"]
+    assert local == [{"race": "Elf", "kind": "subrace", "name": "Ekujae Elves",
+                      "description": "y"}]
+    assert entry["mechanics"]["alternate_traits"][0]["name"] == "Blightborn"
+
+
 CLASS_HTML = """
 <html><body>
 <h2>Barbarian</h2>
