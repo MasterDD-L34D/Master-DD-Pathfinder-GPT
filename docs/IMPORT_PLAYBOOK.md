@@ -89,6 +89,10 @@ Per ogni nuovo catalogo, TUTTI questi passi (la dimenticanza di uno si paga dopo
 
 Chiuso il debito dell'appendice di `reports/pi_feats_triage.md`: 75/77 entry feats con prosa corrotta dalla sanitize storica naive ripristinate da FeatDisplay AoN (`tools/restore_feat_prose.py`, dry-run/`--write`/`--offline`; lista nomi parsata dal report committato + 2 supplementari sfuggite all'appendice — Harrowed Summoning, Supernatural Spy; 7 `NAME_VARIANTS` per grafie d20pfsrd→AoN; description = flavor + Benefit, prereq e description sanitizzati; report `reports/restore_feat_prose.md`). Le 2 non ripristinate (`Hindrance Dismissal`, `Spell Bluff`) non esistono su AoN moderno: documentate nel report. References "Archives of a deity of magic" → "Pathfinder PRD" bonificati su tutti i cataloghi OGL (3664 sostituzioni: `tools/fix_reference_strings.py`).
 
+## 6.6 Razze complete (2026-07-25)
+
+`races.json` a copertura completa: 7 core + 70 non-core enumerate dagli indici `Races.aspx?Category=Core|NonCore` (`race_index_names()`). Tutte le 77 entry hanno `mechanics.subraces` e `mechanics.alternate_traits` (replaces strutturato AoN); nomi PI → `pi_local_only/subraces_local.json` (campo `race`, 6 entry: Mwangi Dwarves, Ekujae...). Ability-mods mancanti = report-only (Boggard, Primitive Human: invariante test con eccezione documentata). Parser: mods con mojibake en-dash (U+FFFD da cache cp1252) e abbreviazioni Str/Dex; anti-bleed delle sezioni annidate (Favored Class Options, tabelle Variant Abilities, augment di spell con discriminante "riga Source"); label Large/Speed/Slow. Favored Class Options escluse (candidato futuro). Rigenerare con `import_reference.py --domain races --write`.
+
 ## 6. Test (pattern)
 
 - **Parser: fixture HTML inline nei test** (stringhe), MAI rete. Includi i casi reali scoperti durante il build (righe-gruppo, en-dash, nomi con parentesi).
