@@ -186,6 +186,10 @@ def _iter_section(soup, h1_pred):
             for el in sib.descendants:
                 yield el
             yield sib
+        else:
+            # NavigableString bare tra i tag (es. bonus FCO '): Add one...'):
+            # senza questo ramo il testo non annidato in un Tag viene perso.
+            yield sib
 
 
 def _section_text_nodes(el):
@@ -236,7 +240,7 @@ def parse_race_alternate_traits(html):
                            "source": source,
                            "description": clean(" ".join(p for p in parts if p)).lstrip(",; ")})
 
-    for el in _iter_section(soup, lambda t: "alternate racial trait" in t.lower()):
+    for el in _iter_section(soup, lambda t: "alternate racial trait" in t.lower()[:80]):
         name_attr = getattr(el, "name", None)
         if name_attr == "table":
             # Tabelle annidate nella stessa h1 (es. Variant Tiefling/Aasimar
@@ -285,6 +289,40 @@ def parse_race_alternate_traits(html):
     return traits
 
 
+def parse_race_favored_class_options(html):
+    """Sezione '<Race> Favored Class Options': [{class, source, bonus}].
+
+    Entry regolari: '<b>Classe</b> (<a><i>Libro pg. N</i></a>): bonus<br />'.
+    L'intro della sezione e' saltata (accumulo solo dopo il primo <b>)."""
+    soup = BeautifulSoup(html, "html.parser")
+    options, current, parts, source = [], None, [], ""
+
+    def flush():
+        if current:
+            bonus = clean(" ".join(p for p in parts if p)).lstrip("(:;,) ").rstrip(".")
+            options.append({"class": current, "source": source,
+                            "bonus": bonus + "." if bonus else ""})
+
+    for el in _iter_section(soup, lambda t: "favored class options" in t.lower()[:80]):
+        name_attr = getattr(el, "name", None)
+        if name_attr == "b":
+            t = clean(el.get_text())
+            if t and t != "Source":
+                flush()
+                current, parts, source = t, [], ""
+            continue
+        if name_attr == "i":
+            txt = clean(el.get_text())
+            if current and not source and "pg." in txt:
+                source = re.sub(r"\s*pg\.\s*\d+.*$", "", txt).strip()
+            continue
+        if _section_text_nodes(el):
+            if current:
+                parts.append(clean(str(el)))
+    flush()
+    return options
+
+
 def parse_race(html, race_name):
     """Pagina RacesDisplay: sezione 'Racial Traits' con righe bold-led,
     piu' sezioni Subraces e Alternate Racial Trait (lotto 2026-07-25).
@@ -294,7 +332,8 @@ def parse_race(html, race_name):
     mech = {"ability_mods": {}, "size": None, "speed": None, "traits": [],
             "languages": {"auto": [], "bonus": []},
             "subraces": parse_race_subraces(html),
-            "alternate_traits": parse_race_alternate_traits(html)}
+            "alternate_traits": parse_race_alternate_traits(html),
+            "favored_class_options": parse_race_favored_class_options(html)}
     for bold in _racial_traits_bolds(soup):
         # I label bold reali possono chiudere con i due punti ("Darkvision:").
         # Il mojibake U+FFFD e' l'en-dash corrotto (cache cp1252): normalizzato

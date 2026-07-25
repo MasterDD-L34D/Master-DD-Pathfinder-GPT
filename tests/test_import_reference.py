@@ -271,6 +271,32 @@ def test_parse_race_alternate_traits_no_section_bleed():
     assert "Variant" not in alts[1]["description"]
 
 
+RACE_FCO_HTML = """
+<html><body>
+<h1 class="title">Elf Racial Traits</h1>
+<p><b>+2 Dexterity, +2 Intelligence, –2 Constitution</b>: Elves are nimble.</p>
+<p><b>Medium</b>: Elves are Medium creatures.</p>
+<p><b>Normal Speed</b>: Elves have a base speed of 30 feet.</p>
+<p><b>Languages</b>: Elves begin play speaking Common and Elven.</p>
+<h1 class="title">Elf Favored Class Options</h1>Instead of receiving an additional skill rank or hit point, Elves have options.<br /><br /><b><img src="images\\PathfinderSocietySymbol.gif"/> Alchemist</b> (<a href="http://paizo.com/x"><i>Advanced Race Guide pg. 23</i></a>): Add one extract formula to his formula book.<br /><b>Arcanist</b> (<a href="http://paizo.com/y"><i>Advanced Class Guide pg. 69</i></a>): Increase points in the arcane reservoir by 1.<br />
+</body></html>
+"""
+
+
+def test_parse_race_favored_class_options():
+    """Sezione '<Race> Favored Class Options': [{class, source, bonus}]."""
+    entry = parse_race(RACE_FCO_HTML, "Elf")
+    fco = entry["mechanics"]["favored_class_options"]
+    assert len(fco) == 2
+    assert fco[0] == {"class": "Alchemist", "source": "Advanced Race Guide",
+                      "bonus": "Add one extract formula to his formula book."}
+    assert fco[1]["class"] == "Arcanist"
+    assert fco[1]["source"] == "Advanced Class Guide"
+    assert fco[1]["bonus"].startswith("Increase points")
+    # intro della sezione NON finisce nei bonus
+    assert "Instead of receiving" not in str(fco)
+
+
 def test_parse_race_without_sections_gives_empty_lists():
     entry = parse_race(RACE_NO_SECTIONS_HTML, "Human")
     assert entry["mechanics"]["subraces"] == []
