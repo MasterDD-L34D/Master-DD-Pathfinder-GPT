@@ -246,6 +246,11 @@ DESCRIPTION_ONLY_REPLACEMENTS = [
     # Lotto ripristino prosa feats 2026-07-25 (restore_feat_prose): residui
     # del testo grezzo FeatDisplay.
     ("Hold of Belkzen", "an orc-ruled land"),
+    # Enrichment equipment descriptions 2026-07-25 (enrich_equipment_descriptions).
+    ("Egorian", "an imperial city"),
+    ("Avistan", "a northern continent"),
+    ("Belkzen", "an orc realm"),
+    ("Magnimar", "a city of monuments"),
 ]
 
 # Campi mai sanitizzati: il nome (policy: le entry PI-identita' vanno in

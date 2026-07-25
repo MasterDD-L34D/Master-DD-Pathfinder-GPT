@@ -13,6 +13,8 @@ def _load_sheet(path: Path):
 
 def test_skills_equip_ledger_sections_are_populated():
     for build_file in BUILD_DIR.glob("*.json"):
+        if build_file.name.startswith("_"):
+            continue  # file metadata/registry (es. _oracle_defects.json), non build
         sheet = _load_sheet(build_file)
         skills = sheet.get("skills") or []
         equip = sheet.get("equipaggiamento") or []
