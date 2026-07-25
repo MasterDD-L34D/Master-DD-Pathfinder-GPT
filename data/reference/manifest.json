@@ -71,9 +71,9 @@
       "is_ogc": true,
       "is_pi": false,
       "cup_allowed": false,
-      "entries": 15,
-      "notes": "Riassunti meccanici degli archetipi core; nomi con riferimenti a setting PI sono stati rimossi o neutralizzati.",
-      "last_verified": "2026-07-16"
+      "entries": 949,
+      "notes": "Archetipi da indici AoN per classe (tabella Name/Replaces/Summary): mechanics {class, replaces, race_req}. Rigenerare con tools/import_archetypes.py.",
+      "last_verified": "2026-07-25"
     },
     {
       "file": "ogl/abilities.json",
@@ -187,6 +187,19 @@
       "entries": 23,
       "notes": "Spell con Product Identity nel nome (possessivi di divinita' e simili), separate dal catalogo OGL con la policy 2026-07-25 (reports/expand_spells_gist.md). NON redistribuire. Generato da tools/expand_spells_gist.py; indicizza con index_rag.py --include-local.",
       "last_verified": "2026-07-25"
+    },
+    {
+      "file": "pi_local_only/archetypes_local.json",
+      "kind": "archetypes_local",
+      "source": "Archives of Nethys (aonprd.com)",
+      "license": "OGL-1.0a",
+      "is_ogc": false,
+      "is_pi": false,
+      "cup_allowed": false,
+      "local_only": true,
+      "entries": 12,
+      "notes": "Archetipi con Product Identity nel nome, separati dal catalogo OGL (policy 2026-07-25). NON redistribuire.",
+      "last_verified": "2026-07-25"
     }
   ],
   "files": {
@@ -212,7 +225,7 @@
     },
     "archetypes": {
       "path": "ogl/archetypes.json",
-      "entries": 15
+      "entries": 949
     },
     "abilities": {
       "path": "ogl/abilities.json",

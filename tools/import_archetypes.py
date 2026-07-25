@@ -66,9 +66,10 @@ def parse_archetypes(html: str) -> list[dict]:
                     href = BASE + href
                 detail_url = href.replace(" ", "%20")
             raw_replaces = clean(cells[1].get_text())
-            summary = clean(cells[2].get_text())
-            blob = f"{raw_replaces} {summary}"
+            raw_summary = clean(cells[2].get_text())
+            blob = f"{raw_replaces} {raw_summary}"
             race_req = sorted(set(_RACE_ONLY_RE.findall(blob))) or None
+            summary = clean(_RACE_ONLY_RE.sub("", raw_summary))
             replaces = [r.strip() for r in
                         _RACE_ONLY_RE.sub("", raw_replaces).split(";")
                         if r.strip()]

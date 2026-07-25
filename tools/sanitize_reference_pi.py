@@ -232,7 +232,17 @@ DESCRIPTION_ONLY_REPLACEMENTS = [
     ("Osiriani", "an ancient language"),
     ("Osirian", "desert"),
     ("Tian Xia", "a faraway continent"),
+    ("Tian", "eastern"),
     ("Hermea", "an island utopia"),
+    # Lotto archetipi 2026-07-25 (import_archetypes): residui delle summary.
+    ("ancient Thassilon", "an ancient empire"),
+    ("Thassilon", "an ancient empire"),
+    ("Mendev", "a crusader nation"),
+    ("Vudra", "a distant continent"),
+    ("Kellid", "northern tribal"),
+    ("Nirmathas", "a rebel nation"),
+    ("Five Kings Mountains", "a dwarven mountain range"),
+    ("Daggermark", "a poisoners' city"),
 ]
 
 # Campi mai sanitizzati: il nome (policy: le entry PI-identita' vanno in

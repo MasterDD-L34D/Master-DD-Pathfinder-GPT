@@ -14,7 +14,7 @@ FIGHTER_HTML = """
 <table>
 <tr><td><b>Name</b></td><td><b>Replaces</b></td><td><b>Summary</b></td></tr>
 <tr><td><a href="ArchetypeDisplay.aspx?FixedName=Fighter Aerial Assaulter"><img src="images\\PathfinderSocietySymbol.gif" title="PFS Legal"/> Aerial Assaulter</a></td><td>Class Skills; Bravery; Armor Mastery, Weapon Mastery</td><td>Aerial assaulters leap to great heights.</td></tr>
-<tr><td><a href="ArchetypeDisplay.aspx?FixedName=Fighter Airborne Ambusher">Airborne Ambusher</a></td><td>Weapon/Armor Proficiency; Weapon Training 1-4 (Strix Only)</td><td>Driven by suspicion, strix guard their territories.</td></tr>
+<tr><td><a href="ArchetypeDisplay.aspx?FixedName=Fighter Airborne Ambusher">Airborne Ambusher</a></td><td>Weapon/Armor Proficiency; Weapon Training 1-4 (Strix Only)</td><td>(Strix Only) Driven by suspicion, strix guard their territories.</td></tr>
 </table>
 </body></html>
 """
@@ -32,8 +32,10 @@ def test_parse_archetypes_table():
                                 "?FixedName=Fighter%20Aerial%20Assaulter")
     r1 = rows[1]
     assert r1["race_req"] == ["Strix"]
-    # il marcatore razziale e' rimosso dagli item replaces
+    # il marcatore razziale e' rimosso dagli item replaces e dalla summary
     assert r1["replaces"] == ["Weapon/Armor Proficiency", "Weapon Training 1-4"]
+    assert "Only" not in r1["summary"]
+    assert r1["summary"].startswith("Driven by suspicion")
 
 
 def test_parse_archetypes_no_table():
