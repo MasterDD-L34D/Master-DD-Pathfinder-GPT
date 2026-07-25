@@ -81,6 +81,10 @@ Per ogni nuovo catalogo, TUTTI questi passi (la dimenticanza di uno si paga dopo
 
 `classes.json`: `mechanics.progression[].spells_known` per i caster spontanei (parse tabella "Spells Known" delle pagine classe in cache; rigenerare con `import_reference.py --domain classes --write`). `spells.json` espanso da cache gist PathfinderSpellsJSON (offline, entry locali vincenti, dedup per nome normalizzato+invertito): `tools/expand_spells_gist.py` (dry-run default, `--write` applica). Nomi con identità PI → `pi_local_only/spells_local.json` (non committato, kind `spells_local` nel manifest); prosa sanitizzata word-boundary (supplemento DESCRIPTION_ONLY per i residui gist: Mammon, Azlant, Hermea...). Report: `reports/expand_spells_gist.md`. Fetch massivo AoN per spell oltre il gist = lotto futuro, solo se emergono lacune concrete. Segue il lotto 2 (archetipi, piano a parte).
 
+## 6.4 Archetipi (2026-07-25)
+
+`archetypes.json` riscritta in schema standard dagli indici AoN `Archetypes.aspx?Class=<Classe>` (tabella curata Name/Replaces/Summary): `mechanics {class, replaces[], race_req[]|null}` con `race_req` dai marcatori `(X Only)` (copre anche razze non-core; i marcatori sono rimossi da replaces e summary). `tools/import_archetypes.py` (dry-run default, `--write` applica, `--offline` solo cache; fetch seriale 2s via reference_fetch, 24 pagine). Nomi PI → `pi_local_only/archetypes_local.json` (kind `archetypes_local`); summary sanitizzate (supplemento DESCRIPTION_ONLY: Thassilon, Mendev, Vudra, Kellid, Nirmathas, Five Kings Mountains, Daggermark, Tian). Dettagli per-capacità (alters/level/testo completo da ArchetypeDisplay) = lotto futuro se richiesti dal builder. Report: `reports/import_archetypes.md`.
+
 ## 6. Test (pattern)
 
 - **Parser: fixture HTML inline nei test** (stringhe), MAI rete. Includi i casi reali scoperti durante il build (righe-gruppo, en-dash, nomi con parentesi).
