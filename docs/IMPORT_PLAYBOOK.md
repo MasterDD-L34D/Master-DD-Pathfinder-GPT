@@ -85,6 +85,10 @@ Per ogni nuovo catalogo, TUTTI questi passi (la dimenticanza di uno si paga dopo
 
 `archetypes.json` riscritta in schema standard dagli indici AoN `Archetypes.aspx?Class=<Classe>` (tabella curata Name/Replaces/Summary): `mechanics {class, replaces[], race_req[]|null}` con `race_req` dai marcatori `(X Only)` (copre anche razze non-core; i marcatori sono rimossi da replaces e summary). `tools/import_archetypes.py` (dry-run default, `--write` applica, `--offline` solo cache; fetch seriale 2s via reference_fetch, 24 pagine). Nomi PI → `pi_local_only/archetypes_local.json` (kind `archetypes_local`); summary sanitizzate (supplemento DESCRIPTION_ONLY: Thassilon, Mendev, Vudra, Kellid, Nirmathas, Five Kings Mountains, Daggermark, Tian). Dettagli per-capacità (alters/level/testo completo da ArchetypeDisplay) = lotto futuro se richiesti dal builder. Report: `reports/import_archetypes.md`.
 
+## 6.5 Ripristino prosa feats + bonifica references (2026-07-25)
+
+Chiuso il debito dell'appendice di `reports/pi_feats_triage.md`: 75/77 entry feats con prosa corrotta dalla sanitize storica naive ripristinate da FeatDisplay AoN (`tools/restore_feat_prose.py`, dry-run/`--write`/`--offline`; lista nomi parsata dal report committato + 2 supplementari sfuggite all'appendice — Harrowed Summoning, Supernatural Spy; 7 `NAME_VARIANTS` per grafie d20pfsrd→AoN; description = flavor + Benefit, prereq e description sanitizzati; report `reports/restore_feat_prose.md`). Le 2 non ripristinate (`Hindrance Dismissal`, `Spell Bluff`) non esistono su AoN moderno: documentate nel report. References "Archives of a deity of magic" → "Pathfinder PRD" bonificati su tutti i cataloghi OGL (3664 sostituzioni: `tools/fix_reference_strings.py`).
+
 ## 6. Test (pattern)
 
 - **Parser: fixture HTML inline nei test** (stringhe), MAI rete. Includi i casi reali scoperti durante il build (righe-gruppo, en-dash, nomi con parentesi).
