@@ -50,6 +50,9 @@ def index_urls() -> dict[str, list[str]]:
         found = re.findall(DISPLAY[kind] + r"\.aspx\?ItemName=([^\"&]+)", html)
         seen = []
         for item in found:
+            # Gli indici AoN usano forme miste: %20 per alcuni mostri, spazi
+            # letterali per gli NPC (urllib rifiuta i control chars).
+            item = item.replace(" ", "%20")
             page_url = f"https://aonprd.com/{DISPLAY[kind]}.aspx?ItemName={item}"
             if page_url not in seen:
                 seen.append(page_url)
