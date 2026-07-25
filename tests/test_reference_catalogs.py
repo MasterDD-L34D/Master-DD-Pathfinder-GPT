@@ -83,7 +83,17 @@ def test_manifest_counts():
     for _, (kind, _) in NEW_KINDS.items():
         assert kind in catalogs_kinds, f"manifest.catalogs manca {kind}"
     monsters = [c for c in manifest["catalogs"] if c["kind"] == "monsters"][0]
-    assert monsters["entries"] == 199, "manifest: monsters entries non aggiornato a 199"
+    # Conteggio reale dal file local-only (199 -> 3127 con l'espansione
+    # 2026-07-25): niente numeri hardcoded, il riferimento e' il file.
+    with open(OGL.parent / "pi_local_only" / "monsters_local.json", encoding="utf-8") as f:
+        real_monsters = len(json.load(f)["entries"])
+    assert monsters["entries"] == real_monsters, (
+        f"manifest: monsters entries {monsters['entries']} != reale {real_monsters}")
+    npcs = [c for c in manifest["catalogs"] if c["kind"] == "npcs_local"][0]
+    with open(OGL.parent / "pi_local_only" / "npcs_local.json", encoding="utf-8") as f:
+        real_npcs = len(json.load(f)["entries"])
+    assert npcs["entries"] == real_npcs, (
+        f"manifest: npcs_local entries {npcs['entries']} != reale {real_npcs}")
     print("OK: manifest allineato ai cataloghi")
 
 

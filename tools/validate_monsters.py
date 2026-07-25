@@ -67,6 +67,17 @@ def avg_damage(expr: str) -> float:
     return num * (die + 1) / 2 + bonus
 
 
+def _as_number(value, default=None):
+    """Coercizione difensiva (dataset espanso: count/bonus eterogenei)."""
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return default
+
+
 def max_attack_bonus(attacks: dict) -> int | None:
     """Massimo bonus di attacco tra le entry melee/ranged."""
     best = None
@@ -76,6 +87,9 @@ def max_attack_bonus(attacks: dict) -> int | None:
         for group in groups:
             for entry in group:
                 for b in entry.get("bonus") or []:
+                    b = _as_number(b)
+                    if b is None:
+                        continue
                     if best is None or b > best:
                         best = b
     return best
@@ -90,7 +104,7 @@ def max_group_damage(attacks: dict) -> float:
         for group in groups:
             total = 0.0
             for entry in group:
-                count = entry.get("count", 1)
+                count = _as_number(entry.get("count", 1), default=1) or 1
                 per_hit = sum(
                     avg_damage(sub["damage"])
                     for part in entry.get("entries") or []

@@ -132,9 +132,9 @@
       "is_pi": false,
       "cup_allowed": false,
       "local_only": true,
-      "entries": 199,
+      "entries": 3127,
       "notes": "Mostri/NPC importati localmente da PathfinderMonsterDatabase. NON redistribuire. Usa tools/import_monsters.py e indicizza con tools/index_rag.py --include-local.",
-      "last_verified": "2026-07-18"
+      "last_verified": "2026-07-25"
     },
     {
       "file": "pi_local_only/feats_local.json",
@@ -212,6 +212,19 @@
       "local_only": true,
       "entries": 6,
       "notes": "Subrazze/alternate racial traits con nome PI (policy 2026-07-25). NON redistribuire.",
+      "last_verified": "2026-07-25"
+    },
+    {
+      "file": "pi_local_only/npcs_local.json",
+      "kind": "npcs_local",
+      "source": "Archives of Nethys (aonprd.com)",
+      "license": "OGL-1.0a",
+      "is_ogc": false,
+      "is_pi": false,
+      "cup_allowed": false,
+      "local_only": true,
+      "entries": 487,
+      "notes": "NPC da NPCs.aspx AoN (espansione 2026-07-25). NON redistribuire.",
       "last_verified": "2026-07-25"
     }
   ],
