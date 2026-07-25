@@ -520,3 +520,9 @@ async def metrics(_: None = Depends(require_metrics_access)) -> Response:
 
 app.include_router(router)
 app.include_router(rag_router)
+try:
+    from src.ml.router import router as ml_router
+    app.include_router(ml_router)
+except Exception as exc:  # pragma: no cover - la guardia non deve fermare l'app
+    import logging
+    logging.getLogger(__name__).warning("router /ml non registrato: %s", exc)
