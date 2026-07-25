@@ -1729,14 +1729,14 @@
         "Mythic Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Improved Familiar"
+        "Pathfinder PRD: Improved Familiar"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Improved%20Familiar"
       ],
       "source_id": "mythic_adventures:improved_familiar",
-      "description": "This feat allows you to acquire a powerful familiar, but only when you could normally acquire a new familiar.\n\nWhen choosing a familiar, the creatures listed below are also available to you (see the Pathfinder RPG Bestiary for statistics on these creatures). You may choose a familiar with an alignment up to one step away on each alignment axis (lawful through chaotic, good through evil). Arcane Spellcaster Familiar Alignment Level Celestial hawk1 Neutral good 3rd Dire rat Neutral 3rd Fiendish viper2 Neutral evil 3rd Ea bardental, Small (any type) Neutral 5th Stirge Neutral 5th Homunculus3 Any 7th Imp Lawful evil 7th Mephit (any type) Neutral 7th Pseudodragon Neutral good 7th Quasit Chaotic evil 7th 1 Or other celestial animal from the standard familiar list. 2 Or other fiendish animal from the standard familiar list. 3 The master must first create the homunculus.  Improved familiars otherwise use the rules for regular familiars, with two exceptions: if the creature's type is something other than animal, its type does not change; and improved familiars do not gain the ability to speak with other creatures of their kind (although many of them already have the ability to communicate).",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "This feat allows you to acquire a powerful familiar, but only when you could normally acquire a new familiar.\n\nWhen choosing a familiar, the creatures listed below are also available to you. You may choose a familiar with an alignment up to one step away on each alignment axis (lawful through chaotic, good through evil). You can find the full list of available Improved Familiars here . Improved familiars otherwise use the rules for regular familiars, with two exceptions: if the creature's type is something other than animal, its type does not change; and improved familiars do not gain the ability to speak with other creatures of their kind (although many of them already have the ability to communicate). Mythic Improved Familiar",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Improved Feint",
@@ -3616,14 +3616,14 @@
         "Bestiary"
       ],
       "references": [
-        "Archives of a deity of magic: Craft Construct"
+        "Pathfinder PRD: Craft Construct"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Craft%20Construct"
       ],
       "source_id": "bestiary:craft_construct",
-      "description": "You can create construct creatures like goa bards.\n\nYou can create any construct whose Prerequisites you meet. The act of animating a construct takes one day for each 1,000 gp in its market price. To create a construct, you must use up raw materials costing half of its base price, plus the full cost of the basic body created for the construct. Each construct has a special section that summarizes its costs and other Prerequisites. A newly created construct has average hit points for its Hit Dice.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can create construct creatures like golems.\n\nYou can create any construct whose prerequisites you meet. The act of animating a construct takes one day for each 1,000 gp in its market price. To create a construct, you must use up raw materials costing half of its base price, plus the full cost of the basic body created for the construct. Each construct has a special section that summarizes its costs and other prerequisites. A newly created construct has average hit points for its Hit Dice.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Empower Spell-Like Ability",
@@ -8343,7 +8343,7 @@
         "Wis 17",
         "Djinni Style",
         "Djinni Spirit",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "base attack bonus +13 or monk level 11th"
       ],
@@ -8351,14 +8351,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Djinni Spin"
+        "Pathfinder PRD: Djinni Spin"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Djinni%20Spin"
       ],
       "source_id": "ultimate_combat:djinni_spin",
-      "description": "You can surround yourself with the power of the storm, spinning like a hurricane to unleash a violent blast of electrical energy.\n\nWhile using Djinni Style, as a standard action you can spend two Ea bardental Fist (Advanced Player's Guide 158) attempts to surround yourself with a whirlwind of electrified air. Creatures adjacent to you take your unarmed strike damage plus the electricity damage from your Ea bardental Fist and are deafened for 1d4 rounds. A successful Fortitude save (DC 10 + 1/2 your character level + your Wis modifier) reduces the damage by half and prevents a target from being deafened.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can surround yourself with the power of the storm, spinning like a hurricane to unleash a violent blast of electrical energy.\n\nWhile using Djinni Style, as a standard action you can spend two Elemental Fist ( Advanced Player’s Guide 158) attempts to surround yourself with a whirlwind of electrified air. Creatures adjacent to you take your unarmed strike damage plus the electricity damage from your Elemental Fist and are deafened for 1d4 rounds. A successful Fortitude save (DC 10 + 1/2 your character level + your Wis modifier) reduces the damage by half and prevents a target from being deafened. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Djinni Spirit",
@@ -8367,7 +8367,7 @@
         "Con 15",
         "Wis 15",
         "Djinni Style",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "base attack bonus +11 or monk level 9th"
       ],
@@ -8375,14 +8375,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Djinni Spirit"
+        "Pathfinder PRD: Djinni Spirit"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Djinni%20Spirit"
       ],
       "source_id": "ultimate_combat:djinni_spirit",
-      "description": "By calling upon the spirits of storms, you can manipulate lightning to protect yourself and buffet your enemies with peals of thunder.\n\nYou gain one additional Ea bardental Fist (Advanced Player's Guide 158) attempt per day. While using Djinni Style, you gain electricity resistance equal to your base attack bonus or monk level, whichever is higher. While denied your Dexterity bonus to AC you are also denied this resistance. Creatures that take electricity damage from your Ea bardental Fist attack must succeed at a Fortitude save (DC 10 + 1/2 your character level + your Wis modifier) or be deafened for 1d4 rounds. Those who take damage from your Djinni Spin are deafened, even on a successful saving throw.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "By calling upon the spirits of storms, you can manipulate lightning to protect yourself and buffet your enemies with peals of thunder.\n\nYou gain one additional Elemental Fist ( Advanced Player’s Guide 158) attempt per day. While using Djinni Style, you gain electricity resistance equal to your base attack bonus or monk level, whichever is higher. While denied your Dexterity bonus to AC you are also denied this resistance. Creatures that take electricity damage from your Elemental Fist attack must succeed at a Fortitude save (DC 10 + 1/2 your character level + your Wis modifier) or be deafened for 1d4 rounds. Those who take damage from your Djinni Spin are deafened, even on a successful saving throw. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Djinni Style",
@@ -8390,7 +8390,7 @@
       "prerequisites": [
         "Con 13",
         "Wis 15",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "base attack bonus +9 or monk level 5th"
       ],
@@ -8398,14 +8398,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Djinni Style"
+        "Pathfinder PRD: Djinni Style"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Djinni%20Style"
       ],
       "source_id": "ultimate_combat:djinni_style",
-      "description": "Your hands sheathed in an auras of lightning, you move like the wind.\n\nYou gain one additional Ea bardental Fist (Advanced Player's Guide 158) attempt per day. While you are in this style you must use Ea bardental Fist to deal electricity damage and you gain a bonus on electricity damage rolls equal to your Wisdom bonus. Further, while you are using this style and have remaining Ea bardental Fist attempts, you also gain a +2 dodge bonus to Armor Class against attacks of opportunity. A condition that makes you lose your Dexterity bonus to AC also makes you lose this dodge bonus.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your hands sheathed in an auras of lightning, you move like the wind.\n\nYou gain one additional Elemental Fist ( Advanced Player’s Guide 158) attempt per day. While you are in this style you must use Elemental Fist to deal electricity damage and you gain a bonus on electricity damage rolls equal to your Wisdom bonus. Further, while you are using this style and have remaining Elemental Fist attempts, you also gain a +2 dodge bonus to Armor Class against attacks of opportunity. A condition that makes you lose your Dexterity bonus to AC also makes you lose this dodge bonus. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Domain Strike",
@@ -8647,7 +8647,7 @@
         "Con 15",
         "Wis 15",
         "Efreeti Style",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "base attack bonus +11 or monk level 9th"
       ],
@@ -8655,14 +8655,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Efreeti Stance"
+        "Pathfinder PRD: Efreeti Stance"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Efreeti%20Stance"
       ],
       "source_id": "ultimate_combat:efreeti_stance",
-      "description": "Calling upon the burning spirits of incarnate flame, you can manipulate fire to protect yourself and immolate your foes.\n\nYou gain one additional Ea bardental Fist (Advanced Player's Guide 158) attempt per day. While using Efreeti Style, you gain fire resistance equal to your base attack bonus or your monk level plus any base attack bonus gained from levels in classes other than monk, whichever is higher. While denied your Dexterity bonus to AC you are also denied this resistance. Creatures that take fire damage from your Ea bardental Fist attack must succeed at a Ref lex save (DC 10 + 1/2 your character level + your Wis modifier) or catch on fire.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Calling upon the burning spirits of incarnate flame, you can manipulate fire to protect yourself and immolate your foes.\n\nYou gain one additional Elemental Fist ( Advanced Player’s Guide 158) attempt per day. While using Efreeti Style, you gain fire resistance equal to your base attack bonus or your monk level plus any base attack bonus gained from levels in classes other than monk, whichever is higher. While denied your Dexterity bonus to AC you are also denied this resistance. Creatures that take fire damage from your Elemental Fist attack must succeed at a Reflex save (DC 10 + 1/2 your character level + your Wis modifier) or catch on fire. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Efreeti Style",
@@ -8670,7 +8670,7 @@
       "prerequisites": [
         "Con 13",
         "Wis 15",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "base attack bonus +9 or monk level 5th"
       ],
@@ -8678,14 +8678,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Efreeti Style"
+        "Pathfinder PRD: Efreeti Style"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Efreeti%20Style"
       ],
       "source_id": "ultimate_combat:efreeti_style",
-      "description": "Your mastery of the unpredictable power of flames allows you to unleash scorching strikes that burn your enemies even when you fail to make contact.\n\nYou gain one additional Ea bardental Fist (Advanced Player's Guide 158) attempt per day. While using this style and Ea bardental Fist to deal fire damage, you gain a bonus on fire damage rolls equal to your Wisdom bonus. Further, if your Ea bardental Fist melee attack misses while you are using it to deal fire damage, you still deal 1d6 points of fire damage to your target.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your mastery of the unpredictable power of flames allows you to unleash scorching strikes that burn your enemies even when you fail to make contact.\n\nYou gain one additional Elemental Fist ( Advanced Player’s Guide 158) attempt per day. While using this style and Elemental Fist to deal fire damage, you gain a bonus on fire damage rolls equal to your Wisdom bonus. Further, if your Elemental Fist melee attack misses while you are using it to deal fire damage, you still deal 1d6 points of fire damage to your target. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Efreeti Touch",
@@ -8695,7 +8695,7 @@
         "Wis 17",
         "Efreeti Style",
         "Efreeti Stance",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "base attack bonus +13 or monk level 11th"
       ],
@@ -8703,14 +8703,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Efreeti Touch"
+        "Pathfinder PRD: Efreeti Touch"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Efreeti%20Touch"
       ],
       "source_id": "ultimate_combat:efreeti_touch",
-      "description": "Your knowledge of the secrets of the burning wind and blazing sun allows you to collect flames into your hands and unleash them in a gout of ea bardental fire.\n\nWhile using Efreeti Style, as a standard action, you can spend two Ea bardental Fist (Advanced Player's Guide 158) attempts to unleash a 15-foot coneshaped burst of flame. Creatures caught in the cone take your unarmed strike damage plus the fire damage from your Ea bardental Fist and catch on fire. A successful Ref lex save (DC 10 + 1/2 your character level + your Wis modif ier) reduces the damage by half and prevents a target from catching on fire.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your knowledge of the secrets of the burning wind and blazing sun allows you to collect flames into your hands and unleash them in a gout of elemental fire.\n\nWhile using Efreeti Style, as a standard action, you can spend two Elemental Fist ( Advanced Player’s Guide 158) attempts to unleash a 15-foot cone-shaped burst of flame. Creatures caught in the cone take your unarmed strike damage plus the fire damage from your Elemental Fist and catch on fire. A successful Reflex save (DC 10 + 1/2 your character level + your Wis modifier) reduces the damage by half and prevents a target from catching on fire. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Elusive Redirection",
@@ -10016,7 +10016,7 @@
       "prerequisites": [
         "Con 15",
         "Wis 17",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Marid Spirit",
         "Marid Style",
         "Improved Unarmed Strike",
@@ -10026,14 +10026,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Marid Coldsnap"
+        "Pathfinder PRD: Marid Coldsnap"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Marid%20Coldsnap"
       ],
       "source_id": "ultimate_combat:marid_coldsnap",
-      "description": "You can summon a torrent of water to blast your enemies, chilling them to the bone.\n\nWhile using Marid Style, as a standard action, you can spend two Ea bardental Fist (Advanced Player's Guide 158) attempts to unleash a 30-foot line of frigid water. Creatures caught in the line take your unarmed strike damage plus the cold damage from your Ea bardental Fist attack and are entangled in ice as per the Marid Spirit feat. A successful Ref lex save (DC 10 + 1/2 your character level + your Wis modifier) reduces the damage by half and prevents a target from becoming entangled.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can summon a torrent of water to blast your enemies, chilling them to the bone.\n\nWhile using Marid Style, as a standard action, you can spend two Elemental Fist ( Advanced Player’s Guide 158) attempts to unleash a 30-foot line of frigid water. Creatures caught in the line take your unarmed strike damage plus the cold damage from your Elemental Fist attack and are entangled in ice as per the Marid Spirit feat. A successful Reflex save (DC 10 + 1/2 your character level + your Wis modifier) reduces the damage by half and prevents a target from becoming entangled. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Marid Spirit",
@@ -10041,7 +10041,7 @@
       "prerequisites": [
         "Con 15",
         "Wis 15",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Marid Style",
         "Improved Unarmed Strike",
         "base attack bonus +11 or monk level 9th"
@@ -10050,14 +10050,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Marid Spirit"
+        "Pathfinder PRD: Marid Spirit"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Marid%20Spirit"
       ],
       "source_id": "ultimate_combat:marid_spirit",
-      "description": "You can manipulate cold energy to protect yourself and freeze your foes.\n\nYou gain one additional Ea bardental Fist (Advanced Player's Guide 158) attempt per day. While using Marid Style, you gain cold resistance equal to your base attack bonus, or monk level plus base attack bonus gained from levels in classes other than monk, whichever is higher. While denied your Dexterity bonus to AC you are also denied this resistance. Creatures that take cold damage from your Ea bardental Fist attack must succeed at a Fortitude save (DC 10 + 1/2 your character level + your Wis modif ier) or become entangled in ice for 1d4 rounds. The ice has hit points equal to three times your base attack bonus or monk level, whichever is higher, and a break DC of 15 + your base attack bonus or monk level, whichever is higher. Destroying or breaking the ice ends the entangled condition.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can manipulate cold energy to protect yourself and freeze your foes.\n\nYou gain one additional Elemental Fist ( Advanced Player’s Guide 158) attempt per day. While using Marid Style, you gain cold resistance equal to your base attack bonus, or monk level plus base attack bonus gained from levels in classes other than monk, whichever is higher. While denied your Dexterity bonus to AC you are also denied this resistance. Creatures that take cold damage from your Elemental Fist attack must succeed at a Fortitude save (DC 10 + 1/2 your character level + your Wis modifier) or become entangled in ice for 1d4 rounds. The ice has hit points equal to three times your base attack bonus or monk level, whichever is higher, and a break DC of 15 + your base attack bonus or monk level, whichever is higher. Destroying or breaking the ice ends the entangled condition. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Marid Style",
@@ -10065,7 +10065,7 @@
       "prerequisites": [
         "Con 13",
         "Wis 15",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "base attack bonus +9 or monk level 5th"
       ],
@@ -10073,14 +10073,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Marid Style"
+        "Pathfinder PRD: Marid Style"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Marid%20Style"
       ],
       "source_id": "ultimate_combat:marid_style",
-      "description": "You conjure tendrils of icy water to strike your enemies from a distance.\n\nYou gain one additional Ea bardental Fist (Advanced Player's Guide 158) attempt per day. While using this style and Ea bardental Fist to deal cold damage, you gain a bonus on cold damage rolls equal to your Wisdom modifier, and your reach with your unarmed strike increases by 5 feet.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You conjure tendrils of icy water to strike your enemies from a distance.\n\nYou gain one additional Elemental Fist ( Advanced Player’s Guide 158) attempt per day. While using this style and Elemental Fist to deal cold damage, you gain a bonus on cold damage rolls equal to your Wisdom modifier, and your reach with your unarmed strike increases by 5 feet. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Master Combat Performer",
@@ -11411,7 +11411,7 @@
       "prerequisites": [
         "Con 15",
         "Wis 17",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "Shaitan Skin",
         "Shaitan Style",
@@ -11421,14 +11421,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Shaitan Earthblast"
+        "Pathfinder PRD: Shaitan Earthblast"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Shaitan%20Earthblast"
       ],
       "source_id": "ultimate_combat:shaitan_earthblast",
-      "description": "With a forceful stomp you release a blast of acid from the earth to burn your enemies.\n\nWhile using the Shaitan Style feat, as a standard action, you can spend two Ea bardental Fist (Advanced Player's Guide 158) attempts to unleash a 20-foot column of acid that has a 5-foot radius and erupts from a point of origin within 30 feet of you. Creatures caught in the column take your unarmed strike damage plus the acid damage from your Ea bardental Fist and are staggered for 1 round. A successful Ref lex save (DC 10 + 1/2 your character level + your Wis modif ier) reduces the damage by half and prevents a target from being staggered.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "With a forceful stomp you release a blast of acid from the earth to burn your enemies.\n\nWhile using the Shaitan Style feat, as a standard action, you can spend two Elemental Fist ( Advanced Player’s Guide 158) attempts to unleash a 20-foot column of acid that has a 5-foot radius and erupts from a point of origin within 30 feet of you. Creatures caught in the column take your unarmed strike damage plus the acid damage from your Elemental Fist and are staggered for 1 round. A successful Reflex save (DC 10 + 1/2 your character level + your Wis modifier) reduces the damage by half and prevents a target from being staggered. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Shaitan Skin",
@@ -11436,7 +11436,7 @@
       "prerequisites": [
         "Con 15",
         "Wis 15",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "Shaitan Style",
         "base attack bonus +11 or monk level 9th"
@@ -11445,14 +11445,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Shaitan Skin"
+        "Pathfinder PRD: Shaitan Skin"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Shaitan%20Skin"
       ],
       "source_id": "ultimate_combat:shaitan_skin",
-      "description": "You can manipulate acid to shield yourself and disable your enemies.\n\nYou gain one additional Ea bardental Fist (Advanced Player's Guide 158) attempt per day. While using the Shaitan Style feat, you gain acid resistance equal to your base attack bonus, or your monk level plus BAB gained from levels in classes other than monk, whichever is higher. While denied your Dexterity bonus to AC you are also denied this resistance. Creatures that take acid damage from your Ea bardental Fist attack must succeed at a Ref lex save (DC 10 + 1/2 your character level + your Wis modifier) or be staggered for 1 round.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can manipulate acid to shield yourself and disable your enemies.\n\nYou gain one additional Elemental Fist ( Advanced Player’s Guide 158) attempt per day. While using the Shaitan Style feat, you gain acid resistance equal to your base attack bonus, or your monk level plus BAB gained from levels in classes other than monk, whichever is higher. While denied your Dexterity bonus to AC you are also denied this resistance. Creatures that take acid damage from your Elemental Fist attack must succeed at a Reflex save (DC 10 + 1/2 your character level + your Wis modifier) or be staggered for 1 round. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Shaitan Style",
@@ -11460,7 +11460,7 @@
       "prerequisites": [
         "Con 13",
         "Wis 15",
-        "Elemental Fist**",
+        "Elemental Fist",
         "Improved Unarmed Strike",
         "base attack bonus +9 or monk level 5th"
       ],
@@ -11468,14 +11468,14 @@
         "Ultimate Combat"
       ],
       "references": [
-        "Archives of a deity of magic: Shaitan Style"
+        "Pathfinder PRD: Shaitan Style"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Shaitan%20Style"
       ],
       "source_id": "ultimate_combat:shaitan_style",
-      "description": "You strike with the caustic forces from within the earth.\n\nYou gain one additional Ea bardental Fist (Advanced Player's Guide 158) attempt per day. While using the Shaitan Style and Ea bardental Fist feats to deal acid damage, you gain a bonus on acid damage rolls equal to your Wisdom bonus. Further, if your Ea bardental Fist melee attack misses while you are using it to deal acid damage, you still deal 1d6 points of acid damage to your target.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You strike with the caustic forces from within the earth.\n\nYou gain one additional Elemental Fist ( Advanced Player’s Guide 158) attempt per day. While using the Shaitan Style and Elemental Fist feats to deal acid damage, you gain a bonus on acid damage rolls equal to your Wisdom bonus. Further, if your Elemental Fist melee attack misses while you are using it to deal acid damage, you still deal 1d6 points of acid damage to your target. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Shake It Off",
@@ -13264,14 +13264,14 @@
         "Ultimate Magic"
       ],
       "references": [
-        "Archives of a deity of magic: Greater Wild Empathy"
+        "Pathfinder PRD: Greater Wild Empathy"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Greater%20Wild%20Empathy"
       ],
       "source_id": "ultimate_magic:greater_wild_empathy",
-      "description": "Your natural empathy stretches across the world of nature.\n\nYou gain a +2 insight bonus on wild empathy checks, and you may use wild empathy to duplicate an Intimidate check rather than a Diplomacy check. In addition, choose one of the following kinds of creatures: ea bardentals, fey, lycanthropes, plants, or vermin. You may inf luence creatures of that type with wild empathy, if their  Intelligence score is 1 or 2, or they do not possess an Intelligence score. Once you choose the type of creature, it cannot be changed.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your natural empathy stretches across the world of nature.\n\nYou gain a +2 insight bonus on wild empathy checks, and you may use wild empathy to duplicate an Intimidate check rather than a Diplomacy check. In addition, choose one of the following kinds of creatures: elementals, fey, lycanthropes, plants, or vermin. You may influence creatures of that type with wild empathy, if their Intelligence score is 1 or 2, or they do not possess an Intelligence score. Once you choose the type of creature, it cannot be changed.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Implant Bomb",
@@ -13284,14 +13284,14 @@
         "Ultimate Magic"
       ],
       "references": [
-        "Archives of a deity of magic: Implant Bomb"
+        "Pathfinder PRD: Implant Bomb"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Implant%20Bomb"
       ],
       "source_id": "ultimate_magic:implant_bomb",
-      "description": "You can attach a bomb to a creature that explodes when the creature dies or after 24 hours.\n\nYou may implant a bomb in a willing or helpless creature (a mindless creature under your control, such as a zombie, counts as willing for this purpose). This takes 1 hour and expends 1 use of your bomb ability for the day. When the implanted creature dies or is destroyed, the bomb detonates in the creature's square as if it were a delayed bomb set by you (though you can set the bomb's damage to less than your normal bomb damage). You can use any bomb-affecting discoveries on this implanted bomb (acid bomb, frost bomb, smoke bomb, and so on) as normal. The bomb automatically detonates 24 hours after you implant it in the creature.  If you expend 150 gp worth of alchemical reagents per die of the bomb's damage (for example, 750 gp for a 5d6 bomb), the bomb does not automatically detonate after 24 hours, and only detonates if the creature dies or is destroyed (24 hours after implantation, this bomb no longer counts toward your daily total).  Implanting a bomb is as invasive as using the Heal skill to treat deadly wounds and leaves surgical scars unless the creature is healed by magic or abilities such as regeneration or fast healing. Some creatures (such as oozes, ea bardentals, and creatures with the incorporeal quality) cannot have bombs implanted in them. Removing an implanted bomb requires a Heal check to treat deadly wounds, followed by a dispel magic spell or Disable Device check to neutralize the bomb (DC = 11 + alchemist's caster level).",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can attach a bomb to a creature that explodes when the creature dies or after 24 hours.\n\nYou may implant a bomb in a willing or helpless creature (a mindless creature under your control, such as a zombie, counts as willing for this purpose). This takes 1 hour and expends 1 use of your bomb ability for the day. When the implanted creature dies or is destroyed, the bomb detonates in the creature’s square as if it were a delayed bomb set by you (though you can set the bomb’s damage to less than your normal bomb damage). You can use any bomb-affecting discoveries on this implanted bomb (acid bomb, frost bomb, smoke bomb, and so on) as normal. The bomb automatically detonates 24 hours after you implant it in the creature. If you expend 150 gp worth of alchemical reagents per die of the bomb’s damage (for example, 750 gp for a 5d6 bomb), the bomb does not automatically detonate after 24 hours, and only detonates if the creature dies or is destroyed (24 hours after implantation, this bomb no longer counts toward your daily total). Implanting a bomb is as invasive as using the Heal skill to treat deadly wounds and leaves surgical scars unless the creature is healed by magic or abilities such as regeneration or fast healing. Some creatures (such as oozes, elementals, and creatures with the incorporeal quality) cannot have bombs implanted in them. Removing an implanted bomb requires a Heal check to treat deadly wounds, followed by a dispel magic spell or Disable Device check to neutralize the bomb (DC = 11 + alchemist’s caster level).",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Improved Eldritch Heritage",
@@ -17103,14 +17103,14 @@
         "Advanced Race Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Scorching Weapons"
+        "Pathfinder PRD: Scorching Weapons"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Scorching%20Weapons"
       ],
       "source_id": "advanced_race_guide:scorching_weapons",
-      "description": "Ea bardental fire stirs within your body, boiling your blood and rendering you resistant to flame.\n\nYou gain a +2 bonus on saving throws against fire attacks and spells with the fire descriptor or light descriptor. As a swift action, you can make up to two held manufactured metallic weapons become red-hot for 1 round, dealing 1 additional point of fire damage with a successful hit. This does not stack with other effects that add fire damage to weapons, such as the flaming weapon special ability.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Elemental fire stirs within your body, boiling your blood and rendering you resistant to flame.\n\nYou gain a +2 bonus on saving throws against fire attacks and spells with the fire descriptor or light descriptor. As a swift action, you can make up to two held manufactured metallic weapons become red-hot for 1 round, dealing 1 additional point of fire damage with a successful hit. This does not stack with other effects that add fire damage to weapons, such as the flaming weapon special ability. Combat Trick (from the Combat Stamina feat)",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Draconic Aspect",
@@ -17625,14 +17625,14 @@
         "Advanced Race Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Airy Step"
+        "Pathfinder PRD: Airy Step"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Airy%20Step"
       ],
       "source_id": "advanced_race_guide:airy_step",
-      "description": "The air responds to your innate ea bardental nature, protecting you from harm and cushioning your falls.\n\nYou gain a +2 bonus on saving throws against effects with the air or electricity descriptors and effects that deal electricity damage. You may ignore the first 30 feet of any fall when determining falling damage.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "The air responds to your innate elemental nature, protecting you from harm and cushioning your falls.\n\nYou gain a +2 bonus on saving throws against effects with the air or electricity descriptors and effects that deal electricity damage. You may ignore the first 30 feet of any fall when determining falling damage.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Cloud Gazer",
@@ -17644,14 +17644,14 @@
         "Advanced Race Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Cloud Gazer"
+        "Pathfinder PRD: Cloud Gazer"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Cloud%20Gazer"
       ],
       "source_id": "advanced_race_guide:cloud_gazer",
-      "description": "Your insight into your ea bardental heritage gives you a clarity of sight few humans possess.\n\nYou can see through fog, mist, and clouds, without penalty, ignoring any cover or concealment bonuses from such effects. If the effect is created by magic, this feat instead triples the distance you can see without penalty.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your insight into your elemental heritage gives you a clarity of sight few humans possess.\n\nYou can see through fog, mist, and clouds, without penalty, ignoring any cover or concealment bonuses from such effects. If the effect is created by magic, this feat instead triples the distance you can see without penalty.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Inner Breath",
@@ -17664,14 +17664,14 @@
         "Advanced Race Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Inner Breath"
+        "Pathfinder PRD: Inner Breath"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Inner%20Breath"
       ],
       "source_id": "advanced_race_guide:inner_breath",
-      "description": "Your body is suffused with ea bardental air that provides for all your respiratory needs.\n\nYou no longer need to breathe. You are immune to effects that require breathing (such as inhaled poison). This does not give you immunity to cloud or gas attacks that do not require breathing, such as cloudkill.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your body is suffused with elemental air that provides for all your respiratory needs.\n\nYou no longer need to breathe. You are immune to effects that require breathing (such as inhaled poison). This does not give you immunity to cloud or gas attacks that do not require breathing, such as cloudkill .",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Wings of Air",
@@ -17940,14 +17940,14 @@
         "Advanced Race Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Steam Caster"
+        "Pathfinder PRD: Steam Caster"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Steam%20Caster"
       ],
       "source_id": "advanced_race_guide:steam_caster",
-      "description": "You imbue your fire spells with ea bardental water, transforming them into powerful gouts of steam.\n\nYou may increase the casting time of a fire spell to a full-round action, infusing it with ea bardental power (spells with a casting time of 1 full-round action or longer do not have an increased casting time). The spell is treated as if it had the water descriptor. All fire effects of the altered spell instead manifest as superheated steam. The altered spell works normally underwater without requiring a caster level check. Unlike fire, the steam cannot ignite objects or set creatures on fire. As the spell still deals fire damage, fire resistance or immunity still applies to the spell's effects.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You imbue your fire spells with elemental water, transforming them into powerful gouts of steam.\n\nYou may increase the casting time of a fire spell to a full-round action, infusing it with elemental power (spells with a casting time of 1 full-round action or longer do not have an increased casting time). The spell is treated as if it had the water descriptor. All fire effects of the altered spell instead manifest as superheated steam. The altered spell works normally underwater without requiring a caster level check. Unlike fire, the steam cannot ignite objects or set creatures on fire. As the spell still deals fire damage, fire resistance or immunity still applies to the spell’s effects.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Triton Portal",
@@ -17961,14 +17961,14 @@
         "Advanced Race Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Triton Portal"
+        "Pathfinder PRD: Triton Portal"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Triton%20Portal"
       ],
       "source_id": "advanced_race_guide:triton_portal",
-      "description": "You can channel your inner magic to summon allies.\n\nOnce per day, you may expend your racial hydraulic push ability to instead cast summon nature's ally III as a spell-like ability with a caster level equal to your character level. This use of the ability can only summon 1d3 Small water ea bardentals, 1d4+1 dolphins, a shark, or an electric eel. Using this ability is a full-round action.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can channel your inner magic to summon allies.\n\nOnce per day, you may expend your racial hydraulic push ability to instead cast summon nature’s ally III as a spell-like ability with a caster level equal to your character level. This use of the ability can only summon 1d3 Small water elementals, 1d4+1 dolphins, a shark, or an electric eel. Using this ability is a full-round action.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Water Skinned",
@@ -21714,14 +21714,14 @@
         "Faction Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Touched By Sacred Fire"
+        "Pathfinder PRD: Touched By Sacred Fire"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Touched%20By%20Sacred%20Fire"
       ],
       "source_id": "faction_guide:touched_by_sacred_fire",
-      "description": "Regular contact with an ea bardental guardian of the Ruby Prince (such as Khemet's invisible fire ea bardental cohort Janhelia) has left you able to shrug off many sources of unnatural heat, even if the effort required sometimes makes it difficult to defend yourself from attacks.\n\nYou gain fire resistance 5 and a +2 bonus on all saving throws to resist the effects of fire or heat. As a swift action, you can increase your fire resistance to 10 and your save bonus to +4 until your next turn; this causes you to lose your Dexterity bonus to Armor Class until your next turn (which leaves you vulnerable to sneak attacks).",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Regular contact with an elemental guardian of the Ruby Prince (such as Khemet’s invisible fire elemental cohort Janhelia) has left you able to shrug off many sources of unnatural heat, even if the effort required sometimes makes it difficult to defend yourself from attacks.\n\nYou gain fire resistance 5 and a +2 bonus on all saving throws to resist the effects of fire or heat. As a swift action, you can increase your fire resistance to 10 and your save bonus to +4 until your next turn; this causes you to lose your Dexterity bonus to Armor Class until your next turn (which leaves you vulnerable to sneak attacks).",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Verbose Performer",
@@ -22040,26 +22040,26 @@
         "or have the An Eye for an Eye",
         "Hated Foe",
         "Raiders",
-        "or Vengeance background. You may choose a specific race",
+        "or Vengeance background (see Ultimate Campaign ). You may choose a specific race",
         "such as duergar",
         "or a broader group",
-        "such as goblinoids. At the GM's option",
+        "such as goblinoids. At the GM’s discretion",
         "you may instead choose residents of a particular country",
-        "setta bardent",
+        "settlement",
         "or tribe"
       ],
       "tags": [
         "Ultimate Campaign"
       ],
       "references": [
-        "Archives of a deity of magic: Foeslayer"
+        "Pathfinder PRD: Foeslayer"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Foeslayer"
       ],
       "source_id": "ultimate_campaign:foeslayer",
-      "description": "Your bitter feud with your enemies can be quenched only with blood.\n\nThe save DCs for your spells or abilities increase by 1 when you use them against the chosen group, and you gain a +1 dodge bonus to AC against their attacks.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": ", Your feud with your enemies can be quenched only with blood.\n\nThe save DCs for any of your spells or abilities increase by 1 when used against the chosen group, and you receive a +1 dodge bonus to AC against their attacks. Goal Slay an appropriate number of challenging foes. Completion Benefit You gain the benefits of the Improved Critical feat on attacks made against members of your chosen race. Your dodge bonus to AC against such foes increases to +2. Suggested Traits Dirty Fighter APG , Sworn Enemy, Vengeful. Possible Foeslayer Quests d8 Quest 1 You saw many friends and family fall in the Goblinblood Wars that wracked Isger years ago. Now, as goblins multiply again, you’ve decided to take the fight to them (page 82). 2 Robbed by pirates from the Shackles, you have vowed to hunt down all of their kind (determine race randomly) (page 170). 3 A friend or relative of yours was slain senselessly by strix while passing near Devil’s Perch in a diabolic empire, and you’ve vowed to exact revenge against the aggressors and their kin (page 57). 4 When you were enslaved by gnolls, you were freed by the djinni that raided their camp. Now, you would find the genies again so that you might together put a more permanent end to the gnoll threat in western a merchant nation (page 91). 5 You desire to match and then exceed the achievements of your ancestor Queen Boliga Bharsolm, still remembered in a realm of lost technology for felling a giant king in the Battle of Grasyhot (page 143). 6 In Canterwall, the denizens of various hamlets along the border between the Hold of Belkzen and a haunted land have been mysteriously disappearing. You’ve determined to locate the evildoers responsible and make them pay the price for their foul deeds (page 193). 7 When you traveled through southern a godless nation, boggard priests of a god of destruction from the a storm-ravaged coast took a family treasure from you as an offering to their foul god (page 175). 8 The borderlands along the Hold of Belkzen are constantly seething with tribal conflicts, and one of them left you hungry for revenge against the orc aggressors (page 46).",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Forgotten Past",
@@ -22353,22 +22353,21 @@
       "name": "Town Tamer",
       "source": "Ultimate Campaign",
       "prerequisites": [
-        "You must have 5 ranks in Intimidate and a personal motivation to clean up a particular town (such as an old friend calling in a favor",
-        "or seeking a place to settle down)",
+        "You must have 5 ranks in Intimidate and a personal motivation to clean up a particular town (such as an old friend calling in a favor, or seeking a place to settle down)",
         "or you must have the Bounty Hunter or Champion of the People background"
       ],
       "tags": [
         "Ultimate Campaign"
       ],
       "references": [
-        "Archives of a deity of magic: Town Tamer"
+        "Pathfinder PRD: Town Tamer"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Town%20Tamer"
       ],
       "source_id": "ultimate_campaign:town_tamer",
-      "description": "This town needs cleaning up, and you're just the one to do it.\n\nChoose a particular setta bardent. When you're in your chosen setta bardent, the DC of Intimidate checks made against you increases by 10. You gain a +1 bonus on attack rolls and a +1 dodge bonus to AC against undesirable ea bardents like criminals or ruffians in your chosen setta bardent. This bonus increases to +2 for combat maneuver checks.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "This town needs cleaning up, and you’re just the one to do it.\n\nChoose a particular settlement. When you’re in your chosen settlement, the DC of Intimidate checks made against you increases by 10. You gain a +1 bonus on attack rolls and a +1 dodge bonus to AC against undesirable elements like criminals or ruffians in your chosen settlement. This bonus increases to +2 for combat maneuver checks. Goal Defeat 10 more troublemakers in your chosen settlement with a CR equal to your character level or higher, and in the process eliminate a serious criminal threat or otherwise clean up the streets. Completion Benefit You gain the ability to designate a new chosen settlement as often as you wish. You must first live in a settlement for 1 week to make it your chosen settlement. In addition, you gain a +2 bonus on initiative checks and a +1 bonus on saving throws when in your chosen settlement.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "True Love",
@@ -22959,14 +22958,14 @@
         "Quests and Campaigns"
       ],
       "references": [
-        "Archives of a deity of magic: Fortunate Ruler"
+        "Pathfinder PRD: Fortunate Ruler"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Fortunate%20Ruler"
       ],
       "source_id": "quests_and_campaigns:fortunate_ruler",
-      "description": "Your good luck shines on your people, even in the most trying times.\n\nDuring a kingdom's Event phase, once an event's type and danger level has been determined, you may choose to roll twice on the applicable kingdom or setta bardent table and choose either result. You must declare you are using this feat before the results of the initial roll are revealed.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your good luck shines on your people, even in the most trying times.\n\nDuring a kingdom’s Event phase, once an event’s type and danger level has been determined, you may choose to roll twice on the applicable kingdom or settlement table and choose either result. You must declare you are using this feat before the results of the initial roll are revealed.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Fortunate Manager",
@@ -23405,14 +23404,14 @@
         "Explorer's Primer"
       ],
       "references": [
-        "Archives of a deity of magic: Renown"
+        "Pathfinder PRD: Renown"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Renown"
       ],
       "source_id": "pathfinder_society_primer:renown",
-      "description": "Word of your pre-Pathf inder accomplishments precedes you, and you know how to make the most of your previous reputation.\n\nWhen in a setta bardent of 5,000 people or more, treat your Fame score as 2 higher for the purposes of qualifying for Prestige Awards or purchasing equipment. This feat doesn't grant you any additional Prestige Points.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Word of your pre-Pathfinder accomplishments precedes you, and you know how to make the most of your previous reputation.\n\nWhen in a settlement of 5,000 people or more, treat your Fame score as 2 higher for the purposes of qualifying for Prestige Awards or purchasing equipment. This feat doesn’t grant you any additional Prestige Points.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Versatile Spontaneity",
@@ -23836,14 +23835,14 @@
         "Faiths & Philosophies"
       ],
       "references": [
-        "Archives of a deity of magic: Bend With The Wind"
+        "Pathfinder PRD: Bend With The Wind"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Bend%20With%20The%20Wind"
       ],
       "source_id": "faiths___philosophies:bend_with_the_wind",
-      "description": "Meditation allows you to regulate your body temperature, heart rate, and other attributes to resist the ea bardents.\n\nFor 24 hours after you meditate, you gain cold resistance 5 and fire resistance 5.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Meditation allows you to regulate your body temperature, heart rate, and other attributes to resist the elements.\n\nFor 24 hours after you meditate, you gain cold resistance 5 and fire resistance 5.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Body Control",
@@ -24823,14 +24822,14 @@
         "Lords Of Chaos"
       ],
       "references": [
-        "Archives of a deity of magic: Demonic Obedience"
+        "Pathfinder PRD: Demonic Obedience"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Demonic%20Obedience"
       ],
       "source_id": "lords_of_chaos:demonic_obedience",
-      "description": "You physically defile yourself, others, or holy objects in order to prove your blasphemous devotion to a demon lord and gain special boons.\n\nEach demon lord requires a different obedience, but all obediences take only an hour to perform. Once the obedience has been performed, you gain the benefit of a resistance to some ea bardent or attack associated with your demon lord, as indicated in the \"Obedience\" entry for the demon lord. If you have at least 12 Hit Dice, you also gain the first boon granted by your demon lord upon undertaking your obedience. If you have at least 16 Hit Dice, you also gain the demon lord's second boon. If you have 20 Hit Dice or more, you also gain the demon lord's third and final boon. Unless a specific duration or number of uses per day is listed, a boon's effects are constant. Demoniacs (see page 46) gain access to these boons at lower levels as a benefit of their prestige class. If you ever fail to perform a daily obedience, you lose all access to resistances and boons granted by this feat until you next perform the obedience.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You physically defile yourself, others, or holy objects in order to prove your blasphemous devotion to a demon lord and gain special boons.\n\nEach demon lord requires a different obedience, but all obediences take only an hour to perform. Once the obedience has been performed, you gain the benefit of a resistance to some element or attack associated with your demon lord, as indicated in the “Obedience” entry for the demon lord. If you have at least 12 Hit Dice, you also gain the first boon granted by your demon lord upon undertaking your obedience. If you have at least 16 Hit Dice, you also gain the demon lord’s second boon. If you have 20 Hit Dice or more, you also gain the demon lord’s third and final boon. Unless a specific duration or number of uses per day is listed, a boon’s effects are constant. Demoniacs (see page 46) gain access to these boons at lower levels as a benefit of their prestige class. If you ever fail to perform a daily obedience, you lose all access to resistances and boons granted by this feat until you next perform the obedience.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Extra Feature",
@@ -25437,14 +25436,14 @@
         "the inner sea region Magic"
       ],
       "references": [
-        "Archives of a deity of magic: False Casting"
+        "Pathfinder PRD: False Casting"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=False%20Casting"
       ],
       "source_id": "inner_sea_magic:false_casting",
-      "description": "When using a magic item, you can trick onlookers into thinking you used spellcasting instead.\n\nWhen you use a magic item or a spelllike ability to create a magical effect, you may add additional magic-seeming words and hand gestures to trick onlookers into believing you cast the spell yourself. If using an item that is recognizable as a magical impa bardent (such as a wand or ring), you can trick viewers into thinking you are just using the item as a focus component. Onlookers who have no ranks in Spellcraft have no knowledge of what is genuine spellcasting, and automatically believe you are casting a spell. If an onlooker attempts a Spellcraft check to identify your \"casting,\" his check is opposed by your Bluff check. If he succeeds, he realizes the deception. If he fails, he believes you cast the spell. Regardless of the result of that opposed check, he uses the result of that Spellcraft check to identify the \"spell\" you cast, except the DC is 20 + the spell's level instead of 15 + the spell's level.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "When using a magic item, you can trick onlookers into thinking you used spellcasting instead.\n\nWhen you use a magic item or a spelllike ability to create a magical effect, you may add additional magic-seeming words and hand gestures to trick onlookers into believing you cast the spell yourself. If using an item that is recognizable as a magical implement (such as a wand or ring), you can trick viewers into thinking you are just using the item as a focus component. Onlookers who have no ranks in Spellcraft have no knowledge of what is genuine spellcasting, and automatically believe you are casting a spell. If an onlooker attempts a Spellcraft check to identify your “casting,” his check is opposed by your Bluff check. If he succeeds, he realizes the deception. If he fails, he believes you cast the spell. Regardless of the result of that opposed check, he uses the result of that Spellcraft check to identify the “spell” you cast, except the DC is 20 + the spell’s level instead of 15 + the spell’s level.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "False Focus",
@@ -27822,14 +27821,14 @@
         "Occult Mysteries"
       ],
       "references": [
-        "Archives of a deity of magic: Agonizing Obedience"
+        "Pathfinder PRD: Agonizing Obedience"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Agonizing%20Obedience"
       ],
       "source_id": "occult_mysteries:agonizing_obedience",
-      "description": "You physically defile yourself out of zealous devotion to pain in order to gain special boons.\n\nWhen you take this feat, select an agony. You can gain this feat multiple times, each time selecting a different agony, but you can perform an obedience for only a single agony in a 24-hour period. Each agony requires a different obedience, but all obediences take only an hour to perform. Once the obedience has been performed, you take a number of minor penalties and gain the benefit of a resistance to some ea bardent or attack associated with your agony, as indicated below. Additionally, you gain the ability to make an agony strike. A number of times per day equal to 1 + 1 per every 5 Hit Dice you possess, when you deal damage to a creature, you can declare that attack as an agony strike. In addition to the normal damage dealt by the attack, you cause the target to take the penalties associated with your agony for 1 minute. Incorporeal creatures and creatures that are immune to critical hits are immune to agony strikes. If you have at least 12 Hit Dice, you also gain the first boon granted by your agony upon undertaking your obedience. If you have at least 16 Hit Dice, you gain the agony's second boon as well. If you have 20 Hit Dice or more, you also gain the agony's third boon. Unless a specific duration or number of uses per day is listed, a boon's effects are constant. If you ever fail to perform a daily obedience, or if you are healed of damage, conditions, or penalties caused in the course of performing your obedience, you lose all access to resistances and boons granted by this feat until you next perform the obedience.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You physically defile yourself out of zealous devotion to pain in order to gain special boons.\n\nWhen you take this feat, select an agony. You can gain this feat multiple times, each time selecting a different agony, but you can perform an obedience for only a single agony in a 24-hour period. Each agony requires a different obedience, but all obediences take only an hour to perform. Once the obedience has been performed, you take a number of minor penalties and gain the benefit of a resistance to some element or attack associated with your agony, as indicated below. Additionally, you gain the ability to make an agony strike. A number of times per day equal to 1 + 1 per every 5 Hit Dice you possess, when you deal damage to a creature, you can declare that attack as an agony strike. In addition to the normal damage dealt by the attack, you cause the target to take the penalties associated with your agony for 1 minute. Incorporeal creatures and creatures that are immune to critical hits are immune to agony strikes. If you have at least 12 Hit Dice, you also gain the first boon granted by your agony upon undertaking your obedience. If you have at least 16 Hit Dice, you gain the agony’s second boon as well. If you have 20 Hit Dice or more, you also gain the agony’s third boon. Unless a specific duration or number of uses per day is listed, a boon’s effects are constant. If you ever fail to perform a daily obedience, or if you are healed of damage, conditions, or penalties caused in the course of performing your obedience, you lose all access to resistances and boons granted by this feat until you next perform the obedience. Amputation You have amputated a digit on one of your hands and treated the wound such that it will never fully heal. Obedience Manipulate the scabs, scar tissue, and open wound of your amputated digit, preventing it from closing and forcing bits of metal and glass into the wound. Take a –2 penalty on Disable Device, Disguise, Escape Artist, and Sleight of Hand skill checks, as well as to your CMD against disarm maneuvers. When attempting to cast a spell with somatic components, succeed at a caster level check whose DC is equal to 5 + twice the spell level or lose the spell slot with no effect. Gain a +2 bonus on saving throws against transmutation spells; this bonus increases to +4 against spells in the polymorph subschool. Boon 1 In addition to the normal effects of your agony strike, the target has a chance of dropping one object held in its hand immediately after you hit it with the agony strike. A successful Reflex save (DC 10 + 1/2 your HD + your Dexterity modifier) avoids this effect. Boon 2 You gain the use of a phantom arm, which functions as the vestigial arm alchemist discovery ( Pathfinder RPG Ultimate Magic 18) save that it is an invisible force effect, it does not grant an additional ring magic item slot, and it cannot make attacks. Boon 3 You are immune to effects that would cause you to become sickened, and you gain a +4 bonus on saving throws against any conditions that would make you nauseated. Blinding You temporarily blind yourself with blood to heighten your other senses. Obedience Scratch at your eyes with your fingernails, jagged metal shavings, and thorny branches, allowing the blood from your wounds to form thick scabs over your eyelids and tear ducts. Take a –4 penalty on visionbased Perception checks, and anytime you make an attack against a target benefiting from concealment, increase the miss chance by 10% (maximum 50%). Gain a +4 bonus on saving throws against illusions in the pattern subschool and against gaze attacks. Boon 1 Creatures affected by your agony strike have the distance they can see in areas of dim light and darkness reduced by 50%. Boon 2 You gain a gaze attack with a range of 30 feet that you can activate as a standard action. You can use this ability a number of minutes per day equal to half your hit dice; these minutes need not be consecutive but you must use the ability in 1-minute increments. Enemies affected by your gaze are frightened for 1 minute. A successful Will saving throw (DC 10 + 1/2 your HD + your Charisma modifier) negates this effect. A creature that successfully saves against your gaze is immune to its effects for 24 hours. Boon 3 Your affinity to pain allows you to sense suffering in others. You gain lifesense out to a distance of 60 feet. Flensing Practitioners of the agony of flensing are adept at finely removing the skin from living flesh, revealing the vulnerable tissue beneath. Obedience Remove a patch of your own skin measuring at least 3 square inches with a flensing knife, while carefully avoiding damage to the muscles, veins, and other tissues underneath. Leave this patch of exposed nerves uncovered by clothing or armor, allowing it to be exposed to the elements and displaying your sacrifice to all you meet. Take a –2 penalty on saving throws against disease, and take 1 extra point of damage per die from sneak attacks. Gain a +4 bonus on saving throws against pain effects. Boon 1 All attacks you make against a creature suffering the effects of your agony strike deal 1d6 points of bleed damage. Boon 2 Your knowledge of anatomy imparts to you an awareness of others’ vulnerabilities. You gain a +4 bonus on attack rolls to confirm critical hits. Boon 3 The frequent removal of skin and subsequent healing has covered your body in thick scars. Your natural armor bonus to AC increases by 2. Additionally, there is a 25% chance that critical hits and sneak attacks fail to affect you, as though you were wearing armor with the light fortification property.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Arithmancy",
@@ -27896,20 +27895,20 @@
       "name": "Harrowed Summoning",
       "source": "The Harrow Handbook",
       "prerequisites": [
-        "Harrowed (Pathfinder Campaign Setting: the inner sea region World Guide 287)"
+        "Harrowed ( Pathfinder Campaign Setting: The Inner Sea World Guide 287)"
       ],
       "tags": [
         "The Harrow Handbook"
       ],
       "references": [
-        "Archives of a deity of magic: Harrowed Summoning"
+        "Pathfinder PRD: Harrowed Summoning"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Harrowed%20Summoning"
       ],
       "source_id": "the_harrow_handbook:harrowed_summoning",
-      "description": "Your summoned creatures are empowered by the magic of the harrow.\n\nWhen you cast a conjuration (summoning) spell or use a spell-like ability to summon one or more creatures, you can draw two random cards from a complete harrow deck you own. Doing so adds both a somatic component (if the spell does not already have one) and a focus component (the harrow deck) to the spell, but does not increase the spell's casting time. For the duration of the spell, each summoned creature gains a +4 enhancement bonus to the corresponding ability scores of the drawn card's suits. If both cards are the same suit, each summoned creature gains a +6 bonus to that ability score instead. If either card's alignment is a true match for the summoned creatures' alignment, the duration of the spell is doubled, while drawing an opposite match halves the duration of the spell. If both a true match and an opposite match are drawn, the spell's duration is unchanged. A creature summoned in this way is distinctly altered by the cards drawn. Its physical appearance ref lects the visual ea bardents of the cards (for example, a creature summoned with The Publican might have only one eye). The creature's personality is also inf luenced by the cards, but not so much as to alter its alignment (for example, The Snakebite might summon a creature that likes to gossip).",
-      "updated_at": "2026-07-19T00:00:00Z"
+      "description": "Your summoned creatures are empowered by the magic of the harrow.\n\nWhen you cast a conjuration (summoning) spell or use a spell-like ability to summon one or more creatures, you can draw two random cards from a complete harrow deck you own. Doing so adds both a somatic component (if the spell does not already have one) and a focus component (the harrow deck) to the spell, but does not increase the spell’s casting time. For the duration of the spell, each summoned creature gains a +4 enhancement bonus to the corresponding ability scores of the drawn card’s suits. If both cards are the same suit, each summoned creature gains a +6 bonus to that ability score instead. If either card’s alignment is a true match for the summoned creatures’ alignment, the duration of the spell is doubled, while drawing an opposite match halves the duration of the spell. If both a true match and an opposite match are drawn, the spell’s duration is unchanged. A creature summoned in this way is distinctly altered by the cards drawn. Its physical appearance reflects the visual elements of the cards (for example, a creature summoned with The Publican might have only one eye). The creature’s personality is also influenced by the cards, but not so much as to alter its alignment (for example, The Snakebite might summon a creature that likes to gossip).",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Deadly Dealer",
@@ -28558,14 +28557,14 @@
         "Advanced Class Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Blasting Charge"
+        "Pathfinder PRD: Blasting Charge"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Blasting%20Charge"
       ],
       "source_id": "advanced_class_guide:blasting_charge",
-      "description": "You funnel the power of your bloodrage into a strike capable of erupting with arcane power.\n\nWhile you are bloodraging, at the end of a charge you can expend a bloodrager spell slot as a swift action to imbue your charge attack with extra power. You deal an additional 1d6 points of damage per level of the spell slot expended. This extra damage is force damage, and it's not multiplied in the case of a critical hit. If your bloodline has a specific energy type associated with it (such as the ea bardental or draconic bloodlines), you can choose to increase the damage to 1d8 points per level of the spell slot expended, and this extra damage is of that energy type.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You funnel the power of your bloodrage into a strike capable of erupting with arcane power.\n\nWhile you are bloodraging, at the end of a charge you can expend a bloodrager spell slot as a swift action to imbue your charge attack with extra power. You deal an additional 1d6 points of damage per level of the spell slot expended. This extra damage is force damage, and it’s not multiplied in the case of a critical hit. If your bloodline has a specific energy type associated with it (such as the elemental or draconic bloodlines), you can choose to increase the damage to 1d8 points per level of the spell slot expended, and this extra damage is of that energy type.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Blessed Striker",
@@ -29981,14 +29980,14 @@
         "You can take this feat multiple times. Each time you do, you gain an additional daily use of this feat."
       ],
       "references": [
-        "Archives of a deity of magic: Manifested Blood"
+        "Pathfinder PRD: Manifested Blood"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Manifested%20Blood"
       ],
       "source_id": "you_can_take_this_feat_multiple_times__each_time_you_do__you_gain_an_additional_daily_use_of_this_feat:manifested_blood",
-      "description": "You can use the power of your bloodline to surround yourself in its ea bardent.\n\n",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can use the power of your bloodline to surround yourself in its element.\n\nOnce per day, you can surround yourself with the element associated with your bloodline. For a number of rounds equal to your Charisma modifier (minimum 1), you gain resistance 5 to that energy type, and all creatures that attempt a natural weapon attack or an unarmed strike against you take 2 points of damage of that same energy type. If you already have resistance to that energy type, the resistance increases by 5.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Merciless Butchery",
@@ -31114,14 +31113,14 @@
         "Champions Of Corruption"
       ],
       "references": [
-        "Archives of a deity of magic: Stunning Irruption"
+        "Pathfinder PRD: Stunning Irruption"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Stunning%20Irruption"
       ],
       "source_id": "champions_of_corruption:stunning_irruption",
-      "description": "When you smash your way into a room, you gain more than just the ea bardent of surprise.\n\nBefore starting combat, you can attempt to break through a door, window, or wall to enter a room.   If you succeed, the violence of your arrival is so great that all characters within 20 feet of your entry point must succeed at a Fortitude saving throw (DC = 10 + your base attack bonus) or be stunned instead of acting in the surprise round (if there is one) plus 1 round thereafter. Characters who succeed at this save are instead shaken for 1d4 rounds.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "When you smash your way into a room, you gain more than just the element of surprise.\n\nBefore starting combat, you can attempt to break through a door, window, or wall to enter a room. If you succeed, the violence of your arrival is so great that all characters within 20 feet of your entry point must succeed at a Fortitude saving throw (DC = 10 + your base attack bonus) or be stunned instead of acting in the surprise round (if there is one) plus 1 round thereafter. Characters who succeed at this save are instead shaken for 1d4 rounds.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Craft Shadow Piercing",
@@ -34786,14 +34785,14 @@
         "Melee Tactics Toolbox"
       ],
       "references": [
-        "Archives of a deity of magic: Shrug On"
+        "Pathfinder PRD: Shrug On"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Shrug%20On"
       ],
       "source_id": "melee_tactics_toolbox:shrug_on",
-      "description": "You can throw on the most important ea bardent of your armor in a flash.\n\nAs a full-round action, you can shrug yourself into the largest and most protective section of a suit of armor with which you are proficient. The armor does not grant any magical benefits in this state, and its armor check penalty and maximum Dexterity bonus to AC are both 2 worse than normal. When donned using this feat, medium armor grants a +3 armor bonus, and  heavy armor grants a +5 armor bonus. Light armor grants no armor bonus when donned using this feat.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can throw on the most important element of your armor in a flash.\n\nAs a full-round action, you can shrug yourself into the largest and most protective section of a suit of armor with which you are proficient. The armor does not grant any magical benefits in this state, and its armor check penalty and maximum Dexterity bonus to AC are both 2 worse than normal. When donned using this feat, medium armor grants a +3 armor bonus, and heavy armor grants a +5 armor bonus. Light armor grants no armor bonus when donned using this feat.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Mystical Reverberation",
@@ -34926,14 +34925,14 @@
         "Heroes Of The Wild"
       ],
       "references": [
-        "Archives of a deity of magic: Charging Stag Style"
+        "Pathfinder PRD: Charging Stag Style"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Charging%20Stag%20Style"
       ],
       "source_id": "heroes_of_the_wild:charging_stag_style",
-      "description": "This style originated among shamanic monks who spent their lives in the wild, allowing them to quickly subdue both game and poachers using the ea bardent of surprise. Practitioners of Charging Stag Style can charge fluidly around trees, taking enemies by surprise in the wilderness.\n\nWhen using this style and not mounted, you can charge through difficult terrain and spaces containing allies. You can also make a single turn of up to 90 degrees during your charge. You must see your target at the beginning of your charge, and can make only a single attack at the end, even if you would normally be able to make multiple attacks (such as with the pounce ability).",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "This style originated among shamanic monks who spent their lives in the wild, allowing them to quickly subdue both game and poachers using the element of surprise. Practitioners of Charging Stag Style can charge fluidly around trees, taking enemies by surprise in the wilderness.\n\nWhen using this style and not mounted, you can charge through difficult terrain and spaces containing allies. You can also make a single turn of up to 90 degrees during your charge. You must see your target at the beginning of your charge, and can make only a single attack at the end, even if you would normally be able to make multiple attacks (such as with the pounce ability).",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Forest Ambush",
@@ -36290,14 +36289,14 @@
         "Occult Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Chakra Adept"
+        "Pathfinder PRD: Chakra Adept"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Chakra%20Adept"
       ],
       "source_id": "occult_adventures:chakra_adept",
-      "description": "Your body and soul have grown more accustomed to kundaa druid energy.\n\nYour pool of serpent-fire ki increases to 4 points. When you maintain your chakras as a swift action without opening a new chakra, you can choose to attempt either the Fortitude save or the Will save instead of both.  In addition, after you stop spending ki to maintain your chakras, the kundaa druid energy lingers in your body. On the first round during which you spend no ki to maintain your chakras, your highest chakra closes and you can spend a swift action to use any one of the abilities of your remaining open chakras. On the next round after that, all of your chakras close, and you must spend 1 point of ki and a swift action to start again from your root chakra.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your body and soul have grown more accustomed to kundalini energy.\n\nYour pool of serpent-fire ki increases to 4 points. When you maintain your chakras as a swift action without opening a new chakra, you can choose to attempt either the Fortitude save or the Will save instead of both. In addition, after you stop spending ki to maintain your chakras, the kundalini energy lingers in your body. On the first round during which you spend no ki to maintain your chakras, your highest chakra closes and you can spend a swift action to use any one of the abilities of your remaining open chakras. On the next round after that, all of your chakras close, and you must spend 1 point of ki and a swift action to start again from your root chakra.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Chakra Initiate",
@@ -36309,14 +36308,14 @@
         "Occult Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Chakra Initiate"
+        "Pathfinder PRD: Chakra Initiate"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Chakra%20Initiate"
       ],
       "source_id": "occult_adventures:chakra_initiate",
-      "description": "You have an extra wellspring of kundaa druid energy that you can use to open your chakras.\n\nYou gain a pool that holds 3 points of serpent-fire ki, which you can use only to open or maintain chakras. These serpent-fire ki points are replenished at the same time you replenish the points in your regular ki pool.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You have an extra wellspring of kundalini energy that you can use to open your chakras.\n\nYou gain a pool that holds 3 points of serpentfire ki, which you can use only to open or maintain chakras. These serpent-fire ki points are replenished at the same time you replenish the points in your regular ki pool.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Chakra Master",
@@ -36330,14 +36329,14 @@
         "Occult Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Chakra Master"
+        "Pathfinder PRD: Chakra Master"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Chakra%20Master"
       ],
       "source_id": "occult_adventures:chakra_master",
-      "description": "You have mastered all seven chakras, and use your ki to pull more power from the kundaa druid flow.\n\nYour pool of serpent-fire ki increases to 5 points. You can spend 3 ki points instead of 1 when you  open or maintain a chakra to gain the benefits of two chakras instead of one in that round. If you are opening or maintaining your crown chakra, this stacks with the crown chakra's special power, allowing you to gain the benefits of three chakras in a round.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You have mastered all seven chakras, and use your ki to pull more power from the kundalini flow.\n\nYour pool of serpent-fire ki increases to 5 points. You can spend 3 ki points instead of 1 when you open or maintain a chakra to gain the benefits of two chakras instead of one in that round. If you are opening or maintaining your crown chakra, this stacks with the crown chakra’s special power, allowing you to gain the benefits of three chakras in a round.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Compounded Pain",
@@ -36448,14 +36447,14 @@
         "Occult Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Efficient Focus Shift"
+        "Pathfinder PRD: Efficient Focus Shift"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Efficient%20Focus%20Shift"
       ],
       "source_id": "occult_adventures:efficient_focus_shift",
-      "description": "You are more adept than most at shifting mental focus between your impa bardents.\n\nTwice per day when you shift mental focus from one impa bardent to another, you can add the same number of points to the latter impa bardent that you removed from the former.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You are more adept than most at shifting mental focus between your implements.\n\nTwice per day when you shift mental focus from one implement to another, you can add the same number of points to the latter implement that you removed from the former.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Elongated Cranium",
@@ -36563,14 +36562,14 @@
         "Occult Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Extend Resonant Power"
+        "Pathfinder PRD: Extend Resonant Power"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Extend%20Resonant%20Power"
       ],
       "source_id": "occult_adventures:extend_resonant_power",
-      "description": "You can share the benefits of your resonant focus powers with nearby allies.\n\nSelect an impa bardent school. When you place mental focus points into an impa bardent of that school, you can choose to gain benefits from the resonant power as if you had placed only half as many points of mental focus into the impa bardent. If you do, you can extend the same benefits to one additional ally within 30 feet at the time you invest mental focus. If the ally moves outside of the extended power's range, the power is suppressed, but it resumes functioning once the ally moves within range again. You can spend 1 point of mental focus from your impa bardent to pass the effect to a new target, so long as both the original target and the new one are within 30 feet. This feat can affect only one impa bardent from a given school at a time, even if you have selected the same impa bardent school more than once.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can share the benefits of your resonant focus powers with nearby allies.\n\nSelect an implement school. When you place mental focus points into an implement of that school, you can choose to gain benefits from the resonant power as if you had placed only half as many points of mental focus into the implement. If you do, you can extend the same benefits to one additional ally within 30 feet at the time you invest mental focus. If the ally moves outside of the extended power’s range, the power is suppressed, but it resumes functioning once the ally moves within range again. You can spend 1 point of mental focus from your implement to pass the effect to a new target, so long as both the original target and the new one are within 30 feet. This feat can affect only one implement from a given school at a time, even if you have selected the same implement school more than once.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Extended Stare",
@@ -36620,14 +36619,14 @@
         "Occult Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Extra Focus Power"
+        "Pathfinder PRD: Extra Focus Power"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Extra%20Focus%20Power"
       ],
       "source_id": "occult_adventures:extra_focus_power",
-      "description": "You gain an additional focus power from your impa bardents.\n\nYou gain one additional focus power from among those available from your chosen impa bardent schools. You must select a power for which you normally qualify.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You gain an additional focus power from your implements.\n\nYou gain one additional focus power from among those available from your chosen implement schools. You must select a power for which you normally qualify.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Extra Mental Focus",
@@ -36696,14 +36695,14 @@
         "Occult Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Extra Wild Talent"
+        "Pathfinder PRD: Extra Wild Talent"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Extra%20Wild%20Talent"
       ],
       "source_id": "occult_adventures:extra_wild_talent",
-      "description": "You gain an additional wild talent.\n\nYou gain a wild talent that's at least 2 levels lower than the highest-level wild talent you can currently use. You can select an infusion or a non-infusion wild  talent, but not a blast or defense wild talent. If you have the expanded ea bardent class feature, you can select a wild talent from any of your ea bardents that's at least 2 levels lower than the highest-level wild talent from your primary ea bardent that you can currently use.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You gain an additional wild talent.\n\nYou gain a wild talent that’s at least 2 levels lower than the highest-level wild talent you can currently use. You can select an infusion or a non-infusion wild talent, but not a blast or defense wild talent. If you have the expanded element class feature, you can select a wild talent from any of your elements that’s at least 2 levels lower than the highest-level wild talent from your primary element that you can currently use.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Fatiguing Stare",
@@ -36948,14 +36947,14 @@
         "Occult Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Kinetic Counter"
+        "Pathfinder PRD: Kinetic Counter"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Kinetic%20Counter"
       ],
       "source_id": "occult_adventures:kinetic_counter",
-      "description": "You can use your kinetic blast to counter your enemy's opposing ea bardental abilities.\n\nYou can ready an action to use your blast to counter an opponent's ea bardental abilities. If you ready a fire simple blast, you can counter any spell or activated extraordinary, supernatural, or spell-like ability that has the water or ice descriptor, and if you ready a cold or water simple blast, you can counter any spell or activated extraordinary, supernatural, or spell-like ability that has the fire descriptor. In order to successfully counter the effect, you must succeed at a caster level check with a DC  equal to either 11 + the opponent's caster level (for spells and spell-like abilities) or 11 + the opponent's Hit Dice (for extraordinary and supernatural abilities). Against spells and spell-like abilities, treat a success as if you had counterspelled the effect using dispel magic. Against activated supernatural and extraordinary abilities, a successful kinetic counter negates the ability's effect entirely while still expending the ability. For example, if a pyrokineticist succeeds at her caster level check against a white dragon's breath weapon, she negates the breath weapon's effect in the entire area, and the dragon must wait 1d4 rounds to use its breath weapon again.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can use your kinetic blast to counter your enemy’s opposing elemental abilities.\n\nYou can ready an action to use your blast to counter an opponent’s elemental abilities. If you ready a fire simple blast, you can counter any spell or activated extraordinary, supernatural, or spell-like ability that has the water or ice descriptor, and if you ready a cold or water simple blast, you can counter any spell or activated extraordinary, supernatural, or spell-like ability that has the fire descriptor. In order to successfully counter the effect, you must succeed at a caster level check with a DC equal to either 11 + the opponent’s caster level (for spells and spell-like abilities) or 11 + the opponent’s Hit Dice (for extraordinary and supernatural abilities). Against spells and spell-like abilities, treat a success as if you had counterspelled the effect using dispel magic . Against activated supernatural and extraordinary abilities, a successful kinetic counter negates the ability’s effect entirely while still expending the ability. For example, if a pyrokineticist succeeds at her caster level check against a white dragon’s breath weapon, she negates the breath weapon’s effect in the entire area, and the dragon must wait 1d4 rounds to use its breath weapon again.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Kinetic Leap",
@@ -37283,14 +37282,14 @@
         "Occult Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Rapid Focus Shift"
+        "Pathfinder PRD: Rapid Focus Shift"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Rapid%20Focus%20Shift"
       ],
       "source_id": "occult_adventures:rapid_focus_shift",
-      "description": "You can move mental focus from one impa bardent to another more quickly than usual.\n\nOnce per day, you can take a full-round action to shift mental focus from one impa bardent to another. You must be undisturbed and able to concentrate. If you take any damage during the transfer, you must succeed at a concentration check (DC = 10 + the number of points of damage taken) to complete the transfer. If you fail this check, you lose the points of mental focus instead of moving them from one impa bardent to the other.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can move mental focus from one implement to another more quickly than usual.\n\nOnce per day, you can take a full-round action to shift mental focus from one implement to another. You must be undisturbed and able to concentrate. If you take any damage during the transfer, you must succeed at a concentration check (DC = 10 + the number of points of damage taken) to complete the transfer. If you fail this check, you lose the points of mental focus instead of moving them from one implement to the other.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Ready For Battle",
@@ -38349,14 +38348,14 @@
         "Heroes Of The Streets"
       ],
       "references": [
-        "Archives of a deity of magic: Guild Emissary"
+        "Pathfinder PRD: Guild Emissary"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Guild%20Emissary"
       ],
       "source_id": "heroes_of_the_streets:guild_emissary",
-      "description": "Not only are you associated with a powerful thieves' guild or similar shadowy group, you are well-enough connected to gain benefits when dealing with the underworld in any setta bardent.\n\nYou can attempt a special character level check (1d20 + your Charisma modifier + your character level) in place of a Diplomacy check when attempting to gather information. You can ask local contacts to find information for you. While this still takes the normal amount of time (typically 1d4 hours), you can gather information about multiple topics at once (up to a maximum number of topics equal to 3 + your Charisma bonus).  Additionally, when you are in a setta bardent no smaller than a small city and are seeking a magic item with a value equal to or less than the city's base value (Pathfinder RPG Core Rulebook 460-461) and the item is not available, you can check again after 1 day (rather than 1 week).  If using the contact rules (Pathfinder RPG Ultimate Campaign 148) you gain a single reliable contact each time you enter a setta bardent no smaller than a small city. This contact is randomly determined to be a fence, gossip, manipulator, merchant, petty criminal, snitch, or thug. The contact operates only within that city, and if the contact's Trust score goes down, it immediately drops to 1.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Not only are you associated with a powerful thieves’ guild or similar shadowy group, you are well-enough connected to gain benefits when dealing with the underworld in any settlement.\n\nYou can attempt a special character level check (1d20 + your Charisma modifier + your character level) in place of a Diplomacy check when attempting to gather information. You can ask local contacts to find information for you. While this still takes the normal amount of time (typically 1d4 hours), you can gather information about multiple topics at once (up to a maximum number of topics equal to 3 + your Charisma bonus). Additionally, when you are in a settlement no smaller than a small city and are seeking a magic item with a value equal to or less than the city’s base value ( Pathfinder RPG Core Rulebook 460–461) and the item is not available, you can check again after 1 day (rather than 1 week). If using the contact rules ( Pathfinder RPG Ultimate Campaign 148) you gain a single reliable contact each time you enter a settlement no smaller than a small city. This contact is randomly determined to be a fence, gossip, manipulator, merchant, petty criminal, snitch, or thug. The contact operates only within that city, and if the contact’s Trust score goes down, it immediately drops to 1.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Mud In Your Eye",
@@ -38443,14 +38442,14 @@
         "Heroes Of The Streets"
       ],
       "references": [
-        "Archives of a deity of magic: Underworld Connections"
+        "Pathfinder PRD: Underworld Connections"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Underworld%20Connections"
       ],
       "source_id": "heroes_of_the_streets:underworld_connections",
-      "description": "You know people and things that interact with the underworld, whether through crime syndicate connections or friends that literally dwell beneath the surface.\n\nYou gain a +2 bonus on all Knowledge (dungeoneering) checks and Survival checks while underground or in urban terrain. Additionally, while within a setta bardent and attempting a check modified by that setta bardent's corruption, crime, or economy modifiers (see Pathfinder RPG GameMastery Guide 205), you can use your knowledge of local contacts to gain a +4 bonus on that roll. However, if the check fails, anyone witnessing your attempt sees you committing some violation of local law.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You know people and things that interact with the underworld, whether through crime syndicate connections or friends that literally dwell beneath the surface.\n\nYou gain a +2 bonus on all Knowledge (dungeoneering) checks and Survival checks while underground or in urban terrain. Additionally, while within a settlement and attempting a check modified by that settlement’s corruption, crime, or economy modifiers (see Pathfinder RPG GameMastery Guide 205), you can use your knowledge of local contacts to gain a +4 bonus on that roll. However, if the check fails, anyone witnessing your attempt sees you committing some violation of local law.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Alien Mindpaths",
@@ -39380,14 +39379,14 @@
         "Occult Origins"
       ],
       "references": [
-        "Archives of a deity of magic: Chakra Mandala"
+        "Pathfinder PRD: Chakra Mandala"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Chakra%20Mandala"
       ],
       "source_id": "occult_origins:chakra_mandala",
-      "description": "Using scars, tattoos, or henna, you inscribe symbols over your chakras to help maintain your balance of kundaa druid.\n\nIf you fail the Fortitude saving throw to maintain your awakened chakras, you take only half the normal damage.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Using scars, tattoos, or henna, you inscribe symbols over your chakras to help maintain your balance of kundalini.\n\nIf you fail the Fortitude saving throw to maintain your awakened chakras, you take only half the normal damage.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Cranial Adjustment",
@@ -39419,14 +39418,14 @@
         "Occult Origins"
       ],
       "references": [
-        "Archives of a deity of magic: Cranial Implantation"
+        "Pathfinder PRD: Cranial Implantation"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Cranial%20Implantation"
       ],
       "source_id": "occult_origins:cranial_implantation",
-      "description": "You turn the science of phrenology inward, driving needles and nails into your or another's brain to grant focus through the pathways of pain.\n\nYou can perform the phrenology occult skill unlockOA, though you must use needles or similar sharp impa bardents rather than your fingertips, dealing 1d3 points of damage to the subject. If you can cast psychic spells or have the Psychic SensitivityOA feat, you can use phrenology one additional time per day.  In addition, you can insert needles into a creature's brain to help center its thoughts and emotions. Doing so  requires a successful Heal check (DC = 25 + the target's Hit Dice). Creatures with implanted needles gain a +1 bonus on saving throws against spells with the emotionUM or fear descriptor (or similar effects), but take a -1 penalty on saving throws against spells with the electricity or painUM descriptors. Implanting needles deals 1d6 points of damage to the patient, which can't be healed by any means until the needles are removed (which requires a second successful Heal check at the same DC, or a restoration or regenerate spell).  If you have implanted needles into your own cranium, you can probe them as a swift action while casting a spell, dealing an amount of damage to yourself equal to 1 + the spell's level. The pain from this probing stimulates your powers of focus, granting you a bonus of +1d6 on any concentration check you must attempt as part of casting that spell. This damage doesn't force you to attempt a concentration check.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You turn the science of phrenology inward, driving needles and nails into your or another’s brain to grant focus through the pathways of pain.\n\nYou can perform the phrenology occult skill unlock OA , though you must use needles or similar sharp implements rather than your fingertips, dealing 1d3 points of damage to the subject. If you can cast psychic spells or have the Psychic Sensitivity OA feat, you can use phrenology one additional time per day. In addition, you can insert needles into a creature’s brain to help center its thoughts and emotions. Doing so requires a successful Heal check (DC = 25 + the target’s Hit Dice). Creatures with implanted needles gain a +1 bonus on saving throws against spells with the emotionUM or fear descriptor (or similar effects), but take a –1 penalty on saving throws against spells with the electricity or painUM descriptors. Implanting needles deals 1d6 points of damage to the patient, which can’t be healed by any means until the needles are removed (which requires a second successful Heal check at the same DC, or a restoration or regenerate spell). If you have implanted needles into your own cranium, you can probe them as a swift action while casting a spell, dealing an amount of damage to yourself equal to 1 + the spell’s level. The pain from this probing stimulates your powers of focus, granting you a bonus of +1d6 on any concentration check you must attempt as part of casting that spell. This damage doesn’t force you to attempt a concentration check.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Haruspicy",
@@ -39677,14 +39676,14 @@
         "Black Markets"
       ],
       "references": [
-        "Archives of a deity of magic: Black Market Dealings"
+        "Pathfinder PRD: Black Market Dealings"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Black%20Market%20Dealings"
       ],
       "source_id": "black_markets:black_market_dealings",
-      "description": "You walk dark alleys and trade in secrets.\n\nYou gain a +4 bonus on Diplomacy checks to access black markets and do not pay the gp cost to do so. You suffer no consequences for failing the check unless you fail by 10 or more.  In addition, you can use the Diplomacy skill to locate merchants who have deeper pockets in a black market or setta bardent. If you are looking inside a black market, the DC is equal to the black market's access DC. If you are looking more widely in a setta bardent, use the black market's access DC + 5 (if a setta bardent has no black market, the DC is 30; PCs can apply the setta bardent's Crime modifier to their checks). If successful, you can treat the black market or setta bardent as one step larger for the purposes of base value, items available, and  purchase limit. If the setta bardent was already a metropolis, nearly all minor and medium magic items are for sale, as well as 3d8 major magic items; the base value is 32,000 gp; and the purchase limit is 200,000 gp. If the black market was already an underworld, nearly all minor and medium magic items are for sale, as well as 4d8 major magic items; the base value is 64,000 gp; and the purchase limit is 300,000 gp. This benefit does not stack with other ways to increase the effective size of a black market or setta bardent (such as the black market connectionsUC rogue talent). You can attempt this check only once per week.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You walk dark alleys and trade in secrets.\n\nYou gain a +4 bonus on Diplomacy checks to access black markets and do not pay the gp cost to do so. You suffer no consequences for failing the check unless you fail by 10 or more. In addition, you can use the Diplomacy skill to locate merchants who have deeper pockets in a black market or settlement. If you are looking inside a black market, the DC is equal to the black market’s access DC. If you are looking more widely in a settlement, use the black market’s access DC + 5 (if a settlement has no black market, the DC is 30; PCs can apply the settlement’s Crime modifier to their checks). If successful, you can treat the black market or settlement as one step larger for the purposes of base value, items available, and purchase limit. If the settlement was already a metropolis, nearly all minor and medium magic items are for sale, as well as 3d8 major magic items; the base value is 32,000 gp; and the purchase limit is 200,000 gp. If the black market was already an underworld, nearly all minor and medium magic items are for sale, as well as 4d8 major magic items; the base value is 64,000 gp; and the purchase limit is 300,000 gp. This benefit does not stack with other ways to increase the effective size of a black market or settlement (such as the black market connections UC rogue talent). You can attempt this check only once per week.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Black Market Sleuth",
@@ -41437,14 +41436,14 @@
         "Agents Of Evil"
       ],
       "references": [
-        "Archives of a deity of magic: Wretched Curator"
+        "Pathfinder PRD: Wretched Curator"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Wretched%20Curator"
       ],
       "source_id": "agents_of_evil:wretched_curator",
-      "description": "Some fools fear the written word, but you that understand knowledge-all knowledge-is a valuable tool, and restricting it out of superstition is abominable in your eyes.\n\nYou can always purchase potions and scrolls of spells with the evil descriptor at a 10% discount, even if they are not normally available in a setta bardent because of its size or the local laws. You gain a +4 bonus on Knowledge (arcana), Spellcraft, and Use Magic Device checks related to spells with the evil descriptor or evil written works.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Some fools fear the written word, but you that understand knowledge—all knowledge—is a valuable tool, and restricting it out of superstition is abominable in your eyes.\n\nYou can always purchase potions and scrolls of spells with the evil descriptor at a 10% discount, even if they are not normally available in a settlement because of its size or the local laws. You gain a +4 bonus on Knowledge (arcana), Spellcraft, and Use Magic Device checks related to spells with the evil descriptor or evil written works. Goal You must own scrolls of spells with the evil descriptor or tomes of forbidden lore worth a total of 50 gp per character level, and be the primary caster of a successful occult ritual ( Pathfinder RPG Occult Adventures 208) of at least 5th level that has the evil descriptor. Completion Benefit Every time you cast a spell with the evil descriptor, you can remove that descriptor from the spell and treat yourself as a neutral-aligned caster for the purpose of determining the spell’s effects, circumventing defenses such as protection from evil and preventing detection via detect evil and similar effects. If you cast a spell with the evil descriptor and do not remove that descriptor, you instead gain 2 temporary hit points per spell level. These temporary hit points last for 1 hour.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Associate",
@@ -41456,14 +41455,14 @@
         "Agents Of Evil"
       ],
       "references": [
-        "Archives of a deity of magic: Associate"
+        "Pathfinder PRD: Associate"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Associate"
       ],
       "source_id": "agents_of_evil:associate",
-      "description": "You are on good terms with a large organization, though not necessarily an official member.\n\nSelect a single organization with which you have a positive relationship. You gain a +4 circumstance bonus on Diplomacy checks to influence members of that group or when making gather information checks about the organization. In any setta bardent that is the size of a small town or larger, you can spend 1d4 hours to attempt to track down a representative of your organization to gain a minor resource or service for free (such as information), a place to stay, or transportation. If you succeed at a Diplomacy check (DC = 20 + the gp cost of the service requested [minimum 1 gp]), you successfully call in a favor and gain that service for free; otherwise, you must pay the normal fee. You can attempt this check once per week.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You are on good terms with a large organization, though not necessarily an official member.\n\nSelect a single organization with which you have a positive relationship. You gain a +4 circumstance bonus on Diplomacy checks to influence members of that group or when making gather information checks about the organization. In any settlement that is the size of a small town or larger, you can spend 1d4 hours to attempt to track down a representative of your organization to gain a minor resource or service for free (such as information), a place to stay, or transportation. If you succeed at a Diplomacy check (DC = 20 + the gp cost of the service requested [minimum 1 gp]), you successfully call in a favor and gain that service for free; otherwise, you must pay the normal fee. You can attempt this check once per week.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Red Mantis Collaborator",
@@ -41494,14 +41493,14 @@
         "Agents Of Evil"
       ],
       "references": [
-        "Archives of a deity of magic: Whispering Way Disciple"
+        "Pathfinder PRD: Whispering Way Disciple"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Whispering%20Way%20Disciple"
       ],
       "source_id": "agents_of_evil:whispering_way_disciple",
-      "description": "Your research has gained the attention of the Whispering Way, which rewards you with access to its libraries.\n\nYou can exploit lore acquired from the Whispering Way once per day to combine your own blood and a vial of unholy water to create a potion of cure light wounds or a potion of inflict light wounds as a full-round action. The blood loss from this transformation deals 1 point of Constitution damage to you. In addition, in any setta bardent that is the size of a small town or larger, you can always find scrolls of the following spells available for purchase regardless of their legality: animate dead, control undead, create undead, detect undead, disrupt undead, false life, greater false lifeUM, ghoul touch, lesser animate deadUM, mass repair undeadACG, repair undeadACG, and undead anatomy I-IVUM.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your research has gained the attention of the Whispering Way, which rewards you with access to its libraries.\n\nYou can exploit lore acquired from the Whispering Way once per day to combine your own blood and a vial of unholy water to create a potion of cure light wounds or a potion of inflict light wounds as a full-round action. The blood loss from this transformation deals 1 point of Constitution damage to you. In addition, in any settlement that is the size of a small town or larger, you can always find scrolls of the following spells available for purchase regardless of their legality: animate dead , control undead , create undead , detect undead , disrupt undead , false life , greater false life UM , ghoul touch , lesser animate dead UM , mass repair undead ACG , repair undead ACG , and undead anatomy I–IV UM .",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Smiting Reversal",
@@ -41800,14 +41799,14 @@
         "Blood Of Shadows"
       ],
       "references": [
-        "Archives of a deity of magic: Surface Scout"
+        "Pathfinder PRD: Surface Scout"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Surface%20Scout"
       ],
       "source_id": "blood_of_shadows:surface_scout",
-      "description": "You were trained from youth to infiltrate and ambush aboveground setta bardents.\n\nYou can use fear the sun and ignoble form (see below) each once per day as a spell-like ability. Your caster level is equal to your character level.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You were trained from youth to infiltrate and ambush aboveground settlements.\n\nYou can use fear the sun and ignoble form (see below) each once per day as a spell-like ability. Your caster level is equal to your character level.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Blinded Blade Style",
@@ -42133,14 +42132,14 @@
         "Ultimate Intrigue"
       ],
       "references": [
-        "Archives of a deity of magic: Brilliant Planner"
+        "Pathfinder PRD: Brilliant Planner"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Brilliant%20Planner"
       ],
       "source_id": "ultimate_intrigue:brilliant_planner",
-      "description": "Your experience and intellect enable you to create prescient plans and contingencies.\n\nYou can prepare for future contingencies without defining what those preparations are until they are relevant. As a part of this preparation, while in a setta bardent for at least 24 hours, you can take 8 hours and spend up to 50 gp per character level, which becomes your brilliant plan fund. While you have a brilliant plan pending, you are always treated as carrying 20 additional pounds of weight, even before you define your brilliant plan.  Once per day, you can take 10 minutes to enact a brilliant plan, withdrawing an item that would have been available  in a setta bardent you visited or procuring a mundane service that your character planned ahead of time. Once you enact the plan, subtract the price of the item or service from this feat's fund. Any item procured must weigh 10 pounds or less. Likewise, the GM must approve any nonmagical service you gain by using this feat as being appropriate for the location selected.  Once you have spent all the money in your brilliant plan fund or procured 20 pounds of objects with this feat, you cannot use the feat again until you replenish your brilliant plan fund.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your experience and intellect enable you to create prescient plans and contingencies.\n\nYou can prepare for future contingencies without defining what those preparations are until they are relevant. As a part of this preparation, while in a settlement for at least 24 hours, you can take 8 hours and spend up to 50 gp per character level, which becomes your brilliant plan fund. While you have a brilliant plan pending, you are always treated as carrying 20 additional pounds of weight, even before you define your brilliant plan. Once per day, you can take 10 minutes to enact a brilliant plan, withdrawing an item that would have been available in a settlement you visited or procuring a mundane service that your character planned ahead of time. Once you enact the plan, subtract the price of the item or service from this feat’s fund. Any item procured must weigh 10 pounds or less. Likewise, the GM must approve any nonmagical service you gain by using this feat as being appropriate for the location selected. Once you have spent all the money in your brilliant plan fund or procured 20 pounds of objects with this feat, you cannot use the feat again until you replenish your brilliant plan fund.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Brilliant Spell Preparation",
@@ -42194,14 +42193,14 @@
         "Ultimate Intrigue"
       ],
       "references": [
-        "Archives of a deity of magic: Call Truce"
+        "Pathfinder PRD: Call Truce"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Call%20Truce"
       ],
       "source_id": "ultimate_intrigue:call_truce",
-      "description": "You can passionately entreat your enemies with the aim of making combat unnecessary.\n\nWhile in combat, as a 1-round action (as if it were a spell with a 1-round casting time, Pathfinder RPG Core Rulebook 213), you can call for a truce with any creatures that have an Intelligence score of 4 or greater and can understand you. When doing so, you can't be wielding a weapon or threatening impa bardent, such as a charged spell, wand, or anything else the creatures you are entreating  might consider threatening. You must also be in plain sight of most the creatures you are entreating.  Once you've called for a truce, if any of your allies attack or take any threatening action against those you are entreating before the start of your next turn, your call is unsuccessful. At the start of your next turn, attempt a single Diplomacy check (DC = 30 + the Charisma modifier of the creature with the highest Charisma modifier in the opposing group). If you are successful, combat ceases for 1 minute, or until any creature in the opposing group is threatened or attacked.  If you fail the check by 5 or more, you cannot use Diplomacy again with any creature you attempted to entreat for 1d4 hours. If anyone in your group instead plans to use the parley to gain a combat advantage, the opponents can attempt a Sense Motive check against each such member of your group to get a hunch, with a DC equal to either 20 or the result of that character's Bluff check, whichever is higher.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can passionately entreat your enemies with the aim of making combat unnecessary.\n\nWhile in combat, as a 1-round action (as if it were a spell with a 1-round casting time, Pathfinder RPG Core Rulebook 213 ), you can call for a truce with any creatures that have an Intelligence score of 4 or greater and can understand you. When doing so, you can’t be wielding a weapon or threatening implement, such as a charged spell, wand, or anything else the creatures you are entreating might consider threatening. You must also be in plain sight of most the creatures you are entreating. Once you’ve called for a truce, if any of your allies attack or take any threatening action against those you are entreating before the start of your next turn, your call is unsuccessful. At the start of your next turn, attempt a single Diplomacy check (DC = 30 + the Charisma modifier of the creature with the highest Charisma modifier in the opposing group). If you are successful, combat ceases for 1 minute, or until any creature in the opposing group is threatened or attacked. If you fail the check by 5 or more, you cannot use Diplomacy again with any creature you attempted to entreat for 1d4 hours. If anyone in your group instead plans to use the parley to gain a combat advantage, the opponents can attempt a Sense Motive check against each such member of your group to get a hunch, with a DC equal to either 20 or the result of that character’s Bluff check, whichever is higher. Special: If the parley would inherently result in the opponents surrendering or losing, if the opponents are mind-controlled or fanatics, or if there are other appropriate circumstances at the GM’s discretion, you might not be able to use this feat. For instance, if the opponents’ main advantage over your group comes from a short-duration spell that would end during a parley, you cannot use this feat. Circumstances could potentially increase the check’s DC by 5, 10, or even up to 20.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Careful Flyer",
@@ -42422,14 +42421,14 @@
         "Ultimate Intrigue"
       ],
       "references": [
-        "Archives of a deity of magic: Criminal Reputation"
+        "Pathfinder PRD: Criminal Reputation"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Criminal%20Reputation"
       ],
       "source_id": "ultimate_intrigue:criminal_reputation",
-      "description": "Your acts of audacious larceny have endeared you to the criminal underworld.\n\nYou gain a +2 bonus on Diplomacy and Intimidate checks when interacting with criminals, whether they're individual thieves and cutpurses or criminal organizations.  If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.  These bonuses do not stack with those granted by Persuasive, but this feat counts as Persuasive for the purposes of feats and other rules ea bardents with Persuasive as a prerequisite.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your acts of audacious larceny have endeared you to the criminal underworld.\n\nYou gain a +2 bonus on Diplomacy and Intimidate checks when interacting with criminals, whether they’re individual thieves and cutpurses or criminal organizations. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill. These bonuses do not stack with those granted by Persuasive, but this feat counts as Persuasive for the purposes of feats and other rules elements with Persuasive as a prerequisite.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Cunning Intuition",
@@ -42651,14 +42650,14 @@
         "Ultimate Intrigue"
       ],
       "references": [
-        "Archives of a deity of magic: Eye For Ingredients"
+        "Pathfinder PRD: Eye For Ingredients"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Eye%20For%20Ingredients"
       ],
       "source_id": "ultimate_intrigue:eye_for_ingredients",
-      "description": "Your keen eyes help you find better deals on magical components for your spells.\n\nWhen in a large city or larger setta bardent, you can search the markets carefully for 4 hours in order to purchase material components for your spells at a 10% discount. You can purchase up to 1,000 gp worth of material components (which costs you 900 gp) each day. These cheaper components work perfectly well for their spells, but their resale value is also 10% less.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your keen eyes help you find better deals on magical components for your spells.\n\nWhen in a large city or larger settlement, you can search the markets carefully for 4 hours in order to purchase material components for your spells at a 10% discount. You can purchase up to 1,000 gp worth of material components (which costs you 900 gp) each day. These cheaper components work perfectly well for their spells, but their resale value is also 10% less.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Feign Curse",
@@ -43086,14 +43085,14 @@
         "Ultimate Intrigue"
       ],
       "references": [
-        "Archives of a deity of magic: Ironclad Logic"
+        "Pathfinder PRD: Ironclad Logic"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Ironclad%20Logic"
       ],
       "source_id": "ultimate_intrigue:ironclad_logic",
-      "description": "You appeal to sound reasoning and fact, rather than to emotion, when attempting to sway others.\n\nYou gain a +4 bonus on Diplomacy checks whenever you add your Charisma modifier on those checks. If you have at least 10 ranks in Diplomacy and an Intelligence score of 27 or more, this bonus increases to +8. This bonus doesn't stack with the bonus from Skill Focus (Diplomacy), but this feat counts as Skill Focus (Diplomacy) for the purpose of feats and other ea bardents with Skill Focus (Diplomacy) as a prerequisite. In verbal duels (see pages 176-181), when using tactics to which you assigned an Intelligence-based skill, you can add your Intelligence modifier instead of your Charisma modifier to the associated skill check.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You appeal to sound reasoning and fact, rather than to emotion, when attempting to sway others.\n\nYou gain a +4 bonus on Diplomacy checks whenever you add your Charisma modifier on those checks. If you have at least 10 ranks in Diplomacy and an Intelligence score of 27 or more, this bonus increases to +8. This bonus doesn’t stack with the bonus from Skill Focus (Diplomacy), but this feat counts as Skill Focus (Diplomacy) for the purpose of feats and other elements with Skill Focus (Diplomacy) as a prerequisite. In verbal duels, when using tactics to which you assigned an Intelligence-based skill, you can add your Intelligence modifier instead of your Charisma modifier to the associated skill check.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Legendary Influence",
@@ -43276,14 +43275,14 @@
         "Ultimate Intrigue"
       ],
       "references": [
-        "Archives of a deity of magic: My Blade Is Yours"
+        "Pathfinder PRD: My Blade Is Yours"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=My%20Blade%20Is%20Yours"
       ],
       "source_id": "ultimate_intrigue:my_blade_is_yours",
-      "description": "You fight with seamless grace alongside your allies, compa bardenting the inherent strengths of your weaponry.\n\nWhen adjacent to an ally with this feat who is wielding a weapon with the blockingUE, disarm, distractingUE, or trip weapon special feature, you can treat your own weapon as if it also had that feature. If your ally's weapon has more than one of those features, you choose one feature to emulate at the start of your turn.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You fight with seamless grace alongside your allies, complementing the inherent strengths of your weaponry.\n\nWhen adjacent to an ally with this feat who is wielding a weapon with the blocking UE , disarm, distracting UE , or trip weapon special feature, you can treat your own weapon as if it also had that feature. If your ally’s weapon has more than one of those features, you choose one feature to emulate at the start of your turn.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Nerve-Racking Negotiator",
@@ -45858,14 +45857,14 @@
         "Gnomes of the World"
       ],
       "references": [
-        "Archives of a deity of magic: Threatening Illusion"
+        "Pathfinder PRD: Threatening Illusion"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Threatening%20Illusion"
       ],
       "source_id": "gnomes_of_the world:threatening_illusion",
-      "description": "You've mastered the art of making illusions that force foes to divide their attention in combat.\n\nYou can use this metamagic feat only on illusion (figment) spells. A threatening illusion spell causes one target to believe your illusion is a threat. Choose one 5-foot square within the area of your illusion; that square threatens the target as long as it is adjacent. Thus, if you or an ally is on the opposite side of the target, it is considered flanking. Normally the area must contain an illusory creature of Small or Medium size. However, you can select one square of a larger illusory creature to threaten the target. For example, an illusory Large ogre takes up four 5-foot squares; you select one square to be the source of the threat, and its other three squares do not threaten anyone. If the target has reason to believe there is an invisible creature in the vicinity, even an auditory illusion with no visual ea bardents (such as ghost sound) is sufficient to convince the target that the selected square contains an actual threat. As long as you maintain the illusion, you can change the location of the threatening square as a swift action. When you threaten a target with this spell, the foe may make a Will save to disbelieve (DC 10 + threatening spell's level + your spellcasting ability score modifier). If the target makes this save, the threatening effect of this feat no longer applies to it. A threatening illusion takes up a spell slot one level higher than normal.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You’ve mastered the art of making illusions that force foes to divide their attention in combat.\n\nYou can use this metamagic feat only on illusion (figment) spells. A threatening illusion spell causes one target to believe your illusion is a threat. Choose one 5-foot square within the area of your illusion; that square threatens the target as long as it is adjacent. Thus, if you or an ally is on the opposite side of the target, it is considered flanking. Normally the area must contain an illusory creature of Small or Medium size. However, you can select one square of a larger illusory creature to threaten the target. For example, an illusory Large ogre takes up four 5-foot squares; you select one square to be the source of the threat, and its other three squares do not threaten anyone. If the target has reason to believe there is an invisible creature in the vicinity, even an auditory illusion with no visual elements (such as ghost sound ) is sufficient to convince the target that the selected square contains an actual threat. As long as you maintain the illusion, you can change the location of the threatening square as a swift action. When you threaten a target with this spell, the foe may make a Will save to disbelieve (DC 10 + threatening spell’s level + your spellcasting ability score modifier). If the target makes this save, the threatening effect of this feat no longer applies to it. A threatening illusion takes up a spell slot one level higher than normal.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Arcane Jinxer",
@@ -47557,20 +47556,20 @@
         "Alchemist discovery",
         "arcane discovery",
         "arcanist exploit",
-        "or magus arcana class feature and you must either have observed a created magical effect you could not understand or have the Master Craftsman or the Unquenchable Hunger for Knowledge background"
+        "or magus arcana class feature and you must either have observed a created magical effect you could not understand or have the Master Craftsman UCA or the Unquenchable Hunger for Knowledge UCA background"
       ],
       "tags": [
         "Spymaster's Handbook"
       ],
       "references": [
-        "Archives of a deity of magic: Supernatural Spy"
+        "Pathfinder PRD: Supernatural Spy"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Supernatural%20Spy"
       ],
       "source_id": "spymaster_s_handbook:supernatural_spy",
-      "description": "Your familiarity with magic drives you to discover a great supernatural secret. You might work with an eldritch organization, which could be a school of magic such as the Arcana barbarianum or part of a government with strong ties to magic such as that of a winter-locked realm, or you might attempt to keep your magical inquiries hidden from your employers.\n\nTreat your Intelligence, Wisdom, or Charisma score as 2 higher for the purpose of calculating the effects and save DCs of one of the following class features: alchemist discoveries, arcane discoveries, arcanist exploits, or magus arcana. You select both the ability score and class feature to be affected when you select this feat, and the choice cannot be changed. This increases the potency of the abilities but does not grant access to additional abilities.",
-      "updated_at": "2026-07-19T00:00:00Z"
+      "description": "Your familiarity with magic drives you to discover a great supernatural secret. You might work with an eldritch organization, which could be a school of magic such as the Arcanamirium or part of a government with strong ties to magic such as that of a winter-locked realm, or you might attempt to keep your magical inquiries hidden from your employers.\n\nTreat your Intelligence, Wisdom, or Charisma score as 2 higher for the purpose of calculating the effects and save DCs of one of the following class features: alchemist discoveries, arcane discoveries, arcanist exploits, or magus arcana. You select both the ability score and class feature to be affected when you select this feat, and the choice cannot be changed. This increases the potency of the abilities but does not grant access to additional abilities. Goal Learn a great supernatural secret, connected in some manner to an aspect of the class feature you selected with this story feat. You must evade or thwart a challenging foe in the process. Completion Benefit When calculating the effect of the class feature selected with this feat, you treat your class level for the relevant class as 2 higher. This does not impact when you gain access to additional abilities tied to that class feature, only the effectiveness of abilities from the feature you already have.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Wily Warrior",
@@ -47662,14 +47661,14 @@
         "Legacy Of Dragons"
       ],
       "references": [
-        "Archives of a deity of magic: Draconic Manifestation"
+        "Pathfinder PRD: Draconic Manifestation"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Draconic%20Manifestation"
       ],
       "source_id": "legacy_of_dragons:draconic_manifestation",
-      "description": "You've unlocked more than just the ability to emulate the claws of your draconic forebear. You now invoke other traits of your bloodline.\n\nAs a free action when manifesting claws (as per the sorcerer bloodline ability), you infuse yourself with other dormant powers of your draconic bloodline. If you're a bloodrager, you gain the benefits of this feat as a free action, but only while bloodraging; the ability lasts for a number of rounds per day equal to 3 + your Charisma modifier. These rounds need not be used consecutively. Depending on the specific draconic bloodline you have, you gain one of the following abilities.  Chromatic: You become immune to paralysis and sleep effects.  Esoteric: You become partially incorporeal, gaining concealment (20%) against all incoming attacks.  Imperial: You gain a +1 circumstance bonus on Intimidate checks for every 4 levels you have in a class that grants you a draconic bloodline. You also become immune to fear effects.  Metallic: You radiate a 10-foot aura of courage, inspiring those around you with your intensity. Allies within the aura gain a +2 morale bonus on saves against fear effects and spells with the evil descriptor. Allies already affected by a fear effect when they first enter the aura can attempt a new saving throw at the same DC as the original effect. On a successful save, the fear effect ends. A creature can benefit from this reroll only once per day.  Outer: You don't need to breathe and gain immunity to any gas-based or smell effects.  Primal: You radiate a 5-foot aura of ea bardental damage. Creatures within the aura take 1 point of damage for every 4 levels you have in a class that grants you a draconic bloodline. This damage is energy damage based on your chosen dragon type.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You’ve unlocked more than just the ability to emulate the claws of your draconic forebear.\n\nAs a free action when manifesting claws (as per the sorcerer bloodline ability), you infuse yourself with other dormant powers of your draconic bloodline. If you’re a bloodrager, you gain the benefits of this feat as a free action, but only while bloodraging; the ability lasts for a number of rounds per day equal to 3 + your Charisma modifier. These rounds need not be used consecutively. Depending on the specific draconic bloodline you have, you gain one of the following abilities. Chromatic You become immune to paralysis and sleep effects. Esoteric You become partially incorporeal, gaining concealment (20%) against all incoming attacks. Imperial You gain a +1 circumstance bonus on Intimidate checks for every 4 levels you have in a class that grants you a draconic bloodline. You also become immune to fear effects. Metallic You radiate a 10-foot aura of courage, inspiring those around you with your intensity. Allies within the aura gain a +2 morale bonus on saves against fear effects and spells with the evil descriptor. Allies already affected by a fear effect when they first enter the aura can attempt a new saving throw at the same DC as the original effect. On a successful save, the fear effect ends. A creature can benefit from this reroll only once per day. Outer You don’t need to breathe and gain immunity to any gas-based or smell effects. Primal You radiate a 5-foot aura of elemental damage. Creatures within the aura take 1 point of damage for every 4 levels you have in a class that grants you a draconic bloodline. This damage is energy damage based on your chosen dragon type.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Draconic Heritage",
@@ -48936,20 +48935,24 @@
       "name": "Protector Of The People",
       "source": "Horror Adventures",
       "prerequisites": [
-        "See text"
+        "Your community has come under persecution and requires considerable defense",
+        "or you have the Raiders",
+        "the Righting a Wrong",
+        "The War",
+        "or The Way Things Work background (all of which are found in Ultimate Campaign )"
       ],
       "tags": [
         "Horror Adventures"
       ],
       "references": [
-        "Archives of a deity of magic: Protector Of The People"
+        "Pathfinder PRD: Protector Of The People"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Protector%20Of%20The%20People"
       ],
       "source_id": "horror_adventures:protector_of_the_people",
-      "description": "You have vowed to construct a defender for your community.\n\nYou temporarily gain the Craft Construct feat for the purposes of building one goa bard to satisfy the goal of this story feat. You do not need to meet Craft Construct's Prerequisites, and it can't be used as a prerequisite for any other crafting endeavor.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You have vowed to construct a defender for your community.\n\nYou temporarily gain the Craft Construct feat for the purposes of building one golem to satisfy the goal of this story feat. You do not need to meet Craft Construct’s prerequisites, and it can’t be used as a prerequisite for any other crafting endeavor. Goal Craft a golem of CR 5 or greater and donate it to your community for its defense against persecution. You and your allies must fund the construction, not the community. You must be significantly involved in the golem’s construction. After completion, this golem cannot be used as a personal adventuring companion; it is the property of the community to which it was dedicated. The donated creature must be a golem and not another type of construct, such as an animated object. Completion Benefit You gain Craft Construct as a bonus feat without meeting its prerequisites and can use it for any purpose. The cost to build any construct that normally costs less than the cost of your donated golem is permanently reduced by 10%; the cost of the base materials is not reduced, however.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Purging Emesis",
@@ -50282,14 +50285,14 @@
         "Villain Codex"
       ],
       "references": [
-        "Archives of a deity of magic: Favored Community"
+        "Pathfinder PRD: Favored Community"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Favored%20Community"
       ],
       "source_id": "villain_codex:favored_community",
-      "description": "You know your local community like the back of your hand.\n\nSelect a permanent, stationary setta bardent. While in that setta bardent, you gain a +2 bonus on initiative checks and Knowledge (geography), Perception, Stealth, and Survival checks, as per the ranger's favored terrain class feature. If you already have that class feature and apply its bonuses in your favored community, increase the bonus provided by favored terrain by 2. The bonuses from this feat do not stack with other effects that provide or augment favored terrain bonuses, such as boots of friendly terrain (Advanced Player's Guide 301).",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You know your local community like the back of your hand.\n\nSelect a permanent, stationary settlement. While in that settlement, you gain a +2 bonus on initiative checks and Knowledge (geography), Perception, Stealth, and Survival checks, as per the ranger’s favored terrain class feature. If you already have that class feature and apply its bonuses in your favored community, increase the bonus provided by favored terrain by 2. The bonuses from this feat do not stack with other effects that provide or augment favored terrain bonuses, such as boots of friendly terrain ( Advanced Player’s Guide 301).",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Covering Fire",
@@ -51323,14 +51326,14 @@
         "Heroes Of The High Court"
       ],
       "references": [
-        "Archives of a deity of magic: Aspiringnoble"
+        "Pathfinder PRD: Aspiringnoble"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Aspiringnoble"
       ],
       "source_id": "heroes_of_the_high_court:aspiringnoble",
-      "description": "You strive to be seen as a legitimate noble.\n\nYou have learned to further your name among the people. Choose a setta bardent and either Diplomacy or Intimidate. While in your chosen setta bardent, you gain a +2 bonus on checks with the chosen skill when dealing with the commoners of that setta bardent. If you have 10 or more ranks in the chosen skill, the bonus increases to +4.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You strive to be seen as a legitimate noble.\n\nYou have learned to further your name among the people. Choose a settlement and either Diplomacy or Intimidate. While in your chosen settlement, you gain a +2 bonus on checks with the chosen skill when dealing with the commoners of that settlement. If you have 10 or more ranks in the chosen skill, the bonus increases to +4. Goal Have your family recognized as nobility by either three established noble families or a ruling monarch. Completion Benefit You gain a +2 bonus on checks with your chosen skill when dealing with the rest of the citizens of your chosen settlement. Your bonus to interact with commoners increases to +4, or it increases to +6 if you have 10 or more ranks in your chosen skill.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Enlightenednoble",
@@ -51814,14 +51817,14 @@
         "Psychic Anthology"
       ],
       "references": [
-        "Archives of a deity of magic: Kinetic Crafting"
+        "Pathfinder PRD: Kinetic Crafting"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Kinetic%20Crafting"
       ],
       "source_id": "psychic_anthology:kinetic_crafting",
-      "description": "You can use your wild talents to help you craft magic items.\n\nWhen crafting a magic item or taking item creation feats, you can treat your kineticist level as your caster level. In addition, you can treat any wild talent you have as a spell of the same level or lower for the purpose of fulfilling the requirements for magic item creation (except spell-completion and spell-trigger items). This wild talent must be associated with the same ea bardent or deal the same type of energy damage as the emulated spell's descriptor.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can use your wild talents to help you craft magic items.\n\nWhen crafting a magic item or taking item creation feats, you can treat your kineticist level as your caster level. In addition, you can treat any wild talent you have as a spell of the same level or lower for the purpose of fulfilling the requirements for magic item creation (except spell-completion and spell-trigger items). This wild talent must be associated with the same element or deal the same type of energy damage as the emulated spell’s descriptor.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Kinetic Invocation",
@@ -51834,14 +51837,14 @@
         "Psychic Anthology"
       ],
       "references": [
-        "Archives of a deity of magic: Kinetic Invocation"
+        "Pathfinder PRD: Kinetic Invocation"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Kinetic%20Invocation"
       ],
       "source_id": "psychic_anthology:kinetic_invocation",
-      "description": "You have learned to channel your ea bardent's energy into the magic used by traditional spellcasters.\n\nFor each kineticist ea bardent to which you have access, you treat all spells associated with that ea bardent (see below) as utility wild talents of the listed level, which you can select as normal. Each has a burn cost of 1 unless otherwise noted, and any nonpermanent, non-instantaneous effects end when your burn is removed. Using this wild talent is considered psychic spellcasting (except for the purpose of Prerequisites), and you must provide emotion and thought components, as well as material components where appropriate. In addition, some spells are restricted to certain races (as detailed on page 9 of Pathfinder RPG Advanced Race Guide). Your caster level for a spell is equal to your kineticist level, and the save DC for any spell is equal to 10 + the listed level of the spell + your Constitution modifier. At the GM's discretion, other appropriate spells can be added to each ea bardent's list.  Aether: Etheric shardsOA (5th), instant armorAPG (2nd), kinetic reverberationUC (2nd), protective spiritAPG (3rd), telekinetic chargeUC (4th; 2 burn).  Air: Air stepACG (2nd), body capacitanceACG (1st), cloak of windsAPG (3rd), cloud shapeARG (4th; self only), gaseous form (3rd), wind walk (6th).  Earth: Expeditious excavationAPG (2nd; 0 burn), groundswellARG (2nd), imprisonment (9th), rampartAPG (7th), slowing mudACG (4th), statue (7th; 0 burn; self only), stone shieldARG (1st).  Fire: Blessing of the salamanderAPG (5th; self only), boiling bloodUM (2nd), death candleARG (2nd), fury of the sunARG (2nd; 0 burn), hypnotic pattern (2nd), hypnotism (2nd; 0 burn), invigorateAPG (1st).  Void: Animate dead (3rd), command undead (2nd), death ward (4th), halt undead (3rd), life channelARG (1st; 0 burn; self only), mind blank (8th; self only), unliving rageACG (3rd).  Water: Fluid formAPG (6th), ride the wavesUM (4th), silent image (2nd; 0 burn), sleet storm (3rd), water breathing (3rd).  Wood: Command plants (4th), fairy ring retreatACG (7th; ends 1 hour after your burn is removed), goodberry (1st), grove of respiteAPG (4th), lesser restoration (2nd), ward of the seasonARG (3rd).",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You have learned to channel your element’s energy into the magic used by traditional spellcasters.\n\nFor each kineticist element to which you have access, you treat all spells associated with that element (see below) as utility wild talents of the listed level, which you can select as normal. Each has a burn cost of 1 unless otherwise noted, and any nonpermanent, non-instantaneous effects end when your burn is removed. Using this wild talent is considered psychic spellcasting (except for the purpose of prerequisites), and you must provide emotion and thought components, as well as material components where appropriate. In addition, some spells are restricted to certain races (as detailed on page 9 of Pathfinder RPG Advanced Race Guide ). Your caster level for a spell is equal to your kineticist level, and the save DC for any spell is equal to 10 + the listed level of the spell + your Constitution modifier. At the GM’s discretion, other appropriate spells can be added to each element’s list. Aether Etheric shards OA (5th), instant armor APG (2nd), kinetic reverberation UC (2nd), protective spirit APG (3rd), telekinetic charge UC (4th; 2 burn). Air Air step ACG (2nd), body capacitance ACG (1st), cloak of winds APG (3rd), cloud shape ARG (4th; self only), gaseous form (3rd), wind walk (6th). Earth Expeditious excavation APG (2nd; 0 burn), groundswell ARG (2nd), imprisonment (9th), rampart APG (7th), slowing mud ACG (4th), statue (7th; 0 burn; self only), stone shield ARG (1st). Fire Blessing of the salamander APG (5th; self only), boiling blood UM (2nd), death candle ARG (2nd), fury of the sun ARG (2nd; 0 burn), hypnotic pattern (2nd), hypnotism (2nd; 0 burn), invigorate APG (1st). Void Animate dead (3rd), command undead (2nd), death ward (4th), halt undead (3rd), life channel ARG (1st; 0 burn; self only), mind blank (8th; self only), unliving rage ACG (3rd). Water Fluid form APG (6th), ride the waves UM (4th), silent image (2nd; 0 burn), sleet storm (3rd), water breathing (3rd). Wood Command plants (4th), fairy ring retreat ACG (7th; ends 1 hour after your burn is removed), goodberry (1st), grove of respite APG (4th), lesser restoration (2nd), ward of the season ARG (3rd).",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Metamagic Invocation",
@@ -51853,14 +51856,14 @@
         "Psychic Anthology"
       ],
       "references": [
-        "Archives of a deity of magic: Metamagic Invocation"
+        "Pathfinder PRD: Metamagic Invocation"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Metamagic%20Invocation"
       ],
       "source_id": "psychic_anthology:metamagic_invocation",
-      "description": "You have further refined your combination of ea bardental power and spellcasting with metamagic techniques.\n\nChoose a metamagic feat from the following list: Enlarge Spell, Extend Spell, Intuitive SpellOA, Logical SpellOA,  Quicken Spell, Reach SpellAPG, or Tenacious SpellUI. When casting a spell via Kinetic Invocation, you can increase its burn cost to augment the spell with that metamagic feat. The burn cost increase is equal to the spell level increase applied by the feat. Augmenting a spell increases its casting time as if it were cast spontaneously.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You have further refined your combination of elemental power and spellcasting with metamagic techniques.\n\nChoose a metamagic feat from the following list: Enlarge Spell, Extend Spell, Intuitive Spell OA , Logical Spell OA , Quicken Spell, Reach Spell APG , or Tenacious Spell UI . When casting a spell via Kinetic Invocation, you can increase its burn cost to augment the spell with that metamagic feat. The burn cost increase is equal to the spell level increase applied by the feat. Augmenting a spell increases its casting time as if it were cast spontaneously.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Distracting Explosion",
@@ -52661,14 +52664,14 @@
         "Monster Hunter's Handbook"
       ],
       "references": [
-        "Archives of a deity of magic: Harvest Parts"
+        "Pathfinder PRD: Harvest Parts"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Harvest%20Parts"
       ],
       "source_id": "monster_hunter_s_handbook:harvest_parts",
-      "description": "You can extract the choicest parts from a monster's carcass to use as resources when crafting items.\n\nYou can attempt a Craft or Heal check, as though making a trophy, to gain usable resources from a creature that has been dead for less than an hour. Only creatures with a CR of 1 or higher yield usable parts. The value of the parts you harvest is equal to the creature's CR squared x 10 gp (increases to CR derived from class levels or templates do not contribute to this value). This value can be used only as raw materials for crafting alchemical, masterwork, mundane, or magic items. Items crafted using creature parts must be made of a suitable material-typically bone or hide, with metal only in extraordinary cases. No more than a quarter of a crafted item's cost can be supplied with harvested parts. Harvested parts remain usable for 2 days before they rot (unless used to craft objects or somehow preserved). Creature parts that are harvested in this manner can't be bought or sold in most setta bardents.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You can extract the choicest parts from a monster’s carcass to use as resources when crafting items.\n\nYou can attempt a Craft or Heal check, as though making a trophy, to gain usable resources from a creature that has been dead for less than an hour. Only creatures with a CR of 1 or higher yield usable parts. The value of the parts you harvest is equal to the creature’s CR squared × 10 gp (increases to CR derived from class levels or templates do not contribute to this value). This value can be used only as raw materials for crafting alchemical, masterwork, mundane, or magic items. Items crafted using creature parts must be made of a suitable material—typically bone or hide, with metal only in extraordinary cases. No more than a quarter of a crafted item’s cost can be supplied with harvested parts. Harvested parts remain usable for 2 days before they rot (unless used to craft objects or somehow preserved). Creature parts that are harvested in this manner can’t be bought or sold in most settlements. Crafting Trophies Although any character can take trophies from fallen creatures for cosmetic or roleplaying purposes, the following feats allow characters to derive functionality from items they salvage from monstrous corpses. These feats work similarly to item creation feats, except trophies are created using a single Craft or Heal check, they are nonmagical, and the benefits they provide are typically temporary. The DC of such a check is equal to 15 + the creature’s CR, and creating a trophy takes a number of minutes equal to the creature’s CR.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Monstrous Crafter",
@@ -52865,20 +52868,20 @@
       "source": "Legacy Of The First World",
       "prerequisites": [
         "You must permanently dwell in a settlement at least as large as a large town. You must also have a fey ancestor somewhere in your family line",
-        "or have The Wanderer background (Ultimate Campaign 45)"
+        "or have The Wanderer background ( Ultimate Campaign 45 )"
       ],
       "tags": [
         "Legacy Of The First World"
       ],
       "references": [
-        "Archives of a deity of magic: City-Locked"
+        "Pathfinder PRD: City-Locked"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=City-Locked"
       ],
       "source_id": "legacy_of_the_first_world:city_locked",
-      "description": "Your soul craves travel through wild places, but you are stuck in a sedentary urban life by legal matters, honor-bound duties, or other responsibilities.\n\nWhen interacting with NPCs who live in your setta bardent, you gain a +1 bonus on Bluff, Diplomacy, and Sense Motive checks.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your soul craves travel through wild places, but you are stuck in a sedentary urban life by legal matters, honor-bound duties, or other responsibilities.\n\nWhen interacting with NPCs who live in your settlement, you gain a +1 bonus on Bluff, Diplomacy, and Sense Motive checks. Goal Complete the tasks to satisfy the terms of the law, matter of honor, or other responsibility, freeing you to leave the settlement without shame.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Embrace The Dark Fey",
@@ -53443,14 +53446,14 @@
         "Adventurer's Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Aspis Partner"
+        "Pathfinder PRD: Aspis Partner"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Aspis%20Partner"
       ],
       "source_id": "adventurer_s_guide:aspis_partner",
-      "description": "You have earned the attention of the Aspis Consortium and can call in favors when necessary.\n\nWhenever you are in a setta bardent that is the size of a small town or larger, you can purchase (but not sell) items through your Aspis contacts. Treat your current setta bardent as though it were a metropolis to determine its base value and available magic items. You pay a 5% markup for such items, and orders take 3d6 days to be delivered through Consortium channels. You can pay an additional 1,000 gp to have your item magically delivered to you in 1d3 days instead.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": ", You have earned the attention of the Aspis Consortium and can call in favors when necessary.\n\nWhenever you are in a settlement that is the size of a small town or larger, you can purchase (but not sell) items through your Aspis contacts. Treat your current settlement as though it were a metropolis to determine its base value and available magic items. You pay a 5% markup for such items, and orders take 3d6 days to be delivered through Consortium channels. You can pay an additional 1,000 gp to have your item magically delivered to you in 1d3 days instead.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Sinister Reputation",
@@ -54918,14 +54921,14 @@
         "Adventurer's Guide"
       ],
       "references": [
-        "Archives of a deity of magic: Storm-Lashed"
+        "Pathfinder PRD: Storm-Lashed"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Storm-Lashed"
       ],
       "source_id": "adventurer_s_guide:storm_lashed",
-      "description": "A life spent enduring gales and storms has hardened your body to the ea bardents.\n\nYou can ignore many of the effects of severe weather. In rainy conditions, your visibility is reduced by only one-quarter (not by half ) and you take only a -2 penalty on Perception checks. You are treated as if you were one size category larger for the purpose of wind effects, and halve any penalty on Perception checks caused by high winds. Finally, you gain a +2 bonus on saving throws against effects with the electricity descriptor or that deal electricity damage.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": ", , A life spent enduring gales and storms has hardened your body to the elements.\n\nYou can ignore many of the effects of severe weather. In rainy conditions, your visibility is reduced by only one-quarter (not by half ) and you take only a –2 penalty on Perception checks. You are treated as if you were one size category larger for the purpose of wind effects, and halve any penalty on Perception checks caused by high winds. Finally, you gain a +2 bonus on saving throws against effects with the electricity descriptor or that deal electricity damage.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Barracuda Dash",
@@ -55010,14 +55013,14 @@
         "AP 131"
       ],
       "references": [
-        "Archives of a deity of magic: Prosperity And Pride"
+        "Pathfinder PRD: Prosperity And Pride"
       ],
       "reference_urls": [
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Prosperity%20And%20Pride"
       ],
       "source_id": "ap_131:prosperity_and_pride",
-      "description": "Your family has raised cities and mastered trade, and you seek to do the same.\n\nWhen in a setta bardent the size of a large city or smaller, you receive a +2 bonus on Appraise checks and Diplomacy checks. If you have 10 or more ranks in one of these skills, the bonus on that skill increases to +4.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "Your family has raised cities and mastered trade, and you seek to do the same.\n\nWhen in a settlement the size of a large city or smaller, you receive a +2 bonus on Appraise checks and Diplomacy checks. If you have 10 or more ranks in one of these skills, the bonus on that skill increases to +4. Goal Your actions must spur a settlement to grow to the next size category ; this usually involves decisively defeating a challenging foe or an appropriate number of foes preying upon or impeding the settlement’s citizenry. Completion Benefit You teach others how to get the most out of their equipment. Three times per day as a standard action, you can increase the armor bonus provided by a suit of nonmagical armor, the circumstance bonus to a skill provided by a tool or skill kit, or the shield bonus provided by a nonmagical shield by 1. This bonus lasts for 1 hour and doesn’t stack with other uses of this ability.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "We Are The Wall",
