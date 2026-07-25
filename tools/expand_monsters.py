@@ -19,6 +19,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+from urllib.parse import quote
 import sys
 from pathlib import Path
 
@@ -38,7 +39,7 @@ INDEXES = {
     "mythic": "https://aonprd.com/MythicMonsters.aspx?Letter=All",
     "npcs": "https://aonprd.com/NPCs.aspx?SubGroup=All",
 }
-DISPLAY = {"monsters": "MonsterDisplay", "mythic": "MonsterDisplay",
+DISPLAY = {"monsters": "MonsterDisplay", "mythic": "MythicMonsterDisplay",
            "npcs": "NPCDisplay"}
 
 
@@ -51,8 +52,10 @@ def index_urls() -> dict[str, list[str]]:
         seen = []
         for item in found:
             # Gli indici AoN usano forme miste: %20 per alcuni mostri, spazi
-            # letterali per gli NPC (urllib rifiuta i control chars).
-            item = item.replace(" ", "%20")
+            # letterali per gli NPC (urllib rifiuta i control chars). I nomi
+            # con apostrofo curvo (U+2019) vanno percent-encodati in UTF-8;
+            # safe="%" preserva gli escape gia' presenti (%20, %27).
+            item = quote(item, safe="%")
             page_url = f"https://aonprd.com/{DISPLAY[kind]}.aspx?ItemName={item}"
             if page_url not in seen:
                 seen.append(page_url)
