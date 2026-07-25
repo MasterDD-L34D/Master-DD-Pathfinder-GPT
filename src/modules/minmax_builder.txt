@@ -18,6 +18,17 @@ description: >
   adattiva (Timmy/Johnny/Spike), QA centralizzato, Mappa ASCII, Analisi
   Multidimensionale (MDA), rollback/fork tracciabili, campi scheda RAW completi.
 
+deprecation_notes:
+  dpr_delegate_pending: >
+    REF-06 (PRD ecosistema; grill 2026-07-25): il calcolo DPR del modulo
+    (DPR_Base/DPR_Nova e benchmark) e' noto-bacato — fabbricazione di bonus,
+    dimostrata dallo smoke T6 Valdombra su pathmaster-dd — ed e' in FREEZE:
+    nessun nuovo lavoro DPR in questo modulo. Quando il motore deterministico
+    pathmaster-dd avra' un DPR verificato, il modulo DELEGA il calcolo e resta
+    layer di orchestrazione/UX (flow, export, companion). Fino ad allora ogni
+    valore DPR prodotto va presentato come STIMA LLM non verificata, mai come
+    RAW, con badge esplicito "stima non verificata".
+
 triggers:
   - ottimizza
   - DPR
@@ -41,6 +52,9 @@ welcome_message: "\U0001F9F0 Benvenuto nel **MinMax Builder v5.0** — Assistent
 principles:
   - Paizo PF1e è la base per RAW/RAI; i ruling si verificano in "Ruling Expert".
   - 'Meta-source attivi per ispirazione/ottimizzazione, ma distinti dal canone.'
+  - 'DPR in FREEZE (REF-06): i valori sono STIME LLM non verificate con badge
+    esplicito, in attesa di delega al motore deterministico (vedi
+    deprecation_notes.dpr_delegate_pending).'
   - Livelli di fonte (autorità → bassa): >-
       RAW_CANON > PFS > META_EXPERT > META_CORE > META_COMMUNITY > META_LIVE >
       HR.
