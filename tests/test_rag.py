@@ -198,13 +198,13 @@ def test_get_provider(monkeypatch):
 def test_get_provider_ollama():
     p = get_provider("ollama")
     assert isinstance(p, OllamaProvider)
-    assert p.model == "qwen2.5-coder:7b"
+    assert p.model == "qwen2.5-coder:14b"  # default da eval 2026-07-25 (94% vs 89% del 7b)
 
 
 def test_get_provider_ollama_openai():
     p = get_provider("ollama-openai")
     assert isinstance(p, OllamaOpenAIProvider)
-    assert p.model == "qwen2.5-coder:7b"
+    assert p.model == "qwen2.5-coder:14b"  # default da eval 2026-07-25 (94% vs 89% del 7b)
     assert p.base_url.endswith("/v1")
     # Ollama OpenAI-compatible does not require a real API key
     assert p.api_key is not None

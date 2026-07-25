@@ -21,7 +21,7 @@ class MockProvider:
 
 
 class OllamaProvider:
-    def __init__(self, base_url: str = "http://localhost:11434", model: str = "qwen2.5-coder:7b"):
+    def __init__(self, base_url: str = "http://localhost:11434", model: str = "qwen2.5-coder:14b"):
         self.base_url = base_url.rstrip("/")
         self.model = model
 
@@ -82,7 +82,7 @@ class OllamaOpenAIProvider(OpenAIProvider):
     def __init__(
         self,
         base_url: str = "http://localhost:11434/v1",
-        model: str = "qwen2.5-coder:7b",
+        model: str = "qwen2.5-coder:14b",
         api_key: str | None = None,
     ):
         super().__init__(api_key=api_key or "ollama", base_url=base_url, model=model)
@@ -101,12 +101,12 @@ def get_provider(
     if name == "ollama":
         return OllamaProvider(
             base_url=ollama_base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
-            model=ollama_model or os.getenv("OLLAMA_MODEL", "qwen2.5-coder:7b"),
+            model=ollama_model or os.getenv("OLLAMA_MODEL", "qwen2.5-coder:14b"),
         )
     if name == "ollama-openai":
         return OllamaOpenAIProvider(
             base_url=(ollama_base_url or os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")).rstrip("/") + "/v1",
-            model=ollama_model or os.getenv("OLLAMA_MODEL", "qwen2.5-coder:7b"),
+            model=ollama_model or os.getenv("OLLAMA_MODEL", "qwen2.5-coder:14b"),
         )
     if name in ("openai", "openai-compatible"):
         return OpenAIProvider(
