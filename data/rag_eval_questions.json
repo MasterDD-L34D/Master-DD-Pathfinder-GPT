@@ -1,0 +1,24 @@
+{
+  "_comment": "Question set RAG eval (2026-07-25, grill: A-minima). Domande da GM in italiano con documento atteso. `expected` = sottostringa case-insensitive cercata nel campo `source` del chunk (formato reference::<file>::<name>). Valuta il RETRIEVAL, non la generazione (valutazione generazione = follow-up obbligatorio registrato).",
+  "top_k": 5,
+  "questions": [
+    {"id": "feat-power-attack", "query": "cosa fa il talento Attacco Poderoso?", "expected": "Power Attack"},
+    {"id": "feat-toughness", "query": "quanti pf dà Robustezza?", "expected": "Toughness"},
+    {"id": "spell-fireball", "query": "area e danni di Palla di Fuoco?", "expected": "Fireball"},
+    {"id": "spell-ablative", "query": "che scuola è Ablative Sphere?", "expected": "Ablative Sphere"},
+    {"id": "spell-gist-new", "query": "a che livello è la spell Acid Fog?", "expected": "Acid Fog"},
+    {"id": "equip-chainmail", "query": "quanto costa la cotta di maglia?", "expected": "Chainmail"},
+    {"id": "equip-scalemail", "query": "bonus di armatura della corazza a scaglie?", "expected": "Scale mail"},
+    {"id": "equip-fullplate", "query": "la corazza di piastre completa quanto dà di CA?", "expected": "Full plate"},
+    {"id": "class-wizard", "query": "quanti incantesimi al giorno ha un mago di livello 5?", "expected": "Wizard"},
+    {"id": "class-bard-known", "query": "quanti incantesimi conosce un bardo di livello 1?", "expected": "Bard"},
+    {"id": "race-aasimar", "query": "modificatori razziali dell'aasimar?", "expected": "Aasimar"},
+    {"id": "race-kobold", "query": "tratti razziali del coboldo?", "expected": "Kobold"},
+    {"id": "archetype-treesinger", "query": "cosa sostituisce l'archetipo Treesinger del druido?", "expected": "Treesinger"},
+    {"id": "archetype-archer", "query": "quali capacità del guerriero perde l'archetipo Archer?", "expected": "Archer"},
+    {"id": "monster-wyvern", "query": "CR e CA della viverna?", "expected": "Wyvern"},
+    {"id": "skill-perception", "query": "a che caratteristica è legata Percezione?", "expected": "Perception"},
+    {"id": "trait-reactionary", "query": "che bonus dà il tratto Reactionary?", "expected": "Reactionary"},
+    {"id": "ability-pointbuy", "query": "quanto costa una caratteristica 14 col point buy?", "expected": "Score 14"}
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "top_k": 5,
+  "hits": 6,
+  "total": 18,
+  "rate": 0.3333333333333333,
+  "results": [
+    {
+      "id": "feat-power-attack",
+      "query": "cosa fa il talento Attacco Poderoso?",
+      "expected": "Power Attack",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::feats::Attacco poderoso"
+    },
+    {
+      "id": "feat-toughness",
+      "query": "quanti pf dà Robustezza?",
+      "expected": "Toughness",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::feats::Robustezza"
+    },
+    {
+      "id": "spell-fireball",
+      "query": "area e danni di Palla di Fuoco?",
+      "expected": "Fireball",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::items::Munizioni adamantine e scatter, cartucce concussive di riserva"
+    },
+    {
+      "id": "spell-ablative",
+      "query": "che scuola è Ablative Sphere?",
+      "expected": "Ablative Sphere",
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::spells::Ablative Sphere"
+    },
+    {
+      "id": "spell-gist-new",
+      "query": "a che livello è la spell Acid Fog?",
+      "expected": "Acid Fog",
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::spells::Acid Fog"
+    },
+    {
+      "id": "equip-chainmail",
+      "query": "quanto costa la cotta di maglia?",
+      "expected": "Chainmail",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::equipment::Elven thornblade"
+    },
+    {
+      "id": "equip-scalemail",
+      "query": "bonus di armatura della corazza a scaglie?",
+      "expected": "Scale mail",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::items::Armatura di cuoio rinforzata"
+    },
+    {
+      "id": "equip-fullplate",
+      "query": "la corazza di piastre completa quanto dà di CA?",
+      "expected": "Full plate",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::items::Corazza di piastre leggermente rinforzata"
+    },
+    {
+      "id": "class-wizard",
+      "query": "quanti incantesimi al giorno ha un mago di livello 5?",
+      "expected": "Wizard",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::spells::Cloak of Dreams"
+    },
+    {
+      "id": "class-bard-known",
+      "query": "quanti incantesimi conosce un bardo di livello 1?",
+      "expected": "Bard",
+      "hit": true,
+      "rank": 5,
+      "top_source": "reference::items::Armatura vivente +1 con rune botaniche"
+    },
+    {
+      "id": "race-aasimar",
+      "query": "modificatori razziali dell'aasimar?",
+      "expected": "Aasimar",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::feats::Eternal Enmity"
+    },
+    {
+      "id": "race-kobold",
+      "query": "tratti razziali del coboldo?",
+      "expected": "Kobold",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::feats::True Breed"
+    },
+    {
+      "id": "archetype-treesinger",
+      "query": "cosa sostituisce l'archetipo Treesinger del druido?",
+      "expected": "Treesinger",
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::archetypes::Treesinger"
+    },
+    {
+      "id": "archetype-archer",
+      "query": "quali capacità del guerriero perde l'archetipo Archer?",
+      "expected": "Archer",
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::archetypes::Archer"
+    },
+    {
+      "id": "monster-wyvern",
+      "query": "CR e CA della viverna?",
+      "expected": "Wyvern",
+      "hit": false,
+      "rank": null,
+      "top_source": "ruling_expert.txt"
+    },
+    {
+      "id": "skill-perception",
+      "query": "a che caratteristica è legata Percezione?",
+      "expected": "Perception",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::feats::Obliviating Stare"
+    },
+    {
+      "id": "trait-reactionary",
+      "query": "che bonus dà il tratto Reactionary?",
+      "expected": "Reactionary",
+      "hit": false,
+      "rank": null,
+      "top_source": "reference::spells::Pesh Vigor"
+    },
+    {
+      "id": "ability-pointbuy",
+      "query": "quanto costa una caratteristica 14 col point buy?",
+      "expected": "Score 14",
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::abilities::Score 14"
+    }
+  ]
+}
