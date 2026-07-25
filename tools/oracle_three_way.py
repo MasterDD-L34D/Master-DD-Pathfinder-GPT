@@ -1,0 +1,198 @@
+#!/usr/bin/env python3
+"""Oracolo a tre vie (rilancio 2026-07-25): v1 | v2 | builder Taverna.
+
+Legge `pathmaster-dd/data/reference/oracle-three-way.json` (dump
+tools/oracle-three-way.mjs: input draft + derivati v1/v2), costruisce ogni
+build col builder deterministico `src/pc` e confronta hp/bab/init/TS/
+caratteristiche finali/conteggio talenti tra i TRE motori.
+
+Normalizzazione nomi corpus (caveat noto): lowercase/strip separatori
+("Half Orc" -> Half-Orc, "Halfelf" -> Half-Elf, "arcanist" -> Arcanist).
+Razze flessibili (mods {"any": 2}): la scelta del bonus e' derivata
+deterministicamente provando le 6 caratteristiche e tenendo quella che
+riproduce le statistiche finali dello sheet.
+
+Uso: .venv/Scripts/python tools/oracle_three_way.py [--write]
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+DUMP_PATH = (ROOT.parent / "pathmaster-dd" / "data" / "reference"
+             / "oracle-three-way.json")
+REPORT_PATH = ROOT / "reports" / "oracle_three_way.md"
+
+_ABILITIES = ["str", "dex", "con", "int", "wis", "cha"]
+_STAT_KEYS = {"FOR": "str", "DES": "dex", "COS": "con",
+              "INT": "int", "SAG": "wis", "CAR": "cha"}
+
+
+def _norm_name(name: str) -> str:
+    """Chiave normalizzata per il match ('Half Orc'/'halfelf' -> stessa chiave)."""
+    return re.sub(r"[^a-z0-9]+", "", name.strip().lower())
+
+
+def _canon(catalog_path: Path, name: str) -> str | None:
+    """Nome canonico del catalogo per la query (matching normalizzato)."""
+    data = json.loads(catalog_path.read_text(encoding="utf-8"))
+    for e in data["entries"]:
+        if _norm_name(e["name"]) == _norm_name(name):
+            return e["name"]
+    return None
+
+
+def _race_mods(race_name: str) -> tuple[str | None, dict]:
+    races_path = ROOT / "data" / "reference" / "ogl" / "races.json"
+    canon = _canon(races_path, race_name)
+    if not canon:
+        return None, {}
+    races = json.loads(races_path.read_text(encoding="utf-8"))
+    entry = next(e for e in races["entries"] if e["name"] == canon)
+    return canon, entry.get("mechanics", {}).get("ability_mods") or {}
+
+
+def _sheet_scores(sheet: dict | None) -> dict[str, int] | None:
+    if not sheet:
+        return None
+    out = {}
+    for k, v in sheet.items():
+        if k in _STAT_KEYS and isinstance(v, int):
+            out[_STAT_KEYS[k]] = v
+    return out or None
+
+
+def _flex_choice(draft_abilities: dict, mods: dict, sheet_scores: dict) -> str | None:
+    """Razza flessibile: la caratteristica (di 6) che riproduce lo sheet."""
+    if not sheet_scores:
+        return None
+    for ability in _ABILITIES:
+        final = {a: draft_abilities.get(a, 10) + (2 if a == ability else 0) for a in _ABILITIES}
+        if all(final[a] == sheet_scores.get(a) for a in _ABILITIES):
+            return ability
+    return None
+
+
+def _compare(sheet: dict, v: dict | None, label: str, diffs: list):
+    if not v:
+        return  # motore assente per questa build: non e' divergenza
+    for key in ("hp", "bab", "initiative"):
+        if v.get(key) is None:
+            continue  # campo non calcolato dal motore (v1: initiative): non e' divergenza
+        if sheet.get(key) != v.get(key):
+            diffs.append(f"{label} {key}: taverna {sheet.get(key)} vs {v.get(key)}")
+    saves = sheet.get("saves") or {}
+    for key in ("fort", "ref", "will"):
+        if v.get(key) is None:
+            continue
+        if saves.get(key) != v.get(key):
+            diffs.append(f"{label} {key}: taverna {saves.get(key)} vs {v.get(key)}")
+    tab_ab = sheet.get("abilities") or {}
+    v_ab = v.get("abilities") or {}
+    for a in _ABILITIES:
+        if a in v_ab and tab_ab.get(a) != v_ab[a]:
+            diffs.append(f"{label} {a}: taverna {tab_ab.get(a)} vs {v_ab[a]}")
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--write", action="store_true")
+    args = ap.parse_args()
+
+    from src.pc.engine import build_character
+    from src.pc.models import CharacterDraft
+
+    dump = json.loads(DUMP_PATH.read_text(encoding="utf-8"))
+    rows = []
+    n_concordant = 0
+    COST = {7: -4, 8: -2, 9: -1, 10: 0, 11: 1, 12: 2, 13: 3,
+            14: 5, 15: 7, 16: 10, 17: 13, 18: 17}
+    BUDGETS = [(10, "Low Fantasy"), (15, "Standard Fantasy"),
+               (20, "High Fantasy"), (25, "Epic Fantasy")]
+    for rec in dump:
+        if rec.get("error"):
+            rows.append({"file": rec["file"], "status": "ERROR", "diffs": [rec["error"]]})
+            continue
+        d = rec["draft"]
+        race_canon, mods = _race_mods(d["race"])
+        abilities = d.get("baseAbilities") or {}
+        cost = sum(COST.get(v, 99) for v in abilities.values())
+        budget = next((name for pts, name in BUDGETS if cost <= pts), None)
+        if budget is None:
+            # Finding oracolo: stats oltre Epic Fantasy 25 (GPT-A fuori RAW)
+            rows.append({"file": rec["file"], "status": "FUORI_BUDGET_GPT",
+                         "diffs": [f"point-buy {cost} > 25 (Epic Fantasy): stats illegali nel corpus"]})
+            continue
+        race_bonus = None
+        if mods.get("any") and abilities:
+            race_bonus = _flex_choice(abilities, mods, _sheet_scores(d.get("sheetAbilities")))
+        class_canon = _canon(ROOT / "data" / "reference" / "ogl" / "classes.json", d["class"])
+        draft = {
+            "name": d["name"],
+            "method": "point-buy",
+            "campaign_type": budget,
+            "abilities": abilities,
+            "race": race_canon or d["race"],
+            "class": class_canon or d["class"],
+            "feats": d.get("feats") or [],
+        }
+        if race_bonus:
+            draft["race_bonus_ability"] = race_bonus
+        try:
+            sheet = build_character(CharacterDraft.from_dict(draft))
+        except Exception as exc:
+            rows.append({"file": rec["file"], "status": "TAVERNA_ERR", "diffs": [str(exc)[:120]]})
+            continue
+        if sheet.get("errors"):
+            errs = sheet["errors"]
+            first = errs[0]
+            if "selezionati su" in first and "consentiti" in first:
+                # Il builder e' l'unico motore che applica il limite RAW di
+                # talenti: errore del CORPUS (classe di difetto gia' trovata
+                # dallo spike 2026-07-19, adottata come warning in v1/v2).
+                rows.append({"file": rec["file"], "status": "FEAT_ILLEGALE_GPT",
+                             "diffs": errs[:2]})
+            elif "race_bonus_ability obbligatorio" in first:
+                rows.append({"file": rec["file"], "status": "FLEX_INDETERMINATO",
+                             "diffs": [f"sheet GPT incoerente con ogni scelta +2: {first}"]})
+            else:
+                rows.append({"file": rec["file"], "status": "TAVERNA_ERR",
+                             "diffs": errs[:2]})
+            continue
+        diffs: list[str] = []
+        _compare(sheet, rec.get("v1"), "v1", diffs)
+        _compare(sheet, rec.get("v2"), "v2", diffs)
+        status = "CONCORDE" if not diffs else "DIVERGE"
+        n_concordant += status == "CONCORDE"
+        rows.append({"file": rec["file"], "status": status, "diffs": diffs,
+                     "race_bonus": race_bonus, "budget": budget})
+
+    lines = [
+        "# Oracolo a tre vie (v1 | v2 | builder Taverna) — rilancio 2026-07-25",
+        "",
+        f"Build base: {len(rows)}. Concorde a tre: {n_concordant}. "
+        f"Divergenze: {sum(1 for r in rows if r['status'] == 'DIVERGE')}. "
+        f"Errori: {sum(1 for r in rows if r['status'] != 'CONCORDE' and r['status'] != 'DIVERGE')}.",
+        "",
+        "| Build | Esito | Divergenze |",
+        "|---|---|---|",
+    ]
+    for r in rows:
+        diffs = "; ".join(r["diffs"]) if r["diffs"] else "—"
+        lines.append(f"| {r['file'].replace('.json', '')} | {r['status']} | {diffs} |")
+    text = "\n".join(lines) + "\n"
+    print(text[:3000])
+    if args.write:
+        REPORT_PATH.write_text(text, encoding="utf-8")
+        print(f"Report: {REPORT_PATH}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
