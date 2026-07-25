@@ -59,9 +59,9 @@
       "is_ogc": true,
       "is_pi": false,
       "cup_allowed": false,
-      "entries": 24,
-      "notes": "Riassunti meccanici delle razze core + 17 esotiche; nessun nome proprio di setting.",
-      "last_verified": "2026-07-19"
+      "entries": 77,
+      "notes": "77 razze (7 core + 70 non-core da indici AoN): mechanics con subraces e alternate_traits (replaces strutturato). Rigenerare con import_reference.py --domain races --write.",
+      "last_verified": "2026-07-25"
     },
     {
       "file": "ogl/archetypes.json",
@@ -200,6 +200,19 @@
       "entries": 12,
       "notes": "Archetipi con Product Identity nel nome, separati dal catalogo OGL (policy 2026-07-25). NON redistribuire.",
       "last_verified": "2026-07-25"
+    },
+    {
+      "file": "pi_local_only/subraces_local.json",
+      "kind": "subraces_local",
+      "source": "Archives of Nethys (aonprd.com)",
+      "license": "OGL-1.0a",
+      "is_ogc": false,
+      "is_pi": false,
+      "cup_allowed": false,
+      "local_only": true,
+      "entries": 6,
+      "notes": "Subrazze/alternate racial traits con nome PI (policy 2026-07-25). NON redistribuire.",
+      "last_verified": "2026-07-25"
     }
   ],
   "files": {
@@ -221,7 +234,7 @@
     },
     "races": {
       "path": "ogl/races.json",
-      "entries": 24
+      "entries": 77
     },
     "archetypes": {
       "path": "ogl/archetypes.json",
