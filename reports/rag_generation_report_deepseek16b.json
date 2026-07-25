@@ -1,0 +1,143 @@
+{
+  "provider": "OllamaOpenAIProvider",
+  "model": "deepseek-coder-v2:16b",
+  "hits": 14,
+  "total": 18,
+  "rate": 0.7777777777777778,
+  "results": [
+    {
+      "id": "feat-power-attack",
+      "ok": true,
+      "missing": [],
+      "answer_head": " Il talento Attacco Poderoso, noto come Power Attack, permette di accettare una penalità di -1 ai tiri per colpire in mischia per ottenere un bonus di +2 ai danni in mischia. Questo effetto aumenta de",
+      "seconds": 26.3
+    },
+    {
+      "id": "feat-toughness",
+      "ok": true,
+      "missing": [],
+      "answer_head": " La caratteristica di robustezza fornisce un bonus ai punti ferita (PF) che dipende dal tipo e dalla qualità dell'armatura indossata. Nel caso della \"Corazza di piastre leggermente rinforzata\", il bon",
+      "seconds": 21.9
+    },
+    {
+      "id": "spell-fireball",
+      "ok": true,
+      "missing": [],
+      "answer_head": " La \"Palla di Fuoco\" (Fireball) è un incantesimo che crea un'esplosione di fiamme in un raggio di 20 piedi, infliggendo 1d6 punti di danno da fuoco per livello del lanciatore (massimo 10d6). I tiri sa",
+      "seconds": 29.1
+    },
+    {
+      "id": "spell-ablative",
+      "ok": false,
+      "missing": [
+        "abjuration"
+      ],
+      "answer_head": " L'abilitative sphere non ha una specifica scuola magica associata. È un incantesimo di abjurazione che fornisce copertura migliorata e protegge il caster dai colpi, ma non influenza le prestazioni de",
+      "seconds": 25.0
+    },
+    {
+      "id": "spell-gist-new",
+      "ok": true,
+      "missing": [],
+      "answer_head": " La spell Acid Fog è un incantesimo di tipo conjuration e ha i seguenti prerequisiti: 'Arcane spellcasting 6th level'. Quindi, il livello dell'incantesimo Acid Fog è 6.",
+      "seconds": 9.7
+    },
+    {
+      "id": "equip-chainmail",
+      "ok": false,
+      "missing": [
+        "(nessuna di ['150'])"
+      ],
+      "answer_head": " La cotta di maglia più economica tra quelle elencate è la scale mail, che ha un costo di 50 gp.",
+      "seconds": 4.2
+    },
+    {
+      "id": "equip-scalemail",
+      "ok": true,
+      "missing": [],
+      "answer_head": " Il bonus di armatura della corazza a scaglie è +5, come indicato nella sezione \"Mechanics\" sotto la voce \"Scale mail\".",
+      "seconds": 4.0
+    },
+    {
+      "id": "equip-fullplate",
+      "ok": true,
+      "missing": [],
+      "answer_head": " La corazza di piastre completa (Full Plate) fornisce un bonus totale all'armatura di +9.",
+      "seconds": 3.3
+    },
+    {
+      "id": "class-wizard",
+      "ok": true,
+      "missing": [],
+      "answer_head": " Un mago di livello 5 può lanciare 7 incantesimi al giorno. Questo è specificato nella progressione dei punti ferita (PF) e degli slot per incantesimi del mago, dove al livello 5 il mago ha un totale ",
+      "seconds": 66.3
+    },
+    {
+      "id": "class-bard-known",
+      "ok": true,
+      "missing": [],
+      "answer_head": " Un bardo di livello 1 ha accesso a 4 incantesimi dalla lista bardica. Questi sono i suoi incantesimi noti al livello 1:\n\n- Cantrips (incantesimi immediati)\n- Countersong\n- Distraction\n- Fascinate\n- I",
+      "seconds": 58.8
+    },
+    {
+      "id": "race-aasimar",
+      "ok": true,
+      "missing": [],
+      "answer_head": " I modificatori razziali dell'Aasimar sono i seguenti:\n\n- Modificatore di Caratteristica per Saggezza (Wis): +2\n- Modificatore di Caratteristica per Carisma (Cha): +2",
+      "seconds": 15.5
+    },
+    {
+      "id": "race-kobold",
+      "ok": false,
+      "missing": [
+        "(nessuna di ['-4', '+2', 'destrezza', 'dexterity', 'dex'])"
+      ],
+      "answer_head": " I tratti razziali dei kobold sono i seguenti:\n\n1. **Reptilian**: Indica la natura reptile della razza kobold.\n2. **Darkvision (Vis. Notturna)**: Gli kobold possono vedere nell'oscurità come in una lu",
+      "seconds": 101.9
+    },
+    {
+      "id": "archetype-treesinger",
+      "ok": true,
+      "missing": [],
+      "answer_head": " L'archetipo Treesinger per il Druido ha due principali caratteristiche che sostituiscono le abilità e i prerequisiti della classe base. Quando un Druido sceglie di seguire l'archetipo Treesinger, que",
+      "seconds": 57.0
+    },
+    {
+      "id": "archetype-archer",
+      "ok": false,
+      "missing": [
+        "(nessuna di ['bravery', 'armor training', 'weapon training'])"
+      ],
+      "answer_head": "[Errore API OpenAI-compatibile: timed out]",
+      "seconds": 120.1
+    },
+    {
+      "id": "monster-wyvern",
+      "ok": true,
+      "missing": [],
+      "answer_head": " La viverna ha un **CR 6** e una **CA 19**. Ecco i dettagli meccanici per confermare queste informazioni:\n\n- **Statblock:** HP 73 (7d12+28), AC 19, touch 10, flat-footed 18.\n- **CA breakdown:** 10 + A",
+      "seconds": 19.8
+    },
+    {
+      "id": "skill-perception",
+      "ok": true,
+      "missing": [],
+      "answer_head": " La Percezione (Perception) è legata alla caratteristica WIS (Saggezza).",
+      "seconds": 4.4
+    },
+    {
+      "id": "trait-reactionary",
+      "ok": true,
+      "missing": [],
+      "answer_head": " Il tratto Reactionary fornisce un bonus di +2 ai controlli di iniziativa. Questo significa che quando si verifica una situazione di combattimento o di pericolo, sei più veloce a rispondere e ad agire",
+      "seconds": 5.4
+    },
+    {
+      "id": "ability-pointbuy",
+      "ok": true,
+      "missing": [],
+      "answer_head": " Una caratteristica 14 col punto buy costa 5 punti.",
+      "seconds": 1.4
+    }
+  ]
+}
