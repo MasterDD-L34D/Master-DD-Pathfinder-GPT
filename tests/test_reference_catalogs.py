@@ -95,7 +95,15 @@ def test_classes_races_mechanics():
         assert len(mech.get("progression", [])) == 20, f"{e['name']}: progressione != 20 livelli"
         assert mech.get("class_skills"), f"{e['name']}: class_skills mancanti"
     races = _load("races.json")["entries"]
+    # Razze senza ability_mods standard in pagina (formato non parsabile):
+    # anomalie documentate report-only del lotto 2026-07-25 (planning/
+    # 2026-07-25-noncore-races-complete.md; Boggard: markup senza bold-led;
+    # Primitive Human: '+2 a scelta tra tre caratteristiche'). Nessuna
+    # invenzione di dati: il campo resta vuoto per decisione di spec.
+    KNOWN_NO_MODS = {"Boggard", "Primitive Human"}
     for e in races:
+        if e["name"] in KNOWN_NO_MODS:
+            continue
         assert e.get("mechanics", {}).get("ability_mods"), f"{e['name']}: ability_mods mancanti"
     feats = _load("feats.json")["entries"]
     empty = sum(1 for e in feats if not e.get("prerequisites"))
