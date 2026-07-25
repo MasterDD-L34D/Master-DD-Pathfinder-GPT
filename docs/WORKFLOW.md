@@ -52,7 +52,7 @@ Il builder deterministico è consumato dall'harness a tre vie di pathmaster-dd c
 | **Leva 2 import** (cataloghi Taverna → `UNMODELED_DATA` v2) | Aperto, basso valore ora | I 2839 feat OGL possono popolare/verificare il perimetro unmodeled. |
 | **Chronicle M2-B dizionario campagna** | Futuro | I cataloghi OGL (PI già pulita) come seme vocabolario PF1e. |
 | **Regola ground-truth condivisa** | Permanente | Doc = ipotesi; git + SRD = verità. La concordanza a tre NON è correttezza: nei disaccordi si apre il SRD, non si vota a maggioranza. |
-| **Copertura oracolo** | 28/28 build | 2026-07-19: 24 razze (lotto esotiche) + 24 classi (lotto classi mancanti) → 28/29 build confrontabili; unica esclusa `paladin_aasimar` (razza Aasimar non importata). Rilancio tre-vie sulle 15 build sbloccate da segnalare a pathmaster-dd (caveat: nomi classe/razza nel corpus non canonici — `arcanist`/`tiefling` minuscoli, "Half Orc"/"Halfelf" — serve normalizzazione nel join). |
+| **Copertura oracolo** | 28/29 build confrontabili; **rilancio segnalato** | 2026-07-19: 24 razze (lotto esotiche) + 24 classi (lotto classi mancanti) → 28/29 build confrontabili; unica esclusa `paladin_aasimar` (razza Aasimar non importata). **2026-07-25: rilancio tre-vie sulle ~15 build sbloccate segnalato a pathmaster-dd** (`docs/superpowers/specs/2026-07-25-rilancio-tre-vie-28-build.md`), con caveat sui nomi non canonici nel corpus (`arcanist`/`tiefling` minuscoli, "Half Orc"/"Halfelf" — normalizzazione nel join). In attesa di esito. |
 
 ## 6. Come si riprende in futuro (checklist)
 
