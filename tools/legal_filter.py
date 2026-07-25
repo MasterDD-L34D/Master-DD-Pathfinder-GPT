@@ -177,6 +177,13 @@ def _load_manifest() -> Mapping:
 # Campi di contenuto OGC da scansionare per PI. I campi di provenienza
 # (source, reference_urls, ...) sono esclusi perché possono contenere nomi di
 # siti/marchi necessari per l'attribution tecnica.
+# DECISIONE 2026-07-25 (policy titoli libro, IMPORT_PLAYBOOK §6.1): i titoli
+# di libro PI nei campi `source` sono ATTRIBUTION ONESTA nominativa (stessa
+# logica di "Archives of Nethys (aonprd.com)") e NON sono gated per scelta,
+# non per dimenticanza. Stato legacy documentato: i `source` dei feats sono
+# gia' mascherati dalla sanitize storica ("the inner sea region Gods") e
+# restano cosi' (nessuna normalizzazione deliberata). Coperto da test
+# test_scan_entries_maschera_sanctioned_e_salta_metadata.
 SCANNED_FIELDS = {
     "name",
     "description",

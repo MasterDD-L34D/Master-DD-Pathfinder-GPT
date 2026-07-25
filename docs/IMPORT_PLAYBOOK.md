@@ -60,6 +60,10 @@ Triage completo di `feats.json` (`reports/pi_feats_triage.md`, tool `tools/triag
 
 Risultato: feats 2837→2787 (49 in `feats_local.json`), traits 470→466 (4 in `traits_local.json`, 7 sanitize), equipment 790→786 (4 in `equipment_local.json`); **gate a 0 violazioni totali**; scansione word-boundary su name/description/prerequisites: 0 residui. Citazioni di libri PI in `source`/`tags`: sanitize (convenzione "the inner sea region Gods" / "a strict-order handbook"); titoli nel campo `source` di equipment/traits restano follow-up documentato.
 
+### 6.1.1 Policy titoli libro in `source` (decisione 2026-07-25)
+
+**Decisione: attribution onesta, nessun gate, nessun churn.** I titoli di libro PI nei campi `source` (misurati: 253 spells-gist, 40 traits, 36 equipment) sono citation nominativa — la stessa logica per cui tutto il catalogo usa "Archives of Nethys (aonprd.com)" come attribution (anche "Nethys" è PI). Il gate **non** scansiona `source` per design (`SCANNED_FIELDS` in `legal_filter.py`, commento aggiornato; coperto da `test_scan_entries_maschera_sanctioned_e_salta_metadata`). Stato legacy: i `source` dei feats erano già stati mascherati dalla sanitize storica ("the inner sea region Gods") e **restano così** — nessuna normalizzazione deliberata in nessuna direzione. Alternative valutate e scartate: mascherare tutto (titoli storpiati, incoerenza con "Archives of Nethys", zero sicurezza aggiunta); ripristinare i titoli feats (churn per ri-esporre PI per estetica).
+
 ## 5. Checklist di registrazione (anti-staleness)
 
 Per ogni nuovo catalogo, TUTTI questi passi (la dimenticanza di uno si paga dopo):
