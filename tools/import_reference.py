@@ -203,20 +203,43 @@ def _section_text_nodes(el):
         "b", "i", "a", "h2", "h3", "sup", "script", "style")
 
 
+_SUBRACE_ATTR_RE = re.compile(
+    r"(?:have|has) the ([^.]+?) alternate racial traits?\b", re.I)
+
+
+def _split_trait_names(text):
+    """'arcane focus and urbanite' -> ['Arcane Focus', 'Urbanite'] (Title Case)."""
+    parts = re.split(r",\s*(?:and\s+)?|\s+and\s+", text.strip())
+    return [" ".join(w.capitalize() for w in p.split()) for p in parts if p.strip()]
+
+
 def parse_race_subraces(html):
-    """Sezione 'Subraces': [{name, description}] da h3.framing + prosa."""
+    """Sezione 'Subraces': [{name, source, description, alternate_traits}].
+
+    source dal primo <i> con 'pg.'; alternate_traits dalla frase regolare
+    'have the X alternate racial trait(s)' (zero invenzioni: assente -> [])."""
     soup = BeautifulSoup(html, "html.parser")
-    subs, current, parts = [], None, []
+    subs, current, parts, source = [], None, [], ""
 
     def flush():
         if current:
-            subs.append({"name": current,
-                         "description": clean(" ".join(p for p in parts if p)).lstrip(",; ")})
+            desc = clean(" ".join(p for p in parts if p)).lstrip(",; ")
+            m = _SUBRACE_ATTR_RE.search(desc)
+            subs.append({"name": current, "source": source,
+                         "description": desc,
+                         "alternate_traits": _split_trait_names(m.group(1)) if m else []})
 
     for el in _iter_section(soup, lambda t: t.strip().lower() == "subraces"):
-        if getattr(el, "name", None) == "h3" and "framing" in (el.get("class") or []):
+        name_attr = getattr(el, "name", None)
+        if name_attr == "h3" and "framing" in (el.get("class") or []):
             flush()
-            current, parts = clean(el.get_text()), []
+            current, parts, source = clean(el.get_text()), [], ""
+        elif name_attr == "b":
+            continue  # il <b>Source</b> label non e' contenuto
+        elif name_attr == "i":
+            txt = clean(el.get_text())
+            if current and not source and "pg." in txt:
+                source = re.sub(r"\s*pg\.\s*\d+.*$", "", txt).strip()
         elif _section_text_nodes(el):
             if current:
                 parts.append(clean(str(el)))

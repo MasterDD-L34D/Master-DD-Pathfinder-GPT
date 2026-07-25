@@ -85,39 +85,67 @@
         "subraces": [
           {
             "name": "Deep Delver",
-            "description": "Dwarves living far below the earth have the minesight and deep warrior racial traits. Deep delver spellcasters may exchange stonecunning for the stonesinger trait."
+            "source": "Advanced Race Guide",
+            "description": "Dwarves living far below the earth have the minesight and deep warrior racial traits. Deep delver spellcasters may exchange stonecunning for the stonesinger trait.",
+            "alternate_traits": []
           },
           {
             "name": "Desert Dwarves",
-            "description": "In southern peaks of the Shattered Range, near an undead-ruled land and the Screaming Jungle, clans of nomadic dwarves live and travel through ancient tunnels by day, moving to the surface only at night. Though there are no known dwarven cities in this region, the Garundi dwarves claim the extensive tunnels and caverns they move through are the remains of a once=powerful dwarven kingdom, which was struck down by the gods for some long-forgotten offense. These dwarves travel in caravans of 40 or so family units (though the largest caravans can contain more than 300 families) and engage in sporadic clan-based trade or warfare, but they all respect the neutrality of hidden settlements of dwarves who dwell in underground oases within the mountains. Desert dwarves often have the craftsman, mountaineer, and rock stepper alternate racial traits. Most also have the desert delver alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "In southern peaks of the Shattered Range, near an undead-ruled land and the Screaming Jungle, clans of nomadic dwarves live and travel through ancient tunnels by day, moving to the surface only at night. Though there are no known dwarven cities in this region, the Garundi dwarves claim the extensive tunnels and caverns they move through are the remains of a once=powerful dwarven kingdom, which was struck down by the gods for some long-forgotten offense. These dwarves travel in caravans of 40 or so family units (though the largest caravans can contain more than 300 families) and engage in sporadic clan-based trade or warfare, but they all respect the neutrality of hidden settlements of dwarves who dwell in underground oases within the mountains. Desert dwarves often have the craftsman, mountaineer, and rock stepper alternate racial traits. Most also have the desert delver alternate racial trait described below.",
+            "alternate_traits": [
+              "Craftsman",
+              "Mountaineer",
+              "Rock Stepper"
+            ]
           },
           {
             "name": "Elder Dwarf",
-            "description": "Traditionalist dwarves of ancient lineage have the ancient enmity, lorekeeper, and either the magic resistant or stubborn racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Traditionalist dwarves of ancient lineage have the ancient enmity, lorekeeper, and either the magic resistant or stubborn racial traits.",
+            "alternate_traits": []
           },
           {
             "name": "Exiled Dwarf",
-            "description": "Dwarves who have lost their homelands usually have the relentless and stubborn racial traits, and often have wyrmscourged as well."
+            "source": "Advanced Race Guide",
+            "description": "Dwarves who have lost their homelands usually have the relentless and stubborn racial traits, and often have wyrmscourged as well.",
+            "alternate_traits": []
           },
           {
             "name": "Mountain Dwarf",
-            "description": "Dwarves living atop high peaks have the mountaineer racial trait and often surface survivalist as well. Mountain dwarves are also trained to defend their homes, and may take the sky sentinel and xenophobic traits instead."
+            "source": "Advanced Race Guide",
+            "description": "Dwarves living atop high peaks have the mountaineer racial trait and often surface survivalist as well. Mountain dwarves are also trained to defend their homes, and may take the sky sentinel and xenophobic traits instead.",
+            "alternate_traits": []
           },
           {
             "name": "Ouat Caste Dwarves",
-            "description": "The Ouat caste dwarves are a sect of the Pahmet dwarves of an ancient desert kingdom who pursue self-perfection in the style of a god of perfection. Ouat caste dwarves seek to become closer to divinity by overcoming their mortal limitations. They train themselves and others in the monastic city of Tar Kuata, constantly striving to put aside petty material concerns to focus on spiritual growth. The Ouat’s focus on the power of will and self-improvement causes many of them to take the relentless and stubborn alternate racial traits. Those who begin the path to inner awareness very early in their lives also sometimes take the iron within alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "The Ouat caste dwarves are a sect of the Pahmet dwarves of an ancient desert kingdom who pursue self-perfection in the style of a god of perfection. Ouat caste dwarves seek to become closer to divinity by overcoming their mortal limitations. They train themselves and others in the monastic city of Tar Kuata, constantly striving to put aside petty material concerns to focus on spiritual growth. The Ouat’s focus on the power of will and self-improvement causes many of them to take the relentless and stubborn alternate racial traits. Those who begin the path to inner awareness very early in their lives also sometimes take the iron within alternate racial trait described below.",
+            "alternate_traits": []
           },
           {
             "name": "Pahmet Dwarves",
-            "description": "The Pahmet have been present in an ancient desert kingdom since ancient days and claim to have been sent by the gods to warn the pharaohs of impending crises and disasters. Though most scholars suspect that claim is more legend than history, the ancient pharaohs of an ancient desert kingdom treated the Pahmet with great reverence. In return, the Pahmet guard Erekrus, a necropolis in the mountains of southern an ancient desert kingdom, where the Pahmet interred the bodies of pharaohs deemed particularly worthy. The Pahmet are a rigid and often mistrusting people; it is common for its members who avoid contact with outsiders to have the xenophobic alternate racial trait. Many Pahmet have the lorekeeper, mountaineer, rock stepper, and surface survivalist alternate racial traits. Those who come from long lines of keepers who dedicate themselves to the guarding of tombs also often have the death’s end alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "The Pahmet have been present in an ancient desert kingdom since ancient days and claim to have been sent by the gods to warn the pharaohs of impending crises and disasters. Though most scholars suspect that claim is more legend than history, the ancient pharaohs of an ancient desert kingdom treated the Pahmet with great reverence. In return, the Pahmet guard Erekrus, a necropolis in the mountains of southern an ancient desert kingdom, where the Pahmet interred the bodies of pharaohs deemed particularly worthy. The Pahmet are a rigid and often mistrusting people; it is common for its members who avoid contact with outsiders to have the xenophobic alternate racial trait. Many Pahmet have the lorekeeper, mountaineer, rock stepper, and surface survivalist alternate racial traits. Those who come from long lines of keepers who dedicate themselves to the guarding of tombs also often have the death’s end alternate racial trait described below.",
+            "alternate_traits": [
+              "Xenophobic"
+            ]
           },
           {
             "name": "Paraheen Dwarves",
-            "description": "The Paraheen are a small but important part of the society of Katheer, where they operate numerous forges and weapon shops within the city. Not quite a clan, the Paraheen are a set of related, family-run businesses respected for their great craftsmanship and work ethic. While most Paraheen are not citizens of a desert kingdom, they are treated as a valued subclass of residents, with enough powerful patrons among the upper ranks of Qadiran society to afford them protection that in some cases is greater than citizenship. The Paraheen have operated as an autonomous community for centuries, avoiding local politics and worshiping a combination of traditional dwarven gods and an aspect of a sun goddess who is aligned with the fire of the forge. Nearly all Paraheen have the craftsman alternate racial trait, but in the case of the Paraheen, it replaces hardy rather than greed. Those Paraheen who are involved in trade by river and sea, common in Katheer, also generally have the saltbeard alternate racial trait. Most Paraheen from older families tend to have the iron citizen alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "The Paraheen are a small but important part of the society of Katheer, where they operate numerous forges and weapon shops within the city. Not quite a clan, the Paraheen are a set of related, family-run businesses respected for their great craftsmanship and work ethic. While most Paraheen are not citizens of a desert kingdom, they are treated as a valued subclass of residents, with enough powerful patrons among the upper ranks of Qadiran society to afford them protection that in some cases is greater than citizenship. The Paraheen have operated as an autonomous community for centuries, avoiding local politics and worshiping a combination of traditional dwarven gods and an aspect of a sun goddess who is aligned with the fire of the forge. Nearly all Paraheen have the craftsman alternate racial trait, but in the case of the Paraheen, it replaces hardy rather than greed. Those Paraheen who are involved in trade by river and sea, common in Katheer, also generally have the saltbeard alternate racial trait. Most Paraheen from older families tend to have the iron citizen alternate racial trait described below.",
+            "alternate_traits": [
+              "Craftsman"
+            ]
           },
           {
             "name": "Sky Citadel Dwarves",
-            "description": "When the dwarves successfully completed the Quest for Sky, they set about constructing 10 Sky Citadels, massive fortresses that formed the basis for dwarven kingdoms in the inner sea region. While several of those Sky Citadels have been lost or overrun, a few—such as Highhelm, Janderhoff, and Dongun Hold—remain bastions of dwarven tradition and authority. Because these Sky Citadels often have connections to the Darklands, it is common for the dwarves dwelling in their lower reaches to have the ancient enmity or deep warrior alternate racial traits, while those in lands populated by ogres and hill giants often have the giant hunter alternate racial trait, and those in wealthy areas that attract the attention of dragons sometimes have the sky sentinel or wyrmscourged alternate racial traits. Because of the eon-long histories of the Sky Citadels, their citizens also often have the deep tradition alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "When the dwarves successfully completed the Quest for Sky, they set about constructing 10 Sky Citadels, massive fortresses that formed the basis for dwarven kingdoms in the inner sea region. While several of those Sky Citadels have been lost or overrun, a few—such as Highhelm, Janderhoff, and Dongun Hold—remain bastions of dwarven tradition and authority. Because these Sky Citadels often have connections to the Darklands, it is common for the dwarves dwelling in their lower reaches to have the ancient enmity or deep warrior alternate racial traits, while those in lands populated by ogres and hill giants often have the giant hunter alternate racial trait, and those in wealthy areas that attract the attention of dragons sometimes have the sky sentinel or wyrmscourged alternate racial traits. Because of the eon-long histories of the Sky Citadels, their citizens also often have the deep tradition alternate racial trait described below.",
+            "alternate_traits": [
+              "Ancient Enmity Or Deep Warrior"
+            ]
           }
         ],
         "alternate_traits": [
@@ -841,35 +869,77 @@
         "subraces": [
           {
             "name": "Aquatic Elves",
-            "description": "Aquatic elves are the oceanic cousins of landborn elves. These elves have developed gills and webbed fingers and toes that allow them to survive and navigate the waters of the world, and often have blue, coral, or seaweed-black skin to blend into their environment. A significant number of aquatic elves live in the Steaming Sea near Mordant Spire, and in the Arcadian Ocean. Aquatic elves typically live secluded lives, either on their own or in small communities, though groups of aquatic elves that interact with land-dwelling communities are not uncommon. These elves are as varied as their land-dwelling kin, with unique cultures and customs scattered throughout the oceans and seas of the world. Aquatic elves often have the aquatic mastery alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "Aquatic elves are the oceanic cousins of landborn elves. These elves have developed gills and webbed fingers and toes that allow them to survive and navigate the waters of the world, and often have blue, coral, or seaweed-black skin to blend into their environment. A significant number of aquatic elves live in the Steaming Sea near Mordant Spire, and in the Arcadian Ocean. Aquatic elves typically live secluded lives, either on their own or in small communities, though groups of aquatic elves that interact with land-dwelling communities are not uncommon. These elves are as varied as their land-dwelling kin, with unique cultures and customs scattered throughout the oceans and seas of the world. Aquatic elves often have the aquatic mastery alternate racial trait described below.",
+            "alternate_traits": [
+              "Aquatic Mastery"
+            ]
           },
           {
             "name": "Arctic Elf",
-            "description": "These elves were born and raised in the frozen lands of the far north or south, and have dealt with freezing deserts, nights that last for weeks, and the horrors that roam the cold terrain. These elves have the darkvision, desert runner, and elemental resistance alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "These elves were born and raised in the frozen lands of the far north or south, and have dealt with freezing deserts, nights that last for weeks, and the horrors that roam the cold terrain. These elves have the darkvision, desert runner, and elemental resistance alternate racial traits.",
+            "alternate_traits": [
+              "Darkvision",
+              "Desert Runner",
+              "Elemental Resistance"
+            ]
           },
           {
             "name": "Dusk Elf",
-            "description": "Rather than being tied to the terrain around them, some elves are linked to the night itself. Though not tied to demon worship and evil as drow are, these elves are similarly attuned to the magical concepts of darkness and shadow. These elves have the arcane focus, darkvision, dreamspeaker, and silent hunter alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Rather than being tied to the terrain around them, some elves are linked to the night itself. Though not tied to demon worship and evil as drow are, these elves are similarly attuned to the magical concepts of darkness and shadow. These elves have the arcane focus, darkvision, dreamspeaker, and silent hunter alternate racial traits.",
+            "alternate_traits": [
+              "Arcane Focus",
+              "Darkvision",
+              "Dreamspeaker",
+              "Silent Hunter"
+            ]
           },
           {
             "name": "Forlorn Elves",
-            "description": "Forlorn elves rarely refer to themselves by that name; instead, other elves use the term to refer to elves who reside among shorter-lived races. Forlorn elves often watch many of their friends and family die before their first century is past. Some Forlorn have adopted a variety of unhealthy coping mechanisms as a result, such as recklessness or substance abuse; others develop antisocial tendencies and keep others at arm’s length to avoid the pain of loss. Still others learn to accept the brevity of the lives around them, cherishing what time they have with friends while they still have it. Forlorn are the most common wanderers of elvenkind, whether they’re traveling widely to avoid attachment or relishing travel with short-lived companions, and many become adventurers. Some find their way to elven lands, where their kin sympathetically welcome them, while others avoid such places out of bitterness or fear of rejection. Forlorn elves frequently have the envoy and urbanite alternate racial traits; some also have the devoted companion alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "Forlorn elves rarely refer to themselves by that name; instead, other elves use the term to refer to elves who reside among shorter-lived races. Forlorn elves often watch many of their friends and family die before their first century is past. Some Forlorn have adopted a variety of unhealthy coping mechanisms as a result, such as recklessness or substance abuse; others develop antisocial tendencies and keep others at arm’s length to avoid the pain of loss. Still others learn to accept the brevity of the lives around them, cherishing what time they have with friends while they still have it. Forlorn are the most common wanderers of elvenkind, whether they’re traveling widely to avoid attachment or relishing travel with short-lived companions, and many become adventurers. Some find their way to elven lands, where their kin sympathetically welcome them, while others avoid such places out of bitterness or fear of rejection. Forlorn elves frequently have the envoy and urbanite alternate racial traits; some also have the devoted companion alternate racial trait described below.",
+            "alternate_traits": [
+              "Envoy",
+              "Urbanite"
+            ]
           },
           {
             "name": "Savage Elf",
-            "description": "In lands where every day is a constant struggle to survive and the niceties of civilization are rare, elves adapt to depend on swift strikes and lifelong vigilance to keep their families alive. These elves have the eternal grudge and fleet-footed alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "In lands where every day is a constant struggle to survive and the niceties of civilization are rare, elves adapt to depend on swift strikes and lifelong vigilance to keep their families alive. These elves have the eternal grudge and fleet-footed alternate racial traits.",
+            "alternate_traits": [
+              "Eternal Grudge",
+              "Fleet-footed"
+            ]
           },
           {
             "name": "Snowcaster Elves",
-            "description": "The Snowcaster tribes of the far north are extraordinarily reclusive, hiding their settlements in icy caverns, mountain valleys, the hearts of snow-shrouded pine forests, and other difficult-to-reach places. Their loyalty to their homes borders on religious reverence, whether they are ancestral burial grounds, ancient elven ruins, or simply places they’ve chosen as their own. Snowcasters rarely journey outside their homes or meet with outsiders. The primary exceptions to this are the twilight speakers, who serve as emissaries to the outside world. Less commonly, Snowcasters who have been exiled, who have lost their homes to monsters, or who are simply overcome with wanderlust may journey to the outside world to seek a new life. Snowcasters frequently have the desert runner, elemental resistance (cold), and fleet-footed alternate racial traits; a few have the frostmelding alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "The Snowcaster tribes of the far north are extraordinarily reclusive, hiding their settlements in icy caverns, mountain valleys, the hearts of snow-shrouded pine forests, and other difficult-to-reach places. Their loyalty to their homes borders on religious reverence, whether they are ancestral burial grounds, ancient elven ruins, or simply places they’ve chosen as their own. Snowcasters rarely journey outside their homes or meet with outsiders. The primary exceptions to this are the twilight speakers, who serve as emissaries to the outside world. Less commonly, Snowcasters who have been exiled, who have lost their homes to monsters, or who are simply overcome with wanderlust may journey to the outside world to seek a new life. Snowcasters frequently have the desert runner, elemental resistance (cold), and fleet-footed alternate racial traits; a few have the frostmelding alternate racial trait described below.",
+            "alternate_traits": [
+              "Desert Runner",
+              "Elemental Resistance (cold)",
+              "Fleet-footed"
+            ]
           },
           {
             "name": "Spiresworn Elves",
-            "description": "The Mordant Spire’s elves, with their eerie masks and off-putting mannerisms, are a mystery to most Avistani. These elves have sworn to prevent exploration of a lost empire in order to preserve and isolate the remnants of the Azlanti culture and protect the world from another Earthfall. The reclusive Spiresworn use enchantment and water magic to dissuade explorers; they resort to violent or deadly means only with utmost reluctance. In recent years, some younger Spiresworn have begun to question their isolationist traditions. While their commitment to protecting a lost empire remains firm, a growing segment of Spiresworn believe that there is much to gain from interaction with the wider world. These elves sometimes leave the Spire to seek knowledge and experience. Spiresworn frequently have the keeper of secrets alternate racial trait, as well as the crossbow training, natural swimmer, and tongue of the sea alternate racial traits; some also have the moonkissed alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "The Mordant Spire’s elves, with their eerie masks and off-putting mannerisms, are a mystery to most Avistani. These elves have sworn to prevent exploration of a lost empire in order to preserve and isolate the remnants of the Azlanti culture and protect the world from another Earthfall. The reclusive Spiresworn use enchantment and water magic to dissuade explorers; they resort to violent or deadly means only with utmost reluctance. In recent years, some younger Spiresworn have begun to question their isolationist traditions. While their commitment to protecting a lost empire remains firm, a growing segment of Spiresworn believe that there is much to gain from interaction with the wider world. These elves sometimes leave the Spire to seek knowledge and experience. Spiresworn frequently have the keeper of secrets alternate racial trait, as well as the crossbow training, natural swimmer, and tongue of the sea alternate racial traits; some also have the moonkissed alternate racial trait described below.",
+            "alternate_traits": [
+              "Keeper Of Secrets"
+            ]
           },
           {
             "name": "Tower Elf",
-            "description": "Some elven institutions of magical learning date back centuries, and entire clans of elves have lived for generations as caretakers, students, and instructors of these self-sufficient schools of wizardry. These elves have the arcane focus and urbanite alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Some elven institutions of magical learning date back centuries, and entire clans of elves have lived for generations as caretakers, students, and instructors of these self-sufficient schools of wizardry. These elves have the arcane focus and urbanite alternate racial traits.",
+            "alternate_traits": [
+              "Arcane Focus",
+              "Urbanite"
+            ]
           }
         ],
         "alternate_traits": [
@@ -1584,31 +1654,66 @@
         "subraces": [
           {
             "name": "Bleachlings",
-            "description": "While most gnomes who undergo the harrowing process of the Bleaching physically waste away from boredom, some gnomes do survive the process, emerging as humorless, monochrome versions of their former selves. Referred to as “bleachlings,” these gnomes are eerily serene and placid. In addition to the effects of the Bleaching itself, many bleachlings have the academician and eternal hope alternate racial traits, as well as the bleachling magic and nature affinity traits listed below."
+            "source": "Heroes from the Fringe",
+            "description": "While most gnomes who undergo the harrowing process of the Bleaching physically waste away from boredom, some gnomes do survive the process, emerging as humorless, monochrome versions of their former selves. Referred to as “bleachlings,” these gnomes are eerily serene and placid. In addition to the effects of the Bleaching itself, many bleachlings have the academician and eternal hope alternate racial traits, as well as the bleachling magic and nature affinity traits listed below.",
+            "alternate_traits": [
+              "Academician",
+              "Eternal Hope"
+            ]
           },
           {
             "name": "Dread Gnomes",
-            "description": "Moodier, less forgiving, and often crueler than other gnomes, dread gnomes trace their heritage to the darker, more bloodthirsty lines of fey. Though not all dread gnomes are evil, they all find humor in watching others suffer, and have little use for the bright colors and joyful pursuits of their more cheerful cousins. Dread gnomes have the fell magic and knack for poison alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Moodier, less forgiving, and often crueler than other gnomes, dread gnomes trace their heritage to the darker, more bloodthirsty lines of fey. Though not all dread gnomes are evil, they all find humor in watching others suffer, and have little use for the bright colors and joyful pursuits of their more cheerful cousins. Dread gnomes have the fell magic and knack for poison alternate racial traits.",
+            "alternate_traits": [
+              "Fell Magic",
+              "Knack For Poison"
+            ]
           },
           {
             "name": "First World Gnomes",
-            "description": "The Gnomes of the World are immigrants from the First World, the primordial realm of the fey. While the world’s gnomes have had generations to adapt to the realities of the Material Plane, many gnomes remain in the First World to this day. In addition to the First World creature template ( 57), most First World gnomes have the bond to the land alternate racial trait, as well as the fey fortitude and fey magic traits listed below."
+            "source": "Heroes from the Fringe",
+            "description": "The Gnomes of the World are immigrants from the First World, the primordial realm of the fey. While the world’s gnomes have had generations to adapt to the realities of the Material Plane, many gnomes remain in the First World to this day. In addition to the First World creature template ( 57), most First World gnomes have the bond to the land alternate racial trait, as well as the fey fortitude and fey magic traits listed below.",
+            "alternate_traits": [
+              "Bond To The Land"
+            ]
           },
           {
             "name": "Gear Gnomes",
-            "description": "Sometimes rather than a single gnome becoming obsessed with a project, whole families of gnomes undertake a project so massive it requires generations of artisans to complete. Such projects often involve complex clockwork devices (or entire clockwork buildings), and those born into families dedicated to lifetimes of work on them are known as gear gnomes. Gear gnomes have the academician and master tinker alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Sometimes rather than a single gnome becoming obsessed with a project, whole families of gnomes undertake a project so massive it requires generations of artisans to complete. Such projects often involve complex clockwork devices (or entire clockwork buildings), and those born into families dedicated to lifetimes of work on them are known as gear gnomes. Gear gnomes have the academician and master tinker alternate racial traits.",
+            "alternate_traits": [
+              "Academician",
+              "Master Tinker"
+            ]
           },
           {
             "name": "Lava Gnomes",
-            "description": "Fascinated by the power of magma and living in vast caverns beneath active volcanoes, lava gnomes are considered hot-tempered and dangerously unstable even by other gnomes. Lava gnomes have the darkvision and pyromaniac alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Fascinated by the power of magma and living in vast caverns beneath active volcanoes, lava gnomes are considered hot-tempered and dangerously unstable even by other gnomes. Lava gnomes have the darkvision and pyromaniac alternate racial traits.",
+            "alternate_traits": [
+              "Darkvision",
+              "Pyromaniac"
+            ]
           },
           {
             "name": "Segada Gnomes",
-            "description": "The city of Segada on the continent of Arcadia has a substantial gnomish population, which emigrated from the tall peaks of the Akrandida Mountains. Known for their creativity and love all forms of artistic expression, many of Segada’s gnomes make their living as entertainers. Even more so than other gnomes, Segada gnomes are fond of wearing bright colors, and often wear accessories that make noise as they move, such as bells, jangling bracelets, and flute-like reed pendants. Most Segada gnomes have the darkvision, gift of tongues, and magical linguist alternate racial traits, as well as the artistic and sound mimicry alternate racial traits described below."
+            "source": "Heroes from the Fringe",
+            "description": "The city of Segada on the continent of Arcadia has a substantial gnomish population, which emigrated from the tall peaks of the Akrandida Mountains. Known for their creativity and love all forms of artistic expression, many of Segada’s gnomes make their living as entertainers. Even more so than other gnomes, Segada gnomes are fond of wearing bright colors, and often wear accessories that make noise as they move, such as bells, jangling bracelets, and flute-like reed pendants. Most Segada gnomes have the darkvision, gift of tongues, and magical linguist alternate racial traits, as well as the artistic and sound mimicry alternate racial traits described below.",
+            "alternate_traits": [
+              "Darkvision",
+              "Gift Of Tongues",
+              "Magical Linguist"
+            ]
           },
           {
             "name": "Traveler Gnomes",
-            "description": "These gnomes were born on the move, their families living on a ship or in a caravan wagon. These gnomes have the magical linguist and either the explorer or the gift of tongues alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "These gnomes were born on the move, their families living on a ship or in a caravan wagon. These gnomes have the magical linguist and either the explorer or the gift of tongues alternate racial traits.",
+            "alternate_traits": [
+              "Magical Linguist",
+              "Either The Explorer Or The Gift Of Tongues"
+            ]
           }
         ],
         "alternate_traits": [
@@ -2269,31 +2374,51 @@
         "subraces": [
           {
             "name": "Aquatic Half-Elves (Shoreborn)",
-            "description": "The children of aquatic elves and land-bound humans feel the disparity between their heritages more than any other. These half-elves show their parentage on their faces, with sandy, russet, or green-black skin to match their elven parent. Slightly webbed fingers and toes aid in swimming, but their neck slits almost never function as gills. A few aquatic half-elves can breathe underwater and live with their elven parents, but far more shoreborn live on land, feeling a constant call to the water. Many find work as sailors. Fishing vessels and merchant ships often have shoreborn deckhands and first mates, and a crew made up solely of aquatic half-elves sails an infamous pirate ship known as the Shoreline Scourge."
+            "source": "Heroes from the Fringe",
+            "description": "The children of aquatic elves and land-bound humans feel the disparity between their heritages more than any other. These half-elves show their parentage on their faces, with sandy, russet, or green-black skin to match their elven parent. Slightly webbed fingers and toes aid in swimming, but their neck slits almost never function as gills. A few aquatic half-elves can breathe underwater and live with their elven parents, but far more shoreborn live on land, feeling a constant call to the water. Many find work as sailors. Fishing vessels and merchant ships often have shoreborn deckhands and first mates, and a crew made up solely of aquatic half-elves sails an infamous pirate ship known as the Shoreline Scourge.",
+            "alternate_traits": []
           },
           {
             "name": "Drow-Descended",
-            "description": "These half-elves clearly bear the features of their dark elf parents, branding them immediately as a potential threat in the eyes of others no matter what their intent or character. These half-elves have the drow-blooded and drow magic alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "These half-elves clearly bear the features of their dark elf parents, branding them immediately as a potential threat in the eyes of others no matter what their intent or character. These half-elves have the drow-blooded and drow magic alternate racial traits.",
+            "alternate_traits": [
+              "Drow-blooded",
+              "Drow Magic"
+            ]
           },
           {
             "name": "Elf-Raised",
-            "description": "These half-elves represent those embraced by their elven relatives, and raised with all of the traditional cultural training and education typical of most full-blooded elves. These half-elves have the ancestral arms and arcane training alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "These half-elves represent those embraced by their elven relatives, and raised with all of the traditional cultural training and education typical of most full-blooded elves. These half-elves have the ancestral arms and arcane training alternate racial traits.",
+            "alternate_traits": [
+              "Ancestral Arms",
+              "Arcane Training"
+            ]
           },
           {
             "name": "Half-Drow (Darkborn)",
-            "description": "Scorned by both drow, who call them thinbloods, and humans, who call them darkborn, half-drow face discrimination and tribulation from an early age. Those half-drow who are not crushed by persecution are forced to age into particularly strong and independent adults. Some give into bitterness from their upbringing, becoming hardened assassins or wanton killers. Others deliberately rebel against their brutal childhoods, becoming righteous warriors against evil. Either way, half-drow fight fiercely to the very last. Darkborn have the gray skin and light-colored hair of the drow but have human-looking eyes, and they have a more difficult time appearing fully elven or human than most half-elves do."
+            "source": "Heroes from the Fringe",
+            "description": "Scorned by both drow, who call them thinbloods, and humans, who call them darkborn, half-drow face discrimination and tribulation from an early age. Those half-drow who are not crushed by persecution are forced to age into particularly strong and independent adults. Some give into bitterness from their upbringing, becoming hardened assassins or wanton killers. Others deliberately rebel against their brutal childhoods, becoming righteous warriors against evil. Either way, half-drow fight fiercely to the very last. Darkborn have the gray skin and light-colored hair of the drow but have human-looking eyes, and they have a more difficult time appearing fully elven or human than most half-elves do.",
+            "alternate_traits": []
           },
           {
             "name": "Human-Raised",
-            "description": "These half-elves were born and raised into accepting human communities, often raised by generations of a single family, or through the charity of churches and temples. These half-elves have the integrated and wary racial traits."
+            "source": "Advanced Race Guide",
+            "description": "These half-elves were born and raised into accepting human communities, often raised by generations of a single family, or through the charity of churches and temples. These half-elves have the integrated and wary racial traits.",
+            "alternate_traits": []
           },
           {
             "name": "Mordant Spire Half-Elves (Spireborn)",
-            "description": "Mordant Spire elves and humans almost never meet by accident. Their offspring, the Spireborn, only come about when Mordant Spire elves travel to human villages. Spireborn half-elves are almost always taken back to the Mordant Spire by their elven parent, and they are usually trained from youth to go on important missions outside of the Mordant Spire. Spireborn undergo both physical training and extensive education on the Azlanti. They tell no one they meet on their travels of their heritage or their top-secret duties."
+            "source": "Heroes from the Fringe",
+            "description": "Mordant Spire elves and humans almost never meet by accident. Their offspring, the Spireborn, only come about when Mordant Spire elves travel to human villages. Spireborn half-elves are almost always taken back to the Mordant Spire by their elven parent, and they are usually trained from youth to go on important missions outside of the Mordant Spire. Spireborn undergo both physical training and extensive education on the Azlanti. They tell no one they meet on their travels of their heritage or their top-secret duties.",
+            "alternate_traits": []
           },
           {
             "name": "Snowcaster Half-Elves (Snowborn)",
-            "description": "Found throughout the northern countries, snowborn are typically the children of twilight speakers—religious envoys from the normally distrustful Snowcaster clans, who consider it a sacred duty to befriend humans and other non-elves. Snowcaster clans vary in their acceptance of these children, but the average clan’s seclusion from humanity and inability to understand half-elves almost invariably ends up driving the snowborn away. Twilight speakers, however, tend to enjoy a particularly close relationship with their snowborn children, and the two groups often wander together. Snowborn have their elven parents’ snowy white skin and particularly sharp ears. Some Snowcaster half-elves find welcome homes among the Jadwiga and Ulfen communities, as well as the Erutaki tribes. Others wander, looking for a permanent place to belong."
+            "source": "Heroes from the Fringe",
+            "description": "Found throughout the northern countries, snowborn are typically the children of twilight speakers—religious envoys from the normally distrustful Snowcaster clans, who consider it a sacred duty to befriend humans and other non-elves. Snowcaster clans vary in their acceptance of these children, but the average clan’s seclusion from humanity and inability to understand half-elves almost invariably ends up driving the snowborn away. Twilight speakers, however, tend to enjoy a particularly close relationship with their snowborn children, and the two groups often wander together. Snowborn have their elven parents’ snowy white skin and particularly sharp ears. Some Snowcaster half-elves find welcome homes among the Jadwiga and Ulfen communities, as well as the Erutaki tribes. Others wander, looking for a permanent place to belong.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -2981,43 +3106,75 @@
         "subraces": [
           {
             "name": "Arena-Bred",
-            "description": "Many half-orcs are born and raised to fight in the arena, and in many cases have two half-orc parents or even a half-orc and a human parent. These arena-bred half-orcs lose the brutal physical appearance of their orc ancestors and look more human. They have the city-raised and skilled alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Many half-orcs are born and raised to fight in the arena, and in many cases have two half-orc parents or even a half-orc and a human parent. These arena-bred half-orcs lose the brutal physical appearance of their orc ancestors and look more human. They have the city-raised and skilled alternate racial traits.",
+            "alternate_traits": [
+              "City-raised",
+              "Skilled"
+            ]
           },
           {
             "name": "Darklands Half-Orcs (Gloomkin)",
-            "description": "At the end of the Age of Darkness, when light returned to the world, many orcs lost their footholds on the surface world and returned to the Darklands, taking their half-orc progeny with them. Of all the half-orcs, gloomkin face the harshest treatment; they are punished and abused from birth for what orcs consider the taint of their bloodline. As the bottom of the social ladder in orc society, gloomkin are assigned the task that very few orcs take on willingly: reading. They are the historians, scribes, and advisors, placing them in a key position to discover secrets and gain influence without drawing attention to themselves."
+            "source": "Heroes from the Fringe",
+            "description": "At the end of the Age of Darkness, when light returned to the world, many orcs lost their footholds on the surface world and returned to the Darklands, taking their half-orc progeny with them. Of all the half-orcs, gloomkin face the harshest treatment; they are punished and abused from birth for what orcs consider the taint of their bloodline. As the bottom of the social ladder in orc society, gloomkin are assigned the task that very few orcs take on willingly: reading. They are the historians, scribes, and advisors, placing them in a key position to discover secrets and gain influence without drawing attention to themselves.",
+            "alternate_traits": []
           },
           {
             "name": "Deep Kin",
-            "description": "Some half-orcs are descended from clans that remained in the eternal darkness below the surface. Half-orcs from these clans tend to be smaller and more at home underground than those descended from surface-dwelling orcs. These half-orcs have the acute darkvision and cavewight alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Some half-orcs are descended from clans that remained in the eternal darkness below the surface. Half-orcs from these clans tend to be smaller and more at home underground than those descended from surface-dwelling orcs. These half-orcs have the acute darkvision and cavewight alternate racial traits.",
+            "alternate_traits": [
+              "Acute Darkvision",
+              "Cavewight"
+            ]
           },
           {
             "name": "Desert Half-Orcs (Sandkin)",
-            "description": "Desert half-orcs are born primarily in northern Garund and an ancient desert kingdom and often hold a level of esteem and self-assurance that is rare for half-orcs. Among desert orc tribes, the ability to tolerate harsh sunlight is a sign of strength, and weathering the sun is a rite of passage. Lacking their ancestors’ light sensitivity, half-orcs excel at these contests of endurance and easily earn high positions within their tribes. Desert half-orcs also fare better than most among human civilizations. The strong presence of a sun goddess’s followers has led to a culture of forgiveness and understanding that is rare in other parts of the world, making it easier for half-orcs to thrive. Many desert half-orcs believe they are blessed by a sun goddess and become clerics or paladins of her church."
+            "source": "Heroes from the Fringe",
+            "description": "Desert half-orcs are born primarily in northern Garund and an ancient desert kingdom and often hold a level of esteem and self-assurance that is rare for half-orcs. Among desert orc tribes, the ability to tolerate harsh sunlight is a sign of strength, and weathering the sun is a rite of passage. Lacking their ancestors’ light sensitivity, half-orcs excel at these contests of endurance and easily earn high positions within their tribes. Desert half-orcs also fare better than most among human civilizations. The strong presence of a sun goddess’s followers has led to a culture of forgiveness and understanding that is rare in other parts of the world, making it easier for half-orcs to thrive. Many desert half-orcs believe they are blessed by a sun goddess and become clerics or paladins of her church.",
+            "alternate_traits": []
           },
           {
             "name": "Feral",
-            "description": "Half-orc children who are abandoned as infants or small children rarely survive in the wild, but a few manage to scrape out a meager existence as \"wild children,\" tough enough to live but completely uncivilized. Feral half-orcs have the forest walker and toothy alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Half-orc children who are abandoned as infants or small children rarely survive in the wild, but a few manage to scrape out a meager existence as \"wild children,\" tough enough to live but completely uncivilized. Feral half-orcs have the forest walker and toothy alternate racial traits.",
+            "alternate_traits": [
+              "Forest Walker",
+              "Toothy"
+            ]
           },
           {
             "name": "Jungle Half-Orcs (Rainkin)",
-            "description": "In the jungles of the jungle-born Expanse, the few remaining orc tribes have been largely cut off from others of their kind. Isolated since the orc empires collapsed after the Age of Darkness, only a handful of oral retellings recall the true heritage of these orcs and half-orcs, and their culture diverges greatly from other orc societies. It is said that some early jungle-born tribes participated in arranged marriages with orcs, leading half-orc children to be associated with alliances and prosperity, and true or not, half-orcs have been a major part of these orc tribes for generations. Even in the present day, many orcs are willing to pay a large dowry to bring half-orcs into their villages, and orphaned half-orcs are happily adopted. Because they usually come from rich families, rainkin halforcs often receive better treatment than their orc or human cousins. This can create a self-fulfilling prophecy; because half-orc children receive the best care, protection, and training, they are usually stronger and more skilled than orcs or humans, increasing the desire to have half-orcs in a tribe. While jungle half-orcs typically have great pride and selfworth, many are also resentful of the high expectations placed on them from birth and angry to be treated like a commodity by so many. As a result, rainkin have trouble forming close bonds with non-half-orcs, so they often create close-knit groups between themselves. Some of these groups even grow large enough to break off and form their own tribes."
+            "source": "Heroes from the Fringe",
+            "description": "In the jungles of the jungle-born Expanse, the few remaining orc tribes have been largely cut off from others of their kind. Isolated since the orc empires collapsed after the Age of Darkness, only a handful of oral retellings recall the true heritage of these orcs and half-orcs, and their culture diverges greatly from other orc societies. It is said that some early jungle-born tribes participated in arranged marriages with orcs, leading half-orc children to be associated with alliances and prosperity, and true or not, half-orcs have been a major part of these orc tribes for generations. Even in the present day, many orcs are willing to pay a large dowry to bring half-orcs into their villages, and orphaned half-orcs are happily adopted. Because they usually come from rich families, rainkin halforcs often receive better treatment than their orc or human cousins. This can create a self-fulfilling prophecy; because half-orc children receive the best care, protection, and training, they are usually stronger and more skilled than orcs or humans, increasing the desire to have half-orcs in a tribe. While jungle half-orcs typically have great pride and selfworth, many are also resentful of the high expectations placed on them from birth and angry to be treated like a commodity by so many. As a result, rainkin have trouble forming close bonds with non-half-orcs, so they often create close-knit groups between themselves. Some of these groups even grow large enough to break off and form their own tribes.",
+            "alternate_traits": []
           },
           {
             "name": "Mountain Clan",
-            "description": "Half-orcs from the more mountainous regions tend to be more agile and alert to the echoing sounds of their homeland. Mountain clan half-orcs have the bestial and rock climber racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Half-orcs from the more mountainous regions tend to be more agile and alert to the echoing sounds of their homeland. Mountain clan half-orcs have the bestial and rock climber racial traits.",
+            "alternate_traits": []
           },
           {
             "name": "Mountain Half-Orcs (Cragkin)",
-            "description": "Cragkin are widespread across the world, found across all the mountain ranges of western Avistan. Thanks to their thin frames and quick wits, mountain-born half-orcs excel at climbing and acrobatic stunts. Anything less than a vertical cliff face is traversable, and often even that isn’t enough to stop them. To mountain half-orcs, obstacles are merely a foothold on their path to the top. Mountain orcs respect bravery, and cragkin have turned fearlessness and reckless abandon into a badge of honor. By using the terrain to their advantage against less surefooted enemies, they can attack from strange angles and gain advantages with just a few quick steps. They often take near-suicidal leaps to strike enemies from above, or trick enemies into falling to their deaths by leading them down impossible paths. Despite their great skill, accidents are common in this treacherous environment, and no one is surprised if one halforc returns after a raid and his companions do not. Many mountain half-orcs find a place among tribal and Ulfen settlements, where valor in battle is highly prized. As long as they are willing to respect the traditions of their adopted clans, they usually integrate well into these societies and contribute much to the community."
+            "source": "Heroes from the Fringe",
+            "description": "Cragkin are widespread across the world, found across all the mountain ranges of western Avistan. Thanks to their thin frames and quick wits, mountain-born half-orcs excel at climbing and acrobatic stunts. Anything less than a vertical cliff face is traversable, and often even that isn’t enough to stop them. To mountain half-orcs, obstacles are merely a foothold on their path to the top. Mountain orcs respect bravery, and cragkin have turned fearlessness and reckless abandon into a badge of honor. By using the terrain to their advantage against less surefooted enemies, they can attack from strange angles and gain advantages with just a few quick steps. They often take near-suicidal leaps to strike enemies from above, or trick enemies into falling to their deaths by leading them down impossible paths. Despite their great skill, accidents are common in this treacherous environment, and no one is surprised if one halforc returns after a raid and his companions do not. Many mountain half-orcs find a place among tribal and Ulfen settlements, where valor in battle is highly prized. As long as they are willing to respect the traditions of their adopted clans, they usually integrate well into these societies and contribute much to the community.",
+            "alternate_traits": []
           },
           {
             "name": "Mystic",
-            "description": "Orc shamans are brutal teachers who sometimes kill or maim their most promising students in order to eliminate what could be a potential rival. Half-orcs who survive years of abuse by an orc shaman master are deeply scarred and altered by the experience. Shaman trainees learn early that cunning and luck are often the only things that offer a chance of survival. They have the shaman’s apprentice and sacred tattoo alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Orc shamans are brutal teachers who sometimes kill or maim their most promising students in order to eliminate what could be a potential rival. Half-orcs who survive years of abuse by an orc shaman master are deeply scarred and altered by the experience. Shaman trainees learn early that cunning and luck are often the only things that offer a chance of survival. They have the shaman’s apprentice and sacred tattoo alternate racial traits.",
+            "alternate_traits": [
+              "Shaman’s Apprentice",
+              "Sacred Tattoo"
+            ]
           },
           {
             "name": "Winter Half-Orcs (Frostkin)",
-            "description": "At the Crown of the World, nomadic clans of orcs live on the frozen wastes. The winter half-orcs that live among them are treated as the runts of the pack. However, strength in numbers is vital in the north, as many young do not survive the harsh winters. Even the weakest are provided for as long as they can prove their usefulness. Sewing, cooking, and child-rearing are all valued skills, and winter half-orcs who excel at these are treated better than most. Those who would rather prove their worth through their strength do so by hunting, as ritual combat is a frowned upon waste of energy and resources. While half-orcs are not well liked in the Linnorm Kingdoms, they may be able to find homes in the Ironbound Isles. Merchants traveling between a faraway continent and Avistan are often willing to hire on a half-orc as a guide and bodyguard across the Crown of the World. Winter half-orcs who migrate south into a winter-locked realm can find an easier life in the growing half-orc communities, but they are unlikely to find any upward mobility unless they show skill at witchcraft."
+            "source": "Heroes from the Fringe",
+            "description": "At the Crown of the World, nomadic clans of orcs live on the frozen wastes. The winter half-orcs that live among them are treated as the runts of the pack. However, strength in numbers is vital in the north, as many young do not survive the harsh winters. Even the weakest are provided for as long as they can prove their usefulness. Sewing, cooking, and child-rearing are all valued skills, and winter half-orcs who excel at these are treated better than most. Those who would rather prove their worth through their strength do so by hunting, as ritual combat is a frowned upon waste of energy and resources. While half-orcs are not well liked in the Linnorm Kingdoms, they may be able to find homes in the Ironbound Isles. Merchants traveling between a faraway continent and Avistan are often willing to hire on a half-orc as a guide and bodyguard across the Crown of the World. Winter half-orcs who migrate south into a winter-locked realm can find an easier life in the growing half-orc communities, but they are unlikely to find any upward mobility unless they show skill at witchcraft.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -3705,23 +3862,44 @@
         "subraces": [
           {
             "name": "Avenging",
-            "description": "Unlike most halflings, members of this subtype actively look for trouble in their quest to avenge slights and wrongdoings. Whether resisting a local bully, monster, or troops of an oppressive ruler, halfling warriors of this secret subculture don masks and strike back on behalf of their community. These halflings have the low blow, underfoot, and warslinger alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "Unlike most halflings, members of this subtype actively look for trouble in their quest to avenge slights and wrongdoings. Whether resisting a local bully, monster, or troops of an oppressive ruler, halfling warriors of this secret subculture don masks and strike back on behalf of their community. These halflings have the low blow, underfoot, and warslinger alternate racial traits.",
+            "alternate_traits": [
+              "Low Blow",
+              "Underfoot",
+              "Warslinger"
+            ]
           },
           {
             "name": "Nomadic",
-            "description": "These halflings were born on the road and most follow it until the end of their days. They travel fast and light and never miss a chance for either profit or adventure. These halflings have the fleet-footed, polyglot, and wanderlust alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "These halflings were born on the road and most follow it until the end of their days. They travel fast and light and never miss a chance for either profit or adventure. These halflings have the fleet-footed, polyglot, and wanderlust alternate racial traits.",
+            "alternate_traits": [
+              "Fleet-footed",
+              "Polyglot",
+              "Wanderlust"
+            ]
           },
           {
             "name": "Segadan Halflings",
-            "description": "Hailing from the bureaucratic Degasi city of Segada, Segadan halflings relish the comforts their prosperous city provides. The halflings of Segada nonetheless remain suspicious of diabolic settlers in the Segadan protectorates of Anchor’s End and Canorus, given a diabolic empire’s history of enslaving halflings. Segadan halflings are well suited to take the attentive alternate racial trait, as well as the festive and small quarter ally alternate racial traits described below."
+            "source": "Heroes from the Fringe",
+            "description": "Hailing from the bureaucratic Degasi city of Segada, Segadan halflings relish the comforts their prosperous city provides. The halflings of Segada nonetheless remain suspicious of diabolic settlers in the Segadan protectorates of Anchor’s End and Canorus, given a diabolic empire’s history of enslaving halflings. Segadan halflings are well suited to take the attentive alternate racial trait, as well as the festive and small quarter ally alternate racial traits described below.",
+            "alternate_traits": []
           },
           {
             "name": "Slave Born",
-            "description": "These halflings come from lineages that have spent countless generations as property. Though usually free themselves, the weight of slavery still bears down on their souls, making them eager to please and prone to sudden fits of fear. These halflings have the craven and ingratiating alternate racial traits."
+            "source": "Advanced Race Guide",
+            "description": "These halflings come from lineages that have spent countless generations as property. Though usually free themselves, the weight of slavery still bears down on their souls, making them eager to please and prone to sudden fits of fear. These halflings have the craven and ingratiating alternate racial traits.",
+            "alternate_traits": [
+              "Craven",
+              "Ingratiating"
+            ]
           },
           {
             "name": "Song'o Halflings",
-            "description": "Deep in the jungles outside the former diabolic colony of Sargava in the jungle-born Expanse, the mysterious Song’o halflings avoid almost all non-jungle-born. These halflings live in temporary villages, abandoning sites when they are discovered and resettling in ever more isolated areas of the jungle. Many believe this intense aversion to outside interaction is due to early diabolic slavers settling the region and Sargava’s oppression of the native jungle-born. Song’o halflings are well represented by the deep jungle alternate racial trait, as well as the danger detection and evasive nomad alternate racial traits described below."
+            "source": "Heroes from the Fringe",
+            "description": "Deep in the jungles outside the former diabolic colony of Sargava in the jungle-born Expanse, the mysterious Song’o halflings avoid almost all non-jungle-born. These halflings live in temporary villages, abandoning sites when they are discovered and resettling in ever more isolated areas of the jungle. Many believe this intense aversion to outside interaction is due to early diabolic slavers settling the region and Sargava’s oppression of the native jungle-born. Song’o halflings are well represented by the deep jungle alternate racial trait, as well as the danger detection and evasive nomad alternate racial traits described below.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -4349,27 +4527,39 @@
         "subraces": [
           {
             "name": "Cosmopolitan",
-            "description": "Adept as city living, these humans can navigate crowds and fulfill the need for skilled labor in such settlements. Replace the skilled racial trait with heart of the streets and the bonus feat racial trait with focused study."
+            "source": "Advanced Race Guide",
+            "description": "Adept as city living, these humans can navigate crowds and fulfill the need for skilled labor in such settlements. Replace the skilled racial trait with heart of the streets and the bonus feat racial trait with focused study.",
+            "alternate_traits": []
           },
           {
             "name": "Country Folk",
-            "description": "These humans are suited to life in the countryside. Replace the skilled racial trait with heart of the fields and the bonus feat racial trait with focused study."
+            "source": "Advanced Race Guide",
+            "description": "These humans are suited to life in the countryside. Replace the skilled racial trait with heart of the fields and the bonus feat racial trait with focused study.",
+            "alternate_traits": []
           },
           {
             "name": "Gutter Rat",
-            "description": "Often second-class citizens living in sprawling ghettos and slums, these humans work hard to eke out an existence in a city. Replace the skilled racial trait with heart of the slums and the bonus feat racial trait with mixed heritage (heart of the streets)."
+            "source": "Advanced Race Guide",
+            "description": "Often second-class citizens living in sprawling ghettos and slums, these humans work hard to eke out an existence in a city. Replace the skilled racial trait with heart of the slums and the bonus feat racial trait with mixed heritage (heart of the streets).",
+            "alternate_traits": []
           },
           {
             "name": "Imperious Human",
-            "description": "Hailing from either an empire, an emerging nation, or a controlling city-state, these humans are arrogant expansionists, absorbing others to their causes and culture. Replace the skilled racial trait with silver tongued and the bonus feat racial trait with eye for talent."
+            "source": "Advanced Race Guide",
+            "description": "Hailing from either an empire, an emerging nation, or a controlling city-state, these humans are arrogant expansionists, absorbing others to their causes and culture. Replace the skilled racial trait with silver tongued and the bonus feat racial trait with eye for talent.",
+            "alternate_traits": []
           },
           {
             "name": "Trailblazer",
-            "description": "Adaptive and inventive, these humans must have quick wits and a dose of heroic luck to survive in the lands they settle. Replace the skilled racial trait with heart of the wilderness and the bonus feat racial trait with heroic. At the GM’s discretion, you can swap out the heart of the wilderness racial trait for either heart of the mountains, heart of the sea, heart of the snows, or heart of the sun, depending on the type of terrain these humans are settling."
+            "source": "Advanced Race Guide",
+            "description": "Adaptive and inventive, these humans must have quick wits and a dose of heroic luck to survive in the lands they settle. Replace the skilled racial trait with heart of the wilderness and the bonus feat racial trait with heroic. At the GM’s discretion, you can swap out the heart of the wilderness racial trait for either heart of the mountains, heart of the sea, heart of the snows, or heart of the sun, depending on the type of terrain these humans are settling.",
+            "alternate_traits": []
           },
           {
             "name": "Versatile Human",
-            "description": "While they lack some of the training of other humans, the natural talents of versatile humans more than make up for this lack. Replace the +2 bonus to any ability score, the skilled racial trait, and the bonus feat racial trait with dual talent."
+            "source": "Advanced Race Guide",
+            "description": "While they lack some of the training of other humans, the natural talents of versatile humans more than make up for this lack. Replace the +2 bonus to any ability score, the skilled racial trait, and the bonus feat racial trait with dual talent.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -5482,7 +5672,9 @@
         "subraces": [
           {
             "name": "Oversized Goblins",
-            "description": "A few goblins attain a much larger size than their kin. No one is exactly sure why they grow to be giants among their kind, but it’s probably due to a combination of luck, diet, and constant access to food. These goblins are monsters among their own kind, not just in height, but also in girth and in strength. If not cast out for eating all of the tribe’s food, oversized goblins often become the bosses of their tribes, and the most powerful of them become chiefs. Oversized goblins are Medium size, and grow to 4 to 5 feet tall. They tend to be particularly obese, weighing between 225 and 275 pounds. Instead of the normal racial ability score modifiers for goblins, oversized goblins gain a +2 bonus to Strength, a +2 bonus to Dexterity, and a –2 penalty to Charisma."
+            "source": "Monster Codex",
+            "description": "A few goblins attain a much larger size than their kin. No one is exactly sure why they grow to be giants among their kind, but it’s probably due to a combination of luck, diet, and constant access to food. These goblins are monsters among their own kind, not just in height, but also in girth and in strength. If not cast out for eating all of the tribe’s food, oversized goblins often become the bosses of their tribes, and the most powerful of them become chiefs. Oversized goblins are Medium size, and grow to 4 to 5 feet tall. They tend to be particularly obese, weighing between 225 and 275 pounds. Instead of the normal racial ability score modifiers for goblins, oversized goblins gain a +2 bonus to Strength, a +2 bonus to Dexterity, and a –2 penalty to Charisma.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -6158,11 +6350,15 @@
         "subraces": [
           {
             "name": "Gemsoul (Crystal Oread)",
-            "description": "With scintillating personalities to match their captivating appearances, gemsoul oreads command attention—and prefer it that way. N +2 Str, +2 Cha, –2 Wis Gemsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base oread’s earth affinity, except it benefits sorcerers with the deep earth bloodline and spellcasters with the Charm domain. Gemsouls tend to have large egos and are flashy in their relationships. They gravitate towards artistic pursuits, most frequently of a performative nature, though they also have a strong tradition of symmetric poetry. Gemsouls prefer to make their homes in flamboyant societies or places where they can make meaningful personal contributions, as well as in nations that appreciate cultivated beauty, like an elven realm. Gemsouls typically have dazzling, faceted skin, along with a cluster of crystalline formations instead of hair and pupil-less eyes of vivid colors. Some favor tattoos in complex, branching geometric shapes, and they can frequently be seen wearing silks or brightly dyed linen to contrast their complexions."
+            "source": "Plane-Hopper's Handbook",
+            "description": "With scintillating personalities to match their captivating appearances, gemsoul oreads command attention—and prefer it that way. N +2 Str, +2 Cha, –2 Wis Gemsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base oread’s earth affinity, except it benefits sorcerers with the deep earth bloodline and spellcasters with the Charm domain. Gemsouls tend to have large egos and are flashy in their relationships. They gravitate towards artistic pursuits, most frequently of a performative nature, though they also have a strong tradition of symmetric poetry. Gemsouls prefer to make their homes in flamboyant societies or places where they can make meaningful personal contributions, as well as in nations that appreciate cultivated beauty, like an elven realm. Gemsouls typically have dazzling, faceted skin, along with a cluster of crystalline formations instead of hair and pupil-less eyes of vivid colors. Some favor tattoos in complex, branching geometric shapes, and they can frequently be seen wearing silks or brightly dyed linen to contrast their complexions.",
+            "alternate_traits": []
           },
           {
             "name": "Ironsoul (Metal Oread)",
-            "description": "Stolid and indomitable, ironsoul oreads undertake great works, both physical and conceptual, with unwavering determination. LN +2 Con, +2 Wis, –2 Dex Ironsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base oread’s earth affinity, except it benefits sorcerers with the shaitan bloodline and spellcasters with the Metal subdomain. Possessed of patience and a sense of self-refinement through struggle, ironsouls reflect their ancestry in their continuous and determined efforts towards self-improvement. Ironsouls are most at home in areas that reflect that same sense of directed and intentional growth, and they operate best within existing formal structures. Ironsouls wear their elemental heritage on their skin, with most having some amount of metallic sheen. Their skin tone varies, with colors ranging from gold and silver to copper-green and dull, oxide gray."
+            "source": "Plane-Hopper's Handbook",
+            "description": "Stolid and indomitable, ironsoul oreads undertake great works, both physical and conceptual, with unwavering determination. LN +2 Con, +2 Wis, –2 Dex Ironsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base oread’s earth affinity, except it benefits sorcerers with the shaitan bloodline and spellcasters with the Metal subdomain. Possessed of patience and a sense of self-refinement through struggle, ironsouls reflect their ancestry in their continuous and determined efforts towards self-improvement. Ironsouls are most at home in areas that reflect that same sense of directed and intentional growth, and they operate best within existing formal structures. Ironsouls wear their elemental heritage on their skin, with most having some amount of metallic sheen. Their skin tone varies, with colors ranging from gold and silver to copper-green and dull, oxide gray.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -6916,11 +7112,15 @@
         "subraces": [
           {
             "name": "Smokesoul (Fume Sylph)",
-            "description": "Veiled and surreptitious, smokesoul sylphs are natural deceivers, always concealing their true intentions. CE +2 Dex, +2 Cha, –2 Con Smokesouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base sylph’s air affinity, except it benefits sorcerers with the shadow bloodline and spellcasters with the Smoke subdomain. Obfuscation, secrecy, and the shape of things not there: all these are the natural realms of smokesouls. They are experts at concealing both their bodies and motivations, and at making the insubstantial seem as real as any physical object. Smokesouls are drawn to areas of dangerous politics and intrigue, and many can be found in a shadow-bound land and Brevoy pursuing whatever machinations amuse them. With few distinguishing features save ashen skin and dark hair, smokesouls can be mistaken for any number of other races. Smokesouls often change their clothing, cosmetics, or style to keep their appearance in a constant state of flux."
+            "source": "Plane-Hopper's Handbook",
+            "description": "Veiled and surreptitious, smokesoul sylphs are natural deceivers, always concealing their true intentions. CE +2 Dex, +2 Cha, –2 Con Smokesouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base sylph’s air affinity, except it benefits sorcerers with the shadow bloodline and spellcasters with the Smoke subdomain. Obfuscation, secrecy, and the shape of things not there: all these are the natural realms of smokesouls. They are experts at concealing both their bodies and motivations, and at making the insubstantial seem as real as any physical object. Smokesouls are drawn to areas of dangerous politics and intrigue, and many can be found in a shadow-bound land and Brevoy pursuing whatever machinations amuse them. With few distinguishing features save ashen skin and dark hair, smokesouls can be mistaken for any number of other races. Smokesouls often change their clothing, cosmetics, or style to keep their appearance in a constant state of flux.",
+            "alternate_traits": []
           },
           {
             "name": "Stormsoul (Lightning Sylph)",
-            "description": "With an abundance of confidence and a shortage of patience, stormsoul sylphs are personalities who cannot be ignored. CN +2 Dex, +2 Cha, –2 Wis Stormsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base sylph’s air affinity, except it benefits sorcerers with the stormborn bloodline and spellcasters with the Weather domain. When a stormsoul moves, either in word or in action, the world notices. Unafraid to speak their minds, they are both direct and unsubtle, and they make fierce allies. When friends are in need, stormsouls act without thinking and are always the first to leap to their aid. A stormsoul sylph has hair that always seems to move, even when there is no breeze, and acts with a sudden intensity that can seem out of control. Their eyes are the color of stormy water or lightning-lit skies, and even a casual glance from a stormsoul can seem severe."
+            "source": "Plane-Hopper's Handbook",
+            "description": "With an abundance of confidence and a shortage of patience, stormsoul sylphs are personalities who cannot be ignored. CN +2 Dex, +2 Cha, –2 Wis Stormsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base sylph’s air affinity, except it benefits sorcerers with the stormborn bloodline and spellcasters with the Weather domain. When a stormsoul moves, either in word or in action, the world notices. Unafraid to speak their minds, they are both direct and unsubtle, and they make fierce allies. When friends are in need, stormsouls act without thinking and are always the first to leap to their aid. A stormsoul sylph has hair that always seems to move, even when there is no breeze, and acts with a sudden intensity that can seem out of control. Their eyes are the color of stormy water or lightning-lit skies, and even a casual glance from a stormsoul can seem severe.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -7314,43 +7514,63 @@
         "subraces": [
           {
             "name": "Asura-Spawn (Faultspawn)",
-            "description": "Lacking any sense of empathy or pity, faultspawn often abhor all ways of life but their own. They inflict severe emotional and physical pain on others, and never stop picking at the resulting psychological scars. Asura LE +2 Dex, +2 Wis, –2 Int Appraise, Knowledge (local) Faultspawn gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "Lacking any sense of empathy or pity, faultspawn often abhor all ways of life but their own. They inflict severe emotional and physical pain on others, and never stop picking at the resulting psychological scars. Asura LE +2 Dex, +2 Wis, –2 Int Appraise, Knowledge (local) Faultspawn gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Daemon-Spawn (Grimspawn)",
-            "description": "Dreary and pessimistic, grimspawn are so enthralled by death, disease, and dilapidation that they often dedicate themselves to ending lives from behind the scenes as macabre saboteurs. Daemon NE +2 Dex, +2 Int, –2 Wis Disable Device, Sleight of Hand Grimspawn gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "Dreary and pessimistic, grimspawn are so enthralled by death, disease, and dilapidation that they often dedicate themselves to ending lives from behind the scenes as macabre saboteurs. Daemon NE +2 Dex, +2 Int, –2 Wis Disable Device, Sleight of Hand Grimspawn gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Demodand-Spawn (Foulspawn)",
-            "description": "Crude and boorish, foulspawn take a particular delight in giving offense and scandalizing polite society. They enjoy violating taboos even more than breaking laws, especially if it means degrading or repulsing an innocent. Demodand CE +2 Con, +2 Wis, –2 Int Modifiers Intimidate, Knowledge (religion) Foulspawn gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "Crude and boorish, foulspawn take a particular delight in giving offense and scandalizing polite society. They enjoy violating taboos even more than breaking laws, especially if it means degrading or repulsing an innocent. Demodand CE +2 Con, +2 Wis, –2 Int Modifiers Intimidate, Knowledge (religion) Foulspawn gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Demon-Spawn (Pitborn)",
-            "description": "Pitborn delight in destruction, especially while unleashing their havoc on what others consider valuable or precious. Perhaps because of this volatility, others tend to simply defer to pitborn, an act that often grants them the dominance they crave. Demon CE +2 Str, +2 Cha, –2 Int Disable Device, Perception Pitborn gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "Pitborn delight in destruction, especially while unleashing their havoc on what others consider valuable or precious. Perhaps because of this volatility, others tend to simply defer to pitborn, an act that often grants them the dominance they crave. Demon CE +2 Str, +2 Cha, –2 Int Disable Device, Perception Pitborn gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Devil-Spawn (Hellspawn)",
-            "description": "While often rigid, stubborn, and highly focused on sticking to plans and schedules, hellspawn also have a rare talent for penetrating others’ facades. They know a lie when they hear one, and can often determine what hidden vice or secret shame motivates another. Devil LE +2 Con, +2 Wis, –2 Cha Diplomacy, Sense Motive Hellspawn gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "While often rigid, stubborn, and highly focused on sticking to plans and schedules, hellspawn also have a rare talent for penetrating others’ facades. They know a lie when they hear one, and can often determine what hidden vice or secret shame motivates another. Devil LE +2 Con, +2 Wis, –2 Cha Diplomacy, Sense Motive Hellspawn gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Div-Spawn (Spitespawn)",
-            "description": "An innate sense of jealousy and pure malice drives spitespawn to spread misery and despair. Unable to experience joy themselves, they devote their lives to promoting gloom, all the while hiding the hatefulness that lurks at their core. Div NE +2 Dex, +2 Cha, –2 Int Diplomacy, Linguistics Spitespawn gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "An innate sense of jealousy and pure malice drives spitespawn to spread misery and despair. Unable to experience joy themselves, they devote their lives to promoting gloom, all the while hiding the hatefulness that lurks at their core. Div NE +2 Dex, +2 Cha, –2 Int Diplomacy, Linguistics Spitespawn gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Kyton-Spawn (Shackleborn)",
-            "description": "Shackleborn are fascinated by mutilation and torture. Though they prefer to practice their cruel art on others, they accept that sometimes the wheel must turn and greet their own moments of anguish and confinement with an odd serenity. Kyton LE +2 Con, +2 Cha, –2 Wis Escape Artist, Intimidate Shackleborn gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "Shackleborn are fascinated by mutilation and torture. Though they prefer to practice their cruel art on others, they accept that sometimes the wheel must turn and greet their own moments of anguish and confinement with an odd serenity. Kyton LE +2 Con, +2 Cha, –2 Wis Escape Artist, Intimidate Shackleborn gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Oni-Spawn (Hungerseed)",
-            "description": "Endowed with brawny muscles and thick bones, hungerseed always seem poised to explode into some larger, more powerful form, and have a voracious appetite for sensory pleasures and carnal delights. Oni LE +2 Str, +2 Wis, –2 Cha Disguise, Intimidate Hungerseed gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "Endowed with brawny muscles and thick bones, hungerseed always seem poised to explode into some larger, more powerful form, and have a voracious appetite for sensory pleasures and carnal delights. Oni LE +2 Str, +2 Wis, –2 Cha Disguise, Intimidate Hungerseed gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Qlippoth-Spawn (the Motherless)",
-            "description": "No woman survives the birth of a babe whose qlippoth ancestry has emerged. At best, qlippoth-spawn rip their mothers apart during labor. At worst, they tear themselves out even earlier. Qlippoth CE +2 Str, +2 Wis, –2 Int Escape Artist, Survival The motherless gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "No woman survives the birth of a babe whose qlippoth ancestry has emerged. At best, qlippoth-spawn rip their mothers apart during labor. At worst, they tear themselves out even earlier. Qlippoth CE +2 Str, +2 Wis, –2 Int Escape Artist, Survival The motherless gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Rakshasa-Spawn (Beastbrood)",
-            "description": "Beastbrood regard themselves as deserving of appreciation and opulence. Through deceit and sheer willpower, they often achieve privileged stations in society. Rakshasa LE +2 Dex, +2 Cha, –2 Wis Disguise, Sense Motive Beastbrood gain as a spell-like ability."
+            "source": "Blood of Fiends",
+            "description": "Beastbrood regard themselves as deserving of appreciation and opulence. Through deceit and sheer willpower, they often achieve privileged stations in society. Rakshasa LE +2 Dex, +2 Cha, –2 Wis Disguise, Sense Motive Beastbrood gain as a spell-like ability.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -8121,27 +8341,39 @@
         "subraces": [
           {
             "name": "Agathion-Blooded (Idyllkin)",
-            "description": "Idyllkin possess bestial aspects and calm dispositions, and often act as peaceful intermediaries between lawful and chaotic agents of good. Agathion NG +2 Con, +2 Cha Handle Animal, Survival Idyllkin gain as a spell-like ability."
+            "source": "Blood of Angels",
+            "description": "Idyllkin possess bestial aspects and calm dispositions, and often act as peaceful intermediaries between lawful and chaotic agents of good. Agathion NG +2 Con, +2 Cha Handle Animal, Survival Idyllkin gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Angel-Blooded (Angelkin)",
-            "description": "Angelkin are mortal paragons of exceptional beauty, and they serve as exemplars of good and light regardless of the myriad forms they may take. Angel Any good +2 Str, +2 Cha Heal, Knowledge (planes) Angelkin gain as a spell-like ability."
+            "source": "Blood of Angels",
+            "description": "Angelkin are mortal paragons of exceptional beauty, and they serve as exemplars of good and light regardless of the myriad forms they may take. Angel Any good +2 Str, +2 Cha Heal, Knowledge (planes) Angelkin gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Archon-Blooded (Lawbringers)",
-            "description": "Lawbringers are champions of justice and of doling out punishment to the wicked, and often believe chaos is the cause of all mortal suffering. Archon LG +2 Con, +2 Wis Intimidate, Sense Motive Lawbringers gain as a spell-like ability."
+            "source": "Blood of Angels",
+            "description": "Lawbringers are champions of justice and of doling out punishment to the wicked, and often believe chaos is the cause of all mortal suffering. Archon LG +2 Con, +2 Wis Intimidate, Sense Motive Lawbringers gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Azata-Blooded (Musetouched)",
-            "description": "The musetouched epitomize freedom and joy, and travel the world to liberate less fortunate individuals. Azata CG +2 Dex, +2 Cha Diplomacy, Perform Musetouched gain as a spell-like ability."
+            "source": "Blood of Angels",
+            "description": "The musetouched epitomize freedom and joy, and travel the world to liberate less fortunate individuals. Azata CG +2 Dex, +2 Cha Diplomacy, Perform Musetouched gain as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Garuda-Blooded (Plumekith)",
-            "description": "Their shimmering avian features make plumekith instantly recognizable. Though they can act rashly, plumekith never shirk their duty after making a commitment. Garuda CG +2 Dex, +2 Wis Acrobatics, Fly Plumekith gain see as a spell-like ability."
+            "source": "Blood of Angels",
+            "description": "Their shimmering avian features make plumekith instantly recognizable. Though they can act rashly, plumekith never shirk their duty after making a commitment. Garuda CG +2 Dex, +2 Wis Acrobatics, Fly Plumekith gain see as a spell-like ability.",
+            "alternate_traits": []
           },
           {
             "name": "Peri-Blooded (Emberkin)",
-            "description": "Masters of fire magic, emberkin feel the dual pull of their peri forebear as well as that of a fallen angel further down their ancestry, and wrestle with their urges to do both good and evil. Peri NG +2 Int, +2 Cha Knowledge (planes), Spellcraft Emberkin gain as a spell-like ability."
+            "source": "Blood of Angels",
+            "description": "Masters of fire magic, emberkin feel the dual pull of their peri forebear as well as that of a fallen angel further down their ancestry, and wrestle with their urges to do both good and evil. Peri NG +2 Int, +2 Cha Knowledge (planes), Spellcraft Emberkin gain as a spell-like ability.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -9172,43 +9404,63 @@
         "subraces": [
           {
             "name": "Annis-Born (Slag May)",
-            "description": "Broad-shouldered and athletic, slag mays demonstrate incredible talent for all physical tasks. They share a vivacity, an addiction to new sights and experiences, and a tendency to collect souvenirs wherever they go. Annis hag CN +2 Str, +2 Cha, –2 Con Annis-born changelings gain a +1 racial bonus on melee damage rolls. Your jagged claws cause gaping wounds, dealing 1 point of bleed damage on a successful critical hit."
+            "source": "Blood of the Coven",
+            "description": "Broad-shouldered and athletic, slag mays demonstrate incredible talent for all physical tasks. They share a vivacity, an addiction to new sights and experiences, and a tendency to collect souvenirs wherever they go. Annis hag CN +2 Str, +2 Cha, –2 Con Annis-born changelings gain a +1 racial bonus on melee damage rolls. Your jagged claws cause gaping wounds, dealing 1 point of bleed damage on a successful critical hit.",
+            "alternate_traits": []
           },
           {
             "name": "Ash-Born (Hearth May)",
-            "description": "Possessed of a blazing inner fire, hearth mays are passionate and excitable. Ranging from bubbly to irate, they lack emotional nuance, but their drive and discipline can overcome nearly any obstacle. Ash hag LN +2 Wis, +2 Cha, -2 Con Ash-born changelings gain a +1 racial bonus on damage rolls for spells with the fire descriptor. This bonus increases by 1 for every 4 character levels the changeling has beyond 1st. You gain immunity to extremely warm conditions, as if you were under the effects of a permanent spell (heat only) that cannot be dispelled."
+            "source": "Blood of the Coven",
+            "description": "Possessed of a blazing inner fire, hearth mays are passionate and excitable. Ranging from bubbly to irate, they lack emotional nuance, but their drive and discipline can overcome nearly any obstacle. Ash hag LN +2 Wis, +2 Cha, -2 Con Ash-born changelings gain a +1 racial bonus on damage rolls for spells with the fire descriptor. This bonus increases by 1 for every 4 character levels the changeling has beyond 1st. You gain immunity to extremely warm conditions, as if you were under the effects of a permanent spell (heat only) that cannot be dispelled.",
+            "alternate_traits": []
           },
           {
             "name": "Blood-Born (Veil May)",
-            "description": "Gifted with a face for every occasion, veil mays can adjust to any social situation, showing those around them exactly what they want to see. As easily as they read others, they are equally gifted at hiding their true intentions. Blood hag N +2 Wis, +2 Cha, -2 Int The DCs of Sense Motive checks to gain a hunch about a blood-born changeling increase by 5. You gain a +2 racial bonus on Bluff, Diplomacy, and Sense Motive skill checks as your gifts for reading and manipulating others matures."
+            "source": "Blood of the Coven",
+            "description": "Gifted with a face for every occasion, veil mays can adjust to any social situation, showing those around them exactly what they want to see. As easily as they read others, they are equally gifted at hiding their true intentions. Blood hag N +2 Wis, +2 Cha, -2 Int The DCs of Sense Motive checks to gain a hunch about a blood-born changeling increase by 5. You gain a +2 racial bonus on Bluff, Diplomacy, and Sense Motive skill checks as your gifts for reading and manipulating others matures.",
+            "alternate_traits": []
           },
           {
             "name": "Dreamthief-Born (Waker May)",
-            "description": "Rare beyond measure, waker mays exist only as the result of horrific rituals and bear stained souls. Cursed from birth, they mature like foul fruit into the deadliest of and most powerful of hags. Dreamthief hag NE +2 Str, +2 Cha, -2 Wis Dreamthief-born changelings gain a +2 racial bonus on saving throws against mind-affecting effects. You no longer need to sleep and cannot become fatigued due to lack of sleep. You can still be affected by other effects that inflict the fatigued condition, and must rest for 8 hours in order to prepare spells or regain uses of class abilities as normal, even if this time is not spent sleeping."
+            "source": "Blood of the Coven",
+            "description": "Rare beyond measure, waker mays exist only as the result of horrific rituals and bear stained souls. Cursed from birth, they mature like foul fruit into the deadliest of and most powerful of hags. Dreamthief hag NE +2 Str, +2 Cha, -2 Wis Dreamthief-born changelings gain a +2 racial bonus on saving throws against mind-affecting effects. You no longer need to sleep and cannot become fatigued due to lack of sleep. You can still be affected by other effects that inflict the fatigued condition, and must rest for 8 hours in order to prepare spells or regain uses of class abilities as normal, even if this time is not spent sleeping.",
+            "alternate_traits": []
           },
           {
             "name": "Green-Born (Callow May)",
-            "description": "Shy and soft-spoken, but possessed of grace and insight, callow mays are masterful manipulators who deeply appreciate the beautiful things in the world. Green hag CN +2 Wis, +2 Cha, -2 Con Green-born changelings gain a +2 racial bonus on Bluff checks against creatures that could be sexually attracted to them. You can cast once per day as a spell-like ability, treating your character level as your caster level. The bonus on Bluff checks you gain from your hag racial trait applies when someone could be sexually attracted to your disguised form as well."
+            "source": "Blood of the Coven",
+            "description": "Shy and soft-spoken, but possessed of grace and insight, callow mays are masterful manipulators who deeply appreciate the beautiful things in the world. Green hag CN +2 Wis, +2 Cha, -2 Con Green-born changelings gain a +2 racial bonus on Bluff checks against creatures that could be sexually attracted to them. You can cast once per day as a spell-like ability, treating your character level as your caster level. The bonus on Bluff checks you gain from your hag racial trait applies when someone could be sexually attracted to your disguised form as well.",
+            "alternate_traits": []
           },
           {
             "name": "Mute-Born (Sorrow May)",
-            "description": "Unique among their kind, sorrow mays manifest spontaneously without the need for hag mothers, and likewise hold the potential to corrupt themselves, transforming into hags should their hearts grow cold. Mute hag CN +2 Int, +2 Wis, -2 Con Mute-born changelings gain a +2 racial bonus on saving throws against gaze attacks. When you confirm a critical hit with your claw attack, your opponent is blinded for 1d6 rounds. A target that succeeds at a Fortitude saving throw (DC = 10 + half your character level + your Charisma modifier) is dazzled for 1 round instead."
+            "source": "Blood of the Coven",
+            "description": "Unique among their kind, sorrow mays manifest spontaneously without the need for hag mothers, and likewise hold the potential to corrupt themselves, transforming into hags should their hearts grow cold. Mute hag CN +2 Int, +2 Wis, -2 Con Mute-born changelings gain a +2 racial bonus on saving throws against gaze attacks. When you confirm a critical hit with your claw attack, your opponent is blinded for 1d6 rounds. A target that succeeds at a Fortitude saving throw (DC = 10 + half your character level + your Charisma modifier) is dazzled for 1 round instead.",
+            "alternate_traits": []
           },
           {
             "name": "Night-Born (Moon May)",
-            "description": "As much made as born, moon mays are deliberately created by night hags with foul futures in mind. Destiny haunts their lives, fanning pride and natural talent into megalomania. Night hag N +2 Wis, +2 Cha, -2 Dex Night-born changelings gain a +2 racial bonus on saving throws against disease. You can form a by performing an 8-hour ritual over any gem worth at least 500 gp. While you carry it, a allows you to apply your +2 racial bonus on saving throws against disease to all Fortitude saves. A can also be used as a focus to replace any material spell components worth 10 gp or less. A is considered to have a caster level equal to your character level at the time of its creation."
+            "source": "Blood of the Coven",
+            "description": "As much made as born, moon mays are deliberately created by night hags with foul futures in mind. Destiny haunts their lives, fanning pride and natural talent into megalomania. Night hag N +2 Wis, +2 Cha, -2 Dex Night-born changelings gain a +2 racial bonus on saving throws against disease. You can form a by performing an 8-hour ritual over any gem worth at least 500 gp. While you carry it, a allows you to apply your +2 racial bonus on saving throws against disease to all Fortitude saves. A can also be used as a focus to replace any material spell components worth 10 gp or less. A is considered to have a caster level equal to your character level at the time of its creation.",
+            "alternate_traits": []
           },
           {
             "name": "Sea-Born (Brine May)",
-            "description": "Dauntless free spirits, brine mays wander like the wind and water, and just like the elements, they have little concern for others' plans. Sea hag CN +2 Dex, +2 Wis, -2 Con Sea-born changelings can hold their breath for a number of rounds equal to three times their Constitution score before they risk drowning. You gain a swim speed equal to your base speed and can move in water without attempting Swim checks. Swim is a class skill for you."
+            "source": "Blood of the Coven",
+            "description": "Dauntless free spirits, brine mays wander like the wind and water, and just like the elements, they have little concern for others' plans. Sea hag CN +2 Dex, +2 Wis, -2 Con Sea-born changelings can hold their breath for a number of rounds equal to three times their Constitution score before they risk drowning. You gain a swim speed equal to your base speed and can move in water without attempting Swim checks. Swim is a class skill for you.",
+            "alternate_traits": []
           },
           {
             "name": "Storm-Born (Virga May)",
-            "description": "Born with cold temperaments but hot passions, virga mays reject large crowds and open spaces and prefer to keep their emotions under tight control, all too aware of raging torrents that burble below their calm exteriors. Storm hag CN +2 Wis, +2 Cha, -2 Con Storm-born changelings are treated as two size categories larger for the purpose of resolving wind effects. You can cast following spell-like abilities: 1/day— , , and . The caster level for these effects is equal to your level. The DC for these spells is equal to 10 + the spell's level + your Charisma modifier."
+            "source": "Blood of the Coven",
+            "description": "Born with cold temperaments but hot passions, virga mays reject large crowds and open spaces and prefer to keep their emotions under tight control, all too aware of raging torrents that burble below their calm exteriors. Storm hag CN +2 Wis, +2 Cha, -2 Con Storm-born changelings are treated as two size categories larger for the purpose of resolving wind effects. You can cast following spell-like abilities: 1/day— , , and . The caster level for these effects is equal to your level. The DC for these spells is equal to 10 + the spell's level + your Charisma modifier.",
+            "alternate_traits": []
           },
           {
             "name": "Winter-Born (Snow May)",
-            "description": "Playful and easily amused, snow mays are lighthearted but terribly creative once their anger is roused. Little phases these capricious women for long, and their casual cruelty can easily melt back to kindness. Winter hag CN +2 Int, +2 Cha, -2 Con Winter-born changelings gain a +5 racial bonus on Acrobatics and Climb checks on icy or slippery surfaces. You gain cold resistance equal to your character level and are no longer affected by severe cold or extreme cold."
+            "source": "Blood of the Coven",
+            "description": "Playful and easily amused, snow mays are lighthearted but terribly creative once their anger is roused. Little phases these capricious women for long, and their casual cruelty can easily melt back to kindness. Winter hag CN +2 Int, +2 Cha, -2 Con Winter-born changelings gain a +5 racial bonus on Acrobatics and Climb checks on icy or slippery surfaces. You gain cold resistance equal to your character level and are no longer affected by severe cold or extreme cold.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -9419,19 +9671,27 @@
         "subraces": [
           {
             "name": "Jiang-Shi-Born (Ru-Shi)",
-            "description": "The ru-shi are dhampirs who descend from the jiang-shi of a faraway continent. They generally lack any interest in physical contact, and their movements are stiff and awkward. : +2 Strength, +2 Intelligence, –2 Dexterity. : Acrobatics, Knowledge (engineering). : . : Ru-shi take a –1 penalty on saves against sonic effects and spells."
+            "source": "Inner Sea Races",
+            "description": "The ru-shi are dhampirs who descend from the jiang-shi of a faraway continent. They generally lack any interest in physical contact, and their movements are stiff and awkward. : +2 Strength, +2 Intelligence, –2 Dexterity. : Acrobatics, Knowledge (engineering). : . : Ru-shi take a –1 penalty on saves against sonic effects and spells.",
+            "alternate_traits": []
           },
           {
             "name": "Moroi-Born (Svetocher)",
-            "description": "These dhampirs are blessed with unnatural grace, beauty, and charm, and they often feel most at home among a region's aristocracy. : +2 Strength, +2 Charisma, –2 Constitution. : Diplomacy, Knowledge (nobility). : . : Svetochers take a –1 penalty on saves against effects that deal positive energy damage."
+            "source": "Inner Sea Races",
+            "description": "These dhampirs are blessed with unnatural grace, beauty, and charm, and they often feel most at home among a region's aristocracy. : +2 Strength, +2 Charisma, –2 Constitution. : Diplomacy, Knowledge (nobility). : . : Svetochers take a –1 penalty on saves against effects that deal positive energy damage.",
+            "alternate_traits": []
           },
           {
             "name": "Nosferatu-Born (Ancient-Born)",
-            "description": "Many of the ancient-born dhampirs possess a deep hatred for humanity—a hatred most humans return in kind. : +2 Strength, +2 Wisdom, –2 Constitution. : Climb, Survival. : . : Ancient-born take a –1 penalty on saves against effects that damage, drain, or reduce physical ability scores."
+            "source": "Inner Sea Races",
+            "description": "Many of the ancient-born dhampirs possess a deep hatred for humanity—a hatred most humans return in kind. : +2 Strength, +2 Wisdom, –2 Constitution. : Climb, Survival. : . : Ancient-born take a –1 penalty on saves against effects that damage, drain, or reduce physical ability scores.",
+            "alternate_traits": []
           },
           {
             "name": "Vetala-Born (Ajibachana)",
-            "description": "These dhampirs are more often the result of magical experiments than mating. : +2 Dexterity, +2 Intelligence, –2 Wisdom. : Escape Artist, Use Magic Device. : . : Ajibachanas take a –1 penalty to their caster levels when they're in an area affected by , , or a similar spell that makes an area holy."
+            "source": "Inner Sea Races",
+            "description": "These dhampirs are more often the result of magical experiments than mating. : +2 Dexterity, +2 Intelligence, –2 Wisdom. : Escape Artist, Use Magic Device. : . : Ajibachanas take a –1 penalty to their caster levels when they're in an area affected by , , or a similar spell that makes an area holy.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -10271,7 +10531,9 @@
         "subraces": [
           {
             "name": "Expanded Oddities",
-            "description": "Due to the Maelstrom’s entropic influence on their compositions, ganzis each have an unusual but defining feature—referred to as an oddity—that sets them apart from other races and even from other members of their own race. These oddities vary wildly from ganzi to ganzi, and they can manifest as physical features, such as feathers, scales, or a tail, or as more subtle magical abilities. At the GM’s discretion, players with ganzi characters can roll 1d20 to randomly determine what form their characters’ oddities take using the list below. : The influence of the Maelstrom manifests in the ganzi’s ability to transform one of her limbs at will, often into a natural weapon such as a massive clawed arm. Every 1d4 rounds as a swift action, a ganzi can transform one of her limbs into a natural melee weapon that deals 1d6 points of damage. The transformation lasts until the beginning of the ganzi’s next turn. The damage dealt by this natural weapon can be lethal or nonlethal, at the ganzi’s discretion, and she chooses whether the damage type is bludgeoning, piercing, or slashing. : As a standard action, the ganzi can spit a stream of opaque, black ink from her mouth to a distance of up to 20 feet. The ganzi can target either a creature or a square on the ground, each with different effects, as detailed below. The ganzi can use this ability once per day, plus one additional time per day for every 4 Hit Dice she has. : The ganzi shoots a stream of ink into a creature’s eyes as a ranged touch attack with a range of 30 feet. If the ganzi hits, the target must succeed at a Fortitude saving throw (DC = 10 + half the ganzi’s Hit Dice + the ganzi’s Constitution modifier) or be blinded for 1d4 rounds. : The ganzi spits the ink into a single square on the ground within 30 feet, which becomes slippery for 1d6 rounds. Any creatures entering the square must succeed at a Reflex save (DC = 10 + half the ganzi’s Hit Dice + the ganzi’s Constitution modifier) or fall prone. : A ganzi whose lineage is linked to hunduns might inherit an aspect of the outsiders’ chaotic minds. The ganzi’s churning vortex of thoughts bolsters it against mental attacks, granting the ganzi a +2 bonus on Will saves against mind-affecting effects. : Ganzis whose chaotic influences rise from sources other than the Maelstrom or its inhabitants often manifest an oddity that duplicates the effects of a specific spell. Such a ganzi gains one of the following spell-like abilities, which can be used once per day with a caster level equal to the ganzi’s HD: , , , , , , or . : Some ganzis have an unsettling aura of chaos that rattles hostile creatures that venture too close. Once per day as a standard action, such a ganzi can activate an uncanny aura; enemies within 30 feet must succeed at a Will saving throw (DC = 10 + half the ganzi’s Hit Dice + the ganzi’s Charisma modifier) or become frightened until the beginning of the ganzi’s next turn. The aura remains for a number of rounds equal to the ganzi’s Charisma modifier (minimum 1 round). Once a creature has been affected by an uncanny aura, whether it failed its save or not, it cannot be affected again for 24 hours. : The ganzi has a pair of small, vestigial wings, likely but not limited to resembling those of a flying creature or some manner of construct. Though these appendages do not grant flight, these ganzis can use their wings to stabilize themselves when they’re thrown off balance. Such ganzis gain a +1 bonus on Reflex saving throws and a +2 bonus on Acrobatics checks to balance. : A ganzi whose lineage is influenced strongly by voidworms might exhibit the ability to inflict chaos on others’ minds. Three times per day when such a ganzi hits a creature with a melee attack, the ganzi can deliver a burst of chaos to that creature as a free action. The target must succeed at a Will save (DC = 10 + half the ganzi’s Hit Dice + the ganzi’s Constitution modifier) or be confused for 1 round."
+            "source": "Plane-Hopper's Handbook",
+            "description": "Due to the Maelstrom’s entropic influence on their compositions, ganzis each have an unusual but defining feature—referred to as an oddity—that sets them apart from other races and even from other members of their own race. These oddities vary wildly from ganzi to ganzi, and they can manifest as physical features, such as feathers, scales, or a tail, or as more subtle magical abilities. At the GM’s discretion, players with ganzi characters can roll 1d20 to randomly determine what form their characters’ oddities take using the list below. : The influence of the Maelstrom manifests in the ganzi’s ability to transform one of her limbs at will, often into a natural weapon such as a massive clawed arm. Every 1d4 rounds as a swift action, a ganzi can transform one of her limbs into a natural melee weapon that deals 1d6 points of damage. The transformation lasts until the beginning of the ganzi’s next turn. The damage dealt by this natural weapon can be lethal or nonlethal, at the ganzi’s discretion, and she chooses whether the damage type is bludgeoning, piercing, or slashing. : As a standard action, the ganzi can spit a stream of opaque, black ink from her mouth to a distance of up to 20 feet. The ganzi can target either a creature or a square on the ground, each with different effects, as detailed below. The ganzi can use this ability once per day, plus one additional time per day for every 4 Hit Dice she has. : The ganzi shoots a stream of ink into a creature’s eyes as a ranged touch attack with a range of 30 feet. If the ganzi hits, the target must succeed at a Fortitude saving throw (DC = 10 + half the ganzi’s Hit Dice + the ganzi’s Constitution modifier) or be blinded for 1d4 rounds. : The ganzi spits the ink into a single square on the ground within 30 feet, which becomes slippery for 1d6 rounds. Any creatures entering the square must succeed at a Reflex save (DC = 10 + half the ganzi’s Hit Dice + the ganzi’s Constitution modifier) or fall prone. : A ganzi whose lineage is linked to hunduns might inherit an aspect of the outsiders’ chaotic minds. The ganzi’s churning vortex of thoughts bolsters it against mental attacks, granting the ganzi a +2 bonus on Will saves against mind-affecting effects. : Ganzis whose chaotic influences rise from sources other than the Maelstrom or its inhabitants often manifest an oddity that duplicates the effects of a specific spell. Such a ganzi gains one of the following spell-like abilities, which can be used once per day with a caster level equal to the ganzi’s HD: , , , , , , or . : Some ganzis have an unsettling aura of chaos that rattles hostile creatures that venture too close. Once per day as a standard action, such a ganzi can activate an uncanny aura; enemies within 30 feet must succeed at a Will saving throw (DC = 10 + half the ganzi’s Hit Dice + the ganzi’s Charisma modifier) or become frightened until the beginning of the ganzi’s next turn. The aura remains for a number of rounds equal to the ganzi’s Charisma modifier (minimum 1 round). Once a creature has been affected by an uncanny aura, whether it failed its save or not, it cannot be affected again for 24 hours. : The ganzi has a pair of small, vestigial wings, likely but not limited to resembling those of a flying creature or some manner of construct. Though these appendages do not grant flight, these ganzis can use their wings to stabilize themselves when they’re thrown off balance. Such ganzis gain a +1 bonus on Reflex saving throws and a +2 bonus on Acrobatics checks to balance. : A ganzi whose lineage is influenced strongly by voidworms might exhibit the ability to inflict chaos on others’ minds. Three times per day when such a ganzi hits a creature with a melee attack, the ganzi can deliver a burst of chaos to that creature as a free action. The target must succeed at a Will save (DC = 10 + half the ganzi’s Hit Dice + the ganzi’s Constitution modifier) or be confused for 1 round.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [],
@@ -11369,11 +11631,15 @@
         "subraces": [
           {
             "name": "Lavasoul (Magma Ifrit)",
-            "description": "Like the primal fires of creation, lavasoul ifrits are both fluid and fixed, alternating between stability and violent alteration. CN +2 Con, +2 Int, –2 Dex Lavasouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base ifrit’s fire affinity, except it benefits sorcerers with the efreeti bloodline and spellcasters with the Ash subdomain. Mutable and intense, lavasouls evoke the cycle of creation and destruction in their colorful lives, unafraid to pursue new paradigms when the old ones no longer suit them. Many are dark-skinned but riven with blazing lines, which are sometimes also reflected in bright hair or eye colors. They tend to embrace body modification, acquiring and discarding tattoos and piercings as they feel appropriate. Lavasouls can be found in places where seismic change is commonplace and destructive creation is not seen as a contradiction; they excel in the fast-paced markets of a merchant nation and the constant flux of a revolution-torn land."
+            "source": "Plane-Hopper's Handbook",
+            "description": "Like the primal fires of creation, lavasoul ifrits are both fluid and fixed, alternating between stability and violent alteration. CN +2 Con, +2 Int, –2 Dex Lavasouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base ifrit’s fire affinity, except it benefits sorcerers with the efreeti bloodline and spellcasters with the Ash subdomain. Mutable and intense, lavasouls evoke the cycle of creation and destruction in their colorful lives, unafraid to pursue new paradigms when the old ones no longer suit them. Many are dark-skinned but riven with blazing lines, which are sometimes also reflected in bright hair or eye colors. They tend to embrace body modification, acquiring and discarding tattoos and piercings as they feel appropriate. Lavasouls can be found in places where seismic change is commonplace and destructive creation is not seen as a contradiction; they excel in the fast-paced markets of a merchant nation and the constant flux of a revolution-torn land.",
+            "alternate_traits": []
           },
           {
             "name": "Sunsoul (Solar Ifrit)",
-            "description": "Strong in character and in body, sunsoul ifrits are incurably optimistic agents of positive change. LG +2 Str, +2 Cha, –2 Wis Sunsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base ifrit’s fire affinity, except it benefits sorcerers with the celestial bloodline and spellcasters with the Sun domain. With fire comes light, and the brightness of the sunsouls comes both from their affinity for positive energy and their own luminous attitudes. Where others despair, they labor on, striving to lead by example. Strong leaders and passionate ethos attract sunsouls, drawing them toward powerful religions or crusading nations such as a crusader nation. They can also be found in places where darkness is settling in; both a fading empire and a haunted land have their share of sunsouls working to return these nations to the light. Sunsouls cannot easily hide their presence, and most would never try. Most sunsouls tend to have fair hair, often nearly white, and eyes that glow with a twinkle all their own. Some seem to glow from within, as if lit from inside by an inner sunlight. Unafraid to be seen, they dress in whatever styles please them, even when it means they stand out among populations either more daring or more conservative."
+            "source": "Plane-Hopper's Handbook",
+            "description": "Strong in character and in body, sunsoul ifrits are incurably optimistic agents of positive change. LG +2 Str, +2 Cha, –2 Wis Sunsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base ifrit’s fire affinity, except it benefits sorcerers with the celestial bloodline and spellcasters with the Sun domain. With fire comes light, and the brightness of the sunsouls comes both from their affinity for positive energy and their own luminous attitudes. Where others despair, they labor on, striving to lead by example. Strong leaders and passionate ethos attract sunsouls, drawing them toward powerful religions or crusading nations such as a crusader nation. They can also be found in places where darkness is settling in; both a fading empire and a haunted land have their share of sunsouls working to return these nations to the light. Sunsouls cannot easily hide their presence, and most would never try. Most sunsouls tend to have fair hair, often nearly white, and eyes that glow with a twinkle all their own. Some seem to glow from within, as if lit from inside by an inner sunlight. Unafraid to be seen, they dress in whatever styles please them, even when it means they stand out among populations either more daring or more conservative.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -12119,7 +12385,9 @@
         "subraces": [
           {
             "name": "Outsear Merfolk",
-            "description": "The settlement of Outsea is a bizarre environment: a saltwater oasis for merfolk and sahuagin in the freshwater River Kingdoms. Centuries ago, a sahuagin nation from the inner sea region mobilized a city-sized saltwater bolus for an overland assault on a merfolk state located near modern-day a port city. The merfolk learned of this ambitious plan and sent an elite group of soldiers in saltwater tanks to intercept the ocean-bubble. The two sides clashed in Lake Encarthan and eventually worked their way up into what is now the River Kingdoms. In this battle, many of the wizards maintaining the sahuagin’s briny mobile fortress perished, and the two sides ended up stranded hundreds of miles from any ocean. Begrudgingly putting aside their grievances, the merfolk and sahuagin worked together to prevent their mutual extinction, holding back the fresh water with spells and building the settlement of Outsea to serve as a permanent home. Now Outsea is a thriving city, home to all kinds of peoples. Centuries of coexistence have worn down the merfolk and sahuagin’s hatred for each other, and now they live and work together in peace. Outsear merfolk can take the unexpected ally alternate racial trait described below."
+            "source": "Heroes from the Fringe",
+            "description": "The settlement of Outsea is a bizarre environment: a saltwater oasis for merfolk and sahuagin in the freshwater River Kingdoms. Centuries ago, a sahuagin nation from the inner sea region mobilized a city-sized saltwater bolus for an overland assault on a merfolk state located near modern-day a port city. The merfolk learned of this ambitious plan and sent an elite group of soldiers in saltwater tanks to intercept the ocean-bubble. The two sides clashed in Lake Encarthan and eventually worked their way up into what is now the River Kingdoms. In this battle, many of the wizards maintaining the sahuagin’s briny mobile fortress perished, and the two sides ended up stranded hundreds of miles from any ocean. Begrudgingly putting aside their grievances, the merfolk and sahuagin worked together to prevent their mutual extinction, holding back the fresh water with spells and building the settlement of Outsea to serve as a permanent home. Now Outsea is a thriving city, home to all kinds of peoples. Centuries of coexistence have worn down the merfolk and sahuagin’s hatred for each other, and now they live and work together in peace. Outsear merfolk can take the unexpected ally alternate racial trait described below.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -13364,7 +13632,9 @@
         "subraces": [
           {
             "name": "Outsear Sahuagin",
-            "description": "The settlement of Outsea is a bizarre environment: a saltwater oasis for merfolk and sahuagin in the freshwater River Kingdoms. Centuries ago, a sahuagin nation from the inner sea region mobilized a city-sized saltwater bolus for an overland assault on a merfolk state located near modern-day a port city. The merfolk learned of this ambitious plan and sent an elite group of soldiers in saltwater tanks to intercept the ocean-bubble. The two sides clashed in Lake Encarthan and eventually worked their way up into what is now the River Kingdoms. In this battle, many of the wizards maintaining the sahuagin’s briny mobile fortress perished, and the two sides ended up stranded hundreds of miles from any ocean. Begrudgingly putting aside their grievances, the merfolk and sahuagin worked together to prevent their mutual extinction, holding back the fresh water with spells and building the settlement of Outsea to serve as a permanent home. Now Outsea is a thriving city, home to all kinds of peoples. Centuries of coexistence have worn down the merfolk and sahuagin’s hatred for each other, and now they live and work together in peace. Outsear sahuagin can take the sahuagin song and stoic defender alternate racial traits described below."
+            "source": "Heroes from the Fringe",
+            "description": "The settlement of Outsea is a bizarre environment: a saltwater oasis for merfolk and sahuagin in the freshwater River Kingdoms. Centuries ago, a sahuagin nation from the inner sea region mobilized a city-sized saltwater bolus for an overland assault on a merfolk state located near modern-day a port city. The merfolk learned of this ambitious plan and sent an elite group of soldiers in saltwater tanks to intercept the ocean-bubble. The two sides clashed in Lake Encarthan and eventually worked their way up into what is now the River Kingdoms. In this battle, many of the wizards maintaining the sahuagin’s briny mobile fortress perished, and the two sides ended up stranded hundreds of miles from any ocean. Begrudgingly putting aside their grievances, the merfolk and sahuagin worked together to prevent their mutual extinction, holding back the fresh water with spells and building the settlement of Outsea to serve as a permanent home. Now Outsea is a thriving city, home to all kinds of peoples. Centuries of coexistence have worn down the merfolk and sahuagin’s hatred for each other, and now they live and work together in peace. Outsear sahuagin can take the sahuagin song and stoic defender alternate racial traits described below.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -13439,39 +13709,57 @@
         "subraces": [
           {
             "name": "Werebat-Kin (Bloodmarked)",
-            "description": "These skinwalkers are usually communal and defer readily to their superiors. They prefer dwelling in areas of dense foliage, such as jungles or forests. They often have little trust for those not in their immediate clan. +2 Intelligence, –2 Wisdom (+2 Dexterity while shapechanged) Fly, Perception at night 1/day Bite attack that deals 1d6 points of damage +4 racial bonus on Perception checks Scent to a range of 30 feet Treat falling damage as if the distance fallen were 20 feet less than it actually is"
+            "source": "Inner Sea Races",
+            "description": "These skinwalkers are usually communal and defer readily to their superiors. They prefer dwelling in areas of dense foliage, such as jungles or forests. They often have little trust for those not in their immediate clan. +2 Intelligence, –2 Wisdom (+2 Dexterity while shapechanged) Fly, Perception at night 1/day Bite attack that deals 1d6 points of damage +4 racial bonus on Perception checks Scent to a range of 30 feet Treat falling damage as if the distance fallen were 20 feet less than it actually is",
+            "alternate_traits": []
           },
           {
             "name": "Werebear-Kin (Coldborn)",
-            "description": "Known and respected as the defenders of the wild in many parts of the Lands of the Linnorm Kings, these skinwalkers often prefer to live as recluses. +2 Constitution, –2 Charisma (+2 Wisdom while shapechanged) Climb, wild empathy 1/day Bite attack that deals 1d6 points of damage 2 claw attacks that each deal 1d4 points of damage Climb speed of 20 feet Scent to a range of 30 feet"
+            "source": "Inner Sea Races",
+            "description": "Known and respected as the defenders of the wild in many parts of the Lands of the Linnorm Kings, these skinwalkers often prefer to live as recluses. +2 Constitution, –2 Charisma (+2 Wisdom while shapechanged) Climb, wild empathy 1/day Bite attack that deals 1d6 points of damage 2 claw attacks that each deal 1d4 points of damage Climb speed of 20 feet Scent to a range of 30 feet",
+            "alternate_traits": []
           },
           {
             "name": "Wereboar-Kin (Ragebred)",
-            "description": "These skinwalkers are known for their fiery tempers and stubborn streaks, features that have earned them respect in remote corners of Garund, a diabolic empire, and a frontier land as freedom fighters. +2 Strength, –2 Charisma (+2 Constitution while shapechanged) Handle Animal, Perception (pigs and boars only) 3/day +10 foot racial bonus to base speed Gore attack that deals 1d6 points of damage 2 hoof attacks that each deal 1d4 points of damage Scent to a range of 30 feet"
+            "source": "Inner Sea Races",
+            "description": "These skinwalkers are known for their fiery tempers and stubborn streaks, features that have earned them respect in remote corners of Garund, a diabolic empire, and a frontier land as freedom fighters. +2 Strength, –2 Charisma (+2 Constitution while shapechanged) Handle Animal, Perception (pigs and boars only) 3/day +10 foot racial bonus to base speed Gore attack that deals 1d6 points of damage 2 hoof attacks that each deal 1d4 points of damage Scent to a range of 30 feet",
+            "alternate_traits": []
           },
           {
             "name": "Werecrocodile-Kin (Scaleheart)",
-            "description": "Found most often in areas such as the Shackles and the a storm-ravaged coast, these skinwalkers are often brutish and cruel. +2 Constitution, –2 Wisdom (+2 Strength while shapechanged) Stealth, wild empathy 1/day Bite attack that deals 1d6 points of damage Darkvision to a range of 60 feet Swim speed of 30 feet"
+            "source": "Inner Sea Races",
+            "description": "Found most often in areas such as the Shackles and the a storm-ravaged coast, these skinwalkers are often brutish and cruel. +2 Constitution, –2 Wisdom (+2 Strength while shapechanged) Stealth, wild empathy 1/day Bite attack that deals 1d6 points of damage Darkvision to a range of 60 feet Swim speed of 30 feet",
+            "alternate_traits": []
           },
           {
             "name": "Wereraptor-Kin (Aerieborn)",
-            "description": "wereraptor LN +2 Wis, –2 Cha (+2 Dex while shapechanged) Perception, Sense Motive 1/day Bite attack that deals 1d6 points of damage 2 talon attacks that each deal 1d4 points of damage +4 racial bonus on Perception checks Increase fly speeds from other sources by 10 feet"
+            "source": "Pathfinder #115: Trail of the Hunted",
+            "description": "wereraptor LN +2 Wis, –2 Cha (+2 Dex while shapechanged) Perception, Sense Motive 1/day Bite attack that deals 1d6 points of damage 2 talon attacks that each deal 1d4 points of damage +4 racial bonus on Perception checks Increase fly speeds from other sources by 10 feet",
+            "alternate_traits": []
           },
           {
             "name": "Wererat-Kin (Nightskulk)",
-            "description": "These creatures, who are among the more common of the skinwalkers, prefer to dwell in urban areas. +2 Intelligence, –2 Strength (+2 Dexterity while shapechanged) Handle Animal, Stealth in urban environments (rodents only) 3/day Bite attack that deals 1d6 points of damage Climb speed of 30 feet (except with only one chosen natural attack per round, and sickens instead of nauseates). Scent to a range of 30 feet"
+            "source": "Inner Sea Races",
+            "description": "These creatures, who are among the more common of the skinwalkers, prefer to dwell in urban areas. +2 Intelligence, –2 Strength (+2 Dexterity while shapechanged) Handle Animal, Stealth in urban environments (rodents only) 3/day Bite attack that deals 1d6 points of damage Climb speed of 30 feet (except with only one chosen natural attack per round, and sickens instead of nauseates). Scent to a range of 30 feet",
+            "alternate_traits": []
           },
           {
             "name": "Wereshark-Kin (Seascarred)",
-            "description": "These unusual skinwalkers tend to be strong-willed and brisk in their patterns of speech. They often serve aboard pirate ships, where their traits are well appreciated. +2 Wisdom, –2 Intelligence (+2 Constitution while shapechanged) Perception, Swim (aquatic animals only) 3/day Breathe water as well as air Bite attack that deals 1d6 points of damage Swim speed of 30 feet"
+            "source": "Inner Sea Races",
+            "description": "These unusual skinwalkers tend to be strong-willed and brisk in their patterns of speech. They often serve aboard pirate ships, where their traits are well appreciated. +2 Wisdom, –2 Intelligence (+2 Constitution while shapechanged) Perception, Swim (aquatic animals only) 3/day Breathe water as well as air Bite attack that deals 1d6 points of damage Swim speed of 30 feet",
+            "alternate_traits": []
           },
           {
             "name": "Weretiger-Kin (Fanglord)",
-            "description": "More common in a distant continent than the inner sea region, these skinwalkers are notorious for their fickle attitudes. +2 Dexterity, –2 Wisdom (+2 Charisma while shapechanged) Acrobatics, Perception 1/day Bite attack that deals 1d6 points of damage 2 claw attacks that each deal 1d4 points of damage +10-foot racial bonus to base speed"
+            "source": "Inner Sea Races",
+            "description": "More common in a distant continent than the inner sea region, these skinwalkers are notorious for their fickle attitudes. +2 Dexterity, –2 Wisdom (+2 Charisma while shapechanged) Acrobatics, Perception 1/day Bite attack that deals 1d6 points of damage 2 claw attacks that each deal 1d4 points of damage +10-foot racial bonus to base speed",
+            "alternate_traits": []
           },
           {
             "name": "Werewolf-Kin (Witchwolf)",
-            "description": "Perhaps the most prevalent breed of skinwalker, witchwolves prefer dwelling with others of their kind. +2 Constitution, –2 Intelligence (+2 Wisdom while shapechanged) Perception, wild empathy 1/day Bite attack that deals 1d6 points of damage 2 claw attacks that each deal 1d4 points of damage Darkvision 60 feet +2 racial bonus on all saving throws"
+            "source": "Inner Sea Races",
+            "description": "Perhaps the most prevalent breed of skinwalker, witchwolves prefer dwelling with others of their kind. +2 Constitution, –2 Intelligence (+2 Wisdom while shapechanged) Perception, wild empathy 1/day Bite attack that deals 1d6 points of damage 2 claw attacks that each deal 1d4 points of damage Darkvision 60 feet +2 racial bonus on all saving throws",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [
@@ -13966,11 +14254,15 @@
         "subraces": [
           {
             "name": "Mistsoul (Vapor Undine)",
-            "description": "Soothing and insightful, mistsoul undines move through the world with airy resilience and earnest action. NG +2 Con, +2 Wis, –2 Int Mistsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base undine’s water affinity, except it benefits sorcerers with the dreamspun bloodline and spellcasters with the Repose domain. With gentle spirits and contemplative minds, mistsouls are drawn to the more mystic aspects of their element. Their ephemeral, vaporous natures can allow them to lull others into a dreamlike state, or facilitate a peaceful transition into the next life. They tend to seek out places where ideological and political struggles converge, and thus they are at home in communities like those of the common folk of Brevoy. Physically, mistsouls have rounded features and graceful deliberation in their movement. They prefer soft, highquality garments of neutral or earth tones and simple jewelry chosen for significance rather than expense."
+            "source": "Plane-Hopper's Handbook",
+            "description": "Soothing and insightful, mistsoul undines move through the world with airy resilience and earnest action. NG +2 Con, +2 Wis, –2 Int Mistsouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base undine’s water affinity, except it benefits sorcerers with the dreamspun bloodline and spellcasters with the Repose domain. With gentle spirits and contemplative minds, mistsouls are drawn to the more mystic aspects of their element. Their ephemeral, vaporous natures can allow them to lull others into a dreamlike state, or facilitate a peaceful transition into the next life. They tend to seek out places where ideological and political struggles converge, and thus they are at home in communities like those of the common folk of Brevoy. Physically, mistsouls have rounded features and graceful deliberation in their movement. They prefer soft, highquality garments of neutral or earth tones and simple jewelry chosen for significance rather than expense.",
+            "alternate_traits": []
           },
           {
             "name": "Rimesoul (Frost Undine)",
-            "description": "Rimesoul undines are distant and imperious, aloof in their intellect and hesitant to change their ways. LN +2 Dex, +2 Int, –2 Cha Rimesouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base undine’s water affinity, except it benefits sorcerers with the boreal bloodline and spellcasters with the Ice subdomain. Like their ice-coated ancestors, rimesouls represent the solidification of change. They have precise, ordered minds that take well to individual pursuits. Rimesouls often choose to live in sparsely populated areas in a winter-locked realm and a frontier land. When they do live in cities, they prefer areas of disciplined culture such as a merchant principality and a diabolic empire. In appearance, rimesouls are frequently pale, sometimes with translucent or blue-tinged skin. Rimesouls usually dress in crisp, understated fashions that present an impression of austerity."
+            "source": "Plane-Hopper's Handbook",
+            "description": "Rimesoul undines are distant and imperious, aloof in their intellect and hesitant to change their ways. LN +2 Dex, +2 Int, –2 Cha Rimesouls gain as a spell-like ability. This racial trait functions as and can be replaced as the base undine’s water affinity, except it benefits sorcerers with the boreal bloodline and spellcasters with the Ice subdomain. Like their ice-coated ancestors, rimesouls represent the solidification of change. They have precise, ordered minds that take well to individual pursuits. Rimesouls often choose to live in sparsely populated areas in a winter-locked realm and a frontier land. When they do live in cities, they prefer areas of disciplined culture such as a merchant principality and a diabolic empire. In appearance, rimesouls are frequently pale, sometimes with translucent or blue-tinged skin. Rimesouls usually dress in crisp, understated fashions that present an impression of austerity.",
+            "alternate_traits": []
           }
         ],
         "alternate_traits": [

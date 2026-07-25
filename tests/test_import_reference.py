@@ -7,7 +7,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from tools.import_reference import (SKILL_HEADER_RE, _class_skill_matches,
                                     parse_abilities, parse_class,
                                     parse_equipment_table, parse_item_source,
-                                    parse_race, parse_skill, parse_traits,
+                                    parse_race, parse_race_subraces,
+                                    parse_skill, parse_traits,
                                     source_id, slug)
 from tools.import_reference import extract_prerequisites
 
@@ -295,6 +296,25 @@ def test_parse_race_favored_class_options():
     assert fco[1]["bonus"].startswith("Increase points")
     # intro della sezione NON finisce nei bonus
     assert "Instead of receiving" not in str(fco)
+
+
+RACE_SUBRACE_ATTR_HTML = """
+<html><body>
+<h1 class="title">Subraces</h1>
+<h3 class="framing">Aquatic Elves</h3><b>Source</b> <a href="http://paizo.com/x"><i>Heroes from the Fringe pg. 10</i></a><br />Aquatic elves are the oceanic cousins of landborn elves. These elves often have the aquatic mastery alternate racial trait described below.<br /><br /><h3 class="framing">Tower Elf</h3><b>Source</b> <a href="http://paizo.com/y"><i>Advanced Race Guide pg. 23</i></a><br />These elves have the arcane focus and urbanite alternate racial traits.<br /><br />
+</body></html>
+"""
+
+
+def test_parse_race_subraces_source_and_trait_attribution():
+    """Subraces: source dal <i> con pg.; alternate_traits dalla frase
+    'have the X[, Y and Z] alternate racial trait(s)'. Nessuna invenzione:
+    frase assente -> lista vuota."""
+    subs = parse_race_subraces(RACE_SUBRACE_ATTR_HTML)
+    assert subs[0]["source"] == "Heroes from the Fringe"
+    assert subs[0]["alternate_traits"] == ["Aquatic Mastery"]
+    assert subs[1]["alternate_traits"] == ["Arcane Focus", "Urbanite"]
+    assert subs[1]["source"] == "Advanced Race Guide"
 
 
 def test_parse_race_without_sections_gives_empty_lists():
