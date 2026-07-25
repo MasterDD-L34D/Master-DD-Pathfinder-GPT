@@ -1,2 +1,6 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Line endings: tutto LF (decisione 2026-07-25). Stop ai warning
+# "LF will be replaced by CRLF" su Windows: nessuna conversione in checkout.
+# Gli unici file che DEVONO restare CRLF sono i batch Windows.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
