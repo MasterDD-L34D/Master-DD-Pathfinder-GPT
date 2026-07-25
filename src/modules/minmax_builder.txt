@@ -28,6 +28,19 @@ deprecation_notes:
     layer di orchestrazione/UX (flow, export, companion). Fino ad allora ogni
     valore DPR prodotto va presentato come STIMA LLM non verificata, mai come
     RAW, con badge esplicito "stima non verificata".
+  dpr_reconciliation_2026_07_25: >
+    Stato della delega dopo la riconciliazione engine vs GPT-A sul corpus
+    (pathmaster-dd `8c03d67`, report `docs/superpowers/research/
+    2026-07-25-dpr-reconciliation.md`): a LIVELLO 1 engine (ENG-18
+    `computeDpr`) e GPT-A concordano (delta medio -0.9%) — la delega L1 e'
+    praticabile ORA citando l'engine come fonte. A L5+ il GPT-A dichiara
+    +71%/+94% dell'engine, ma l'engine e' lower bound (gap del converter ad
+    alto livello: equipment/feats non parsati): la delega completa resta in
+    freeze fino alla chiusura di Leva 2 / class features. Istruzione operativa
+    per il modulo: per richieste DPR a livello 1, produrre il valore
+    `computeDpr` del motore quando disponibile e dichiararlo "engine
+    deterministico verificato"; per livelli superiori, MAI presentare il DPR
+    GPT come affidabile — badge "stima non verificata" e rimando esplicito.
 
 triggers:
   - ottimizza
