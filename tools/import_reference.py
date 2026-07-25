@@ -238,18 +238,40 @@ def parse_race_alternate_traits(html):
 
     for el in _iter_section(soup, lambda t: "alternate racial trait" in t.lower()):
         name_attr = getattr(el, "name", None)
-        if name_attr == "h2" and "title" in (el.get("class") or []):
-            m = re.match(r"(?i)\s*Replaces\s+(.+)", clean(el.get_text()))
+        if name_attr == "table":
+            # Tabelle annidate nella stessa h1 (es. Variant Tiefling/Aasimar
+            # Abilities): NON sono alternate traits -> fine sezione.
+            break
+        if name_attr in ("h1", "h2", "h3") and "title" in (el.get("class") or []):
+            header_text = clean(el.get_text())
+            m = re.match(r"(?i)\s*Replaces\s+(.+)", header_text)
             if m:
                 flush()
                 current, parts, source = None, [], ""
                 replaces = [x.strip() for x in m.group(1).split(",") if x.strip()]
+                continue
+            # Header title NON 'Replaces' annidato nella stessa h1 (Favored
+            # Class Options, Gem Magic, ...): fine sezione (anti-bleed).
+            if "alternate racial trait" not in header_text.lower():
+                break
             continue
         if name_attr == "b":
             t = clean(el.get_text())
+            # NON nomi di tratto: augment inline nella description di un
+            # tratto (es. spell di Oread Gem Magic, con o senza <sup>) — il
+            # discriminante robusto e' che ogni tratto reale ha la riga
+            # '<b>Source</b>' dopo il nome; i titoli tabellari ('Variant X
+            # Abilities') sono esclusi esplicitamente. Gli augment restano
+            # nella description del tratto che li contiene.
+            next_b = el.find_next("b")
+            is_augment = next_b is None or clean(next_b.get_text()) != "Source"
             if t and t != "Source":
-                flush()
-                current, parts, source = t, [], ""
+                if is_augment and not re.match(r"(?i)^Variant .+ Abilities$", t):
+                    if current:
+                        parts.append(t)
+                elif not re.match(r"(?i)^Variant .+ Abilities$", t):
+                    flush()
+                    current, parts, source = t, [], ""
             continue
         if name_attr == "i":
             txt = clean(el.get_text())
@@ -285,9 +307,9 @@ def parse_race(html, race_name):
             mods = _parse_ability_mods(label)
             if mods:
                 mech["ability_mods"] = mods
-        elif label in ("Medium", "Small"):
+        elif label in ("Tiny", "Small", "Medium", "Large", "Huge"):
             mech["size"] = label
-        elif label in ("Slow and Steady", "Slow Speed") or label.startswith("Normal Speed"):
+        elif label in ("Slow and Steady", "Slow Speed", "Slow", "Speed") or label.startswith("Normal Speed"):
             m = re.search(r"(\d+)\s+feet", detail)
             if m:
                 mech["speed"] = int(m.group(1))

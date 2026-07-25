@@ -223,6 +223,54 @@ def test_parse_race_mods_endash_start_abbreviations_and_mojibake():
         "str": -2, "dex": 4, "con": 2, "int": 2, "wis": 2, "cha": 2}
 
 
+def test_parse_race_large_size_and_speed_labels():
+    """Label 'Large' (Trox/Green Martian), 'Speed' (Naiad), 'Slow' (Yaddithian)."""
+    html = """
+<html><body>
+<h1 class="title">X Racial Traits</h1>
+<b>+2 Str, +2 Wis, –2 Int</b>: weird race.
+<p><b>Large</b>: X are Large creatures.</p>
+<p><b>Speed</b>: X have a base speed of 30 feet.</p>
+</body></html>
+"""
+    entry = parse_race(html, "X")
+    assert entry["mechanics"]["size"] == "Large"
+    assert entry["mechanics"]["speed"] == 30
+    html_slow = """
+<html><body>
+<h1 class="title">Y Racial Traits</h1>
+<b>+2 Str</b>: weird race.
+<p><b>Slow</b>: Y have a land speed of 20 feet.</p>
+</body></html>
+"""
+    assert parse_race(html_slow, "Y")["mechanics"]["speed"] == 20
+
+
+RACE_BLEED_HTML = """
+<html><body>
+<h1 class="title">X Racial Traits</h1>
+<p><b>+2 Str</b>: weird race.</p>
+<h1 class="title">X Alternate Racial Trait<h2 class="title">Replaces Spell-Like Ability</h2><b>Real Trait</b><br /><b>Source</b> <a href="http://paizo.com/x"><i>Some Book pg. 1</i></a><br />A real alternate trait.<b>Gem Magic</b><br /><b>Source</b> <a href="http://paizo.com/y"><i>Other Book pg. 8</i></a><br />Augment spells with gems.<br /><br /> <b>Binding Earth</b><sup>ARG</sup>: +1 damage. <i>Cost</i>: Garnet worth 50 gp.<br /><br /><b>Variant X Abilities</b><table><tr><td><b>d%</b></td><td><b>Ability</b></td></tr><tr><td>1</td><td>Darkness</td></tr></table><h2 class="title">X Favored Class Options</h2><b>Bard</b><br />Add +1/3 to things.</h1>
+</body></html>
+"""
+
+
+def test_parse_race_alternate_traits_no_section_bleed():
+    """Sezioni annidate DOPO Alternate Racial Trait (Favored Class Options,
+    tabelle Variant Abilities) NON devono finire nei tratti (bug Oread,
+    Tiefling, Aasimar, Dhampir trovato dalla review swarm 2026-07-25). I
+    <b>Nome</b><sup>SRC</sup> (augment di spell) restano NELLA description
+    del tratto che li contiene, non diventano tratti."""
+    entry = parse_race(RACE_BLEED_HTML, "X")
+    alts = entry["mechanics"]["alternate_traits"]
+    names = [a["name"] for a in alts]
+    assert names == ["Real Trait", "Gem Magic"]
+    assert alts[0]["replaces"] == ["Spell-Like Ability"]
+    assert alts[0]["description"] == "A real alternate trait."
+    assert "Binding Earth" in alts[1]["description"]  # augment nel testo
+    assert "Variant" not in alts[1]["description"]
+
+
 def test_parse_race_without_sections_gives_empty_lists():
     entry = parse_race(RACE_NO_SECTIONS_HTML, "Human")
     assert entry["mechanics"]["subraces"] == []
