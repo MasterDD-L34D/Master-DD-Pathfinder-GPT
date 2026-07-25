@@ -120,6 +120,12 @@ GATE_CANDIDATE_TERMS = {
     "Deskari", "Baphomet", "Pazuzu", "Nocticula", "Zura", "Cyth-V'sug",
     "Moloch", "Belial", "Dispater", "Mammon", "Geryon", "Baalzebul",
     "Mephistopheles",
+    # Etnie/subrazze Golarion (lotto razze complete 2026-07-25): nomi di
+    # subrazze elfiche ARG legati a nazioni/regioni del setting. Zero hit
+    # atteso fuori dalle pagine razza. "Snowcaster" ESCLUSO: collide col
+    # termine di regole "snowcaster abilities" (arctic druid, OGC) — un
+    # hit reale in spells.json (2026-07-25).
+    "Ekujae", "Jininese", "Mierani",
 }
 
 # Product Identity scansionata dal gate: unione delle tre liste sopra.

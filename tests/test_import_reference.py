@@ -159,6 +159,62 @@ def test_parse_race_exotic_strix():
     print("OK: parse_race exotic strix")
 
 
+RACE_SECTIONS_HTML = """
+<html><body>
+<h1 class="title">Elf Racial Traits</h1>
+<p><b>+2 Dexterity, +2 Intelligence, –2 Constitution</b>: Elves are nimble.</p>
+<p><b>Medium</b>: Elves are Medium creatures.</p>
+<p><b>Normal Speed</b>: Elves have a base speed of 30 feet.</p>
+<p><b>Languages</b>: Elves begin play speaking Common and Elven. Elves with high Intelligence scores can choose from the following: Celestial, Draconic.</p>
+<h1 class="title">Subraces</h1>
+<h3 class="framing">Aquatic Elves</h3>
+<p>These elves live beneath the waves.</p>
+<h3 class="framing">Ekujae Elves</h3>
+<p>Wild elves of the jungle.</p>
+<h1 class="title">Elf Alternate Racial Trait<h2 class="title">Replaces Elven Immunities</h2><b><img src="images\\PathfinderSocietySymbol.gif"/> Blightborn</b><br /><b>Source</b> <a href="http://paizo.com/x"><i>Horror Adventures pg. 38</i></a><br />Elves from cursed lands develop resistance. This racial trait replaces elven immunities.<br /><br /><b>Dreamspeaker</b><br /><b>Source</b> <a href="http://paizo.com/y"><i>Advanced Race Guide pg. 22</i></a><br />A few elves tap into dreams. This racial trait replaces elven immunities.<h2 class="title">Replaces Keen Senses</h2><b>Sharp Senses</b><br /><b>Source</b> <a href="http://paizo.com/z"><i>Advanced Race Guide pg. 22</i></a><br />Keener than keen.</h1>
+<h1 class="title">Elf Favored Class Options</h1>
+<p>Wizard: +1/2 bonus.</p>
+</body></html>
+"""
+
+
+def test_parse_race_subraces_and_alternate_traits():
+    """Sezioni Subraces (h3.framing siblings) e Alternate Racial Trait
+    (contenuto annidato nell'h1): parse con replaces strutturato; Favored
+    Class Options escluse."""
+    entry = parse_race(RACE_SECTIONS_HTML, "Elf")
+    mech = entry["mechanics"]
+    assert mech["ability_mods"] == {"dex": 2, "int": 2, "con": -2}
+    subs = mech["subraces"]
+    assert [s["name"] for s in subs] == ["Aquatic Elves", "Ekujae Elves"]
+    assert subs[0]["description"] == "These elves live beneath the waves."
+    alts = mech["alternate_traits"]
+    assert [a["name"] for a in alts] == ["Blightborn", "Dreamspeaker", "Sharp Senses"]
+    assert alts[0]["replaces"] == ["Elven Immunities"]
+    assert alts[0]["source"] == "Horror Adventures"
+    assert alts[0]["description"].startswith("Elves from cursed lands")
+    assert alts[2]["replaces"] == ["Keen Senses"]
+    # Favored Class Options NON finiscono da nessuna parte
+    assert "Wizard" not in str(mech)
+
+
+RACE_NO_SECTIONS_HTML = """
+<html><body>
+<h1 class="title">Human Racial Traits</h1>
+<p><b>+2 to One Ability Score</b>: Humans get +2 to one ability.</p>
+<p><b>Medium</b>: Humans are Medium creatures.</p>
+<p><b>Normal Speed</b>: Humans have a base speed of 30 feet.</p>
+<p><b>Languages</b>: Humans begin play speaking Common.</p>
+</body></html>
+"""
+
+
+def test_parse_race_without_sections_gives_empty_lists():
+    entry = parse_race(RACE_NO_SECTIONS_HTML, "Human")
+    assert entry["mechanics"]["subraces"] == []
+    assert entry["mechanics"]["alternate_traits"] == []
+
+
 CLASS_HTML = """
 <html><body>
 <h2>Barbarian</h2>

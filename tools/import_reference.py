@@ -159,14 +159,113 @@ def _split_languages(text):
     return [clean(p) for p in parts if clean(p)]
 
 
-def parse_race(html, race_name):
-    """Pagina RacesDisplay: sezione 'Racial Traits' con righe bold-led.
+def _iter_section(soup, h1_pred):
+    """Elementi di una sezione h1.title fino alla h1.title successiva.
 
-    SOLO tratti base CRB (OGC): subrazze/alternate/favored options NON parse
-    (PI Golarion)."""
+    AoN e' incoerente: la sezione Alternate Racial Trait e' ANNIDATA dentro
+    l'h1 (markup malformato), la sezione Subraces e' a SIBLING. Si iterano
+    prima i descendants dell'h1 poi i siblings fino alla prossima h1.title."""
+    from bs4 import NavigableString, Tag
+    h1 = next((h for h in soup.find_all("h1", class_="title")
+               if h1_pred(clean(h.get_text()))), None)
+    if h1 is None:
+        return
+    for el in h1.descendants:
+        yield el
+    for sib in h1.next_siblings:
+        if isinstance(sib, Tag) and sib.name == "h1" and "title" in (sib.get("class") or []):
+            break
+        if isinstance(sib, Tag):
+            for el in sib.descendants:
+                yield el
+            yield sib
+
+
+def _section_text_nodes(el):
+    """True per i NavigableString di contenuto (non dentro b/i/a/h2/h3/sup).
+
+    Il parent h1 e' ammesso: nella sezione Alternate Racial Trait (annidata)
+    la prosa e' figlia diretta dell'h1; il titolo dell'h1 stesso non inquina
+    perche' l'accumulo parte solo dopo il primo nome (subrace/trait)."""
+    from bs4 import NavigableString
+    return isinstance(el, NavigableString) and el.parent.name not in (
+        "b", "i", "a", "h2", "h3", "sup", "script", "style")
+
+
+def parse_race_subraces(html):
+    """Sezione 'Subraces': [{name, description}] da h3.framing + prosa."""
+    soup = BeautifulSoup(html, "html.parser")
+    subs, current, parts = [], None, []
+
+    def flush():
+        if current:
+            subs.append({"name": current,
+                         "description": clean(" ".join(p for p in parts if p)).lstrip(",; ")})
+
+    for el in _iter_section(soup, lambda t: t.strip().lower() == "subraces"):
+        if getattr(el, "name", None) == "h3" and "framing" in (el.get("class") or []):
+            flush()
+            current, parts = clean(el.get_text()), []
+        elif _section_text_nodes(el):
+            if current:
+                parts.append(clean(str(el)))
+    flush()
+    return subs
+
+
+def parse_race_alternate_traits(html):
+    """Sezione '<Race> Alternate Racial Trait[s]': [{name, replaces, source, description}].
+
+    Gruppi h2.title 'Replaces X' (replaces pre-digerito AoN); nomi tratto in
+    <b> (con img PFS opzionale); source dal primo <i> con 'pg.'; description =
+    prosa fino al tratto/gruppo successivo."""
+    soup = BeautifulSoup(html, "html.parser")
+    traits, current, parts, source = [], None, [], ""
+    replaces = []
+
+    def flush():
+        if current:
+            traits.append({"name": current, "replaces": list(replaces),
+                           "source": source,
+                           "description": clean(" ".join(p for p in parts if p)).lstrip(",; ")})
+
+    for el in _iter_section(soup, lambda t: "alternate racial trait" in t.lower()):
+        name_attr = getattr(el, "name", None)
+        if name_attr == "h2" and "title" in (el.get("class") or []):
+            m = re.match(r"(?i)\s*Replaces\s+(.+)", clean(el.get_text()))
+            if m:
+                flush()
+                current, parts, source = None, [], ""
+                replaces = [x.strip() for x in m.group(1).split(",") if x.strip()]
+            continue
+        if name_attr == "b":
+            t = clean(el.get_text())
+            if t and t != "Source":
+                flush()
+                current, parts, source = t, [], ""
+            continue
+        if name_attr == "i":
+            txt = clean(el.get_text())
+            if current and not source and "pg." in txt:
+                source = re.sub(r"\s*pg\.\s*\d+.*$", "", txt).strip()
+            continue
+        if _section_text_nodes(el):
+            if current:
+                parts.append(clean(str(el)))
+    flush()
+    return traits
+
+
+def parse_race(html, race_name):
+    """Pagina RacesDisplay: sezione 'Racial Traits' con righe bold-led,
+    piu' sezioni Subraces e Alternate Racial Trait (lotto 2026-07-25).
+
+    Favored Class Options NON parse (scope: subrazze + alternate traits)."""
     soup = BeautifulSoup(html, "html.parser")
     mech = {"ability_mods": {}, "size": None, "speed": None, "traits": [],
-            "languages": {"auto": [], "bonus": []}}
+            "languages": {"auto": [], "bonus": []},
+            "subraces": parse_race_subraces(html),
+            "alternate_traits": parse_race_alternate_traits(html)}
     for bold in _racial_traits_bolds(soup):
         # I label bold reali possono chiudere con i due punti ("Darkvision:").
         label = clean(bold.get_text()).rstrip(":").strip()
