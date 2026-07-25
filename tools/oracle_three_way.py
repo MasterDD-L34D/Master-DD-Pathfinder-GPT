@@ -28,6 +28,17 @@ sys.path.insert(0, str(ROOT))
 DUMP_PATH = (ROOT.parent / "pathmaster-dd" / "data" / "reference"
              / "oracle-three-way.json")
 REPORT_PATH = ROOT / "reports" / "oracle_three_way.md"
+DEFECTS_PATH = ROOT / "src" / "data" / "builds" / "_oracle_defects.json"
+
+# Mappa esito oracolo -> classe di difetto del corpus GPT-A (decisione
+# controller 2026-07-25: flag esplicito + sottoinsieme legale per i test;
+# ricostruzione onesta del corpus come lotto futuro).
+_DEFECT_CLASSES = {
+    "FUORI_BUDGET_GPT": "stats_oltre_point_buy",
+    "FEAT_ILLEGALE_GPT": "feat_count_oltre_raw",
+    "PREREQ_ILLEGALE_GPT": "prerequisito_non_soddisfatto",
+    "FLEX_INDETERMINATO": "bonus_razziale_mancante",
+}
 
 _ABILITIES = ["str", "dex", "con", "int", "wis", "cha"]
 _STAT_KEYS = {"FOR": "str", "DES": "dex", "COS": "con",
@@ -161,6 +172,12 @@ def main() -> int:
             elif "race_bonus_ability obbligatorio" in first:
                 rows.append({"file": rec["file"], "status": "FLEX_INDETERMINATO",
                              "diffs": [f"sheet GPT incoerente con ogni scelta +2: {first}"]})
+            elif "prerequisito non soddisfatto" in " ".join(errs):
+                # Prerequisito talento non soddisfatto (es. Arma accurata con
+                # BAB 0 su rogue lv1): difetto del corpus, classe FEAT_ILLEGALE
+                # in variante prerequisito (investigazione A3 2026-07-25).
+                rows.append({"file": rec["file"], "status": "PREREQ_ILLEGALE_GPT",
+                             "diffs": errs[:2]})
             else:
                 rows.append({"file": rec["file"], "status": "TAVERNA_ERR",
                              "diffs": errs[:2]})
@@ -190,7 +207,36 @@ def main() -> int:
     print(text[:3000])
     if args.write:
         REPORT_PATH.write_text(text, encoding="utf-8")
+        # Registry difetti corpus (flag gpt_defect): generato deterministicamente
+        # dall'oracolo. I test dei motori filtrano su questo file (build sane
+        # = non presenti nel registry).
+        defects = {}
+        for r in rows:
+            classes = []
+            if r["status"] in _DEFECT_CLASSES:
+                classes.append(_DEFECT_CLASSES[r["status"]])
+            if "prerequisito non soddisfatto" in " ".join(r["diffs"]):
+                classes.append("prerequisito_non_soddisfatto")
+            if classes:
+                defects[r["file"]] = {"classes": sorted(set(classes)),
+                                      "diffs": r["diffs"][:3]}
+        # Statline duplicate (investigazione A4, 2026-07-25): fighter_dwarf,
+        # druid_half_orc e ranger_halfelf condividono la stessa statline.
+        for dup in ("fighter_dwarf_shielded.json", "druid_half_orc_feral.json",
+                    "ranger_halfelf_skirmisher.json"):
+            entry = defects.setdefault(dup, {"classes": [], "diffs": []})
+            entry["classes"] = sorted(set(entry["classes"] + ["statline_duplicata"]))
+        payload = {
+            "_comment": ("Flag difetti corpus GPT-A (decisione C 2026-07-25): "
+                         "rigenerato da tools/oracle_three_way.py --write. "
+                         "Le build NON presenti qui sono il sottoinsieme legale "
+                         "per i test dei motori. Ricostruzione onesta = lotto futuro (A)."),
+            "defects": defects,
+        }
+        DEFECTS_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2),
+                                encoding="utf-8")
         print(f"Report: {REPORT_PATH}")
+        print(f"Registry difetti: {DEFECTS_PATH} ({len(defects)} build flaggate)")
     return 0
 
 

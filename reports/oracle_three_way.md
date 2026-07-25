@@ -28,7 +28,7 @@ Build base: 28. Concorde a tre: 2. Divergenze: 1. Errori: 25.
 | medium_oread_spirit_dancer_reanimated_medium | FEAT_ILLEGALE_GPT | feat: 2 selezionati su 1 consentiti al lv1 |
 | monk_vanara_qinggong_master_of_many_styles | FEAT_ILLEGALE_GPT | feat: 4 selezionati su 2 consentiti al lv1; Tiger Style: prerequisito non soddisfatto (richiede 3 ranks (personaggio lv1) (Acrobatics 3 ranks)) |
 | ranger_halfelf_skirmisher | FLEX_INDETERMINATO | sheet GPT incoerente con ogni scelta +2: race_bonus_ability obbligatorio per Half-Elf |
-| rogue_halfling_cutpurse | TAVERNA_ERR | Arma accurata: prerequisito non soddisfatto (richiede BAB +1) |
+| rogue_halfling_cutpurse | PREREQ_ILLEGALE_GPT | Arma accurata: prerequisito non soddisfatto (richiede BAB +1) |
 | witch_sylph_gravewalker_hedge_witch | FUORI_BUDGET_GPT | point-buy 34 > 25 (Epic Fantasy): stats illegali nel corpus |
 | wizard_elf_universalist | FEAT_ILLEGALE_GPT | feat: 2 selezionati su 1 consentiti al lv1 |
 | wizard_human_evoker | FLEX_INDETERMINATO | sheet GPT incoerente con ogni scelta +2: race_bonus_ability obbligatorio per Human |
