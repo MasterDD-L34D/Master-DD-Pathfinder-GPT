@@ -2,41 +2,206 @@
   "_comment": "Question set RAG eval (2026-07-25, grill: A-minima + valutazione generazione). Domande da GM in italiano con documento atteso. `expected` = sottostringa case-insensitive cercata nel campo `source` del chunk (retrieval). `expect_all` = TUTTE le stringhe che la RISPOSTA deve contenere; `expect_any` = ALMENO UNA (valutazione generazione, fatti verificati sui cataloghi OGL — nessuna invenzione). La generazione e' misurata sul provider configurato (default: ollama-openai, qwen2.5-coder:7b).",
   "top_k": 5,
   "questions": [
-    {"id": "feat-power-attack", "query": "cosa fa il talento Attacco Poderoso?", "expected": "Power Attack",
-     "expect_all": ["power attack"], "expect_any": ["+2", "+3", "-1"]},
-    {"id": "feat-toughness", "query": "quanti pf dà Robustezza?", "expected": "Toughness",
-     "expect_all": [], "expect_any": ["+3", "3 pf", "3 punti ferita", "tre punti ferita", "3 hp"]},
-    {"id": "spell-fireball", "query": "area e danni di Palla di Fuoco?", "expected": "Fireball",
-     "expect_all": ["fireball"], "expect_any": ["1d6", "20 ft", "20-ft", "20 piedi"]},
-    {"id": "spell-ablative", "query": "che scuola è Ablative Sphere?", "expected": "Ablative Sphere",
-     "expect_all": ["abjuration"], "expect_any": []},
-    {"id": "spell-gist-new", "query": "a che livello è la spell Acid Fog?", "expected": "Acid Fog",
-     "expect_all": ["acid fog"], "expect_any": ["6", "conjuration"]},
-    {"id": "equip-chainmail", "query": "quanto costa la cotta di maglia?", "expected": "Chainmail",
-     "expect_all": [], "expect_any": ["150"]},
-    {"id": "equip-scalemail", "query": "bonus di armatura della corazza a scaglie?", "expected": "Scale mail",
-     "expect_all": [], "expect_any": ["+5", "5"]},
-    {"id": "equip-fullplate", "query": "la corazza di piastre completa quanto dà di CA?", "expected": "Full plate",
-     "expect_all": [], "expect_any": ["+9", "9"]},
-    {"id": "class-wizard", "query": "quanti incantesimi al giorno ha un mago di livello 5?", "expected": "Wizard",
-     "expect_all": [], "expect_any": ["3", "4"]},
-    {"id": "class-bard-known", "query": "quanti incantesimi conosce un bardo di livello 1?", "expected": "Bard",
-     "expect_all": [], "expect_any": ["2", "4"]},
-    {"id": "race-aasimar", "query": "modificatori razziali dell'aasimar?", "expected": "Aasimar",
-     "expect_all": ["+2"], "expect_any": ["wisdom", "charisma", "saggezza", "carisma"]},
-    {"id": "race-kobold", "query": "tratti razziali del coboldo?", "expected": "Kobold",
-     "expect_all": [], "expect_any": ["-4", "dex", "+2"]},
-    {"id": "archetype-treesinger", "query": "cosa sostituisce l'archetipo Treesinger del druido?", "expected": "Treesinger",
-     "expect_all": [], "expect_any": ["nature bond", "vincolo naturale", "plant bond"]},
-    {"id": "archetype-archer", "query": "quali capacità del guerriero perde l'archetipo Archer?", "expected": "Archer",
-     "expect_all": [], "expect_any": ["bravery", "armor training", "weapon training"]},
-    {"id": "monster-wyvern", "query": "CR e CA della viverna?", "expected": "Wyvern",
-     "expect_all": [], "expect_any": ["6", "73", "17"]},
-    {"id": "skill-perception", "query": "a che caratteristica è legata Percezione?", "expected": "Perception",
-     "expect_all": [], "expect_any": ["wisdom", "saggezza", "wis"]},
-    {"id": "trait-reactionary", "query": "che bonus dà il tratto Reactionary?", "expected": "Reactionary",
-     "expect_all": [], "expect_any": ["+2"]},
-    {"id": "ability-pointbuy", "query": "quanto costa una caratteristica 14 col point buy?", "expected": "Score 14",
-     "expect_all": [], "expect_any": ["5"]}
+    {
+      "id": "feat-power-attack",
+      "query": "cosa fa il talento Attacco Poderoso?",
+      "expected": "Power Attack",
+      "expect_all": [],
+      "expect_any": [
+        "power attack",
+        "attacco poderoso",
+        "+2",
+        "+3",
+        "-1"
+      ]
+    },
+    {
+      "id": "feat-toughness",
+      "query": "quanti pf dà Robustezza?",
+      "expected": "Toughness",
+      "expect_all": [],
+      "expect_any": [
+        "+3",
+        "3 pf",
+        "3 punti ferita",
+        "tre punti ferita",
+        "3 hp"
+      ]
+    },
+    {
+      "id": "spell-fireball",
+      "query": "area e danni di Palla di Fuoco?",
+      "expected": "Fireball",
+      "expect_all": [],
+      "expect_any": [
+        "fireball",
+        "palla di fuoco",
+        "1d6",
+        "20 ft",
+        "20-ft",
+        "20 piedi"
+      ]
+    },
+    {
+      "id": "spell-ablative",
+      "query": "che scuola è Ablative Sphere?",
+      "expected": "Ablative Sphere",
+      "expect_all": [
+        "abjuration"
+      ],
+      "expect_any": []
+    },
+    {
+      "id": "spell-gist-new",
+      "query": "a che livello è la spell Acid Fog?",
+      "expected": "Acid Fog",
+      "expect_all": [
+        "acid fog"
+      ],
+      "expect_any": [
+        "6",
+        "conjuration"
+      ]
+    },
+    {
+      "id": "equip-chainmail",
+      "query": "quanto costa la cotta di maglia?",
+      "expected": "Chainmail",
+      "expect_all": [],
+      "expect_any": [
+        "150"
+      ]
+    },
+    {
+      "id": "equip-scalemail",
+      "query": "bonus di armatura della corazza a scaglie?",
+      "expected": "Scale mail",
+      "expect_all": [],
+      "expect_any": [
+        "+5",
+        "5"
+      ]
+    },
+    {
+      "id": "equip-fullplate",
+      "query": "la corazza di piastre completa quanto dà di CA?",
+      "expected": "Full plate",
+      "expect_all": [],
+      "expect_any": [
+        "+9",
+        "9"
+      ]
+    },
+    {
+      "id": "class-wizard",
+      "query": "quanti incantesimi al giorno ha un mago di livello 5?",
+      "expected": "Wizard",
+      "expect_all": [],
+      "expect_any": [
+        "3",
+        "4"
+      ]
+    },
+    {
+      "id": "class-bard-known",
+      "query": "quanti incantesimi conosce un bardo di livello 1?",
+      "expected": "Bard",
+      "expect_all": [],
+      "expect_any": [
+        "2",
+        "4"
+      ]
+    },
+    {
+      "id": "race-aasimar",
+      "query": "modificatori razziali dell'aasimar?",
+      "expected": "Aasimar",
+      "expect_all": [],
+      "expect_any": [
+        "+2",
+        "wis",
+        "cha",
+        "wisdom",
+        "charisma",
+        "saggezza",
+        "carisma"
+      ]
+    },
+    {
+      "id": "race-kobold",
+      "query": "tratti razziali del coboldo?",
+      "expected": "Kobold",
+      "expect_all": [],
+      "expect_any": [
+        "-4",
+        "+2",
+        "destrezza",
+        "dexterity",
+        "dex"
+      ]
+    },
+    {
+      "id": "archetype-treesinger",
+      "query": "cosa sostituisce l'archetipo Treesinger del druido?",
+      "expected": "Treesinger",
+      "expect_all": [],
+      "expect_any": [
+        "nature bond",
+        "vincolo naturale",
+        "plant bond",
+        "natura bond"
+      ]
+    },
+    {
+      "id": "archetype-archer",
+      "query": "quali capacità del guerriero perde l'archetipo Archer?",
+      "expected": "Archer",
+      "expect_all": [],
+      "expect_any": [
+        "bravery",
+        "armor training",
+        "weapon training"
+      ]
+    },
+    {
+      "id": "monster-wyvern",
+      "query": "CR e CA della viverna?",
+      "expected": "Wyvern",
+      "expect_all": [],
+      "expect_any": [
+        "6",
+        "73",
+        "17"
+      ]
+    },
+    {
+      "id": "skill-perception",
+      "query": "a che caratteristica è legata Percezione?",
+      "expected": "Perception",
+      "expect_all": [],
+      "expect_any": [
+        "wisdom",
+        "saggezza",
+        "wis"
+      ]
+    },
+    {
+      "id": "trait-reactionary",
+      "query": "che bonus dà il tratto Reactionary?",
+      "expected": "Reactionary",
+      "expect_all": [],
+      "expect_any": [
+        "+2"
+      ]
+    },
+    {
+      "id": "ability-pointbuy",
+      "query": "quanto costa una caratteristica 14 col point buy?",
+      "expected": "Score 14",
+      "expect_all": [],
+      "expect_any": [
+        "5"
+      ]
+    }
   ]
 }

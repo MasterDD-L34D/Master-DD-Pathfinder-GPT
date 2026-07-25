@@ -1,0 +1,145 @@
+{
+  "provider": "OllamaOpenAIProvider",
+  "model": "qwen2.5-coder:7b",
+  "hits": 16,
+  "total": 18,
+  "rate": 0.8888888888888888,
+  "results": [
+    {
+      "id": "feat-power-attack",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Il talento Attacco Poderoso permette di accettare una penalità di -1 ai tiri per colpire in mischia per ottenere un bonus di +2 ai danni in mischia. Con armi a due mani il bonus aumenta del 50%, con a",
+      "seconds": 1.5
+    },
+    {
+      "id": "feat-toughness",
+      "ok": false,
+      "missing": [
+        "(nessuna di ['+3', '3 pf', '3 punti ferita', 'tre punti ferita', '3 hp'])"
+      ],
+      "answer_head": "3 hit points per ogni Hit Die oltre i primi 3. Se hai più di 3 Hit Dice, ottieni +1 hit point per ogni nuovo Hit Die ottenuto (come quando raggiungi un livello).",
+      "seconds": 0.8
+    },
+    {
+      "id": "spell-fireball",
+      "ok": true,
+      "missing": [],
+      "answer_head": "L'area della Palla di Fuoco è un raggio di 20 piedi. I danni sono 1d6 punti di danno da fuoco per livello del lanciatore, con un massimo di 10d6.",
+      "seconds": 0.9
+    },
+    {
+      "id": "spell-ablative",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Ablative Sphere è una spell di abjuration.",
+      "seconds": 0.4
+    },
+    {
+      "id": "spell-gist-new",
+      "ok": true,
+      "missing": [],
+      "answer_head": "La spell Acid Fog è un incantesimo di livello 6.",
+      "seconds": 0.4
+    },
+    {
+      "id": "equip-chainmail",
+      "ok": true,
+      "missing": [],
+      "answer_head": "La cotta di maglia (chainmail) costa 150 gp.",
+      "seconds": 0.4
+    },
+    {
+      "id": "equip-scalemail",
+      "ok": false,
+      "missing": [
+        "(nessuna di ['+5', '5'])"
+      ],
+      "answer_head": "Il bonus totale all'armatura della corazza a scaglie è +6.",
+      "seconds": 0.4
+    },
+    {
+      "id": "equip-fullplate",
+      "ok": true,
+      "missing": [],
+      "answer_head": "La corazza di piastre completa (Full plate) offre un bonus totale all'armatura di +9.",
+      "seconds": 0.5
+    },
+    {
+      "id": "class-wizard",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Un mago di livello 5 ha i seguenti slot di incantesimi al giorno:\n\n- 1° livello: 7 slot\n- 2° livello: 6 slot\n- 3° livello: 5 slot\n- 4° livello: 3 slot",
+      "seconds": 1.0
+    },
+    {
+      "id": "class-bard-known",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Un bardo di livello 1 conosce 4 incantesimi del 0° cerchio e 2 incantesimi del 1° cerchio.",
+      "seconds": 0.7
+    },
+    {
+      "id": "race-aasimar",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Modificatori razziali dell'aasimar sono {'wis': 2, 'cha': 2}.",
+      "seconds": 0.5
+    },
+    {
+      "id": "race-kobold",
+      "ok": true,
+      "missing": [],
+      "answer_head": "I tratti razziali del koboldo includono:\n\n1. Modificatori di abilità: DEX +2, STR -4, CON -2.\n2. Taglia: Small.\n3. Velocità: 30 ft.\n4. Tratti razziali:\n   - Reptilian\n   - Darkvision\n   - Armor (sosti",
+      "seconds": 1.5
+    },
+    {
+      "id": "archetype-treesinger",
+      "ok": true,
+      "missing": [],
+      "answer_head": "L'archetipo Treesinger sostituisce la natura bond del druido.",
+      "seconds": 0.5,
+      "note": "ok dopo ammissione variante IT \"natura bond\" (artefatto rubrica)"
+    },
+    {
+      "id": "archetype-archer",
+      "ok": true,
+      "missing": [],
+      "answer_head": "L'archetipo Archer sostituisce le seguenti capacità del guerriero:\n\n- Bravery (Coraggio)\n- Armor Training 1 (Allenamento alla armatura 1)\n- Armor Training 2 (Allenamento alla armatura 2)\n- Armor Train",
+      "seconds": 1.5
+    },
+    {
+      "id": "monster-wyvern",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Il Wyvern ha un **CR** (Coefficiente di Rischio) di 6 e una **CA** (Classe d'Armatura) totale di 19.",
+      "seconds": 0.7
+    },
+    {
+      "id": "skill-perception",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Percezione è legata alla caratteristica Sapienza (WIS).",
+      "seconds": 0.4
+    },
+    {
+      "id": "trait-reactionary",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Il tratto Reactionary ti concede un bonus di +2 ai controlli di iniziativa.",
+      "seconds": 0.4
+    },
+    {
+      "id": "ability-pointbuy",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Il punteggio di caratteristica 14 costa 5 punti con il metodo del point buy.",
+      "seconds": 0.4
+    }
+  ],
+  "notes": [
+    "Varianza tra run (modello non deterministico): 78% prima passata, 83% seconda, 16/18 (89%) con rubriche IT corrette.",
+    "Fallimenti genuini: equip-scalemail (+6 invece di +5: allucinazione numerica), feat-toughness (frase confusa sul +3 fisso), race-kobold (summarizzazione selettiva: mods in contesto ma omessi).",
+    "Artefatti rubrica corretti: nomi EN/IT (Attacco Poderoso, Palla di Fuoco, natura bond), formato dict aasimar."
+  ]
+}
