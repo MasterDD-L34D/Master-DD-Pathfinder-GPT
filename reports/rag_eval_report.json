@@ -1,8 +1,8 @@
 {
   "top_k": 5,
-  "hits": 14,
+  "hits": 17,
   "total": 18,
-  "rate": 0.7777777777777778,
+  "rate": 0.9444444444444444,
   "results": [
     {
       "id": "feat-power-attack",
@@ -66,7 +66,7 @@
       "expected": "Full plate",
       "hit": true,
       "rank": 1,
-      "top_source": "reference::equipment::Full plate"
+      "top_source": "reference::items::Full plate benedetta"
     },
     {
       "id": "class-wizard",
@@ -81,24 +81,24 @@
       "query": "quanti incantesimi conosce un bardo di livello 1?",
       "expected": "Bard",
       "hit": true,
-      "rank": 4,
-      "top_source": "reference::items::Armatura vivente +1 con rune botaniche"
+      "rank": 1,
+      "top_source": "reference::classes::Bard"
     },
     {
       "id": "race-aasimar",
       "query": "modificatori razziali dell'aasimar?",
       "expected": "Aasimar",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::feats::Eternal Enmity"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::races::Aasimar"
     },
     {
       "id": "race-kobold",
       "query": "tratti razziali del coboldo?",
       "expected": "Kobold",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::feats::True Breed"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::races::Kobold"
     },
     {
       "id": "archetype-treesinger",
@@ -106,7 +106,7 @@
       "expected": "Treesinger",
       "hit": true,
       "rank": 2,
-      "top_source": "reference::archetypes::Reincarnated Druid"
+      "top_source": "reference::classes::Druid"
     },
     {
       "id": "archetype-archer",
@@ -136,17 +136,17 @@
       "id": "trait-reactionary",
       "query": "che bonus dà il tratto Reactionary?",
       "expected": "Reactionary",
-      "hit": false,
-      "rank": null,
-      "top_source": "reference::traits::Unpredictable Reactions"
+      "hit": true,
+      "rank": 1,
+      "top_source": "reference::traits::Reactionary"
     },
     {
       "id": "ability-pointbuy",
       "query": "quanto costa una caratteristica 14 col point buy?",
       "expected": "Score 14",
       "hit": true,
-      "rank": 1,
-      "top_source": "reference::abilities::Score 14"
+      "rank": 2,
+      "top_source": "reference::abilities::Score 15"
     }
   ]
 }
