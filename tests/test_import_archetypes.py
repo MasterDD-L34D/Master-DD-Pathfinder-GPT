@@ -4,7 +4,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from tools.import_archetypes import parse_archetypes, archetype_entry
+from tools.import_archetypes import (archetype_entry, parse_archetype_features, parse_archetypes)
 
 # Markup ricalcato sulla pagina reale Archetypes.aspx?Class=Fighter
 # (cache 2026-07-25): header <td><b>Name</b>..., celle con <a> + <img> PFS.
@@ -59,3 +59,28 @@ def test_archetype_entry_catalog_shape():
     assert e["reference_urls"][0] == "https://aonprd.com/Archetypes.aspx?Class=Fighter"
     assert e["reference_urls"][1] == row["detail_url"]
     assert e["description"] == row["summary"]
+
+
+ARCHER_HTML = """
+<html><body>
+<h1 class="title"><img src="images\\PathfinderSocietySymbol.gif"/> Archer</h1><b>Source</b> <a href="http://paizo.com/x"><i>Advanced Player's Guide pg. 104</i></a><br />The archer is dedicated to the mastery of the bow.<br /><br /><b>Hawkeye (Ex)</b>:  At 2nd level, an archer gains a +1 bonus on Perception checks. These bonuses increase by +1 for every 4 levels beyond 2nd. This ability replaces bravery.<br /><br /><b>Trick Shot (Ex)</b>:  At 3rd level, an archer can choose a combat maneuver. This ability alters armor training.<br /><br /><b>Safe Shot (Ex)</b>:  At 9th level, an archer does not provoke. This ability replaces armor training 1 and weapon training 2.<br />
+</body></html>
+"""
+
+
+def test_parse_archetype_features():
+    feats = parse_archetype_features(ARCHER_HTML)
+    assert [f["name"] for f in feats] == ["Hawkeye", "Trick Shot", "Safe Shot"]
+    assert feats[0]["level"] == 2
+    assert feats[0]["replaces"] == ["bravery"]
+    assert feats[0]["alters"] == []
+    assert feats[0]["text"].startswith("At 2nd level")
+    assert feats[1]["alters"] == ["armor training"]
+    assert feats[2]["replaces"] == ["armor training 1", "weapon training 2"]
+    assert feats[2]["level"] == 9
+
+
+def test_parse_archetype_features_no_level():
+    html = ARCHER_HTML.replace("At 2nd level, an archer", "An archer")
+    feats = parse_archetype_features(html)
+    assert feats[0]["level"] is None

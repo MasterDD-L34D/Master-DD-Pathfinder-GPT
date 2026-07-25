@@ -40,6 +40,72 @@ BASE = "https://aonprd.com/"
 
 _RACE_ONLY_RE = re.compile(r"\(([^()]+?)\s+[Oo]nly\)")
 
+_LEVEL_RE = re.compile(r"\bAt (\d+)(?:st|nd|rd|th) level")
+_REPLACES_RE = re.compile(r"(?i)this ability (?:also )?replaces? (?:the )?([^.]+)\.")
+_ALTERS_RE = re.compile(r"(?i)this ability (?:also )?alters? (?:the )?([^.]+)\.")
+_FEAT_SUFFIX_RE = re.compile(r"\s*\((?:Ex|Su|Sp)\)\s*$")
+
+
+def _split_feature_list(text):
+    """'armor training 1 and weapon training 2' -> ['armor training 1', 'weapon training 2'].
+    Espansione suffissi numerici: 'armor training 1, 2, 3, and 4' ->
+    ['armor training 1', 'armor training 2', 'armor training 3', 'armor training 4']."""
+    text = re.sub(r"(?i)\s+class features?\.?$", "", text.strip())
+    text = re.sub(r"(?i)\s+ability\.?$", "", text)
+    parts = [p.strip() for p in re.split(r",\s*(?:and\s+)?|\s+and\s+", text) if p.strip()]
+    out = []
+    for p in parts:
+        if out and re.match(r"^\d+(?:st|nd|rd|th)?$", p):
+            base = re.match(r"^(.*?)\s*\d+(?:st|nd|rd|th)?$", out[-1])
+            out.append(f"{base.group(1)} {p}" if base else p)
+        else:
+            out.append(p)
+    return out
+
+
+def parse_archetype_features(html):
+    """Pagina ArchetypeDisplay: [{name, level, replaces, alters, text}].
+
+    Feature = '<b>Nome (Ex|Su|Sp)</b>:' + prosa fino alla feature successiva.
+    level = primo 'At Nth level'; replaces/alters dalle frasi 'This ability
+    replaces/alters X'. Flavor introduttivo saltato (prima del primo <b>
+    non-Source)."""
+    from bs4 import BeautifulSoup, NavigableString
+    soup = BeautifulSoup(html, "html.parser")
+    h1 = soup.find("h1", class_="title")
+    if not h1:
+        return []
+    container = h1.parent
+    feats, current, parts = [], None, []
+
+    def flush():
+        if current:
+            text = clean(" ".join(p for p in parts if p)).lstrip(": ")
+            m = _LEVEL_RE.search(text)
+            rep = _REPLACES_RE.search(text)
+            alt = _ALTERS_RE.search(text)
+            feats.append({
+                "name": current,
+                "level": int(m.group(1)) if m else None,
+                "replaces": _split_feature_list(rep.group(1)) if rep else [],
+                "alters": _split_feature_list(alt.group(1)) if alt else [],
+                "text": sanitize_text(text, description=True)})
+
+    for el in container.descendants:
+        name_attr = getattr(el, "name", None)
+        if name_attr == "b":
+            t = clean(el.get_text())
+            if t and t != "Source":
+                flush()
+                current, parts = _FEAT_SUFFIX_RE.sub("", t), []
+            continue
+        if isinstance(el, NavigableString) and el.parent.name not in (
+                "b", "i", "a", "h1", "h2", "h3", "sup", "script", "style"):
+            if current:
+                parts.append(clean(str(el)))
+    flush()
+    return feats
+
 
 def parse_archetypes(html: str) -> list[dict]:
     """Tabella Name/Replaces/Summary -> [{name, replaces, race_req, summary, detail_url}]."""
@@ -116,12 +182,57 @@ def _fetch_class(url: str, offline: bool) -> str:
     return fetch(url, delay=2.0, cache=True)
 
 
+def _enrich_details(write: bool, offline: bool) -> int:
+    """Modalità --details: aggiunge mechanics.features (da ArchetypeDisplay)
+    alle entry esistenti di archetypes.json + archetypes_local.json.
+
+    I dettagli arrivano da reference_urls[1] (detail_url, gia' nel catalogo);
+    i count non cambiano (manifest invariato). Report features senza level."""
+    no_level = 0
+    total_feats = 0
+    failures = []
+    for path in (ARCHETYPES_PATH, LOCAL_PATH):
+        catalog = json.loads(path.read_text(encoding="utf-8"))
+        for e in catalog["entries"]:
+            if len(e.get("reference_urls", [])) < 2:
+                failures.append(f"- **{e['name']}**: detail_url assente")
+                continue
+            url = e["reference_urls"][1]
+            try:
+                html = _fetch_class(url, offline)
+            except Exception as exc:
+                failures.append(f"- **{e['name']}**: {exc}")
+                continue
+            feats = parse_archetype_features(html)
+            if not feats:
+                failures.append(f"- **{e['name']}**: 0 features parsate")
+            e["mechanics"]["features"] = feats
+            total_feats += len(feats)
+            no_level += sum(1 for f in feats if f["level"] is None)
+        if write:
+            path.write_text(json.dumps(catalog, ensure_ascii=False, indent=2),
+                            encoding="utf-8")
+    print(f"features: {total_feats} totali ({no_level} senza level); "
+          f"anomalie: {len(failures)}")
+    for line in failures[:30]:
+        print(line)
+    if not write:
+        print("Dry-run: nessuna modifica (usa --write)")
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--offline", action="store_true",
                     help="fallisce se una pagina non e' in cache (nessuna rete)")
+    ap.add_argument("--details", action="store_true",
+                    help="arricchisce le entry esistenti con mechanics.features "
+                         "da ArchetypeDisplay (nessun re-import da indice)")
     args = ap.parse_args(argv)
+
+    if args.details:
+        return _enrich_details(args.write, args.offline)
 
     classes = catalog_classes()
     all_entries, local_entries, report = [], [], []
