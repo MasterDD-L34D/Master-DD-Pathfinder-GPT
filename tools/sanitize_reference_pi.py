@@ -60,6 +60,8 @@ REPLACEMENTS = [
     ("Kobolds of Golarion", "Kobolds of the World"),
     ("Bastards of Golarion", "Bastards of the World"),
     ("Mana Wastes", "a magic-blasted wasteland"),
+    ("Realm of the Mammoth Lords", "a savage realm"),
+    ("Mammoth Lords", "a savage tribe"),
     # "Inner Sea": forma canonica del replacement "the inner sea region".
     # Le regole lunghe (raddoppi storici e forme con articolo) precedono
     # quella breve grazie all'ordinamento per lunghezza; le guardie di
@@ -217,6 +219,20 @@ DESCRIPTION_ONLY_REPLACEMENTS = [
     # (boundary: le entry "Arodenite*" sono PI-identity -> pi_local_only).
     ("Aroden", "a dead god"),
     ("Sothis", "a desert metropolis"),
+    # Lotto spell 2026-07-25 (expand_spells_gist): residui delle description
+    # gist. Frasi prima delle parole; "Tian" isolato non regolato (unico
+    # contesto e' "Tian Xia": la regola frase basta al gate).
+    ("archdevil Mammon", "archdevil"),
+    ("Mammon's", "the archdevil's"),
+    ("Mammon", "the archdevil"),
+    ("Jalmeray", "an island nation"),
+    ("Thassilonian", "ancient"),
+    ("Azlant", "a lost empire"),
+    ("Ancient Osiriani", "an ancient language"),
+    ("Osiriani", "an ancient language"),
+    ("Osirian", "desert"),
+    ("Tian Xia", "a faraway continent"),
+    ("Hermea", "an island utopia"),
 ]
 
 # Campi mai sanitizzati: il nome (policy: le entry PI-identita' vanno in

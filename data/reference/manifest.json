@@ -23,9 +23,9 @@
       "is_ogc": true,
       "is_pi": false,
       "cup_allowed": false,
-      "entries": 1035,
+      "entries": 2820,
       "notes": "Nomi e meccaniche generiche; rimossi nomi propri e riferimenti a Golarion. 1032/1035 voci arricchite con description.",
-      "last_verified": "2026-07-19"
+      "last_verified": "2026-07-25"
     },
     {
       "file": "ogl/items.json",
@@ -174,12 +174,25 @@
       "entries": 4,
       "notes": "Equipment mundano con Product Identity nel nome (categoria A), spostato dal catalogo OGL con la policy 2026-07-19 (reports/pi_traits_equipment_apply.md). NON redistribuire. Generato da tools/apply_pi_traits_equipment_policy.py; indicizza con tools/index_rag.py --include-local.",
       "last_verified": "2026-07-19"
+    },
+    {
+      "file": "pi_local_only/spells_local.json",
+      "kind": "spells_local",
+      "source": "PathfinderSpellsJSON gist / Archives of Nethys (aonprd.com)",
+      "license": "OGL-1.0a",
+      "is_ogc": false,
+      "is_pi": false,
+      "cup_allowed": false,
+      "local_only": true,
+      "entries": 23,
+      "notes": "Spell con Product Identity nel nome (possessivi di divinita' e simili), separate dal catalogo OGL con la policy 2026-07-25 (reports/expand_spells_gist.md). NON redistribuire. Generato da tools/expand_spells_gist.py; indicizza con index_rag.py --include-local.",
+      "last_verified": "2026-07-25"
     }
   ],
   "files": {
     "spells": {
       "path": "ogl/spells.json",
-      "entries": 1035
+      "entries": 2820
     },
     "feats": {
       "path": "ogl/feats.json",
