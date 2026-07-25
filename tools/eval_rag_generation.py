@@ -45,6 +45,9 @@ def main() -> int:
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--only", help="id separati da virgola da valutare (debug)")
     ap.add_argument("--provider", help="override provider (default: env RAG_LLM_PROVIDER)")
+    ap.add_argument("--model", help="override modello ollama (default: env OLLAMA_MODEL)")
+    ap.add_argument("--report-suffix", default="",
+                    help="suffisso del report (es. '_gemma12b' -> rag_generation_report_gemma12b.json)")
     args = ap.parse_args()
 
     spec = json.loads(QUESTIONS_PATH.read_text(encoding="utf-8"))
@@ -60,7 +63,7 @@ def main() -> int:
     if not store.is_ready():
         sys.exit("ERRORE: vector store non inizializzato")
     retriever = Retriever(store, SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2"))
-    provider = get_provider(args.provider)
+    provider = get_provider(args.provider, ollama_model=args.model)
     print(f"provider: {type(provider).__name__} ({getattr(provider, 'model', 'n/a')})")
 
     results = []
@@ -84,12 +87,14 @@ def main() -> int:
     print(f"\ngeneration hit rate: {hits}/{total} = {rate:.0%}")
 
     if args.write:
-        REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
-        REPORT_PATH.write_text(json.dumps(
+        report_path = REPORT_PATH.with_name(
+            REPORT_PATH.stem + args.report_suffix + REPORT_PATH.suffix)
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(json.dumps(
             {"provider": type(provider).__name__, "model": getattr(provider, "model", None),
              "hits": hits, "total": total, "rate": rate, "results": results},
             ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"Report: {REPORT_PATH}")
+        print(f"Report: {report_path}")
     return 0
 
 

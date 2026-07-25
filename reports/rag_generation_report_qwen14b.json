@@ -1,0 +1,137 @@
+{
+  "provider": "OllamaOpenAIProvider",
+  "model": "qwen2.5-coder:14b",
+  "hits": 17,
+  "total": 18,
+  "rate": 0.9444444444444444,
+  "results": [
+    {
+      "id": "feat-power-attack",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Il talento Attacco Poderoso permette di accettare una penalità di -1 ai tiri per colpire in mischia per ottenere un bonus di +2 ai danni in mischia. Con armi a due mani il bonus aumenta del 50%, mentr",
+      "seconds": 14.2
+    },
+    {
+      "id": "feat-toughness",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Robustezza (Toughness) conferisce +3 punti ferita base. Per ogni dado di vita oltre i primi 3 che possiede, ottiene un ulteriore +1 punto ferita. Se ha più di 3 dadi di vita, guadagna +1 punto ferita ",
+      "seconds": 4.9
+    },
+    {
+      "id": "spell-fireball",
+      "ok": true,
+      "missing": [],
+      "answer_head": "L'area della Palla di Fuoco è un raggio di 20 piedi (spread) e infligge 1d6 danni da fuoco per livello del lanciatore, con un massimo di 10d6.",
+      "seconds": 3.9
+    },
+    {
+      "id": "spell-ablative",
+      "ok": true,
+      "missing": [],
+      "answer_head": "La scuola di magia associata alla Sfera Ablativa (Ablative Sphere) è l'Abbufazione (Abjuration).",
+      "seconds": 3.4
+    },
+    {
+      "id": "spell-gist-new",
+      "ok": true,
+      "missing": [],
+      "answer_head": "La spell Acid Fog è di livello 6 per i classi sorcerer e wizard.",
+      "seconds": 2.4
+    },
+    {
+      "id": "equip-chainmail",
+      "ok": true,
+      "missing": [],
+      "answer_head": "La cotta di maglia (chainmail) costa 150 gp.",
+      "seconds": 1.5
+    },
+    {
+      "id": "equip-scalemail",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Il bonus di armatura della corazza a scaglie (scale mail) è +5.",
+      "seconds": 1.7
+    },
+    {
+      "id": "equip-fullplate",
+      "ok": true,
+      "missing": [],
+      "answer_head": "La corazza di piastre completa (Full Plate) fornisce un bonus totale all'armatura di +9.",
+      "seconds": 1.9
+    },
+    {
+      "id": "class-wizard",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Un mago di livello 5 può lanciare i seguenti incantesimi al giorno:\n\n- 1° livello: 7 incantesimi\n- 2° livello: 6 incantesimi\n- 3° livello: 5 incantesimi\n- 4° livello: 3 incantesimi",
+      "seconds": 6.8
+    },
+    {
+      "id": "class-bard-known",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Un bardo di livello 1 conosce 4 incantesimi a livello 0 e 2 incantesimi a livello 1.",
+      "seconds": 4.6
+    },
+    {
+      "id": "race-aasimar",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Gli aasimar hanno i seguenti modificatori razziali:\n\n- Sageszza (Wis): +2\n- Carisma (Cha): +2",
+      "seconds": 3.1
+    },
+    {
+      "id": "race-kobold",
+      "ok": false,
+      "missing": [
+        "(nessuna di ['-4', '+2', 'destrezza', 'dexterity', 'dex'])"
+      ],
+      "answer_head": "I tratti razziali del kobold sono:\n\n1. Reptilian\n2. Darkvision\n3. Armor\n4. Crafty\n5. Light Sensitivity",
+      "seconds": 4.7
+    },
+    {
+      "id": "archetype-treesinger",
+      "ok": true,
+      "missing": [],
+      "answer_head": "L'archetipo Treesinger del druido sostituisce la capacità di \"nature bond\" del druido standard.",
+      "seconds": 3.6
+    },
+    {
+      "id": "archetype-archer",
+      "ok": true,
+      "missing": [],
+      "answer_head": "L'archetipo Archer sostituisce alcune delle abilità standard del guerriero (Fighter) con nuove caratteristiche. Le abilità che l'archetipo perde o sostituisce sono:\n\n1. Bravery: Sostituita da Hawkeye ",
+      "seconds": 15.1
+    },
+    {
+      "id": "monster-wyvern",
+      "ok": true,
+      "missing": [],
+      "answer_head": "La viverna ha un CR (Challenge Rating) di 6 e una CA (Classificazione Armatura) totale di 19.",
+      "seconds": 2.9
+    },
+    {
+      "id": "skill-perception",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Percezione è legata alla Caratteristica Intelletto (WIS).",
+      "seconds": 1.6
+    },
+    {
+      "id": "trait-reactionary",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Il tratto Reactionary ti concede un bonus di +2 sulle tue prove di iniziativa.",
+      "seconds": 1.9
+    },
+    {
+      "id": "ability-pointbuy",
+      "ok": true,
+      "missing": [],
+      "answer_head": "Il punteggio di caratteristica 14 costa 5 punti nel sistema di point buy di Pathfinder 1E.",
+      "seconds": 1.7
+    }
+  ]
+}
