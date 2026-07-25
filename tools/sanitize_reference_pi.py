@@ -243,6 +243,9 @@ DESCRIPTION_ONLY_REPLACEMENTS = [
     ("Nirmathas", "a rebel nation"),
     ("Five Kings Mountains", "a dwarven mountain range"),
     ("Daggermark", "a poisoners' city"),
+    # Lotto ripristino prosa feats 2026-07-25 (restore_feat_prose): residui
+    # del testo grezzo FeatDisplay.
+    ("Hold of Belkzen", "an orc-ruled land"),
 ]
 
 # Campi mai sanitizzati: il nome (policy: le entry PI-identita' vanno in

@@ -52,10 +52,11 @@ NAME_VARIANTS = {
 # (Supernatural Spy). Pagine AoN verificate.
 SUPPLEMENTAL_NAMES = ["Harrowed Summoning", "Supernatural Spy"]
 
-_LABEL_RE = re.compile(r"^(Prerequisites?|Benefit|Normal|Special|Note)s?\s*:\s*(.*)$",
+_LABEL_RE = re.compile(r"^(Prerequisites?|Benefit|Normal|Special|Note|Goal|Completion Benefit|Suggested Traits)\s*:\s*(.*)$",
                        re.I | re.S)
-_LABEL_ONLY_RE = re.compile(r"^(Prerequisites?|Benefit|Normal|Special|Note)s?$", re.I)
+_LABEL_ONLY_RE = re.compile(r"^(Prerequisites?|Benefit|Normal|Special|Note|Goal|Completion Benefit|Suggested Traits)$", re.I)
 _LEAD_COLON_RE = re.compile(r"^:\s*")
+_PUNCT_ONLY_RE = re.compile(r"^[,;]+$")
 _SRCLINE_RE = re.compile(r"^.*\bpg\.\s*\d+.*$")
 
 
@@ -99,6 +100,8 @@ def parse_feat_page(html: str) -> dict:
             continue
         label_m = _LABEL_ONLY_RE.match(seg)
         m = _LABEL_RE.match(seg)
+        if _PUNCT_ONLY_RE.match(seg):
+            continue
         if label_m:
             m_label = label_m.group(1).lower()
             rest = ""
@@ -117,7 +120,7 @@ def parse_feat_page(html: str) -> dict:
                 mode = "benefit"
                 if rest:
                     benefit_parts.append(rest)
-            else:  # Normal / Special / Note
+            else:  # Normal / Special / Note / Goal / Completion Benefit / Suggested Traits
                 mode = "skip"
             continue
         seg = _LEAD_COLON_RE.sub("", seg)
@@ -141,7 +144,8 @@ def apply_restore(entry: dict, page: dict) -> dict:
     out = dict(entry)
     desc = page["flavor"] + "\n\n" + page["benefit"] if page["flavor"] else page["benefit"]
     out["description"] = sanitize_text(desc, description=True)
-    out["prerequisites"] = page["prerequisites"]
+    out["prerequisites"] = [sanitize_text(p, description=True)
+                            for p in page["prerequisites"]]
     out["references"] = [f"Pathfinder PRD: {entry['name']}"]
     out["updated_at"] = date.today().isoformat() + "T00:00:00Z"
     return out
