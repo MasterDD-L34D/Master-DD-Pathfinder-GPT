@@ -52,6 +52,38 @@ NAME_VARIANTS = {
 # (Supernatural Spy). Pagine AoN verificate.
 SUPPLEMENTAL_NAMES = ["Harrowed Summoning", "Supernatural Spy"]
 
+# Ripristino manuale dei 2 feat assenti da AoN moderno (decisione fonte
+# 2026-07-25: testo OGL verbatim da d20pfsrd, che riporta il testo dei libri
+# con la stessa dicitura; Spell Bluff confermato anche su legacy.aonprd.com
+# ultimateMagicFeats). Convenzione identica al ripristino da FeatDisplay:
+# description = flavor + "\n\n" + Benefit; references = "Pathfinder PRD: X".
+MANUAL_RESTORE_TABLE = {
+    "Spell Bluff": {
+        "description": (
+            "You know the principles of arcane dueling, and when fighting other "
+            "spellcasters, you have learned to hide the true nature of your "
+            "spells until the last possible moment.\n\n"
+            "If another spellcaster tries to counterspell your casting, she "
+            "adds +4 to her Spellcraft DC when trying to determine your spell. "
+            "Because you have studied how to mask the recognizable elements of "
+            "your spellcasting, you gain a +2 bonus on your Spellcraft checks "
+            "to identify and counter an opponent's spell if it is a spell you "
+            "know or have in your spellbook."),
+    },
+    "Hindrance Dismissal": {
+        "description": (
+            "You've mastered the art of dismissing certain spells when they "
+            "become a problem for you or your allies.\n\n"
+            "You can dismiss any pit spell (such as create pit, hungry pit, "
+            "spiked pit, and similar spells with 'pit' in their names) or wall "
+            "spell (such as wall of fire, wall of ice, and similar spells with "
+            "'wall' in their names) you cast. The spells must have a duration "
+            "of at least 1 round. This ability follows the normal rules for "
+            "dismissing spells, allowing you to dismiss conjured pits and "
+            "walls as a standard action."),
+    },
+}
+
 _LABEL_RE = re.compile(r"^(Prerequisites?|Benefit|Normal|Special|Note|Goal|Completion Benefit|Suggested Traits)\s*:\s*(.*)$",
                        re.I | re.S)
 _LABEL_ONLY_RE = re.compile(r"^(Prerequisites?|Benefit|Normal|Special|Note|Goal|Completion Benefit|Suggested Traits)$", re.I)
@@ -162,11 +194,40 @@ def _fetch_page(name: str, offline: bool) -> str:
     return fetch(url, delay=2.0, cache=True)
 
 
+def cmd_manual(write: bool) -> int:
+    """Modalita' --manual: applica MANUAL_RESTORE_TABLE (feat assenti da AoN
+    moderno; testo OGL verificato da d20pfsrd/legacy AoN il 2026-07-25)."""
+    catalog = json.loads(FEATS_PATH.read_text(encoding="utf-8"))
+    by_name = {e["name"]: e for e in catalog["entries"]}
+    applied = []
+    for name, spec in MANUAL_RESTORE_TABLE.items():
+        entry = by_name.get(name)
+        if entry is None:
+            sys.exit(f"ERRORE: {name} assente dal catalogo")
+        entry["description"] = spec["description"]
+        entry["references"] = [f"Pathfinder PRD: {name}"]
+        entry["updated_at"] = date.today().isoformat() + "T00:00:00Z"
+        applied.append(name)
+    print(f"manual restore: {len(applied)} entry: {', '.join(applied)}")
+    if write:
+        FEATS_PATH.write_text(json.dumps(catalog, ensure_ascii=False, indent=2),
+                              encoding="utf-8")
+        print(f"Scritto: {FEATS_PATH}")
+    else:
+        print("Dry-run: nessuna modifica (usa --write)")
+    return 0
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--offline", action="store_true")
+    ap.add_argument("--manual", action="store_true",
+                    help="applica MANUAL_RESTORE_TABLE (feat assenti da AoN moderno)")
     args = ap.parse_args(argv)
+
+    if args.manual:
+        return cmd_manual(args.write)
 
     names = appendix_names() + [n for n in SUPPLEMENTAL_NAMES
                                 if n not in appendix_names()]

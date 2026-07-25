@@ -13941,8 +13941,8 @@
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Spell%20Bluff"
       ],
       "source_id": "ultimate_magic:spell_bluff",
-      "description": "You know the principles of arcane dueling, and when fighting other spellcasters, you have learned to hide the true nature of your spells until the last possible moment.\n\nIf another spellcaster tries to counterspell your casting, she adds +4 to her Spellcraft DC when trying to determine your spell.  Because you have studied how to mask the recognizable ea bardents of your spellcasting, you gain a +2 bonus on your Spellcraft checks to identify and counter an opponent's spell if it is a spell you know or have in your spellbook.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You know the principles of arcane dueling, and when fighting other spellcasters, you have learned to hide the true nature of your spells until the last possible moment.\n\nIf another spellcaster tries to counterspell your casting, she adds +4 to her Spellcraft DC when trying to determine your spell. Because you have studied how to mask the recognizable elements of your spellcasting, you gain a +2 bonus on your Spellcraft checks to identify and counter an opponent's spell if it is a spell you know or have in your spellbook.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Spell Hex",
@@ -46591,8 +46591,8 @@
         "https://aonprd.com/FeatDisplay.aspx?ItemName=Hindrance%20Dismissal"
       ],
       "source_id": "magic_tactics_toolbox:hindrance_dismissal",
-      "description": "You've mastered the art of dismissing certain spells when they become a proba bard for you or your allies.\n\nYou can dismiss any pit spell (such as create pitAPG, hungry pitAPG, spiked pitAPG, and similar spells with \"pit\" in their names) or wall spell (such as wall of fire, wall of ice, and similar spells with \"wall\" in their names) you cast. The spells must have a duration of at least 1 round. This ability follows the normal rules for dismissing spells, allowing you to dismiss conjured pits and walls as a standard action.",
-      "updated_at": "2026-07-16T20:28:23Z"
+      "description": "You've mastered the art of dismissing certain spells when they become a problem for you or your allies.\n\nYou can dismiss any pit spell (such as create pit, hungry pit, spiked pit, and similar spells with 'pit' in their names) or wall spell (such as wall of fire, wall of ice, and similar spells with 'wall' in their names) you cast. The spells must have a duration of at least 1 round. This ability follows the normal rules for dismissing spells, allowing you to dismiss conjured pits and walls as a standard action.",
+      "updated_at": "2026-07-25T00:00:00Z"
     },
     {
       "name": "Abeyance",

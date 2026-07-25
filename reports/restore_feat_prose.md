@@ -33,3 +33,7 @@
 - **Underworld Connections**: catalogo `Heroes Of The Streets` vs pagina `Heroes of the Streets`
 - **Whispering Way Disciple**: catalogo `Agents Of Evil` vs pagina `Agents of Evil`
 - **Wretched Curator**: catalogo `Agents Of Evil` vs pagina `Agents of Evil`
+
+## Aggiornamento 2026-07-25 (manuale)
+
+Le 2 entry assenti da AoN moderno sono state ripristinate manualmente (`restore_feat_prose.py --manual`, `MANUAL_RESTORE_TABLE` committata): **Spell Bluff** (Ultimate Magic; testo OGL verificato su d20pfsrd e legacy.aonprd.com/ultimateMagic) e **Hindrance Dismissal** (Magic Tactics Toolbox; testo OGL da d20pfsrd). Decisione fonte: legacy AoN/d20pfsrd, approvata dal controller il 2026-07-25. Rilevatore sistemico `_systemic_corruption` su feats.json: **0 residui** — corruzione da sanitize storica completamente chiusa.
