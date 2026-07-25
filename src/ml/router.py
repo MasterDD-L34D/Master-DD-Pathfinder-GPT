@@ -16,11 +16,15 @@ from src.ml.storage import save_audio_worm
 
 router = APIRouter(prefix="/ml", tags=["ml"])
 
-ML_AUDIO_DIR = Path(os.environ.get(
-    "ML_AUDIO_DIR",
-    Path(__file__).resolve().parents[1] / "data" / "ml" / "audio"))
-
 MAX_UPLOAD_BYTES = 200 * 1024 * 1024  # 200 MB: sessioni da ore restano fuori v1
+
+
+def _audio_dir() -> Path:
+    """Directory WORM dell'audio (letta a ogni richiesta: i test la variano
+    via env; la costante import-time la congelerebbe al primo import)."""
+    return Path(os.environ.get(
+        "ML_AUDIO_DIR",
+        Path(__file__).resolve().parents[1] / "data" / "ml" / "audio"))
 
 
 @router.get("/health")
@@ -36,7 +40,7 @@ async def transcribe(file: UploadFile = File(...)):
         raise HTTPException(400, "file vuoto")
     if len(data) > MAX_UPLOAD_BYTES:
         raise HTTPException(413, f"file oltre {MAX_UPLOAD_BYTES} byte (v1)")
-    save_audio_worm(data, file.filename or "audio.bin", ML_AUDIO_DIR)
+    save_audio_worm(data, file.filename or "audio.bin", _audio_dir())
     try:
         engine = get_asr_engine()
         return engine.transcribe(data, file.filename or "audio.bin")

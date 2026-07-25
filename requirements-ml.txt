@@ -1,0 +1,3 @@
+# Dipendenze OPZIONALI servizi ML (REF-09). L'app base NON le richiede:
+# senza installazione, /ml usa l'engine fake o risponde 501 onesto.
+faster-whisper>=1.1.0
