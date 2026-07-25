@@ -235,3 +235,28 @@ class TestSanitizeHellknightFeats:
         for e in hits:
             assert e["tags"] == ["a strict-order handbook"]
             assert e["source_id"].startswith("path_of_the_hellknight:")
+
+
+class TestScanEntriesCondiviso:
+    """API scan_entries (refactor 2026-07-25): stessa scansione del gate,
+    riusabile da altri tool, + contratto exit-code di run()."""
+
+    def test_scan_entries_trova_pi(self):
+        hits = gate.scan_entries([{"name": "Fireball",
+                                   "description": "Common on Golarion."}])
+        assert any(h["term"] == "Golarion" for h in hits)
+
+    def test_scan_entries_maschera_sanctioned_e_salta_metadata(self):
+        # replacement sanitized: nessun hit; campo 'source' (metadata,
+        # non in SCANNED_FIELDS): nessun hit anche con titolo PI.
+        hits = gate.scan_entries([{
+            "name": "X",
+            "source": "The Inner Sea World Guide",
+            "description": "Common in the inner sea region."}])
+        assert hits == []
+
+    def test_run_exit_code_zero_quando_pulito(self):
+        # Contratto del gate: exit 0 senza violazioni (il report viene
+        # comunque riscritto, come nei run da CLI).
+        assert gate.run() == 0
+

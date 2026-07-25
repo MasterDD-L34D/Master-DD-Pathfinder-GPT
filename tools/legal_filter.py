@@ -254,6 +254,19 @@ def _check_catalog_headers(catalog: Mapping, data: object) -> list[str]:
     return errors
 
 
+def scan_entries(entries: object) -> list[dict]:
+    """Occorrenze PI in una lista di entry (API condivisa del gate).
+
+    Stessa scansione del gate run(): _iter_strings (solo SCANNED_FIELDS,
+    metadata/esclusi) + _find_pi (con masking dei replacement sanctioned).
+    Ritorna dict {type, term, context}; catalog/path sono apposto dal chiamante.
+    """
+    found = []
+    for text in _iter_strings(entries):
+        found.extend(_find_pi(text))
+    return found
+
+
 def _check_git_tracked_pi() -> list[str]:
     """Verifica che pi_local_only/ non contenga file tracciati da git."""
     try:
@@ -317,16 +330,15 @@ def run() -> int:
 
             # Scansiona i testi per PI solo nei cataloghi OGC redistribuibili.
             entries = data.get("entries", []) if isinstance(data, dict) else data
-            for text in _iter_strings(entries):
-                for occurrence in _find_pi(text):
-                    violations.append({
-                        "catalog": kind,
-                        "path": str(rel_path),
-                        "type": "product_identity",
-                        "term": occurrence["term"],
-                        "term_type": occurrence["type"],
-                        "context": occurrence["context"],
-                    })
+            for occurrence in scan_entries(entries):
+                violations.append({
+                    "catalog": kind,
+                    "path": str(rel_path),
+                    "type": "product_identity",
+                    "term": occurrence["term"],
+                    "term_type": occurrence["type"],
+                    "context": occurrence["context"],
+                })
 
     for err in _check_git_tracked_pi():
         violations.append({
