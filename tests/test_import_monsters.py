@@ -54,6 +54,11 @@ SOURCE_SAMPLE = [
         "ecology": {"environment": "temperate or warm hills",
                     "organization": "solitary, pair, or murder (3-5 and 1-3 wyverns)",
                     "treasure_type": "standard"},
+        "subtypes": ["evil"],
+        "special_qualities": ["hold breath"],
+        "CMB_other": "+19 grapple",
+        "CMD_other": "can't be tripped",
+        "spell_like_abilities": {"constant": ["detect magic"]},
         "desc_short": "This light purple dragon has immense wings and a bifurcated tail.",
     }
 ]
@@ -104,3 +109,38 @@ def test_convert_monsters_missing_fields_use_none():
     assert mech["saves"]["fort"] is None
     assert mech["dr"] is None
     assert mech["weaknesses"] is None
+
+
+def test_convert_monsters_emits_v2_filter_and_combat_fields():
+    """Mostri v2: campi filtro Encounter_Designer + blocco combat."""
+    entries = convert_monsters(SOURCE_SAMPLE)
+    mech = entries[0]["mechanics"]
+    # filtri
+    assert mech["type"] == "dragon"
+    assert mech["size"] == "Large"
+    assert mech["alignment"] == "CN"
+    assert mech["initiative"] == 5
+    assert mech["environment"] == "temperate or warm hills"
+    assert mech["organization"].startswith("solitary")
+    # combat
+    assert mech["space"] == 10
+    assert mech["reach"] == 5
+    assert mech["subtypes"] == ["evil"]
+    assert mech["special_qualities"] == ["hold breath"]
+    assert mech["cmb_other"] == "+19 grapple"
+    assert mech["cmd_other"] == "can't be tripped"
+    assert mech["spell_like_abilities"] == {"constant": ["detect magic"]}
+    print("OK: mechanics v2 filtro + combat")
+
+
+def test_convert_monsters_v2_missing_fields_use_none():
+    """Campi v2 assenti nella fonte -> None, niente KeyError."""
+    minimal = [{"title1": "Blob", "CR": 1, "sources": [{"name": "Test"}]}]
+    mech = convert_monsters(minimal)[0]["mechanics"]
+    for key in ("type", "size", "alignment", "initiative", "environment",
+                "organization", "subtypes", "space", "reach", "reach_other",
+                "spell_like_abilities", "spells", "psychic_magic", "auras",
+                "defensive_abilities", "special_qualities",
+                "cmb_other", "cmd_other"):
+        assert key in mech, f"chiave mancante: {key}"
+        assert mech[key] is None, f"{key} dovrebbe essere None"

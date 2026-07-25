@@ -72,10 +72,17 @@ def _clean_text(text: str) -> str:
 
 
 def _mechanics(monster: dict) -> dict:
-    """Subset strutturato della fonte (nomi campo reali di data.json)."""
+    """Subset strutturato della fonte (nomi campo reali di data.json).
+
+    v2: aggiunti campi filtro Encounter_Designer (type/size/alignment/
+    environment/organization/initiative) e blocco combat completo.
+    """
     hp = monster.get("HP") or {}
     ac = monster.get("AC") or {}
     saves = monster.get("saves") or {}
+    ecology = monster.get("ecology") or {}
+    initiative = monster.get("initiative") or {}
+    alignment = monster.get("alignment") or {}
     return {
         "cr": monster.get("CR"),
         "xp": monster.get("XP"),
@@ -104,6 +111,26 @@ def _mechanics(monster: dict) -> dict:
         "immunities": monster.get("immunities"),
         "resistances": monster.get("resistances"),
         "weaknesses": monster.get("weaknesses"),
+        # --- v2: filtri Encounter_Designer ---
+        "type": monster.get("type"),
+        "size": monster.get("size"),
+        "alignment": alignment.get("cleaned") if isinstance(alignment, dict) else None,
+        "environment": ecology.get("environment"),
+        "organization": ecology.get("organization"),
+        "initiative": initiative.get("bonus") if isinstance(initiative, dict) else None,
+        # --- v2: blocco combat ---
+        "subtypes": monster.get("subtypes"),
+        "space": monster.get("space"),
+        "reach": monster.get("reach"),
+        "reach_other": monster.get("reach_other"),
+        "spell_like_abilities": monster.get("spell_like_abilities"),
+        "spells": monster.get("spells"),
+        "psychic_magic": monster.get("psychic_magic"),
+        "auras": monster.get("auras"),
+        "defensive_abilities": monster.get("defensive_abilities"),
+        "special_qualities": monster.get("special_qualities"),
+        "cmb_other": monster.get("CMB_other"),
+        "cmd_other": monster.get("CMD_other"),
     }
 
 
