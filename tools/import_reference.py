@@ -282,6 +282,36 @@ CLASS_SOURCE_TAGS = {"PFRPG Core": "core",
                      "Occult Adventures": "occult"}
 
 
+def parse_spells_known(soup):
+    """Tabella 'Spells Known' (h2 + <table> immediatamente successiva):
+    {livello_int: {cerchio_str: valore_str}}. {} se la classe non ce l'ha."""
+    for h2 in soup.find_all("h2"):
+        if clean(h2.get_text()).lower() != "spells known":
+            continue
+        table = h2.find_next("table")
+        if not table:
+            return {}
+        trs = table.find_all("tr")
+        if not trs:
+            return {}
+        headers = [clean(c.get_text()) for c in trs[0].find_all(["th", "td"])]
+        known = {}
+        for tr in trs[1:]:
+            cells = [clean(c.get_text()) for c in tr.find_all(["th", "td"])]
+            if len(cells) != len(headers) or not any(cells):
+                continue
+            row = dict(zip(headers, cells))
+            lvl = _parse_level(row.get("Level", ""))
+            if not lvl:
+                continue
+            circles = {k: v for k, v in row.items()
+                       if k != "Level" and v and v not in ("-", "—")}
+            if circles:
+                known[lvl] = circles
+        return known
+    return {}
+
+
 def parse_class(html, class_name):
     """Pagina ClassDisplay: HD, wealth, class skills, skill points, tabella progressione.
 
@@ -385,6 +415,10 @@ def parse_class(html, class_name):
             if extra:
                 entry["extra_progression"] = extra
             mech["progression"].append(entry)
+    known = parse_spells_known(soup)
+    for entry in mech["progression"]:
+        if entry["level"] in known:
+            entry["spells_known"] = known[entry["level"]]
     desc = (f"{class_name}: HD {mech['hd']}, skill points {mech['skill_points_per_level']}+Int. "
             f"Class skills: {', '.join(mech['class_skills'][:8])}. "
             f"Progressione su {len(mech['progression'])} livelli.")

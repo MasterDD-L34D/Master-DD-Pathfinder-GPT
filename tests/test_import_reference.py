@@ -192,6 +192,35 @@ def test_parse_class():
     print("OK: parse_class fixture")
 
 
+CLASS_KNOWN_HTML = """
+<html><body>
+<table><tr><td><b>Level</b></td><td><b>Base Attack Bonus</b></td><td><b>Fort Save</b></td><td><b>Ref Save</b></td><td><b>Will Save</b></td><td><b>Special</b></td><td><b>0</b></td><td><b>1st</b></td></tr>
+<tr><td>1st</td><td>+0</td><td>+0</td><td>+2</td><td>+2</td><td>Cantrips</td><td>3</td><td>1</td></tr>
+<tr><td>2nd</td><td>+1</td><td>+0</td><td>+3</td><td>+3</td><td>-</td><td>4</td><td>2</td></tr>
+</table>
+<h2>Spells Known</h2>
+<table class="inner"><tr><td><b>Level</b></td><td><b>0</b></td><td><b>1st</b></td></tr>
+<tr><td>1st</td><td>4</td><td>2</td></tr>
+<tr><td>2nd</td><td>5</td><td>3</td></tr>
+</table>
+</body></html>
+"""
+
+
+def test_parse_class_spells_known():
+    """La tabella 'Spells Known' (h2 + table) finisce in progression[].spells_known;
+    NON deve inquinare spells_per_day (tabella distinta)."""
+    entry = parse_class(CLASS_KNOWN_HTML, "Bard")
+    prog = entry["mechanics"]["progression"]
+    assert prog[0]["spells_known"] == {"0": "4", "1st": "2"}
+    assert prog[1]["spells_known"] == {"0": "5", "1st": "3"}
+    assert prog[0]["spells_per_day"] == {"0": "3", "1st": "1"}
+    # entry preesistente senza tabella known: nessuna chiave
+    no_known = parse_class(CLASS_HTML, "Barbarian")
+    assert all("spells_known" not in row for row in no_known["mechanics"]["progression"])
+    print("OK: parse_class spells_known")
+
+
 # Fixture ricalcate sul markup REALE aonprd delle classi non-core (cache
 # 2026-07-19, data/reference/aon_cache): stesso stile di CLASS_HTML, righe
 # lv1/lv2 campione e metadati nella forma reale ('Skill Points at each Level').
