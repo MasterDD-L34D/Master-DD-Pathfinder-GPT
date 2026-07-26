@@ -2,6 +2,7 @@ import asyncio
 import json
 import logging
 import re
+import subprocess
 from pathlib import Path
 from urllib.parse import quote
 
@@ -587,22 +588,36 @@ def test_get_module_meta_path_traversal(client, auth_headers):
 
 
 def test_get_module_rejects_symlink_outside_modules(client, auth_headers, tmp_path):
-    external_file = tmp_path / "outside.txt"
+    external_dir = tmp_path / "outside"
+    external_dir.mkdir()
+    external_file = external_dir / "outside.txt"
     external_file.write_text("top-secret")
 
     symlink_path = MODULES_DIR / "outside_link.txt"
+    junction_path = MODULES_DIR / "outside_link"
     try:
         symlink_path.symlink_to(external_file)
-    except OSError as exc:
-        # Symlink creation requires privileges on Windows without Developer Mode.
-        pytest.skip(f"Cannot create symlink in this environment: {exc}")
+        url = "/modules/outside_link.txt"
+        cleanup = lambda: symlink_path.unlink(missing_ok=True)
+    except OSError:
+        # Symlink creation requires privileges on Windows without Developer
+        # Mode (WinError 1314). Fallback: junction di directory via mklink /J
+        # (non richiede privilegi). Esercita la stessa protezione: resolve()
+        # segue i reparse point anche per le junction, quindi il path risolto
+        # cade fuori da MODULES_DIR esattamente come con un symlink.
+        subprocess.run(
+            ["cmd", "/c", "mklink", "/J", str(junction_path), str(external_dir)],
+            check=True, capture_output=True,
+        )
+        url = "/modules/outside_link/outside.txt"
+        cleanup = lambda: junction_path.rmdir()
 
     try:
-        response = client.get("/modules/outside_link.txt", headers=auth_headers)
+        response = client.get(url, headers=auth_headers)
         assert response.status_code == 400
         assert response.json()["detail"] == "Invalid module path"
     finally:
-        symlink_path.unlink(missing_ok=True)
+        cleanup()
 
 
 def test_get_knowledge_meta_valid_file(client, auth_headers):
