@@ -64,6 +64,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from tools.expand_spells_gist import is_pi_name
+from tools.import_reference import _split_languages
 from tools.reference_fetch import cache_path, fetch
 from tools.reference_lib import OGL_DIR, clean, slug, source_id, write_catalog
 from tools.sanitize_reference_pi import sanitize_text
@@ -136,6 +137,27 @@ POOLS = [
                   "Vigilante Talents - Hidden Strike": "vigilante talent"},
      "h1_categories": {"Vigilante Talents - Hidden Strike": "hidden strike"},
      "pages": [(f"{BASE}VigilanteTalents.aspx", None)]},
+    # Residui C2 task 2 (2026-07-26, stessa giornata): magus arcana e i
+    # blocchi-scelta a pagine dettaglio (mystery/revelation, bloodline,
+    # order). Parser dedicati: le pagine dettaglio hanno UN solo span
+    # LabelName con sezioni a bold ('<b>Class Skills</b>: ...') e le entry
+    # selezionabili inline ('<i>Nome (kind)</i>:' come i ki powers).
+    {"pool": "magus arcana", "cls": "Magus",
+     "ref": "AoN: Magus Arcana (Magus)",
+     "pages": [(f"{BASE}MagusArcana.aspx", None)]},
+    {"pool": "revelation", "cls": "Oracle",
+     "ref": "AoN: Mysteries (Oracle)",
+     "parser": "mystery",
+     "index": f"{BASE}OracleMysteries.aspx", "link_frag": "MysteryDisplay"},
+    {"pool": "bloodline", "cls": "Sorcerer",
+     "ref": "AoN: Bloodlines (Sorcerer)",
+     "parser": "bloodline",
+     "index": f"{BASE}SorcererBloodlines.aspx", "link_frag": "BloodlineDisplay"},
+    {"pool": "order", "cls": "Cavalier",
+     "ref": "AoN: Orders (Cavalier/Samurai)",
+     "parser": "order",
+     "index": f"{BASE}CavalierOrders.aspx",
+     "link_frag": "CavalierOrders.aspx?ItemName="},
 ]
 
 _KIND_RE = re.compile(r"^(.*?)(?:\s*\((Ex|Su|Sp)\))?$")
@@ -306,8 +328,264 @@ def parse_ki_powers(html):
     return entries
 
 
+# --- Parser pagine dettaglio (mystery / bloodline / order) ------------------
+# Struttura reale (cache 2026-07-26): UN solo span LabelName con sezioni a
+# bold ('<b>Source</b>', '<b>Class Skills</b>: ...') e le entry selezionabili
+# inline '<i>Nome (kind)</i>:' (stesso markup dei ki powers). La sezione
+# 'Deities' dei mystery NON viene mai letta: nomi di divinita' = PI Paizo.
+
+def _detail_span(html):
+    """Il singolo span LabelName della pagina dettaglio (None se assente)."""
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "html.parser")
+    return soup.find("span", id=re.compile(r"LabelName"))
+
+
+def _is_descendant(el, span):
+    p = getattr(el, "parent", None)
+    while p is not None:
+        if p is span:
+            return True
+        p = getattr(p, "parent", None)
+    return False
+
+
+def _label_of(tag):
+    return clean(tag.get_text()).rstrip(":").strip()
+
+
+def _find_label_bold(span, label):
+    return next((b for b in span.find_all("b") if _label_of(b) == label), None)
+
+
+def _first_source(span):
+    """Fonte di pagina dal link dopo il bold 'Source' (senza 'pg. N')."""
+    marker = _find_label_bold(span, "Source")
+    a = marker.find_next("a") if marker else None
+    if not a:
+        return None
+    return _PAGE_RE.sub("", clean(a.get_text())).strip() or None
+
+
+def _section_text(span, label, stop_labels):
+    """Testo piano della sezione '<b>label</b>: ...' fino al prossimo bold la
+    cui etichetta e' in stop_labels (o alla fine dello span). '' se la
+    sezione manca. Bold intermedi non in stop_labels: saltati come label ma
+    NON chiudono la sezione."""
+    from bs4 import NavigableString, Tag
+    marker = _find_label_bold(span, label)
+    if marker is None:
+        return ""
+    parts = []
+    for el in marker.next_elements:
+        if not _is_descendant(el, span):
+            break
+        if isinstance(el, Tag) and el.name == "b":
+            if el is not marker and _label_of(el) in stop_labels:
+                break
+            continue
+        if isinstance(el, NavigableString):
+            if el.parent.name in ("b", "script", "style"):
+                continue
+            parts.append(str(el))
+    return _clean_rule_text(" ".join(parts)).lstrip(":").strip()
+
+
+_BONUS_SPELL_RE = re.compile(r"([^,()]+?)\s*\((\d+)(?:st|nd|rd|th)\)")
+
+
+def _parse_bonus_spells(text):
+    """'enlarge person (2nd), fog cloud (4th).' -> [{name, level}]."""
+    return [{"name": clean(m.group(1)), "level": int(m.group(2))}
+            for m in _BONUS_SPELL_RE.finditer(text) if clean(m.group(1))]
+
+
+_ADDS_SKILLS_RE = re.compile(
+    r"adds (.+?) to (?:her|his|their) (?:list of )?class skills", re.I)
+_GAINS_SKILLS_RE = re.compile(r"gains (.+?) as class skills", re.I)
+
+
+def _parse_added_skills(text):
+    """'An oracle ... adds Intimidate, Knowledge (engineering), Perception,
+    and Ride to her list of class skills.' -> ['Intimidate', ...]. Varianti
+    reali: 'adds X and Y to his class skills' (ordini), 'gains X and Y as
+    class skills' (Order of the Green). Split consapevole delle parentesi
+    (_split_languages)."""
+    m = _ADDS_SKILLS_RE.search(text) or _GAINS_SKILLS_RE.search(text)
+    if not m:
+        return []
+    chunk = re.sub(r",?\s+and\s+", ", ", m.group(1))
+    return [s for s in (_split_languages(chunk)) if s]
+
+
+def _parse_inline_choices(span, start_label, stop_labels, pool, category):
+    """Entry '<i>Nome (kind)</i>: testo' nella sezione che inizia al bold
+    start_label e finisce a un bold in stop_labels (o a fine span).
+    Discriminante come parse_ki_powers: <i> con next_sibling che inizia
+    per ':' (gli <i> di enfasi/spell nel testo non aprono entry)."""
+    from bs4 import NavigableString, Tag
+    marker = _find_label_bold(span, start_label)
+    if marker is None:
+        return []
+
+    def follower_colon(el):
+        sib = el.next_sibling
+        return (isinstance(sib, NavigableString)
+                and str(sib).lstrip().startswith(":"))
+
+    entries, current, parts = [], None, []
+    marker_ids = set()
+
+    def flush():
+        if current is not None:
+            text = _clean_rule_text(" ".join(parts)).lstrip(":").strip()
+            name, kind = _split_name_kind(current)
+            if name and text:
+                entries.append({"name": name, "kind": kind, "source": None,
+                                "text": text, "pool": pool,
+                                "category": category, "level": None})
+
+    for el in marker.next_elements:
+        if not _is_descendant(el, span):
+            break
+        nm = getattr(el, "name", None)
+        if nm == "b":
+            if el is not marker and _label_of(el) in stop_labels:
+                break
+            continue
+        if nm == "i" and follower_colon(el):
+            flush()
+            current = clean(el.get_text())
+            marker_ids.add(id(el))
+            parts = []
+            continue
+        if isinstance(el, NavigableString) and current is not None:
+            p = el.parent
+            if p.name in ("b", "a", "script", "style", "sup", "h1", "h2", "h3"):
+                continue
+            if p.name == "i" and id(p) in marker_ids:
+                continue  # il nome dell'entry non finisce nel testo
+            parts.append(str(el))
+    flush()
+    return entries
+
+
+_MYSTERY_SECTIONS = {"Deities", "Class Skills", "Bonus Spells",
+                     "Revelations", "Final Revelation"}
+
+
+def parse_mystery_page(html):
+    """Pagina MysteryDisplay -> (row mystery, rows revelation).
+
+    Mystery: description = prosa Class Skills + Bonus Spells; mechanics_extra
+    {class_skills, bonus_spells, final_revelation?}. La sezione 'Deities'
+    e' esclusa per policy PI (mai letta). Revelation: entry inline della
+    sezione 'Revelations' (stop a 'Final Revelation'), category = nome del
+    mystery minuscolo; source per-entry assente -> fallback di pagina."""
+    span = _detail_span(html)
+    if span is None:
+        return None, []
+    h1 = span.find("h1", class_="title")
+    name = clean(h1.get_text()).rstrip("*").strip() if h1 else ""
+    skills_text = _section_text(span, "Class Skills", _MYSTERY_SECTIONS)
+    spells_text = _section_text(span, "Bonus Spells", _MYSTERY_SECTIONS)
+    final_text = _section_text(span, "Final Revelation", set())
+    mech = {"class_skills": _parse_added_skills(skills_text),
+            "bonus_spells": _parse_bonus_spells(spells_text)}
+    if final_text:
+        mech["final_revelation"] = final_text
+    desc = f"Class Skills: {skills_text} Bonus Spells: {spells_text}".strip()
+    mystery = {"name": name, "kind": None, "source": _first_source(span),
+               "text": desc, "pool": "mystery", "category": None,
+               "level": None, "mechanics_extra": mech}
+    revelations = _parse_inline_choices(
+        span, "Revelations", {"Final Revelation"}, "revelation", name.lower())
+    return mystery, revelations
+
+
+_BLOODLINE_SECTIONS = {"Class Skill", "Bonus Spells", "Bonus Feats",
+                       "Bloodline Arcana", "Bloodline Powers"}
+
+
+def parse_bloodline_page(html):
+    """Pagina BloodlineDisplay -> row bloodline.
+
+    description = testo di flavor (tra Source e 'Class Skill'); powers =
+    NOMI + kind (auto-conferiti, NON selezionabili: niente entry separate;
+    testi via reference_url, assenza onesta come le tabelle annidate)."""
+    span = _detail_span(html)
+    if span is None:
+        return None
+    h1 = span.find("h1", class_="title")
+    name = clean(h1.get_text()).rstrip("*").strip() if h1 else ""
+    name = re.sub(r"\s+Bloodline$", "", name)
+    flavor = _section_text(span, "Source", _BLOODLINE_SECTIONS)
+    # La sezione 'Source' include il titolo libro: togli la prima frase
+    # (la fonte) e tieni solo il flavor.
+    src = _first_source(span)
+    if src and flavor.startswith(src):
+        flavor = flavor[len(src):].strip()
+    flavor = re.sub(r"^pg\.\s*\d+\S*\s*", "", flavor)
+    skill_text = _section_text(span, "Class Skill", _BLOODLINE_SECTIONS)
+    feats_text = _section_text(span, "Bonus Feats", _BLOODLINE_SECTIONS)
+    arcana = _section_text(span, "Bloodline Arcana", _BLOODLINE_SECTIONS)
+    powers = _parse_inline_choices(span, "Bloodline Powers", set(),
+                                   "bloodline power", name.lower())
+    mech = {"class_skill": skill_text.rstrip("."),
+            "bonus_spells": _parse_bonus_spells(
+                _section_text(span, "Bonus Spells", _BLOODLINE_SECTIONS)),
+            "bonus_feats": [f for f in _split_languages(
+                feats_text.rstrip(".")) if f],
+            "arcana": arcana,
+            "powers": [{"name": p["name"], "kind": p["kind"]}
+                       for p in powers]}
+    return {"name": name, "kind": None, "source": src,
+            "text": flavor, "pool": "bloodline", "category": None,
+            "level": None, "mechanics_extra": mech}
+
+
+_ORDER_SECTIONS = {"Edicts", "Challenge", "Skills", "Order Abilities"}
+
+
+def parse_order_page(html):
+    """Pagina CavalierOrders?ItemName= -> row order.
+
+    description = flavor (tra Source e 'Edicts'); edicts/challenge/abilita'
+    restano via reference_url (blocchi lunghi non selezionabili, assenza
+    onesta); mechanics_extra.skills = le class skill aggiunte."""
+    span = _detail_span(html)
+    if span is None:
+        return None
+    h2 = span.find("h2", class_="title")
+    name = clean(h2.get_text()).rstrip("*").strip() if h2 else ""
+    flavor = _section_text(span, "Source", _ORDER_SECTIONS)
+    src = _first_source(span)
+    if src and flavor.startswith(src):
+        flavor = flavor[len(src):].strip()
+    flavor = re.sub(r"^pg\.\s*\d+\S*\s*", "", flavor)
+    skills_text = _section_text(span, "Skills", _ORDER_SECTIONS)
+    mech = {"skills": _parse_added_skills(skills_text)}
+    return {"name": name, "kind": None, "source": src,
+            "text": flavor, "pool": "order", "category": None,
+            "level": None, "mechanics_extra": mech}
+
+
+def _detail_links(html, link_frag):
+    """URL assoluti delle pagine dettaglio linkate dall'indice."""
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "html.parser")
+    hrefs = sorted({a["href"] for a in soup.find_all("a", href=True)
+                    if link_frag in a["href"]})
+    import urllib.parse
+    return [BASE + urllib.parse.quote(h, safe="/?=&()%") for h in hrefs]
+
+
 def talent_entry(row, pool, cls, ref, page_url):
-    """Riga parsata -> entry catalogo standard (description sanitizzata)."""
+    """Riga parsata -> entry catalogo standard (description sanitizzata).
+    row['mechanics_extra'] (pagine dettaglio: class_skills, bonus_spells,
+    powers, ...) viene fuso in mechanics dopo le chiavi standard.
+    row['source_key'] (revelation: stessa entry offerta da piu' mystery)
+    sostituisce la chiave di default per source_id."""
     tags = ["talent", pool.replace(" ", "-"), slug(cls).replace("_", "-"),
             slug(row["name"]).replace("_", "-")]
     mechanics = {"class": cls, "pool": pool, "kind": row["kind"]}
@@ -315,10 +593,12 @@ def talent_entry(row, pool, cls, ref, page_url):
         mechanics["category"] = row["category"]
     if row.get("level") is not None:
         mechanics["level"] = row["level"]
+    mechanics.update(row.get("mechanics_extra") or {})
     return {
         "name": row["name"],
         "source": row["source"] or "Archives of Nethys (aonprd.com)",
-        "source_id": source_id("talent", f"{pool} {row['name']}"),
+        "source_id": source_id("talent", row.get("source_key")
+                               or f"{pool} {row['name']}"),
         "prerequisites": [],
         "tags": tags,
         "references": [ref],
@@ -342,6 +622,9 @@ def collect_entries(offline):
     """Fetch + parse di tutti i pool -> (entries, stats_per_pool, anomalies)."""
     entries, anomalies = [], []
     for spec in POOLS:
+        if spec.get("index"):
+            _collect_detail_pool(spec, offline, entries, anomalies)
+            continue
         for url, page_category in spec["pages"]:
             try:
                 html = _fetch_page(url, offline)
@@ -364,16 +647,67 @@ def collect_entries(offline):
                         f"- **{spec['pool']} / {row['name']}**: fonte per-entry assente")
                 entries.append(talent_entry(row, row["pool"], spec["cls"],
                                             spec["ref"], url))
-    # Dedup per (pool, name): prima occorrenza vince.
+    # Dedup per (pool, name): prima occorrenza vince. Eccezione revelation:
+    # la stessa entry e' offerta da piu' mystery (category diversa) e ogni
+    # occorrenza e' un'istanza selezionabile distinta -> chiave estesa.
     seen, deduped, dupes = set(), [], 0
     for e in entries:
-        key = (e["mechanics"]["pool"], e["name"].lower())
+        mech = e["mechanics"]
+        key = (mech["pool"], e["name"].lower())
+        if mech["pool"] == "revelation":
+            key = (mech["pool"], mech.get("category"), e["name"].lower())
         if key in seen:
             dupes += 1
             continue
         seen.add(key)
         deduped.append(e)
     return deduped, dupes, anomalies
+
+
+def _collect_detail_pool(spec, offline, entries, anomalies):
+    """Pool a pagine dettaglio (mystery/bloodline/order): l'indice elenca i
+    link, ogni pagina produce 1+ row. Le entry secondarie (revelation)
+    ereditano la fonte di pagina come fallback onesto (assenza etichetta
+    per-entry in fonte)."""
+    try:
+        index_html = _fetch_page(spec["index"], offline)
+    except Exception as exc:
+        anomalies.append(f"- **{spec['pool']}** ({spec['index']}): "
+                         f"FETCH INDICE FALLITO ({exc})")
+        return
+    parser = spec["parser"]
+    for url in _detail_links(index_html, spec["link_frag"]):
+        try:
+            html = _fetch_page(url, offline)
+        except Exception as exc:
+            anomalies.append(f"- **{spec['pool']}** ({url}): FETCH FALLITO ({exc})")
+            continue
+        if parser == "mystery":
+            mystery, revelations = parse_mystery_page(html)
+            if mystery is None or not mystery["name"]:
+                anomalies.append(f"- **mystery** ({url}): blocco non parsato")
+                continue
+            page_source = mystery["source"]
+            entries.append(talent_entry(mystery, "mystery", spec["cls"],
+                                        spec["ref"], url))
+            if not revelations:
+                anomalies.append(f"- **mystery {mystery['name']}**: 0 revelation")
+            for row in revelations:
+                row["source"] = row["source"] or page_source
+                # La stessa revelation puo' essere offerta da piu' mystery
+                # (es. Combat Healer: battle/life/succor): entry per
+                # (category, name), source_id disambiguato dalla category.
+                row["source_key"] = f"revelation {row['category']} {row['name']}"
+                entries.append(talent_entry(row, "revelation", spec["cls"],
+                                            spec["ref"], url))
+        else:
+            row = parse_bloodline_page(html) if parser == "bloodline" \
+                else parse_order_page(html)
+            if row is None or not row["name"]:
+                anomalies.append(f"- **{spec['pool']}** ({url}): blocco non parsato")
+                continue
+            entries.append(talent_entry(row, spec["pool"], spec["cls"],
+                                        spec["ref"], url))
 
 
 def main(argv=None) -> int:
@@ -435,8 +769,12 @@ def main(argv=None) -> int:
                   "advanced/Rogue, discovery + grand/Alchemist, hex/major/"
                   "grand/Witch, deed/Swashbuckler, ki power/Monk Unchained, "
                   "ninja trick + advanced/Ninja, slayer talent + advanced/"
-                  "Slayer, social + vigilante talent/Vigilante): "
-                  "mechanics {class, pool, kind, category?, level?}. "
+                  "Slayer, social + vigilante talent/Vigilante, magus "
+                  "arcana/Magus, mystery + revelation/Oracle, bloodline/"
+                  "Sorcerer, order/Cavalier+Samurai): "
+                  "mechanics {class, pool, kind, category?, level?} + "
+                  "mechanics_extra per i blocchi-scelta (class_skills, "
+                  "bonus_spells, powers...). "
                   "Rigenerare con tools/import_talents.py."),
         "last_verified": today,
     })

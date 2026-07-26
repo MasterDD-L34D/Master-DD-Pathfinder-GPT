@@ -235,8 +235,21 @@
       "is_ogc": true,
       "is_pi": false,
       "cup_allowed": false,
-      "entries": 1041,
-      "notes": "Talenti selezionabili per classe da pagine dedicate AoN (rage power/Barbarian, mercy/Paladin, rogue talent + advanced/Rogue, discovery + grand/Alchemist, hex/major/grand/Witch, deed/Swashbuckler, ki power/Monk Unchained, ninja trick + advanced/Ninja, slayer talent + advanced/Slayer, social + vigilante talent/Vigilante): mechanics {class, pool, kind, category?, level?}. Rigenerare con tools/import_talents.py.",
+      "entries": 1559,
+      "notes": "Talenti selezionabili per classe da pagine dedicate AoN (rage power/Barbarian, mercy/Paladin, rogue talent + advanced/Rogue, discovery + grand/Alchemist, hex/major/grand/Witch, deed/Swashbuckler, ki power/Monk Unchained, ninja trick + advanced/Ninja, slayer talent + advanced/Slayer, social + vigilante talent/Vigilante, magus arcana/Magus, mystery + revelation/Oracle, bloodline/Sorcerer, order/Cavalier+Samurai): mechanics {class, pool, kind, category?, level?} + mechanics_extra per i blocchi-scelta (class_skills, bonus_spells, powers...). Rigenerare con tools/import_talents.py.",
+      "last_verified": "2026-07-26"
+    },
+    {
+      "file": "pi_local_only/talents_local.json",
+      "kind": "talents_local",
+      "source": "Archives of Nethys (aonprd.com)",
+      "license": "OGL-1.0a",
+      "is_ogc": false,
+      "is_pi": false,
+      "cup_allowed": false,
+      "local_only": true,
+      "entries": 5,
+      "notes": "Talenti con Product Identity nel nome, separati dal catalogo OGL (policy 2026-07-26). NON redistribuire.",
       "last_verified": "2026-07-26"
     }
   ],
@@ -283,7 +296,7 @@
     },
     "talents": {
       "path": "ogl/talents.json",
-      "entries": 1041
+      "entries": 1559
     }
   }
 }

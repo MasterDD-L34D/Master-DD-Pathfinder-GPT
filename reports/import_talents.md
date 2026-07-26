@@ -1,8 +1,8 @@
 # Import talenti (sotto-cataloghi per classe) da AoN (2026-07-26)
 
-- Talenti totali: 1041
-- OGL (talents.json): 1041
-- PI -> talents_local.json: 0
+- Talenti totali: 1564
+- OGL (talents.json): 1559
+- PI -> talents_local.json: 5
 - Duplicati (pool, name) scartati: 0
 - Entry senza testo: 0
 
@@ -11,16 +11,21 @@
 - **advanced ninja trick**: 24
 - **advanced rogue talent**: 49
 - **advanced slayer talent**: 9
+- **bloodline**: 51
 - **deed**: 23
 - **discovery**: 169
 - **grand discovery**: 7
 - **grand hex**: 13
 - **hex**: 60
 - **ki power**: 31
+- **magus arcana**: 64
 - **major hex**: 31
 - **mercy**: 26
+- **mystery**: 34
 - **ninja trick**: 41
+- **order**: 38
 - **rage power**: 234
+- **revelation**: 331
 - **rogue talent**: 163
 - **slayer talent**: 33
 - **social talent**: 46
@@ -39,3 +44,8 @@
 
 ## Nomi PI spostati in locale
 
+- revelation / Abadar’s Boon
+- revelation / Asmodeus’s Boon
+- revelation / Iomedae’s Boon
+- revelation / Irori’s Boon
+- revelation / Torag’s Boon

@@ -253,6 +253,8 @@ DESCRIPTION_ONLY_REPLACEMENTS = [
     ("Magnimar", "a city of monuments"),
     # Lotto talenti 2026-07-26 (import_talents): residui delle description.
     ("Westcrown", "a fallen capital"),
+    # Residui talenti 2026-07-26 (bloodline Unicorn, flavor).
+    ("Molthune", "a militarized nation"),
 ]
 
 # Campi mai sanitizzati: il nome (policy: le entry PI-identita' vanno in

@@ -8,8 +8,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from tools.import_talents import (
-    _category_from_h2, _split_name_kind, collect_entries, parse_ki_powers,
-    parse_talent_tables, talent_entry)
+    _category_from_h2, _parse_added_skills, _split_name_kind,
+    collect_entries, parse_bloodline_page, parse_ki_powers,
+    parse_mystery_page, parse_order_page, parse_talent_tables, talent_entry)
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures"
 TALENTS_PATH = Path("data/reference/ogl/talents.json")
@@ -148,8 +149,73 @@ def test_talent_entry_catalog_shape():
     assert "level" not in e["mechanics"]
 
 
+def test_parse_mystery_page_battle():
+    """Mystery (residui C2 task 2): pagina dettaglio -> entry mystery
+    (class_skills/bonus_spells/final_revelation; sezione Deities MAI letta,
+    PI) + 10 revelation inline con category = nome del mystery."""
+    mystery, revelations = parse_mystery_page(_fixture("talents_mystery_battle.html"))
+    assert mystery["name"] == "Battle"
+    assert mystery["source"] == "Advanced Player's Guide"
+    assert mystery["mechanics_extra"]["class_skills"] == [
+        "Intimidate", "Knowledge (engineering)", "Perception", "Ride"]
+    spells = mystery["mechanics_extra"]["bonus_spells"]
+    assert len(spells) == 9 and spells[0] == {"name": "enlarge person", "level": 2}
+    assert "avatar of battle" in mystery["mechanics_extra"]["final_revelation"]
+    assert mystery["text"].startswith("Class Skills:")
+    assert "Gorum" not in mystery["text"] and "Rovagug" not in mystery["text"]
+    assert len(revelations) == 10
+    assert all(r["pool"] == "revelation" and r["category"] == "battle"
+               for r in revelations)
+    assert revelations[0]["name"] == "Battlecry" and revelations[0]["kind"] == "Ex"
+    assert revelations[0]["text"].startswith("As a standard action")
+
+
+def test_parse_bloodline_page_aberrant():
+    """Bloodline: flavor senza il prefisso fonte ('pg. N'), powers come
+    NOMI+kind (auto-conferiti, niente entry separate)."""
+    b = parse_bloodline_page(_fixture("talents_bloodline_aberrant.html"))
+    assert b["name"] == "Aberrant"  # suffisso ' Bloodline' tolto
+    assert b["source"] == "PRPG Core Rulebook"
+    assert b["text"].startswith("There is a taint in your blood")
+    assert not b["text"].startswith("pg.")
+    mech = b["mechanics_extra"]
+    assert mech["class_skill"] == "Knowledge (dungeoneering)"
+    assert mech["bonus_spells"][0] == {"name": "enlarge person", "level": 3}
+    assert "Combat Casting" in mech["bonus_feats"]
+    assert mech["arcana"].startswith("Whenever you cast a spell of the polymorph")
+    assert mech["powers"] == [
+        {"name": "Acidic Ray", "kind": "Sp"},
+        {"name": "Long Limbs", "kind": "Ex"},
+        {"name": "Unusual Anatomy", "kind": "Ex"},
+        {"name": "Alien Resistance", "kind": "Su"},
+        {"name": "Aberrant Form", "kind": "Ex"}]
+
+
+def test_parse_order_page_asp():
+    """Order: flavor senza prefisso fonte; skills dalla frase 'adds X and Y
+    to his/her class skills'."""
+    o = parse_order_page(_fixture("talents_order_asp.html"))
+    assert o["name"] == "Order of the Asp"
+    assert o["source"] == "Adventurer's Guide"
+    assert o["text"].startswith("Cavaliers belonging to the order of the asp")
+    assert o["mechanics_extra"]["skills"] == ["Knowledge (local)", "Sleight of Hand"]
+
+
+def test_parse_added_skills_variants():
+    """Le tre formulazioni reali della sezione Skills/Class Skills."""
+    assert _parse_added_skills(
+        "An order of the x cavalier adds Knowledge (local) and Survival "
+        "to his class skills. Whenever...") == ["Knowledge (local)", "Survival"]
+    assert _parse_added_skills(
+        "An order of the Green cavalier gains Knowledge (nature) and "
+        "Survival as class skills. In addition,...") == ["Knowledge (nature)", "Survival"]
+    assert _parse_added_skills("Nessuna frase skill.") == []
+
+
 def test_collect_entries_offline_pools():
-    """Pipeline completa su cache: tutti i pool attesi, dedup (pool, name)."""
+    """Pipeline completa su cache: tutti i pool attesi, dedup (pool, name) —
+    per revelation (pool, category, name) perche' la stessa entry e'
+    offerta da piu' mystery."""
     entries, dupes, anomalies = collect_entries(offline=True)
     pools = {}
     for e in entries:
@@ -159,11 +225,16 @@ def test_collect_entries_offline_pools():
                 "grand hex", "deed", "ki power",
                 "ninja trick", "advanced ninja trick",
                 "slayer talent", "advanced slayer talent",
-                "social talent", "vigilante talent"}
+                "social talent", "vigilante talent",
+                "magus arcana", "mystery", "revelation", "bloodline", "order"}
     assert set(pools) == expected
     assert dupes == 0 and not anomalies
-    keys = [(e["mechanics"]["pool"], e["name"].lower()) for e in entries]
+    keys = [(e["mechanics"]["pool"], e["name"].lower()) for e in entries
+            if e["mechanics"]["pool"] != "revelation"]
     assert len(keys) == len(set(keys))
+    rkeys = [(e["mechanics"].get("category"), e["name"].lower()) for e in entries
+             if e["mechanics"]["pool"] == "revelation"]
+    assert len(rkeys) == len(set(rkeys))
 
 
 def test_talents_catalog_invariants():
@@ -177,6 +248,11 @@ def test_talents_catalog_invariants():
         assert e["source_id"] not in sids, f"source_id duplicato: {e['source_id']}"
         sids.add(e["source_id"])
         key = (e["mechanics"]["pool"], e["name"].lower())
+        if e["mechanics"]["pool"] == "revelation":
+            # la stessa revelation e' offerta da piu' mystery: unicita' su
+            # (category, name) — source_id gia' disambiguato dalla category
+            key = (e["mechanics"]["pool"], e["mechanics"].get("category"),
+                   e["name"].lower())
         assert key not in keys, f"(pool, name) duplicato: {key}"
         keys.add(key)
         assert e["mechanics"]["kind"] in ALLOWED_KINDS, (
