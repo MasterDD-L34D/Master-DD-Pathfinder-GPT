@@ -171,5 +171,12 @@ def get_imagine_engine(force: str | None = None) -> ImagineEngine:
         return ApiImagineEngine(
             base_url=os.environ.get("ML_IMG_API_URL", ""),
             api_key=os.environ.get("ML_IMG_API_KEY", ""))
+    if kind == "comfyui" or kind.startswith("comfyui-"):
+        from src.ml.comfyui import DEFAULT_COMFY_URL, ComfyUIEngine
+        model = (kind.removeprefix("comfyui-") if kind != "comfyui"
+                 else os.environ.get("ML_IMG_COMFY_MODEL", "sdxl"))
+        return ComfyUIEngine(
+            base_url=os.environ.get("ML_IMG_COMFY_URL", DEFAULT_COMFY_URL),
+            model=model)
     raise ImagineUnavailable(f"ML_IMG_ENGINE sconosciuto: {kind!r} "
-                             "(attesi: off, fake, flux, api)")
+                             "(attesi: off, fake, flux, api, comfyui[-modello])")
