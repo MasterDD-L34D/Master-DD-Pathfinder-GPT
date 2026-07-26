@@ -144,3 +144,22 @@ def test_convert_monsters_v2_missing_fields_use_none():
                 "cmb_other", "cmd_other"):
         assert key in mech, f"chiave mancante: {key}"
         assert mech[key] is None, f"{key} dovrebbe essere None"
+
+
+def test_url_composite_names_use_subtype_page():
+    """C3 (2026-07-25): nomi "Gruppo, Sottotipo" -> pagina del sottotipo AoN.
+
+    Il nome intero ("Agathion, Leonal") risponde 500 su MonsterDisplay; la
+    pagina esiste solo come "Leonal". Gruppi parentetici ("Dragon (Black),
+    Adult Black Dragon") saltano alla virgola dopo la parentesi chiusa.
+    """
+    from tools.import_monsters import _url
+
+    assert _url("Agathion, Leonal").endswith("ItemName=Leonal")
+    assert _url("Devil, Host Devil, Greater (Magaav)").endswith(
+        "ItemName=Host%20Devil,%20Greater%20(Magaav)")
+    assert _url("Dragon (Black), Adult Black Dragon").endswith(
+        "ItemName=Adult%20Black%20Dragon")
+    assert _url("Dragon (Esoteric, Astral), Young Astral Dragon").endswith(
+        "ItemName=Young%20Astral%20Dragon")
+    assert _url("Wyvern").endswith("ItemName=Wyvern")

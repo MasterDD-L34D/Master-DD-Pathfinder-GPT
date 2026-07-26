@@ -32,7 +32,18 @@ def _source_id(name: str) -> str:
 
 
 def _url(name: str) -> str:
-    safe = name.replace(" ", "%20")
+    # Nomi composti AoN "Gruppo, Sottotipo" (es. "Agathion, Leonal"): la pagina
+    # esiste solo sotto il sottotipo ("Leonal"); il nome intero da' errore 500.
+    # Se il gruppo e' parentetico ("Dragon (Esoteric, Astral), Adult Astral
+    # Dragon") si salta alla virgola DOPO la parentesi chiusa.
+    m = re.match(r"^[^,]*\([^)]*\), (.*)$", name)
+    if m:
+        page = m.group(1)
+    elif ", " in name:
+        page = name.split(", ", 1)[1]
+    else:
+        page = name
+    safe = page.replace(" ", "%20")
     return f"https://aonprd.com/MonsterDisplay.aspx?ItemName={safe}"
 
 
