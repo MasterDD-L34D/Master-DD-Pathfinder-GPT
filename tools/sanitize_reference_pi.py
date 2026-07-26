@@ -251,6 +251,8 @@ DESCRIPTION_ONLY_REPLACEMENTS = [
     ("Avistan", "a northern continent"),
     ("Belkzen", "an orc realm"),
     ("Magnimar", "a city of monuments"),
+    # Lotto talenti 2026-07-26 (import_talents): residui delle description.
+    ("Westcrown", "a fallen capital"),
 ]
 
 # Campi mai sanitizzati: il nome (policy: le entry PI-identita' vanno in

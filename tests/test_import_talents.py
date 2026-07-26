@@ -1,0 +1,145 @@
+"""Test per tools/import_talents.py — parser offline su fixture HTML reali
+(cache AoN 2026-07-26, estratti in tests/fixtures/) + invarianti del
+catalogo talents.json importato. Nessuna rete."""
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from tools.import_talents import (
+    _category_from_h2, _split_name_kind, collect_entries, parse_ki_powers,
+    parse_talent_tables, talent_entry)
+
+FIXTURES = Path(__file__).resolve().parent / "fixtures"
+TALENTS_PATH = Path("data/reference/ogl/talents.json")
+ALLOWED_KINDS = {"Ex", "Su", "Sp", None}
+
+
+def _fixture(name):
+    return (FIXTURES / name).read_text(encoding="utf-8")
+
+
+def test_parse_mercies_markup_b_level_sections():
+    """Mercies: nome in <b>, sezioni h2 'Nth-Level Mercies' -> level (la
+    sezione di livello NON e' una category)."""
+    rows = parse_talent_tables(_fixture("talents_mercies.html"))
+    assert len(rows) == 4
+    r0 = rows[0]
+    assert r0["name"] == "Deceived" and r0["kind"] is None
+    assert r0["level"] == 3 and r0["category"] is None
+    assert r0["source"] == "Healer's Handbook"
+    assert r0["text"].startswith("The target can immediately attempt a new saving throw")
+    # seconda sezione h2 della stessa pagina -> level 6
+    assert rows[3]["name"] == "Dazed" and rows[3]["level"] == 6
+    assert rows[3]["source"] == "PRPG Core Rulebook"
+
+
+def test_parse_rage_offensive_markup_i_category():
+    """Rage powers: nome in <i> con (Ex)/(Su), category dalla sottopagina
+    (config), kind tolto dal nome."""
+    rows = parse_talent_tables(_fixture("talents_rage_offensive.html"),
+                               page_category="offensive")
+    assert len(rows) == 3
+    assert rows[0]["name"] == "Animal Fury" and rows[0]["kind"] == "Ex"
+    assert rows[0]["category"] == "offensive"
+    assert rows[0]["source"] == "PRPG Core Rulebook"
+    # entry senza suffisso di fonte -> kind None (assenza onesta)
+    assert rows[1]["name"] == "Armor Ripper" and rows[1]["kind"] is None
+    assert rows[2]["name"] == "Auspicious Mark" and rows[2]["kind"] == "Su"
+
+
+def test_parse_ki_powers_inline_section():
+    """Ki powers: entry '<i>Nome (Su)</i>:' inline dentro ClassDisplay, la
+    sezione finisce al bold della feature successiva (Style Strike non
+    entra nel pool)."""
+    rows = parse_ki_powers(_fixture("talents_ki_powers.html"))
+    names = [r["name"] for r in rows]
+    assert names == ["Abundant Step", "Cobra Breath", "Diamond Body"]
+    assert all(r["kind"] == "Su" for r in rows)
+    assert rows[1]["text"].startswith("Whenever a monk with this ki power uses diamond body")
+    # regressione 2026-07-26: gli <i> inline (spell citate) NON aprono entry
+    # e NON troncano il testo — Abundant Step arriva fino al punto finale
+    assert not any("dimension door" in n.lower() for n in names)
+    assert "as if using the spell dimension door." in rows[0]["text"]
+    assert rows[0]["text"].endswith("before selecting this ki power.")
+
+
+def test_parse_talent_tables_esclude_tabelle_annidate():
+    """Regressione 2026-07-26: la <table class="inner"> dentro la riga (DC
+    per settlement size) NON finisce serializzata nella description."""
+    rows = parse_talent_tables(_fixture("talents_rogue_inner_table.html"))
+    assert len(rows) == 1
+    r = rows[0]
+    assert r["name"] == "Black Market Connections" and r["kind"] == "Ex"
+    assert "Metropolis" not in r["text"] and "Hamlet" not in r["text"]
+    assert r["text"].endswith("given in the table below.")
+
+
+def test_split_name_kind_star_suffix():
+    """Il marchio '*' finale AoN (non-PFS) non fa parte del nome; il kind si
+    legge anche prima dell'asterisco."""
+    assert _split_name_kind("Acid bomb*") == ("Acid bomb", None)
+    assert _split_name_kind("Blackstar Bomb (Su)*") == ("Blackstar Bomb", "Su")
+    assert _split_name_kind(" Animal Fury (Ex) ") == ("Animal Fury", "Ex")
+
+
+def test_category_from_h2():
+    assert _category_from_h2("Sneak Attack Talents") == "sneak attack"
+    assert _category_from_h2("Bomb Discoveries") == "bomb"
+    assert _category_from_h2("Swashbuckler Renowned Deeds") == "renowned"
+    # sezioni di livello e sezioni che duplicano il pool: niente category
+    assert _category_from_h2("3rd-Level Mercies") is None
+    assert _category_from_h2("1st-level Deeds") is None
+    assert _category_from_h2("Grand Discoveries") is None
+
+
+def test_talent_entry_catalog_shape():
+    row = {"name": "Animal Fury", "kind": "Ex", "source": "PRPG Core Rulebook",
+           "text": "While raging, the barbarian gains a bite attack.",
+           "pool": "rage power", "category": "offensive", "level": None}
+    e = talent_entry(row, "rage power", "Barbarian",
+                     "AoN: Rage Powers (Barbarian)",
+                     "https://aonprd.com/BarbarianRagePowers.aspx?Type=Offensive")
+    assert e["source_id"] == "talent:rage_power_animal_fury"
+    assert e["prerequisites"] == []
+    assert e["tags"] == ["talent", "rage-power", "barbarian", "animal-fury"]
+    assert e["mechanics"] == {"class": "Barbarian", "pool": "rage power",
+                              "kind": "Ex", "category": "offensive"}
+    # level assente in fonte -> chiave assente (nessun campo inventato)
+    assert "level" not in e["mechanics"]
+
+
+def test_collect_entries_offline_pools():
+    """Pipeline completa su cache: tutti i pool attesi, dedup (pool, name)."""
+    entries, dupes, anomalies = collect_entries(offline=True)
+    pools = {}
+    for e in entries:
+        pools[e["mechanics"]["pool"]] = pools.get(e["mechanics"]["pool"], 0) + 1
+    expected = {"rage power", "mercy", "rogue talent", "advanced rogue talent",
+                "discovery", "grand discovery", "hex", "major hex",
+                "grand hex", "deed", "ki power"}
+    assert set(pools) == expected
+    assert dupes == 0 and not anomalies
+    keys = [(e["mechanics"]["pool"], e["name"].lower()) for e in entries]
+    assert len(keys) == len(set(keys))
+
+
+def test_talents_catalog_invariants():
+    """Invarianti sul catalogo reale importato (dati su disco)."""
+    catalog = json.loads(TALENTS_PATH.read_text(encoding="utf-8"))
+    assert catalog["_license"] and catalog["_source"]
+    entries = catalog["entries"]
+    assert len(entries) >= 700
+    sids, keys = set(), set()
+    for e in entries:
+        assert e["source_id"] not in sids, f"source_id duplicato: {e['source_id']}"
+        sids.add(e["source_id"])
+        key = (e["mechanics"]["pool"], e["name"].lower())
+        assert key not in keys, f"(pool, name) duplicato: {key}"
+        keys.add(key)
+        assert e["mechanics"]["kind"] in ALLOWED_KINDS, (
+            f"{e['name']}: kind {e['mechanics']['kind']!r} non ammesso")
+        assert e["description"], f"{e['name']}: description vuota"
+        assert e["mechanics"]["class"] and e["mechanics"]["pool"]
+    print(f"OK: {len(entries)} talenti, invarianti rispettate")

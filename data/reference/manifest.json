@@ -226,6 +226,18 @@
       "entries": 487,
       "notes": "NPC da NPCs.aspx AoN (espansione 2026-07-25). NON redistribuire.",
       "last_verified": "2026-07-25"
+    },
+    {
+      "file": "ogl/talents.json",
+      "kind": "talents",
+      "source": "Archives of Nethys (aonprd.com)",
+      "license": "OGL-1.0a",
+      "is_ogc": true,
+      "is_pi": false,
+      "cup_allowed": false,
+      "entries": 806,
+      "notes": "Talenti selezionabili per classe da pagine dedicate AoN (rage power/Barbarian, mercy/Paladin, rogue talent + advanced/Rogue, discovery + grand/Alchemist, hex/major/grand/Witch, deed/Swashbuckler, ki power/Monk Unchained): mechanics {class, pool, kind, category?, level?}. Rigenerare con tools/import_talents.py.",
+      "last_verified": "2026-07-26"
     }
   ],
   "files": {
@@ -268,6 +280,10 @@
     "equipment": {
       "path": "ogl/equipment_mundane.json",
       "entries": 786
+    },
+    "talents": {
+      "path": "ogl/talents.json",
+      "entries": 806
     }
   }
 }

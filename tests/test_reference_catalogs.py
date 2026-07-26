@@ -16,6 +16,7 @@ NEW_KINDS = {
     "skills.json": ("skills", 35),
     "traits.json": ("traits", 60),
     "equipment_mundane.json": ("equipment", 150),
+    "talents.json": ("talents", 700),
 }
 REQUIRED_FIELDS = {"name", "source", "source_id", "prerequisites", "tags",
                    "references", "reference_urls", "description"}
