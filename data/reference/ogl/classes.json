@@ -9006,6 +9006,4829 @@
           }
         ]
       }
+    },
+    {
+      "name": "Oracle",
+      "source": "Advanced Player's Guide",
+      "source_id": "pfrpg_core:oracle",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "base"
+      ],
+      "references": [
+        "AoN: Oracle (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Oracle"
+      ],
+      "description": "Oracle: HD d8, skill points 4+Int. Class skills: Craft, Diplomacy, Heal, Knowledge (history), Knowledge (planes), Knowledge (religion), Profession, Sense Motive. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "3d6 x 10 gp (average 105 gp)",
+        "class_skills": [
+          "Craft",
+          "Diplomacy",
+          "Heal",
+          "Knowledge (history)",
+          "Knowledge (planes)",
+          "Knowledge (religion)",
+          "Profession",
+          "Sense Motive",
+          "Spellcraft"
+        ],
+        "skill_points_per_level": 4,
+        "proficiencies": "Oracles are proficient with all simple weapons, light armor, medium armor, and shields (except tower shields). Some oracle revelations grant additional proficiencies",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 0,
+            "ref": 0,
+            "will": 2,
+            "special": [
+              "Mystery",
+              "oracle’s curse",
+              "orisons",
+              "revelation"
+            ],
+            "spells_per_day": {
+              "1st": "3"
+            },
+            "spells_known": {
+              "0": "4",
+              "1st": "2"
+            }
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 0,
+            "ref": 0,
+            "will": 3,
+            "special": [
+              "Mystery spell"
+            ],
+            "spells_per_day": {
+              "1st": "4"
+            },
+            "spells_known": {
+              "0": "5",
+              "1st": "2"
+            }
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 1,
+            "ref": 1,
+            "will": 3,
+            "special": [
+              "Revelation"
+            ],
+            "spells_per_day": {
+              "1st": "5"
+            },
+            "spells_known": {
+              "0": "5",
+              "1st": "3"
+            }
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 1,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Mystery spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "3",
+              "2nd": "1"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 1,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "4"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "2"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 2,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Mystery spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "3"
+            },
+            "spells_known": {
+              "0": "7",
+              "1st": "4",
+              "2nd": "2",
+              "3rd": "1"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 2,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Revelation"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "4"
+            },
+            "spells_known": {
+              "0": "7",
+              "1st": "5",
+              "2nd": "3",
+              "3rd": "2"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 2,
+            "ref": 2,
+            "will": 6,
+            "special": [
+              "Mystery spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "3"
+            },
+            "spells_known": {
+              "0": "8",
+              "1st": "5",
+              "2nd": "3",
+              "3rd": "2",
+              "4th": "1"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 3,
+            "ref": 3,
+            "will": 6,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "4"
+            },
+            "spells_known": {
+              "0": "8",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 3,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Mystery spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "2",
+              "5th": "1"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 3,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Revelation"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "2"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 4,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Mystery spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "5",
+              "6th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "2",
+              "6th": "1"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 4,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "3",
+              "6th": "2"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 4,
+            "ref": 4,
+            "will": 9,
+            "special": [
+              "Mystery spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "5",
+              "7th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "3",
+              "6th": "2",
+              "7th": "1"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 5,
+            "ref": 5,
+            "will": 9,
+            "special": [
+              "Revelation"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "2"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 5,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Mystery spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "5",
+              "8th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "2",
+              "8th": "1"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 5,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "6",
+              "8th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "3",
+              "8th": "2"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 6,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Mystery spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "6",
+              "8th": "5",
+              "9th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "3",
+              "8th": "2",
+              "9th": "1"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 6,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Revelation"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "6",
+              "8th": "6",
+              "9th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "3",
+              "8th": "3",
+              "9th": "2"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 6,
+            "ref": 6,
+            "will": 12,
+            "special": [
+              "Final revelation"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "6",
+              "8th": "6",
+              "9th": "6"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "3",
+              "8th": "3",
+              "9th": "3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Summoner",
+      "source": "Advanced Player's Guide",
+      "source_id": "pfrpg_core:summoner",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "base"
+      ],
+      "references": [
+        "AoN: Summoner (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Summoner"
+      ],
+      "description": "Summoner: HD d8, skill points 2+Int. Class skills: Craft, Fly, Handle Animal, Knowledge (all), Linguistics, Profession, Ride, Spellcraft. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "2d6 x 10 gp (average 70 gp)",
+        "class_skills": [
+          "Craft",
+          "Fly",
+          "Handle Animal",
+          "Knowledge (all)",
+          "Linguistics",
+          "Profession",
+          "Ride",
+          "Spellcraft",
+          "Use Magic Device"
+        ],
+        "skill_points_per_level": 2,
+        "proficiencies": "Summoners are proficient with all simple weapons. Summoners are also proficient with light armor",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 0,
+            "ref": 0,
+            "will": 2,
+            "special": [
+              "Cantrips",
+              "eidolon",
+              "life link",
+              "summon monster I"
+            ],
+            "spells_per_day": {
+              "1st": "1"
+            },
+            "spells_known": {
+              "0": "4",
+              "1st": "2"
+            }
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 0,
+            "ref": 0,
+            "will": 3,
+            "special": [
+              "Bond senses"
+            ],
+            "spells_per_day": {
+              "1st": "2"
+            },
+            "spells_known": {
+              "0": "5",
+              "1st": "3"
+            }
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 1,
+            "ref": 1,
+            "will": 3,
+            "special": [
+              "Summon monster II"
+            ],
+            "spells_per_day": {
+              "1st": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4"
+            }
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 1,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Shield ally"
+            ],
+            "spells_per_day": {
+              "1st": "3",
+              "2nd": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "2"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 1,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Summon monster III"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "3"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 2,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Maker’s call"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "4"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 2,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Summon monster IV"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "2"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 2,
+            "ref": 2,
+            "will": 6,
+            "special": [
+              "Transposition"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 3,
+            "ref": 3,
+            "will": 6,
+            "special": [
+              "Summon monster V"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 3,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Aspect"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 3,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Summon monster VI"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 4,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Greater shield ally"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 4,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Summon monster VII"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "2"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 4,
+            "ref": 4,
+            "will": 9,
+            "special": [
+              "Life bond"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 5,
+            "ref": 5,
+            "will": 9,
+            "special": [
+              "Summon monster VIII"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 5,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Merge forms"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3",
+              "6th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "2"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 5,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Summon monster IX"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4",
+              "6th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 6,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Greater aspect"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "4",
+              "6th": "4"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 6,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Gate"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 6,
+            "ref": 6,
+            "will": 12,
+            "special": [
+              "Twin eidolon"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "5"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "5",
+              "6th": "5"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Shaman",
+      "source": "Advanced Class Guide",
+      "source_id": "pfrpg_core:shaman",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "hybrid"
+      ],
+      "references": [
+        "AoN: Shaman (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Shaman"
+      ],
+      "description": "Shaman: HD d8, skill points 4+Int. Class skills: Craft, Diplomacy, Fly, Handle Animal, Heal, Knowledge (nature), Knowledge (planes), Knowledge (religion). Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "3d6 x 10 gp (average 105 gp)",
+        "class_skills": [
+          "Craft",
+          "Diplomacy",
+          "Fly",
+          "Handle Animal",
+          "Heal",
+          "Knowledge (nature)",
+          "Knowledge (planes)",
+          "Knowledge (religion)",
+          "Profession",
+          "Ride",
+          "Spellcraft",
+          "Survival"
+        ],
+        "skill_points_per_level": 4,
+        "proficiencies": "A shaman is proficient with all simple weapons, and with light and medium armor",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 0,
+            "ref": 0,
+            "will": 2,
+            "special": [
+              "Orisons",
+              "spirit",
+              "spirit animal",
+              "spirit magic"
+            ],
+            "spells_per_day": {
+              "0": "3",
+              "1st": "1"
+            }
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 0,
+            "ref": 0,
+            "will": 3,
+            "special": [
+              "Hex"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "2"
+            }
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 1,
+            "ref": 1,
+            "will": 3,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "2",
+              "2nd": "1"
+            }
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 1,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Hex",
+              "wandering spirit"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "3",
+              "2nd": "2"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 1,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "3",
+              "2nd": "2",
+              "3rd": "1"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 2,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Wandering hex"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "3",
+              "2nd": "3",
+              "3rd": "2"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 2,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "2",
+              "4th": "1"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 2,
+            "ref": 2,
+            "will": 6,
+            "special": [
+              "Hex",
+              "spirit (greater)"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "3",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 3,
+            "ref": 3,
+            "will": 6,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "2",
+              "5th": "1"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 3,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Hex"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "3",
+              "5th": "2"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 3,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "2",
+              "6th": "1"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 4,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Hex",
+              "wandering spirit (greater)"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "3",
+              "6th": "2"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 4,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "3",
+              "6th": "2",
+              "7th": "1"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 4,
+            "ref": 4,
+            "will": 9,
+            "special": [
+              "Wandering hex (2 hexes)"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "3",
+              "6th": "3",
+              "7th": "2"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 5,
+            "ref": 5,
+            "will": 9,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "2",
+              "8th": "1"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 5,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Hex",
+              "spirit (true)"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "3",
+              "8th": "2"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 5,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "4",
+              "7th": "3",
+              "8th": "2",
+              "9th": "1"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 6,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Hex"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "4",
+              "7th": "3",
+              "8th": "3",
+              "9th": "2"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 6,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "—"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "4",
+              "7th": "4",
+              "8th": "3",
+              "9th": "3"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 6,
+            "ref": 6,
+            "will": 12,
+            "special": [
+              "Hex",
+              "manifestation",
+              "wandering spirit (true)"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "4",
+              "7th": "4",
+              "8th": "4",
+              "9th": "4"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Skald",
+      "source": "Advanced Class Guide",
+      "source_id": "pfrpg_core:skald",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "hybrid"
+      ],
+      "references": [
+        "AoN: Skald (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Skald"
+      ],
+      "description": "Skald: HD d8, skill points 4+Int. Class skills: Acrobatics, Appraise, Bluff, Climb, Craft, Diplomacy, Escape Artist, Handle Animal. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "3d6 x 10 gp (average 105 gp)",
+        "class_skills": [
+          "Acrobatics",
+          "Appraise",
+          "Bluff",
+          "Climb",
+          "Craft",
+          "Diplomacy",
+          "Escape Artist",
+          "Handle Animal",
+          "Intimidate",
+          "Knowledge (all)",
+          "Linguistics",
+          "Perception",
+          "Perform",
+          "Profession",
+          "Ride",
+          "Sense Motive",
+          "Spellcraft",
+          "Swim",
+          "Use Magic Device"
+        ],
+        "skill_points_per_level": 4,
+        "proficiencies": "A skald is proficient with all simple and martial weapons, light and medium armor, and shields (except tower shields)",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 2,
+            "ref": 0,
+            "will": 2,
+            "special": [
+              "Bardic knowledge",
+              "cantrips",
+              "inspired rage +1 (+2 Str/Con)",
+              "raging song",
+              "scribe scroll"
+            ],
+            "spells_per_day": {
+              "1st": "1"
+            },
+            "spells_known": {
+              "0": "4",
+              "1st": "2"
+            }
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 3,
+            "ref": 0,
+            "will": 3,
+            "special": [
+              "Versatile performance",
+              "well-versed"
+            ],
+            "spells_per_day": {
+              "1st": "2"
+            },
+            "spells_known": {
+              "0": "5",
+              "1st": "3"
+            }
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 3,
+            "ref": 1,
+            "will": 3,
+            "special": [
+              "Rage power",
+              "song of marching"
+            ],
+            "spells_per_day": {
+              "1st": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4"
+            }
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Inspired rage +2",
+              "uncanny dodge"
+            ],
+            "spells_per_day": {
+              "1st": "3",
+              "2nd": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "2"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Spell kenning 1/day"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "3"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Rage power",
+              "song of strength"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "4"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Lore master 1/day",
+              "versatile performance"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "2"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 6,
+            "ref": 2,
+            "will": 6,
+            "special": [
+              "Improved uncanny dodge",
+              "inspired rage +3 (+4 Str/Con)"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 6,
+            "ref": 3,
+            "will": 6,
+            "special": [
+              "Rage power",
+              "DR 1/-"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Dirge of doom"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Spell kenning 2/day"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Inspired rage +4",
+              "rage power",
+              "versatile performance"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Lore master 2/day"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "2"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 9,
+            "ref": 4,
+            "will": 9,
+            "special": [
+              "DR 2/-",
+              "song of the fallen"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 9,
+            "ref": 5,
+            "will": 9,
+            "special": [
+              "Rage power"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Inspired rage +5 (+6 Str/Con)"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3",
+              "6th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "2"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Spell kenning 3/day",
+              "versatile performance"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4",
+              "6th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Rage power"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "4",
+              "6th": "4"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "DR 3/-",
+              "lore master 3/day"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 12,
+            "ref": 6,
+            "will": 12,
+            "special": [
+              "Inspired rage +6",
+              "master skald"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "5"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "5",
+              "6th": "5"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Swashbuckler",
+      "source": "Advanced Class Guide",
+      "source_id": "pfrpg_core:swashbuckler",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "hybrid"
+      ],
+      "references": [
+        "AoN: Swashbuckler (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Swashbuckler"
+      ],
+      "description": "Swashbuckler: HD d10, skill points 4+Int. Class skills: Acrobatics, Bluff, Climb, Craft, Diplomacy, Escape Artist, Intimidate, Knowledge (local). Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d10",
+        "starting_wealth": "5d6 x 10 gp (average 175 gp)",
+        "class_skills": [
+          "Acrobatics",
+          "Bluff",
+          "Climb",
+          "Craft",
+          "Diplomacy",
+          "Escape Artist",
+          "Intimidate",
+          "Knowledge (local)",
+          "Knowledge (nobility)",
+          "Perception",
+          "Perform",
+          "Profession",
+          "Ride",
+          "Sense Motive",
+          "Sleight of Hand",
+          "Swim"
+        ],
+        "skill_points_per_level": 4,
+        "proficiencies": "Swashbucklers are proficient with simple and martial weapons, as well as light armor and bucklers",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 1,
+            "fort": 0,
+            "ref": 2,
+            "will": 0,
+            "special": [
+              "Deeds",
+              "panache",
+              "swashbuckler finesse"
+            ]
+          },
+          {
+            "level": 2,
+            "bab": 2,
+            "fort": 0,
+            "ref": 3,
+            "will": 0,
+            "special": [
+              "Charmed life 3/day"
+            ]
+          },
+          {
+            "level": 3,
+            "bab": 3,
+            "fort": 1,
+            "ref": 3,
+            "will": 1,
+            "special": [
+              "Deeds",
+              "nimble +1"
+            ]
+          },
+          {
+            "level": 4,
+            "bab": 4,
+            "fort": 1,
+            "ref": 4,
+            "will": 1,
+            "special": [
+              "Bonus feat"
+            ]
+          },
+          {
+            "level": 5,
+            "bab": 5,
+            "fort": 1,
+            "ref": 4,
+            "will": 1,
+            "special": [
+              "Swashbuckler weapon training +1"
+            ]
+          },
+          {
+            "level": 6,
+            "bab": 6,
+            "fort": 2,
+            "ref": 5,
+            "will": 2,
+            "special": [
+              "Charmed life 4/day"
+            ]
+          },
+          {
+            "level": 7,
+            "bab": 7,
+            "fort": 2,
+            "ref": 5,
+            "will": 2,
+            "special": [
+              "Deeds",
+              "nimble +2"
+            ]
+          },
+          {
+            "level": 8,
+            "bab": 8,
+            "fort": 2,
+            "ref": 6,
+            "will": 2,
+            "special": [
+              "Bonus feat"
+            ]
+          },
+          {
+            "level": 9,
+            "bab": 9,
+            "fort": 3,
+            "ref": 6,
+            "will": 3,
+            "special": [
+              "Swashbuckler weapon training +2"
+            ]
+          },
+          {
+            "level": 10,
+            "bab": 10,
+            "fort": 3,
+            "ref": 7,
+            "will": 3,
+            "special": [
+              "Charmed life 5/day"
+            ]
+          },
+          {
+            "level": 11,
+            "bab": 11,
+            "fort": 3,
+            "ref": 7,
+            "will": 3,
+            "special": [
+              "Deeds",
+              "nimble +3"
+            ]
+          },
+          {
+            "level": 12,
+            "bab": 12,
+            "fort": 4,
+            "ref": 8,
+            "will": 4,
+            "special": [
+              "Bonus feat"
+            ]
+          },
+          {
+            "level": 13,
+            "bab": 13,
+            "fort": 4,
+            "ref": 8,
+            "will": 4,
+            "special": [
+              "Swashbuckler weapon training +3"
+            ]
+          },
+          {
+            "level": 14,
+            "bab": 14,
+            "fort": 4,
+            "ref": 9,
+            "will": 4,
+            "special": [
+              "Charmed life 6/day"
+            ]
+          },
+          {
+            "level": 15,
+            "bab": 15,
+            "fort": 5,
+            "ref": 9,
+            "will": 5,
+            "special": [
+              "Deeds",
+              "nimble +4"
+            ]
+          },
+          {
+            "level": 16,
+            "bab": 16,
+            "fort": 5,
+            "ref": 10,
+            "will": 5,
+            "special": [
+              "Bonus feat"
+            ]
+          },
+          {
+            "level": 17,
+            "bab": 17,
+            "fort": 5,
+            "ref": 10,
+            "will": 5,
+            "special": [
+              "Swashbuckler weapon training +4"
+            ]
+          },
+          {
+            "level": 18,
+            "bab": 18,
+            "fort": 6,
+            "ref": 11,
+            "will": 6,
+            "special": [
+              "Charmed life 7/day"
+            ]
+          },
+          {
+            "level": 19,
+            "bab": 19,
+            "fort": 6,
+            "ref": 11,
+            "will": 6,
+            "special": [
+              "Deeds",
+              "nimble +5"
+            ]
+          },
+          {
+            "level": 20,
+            "bab": 20,
+            "fort": 6,
+            "ref": 12,
+            "will": 6,
+            "special": [
+              "Bonus feat",
+              "swashbuckler weapon mastery"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Warpriest",
+      "source": "Advanced Class Guide",
+      "source_id": "pfrpg_core:warpriest",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "hybrid"
+      ],
+      "references": [
+        "AoN: Warpriest (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Warpriest"
+      ],
+      "description": "Warpriest: HD d8, skill points 2+Int. Class skills: Climb, Craft, Diplomacy, Handle Animal, Heal, Intimidate, Knowledge (engineering), Knowledge (religion). Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "5d6 x 10 gp (average 175 gp)",
+        "class_skills": [
+          "Climb",
+          "Craft",
+          "Diplomacy",
+          "Handle Animal",
+          "Heal",
+          "Intimidate",
+          "Knowledge (engineering)",
+          "Knowledge (religion)",
+          "Profession",
+          "Ride",
+          "Sense Motive",
+          "Spellcraft",
+          "Survival",
+          "Swim"
+        ],
+        "skill_points_per_level": 2,
+        "proficiencies": "A warpriest is proficient with all simple and martial weapons, as well as the favored weapon of his deity, and with all armor (heavy, light, and medium) and shields (except tower shields)",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 2,
+            "ref": 0,
+            "will": 2,
+            "special": [
+              "Aura",
+              "blessings (minor)",
+              "focus weapon",
+              "orisons",
+              "sacred weapon"
+            ],
+            "spells_per_day": {
+              "0": "3",
+              "1st": "1"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d6"
+            }
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 3,
+            "ref": 0,
+            "will": 3,
+            "special": [
+              "Fervor 1d6"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "2"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d6"
+            }
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 3,
+            "ref": 1,
+            "will": 3,
+            "special": [
+              "Bonus feat"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "3"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d6"
+            }
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Channel energy",
+              "sacred weapon +1"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "3",
+              "2nd": "1"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d6"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Fervor 2d6"
+            ],
+            "spells_per_day": {
+              "0": "4",
+              "1st": "4",
+              "2nd": "2"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d8"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Bonus feat"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "4",
+              "2nd": "3"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d8"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Sacred armor +1"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "1"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d8"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 6,
+            "ref": 2,
+            "will": 6,
+            "special": [
+              "Fervor 3d6",
+              "sacred weapon +2"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "2"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d8"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 6,
+            "ref": 3,
+            "will": 6,
+            "special": [
+              "Bonus feat"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d8"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Blessings (major)",
+              "sacred armor +2"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "1"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d10"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Fervor 4d6"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "2"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d10"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Bonus feat",
+              "sacred weapon +3"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d10"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Sacred armor +3"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "1"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d10"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 9,
+            "ref": 4,
+            "will": 9,
+            "special": [
+              "Fervor 5d6"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "2"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "1d10"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 9,
+            "ref": 5,
+            "will": 9,
+            "special": [
+              "Bonus feat"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "2d6"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Sacred armor +4",
+              "sacred weapon +4"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3",
+              "6th": "1"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "2d6"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Fervor 6d6"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4",
+              "6th": "2"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "2d6"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Bonus feat"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "2d6"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Sacred armor +5"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "2d6"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 12,
+            "ref": 6,
+            "will": 12,
+            "special": [
+              "Aspect of war",
+              "fervor 7d6",
+              "sacred weapon +5"
+            ],
+            "spells_per_day": {
+              "0": "5",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "5"
+            },
+            "extra_progression": {
+              "Sacred Weapon Damage": "2d8"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Shifter",
+      "source": "Ultimate Wilderness",
+      "source_id": "pfrpg_core:shifter",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "base"
+      ],
+      "references": [
+        "AoN: Shifter (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Shifter"
+      ],
+      "description": "Shifter: HD d10, skill points 4+Int. Class skills: Acrobatics, Climb, Craft, Fly, Handle Animal, Knowledge (nature), Perception, Profession. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d10",
+        "starting_wealth": "3d6 x 10 gp (average 105 gp)",
+        "class_skills": [
+          "Acrobatics",
+          "Climb",
+          "Craft",
+          "Fly",
+          "Handle Animal",
+          "Knowledge (nature)",
+          "Perception",
+          "Profession",
+          "Ride",
+          "Stealth",
+          "Survival",
+          "Swim"
+        ],
+        "skill_points_per_level": 4,
+        "proficiencies": "A shifter is proficient with the following weapons: club, dagger, dart, quarterstaff, scimitar, scythe, sickle, shortspear, sling, and spear. She is also proficient with the natural attacks (claw, bite, and so forth) from the shifter claws class feature and of forms she assumes with wild shape. Shifters are proficient with light and medium armor but are prohibited from wearing metal armor",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 1,
+            "fort": 2,
+            "ref": 2,
+            "will": 0,
+            "special": [
+              "Shifter aspect",
+              "shifter claws",
+              "wild empathy"
+            ]
+          },
+          {
+            "level": 2,
+            "bab": 2,
+            "fort": 3,
+            "ref": 3,
+            "will": 0,
+            "special": [
+              "Defensive instinct",
+              "track"
+            ]
+          },
+          {
+            "level": 3,
+            "bab": 3,
+            "fort": 3,
+            "ref": 3,
+            "will": 1,
+            "special": [
+              "Shifter claws increase",
+              "woodland stride"
+            ]
+          },
+          {
+            "level": 4,
+            "bab": 4,
+            "fort": 4,
+            "ref": 4,
+            "will": 1,
+            "special": [
+              "Defensive instinct (+1)",
+              "wild shape"
+            ]
+          },
+          {
+            "level": 5,
+            "bab": 5,
+            "fort": 4,
+            "ref": 4,
+            "will": 1,
+            "special": [
+              "Second aspect",
+              "trackless step"
+            ]
+          },
+          {
+            "level": 6,
+            "bab": 6,
+            "fort": 5,
+            "ref": 5,
+            "will": 2,
+            "special": [
+              "Shifter's fury"
+            ]
+          },
+          {
+            "level": 7,
+            "bab": 7,
+            "fort": 5,
+            "ref": 5,
+            "will": 2,
+            "special": [
+              "Shifter claws increase"
+            ]
+          },
+          {
+            "level": 8,
+            "bab": 8,
+            "fort": 6,
+            "ref": 6,
+            "will": 2,
+            "special": [
+              "Defensive instinct (+2)"
+            ]
+          },
+          {
+            "level": 9,
+            "bab": 9,
+            "fort": 6,
+            "ref": 6,
+            "will": 3,
+            "special": [
+              "Chimeric aspect"
+            ]
+          },
+          {
+            "level": 10,
+            "bab": 10,
+            "fort": 7,
+            "ref": 7,
+            "will": 3,
+            "special": [
+              "Third aspect"
+            ]
+          },
+          {
+            "level": 11,
+            "bab": 11,
+            "fort": 7,
+            "ref": 7,
+            "will": 3,
+            "special": [
+              "Shifter claws increase"
+            ]
+          },
+          {
+            "level": 12,
+            "bab": 12,
+            "fort": 8,
+            "ref": 8,
+            "will": 4,
+            "special": [
+              "Defensive instinct (+3)"
+            ]
+          },
+          {
+            "level": 13,
+            "bab": 13,
+            "fort": 8,
+            "ref": 8,
+            "will": 4,
+            "special": [
+              "Shifter claws increase"
+            ]
+          },
+          {
+            "level": 14,
+            "bab": 14,
+            "fort": 9,
+            "ref": 9,
+            "will": 4,
+            "special": [
+              "Greater chimeric aspect"
+            ]
+          },
+          {
+            "level": 15,
+            "bab": 15,
+            "fort": 9,
+            "ref": 9,
+            "will": 5,
+            "special": [
+              "Fourth aspect"
+            ]
+          },
+          {
+            "level": 16,
+            "bab": 16,
+            "fort": 10,
+            "ref": 10,
+            "will": 5,
+            "special": [
+              "Defensive instinct (+4)"
+            ]
+          },
+          {
+            "level": 17,
+            "bab": 17,
+            "fort": 10,
+            "ref": 10,
+            "will": 5,
+            "special": [
+              "Shifter claws increase"
+            ]
+          },
+          {
+            "level": 18,
+            "bab": 18,
+            "fort": 11,
+            "ref": 11,
+            "will": 6,
+            "special": [
+              "A thousand faces",
+              "timeless body"
+            ]
+          },
+          {
+            "level": 19,
+            "bab": 19,
+            "fort": 11,
+            "ref": 11,
+            "will": 6,
+            "special": [
+              "Shifter claws increase"
+            ]
+          },
+          {
+            "level": 20,
+            "bab": 20,
+            "fort": 12,
+            "ref": 12,
+            "will": 6,
+            "special": [
+              "Defensive instinct (+5)",
+              "final aspect"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mesmerist",
+      "source": "Occult Adventures",
+      "source_id": "pfrpg_core:mesmerist",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "occult"
+      ],
+      "references": [
+        "AoN: Mesmerist (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Mesmerist"
+      ],
+      "description": "Mesmerist: HD d8, skill points 6+Int. Class skills: Appraise, Bluff, Craft, Diplomacy, Disguise, Escape Artist, Intimidate, Knowledge (arcana). Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "3d6 x 10 gp (average 105 gp)",
+        "class_skills": [
+          "Appraise",
+          "Bluff",
+          "Craft",
+          "Diplomacy",
+          "Disguise",
+          "Escape Artist",
+          "Intimidate",
+          "Knowledge (arcana)",
+          "Knowledge (dungeoneering)",
+          "Knowledge (history)",
+          "Knowledge (local)",
+          "Knowledge (nobility)",
+          "Knowledge (religion)",
+          "Linguistics",
+          "Perception",
+          "Perform",
+          "Profession",
+          "Sense Motive",
+          "Sleight of Hand",
+          "Spellcraft",
+          "Stealth",
+          "Use Magic Device"
+        ],
+        "skill_points_per_level": 6,
+        "proficiencies": "A mesmerist is proficient with all simple weapons, plus the hand crossbow, sap, sword cane UE , and whip. He is proficient with light armor, but not with shields",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 0,
+            "ref": 2,
+            "will": 2,
+            "special": [
+              "Consummate liar",
+              "hypnotic stare",
+              "knacks",
+              "mesmerist trick",
+              "painful stare"
+            ],
+            "spells_per_day": {
+              "1st": "1"
+            },
+            "spells_known": {
+              "0": "4",
+              "1st": "2"
+            }
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 0,
+            "ref": 3,
+            "will": 3,
+            "special": [
+              "Mesmerist trick",
+              "towering ego"
+            ],
+            "spells_per_day": {
+              "1st": "2"
+            },
+            "spells_known": {
+              "0": "5",
+              "1st": "3"
+            }
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 1,
+            "ref": 3,
+            "will": 3,
+            "special": [
+              "Bold stare",
+              "touch treatment (minor)"
+            ],
+            "spells_per_day": {
+              "1st": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4"
+            }
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 1,
+            "ref": 4,
+            "will": 4,
+            "special": [
+              "Mesmerist trick"
+            ],
+            "spells_per_day": {
+              "1st": "3",
+              "2nd": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "2"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 1,
+            "ref": 4,
+            "will": 4,
+            "special": [
+              "Manifold tricks (2)",
+              "mental potency"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "3"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 2,
+            "ref": 5,
+            "will": 5,
+            "special": [
+              "Mesmerist trick",
+              "touch treatment (moderate)"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "4"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 2,
+            "ref": 5,
+            "will": 5,
+            "special": [
+              "Bold stare"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "2"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 2,
+            "ref": 6,
+            "will": 6,
+            "special": [
+              "Hypnotic stare (-3)",
+              "mesmerist trick"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 3,
+            "ref": 6,
+            "will": 6,
+            "special": [
+              "Manifold tricks (3)"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 3,
+            "ref": 7,
+            "will": 7,
+            "special": [
+              "Mesmerist trick",
+              "touch treatment (greater)"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 3,
+            "ref": 7,
+            "will": 7,
+            "special": [
+              "Bold stare",
+              "glib lie"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 4,
+            "ref": 8,
+            "will": 8,
+            "special": [
+              "Masterful tricks",
+              "mesmerist trick"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 4,
+            "ref": 8,
+            "will": 8,
+            "special": [
+              "Manifold tricks (4)"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "2"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 4,
+            "ref": 9,
+            "will": 9,
+            "special": [
+              "Mesmerist trick",
+              "touch treatment (break enchantment)"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 5,
+            "ref": 9,
+            "will": 9,
+            "special": [
+              "Bold stare"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 5,
+            "ref": 10,
+            "will": 10,
+            "special": [
+              "Mesmerist trick"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3",
+              "6th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "2"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 5,
+            "ref": 10,
+            "will": 10,
+            "special": [
+              "Manifold tricks (5)"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4",
+              "6th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 6,
+            "ref": 11,
+            "will": 11,
+            "special": [
+              "Mesmerist trick"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "4",
+              "6th": "4"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 6,
+            "ref": 11,
+            "will": 11,
+            "special": [
+              "Bold stare"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 6,
+            "ref": 12,
+            "will": 12,
+            "special": [
+              "Mesmerist trick",
+              "rule minds"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "5"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "5",
+              "6th": "5"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Occultist",
+      "source": "Occult Adventures",
+      "source_id": "pfrpg_core:occultist",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "occult"
+      ],
+      "references": [
+        "AoN: Occultist (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Occultist"
+      ],
+      "description": "Occultist: HD d8, skill points 4+Int. Class skills: Appraise, Craft, Diplomacy, Disable Device, Disguise, Fly, Knowledge (arcana), Knowledge (engineering). Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "4d6 x 10 gp (average 140 gp)",
+        "class_skills": [
+          "Appraise",
+          "Craft",
+          "Diplomacy",
+          "Disable Device",
+          "Disguise",
+          "Fly",
+          "Knowledge (arcana)",
+          "Knowledge (engineering)",
+          "Knowledge (history)",
+          "Knowledge (planes)",
+          "Knowledge (religion)",
+          "Linguistics",
+          "Perception",
+          "Profession",
+          "Sense Motive",
+          "Sleight of Hand",
+          "Spellcraft",
+          "Use Magic Device"
+        ],
+        "skill_points_per_level": 4,
+        "proficiencies": "An occultist is proficient with all simple and martial weapons, light armor, medium armor, and shields (except tower shields)",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 2,
+            "ref": 0,
+            "will": 2,
+            "special": [
+              "Focus powers",
+              "implements 2",
+              "knacks",
+              "mental focus"
+            ],
+            "spells_per_day": {
+              "1st": "1"
+            }
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 3,
+            "ref": 0,
+            "will": 3,
+            "special": [
+              "Implements 3",
+              "magic item skill",
+              "object reading"
+            ],
+            "spells_per_day": {
+              "1st": "2"
+            }
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 3,
+            "ref": 1,
+            "will": 3,
+            "special": [
+              "Focus power"
+            ],
+            "spells_per_day": {
+              "1st": "3"
+            }
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Shift focus"
+            ],
+            "spells_per_day": {
+              "1st": "3",
+              "2nd": "1"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Aura sight",
+              "focus power"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "2"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Implements 4"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Focus power"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "1"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 6,
+            "ref": 2,
+            "will": 6,
+            "special": [
+              "Magic circles",
+              "outside contact 1"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "2"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 6,
+            "ref": 3,
+            "will": 6,
+            "special": [
+              "Focus power"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Implements 5"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "1"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Focus power"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Binding circles",
+              "outside contact 2"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Focus power"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "1"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 9,
+            "ref": 4,
+            "will": 9,
+            "special": [
+              "Implements 6"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "2"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 9,
+            "ref": 5,
+            "will": 9,
+            "special": [
+              "Focus power"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Fast circles",
+              "outside contact 3"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3",
+              "6th": "1"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Focus power"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4",
+              "6th": "2"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Implements 7"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Focus power"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 12,
+            "ref": 6,
+            "will": 12,
+            "special": [
+              "Implement mastery",
+              "outside contact 4"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "5"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Psychic",
+      "source": "Occult Adventures",
+      "source_id": "pfrpg_core:psychic",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "occult"
+      ],
+      "references": [
+        "AoN: Psychic (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Psychic"
+      ],
+      "description": "Psychic: HD d6, skill points 2+Int. Class skills: Bluff, Craft, Diplomacy, Fly, Intimidate, Knowledge (all), Linguistics, Perception. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d6",
+        "starting_wealth": "2d6 x 10 gp (average 70 gp)",
+        "class_skills": [
+          "Bluff",
+          "Craft",
+          "Diplomacy",
+          "Fly",
+          "Intimidate",
+          "Knowledge (all)",
+          "Linguistics",
+          "Perception",
+          "Profession",
+          "Sense Motive",
+          "Spellcraft"
+        ],
+        "skill_points_per_level": 2,
+        "proficiencies": "A psychic is proficient with all simple weapons, but not with any type of armor or shield",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 0,
+            "ref": 0,
+            "will": 2,
+            "special": [
+              "Discipline power",
+              "discipline spell",
+              "knacks",
+              "phrenic amplification",
+              "phrenic pool",
+              "psychic discipline"
+            ],
+            "spells_per_day": {
+              "1st": "3"
+            },
+            "spells_known": {
+              "0": "4",
+              "1st": "2"
+            }
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 0,
+            "ref": 0,
+            "will": 3,
+            "special": [
+              "Detect thoughts"
+            ],
+            "spells_per_day": {
+              "1st": "4"
+            },
+            "spells_known": {
+              "0": "5",
+              "1st": "2"
+            }
+          },
+          {
+            "level": 3,
+            "bab": 1,
+            "fort": 1,
+            "ref": 1,
+            "will": 3,
+            "special": [
+              "Phrenic amplification"
+            ],
+            "spells_per_day": {
+              "1st": "5"
+            },
+            "spells_known": {
+              "0": "5",
+              "1st": "3"
+            }
+          },
+          {
+            "level": 4,
+            "bab": 2,
+            "fort": 1,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Discipline spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "3",
+              "2nd": "1"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 2,
+            "fort": 1,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Discipline power"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "4"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "2"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 3,
+            "fort": 2,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Discipline spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "3"
+            },
+            "spells_known": {
+              "0": "7",
+              "1st": "4",
+              "2nd": "2",
+              "3rd": "1"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 3,
+            "fort": 2,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Phrenic amplification"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "4"
+            },
+            "spells_known": {
+              "0": "7",
+              "1st": "5",
+              "2nd": "3",
+              "3rd": "2"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 4,
+            "fort": 2,
+            "ref": 2,
+            "will": 6,
+            "special": [
+              "Discipline spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "3"
+            },
+            "spells_known": {
+              "0": "8",
+              "1st": "5",
+              "2nd": "3",
+              "3rd": "2",
+              "4th": "1"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 4,
+            "fort": 3,
+            "ref": 3,
+            "will": 6,
+            "special": [
+              "Telepathic bond"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "4"
+            },
+            "spells_known": {
+              "0": "8",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 5,
+            "fort": 3,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Discipline spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "2",
+              "5th": "1"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 5,
+            "fort": 3,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Major amplifications",
+              "phrenic amplification"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "2"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 6,
+            "fort": 4,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Discipline spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "5",
+              "6th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "2",
+              "6th": "1"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 6,
+            "fort": 4,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Discipline power"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "3",
+              "6th": "2"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 7,
+            "fort": 4,
+            "ref": 4,
+            "will": 9,
+            "special": [
+              "Discipline spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "5",
+              "7th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "3",
+              "6th": "2",
+              "7th": "1"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 7,
+            "fort": 5,
+            "ref": 5,
+            "will": 9,
+            "special": [
+              "Phrenic amplification"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "2"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 8,
+            "fort": 5,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Discipline spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "5",
+              "8th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "2",
+              "8th": "1"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 8,
+            "fort": 5,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Telepathy"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "6",
+              "8th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "3",
+              "8th": "2"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 9,
+            "fort": 6,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Discipline spell"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "6",
+              "8th": "5",
+              "9th": "3"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "3",
+              "8th": "2",
+              "9th": "1"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 9,
+            "fort": 6,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Phrenic amplification"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "6",
+              "8th": "6",
+              "9th": "4"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "3",
+              "8th": "3",
+              "9th": "2"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 10,
+            "fort": 6,
+            "ref": 6,
+            "will": 12,
+            "special": [
+              "Remade self"
+            ],
+            "spells_per_day": {
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "6",
+              "6th": "6",
+              "7th": "6",
+              "8th": "6",
+              "9th": "6"
+            },
+            "spells_known": {
+              "0": "9",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "4",
+              "6th": "3",
+              "7th": "3",
+              "8th": "3",
+              "9th": "3"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Spiritualist",
+      "source": "Occult Adventures",
+      "source_id": "pfrpg_core:spiritualist",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "occult"
+      ],
+      "references": [
+        "AoN: Spiritualist (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Spiritualist"
+      ],
+      "description": "Spiritualist: HD d8, skill points 4+Int. Class skills: Bluff, Craft, Fly, Heal, Intimidate, Knowledge (all), Linguistics, Profession. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "2d6 x 10 gp (average 70 gp)",
+        "class_skills": [
+          "Bluff",
+          "Craft",
+          "Fly",
+          "Heal",
+          "Intimidate",
+          "Knowledge (all)",
+          "Linguistics",
+          "Profession",
+          "Sense Motive",
+          "Spellcraft",
+          "Use Magic Device"
+        ],
+        "skill_points_per_level": 4,
+        "proficiencies": "A spiritualist is proficient with all simple weapons, kukris, saps, and scythes, as well as with light armor",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 2,
+            "ref": 0,
+            "will": 2,
+            "special": [
+              "Etheric tether",
+              "knacks",
+              "phantom",
+              "shared consciousness"
+            ],
+            "spells_per_day": {
+              "1st": "1"
+            },
+            "spells_known": {
+              "0": "4",
+              "1st": "2"
+            }
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 3,
+            "ref": 0,
+            "will": 3,
+            "special": [
+              "Bonded senses"
+            ],
+            "spells_per_day": {
+              "1st": "2"
+            },
+            "spells_known": {
+              "0": "5",
+              "1st": "3"
+            }
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 3,
+            "ref": 1,
+            "will": 3,
+            "special": [
+              "Bonded manifestation"
+            ],
+            "spells_per_day": {
+              "1st": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4"
+            }
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Spiritual interference"
+            ],
+            "spells_per_day": {
+              "1st": "3",
+              "2nd": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "2"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Detect undead"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "3"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Phantom recall 1/day"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "4",
+              "2nd": "4"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Calm spirit 1/day"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "2"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 6,
+            "ref": 2,
+            "will": 6,
+            "special": [
+              "Bonded manifestation increase"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 6,
+            "ref": 3,
+            "will": 6,
+            "special": [
+              "See invisibility"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Fused consciousness",
+              "phantom recall 2/day"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Calm spirit 2/day"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "4",
+              "3rd": "4",
+              "4th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Greater spiritual interference"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Bonded manifestation increase"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "3",
+              "5th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "2"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 9,
+            "ref": 4,
+            "will": 9,
+            "special": [
+              "Phantom recall 3/day",
+              "spiritual bond"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "4",
+              "4th": "4",
+              "5th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 9,
+            "ref": 5,
+            "will": 9,
+            "special": [
+              "Calm spirit 3/day"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Call spirit"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "3",
+              "6th": "1"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "2"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Dual bond"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "4",
+              "5th": "4",
+              "6th": "2"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Bonded manifestation increase",
+              "phantom recall 4/day"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "4",
+              "6th": "3"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "4",
+              "6th": "4"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Calm spirit 4/day"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "5",
+              "5th": "5",
+              "6th": "4"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 12,
+            "ref": 6,
+            "will": 12,
+            "special": [
+              "Empowered consciousness"
+            ],
+            "spells_per_day": {
+              "1st": "5",
+              "2nd": "5",
+              "3rd": "5",
+              "4th": "5",
+              "5th": "5",
+              "6th": "5"
+            },
+            "spells_known": {
+              "0": "6",
+              "1st": "6",
+              "2nd": "6",
+              "3rd": "6",
+              "4th": "6",
+              "5th": "5",
+              "6th": "5"
+            }
+          }
+        ]
+      }
     }
   ]
 }

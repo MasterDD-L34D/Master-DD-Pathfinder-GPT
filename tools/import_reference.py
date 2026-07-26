@@ -497,10 +497,15 @@ CLASSES_CORE = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
                 "Paladin", "Ranger", "Rogue", "Sorcerer", "Wizard", "Magus"]
 
 # Le 12 classi non-core importate da aonprd (piano
-# planning/2026-07-19-missing-classes-import.md).
+# planning/2026-07-19-missing-classes-import.md) + le 11 del lotto C4
+# (2026-07-25: Oracle, Summoner, Shaman, Skald, Swashbuckler, Warpriest,
+# Shifter e le 4 occult restanti).
 CLASSES_MISSING = ["Alchemist", "Arcanist", "Bloodrager", "Brawler", "Cavalier",
                    "Gunslinger", "Hunter", "Inquisitor", "Investigator",
-                   "Kineticist", "Medium", "Witch"]
+                   "Kineticist", "Medium", "Witch",
+                   "Oracle", "Summoner", "Shaman", "Skald", "Swashbuckler",
+                   "Warpriest", "Shifter", "Mesmerist", "Occultist", "Psychic",
+                   "Spiritualist"]
 
 # Fonte onesta per classe (default "PFRPG Core" per le non mappate). Lo slug di
 # source_id resta "pfrpg_core" per TUTTE le classi (decisione controller:
@@ -517,7 +522,18 @@ CLASS_SOURCES = {"Alchemist": "Advanced Player's Guide",
                  "Investigator": "Advanced Class Guide",
                  "Kineticist": "Occult Adventures",
                  "Medium": "Occult Adventures",
-                 "Magus": "Ultimate Magic"}
+                 "Magus": "Ultimate Magic",
+                 "Oracle": "Advanced Player's Guide",
+                 "Summoner": "Advanced Player's Guide",
+                 "Shaman": "Advanced Class Guide",
+                 "Skald": "Advanced Class Guide",
+                 "Swashbuckler": "Advanced Class Guide",
+                 "Warpriest": "Advanced Class Guide",
+                 "Shifter": "Ultimate Wilderness",
+                 "Mesmerist": "Occult Adventures",
+                 "Occultist": "Occult Adventures",
+                 "Psychic": "Occult Adventures",
+                 "Spiritualist": "Occult Adventures"}
 
 # Tag di classe per libro fonte: core (CRB), base (APG/UC/UM), hybrid (ACG),
 # occult (OA). KeyError voluto (fail-fast) se una fonte non e' mappata.
@@ -526,7 +542,8 @@ CLASS_SOURCE_TAGS = {"PFRPG Core": "core",
                      "Ultimate Combat": "base",
                      "Ultimate Magic": "base",
                      "Advanced Class Guide": "hybrid",
-                     "Occult Adventures": "occult"}
+                     "Occult Adventures": "occult",
+                     "Ultimate Wilderness": "base"}
 
 
 def parse_spells_known(soup):
@@ -583,14 +600,22 @@ def parse_class(html, class_name):
         mech["skill_points_per_level"] = int(sp.group(1))
     skills_match = re.search(r"class skills (?:are|of [^:]+:)\s*([^.]+)\.", text, re.I)
     if skills_match:
-        # Dopo lo strip del suffisso caratteristica '(Int)', si normalizza
-        # anche '(any)' ('Craft (any) (Int)' Alchemist -> 'Craft'): il
-        # catalogo skills ha solo la skill generica (crossref
+        # Split consapevole delle parentesi: 'Perform (oratory, percussion,
+        # sing, string, wind) (Cha)' (Skald) resta un token unico. Dopo lo
+        # strip del suffisso caratteristica '(Cha)', Craft/Perform/Profession
+        # collassano alla skill generica (come '(any)' Alchemist -> 'Craft'):
+        # il catalogo skills ha solo la skill generica (crossref
         # test_class_skills_crossref).
-        mech["class_skills"] = [clean(re.sub(r"\s*\(any\)$", "",
-                                             re.sub(r"\s*\([A-Z][a-z]{2}\)$", "",
-                                                    re.sub(r"^and\s+", "", s.strip()))))
-                                for s in skills_match.group(1).split(",")]
+        seen = set()
+        for s in _split_languages(skills_match.group(1)):
+            s = re.sub(r"\s*\([A-Z][a-z]{2}\)$", "", s)
+            base = re.sub(r"\s*\(.*\)$", "", s).strip()
+            if base in ("Craft", "Perform", "Profession"):
+                s = base
+            s = clean(s)
+            if s and s.lower() not in seen:
+                seen.add(s.lower())
+                mech["class_skills"].append(s)
     # Blocco 'Weapon and Armor Proficiency': TUTTE le frasi consecutive che
     # contengono 'proficien' (armi E armature/scudi — la regex a frase singola
     # perdeva la seconda frase, es. Alchemist '...light armor, but not with

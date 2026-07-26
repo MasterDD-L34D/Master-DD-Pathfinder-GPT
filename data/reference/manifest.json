@@ -47,9 +47,9 @@
       "is_ogc": true,
       "is_pi": false,
       "cup_allowed": false,
-      "entries": 24,
-      "notes": "Riassunti meccanici di 24 classi: 11 core + Magus (UM) + 4 APG + 1 UC + 5 ACG + 2 OA; nessun nome proprio di setting.",
-      "last_verified": "2026-07-19"
+      "entries": 35,
+      "notes": "Riassunti meccanici di 35 classi: 11 core + Magus (UM) + 6 APG + 1 UC + 9 ACG + 6 OA + 1 UW (Shifter); nessun nome propri. C4 2026-07-25: +11 classi non-core (Oracle, Summoner, Shaman, Skald, Swashbuckler, Warpriest, Shifter, Mesmerist, Occultist, Psychic, Spiritualist) con progressione 20 livelli, spells/day e spells known ove applicabile. Residue fuori: Slayer, Ninja, Samurai, Antipaladin, Vigilante.",
+      "last_verified": "2026-07-25"
     },
     {
       "file": "ogl/races.json",
@@ -243,7 +243,7 @@
     },
     "classes": {
       "path": "ogl/classes.json",
-      "entries": 24
+      "entries": 35
     },
     "races": {
       "path": "ogl/races.json",

@@ -27,7 +27,15 @@
           "Barbarian",
           "Bard",
           "Monk",
-          "Rogue"
+          "Rogue",
+          "Bloodrager",
+          "Brawler",
+          "Gunslinger",
+          "Investigator",
+          "Kineticist",
+          "Skald",
+          "Swashbuckler",
+          "Shifter"
         ]
       }
     },
@@ -56,7 +64,13 @@
           "Cleric",
           "Rogue",
           "Sorcerer",
-          "Wizard"
+          "Wizard",
+          "Alchemist",
+          "Arcanist",
+          "Investigator",
+          "Skald",
+          "Mesmerist",
+          "Occultist"
         ]
       }
     },
@@ -83,7 +97,17 @@
         "class_skills_of": [
           "Bard",
           "Rogue",
-          "Sorcerer"
+          "Sorcerer",
+          "Cavalier",
+          "Gunslinger",
+          "Inquisitor",
+          "Investigator",
+          "Medium",
+          "Skald",
+          "Swashbuckler",
+          "Mesmerist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -116,7 +140,18 @@
           "Monk",
           "Ranger",
           "Rogue",
-          "Magus"
+          "Magus",
+          "Bloodrager",
+          "Brawler",
+          "Cavalier",
+          "Gunslinger",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Skald",
+          "Swashbuckler",
+          "Warpriest",
+          "Shifter"
         ]
       }
     },
@@ -152,7 +187,30 @@
           "Rogue",
           "Sorcerer",
           "Wizard",
-          "Magus"
+          "Magus",
+          "Alchemist",
+          "Arcanist",
+          "Bloodrager",
+          "Brawler",
+          "Cavalier",
+          "Gunslinger",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Kineticist",
+          "Medium",
+          "Witch",
+          "Oracle",
+          "Summoner",
+          "Shaman",
+          "Skald",
+          "Swashbuckler",
+          "Warpriest",
+          "Shifter",
+          "Mesmerist",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -180,7 +238,19 @@
           "Bard",
           "Cleric",
           "Paladin",
-          "Rogue"
+          "Rogue",
+          "Cavalier",
+          "Inquisitor",
+          "Investigator",
+          "Medium",
+          "Oracle",
+          "Shaman",
+          "Skald",
+          "Swashbuckler",
+          "Warpriest",
+          "Mesmerist",
+          "Occultist",
+          "Psychic"
         ]
       }
     },
@@ -207,7 +277,10 @@
         "trained_only": true,
         "armor_check_penalty": true,
         "class_skills_of": [
-          "Rogue"
+          "Rogue",
+          "Alchemist",
+          "Investigator",
+          "Occultist"
         ]
       }
     },
@@ -233,7 +306,11 @@
         "armor_check_penalty": false,
         "class_skills_of": [
           "Bard",
-          "Rogue"
+          "Rogue",
+          "Inquisitor",
+          "Investigator",
+          "Mesmerist",
+          "Occultist"
         ]
       }
     },
@@ -261,7 +338,12 @@
         "class_skills_of": [
           "Bard",
           "Monk",
-          "Rogue"
+          "Rogue",
+          "Brawler",
+          "Investigator",
+          "Skald",
+          "Swashbuckler",
+          "Mesmerist"
         ]
       }
     },
@@ -290,7 +372,17 @@
           "Druid",
           "Sorcerer",
           "Wizard",
-          "Magus"
+          "Magus",
+          "Alchemist",
+          "Arcanist",
+          "Medium",
+          "Witch",
+          "Summoner",
+          "Shaman",
+          "Shifter",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -320,7 +412,17 @@
           "Druid",
           "Fighter",
           "Paladin",
-          "Ranger"
+          "Ranger",
+          "Bloodrager",
+          "Brawler",
+          "Cavalier",
+          "Gunslinger",
+          "Hunter",
+          "Summoner",
+          "Shaman",
+          "Skald",
+          "Warpriest",
+          "Shifter"
         ]
       }
     },
@@ -348,7 +450,19 @@
           "Cleric",
           "Druid",
           "Paladin",
-          "Ranger"
+          "Ranger",
+          "Alchemist",
+          "Gunslinger",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Kineticist",
+          "Medium",
+          "Witch",
+          "Oracle",
+          "Shaman",
+          "Warpriest",
+          "Spiritualist"
         ]
       }
     },
@@ -380,7 +494,23 @@
           "Ranger",
           "Rogue",
           "Sorcerer",
-          "Magus"
+          "Magus",
+          "Bloodrager",
+          "Brawler",
+          "Cavalier",
+          "Gunslinger",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Kineticist",
+          "Medium",
+          "Witch",
+          "Skald",
+          "Swashbuckler",
+          "Warpriest",
+          "Mesmerist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -410,7 +540,20 @@
           "Cleric",
           "Sorcerer",
           "Wizard",
-          "Magus"
+          "Magus",
+          "Alchemist",
+          "Arcanist",
+          "Bloodrager",
+          "Inquisitor",
+          "Investigator",
+          "Medium",
+          "Witch",
+          "Summoner",
+          "Skald",
+          "Mesmerist",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -441,7 +584,17 @@
           "Ranger",
           "Rogue",
           "Wizard",
-          "Magus"
+          "Magus",
+          "Arcanist",
+          "Brawler",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Summoner",
+          "Skald",
+          "Mesmerist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -469,7 +622,16 @@
         "class_skills_of": [
           "Bard",
           "Fighter",
-          "Wizard"
+          "Wizard",
+          "Arcanist",
+          "Gunslinger",
+          "Investigator",
+          "Summoner",
+          "Skald",
+          "Warpriest",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -498,7 +660,14 @@
           "Bard",
           "Druid",
           "Ranger",
-          "Wizard"
+          "Wizard",
+          "Arcanist",
+          "Hunter",
+          "Investigator",
+          "Summoner",
+          "Skald",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -527,7 +696,17 @@
           "Bard",
           "Cleric",
           "Monk",
-          "Wizard"
+          "Wizard",
+          "Arcanist",
+          "Investigator",
+          "Witch",
+          "Oracle",
+          "Summoner",
+          "Skald",
+          "Mesmerist",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -555,7 +734,17 @@
         "class_skills_of": [
           "Bard",
           "Rogue",
-          "Wizard"
+          "Wizard",
+          "Arcanist",
+          "Brawler",
+          "Gunslinger",
+          "Investigator",
+          "Summoner",
+          "Skald",
+          "Swashbuckler",
+          "Mesmerist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -585,7 +774,19 @@
           "Bard",
           "Druid",
           "Ranger",
-          "Wizard"
+          "Wizard",
+          "Alchemist",
+          "Arcanist",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Witch",
+          "Summoner",
+          "Shaman",
+          "Skald",
+          "Shifter",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -614,7 +815,15 @@
           "Bard",
           "Cleric",
           "Paladin",
-          "Wizard"
+          "Wizard",
+          "Arcanist",
+          "Investigator",
+          "Summoner",
+          "Skald",
+          "Swashbuckler",
+          "Mesmerist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -643,7 +852,19 @@
           "Bard",
           "Cleric",
           "Wizard",
-          "Magus"
+          "Magus",
+          "Arcanist",
+          "Inquisitor",
+          "Investigator",
+          "Medium",
+          "Witch",
+          "Oracle",
+          "Summoner",
+          "Shaman",
+          "Skald",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -673,7 +894,20 @@
           "Cleric",
           "Monk",
           "Paladin",
-          "Wizard"
+          "Wizard",
+          "Arcanist",
+          "Inquisitor",
+          "Investigator",
+          "Medium",
+          "Oracle",
+          "Summoner",
+          "Shaman",
+          "Skald",
+          "Warpriest",
+          "Mesmerist",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -702,7 +936,16 @@
           "Bard",
           "Cleric",
           "Rogue",
-          "Wizard"
+          "Wizard",
+          "Arcanist",
+          "Investigator",
+          "Medium",
+          "Summoner",
+          "Skald",
+          "Mesmerist",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -732,7 +975,22 @@
           "Druid",
           "Monk",
           "Ranger",
-          "Rogue"
+          "Rogue",
+          "Alchemist",
+          "Bloodrager",
+          "Brawler",
+          "Gunslinger",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Kineticist",
+          "Medium",
+          "Skald",
+          "Swashbuckler",
+          "Shifter",
+          "Mesmerist",
+          "Occultist",
+          "Psychic"
         ]
       }
     },
@@ -759,7 +1017,12 @@
         "class_skills_of": [
           "Bard",
           "Monk",
-          "Rogue"
+          "Rogue",
+          "Investigator",
+          "Medium",
+          "Skald",
+          "Swashbuckler",
+          "Mesmerist"
         ]
       }
     },
@@ -795,7 +1058,29 @@
           "Rogue",
           "Sorcerer",
           "Wizard",
-          "Magus"
+          "Magus",
+          "Alchemist",
+          "Arcanist",
+          "Brawler",
+          "Cavalier",
+          "Gunslinger",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Kineticist",
+          "Medium",
+          "Witch",
+          "Oracle",
+          "Summoner",
+          "Shaman",
+          "Skald",
+          "Swashbuckler",
+          "Warpriest",
+          "Shifter",
+          "Mesmerist",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -827,7 +1112,19 @@
           "Monk",
           "Paladin",
           "Ranger",
-          "Magus"
+          "Magus",
+          "Bloodrager",
+          "Brawler",
+          "Cavalier",
+          "Gunslinger",
+          "Hunter",
+          "Inquisitor",
+          "Summoner",
+          "Shaman",
+          "Skald",
+          "Swashbuckler",
+          "Warpriest",
+          "Shifter"
         ]
       }
     },
@@ -856,7 +1153,20 @@
           "Cleric",
           "Monk",
           "Paladin",
-          "Rogue"
+          "Rogue",
+          "Brawler",
+          "Cavalier",
+          "Inquisitor",
+          "Investigator",
+          "Medium",
+          "Oracle",
+          "Skald",
+          "Swashbuckler",
+          "Warpriest",
+          "Mesmerist",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -884,7 +1194,13 @@
         "armor_check_penalty": true,
         "class_skills_of": [
           "Bard",
-          "Rogue"
+          "Rogue",
+          "Alchemist",
+          "Gunslinger",
+          "Investigator",
+          "Swashbuckler",
+          "Mesmerist",
+          "Occultist"
         ]
       }
     },
@@ -917,7 +1233,24 @@
           "Ranger",
           "Sorcerer",
           "Wizard",
-          "Magus"
+          "Magus",
+          "Alchemist",
+          "Arcanist",
+          "Bloodrager",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Medium",
+          "Witch",
+          "Oracle",
+          "Summoner",
+          "Shaman",
+          "Skald",
+          "Warpriest",
+          "Mesmerist",
+          "Occultist",
+          "Psychic",
+          "Spiritualist"
         ]
       }
     },
@@ -946,7 +1279,13 @@
           "Bard",
           "Monk",
           "Ranger",
-          "Rogue"
+          "Rogue",
+          "Hunter",
+          "Inquisitor",
+          "Investigator",
+          "Kineticist",
+          "Shifter",
+          "Mesmerist"
         ]
       }
     },
@@ -974,7 +1313,15 @@
           "Barbarian",
           "Druid",
           "Fighter",
-          "Ranger"
+          "Ranger",
+          "Alchemist",
+          "Bloodrager",
+          "Gunslinger",
+          "Hunter",
+          "Inquisitor",
+          "Shaman",
+          "Warpriest",
+          "Shifter"
         ]
       }
     },
@@ -1006,7 +1353,17 @@
           "Monk",
           "Ranger",
           "Rogue",
-          "Magus"
+          "Magus",
+          "Bloodrager",
+          "Brawler",
+          "Cavalier",
+          "Gunslinger",
+          "Hunter",
+          "Inquisitor",
+          "Skald",
+          "Swashbuckler",
+          "Warpriest",
+          "Shifter"
         ]
       }
     },
@@ -1035,7 +1392,18 @@
           "Bard",
           "Rogue",
           "Sorcerer",
-          "Magus"
+          "Magus",
+          "Alchemist",
+          "Arcanist",
+          "Investigator",
+          "Kineticist",
+          "Medium",
+          "Witch",
+          "Summoner",
+          "Skald",
+          "Mesmerist",
+          "Occultist",
+          "Spiritualist"
         ]
       }
     }
