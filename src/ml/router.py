@@ -1,4 +1,6 @@
 """Router /ml (REF-09 v1): POST /ml/transcribe + GET /ml/health.
+F3: POST /ml/imagine + GET /ml/imagine/{imageId} (contratto img-gen-design:
+registry engine via env, 501 onesto, WORM content-addressed).
 
 Contratto output 1:1 con transcriptImportSchema di pathmaster (ADR-C2).
 Audio originale in WORM storage (REQ-001). Consenso: gate lato pathmaster
@@ -7,12 +9,15 @@ Audio originale in WORM storage (REQ-001). Consenso: gate lato pathmaster
 from __future__ import annotations
 
 import os
+import re
 from pathlib import Path
 
-from fastapi import APIRouter, File, Form, HTTPException, UploadFile
+from fastapi import APIRouter, File, Form, HTTPException, Response, UploadFile
+from pydantic import BaseModel, Field
 
 from src.ml.asr import AsrUnavailable, get_asr_engine
-from src.ml.storage import save_audio_worm
+from src.ml.imagine import ImagineUnavailable, get_imagine_engine
+from src.ml.storage import save_audio_worm, save_image_worm
 
 router = APIRouter(prefix="/ml", tags=["ml"])
 
@@ -27,10 +32,19 @@ def _audio_dir() -> Path:
         Path(__file__).resolve().parents[1] / "data" / "ml" / "audio"))
 
 
+def _image_dir() -> Path:
+    """Directory WORM delle immagini generate (stessa disciplina di _audio_dir)."""
+    return Path(os.environ.get(
+        "ML_IMG_DIR",
+        Path(__file__).resolve().parents[1] / "data" / "ml" / "images"))
+
+
 @router.get("/health")
 def ml_health():
     engine = os.environ.get("ML_ASR_ENGINE", "fake")
-    return {"status": "ok", "engine": engine, "scope": "asr-v1"}
+    img_engine = os.environ.get("ML_IMG_ENGINE", "off")
+    return {"status": "ok", "engine": engine, "img_engine": img_engine,
+            "scope": "asr-v1+img-v1"}
 
 
 @router.post("/transcribe")
@@ -47,3 +61,34 @@ async def transcribe(file: UploadFile = File(...), diarize: bool = Form(False)):
                                  diarize=diarize)
     except AsrUnavailable as exc:
         raise HTTPException(501, str(exc)) from exc
+
+
+class ImagineRequest(BaseModel):
+    prompt: str = Field(min_length=1, max_length=2000)
+    width: int = Field(default=1024, ge=64, le=1536)
+    height: int = Field(default=1024, ge=64, le=1536)
+    seed: int | None = None
+    engine: str | None = None  # override puntuale (es. testare flux con env=fake)
+
+
+@router.post("/imagine")
+def imagine(req: ImagineRequest):
+    try:
+        engine = get_imagine_engine(req.engine)
+        result = engine.generate(req.prompt, req.width, req.height, req.seed)
+    except ImagineUnavailable as exc:
+        raise HTTPException(501, str(exc)) from exc
+    _, sha, image_id = save_image_worm(result["png"], _image_dir())
+    return {"imageId": image_id, "sha256": sha, "mimeType": "image/png",
+            "width": result["width"], "height": result["height"],
+            "engine": result["engine"]}
+
+
+@router.get("/imagine/{image_id}")
+def imagine_get(image_id: str):
+    if not re.fullmatch(r"img_[0-9a-f]{16}", image_id):
+        raise HTTPException(400, "imageId malformato")
+    path = _image_dir() / f"{image_id}.png"
+    if not path.exists():
+        raise HTTPException(404, "immagine non trovata")
+    return Response(content=path.read_bytes(), media_type="image/png")
