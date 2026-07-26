@@ -745,3 +745,59 @@ def test_clean_existing_prerequisites():
     entry3 = {"name": "Dodge", "prerequisites": ["Dexterity 13"]}
     assert clean_existing_prerequisites(entry3) == ["Dexterity 13"]
     print("OK: clean existing prerequisites")
+
+
+def test_attribute_subrace_traits_extended_prose():
+    """C1 (2026-07-25): pattern di prosa non regolare con cross-check anti-
+    invenzione: si tengono SOLO i nomi presenti in alternate_traits della
+    razza (nome canonico); le forme condizionali ('may exchange', 'may take
+    ... instead') restano fuori."""
+    from tools.import_reference import _attribute_subrace_traits
+
+    mech = {
+        "alternate_traits": [{"name": n} for n in (
+            "Minesight", "Deep Warrior", "Stonesinger", "Ancient Enmity",
+            "Lorekeeper", "Magic Resistant", "Stubborn", "Mountaineer",
+            "Surface Survivalist", "Sky Sentinel", "Xenophobic", "Wary",
+            "Integrated")],
+        "subraces": [
+            {"name": "Deep Delver",
+             "description": ("Dwarves living far below the earth have the "
+                             "minesight and deep warrior racial traits. Deep "
+                             "delver spellcasters may exchange stonecunning "
+                             "for the stonesinger trait."),
+             "alternate_traits": []},
+            {"name": "Elder Dwarf",
+             "description": ("Traditionalist dwarves have the ancient enmity, "
+                             "lorekeeper, and either the magic resistant or "
+                             "stubborn racial traits."),
+             "alternate_traits": []},
+            {"name": "Mountain Dwarf",
+             "description": ("Dwarves living atop high peaks have the "
+                             "mountaineer racial trait and often surface "
+                             "survivalist as well. Mountain dwarves are also "
+                             "trained to defend their homes, and may take the "
+                             "sky sentinel and xenophobic traits instead."),
+             "alternate_traits": []},
+            {"name": "Human-Raised",
+             "description": ("These half-elves have the integrated and wary "
+                             "racial traits."),
+             "alternate_traits": []},
+            {"name": "Flavor Only",
+             "description": ("These elves sail the seas and sing songs, with "
+                             "no mechanics mentioned at all."),
+             "alternate_traits": []},
+            {"name": "Gia Attribuita",
+             "description": "x",
+             "alternate_traits": ["Wary"]},
+        ],
+    }
+    _attribute_subrace_traits(mech)
+    subs = {s["name"]: s["alternate_traits"] for s in mech["subraces"]}
+    assert subs["Deep Delver"] == ["Minesight", "Deep Warrior"]
+    assert subs["Elder Dwarf"] == ["Ancient Enmity", "Lorekeeper",
+                                   "Magic Resistant", "Stubborn"]
+    assert subs["Mountain Dwarf"] == ["Mountaineer", "Surface Survivalist"]
+    assert subs["Human-Raised"] == ["Integrated", "Wary"]
+    assert subs["Flavor Only"] == []
+    assert subs["Gia Attribuita"] == ["Wary"]  # non toccata

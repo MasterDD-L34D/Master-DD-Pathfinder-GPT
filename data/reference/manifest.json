@@ -60,7 +60,7 @@
       "is_pi": false,
       "cup_allowed": false,
       "entries": 77,
-      "notes": "77 razze (7 core + 70 non-core da indici AoN): mechanics con subraces e alternate_traits (replaces strutturato). Rigenerare con import_reference.py --domain races --write.",
+      "notes": "77 razze (7 core + 70 non-core da indici AoN): mechanics con subraces (39/103 con alternate_traits attribuiti: frase regolare + pattern prosa C1 con cross-check anti-invenzione) e alternate_traits (replaces strutturato). Rigenerare con import_reference.py --domain races --write.",
       "last_verified": "2026-07-25"
     },
     {

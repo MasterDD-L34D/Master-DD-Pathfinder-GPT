@@ -206,11 +206,64 @@ def _section_text_nodes(el):
 _SUBRACE_ATTR_RE = re.compile(
     r"(?:have|has) the ([^.]+?) alternate racial traits?\b", re.I)
 
+# Pattern estesi C1 (2026-07-25) per la prosa non regolare delle subrazze.
+# Applicati SOLO con cross-check contro mechanics.alternate_traits della razza
+# (zero invenzioni: un nome che non esiste nel catalogo tratti viene scartato).
+_SUBRACE_ATTR_RES_EXT = [
+    re.compile(r"(?:have|has) the ([^.]+?) racial traits?\b", re.I),
+    re.compile(r"(?:well represented by|well suited to take|suited to take|"
+               r"can take|to take) the ([^.]+?) alternate racial traits?\b", re.I),
+    re.compile(r"as well as the ([^.]+?) alternate racial traits?\b", re.I),
+    re.compile(r"often ([a-z][a-z ]+?) as well\b", re.I),
+]
+
+
+def _norm_trait_name(s):
+    return re.sub(r"[^a-z0-9]+", " ", s.lower()).strip()
+
 
 def _split_trait_names(text):
-    """'arcane focus and urbanite' -> ['Arcane Focus', 'Urbanite'] (Title Case)."""
-    parts = re.split(r",\s*(?:and\s+)?|\s+and\s+", text.strip())
-    return [" ".join(w.capitalize() for w in p.split()) for p in parts if p.strip()]
+    """'arcane focus and urbanite' -> ['Arcane Focus', 'Urbanite'] (Title Case).
+
+    Gestisce le code di prosa C1: 'described below', 'as well as the X',
+    'either the X or Y', 'often X as well', 'have X as well'."""
+    text = re.sub(r"\s+described below\b", "", text)
+    text = re.sub(r",?\s*as well as(?: the)?", ", ", text)
+    text = re.sub(r"\s+as well\b", "", text)
+    parts = re.split(r",\s*(?:and\s+)?|\s+and\s+|\s+or\s+", text.strip())
+    out = []
+    for p in parts:
+        p = p.strip()
+        while True:
+            new = re.sub(r"^(?:the|either|often|have|has)\s+", "", p)
+            if new == p:
+                break
+            p = new
+        if p:
+            out.append(" ".join(w.capitalize() for w in p.split()))
+    return out
+
+
+def _attribute_subrace_traits(mech):
+    """Attribuzione estesa (C1): per le subrazze senza traits dalla frase
+    regolare, prova i pattern di prosa non regolare e tiene SOLO i nomi che
+    esistono in mechanics.alternate_traits (nome canonico dal catalogo)."""
+    traits = mech.get("alternate_traits", [])
+    known = {_norm_trait_name(t["name"]): t["name"] for t in traits}
+    for sr in mech.get("subraces", []):
+        if sr["alternate_traits"]:
+            continue
+        found = []
+        for pat in _SUBRACE_ATTR_RES_EXT:
+            for m in pat.finditer(sr["description"]):
+                found.extend(_split_trait_names(m.group(1)))
+        kept, seen = [], set()
+        for f in found:
+            n = _norm_trait_name(f)
+            if n in known and n not in seen:
+                seen.add(n)
+                kept.append(known[n])
+        sr["alternate_traits"] = kept
 
 
 def parse_race_subraces(html):
@@ -388,6 +441,7 @@ def parse_race(html, race_name):
         elif label and label[0].isupper() and detail:
             mech["traits"].append({"name": label, "text": detail})
     traits_desc = "; ".join(t["name"] for t in mech["traits"])
+    _attribute_subrace_traits(mech)
     return {
         "name": race_name,
         "source": "PFRPG Core",

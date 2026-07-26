@@ -87,7 +87,10 @@
             "name": "Deep Delver",
             "source": "Advanced Race Guide",
             "description": "Dwarves living far below the earth have the minesight and deep warrior racial traits. Deep delver spellcasters may exchange stonecunning for the stonesinger trait.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Minesight",
+              "Deep Warrior"
+            ]
           },
           {
             "name": "Desert Dwarves",
@@ -103,25 +106,40 @@
             "name": "Elder Dwarf",
             "source": "Advanced Race Guide",
             "description": "Traditionalist dwarves of ancient lineage have the ancient enmity, lorekeeper, and either the magic resistant or stubborn racial traits.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Ancient Enmity",
+              "Lorekeeper",
+              "Magic Resistant",
+              "Stubborn"
+            ]
           },
           {
             "name": "Exiled Dwarf",
             "source": "Advanced Race Guide",
             "description": "Dwarves who have lost their homelands usually have the relentless and stubborn racial traits, and often have wyrmscourged as well.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Relentless",
+              "Stubborn",
+              "Wyrmscourged"
+            ]
           },
           {
             "name": "Mountain Dwarf",
             "source": "Advanced Race Guide",
             "description": "Dwarves living atop high peaks have the mountaineer racial trait and often surface survivalist as well. Mountain dwarves are also trained to defend their homes, and may take the sky sentinel and xenophobic traits instead.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Mountaineer",
+              "Surface Survivalist"
+            ]
           },
           {
             "name": "Ouat Caste Dwarves",
             "source": "Heroes from the Fringe",
             "description": "The Ouat caste dwarves are a sect of the Pahmet dwarves of an ancient desert kingdom who pursue self-perfection in the style of a god of perfection. Ouat caste dwarves seek to become closer to divinity by overcoming their mortal limitations. They train themselves and others in the monastic city of Tar Kuata, constantly striving to put aside petty material concerns to focus on spiritual growth. The Ouat’s focus on the power of will and self-improvement causes many of them to take the relentless and stubborn alternate racial traits. Those who begin the path to inner awareness very early in their lives also sometimes take the iron within alternate racial trait described below.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Relentless",
+              "Stubborn"
+            ]
           },
           {
             "name": "Pahmet Dwarves",
@@ -144,7 +162,8 @@
             "source": "Heroes from the Fringe",
             "description": "When the dwarves successfully completed the Quest for Sky, they set about constructing 10 Sky Citadels, massive fortresses that formed the basis for dwarven kingdoms in the inner sea region. While several of those Sky Citadels have been lost or overrun, a few—such as Highhelm, Janderhoff, and Dongun Hold—remain bastions of dwarven tradition and authority. Because these Sky Citadels often have connections to the Darklands, it is common for the dwarves dwelling in their lower reaches to have the ancient enmity or deep warrior alternate racial traits, while those in lands populated by ogres and hill giants often have the giant hunter alternate racial trait, and those in wealthy areas that attract the attention of dragons sometimes have the sky sentinel or wyrmscourged alternate racial traits. Because of the eon-long histories of the Sky Citadels, their citizens also often have the deep tradition alternate racial trait described below.",
             "alternate_traits": [
-              "Ancient Enmity Or Deep Warrior"
+              "Ancient Enmity",
+              "Deep Warrior"
             ]
           }
         ],
@@ -1712,7 +1731,8 @@
             "description": "These gnomes were born on the move, their families living on a ship or in a caravan wagon. These gnomes have the magical linguist and either the explorer or the gift of tongues alternate racial traits.",
             "alternate_traits": [
               "Magical Linguist",
-              "Either The Explorer Or The Gift Of Tongues"
+              "Explorer",
+              "Gift Of Tongues"
             ]
           }
         ],
@@ -2406,7 +2426,10 @@
             "name": "Human-Raised",
             "source": "Advanced Race Guide",
             "description": "These half-elves were born and raised into accepting human communities, often raised by generations of a single family, or through the charity of churches and temples. These half-elves have the integrated and wary racial traits.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Integrated",
+              "Wary"
+            ]
           },
           {
             "name": "Mordant Spire Half-Elves (Spireborn)",
@@ -3153,12 +3176,15 @@
             "name": "Mountain Clan",
             "source": "Advanced Race Guide",
             "description": "Half-orcs from the more mountainous regions tend to be more agile and alert to the echoing sounds of their homeland. Mountain clan half-orcs have the bestial and rock climber racial traits.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Bestial",
+              "Rock Climber"
+            ]
           },
           {
             "name": "Mountain Half-Orcs (Cragkin)",
             "source": "Heroes from the Fringe",
-            "description": "Cragkin are widespread across the world, found across all the mountain ranges of western Avistan. Thanks to their thin frames and quick wits, mountain-born half-orcs excel at climbing and acrobatic stunts. Anything less than a vertical cliff face is traversable, and often even that isn’t enough to stop them. To mountain half-orcs, obstacles are merely a foothold on their path to the top. Mountain orcs respect bravery, and cragkin have turned fearlessness and reckless abandon into a badge of honor. By using the terrain to their advantage against less surefooted enemies, they can attack from strange angles and gain advantages with just a few quick steps. They often take near-suicidal leaps to strike enemies from above, or trick enemies into falling to their deaths by leading them down impossible paths. Despite their great skill, accidents are common in this treacherous environment, and no one is surprised if one halforc returns after a raid and his companions do not. Many mountain half-orcs find a place among tribal and Ulfen settlements, where valor in battle is highly prized. As long as they are willing to respect the traditions of their adopted clans, they usually integrate well into these societies and contribute much to the community.",
+            "description": "Cragkin are widespread across the world, found across all the mountain ranges of western a northern continent. Thanks to their thin frames and quick wits, mountain-born half-orcs excel at climbing and acrobatic stunts. Anything less than a vertical cliff face is traversable, and often even that isn’t enough to stop them. To mountain half-orcs, obstacles are merely a foothold on their path to the top. Mountain orcs respect bravery, and cragkin have turned fearlessness and reckless abandon into a badge of honor. By using the terrain to their advantage against less surefooted enemies, they can attack from strange angles and gain advantages with just a few quick steps. They often take near-suicidal leaps to strike enemies from above, or trick enemies into falling to their deaths by leading them down impossible paths. Despite their great skill, accidents are common in this treacherous environment, and no one is surprised if one halforc returns after a raid and his companions do not. Many mountain half-orcs find a place among tribal and Ulfen settlements, where valor in battle is highly prized. As long as they are willing to respect the traditions of their adopted clans, they usually integrate well into these societies and contribute much to the community.",
             "alternate_traits": []
           },
           {
@@ -3173,7 +3199,7 @@
           {
             "name": "Winter Half-Orcs (Frostkin)",
             "source": "Heroes from the Fringe",
-            "description": "At the Crown of the World, nomadic clans of orcs live on the frozen wastes. The winter half-orcs that live among them are treated as the runts of the pack. However, strength in numbers is vital in the north, as many young do not survive the harsh winters. Even the weakest are provided for as long as they can prove their usefulness. Sewing, cooking, and child-rearing are all valued skills, and winter half-orcs who excel at these are treated better than most. Those who would rather prove their worth through their strength do so by hunting, as ritual combat is a frowned upon waste of energy and resources. While half-orcs are not well liked in the Linnorm Kingdoms, they may be able to find homes in the Ironbound Isles. Merchants traveling between a faraway continent and Avistan are often willing to hire on a half-orc as a guide and bodyguard across the Crown of the World. Winter half-orcs who migrate south into a winter-locked realm can find an easier life in the growing half-orc communities, but they are unlikely to find any upward mobility unless they show skill at witchcraft.",
+            "description": "At the Crown of the World, nomadic clans of orcs live on the frozen wastes. The winter half-orcs that live among them are treated as the runts of the pack. However, strength in numbers is vital in the north, as many young do not survive the harsh winters. Even the weakest are provided for as long as they can prove their usefulness. Sewing, cooking, and child-rearing are all valued skills, and winter half-orcs who excel at these are treated better than most. Those who would rather prove their worth through their strength do so by hunting, as ritual combat is a frowned upon waste of energy and resources. While half-orcs are not well liked in the Linnorm Kingdoms, they may be able to find homes in the Ironbound Isles. Merchants traveling between a faraway continent and a northern continent are often willing to hire on a half-orc as a guide and bodyguard across the Crown of the World. Winter half-orcs who migrate south into a winter-locked realm can find an easier life in the growing half-orc communities, but they are unlikely to find any upward mobility unless they show skill at witchcraft.",
             "alternate_traits": []
           }
         ],
@@ -3884,7 +3910,11 @@
             "name": "Segadan Halflings",
             "source": "Heroes from the Fringe",
             "description": "Hailing from the bureaucratic Degasi city of Segada, Segadan halflings relish the comforts their prosperous city provides. The halflings of Segada nonetheless remain suspicious of diabolic settlers in the Segadan protectorates of Anchor’s End and Canorus, given a diabolic empire’s history of enslaving halflings. Segadan halflings are well suited to take the attentive alternate racial trait, as well as the festive and small quarter ally alternate racial traits described below.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Attentive",
+              "Festive",
+              "Small Quarter Ally"
+            ]
           },
           {
             "name": "Slave Born",
@@ -3899,7 +3929,11 @@
             "name": "Song'o Halflings",
             "source": "Heroes from the Fringe",
             "description": "Deep in the jungles outside the former diabolic colony of Sargava in the jungle-born Expanse, the mysterious Song’o halflings avoid almost all non-jungle-born. These halflings live in temporary villages, abandoning sites when they are discovered and resettling in ever more isolated areas of the jungle. Many believe this intense aversion to outside interaction is due to early diabolic slavers settling the region and Sargava’s oppression of the native jungle-born. Song’o halflings are well represented by the deep jungle alternate racial trait, as well as the danger detection and evasive nomad alternate racial traits described below.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Deep Jungle",
+              "Danger Detection",
+              "Evasive Nomad"
+            ]
           }
         ],
         "alternate_traits": [
@@ -12387,7 +12421,9 @@
             "name": "Outsear Merfolk",
             "source": "Heroes from the Fringe",
             "description": "The settlement of Outsea is a bizarre environment: a saltwater oasis for merfolk and sahuagin in the freshwater River Kingdoms. Centuries ago, a sahuagin nation from the inner sea region mobilized a city-sized saltwater bolus for an overland assault on a merfolk state located near modern-day a port city. The merfolk learned of this ambitious plan and sent an elite group of soldiers in saltwater tanks to intercept the ocean-bubble. The two sides clashed in Lake Encarthan and eventually worked their way up into what is now the River Kingdoms. In this battle, many of the wizards maintaining the sahuagin’s briny mobile fortress perished, and the two sides ended up stranded hundreds of miles from any ocean. Begrudgingly putting aside their grievances, the merfolk and sahuagin worked together to prevent their mutual extinction, holding back the fresh water with spells and building the settlement of Outsea to serve as a permanent home. Now Outsea is a thriving city, home to all kinds of peoples. Centuries of coexistence have worn down the merfolk and sahuagin’s hatred for each other, and now they live and work together in peace. Outsear merfolk can take the unexpected ally alternate racial trait described below.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Unexpected Ally"
+            ]
           }
         ],
         "alternate_traits": [
@@ -13634,7 +13670,10 @@
             "name": "Outsear Sahuagin",
             "source": "Heroes from the Fringe",
             "description": "The settlement of Outsea is a bizarre environment: a saltwater oasis for merfolk and sahuagin in the freshwater River Kingdoms. Centuries ago, a sahuagin nation from the inner sea region mobilized a city-sized saltwater bolus for an overland assault on a merfolk state located near modern-day a port city. The merfolk learned of this ambitious plan and sent an elite group of soldiers in saltwater tanks to intercept the ocean-bubble. The two sides clashed in Lake Encarthan and eventually worked their way up into what is now the River Kingdoms. In this battle, many of the wizards maintaining the sahuagin’s briny mobile fortress perished, and the two sides ended up stranded hundreds of miles from any ocean. Begrudgingly putting aside their grievances, the merfolk and sahuagin worked together to prevent their mutual extinction, holding back the fresh water with spells and building the settlement of Outsea to serve as a permanent home. Now Outsea is a thriving city, home to all kinds of peoples. Centuries of coexistence have worn down the merfolk and sahuagin’s hatred for each other, and now they live and work together in peace. Outsear sahuagin can take the sahuagin song and stoic defender alternate racial traits described below.",
-            "alternate_traits": []
+            "alternate_traits": [
+              "Sahuagin Song",
+              "Stoic Defender"
+            ]
           }
         ],
         "alternate_traits": [
