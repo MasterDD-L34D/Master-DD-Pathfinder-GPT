@@ -76,6 +76,44 @@ def test_parse_talent_tables_esclude_tabelle_annidate():
     assert r["text"].endswith("given in the table below.")
 
 
+def test_parse_ninja_tricks_h1_pools():
+    """Ninja (C4-bis follow-up): h1 -> pool ('Ninja Tricks'/'Advanced Ninja
+    Tricks'), h2 'Sneak Attack Talents' -> category (stessa convenzione
+    dei rogue talents)."""
+    rows = parse_talent_tables(
+        _fixture("talents_ninja.html"),
+        {"Ninja Tricks": "ninja trick",
+         "Advanced Ninja Tricks": "advanced ninja trick"})
+    assert len(rows) == 2
+    assert rows[0]["name"] == "Acrobatic Master" and rows[0]["kind"] == "Su"
+    assert rows[0]["pool"] == "ninja trick"
+    assert rows[0]["category"] == "sneak attack"
+    assert rows[0]["source"] == "Ultimate Combat"
+    assert rows[1]["name"] == "Assassinate" and rows[1]["kind"] == "Ex"
+    assert rows[1]["pool"] == "advanced ninja trick"
+    assert rows[1]["category"] == "sneak attack"
+
+
+def test_parse_vigilante_hidden_strike_e_category_ridondante():
+    """Vigilante (C4-bis follow-up): la sotto-lista 'Hidden Strike' resta nel
+    pool 'vigilante talent' con category esplicita da h1_categories; la
+    category che duplica il pool (h2 'Social Talents' nel pool 'social
+    talent') e' ridondante -> None."""
+    rows = parse_talent_tables(
+        _fixture("talents_vigilante.html"),
+        {"Social Talents": "social talent",
+         "Vigilante Talents": "vigilante talent",
+         "Vigilante Talents - Hidden Strike": "vigilante talent"},
+        h1_categories={"Vigilante Talents - Hidden Strike": "hidden strike"})
+    assert len(rows) == 3
+    social = rows[0]
+    assert social["name"] == "Case the Joint"
+    assert social["pool"] == "social talent" and social["category"] is None
+    assert [r["name"] for r in rows[1:]] == ["Foe Collision", "Leave an Opening"]
+    assert all(r["pool"] == "vigilante talent" for r in rows[1:])
+    assert all(r["category"] == "hidden strike" for r in rows[1:])
+
+
 def test_split_name_kind_star_suffix():
     """Il marchio '*' finale AoN (non-PFS) non fa parte del nome; il kind si
     legge anche prima dell'asterisco."""
@@ -118,7 +156,10 @@ def test_collect_entries_offline_pools():
         pools[e["mechanics"]["pool"]] = pools.get(e["mechanics"]["pool"], 0) + 1
     expected = {"rage power", "mercy", "rogue talent", "advanced rogue talent",
                 "discovery", "grand discovery", "hex", "major hex",
-                "grand hex", "deed", "ki power"}
+                "grand hex", "deed", "ki power",
+                "ninja trick", "advanced ninja trick",
+                "slayer talent", "advanced slayer talent",
+                "social talent", "vigilante talent"}
     assert set(pools) == expected
     assert dupes == 0 and not anomalies
     keys = [(e["mechanics"]["pool"], e["name"].lower()) for e in entries]

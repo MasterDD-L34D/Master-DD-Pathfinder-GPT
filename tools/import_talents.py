@@ -23,6 +23,14 @@ Pool importati (7 richiesti + sotto-pool distinti trovati in fonte):
 - ki power (Monk (Unchained)): sezione 'Ki Powers (Su)' DENTRO la pagina
   ClassDisplay (entry '<i>Nome (Su)</i>:' inline); le class features della
   pagina NON vengono re-importate.
+- ninja trick + advanced (Ninja), slayer talent + advanced (Slayer):
+  stesse convenzioni dei rogue (h1 -> pool, h2 'Sneak Attack/Other
+  Talents' -> category). Lotto C4-bis follow-up 2026-07-26.
+- social talent / vigilante talent (Vigilante): pagina unica a 3 sezioni
+  h1; la sotto-lista 'Vigilante Talents - Hidden Strike' resta nel pool
+  'vigilante talent' con category 'hidden strike' (override esplicito
+  h1_categories); category ridondante col pool (h2 = nome del pool) ->
+  None.
 
 Policy (allineata ai lotti precedenti):
 - markup a tabella 'MainContent_DataList*': entry '<b|i>Nome (Ex|Su|Sp)</b|i>
@@ -104,6 +112,30 @@ POOLS = [
      "ref": "AoN: Ki Powers (Monk Unchained)",
      "parser": "ki",
      "pages": [(f"{BASE}ClassDisplay.aspx?ItemName=Monk%20(Unchained)", None)]},
+    # Lotto C4-bis follow-up (2026-07-26): pool delle 5 classi residue C4.
+    # Stesse convenzioni dei pool rogue: h1 -> pool, h2 -> category
+    # ('Sneak Attack Talents'/'Other Talents'). Ninja/slayer hanno la
+    # variante 'advanced' (livello 10+) come pool distinto.
+    {"pool": "ninja trick", "cls": "Ninja",
+     "ref": "AoN: Ninja Tricks (Ninja)",
+     "h1_pools": {"Ninja Tricks": "ninja trick",
+                  "Advanced Ninja Tricks": "advanced ninja trick"},
+     "pages": [(f"{BASE}NinjaTricks.aspx", None)]},
+    {"pool": "slayer talent", "cls": "Slayer",
+     "ref": "AoN: Slayer Talents (Slayer)",
+     "h1_pools": {"Slayer Talents": "slayer talent",
+                  "Advanced Slayer Talents": "advanced slayer talent"},
+     "pages": [(f"{BASE}SlayerTalents.aspx", None)]},
+    # Vigilante: la pagina unica contiene social talents, vigilante talents
+    # e la sotto-lista 'Hidden Strike' (category esplicita via h1_categories:
+    # il titolo h2 non e' normalizzabile con le regole generiche).
+    {"pool": "vigilante talent", "cls": "Vigilante",
+     "ref": "AoN: Vigilante Talents (Vigilante)",
+     "h1_pools": {"Social Talents": "social talent",
+                  "Vigilante Talents": "vigilante talent",
+                  "Vigilante Talents - Hidden Strike": "vigilante talent"},
+     "h1_categories": {"Vigilante Talents - Hidden Strike": "hidden strike"},
+     "pages": [(f"{BASE}VigilanteTalents.aspx", None)]},
 ]
 
 _KIND_RE = re.compile(r"^(.*?)(?:\s*\((Ex|Su|Sp)\))?$")
@@ -145,7 +177,8 @@ def _category_from_h2(h2_text):
     return cat.strip().lower() or None
 
 
-def parse_talent_tables(html, h1_pools=None, page_category=None):
+def parse_talent_tables(html, h1_pools=None, page_category=None,
+                        h1_categories=None):
     """Pagine a tabella AoN -> [{name, kind, source, text, pool, category, level}].
 
     Struttura reale (cache 2026-07-26): sezioni h1/h2.title; tabelle
@@ -154,7 +187,11 @@ def parse_talent_tables(html, h1_pools=None, page_category=None):
     <b> in alcune pagine, <i> in altre; puo' contenere l'img PFS).
     pool: da h1_pools (mappa titolo h1 -> pool) o None se la pagina e'
     single-pool (lo decide il chiamante). category: da page_category
-    (sottopagine rage) o dal titolo h2. level: dal titolo h2 'Nth-level'."""
+    (sottopagine rage), da h1_categories (override esplicito per sezioni
+    non normalizzabili, es. 'Vigilante Talents - Hidden Strike') o dal
+    titolo h2; category uguale al pool (ridondante, es. h2 'Social
+    Talents' nel pool 'social talent') -> None. level: dal titolo h2
+    'Nth-level'."""
     from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "html.parser")
     entries = []
@@ -180,7 +217,10 @@ def parse_talent_tables(html, h1_pools=None, page_category=None):
         pool = h1_pools.get(h1_cur) if h1_pools else None
         if h1_pools and pool is None:
             continue  # sezione h1 fuori scope (non inventare pool)
-        category = page_category or _category_from_h2(h2_cur)
+        category = (page_category or (h1_categories or {}).get(h1_cur)
+                    or _category_from_h2(h2_cur))
+        if category and pool and category in pool:
+            category = None  # categoria ridondante col pool (es. 'social')
         m_lvl = _LEVEL_RE.search(h2_cur or "")
         level = int(m_lvl.group(1)) if m_lvl else None
         for span in el.find_all("span", id=re.compile(r"LabelName")):
@@ -312,7 +352,8 @@ def collect_entries(offline):
                 rows = parse_ki_powers(html)
             else:
                 rows = parse_talent_tables(html, spec.get("h1_pools"),
-                                           page_category)
+                                           page_category,
+                                           spec.get("h1_categories"))
                 for row in rows:
                     row["pool"] = row["pool"] or spec["pool"]
             if not rows:
@@ -392,7 +433,9 @@ def main(argv=None) -> int:
         "notes": ("Talenti selezionabili per classe da pagine dedicate AoN "
                   "(rage power/Barbarian, mercy/Paladin, rogue talent + "
                   "advanced/Rogue, discovery + grand/Alchemist, hex/major/"
-                  "grand/Witch, deed/Swashbuckler, ki power/Monk Unchained): "
+                  "grand/Witch, deed/Swashbuckler, ki power/Monk Unchained, "
+                  "ninja trick + advanced/Ninja, slayer talent + advanced/"
+                  "Slayer, social + vigilante talent/Vigilante): "
                   "mechanics {class, pool, kind, category?, level?}. "
                   "Rigenerare con tools/import_talents.py."),
         "last_verified": today,

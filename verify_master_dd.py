@@ -26,9 +26,10 @@ def check_pytest():
     skipped_match = __import__("re").search(r"(\d+) skipped", out)
     if not passed_match or int(passed_match.group(1)) < 130:
         sys.exit("ERRORE: test suite non conforme (atteso almeno 130 passed)")
-    if not skipped_match or int(skipped_match.group(1)) != 1:
-        sys.exit("ERRORE: atteso esattamente 1 skipped")
-    print(f"OK: pytest -> {passed_match.group(1)} passed, 1 skipped")
+    skipped = int(skipped_match.group(1)) if skipped_match else 0
+    if skipped != 0:
+        sys.exit(f"ERRORE: atteso 0 skipped, trovati {skipped}")
+    print(f"OK: pytest -> {passed_match.group(1)} passed, 0 skipped")
 
 
 def check_validate_schemas():

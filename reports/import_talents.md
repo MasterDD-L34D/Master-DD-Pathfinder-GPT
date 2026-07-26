@@ -1,14 +1,16 @@
 # Import talenti (sotto-cataloghi per classe) da AoN (2026-07-26)
 
-- Talenti totali: 806
-- OGL (talents.json): 806
+- Talenti totali: 1041
+- OGL (talents.json): 1041
 - PI -> talents_local.json: 0
 - Duplicati (pool, name) scartati: 0
 - Entry senza testo: 0
 
 ## Conteggi per pool (OGL)
 
+- **advanced ninja trick**: 24
 - **advanced rogue talent**: 49
+- **advanced slayer talent**: 9
 - **deed**: 23
 - **discovery**: 169
 - **grand discovery**: 7
@@ -17,8 +19,12 @@
 - **ki power**: 31
 - **major hex**: 31
 - **mercy**: 26
+- **ninja trick**: 41
 - **rage power**: 234
 - **rogue talent**: 163
+- **slayer talent**: 33
+- **social talent**: 46
+- **vigilante talent**: 82
 
 ## Anomalie
 
