@@ -37,7 +37,10 @@ def test_transcribe_endpoint_contract(monkeypatch, tmp_path):
 
 
 def test_transcribe_engine_unavailable_is_honest_501(monkeypatch, tmp_path):
-    monkeypatch.setenv("ML_ASR_ENGINE", "faster_whisper")  # non installato in test
+    monkeypatch.setenv("ML_ASR_ENGINE", "faster_whisper")
+    # Simula l'assenza della dipendenza opzionale (indipendente dal venv):
+    # sys.modules['faster_whisper'] = None -> ImportError -> 501 onesto.
+    monkeypatch.setitem(sys.modules, "faster_whisper", None)
     monkeypatch.setenv("ML_AUDIO_DIR", str(tmp_path))
     from src.app import app
     client = TestClient(app)

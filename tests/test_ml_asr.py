@@ -38,7 +38,9 @@ def test_factory_returns_fake_by_default_without_deps(monkeypatch):
 
 def test_factory_faster_whisper_missing_raises_honest(monkeypatch):
     monkeypatch.setenv("ML_ASR_ENGINE", "faster_whisper")
-    # faster-whisper NON e' installato nel venv di test: atteso errore onesto
+    # Simula l'assenza della dipendenza opzionale (installata o meno nel
+    # venv): sys.modules['faster_whisper'] = None -> ImportError onesto.
+    monkeypatch.setitem(sys.modules, "faster_whisper", None)
     try:
         get_asr_engine()
     except AsrUnavailable as exc:

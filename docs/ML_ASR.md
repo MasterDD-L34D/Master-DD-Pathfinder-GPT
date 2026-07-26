@@ -49,6 +49,20 @@ curl -F "file=@clip-test.ogg" http://localhost:8000/ml/transcribe
 
 Il primo uso scarica il modello (~500 MB per `small`).
 
+### Nota device (smoke 2026-07-26)
+
+Su macchina con GPU NVIDIA ma **senza le librerie CUDA 12** (`cublas64_12.dll` ecc.), `ML_ASR_DEVICE=auto` fallisce a runtime (`RuntimeError: Library cublas64_12.dll is not found`). Opzioni: `ML_ASR_DEVICE=cpu` (default onesto, usato nello smoke) oppure installare le librerie CUDA via pip (`nvidia-cublas-cu12`, `nvidia-cudnn-cu12`) per usare la GPU.
+
+## Smoke test con modello reale (E2, 2026-07-26)
+
+Eseguito su `faster-whisper` 1.2.1, modello `small`, `device=cpu`, `compute_type=int8`:
+
+- clip: TTS italiano (`edge-tts`, voce `it-IT-DiegoNeural`) da `data/ml_smoke/ground_truth.txt` (3 frasi a tema PF, ~15s) — ground truth nota;
+- `POST /ml/transcribe` → HTTP 200 in **5,4s** (3 segmenti, contratto 1:1 con `transcriptImportSchema`: `language=it`, `start/end/confidence`, niente `speaker`);
+- **mini WER 4,3% / CER 0,4%** contro la ground truth (`data/ml_smoke/eval_wer.py`, Levenshtein stdlib su testo normalizzato) — le differenze sono tokenizzazione (l'ascia/lascia), non errori acustici. Misura una tantum sul sintetico: la REQ-003 formale richiede un corpus reale annotato (resta in coda);
+- fix collaterale: i 2 test del 501 onesto ora simulano l'assenza di faster-whisper via `sys.modules` invece di dipendere dall'ambiente (restano verdi con la dipendenza installata);
+- clip mp3 e transcript sono gitignored (rigenerabili da ground truth + script).
+
 ## Privacy e vincoli
 
 - **Audio originale immutabile (REQ-001)**: WORM in `ML_AUDIO_DIR/<sha16>_<nome>`, dedup per sha256, mai riscritto.
