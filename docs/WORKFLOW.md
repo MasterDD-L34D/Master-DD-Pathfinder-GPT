@@ -32,7 +32,11 @@ Regola: **un'implementazione non è "pronta" finché una seconda testa non l'ha 
 - Conventional Commits: `type(scope): subject` ≤ 72 char, minuscolo iniziale, niente punto finale.
 - **MAI `Co-Authored-By:`** (bloccato dall'hook, ADR-0011 policy-C).
 - **ADR-0011 (adottato il 2026-07-19)**: ogni commit include i trailer
-  `Coding-Agent: <agent-id>` e `Trace-Id: <uuidv7>` (l'hook li richiede come warn-only; da oggi sono obbligatori qui perché il repo è infrastruttura di verifica di pathmaster-dd). Commit sempre via `git commit -F <file>`.
+  `Coding-Agent: <agent-id>` e `Trace-Id: <uuidv7>`. **Dal 2026-07-25 sono BLOCCANTI**
+  (coda D3): l'hook commit-msg globale (`~/.local/share/git-hooks/commit-msg`) rifiuta
+  i commit senza trailer su tutti i repo sotto `C:/dev/pathfinder` (scoped per path;
+  gli altri repo non cambiano). Bypass documentato: `git commit --no-verify`.
+  Commit sempre via `git commit -F <file>`.
 - **Mai riscrittura della storia**: la policy vale da adesso in poi; i commit precedenti restano com'erano.
 
 ## 4. Il contratto del builder (`src/pc/`)
