@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T01:30:24.408744+00:00",
+  "generated_at": "2026-07-26T10:00:45.040646+00:00",
   "tables": {
     "build_index": {
       "name": "build_index",
@@ -126,12 +126,12 @@
     },
     "reference_catalog": {
       "name": "reference_catalog",
-      "rows": 9034,
+      "rows": 9039,
       "null_percentages": {
         "name": 0.0,
         "source": 0.0,
-        "prerequisites": 70.17,
-        "tags": 10.63,
+        "prerequisites": 70.18,
+        "tags": 10.62,
         "references": 0.0
       },
       "duplicate_counts": {

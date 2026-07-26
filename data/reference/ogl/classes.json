@@ -17738,6 +17738,1942 @@
           }
         ]
       }
+    },
+    {
+      "name": "Slayer",
+      "source": "Advanced Class Guide",
+      "source_id": "pfrpg_core:slayer",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "hybrid"
+      ],
+      "references": [
+        "AoN: Slayer (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Slayer"
+      ],
+      "description": "Slayer: HD d10, skill points 6+Int. Class skills: Acrobatics, Bluff, Climb, Craft, Disguise, Heal, Intimidate, Knowledge (dungeoneering). Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d10",
+        "starting_wealth": "5d6 x 10 gp (average 175 gp)",
+        "class_skills": [
+          "Acrobatics",
+          "Bluff",
+          "Climb",
+          "Craft",
+          "Disguise",
+          "Heal",
+          "Intimidate",
+          "Knowledge (dungeoneering)",
+          "Knowledge (geography)",
+          "Knowledge (local)",
+          "Perception",
+          "Profession",
+          "Ride",
+          "Sense Motive",
+          "Stealth",
+          "Survival",
+          "Swim"
+        ],
+        "skill_points_per_level": 6,
+        "proficiencies": "A slayer is proficient with all simple and martial weapons, as well as with light armor, medium armor, and shields (except tower shields)",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 1,
+            "fort": 2,
+            "ref": 2,
+            "will": 0,
+            "special": [
+              "1st studied target",
+              "track"
+            ]
+          },
+          {
+            "level": 2,
+            "bab": 2,
+            "fort": 3,
+            "ref": 3,
+            "will": 0,
+            "special": [
+              "Slayer talent"
+            ]
+          },
+          {
+            "level": 3,
+            "bab": 3,
+            "fort": 3,
+            "ref": 3,
+            "will": 1,
+            "special": [
+              "Sneak attack +1d6"
+            ]
+          },
+          {
+            "level": 4,
+            "bab": 4,
+            "fort": 4,
+            "ref": 4,
+            "will": 1,
+            "special": [
+              "Slayer talent"
+            ]
+          },
+          {
+            "level": 5,
+            "bab": 5,
+            "fort": 4,
+            "ref": 4,
+            "will": 1,
+            "special": [
+              "2nd studied target"
+            ]
+          },
+          {
+            "level": 6,
+            "bab": 6,
+            "fort": 5,
+            "ref": 5,
+            "will": 2,
+            "special": [
+              "Slayer talent",
+              "sneak attack +2d6"
+            ]
+          },
+          {
+            "level": 7,
+            "bab": 7,
+            "fort": 5,
+            "ref": 5,
+            "will": 2,
+            "special": [
+              "Stalker"
+            ]
+          },
+          {
+            "level": 8,
+            "bab": 8,
+            "fort": 6,
+            "ref": 6,
+            "will": 2,
+            "special": [
+              "Slayer talent"
+            ]
+          },
+          {
+            "level": 9,
+            "bab": 9,
+            "fort": 6,
+            "ref": 6,
+            "will": 3,
+            "special": [
+              "Sneak attack +3d6"
+            ]
+          },
+          {
+            "level": 10,
+            "bab": 10,
+            "fort": 7,
+            "ref": 7,
+            "will": 3,
+            "special": [
+              "3rd studied target",
+              "advanced talents",
+              "slayer talent"
+            ]
+          },
+          {
+            "level": 11,
+            "bab": 11,
+            "fort": 7,
+            "ref": 7,
+            "will": 3,
+            "special": [
+              "Swift tracker"
+            ]
+          },
+          {
+            "level": 12,
+            "bab": 12,
+            "fort": 8,
+            "ref": 8,
+            "will": 4,
+            "special": [
+              "Slayer talent",
+              "sneak attack +4d6"
+            ]
+          },
+          {
+            "level": 13,
+            "bab": 13,
+            "fort": 8,
+            "ref": 8,
+            "will": 4,
+            "special": [
+              "Slayer's advance 1/day"
+            ]
+          },
+          {
+            "level": 14,
+            "bab": 14,
+            "fort": 9,
+            "ref": 9,
+            "will": 4,
+            "special": [
+              "Quarry",
+              "slayer talent"
+            ]
+          },
+          {
+            "level": 15,
+            "bab": 15,
+            "fort": 9,
+            "ref": 9,
+            "will": 5,
+            "special": [
+              "4th studied target",
+              "sneak attack +5d6"
+            ]
+          },
+          {
+            "level": 16,
+            "bab": 16,
+            "fort": 10,
+            "ref": 10,
+            "will": 5,
+            "special": [
+              "Slayer talent"
+            ]
+          },
+          {
+            "level": 17,
+            "bab": 17,
+            "fort": 10,
+            "ref": 10,
+            "will": 5,
+            "special": [
+              "Slayer's advance 2/day"
+            ]
+          },
+          {
+            "level": 18,
+            "bab": 18,
+            "fort": 11,
+            "ref": 11,
+            "will": 6,
+            "special": [
+              "Slayer talent",
+              "sneak attack +6d6"
+            ]
+          },
+          {
+            "level": 19,
+            "bab": 19,
+            "fort": 11,
+            "ref": 11,
+            "will": 6,
+            "special": [
+              "Improved quarry"
+            ]
+          },
+          {
+            "level": 20,
+            "bab": 20,
+            "fort": 12,
+            "ref": 12,
+            "will": 6,
+            "special": [
+              "5th studied target",
+              "master slayer",
+              "slayer talent"
+            ]
+          }
+        ],
+        "features": [
+          {
+            "name": "Weapon and Armor Proficiency",
+            "kind": null,
+            "levels": [],
+            "text": "A slayer is proficient with all simple and martial weapons, as well as with light armor, medium armor, and shields (except tower shields). : A slayer is proficient with all simple and martial weapons, as well as with light armor, medium armor, and shields (except tower shields)."
+          },
+          {
+            "name": "Studied Target",
+            "kind": "Ex",
+            "levels": [],
+            "text": "A slayer can study an opponent he can see as a move action. The slayer then gains a +1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks attempted against that opponent, and a +1 bonus on weapon attack and damage rolls against it. The DCs of slayer class abilities against that opponent increase by 1. A slayer can only maintain these bonuses against one opponent at a time; these bonuses remain in effect until either the opponent is dead or the slayer studies a new target. : A slayer can study an opponent he can see as a move action. The slayer then gains a +1 bonus on Bluff, Knowledge, Perception, Sense Motive, and Survival checks attempted against that opponent, and a +1 bonus on weapon attack and damage rolls against it. The DCs of slayer class abilities against that opponent increase by 1. A slayer can only maintain these bonuses against one opponent at a time; these bonuses remain in effect until either the opponent is dead or the slayer studies a new target. If a slayer deals sneak attack damage to a target, he can study that target as an immediate action, allowing him to apply his studied target bonuses against that target (including to the normal weapon damage roll). At 5th, 10th, 15th, and 20th levels, the bonuses on weapon attack rolls, damage rolls, and skill checks and to slayer DCs against a studied target increase by 1. In addition, at each such interval, the slayer is able to maintain these bonuses against an additional studied target at the same time. The slayer may discard this connection to a studied target as a free action, allowing him to study another target in its place. At 7th level, a slayer can study an opponent as a move or swift action."
+          },
+          {
+            "name": "Track",
+            "kind": "Ex",
+            "levels": [
+              1
+            ],
+            "text": "A slayer adds 1/2 his level (minimum 1) to Survival skill checks made to follow tracks. : A slayer adds 1/2 his level (minimum 1) to Survival skill checks made to follow tracks."
+          },
+          {
+            "name": "Slayer Talents",
+            "kind": null,
+            "levels": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20
+            ],
+            "text": "As a slayer gains experience, he learns a number of talents that aid him and confound his foes. Starting at 2nd level and every 2 levels thereafter, a slayer gains one slayer talent. Unless otherwise noted, a slayer cannot select an individual talent more than once. Talents marked with an asterisk add effects to a slayer's sneak attack. Only one of these talents can be applied to an individual attack, and the decision of which to use must be made before the attack roll is made. : As a slayer gains experience, he learns a number of talents that aid him and confound his foes. Starting at 2nd level and every 2 levels thereafter, a slayer gains one slayer talent. Unless otherwise noted, a slayer cannot select an individual talent more than once. Talents marked with an asterisk add effects to a slayer's sneak attack. Only one of these talents can be applied to an individual attack, and the decision of which to use must be made before the attack roll is made. See the Slayer Talents section for a full list of Talents from all sources."
+          },
+          {
+            "name": "Sneak Attack",
+            "kind": null,
+            "levels": [
+              3,
+              6,
+              9,
+              12,
+              15,
+              18
+            ],
+            "text": "At 3rd level, if a slayer catches an opponent unable to defend itself effectively from his attack, he can strike a vital spot for extra damage. The slayer's attack deals extra damage anytime his target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the slayer flanks his target. This additional damage is 1d6 at 3rd level, and increases by 1d6 every 3 levels thereafter. Should the slayer score a critical hit with a sneak attack, this additional damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. : At 3rd level, if a slayer catches an opponent unable to defend itself effectively from his attack, he can strike a vital spot for extra damage. The slayer's attack deals extra damage anytime his target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the slayer flanks his target. This additional damage is 1d6 at 3rd level, and increases by 1d6 every 3 levels thereafter. Should the slayer score a critical hit with a sneak attack, this additional damage is not multiplied. Ranged attacks can count as sneak attacks only if the target is within 30 feet. With a weapon that deals nonlethal damage (like a sap, whip, or unarmed strike), a slayer can make a sneak attack that deals nonlethal damage instead of lethal damage. He cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, not even with the usual –4 penalty. The slayer must be able to see the target well enough to pick out a vital spot and must be able to reach such a spot. A slayer cannot use sneak attack while striking a creature with concealment."
+          },
+          {
+            "name": "Stalker",
+            "kind": "Ex",
+            "levels": [
+              7
+            ],
+            "text": "At 7th level, a slayer gains his studied target bonus on Disguise, Intimidate, and Stealth checks against his studied opponent. : At 7th level, a slayer gains his studied target bonus on Disguise, Intimidate, and Stealth checks against his studied opponent."
+          },
+          {
+            "name": "Advanced Talents",
+            "kind": null,
+            "levels": [
+              10
+            ],
+            "text": "At 10th level and every 2 levels thereafter, a slayer can select one of the following advanced talents in place of a slayer talent. : At 10th level and every 2 levels thereafter, a slayer can select one of the following advanced talents in place of a slayer talent. See the Slayer Talents section for a full list of Talents from all sources."
+          },
+          {
+            "name": "Swift Tracker",
+            "kind": "Ex",
+            "levels": [
+              11
+            ],
+            "text": "At 11th level, a slayer can move at his normal speed while using Survival to follow tracks without taking the normal –5 penalty. When moving at up to twice his normal speed while tracking, he takes only a –10 penalty instead of the normal –20. : At 11th level, a slayer can move at his normal speed while using Survival to follow tracks without taking the normal –5 penalty. When moving at up to twice his normal speed while tracking, he takes only a –10 penalty instead of the normal –20."
+          },
+          {
+            "name": "Slayer's Advance",
+            "kind": "Ex",
+            "levels": [],
+            "text": "At 13th level, a slayer can once per day move up to twice his base speed as a move action. He may use Stealth as part of this movement, but takes a –10 penalty to his check for doing so. At 17th level, he can do this twice per day. : At 13th level, a slayer can once per day move up to twice his base speed as a move action. He may use Stealth as part of this movement, but takes a –10 penalty to his check for doing so. At 17th level, he can do this twice per day."
+          },
+          {
+            "name": "Quarry",
+            "kind": "Ex",
+            "levels": [
+              14
+            ],
+            "text": "At 14th level, a slayer can as a standard action denote one target within his line of sight as his quarry. Whenever he is following the tracks of his quarry, a slayer can take 10 on his Survival skill checks while moving at normal speed, without penalty. In addition, he gains a +2 insight bonus on attack rolls made against his quarry, and all critical threats against his quarry are automatically confirmed. A slayer can have no more than one quarry at a time, and the target must be selected as a studied target. He can dismiss this effect at any time as a free action, but he cannot select a new quarry target for 24 hours. If the slayer sees proof that his quarry is dead, he can select a new quarry target after 1 hour. : At 14th level, a slayer can as a standard action denote one target within his line of sight as his quarry. Whenever he is following the tracks of his quarry, a slayer can take 10 on his Survival skill checks while moving at normal speed, without penalty. In addition, he gains a +2 insight bonus on attack rolls made against his quarry, and all critical threats against his quarry are automatically confirmed. A slayer can have no more than one quarry at a time, and the target must be selected as a studied target. He can dismiss this effect at any time as a free action, but he cannot select a new quarry target for 24 hours. If the slayer sees proof that his quarry is dead, he can select a new quarry target after 1 hour."
+          },
+          {
+            "name": "Improved Quarry",
+            "kind": "Ex",
+            "levels": [
+              19
+            ],
+            "text": "At 19th level, the slayer's ability to hunt his quarry improves. He can now select a quarry as a free action, and can now take 20 while using Survival to track his quarry, while moving at normal speed without penalty. His insight bonus to attack his quarry increases to +4. If his quarry is killed or dismissed, he can select a new one after 10 minutes have passed. : At 19th level, the slayer's ability to hunt his quarry improves. He can now select a quarry as a free action, and can now take 20 while using Survival to track his quarry, while moving at normal speed without penalty. His insight bonus to attack his quarry increases to +4. If his quarry is killed or dismissed, he can select a new one after 10 minutes have passed."
+          },
+          {
+            "name": "Master Slayer",
+            "kind": "Ex",
+            "levels": [
+              20
+            ],
+            "text": "At 20th level, the slayer becomes a master at capturing or killing his studied targets. As a standard action, he can make a single attack against a studied target at his full attack bonus, choosing one of the following effects: kill, knock unconscious for 1d4 hours, or paralyze for 2d6 rounds. If the attack succeeds, the target takes damage normally and must succeed at a Fortitude saving throw or suffer the additional effect. The DC for this save is 10 + 1/2 the slayer's level + the slayer's Intelligence modifier. Whether or not the target succeeds, it cannot be targeted by this ability again (by any slayer) for 24 hours. : At 20th level, the slayer becomes a master at capturing or killing his studied targets. As a standard action, he can make a single attack against a studied target at his full attack bonus, choosing one of the following effects: kill, knock unconscious for 1d4 hours, or paralyze for 2d6 rounds. If the attack succeeds, the target takes damage normally and must succeed at a Fortitude saving throw or suffer the additional effect. The DC for this save is 10 + 1/2 the slayer's level + the slayer's Intelligence modifier. Whether or not the target succeeds, it cannot be targeted by this ability again (by any slayer) for 24 hours."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ninja",
+      "source": "Ultimate Combat",
+      "source_id": "pfrpg_core:ninja",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "base"
+      ],
+      "references": [
+        "AoN: Ninja (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Ninja"
+      ],
+      "description": "Ninja: HD d8, skill points 8+Int. Class skills: Acrobatics, Appraise, Bluff, Climb, Craft, Diplomacy, Disable Device, Disguise. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "4d6 x 10 gp (average 140 gp)",
+        "class_skills": [
+          "Acrobatics",
+          "Appraise",
+          "Bluff",
+          "Climb",
+          "Craft",
+          "Diplomacy",
+          "Disable Device",
+          "Disguise",
+          "Escape Artist",
+          "Intimidate",
+          "Knowledge (local)",
+          "Knowledge (nobility)",
+          "Linguistics",
+          "Perception",
+          "Perform",
+          "Profession",
+          "Sense Motive",
+          "Sleight of Hand",
+          "Stealth",
+          "Swim",
+          "Use Magic Device"
+        ],
+        "skill_points_per_level": 8,
+        "proficiencies": "Ninja are proficient with all simple weapons, plus the kama, katana, kusarigama, nunchaku, sai, shortbow, short sword, shuriken, siangham, and wakizashi. They are proficient with light armor but not with shields",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 0,
+            "ref": 2,
+            "will": 0,
+            "special": [
+              "Poison use",
+              "sneak attack +1d6"
+            ]
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 0,
+            "ref": 3,
+            "will": 0,
+            "special": [
+              "Ki pool",
+              "ninja trick"
+            ]
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 1,
+            "ref": 3,
+            "will": 1,
+            "special": [
+              "No trace +1",
+              "sneak attack +2d6"
+            ]
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 1,
+            "ref": 4,
+            "will": 1,
+            "special": [
+              "Ninja trick",
+              "uncanny dodge"
+            ]
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 1,
+            "ref": 4,
+            "will": 1,
+            "special": [
+              "Sneak attack +3d6"
+            ]
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 2,
+            "ref": 5,
+            "will": 2,
+            "special": [
+              "Light steps",
+              "ninja trick",
+              "no trace +2"
+            ]
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 2,
+            "ref": 5,
+            "will": 2,
+            "special": [
+              "Sneak attack +4d6"
+            ]
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 2,
+            "ref": 6,
+            "will": 2,
+            "special": [
+              "Improved uncanny dodge",
+              "ninja trick"
+            ]
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 3,
+            "ref": 6,
+            "will": 3,
+            "special": [
+              "No trace +3",
+              "sneak attack +5d6"
+            ]
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 3,
+            "ref": 7,
+            "will": 3,
+            "special": [
+              "Master tricks",
+              "ninja trick"
+            ]
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 3,
+            "ref": 7,
+            "will": 3,
+            "special": [
+              "Sneak attack +6d6"
+            ]
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 4,
+            "ref": 8,
+            "will": 4,
+            "special": [
+              "Ninja trick",
+              "no trace +4"
+            ]
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 4,
+            "ref": 8,
+            "will": 4,
+            "special": [
+              "Sneak attack +7d6"
+            ]
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 4,
+            "ref": 9,
+            "will": 4,
+            "special": [
+              "Ninja trick"
+            ]
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 5,
+            "ref": 9,
+            "will": 5,
+            "special": [
+              "No trace +5",
+              "sneak attack +8d6"
+            ]
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 5,
+            "ref": 10,
+            "will": 5,
+            "special": [
+              "Ninja trick"
+            ]
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 5,
+            "ref": 10,
+            "will": 5,
+            "special": [
+              "Sneak attack +9d6"
+            ]
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 6,
+            "ref": 11,
+            "will": 6,
+            "special": [
+              "Ninja trick",
+              "no trace +6"
+            ]
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 6,
+            "ref": 11,
+            "will": 6,
+            "special": [
+              "Sneak attack +10d6"
+            ]
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 6,
+            "ref": 12,
+            "will": 6,
+            "special": [
+              "Hidden master",
+              "ninja trick"
+            ]
+          }
+        ],
+        "features": [
+          {
+            "name": "Weapon and Armor Proficiency",
+            "kind": null,
+            "levels": [],
+            "text": "Ninja are proficient with all simple weapons, plus the kama, katana, kusarigama, nunchaku, sai, shortbow, short sword, shuriken, siangham, and wakizashi. They are proficient with light armor but not with shields. : Ninja are proficient with all simple weapons, plus the kama, katana, kusarigama, nunchaku, sai, shortbow, short sword, shuriken, siangham, and wakizashi. They are proficient with light armor but not with shields."
+          },
+          {
+            "name": "Poison Use",
+            "kind": null,
+            "levels": [
+              1
+            ],
+            "text": "At 1st level, a ninja is trained in the use of poison and cannot accidentally poison herself when applying poison to a weapon. : At 1st level, a ninja is trained in the use of poison and cannot accidentally poison herself when applying poison to a weapon."
+          },
+          {
+            "name": "Sneak Attack",
+            "kind": null,
+            "levels": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19
+            ],
+            "text": "If a ninja can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage. : If a ninja can catch an opponent when he is unable to defend himself effectively from her attack, she can strike a vital spot for extra damage. The ninja's attacks deal extra damage anytime her target would be denied a Dexterity bonus to AC (whether the target actually has a Dexterity bonus or not), or when the ninja flanks her target. This extra damage is 1d6 at 1st level, and increases by 1d6 every two ninja levels thereafter. Bonus damage from sneak attacks is precision damage. Should the ninja score a critical hit with a sneak attack, this precision damage is not multiplied. Ranged attacks count as sneak attacks only if the target is within 30 feet. With a weapon that deals nonlethal damage (such as a sap, whip, or unarmed strike), a ninja can make a sneak attack that deals nonlethal damage instead of lethal damage. She cannot use a weapon that deals lethal damage to deal nonlethal damage in a sneak attack, even with the usual –4 penalty. The ninja must be able to see the target well enough to pick out a vital spot, and must be able to reach this spot. A ninja cannot sneak attack while striking a creature that has concealment."
+          },
+          {
+            "name": "Ki Pool",
+            "kind": "Su",
+            "levels": [
+              2
+            ],
+            "text": "At 2nd level, a ninja gains a pool of : At 2nd level, a ninja gains a pool of ki points, supernatural energy she can use to accomplish amazing feats. The number of points in the ninja's ki pool is equal to 1/2 her ninja level + her Charisma modifier. As long as she has at least 1 point in her ki pool, she treats any Acrobatics skill check made to jump as if she had a running start. At 10th level, she also reduces the DC of Acrobatics skill checks made to jump by 1/2 (although she still cannot move farther than her speed allows). By spending 1 point from her ki pool, a ninja can make one additional attack at her highest attack bonus, but she can do so only when making a full attack. In addition, she can spend 1 point to increase her speed by 20 feet for 1 round. Finally, a ninja can spend 1 point from her ki pool to give herself a +4 insight bonus on Stealth checks for 1 round. Each of these powers is activated as a swift action. A ninja can gain additional powers that consume points from her ki pool by selecting certain ninja tricks. The ki pool is replenished each morning after 8 hours of rest or meditation; these hours do not need to be consecutive. If the ninja possesses levels in another class that grants points to a ki pool, ninja levels stack with the levels of that class to determine the total number of ki points in the combined pool, but only one ability score modifier is added to the total. The choice of which score to use is made when the second class ability is gained, and once made, the choice is set. The ninja can now use ki points from this pool to power the abilities of every class she possesses that grants a ki pool."
+          },
+          {
+            "name": "Ninja Tricks",
+            "kind": null,
+            "levels": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20
+            ],
+            "text": "As a ninja continues her training, she learns a number of tricks that allow her to confuse her foes and grant her supernatural abilities. Starting at 2nd level, a ninja gains one ninja trick. She gains one additional ninja trick for every 2 levels attained after 2nd. Unless otherwise noted, a ninja cannot select an individual ninja trick more than once. : As a ninja continues her training, she learns a number of tricks that allow her to confuse her foes and grant her supernatural abilities. Starting at 2nd level, a ninja gains one ninja trick. She gains one additional ninja trick for every 2 levels attained after 2nd. Unless otherwise noted, a ninja cannot select an individual ninja trick more than once. Note from Nethys : The full list of ninja tricks is available here ."
+          },
+          {
+            "name": "No Trace",
+            "kind": "Ex",
+            "levels": [
+              3,
+              6,
+              9,
+              12,
+              15,
+              18
+            ],
+            "text": "At 3rd level, a ninja learns to cover her tracks, remain hidden, and conceal her presence. The DC to track a ninja using the Survival skill increases by +1. In addition, her training gives her a +1 insight bonus on Disguise skill checks and on opposed Stealth checks whenever she is stationary and does not take any action for at least 1 round. Every three levels thereafter, the increase to Survival DCs and the bonuses on Disguise and opposed Stealth checks increase by 1. : At 3rd level, a ninja learns to cover her tracks, remain hidden, and conceal her presence. The DC to track a ninja using the Survival skill increases by +1. In addition, her training gives her a +1 insight bonus on Disguise skill checks and on opposed Stealth checks whenever she is stationary and does not take any action for at least 1 round. Every three levels thereafter, the increase to Survival DCs and the bonuses on Disguise and opposed Stealth checks increase by 1."
+          },
+          {
+            "name": "Uncanny Dodge",
+            "kind": "Ex",
+            "levels": [
+              4
+            ],
+            "text": "Starting at 4th level, a ninja can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dexterity bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A ninja with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action against her. : Starting at 4th level, a ninja can react to danger before her senses would normally allow her to do so. She cannot be caught flat-footed, nor does she lose her Dexterity bonus to AC if the attacker is invisible. She still loses her Dexterity bonus to AC if immobilized. A ninja with this ability can still lose her Dexterity bonus to AC if an opponent successfully uses the feint action against her. If a ninja already possesses uncanny dodge from a different class, she automatically gains improved uncanny dodge instead."
+          },
+          {
+            "name": "Light Steps",
+            "kind": "Ex",
+            "levels": [
+              6
+            ],
+            "text": "At 6th level, a ninja learns to move while barely touching the surface underneath her. As a full-round action, she can move up to twice her speed, ignoring difficult terrain. While moving in this way, any surface will support her, no matter how much she weighs. This allows her to move across water, lava, or even the thinnest tree branches. She must end her move on a surface that can support her normally. She cannot move across air in this way, nor can she walk up walls or other vertical surfaces. When moving in this way, she does not take damage from surfaces or hazards that react to being touched, such as lava or caltrops, nor does she need to make Acrobatics checks to avoid falling on slippery or rough surfaces. Finally, when using light steps, the ninja ignores any mechanical traps that use a location-based trigger. : At 6th level, a ninja learns to move while barely touching the surface underneath her. As a full-round action, she can move up to twice her speed, ignoring difficult terrain. While moving in this way, any surface will support her, no matter how much she weighs. This allows her to move across water, lava, or even the thinnest tree branches. She must end her move on a surface that can support her normally. She cannot move across air in this way, nor can she walk up walls or other vertical surfaces. When moving in this way, she does not take damage from surfaces or hazards that react to being touched, such as lava or caltrops, nor does she need to make Acrobatics checks to avoid falling on slippery or rough surfaces. Finally, when using light steps, the ninja ignores any mechanical traps that use a location-based trigger."
+          },
+          {
+            "name": "Improved Uncanny Dodge",
+            "kind": "Ex",
+            "levels": [
+              8
+            ],
+            "text": "At 8th level, a ninja can no longer be flanked. This defense denies another ninja (or rogue) the ability to sneak attack the ninja by flanking her, unless the attacker has at least four more ninja (or rogue) levels than the target does. : At 8th level, a ninja can no longer be flanked. This defense denies another ninja (or rogue) the ability to sneak attack the ninja by flanking her, unless the attacker has at least four more ninja (or rogue) levels than the target does. If a character already has uncanny dodge from another class, the levels from the classes that grant uncanny dodge stack when determining the minimum ninja (or rogue) level required to flank the character."
+          },
+          {
+            "name": "Master Tricks",
+            "kind": null,
+            "levels": [
+              10
+            ],
+            "text": "At 10th level, and every two levels thereafter, a ninja can select one of the following master tricks in place of a ninja trick. : At 10th level, and every two levels thereafter, a ninja can select one of the following master tricks in place of a ninja trick. Note from Nethys : The full list of ninja tricks is available here ."
+          },
+          {
+            "name": "Hidden Master",
+            "kind": "Su",
+            "levels": [
+              20
+            ],
+            "text": "At 20th level, a ninja becomes a true master of her art. She can, as a standard action, cast : At 20th level, a ninja becomes a true master of her art. She can, as a standard action, cast greater invisibility on herself. While invisible in this way, she cannot be detected by any means, and not even invisibility purge , see invisibility , and true seeing can reveal her. She uses her ninja level as her caster level for this ability. Using this ability consumes 3 ki points from her ki pool. In addition, whenever the ninja deals sneak attack damage, she can sacrifice additional damage dice to apply a penalty to one ability score of the target equal to the number of dice sacrificed for 1 minute. This penalty does not stack with itself and cannot reduce an ability score below 1."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Samurai",
+      "source": "Ultimate Combat",
+      "source_id": "pfrpg_core:samurai",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "base"
+      ],
+      "references": [
+        "AoN: Samurai (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Samurai"
+      ],
+      "description": "Samurai: HD d10, skill points 4+Int. Class skills: Bluff, Climb, Craft, Diplomacy, Handle Animal, Intimidate, Profession, Ride. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d10",
+        "starting_wealth": "5d6 x 10 gp (average 175 gp)",
+        "class_skills": [
+          "Bluff",
+          "Climb",
+          "Craft",
+          "Diplomacy",
+          "Handle Animal",
+          "Intimidate",
+          "Profession",
+          "Ride",
+          "Sense Motive",
+          "Swim"
+        ],
+        "skill_points_per_level": 4,
+        "proficiencies": "Samurai are proficient with all simple and martial weapons, plus the katana, naginata, and wakizashi. Samurai are proficient with all types of armor (heavy, light, and medium) and shields (except tower shields)",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 1,
+            "fort": 2,
+            "ref": 0,
+            "will": 0,
+            "special": [
+              "Challenge 1/day",
+              "mount",
+              "order",
+              "resolve"
+            ]
+          },
+          {
+            "level": 2,
+            "bab": 2,
+            "fort": 3,
+            "ref": 0,
+            "will": 0,
+            "special": [
+              "Order ability"
+            ]
+          },
+          {
+            "level": 3,
+            "bab": 3,
+            "fort": 3,
+            "ref": 1,
+            "will": 1,
+            "special": [
+              "Weapon expertise"
+            ]
+          },
+          {
+            "level": 4,
+            "bab": 4,
+            "fort": 4,
+            "ref": 1,
+            "will": 1,
+            "special": [
+              "Challenge 2/day",
+              "mounted archer"
+            ]
+          },
+          {
+            "level": 5,
+            "bab": 5,
+            "fort": 4,
+            "ref": 1,
+            "will": 1,
+            "special": [
+              "Banner"
+            ]
+          },
+          {
+            "level": 6,
+            "bab": 6,
+            "fort": 5,
+            "ref": 2,
+            "will": 2,
+            "special": [
+              "Bonus feat"
+            ]
+          },
+          {
+            "level": 7,
+            "bab": 7,
+            "fort": 5,
+            "ref": 2,
+            "will": 2,
+            "special": [
+              "Challenge 3/day"
+            ]
+          },
+          {
+            "level": 8,
+            "bab": 8,
+            "fort": 6,
+            "ref": 2,
+            "will": 2,
+            "special": [
+              "Order ability"
+            ]
+          },
+          {
+            "level": 9,
+            "bab": 9,
+            "fort": 6,
+            "ref": 3,
+            "will": 3,
+            "special": [
+              "Greater resolve"
+            ]
+          },
+          {
+            "level": 10,
+            "bab": 10,
+            "fort": 7,
+            "ref": 3,
+            "will": 3,
+            "special": [
+              "Challenge 4/day"
+            ]
+          },
+          {
+            "level": 11,
+            "bab": 11,
+            "fort": 7,
+            "ref": 3,
+            "will": 3,
+            "special": [
+              "Honorable stand"
+            ]
+          },
+          {
+            "level": 12,
+            "bab": 12,
+            "fort": 8,
+            "ref": 4,
+            "will": 4,
+            "special": [
+              "Bonus feat",
+              "demanding challenge"
+            ]
+          },
+          {
+            "level": 13,
+            "bab": 13,
+            "fort": 8,
+            "ref": 4,
+            "will": 4,
+            "special": [
+              "Challenge 5/day"
+            ]
+          },
+          {
+            "level": 14,
+            "bab": 14,
+            "fort": 9,
+            "ref": 4,
+            "will": 4,
+            "special": [
+              "Greater banner"
+            ]
+          },
+          {
+            "level": 15,
+            "bab": 15,
+            "fort": 9,
+            "ref": 5,
+            "will": 5,
+            "special": [
+              "Order ability"
+            ]
+          },
+          {
+            "level": 16,
+            "bab": 16,
+            "fort": 10,
+            "ref": 5,
+            "will": 5,
+            "special": [
+              "Challenge 6/day"
+            ]
+          },
+          {
+            "level": 17,
+            "bab": 17,
+            "fort": 10,
+            "ref": 5,
+            "will": 5,
+            "special": [
+              "True resolve"
+            ]
+          },
+          {
+            "level": 18,
+            "bab": 18,
+            "fort": 11,
+            "ref": 6,
+            "will": 6,
+            "special": [
+              "Bonus feat"
+            ]
+          },
+          {
+            "level": 19,
+            "bab": 19,
+            "fort": 11,
+            "ref": 6,
+            "will": 6,
+            "special": [
+              "Challenge 7/day"
+            ]
+          },
+          {
+            "level": 20,
+            "bab": 20,
+            "fort": 12,
+            "ref": 6,
+            "will": 6,
+            "special": [
+              "Last stand"
+            ]
+          }
+        ],
+        "features": [
+          {
+            "name": "Weapon and Armor Proficiency",
+            "kind": null,
+            "levels": [],
+            "text": "Samurai are proficient with all simple and martial weapons, plus the katana, naginata, and wakizashi. Samurai are proficient with all types of armor (heavy, light, and medium) and shields (except tower shields). : Samurai are proficient with all simple and martial weapons, plus the katana, naginata, and wakizashi. Samurai are proficient with all types of armor (heavy, light, and medium) and shields (except tower shields)."
+          },
+          {
+            "name": "Challenge",
+            "kind": "Ex",
+            "levels": [],
+            "text": "Once per day, a samurai can challenge a foe to combat. As a swift action, the samurai chooses one target within sight to challenge. The samurai's melee attacks deal extra damage when made against the target of his challenge. This extra damage is equal to the samurai's level. The samurai can use this ability once per day at 1st level, plus one additional time per day for every three levels beyond 1st, to a maximum of seven times per day at 19th level. : Once per day, a samurai can challenge a foe to combat. As a swift action, the samurai chooses one target within sight to challenge. The samurai's melee attacks deal extra damage when made against the target of his challenge. This extra damage is equal to the samurai's level. The samurai can use this ability once per day at 1st level, plus one additional time per day for every three levels beyond 1st, to a maximum of seven times per day at 19th level. Challenging a foe requires much of the samurai's concentration. The samurai takes a –2 penalty to his Armor Class, except against attacks made by the target of his challenge. The challenge remains in effect until the target is dead or unconscious, or until the combat ends. Each samurai's challenge also includes another effect, which is listed in the section describing the samurai's order."
+          },
+          {
+            "name": "Mount",
+            "kind": "Ex",
+            "levels": [
+              1
+            ],
+            "text": "A samurai gains the service of a loyal and trusty steed to carry him into battle. This mount functions as a druid's animal companion, using the samurai's level as his effective druid level. The creature must be one that he is capable of riding and that is suitable as a mount. A Medium samurai can select a camel or a horse. A Small samurai can select a pony or a wolf, but can also select a boar or a dog if he is at least 4th level. The GM may approve other animals as suitable mounts. : A samurai gains the service of a loyal and trusty steed to carry him into battle. This mount functions as a druid's animal companion, using the samurai's level as his effective druid level. The creature must be one that he is capable of riding and that is suitable as a mount. A Medium samurai can select a camel or a horse. A Small samurai can select a pony or a wolf, but can also select a boar or a dog if he is at least 4th level. The GM may approve other animals as suitable mounts. A samurai does not take an armor check penalty on Ride checks while riding his mount. The mount is always considered combat trained and begins play with Light Armor Proficiency as a bonus feat. A samurai's mount does not gain the share spells special ability. A samurai's bond with his mount is strong, with the pair learning to anticipate each other's moods and moves. Should a samurai's mount die, the samurai may find another mount to serve him after 1 week of mourning. The new mount does not gain the link, evasion, devotion, or improved evasion special abilities until the next time the samurai gains a level."
+          },
+          {
+            "name": "Order",
+            "kind": "Ex",
+            "levels": [
+              1
+            ],
+            "text": "At 1st level, a samurai must pledge himself to a specific order, typically the order of the warrior. The order grants the samurai a number of bonuses, class skills, and special abilities. In addition, each order includes a number of edicts the samurai must follow. If he violates these edicts, he loses the benefits of his order's challenge ability for 24 hours. The violation of an edict is subject to GM interpretation. : At 1st level, a samurai must pledge himself to a specific order, typically the order of the warrior. The order grants the samurai a number of bonuses, class skills, and special abilities. In addition, each order includes a number of edicts the samurai must follow. If he violates these edicts, he loses the benefits of his order's challenge ability for 24 hours. The violation of an edict is subject to GM interpretation. Most samurai belong to the order of the warrior and are dedicated to their lord. Those without a lord, or who chose to abandon their lord, are ronin. A samurai may instead elect to dedicate himself to one of the orders listed under the cavalier description, but such samurai are rare. A samurai who wishes to change his order must undertake a lengthy process to dedicate himself to a new cause. When this choice is made, he immediately loses all of the benefits from his old order. He must then follow the edicts of his new order for one entire level without gaining any benefits from that order. Once he has accomplished this, he gains all the bonuses from his new order. The only exception to this is when a samurai decides to become a ronin. A samurai can elect to become a ronin immediately, losing all the benefits from his old order and replacing them with the new benefits from the ronin order. Once a ronin, however, the only way for the samurai to change to another order is through the method described above. Note that the names of these orders might vary depending upon the campaign setting or GM's preference."
+          },
+          {
+            "name": "Resolve",
+            "kind": "Ex",
+            "levels": [
+              1
+            ],
+            "text": "Starting at 1st level, the samurai gains resolve that he can call upon to endure even the most devastating wounds and afflictions. He can use this ability once per day at 1st level, plus one additional time per day for every two samurai levels beyond 1st. Whenever the samurai defeats the target of his challenge, he regains one daily use of his resolve, up to his maximum number of uses per day. Defeating the target of his challenge usually involves reducing the target to 0 hit points or fewer, but the GM might rule that an enemy who surrenders or flees the battle is also defeated. He can use this resolve in a number of ways. : Starting at 1st level, the samurai gains resolve that he can call upon to endure even the most devastating wounds and afflictions. He can use this ability once per day at 1st level, plus one additional time per day for every two samurai levels beyond 1st. Whenever the samurai defeats the target of his challenge, he regains one daily use of his resolve, up to his maximum number of uses per day. Defeating the target of his challenge usually involves reducing the target to 0 hit points or fewer, but the GM might rule that an enemy who surrenders or flees the battle is also defeated. He can use this resolve in a number of ways. Determined : As a standard action, the samurai can spend one use of his resolve to remove the fatigued, shaken, or sickened condition. If the samurai is at least 8th level, he can alternatively remove the exhausted, frightened, nauseated, or staggered condition. If the condition has a duration longer than 1 hour or is permanent, this ability removes the condition for 1 hour, at which time the condition returns. Resolute : Whenever the samurai is required to make a Fortitude or Will save, he can spend one use of his resolve as an immediate action to roll twice and take the better result. He must decide to use this ability before he rolls the saving throw. Unstoppable : When the samurai is reduced to fewer than 0 hit points but not slain, he can spend one use of his resolve as an immediate action to instantly stabilize and remain conscious. He is staggered, but he does not fall unconscious and begin dying if he takes a standard action. He does fall unconscious if he takes additional damage from any source."
+          },
+          {
+            "name": "Weapon Expertise",
+            "kind": "Ex",
+            "levels": [
+              3
+            ],
+            "text": "At 3rd level, a samurai gains an unparalleled expertise with his chosen weapons. At 3rd level, the samurai selects either the katana, longbow, naginata, or wakizashi. The samurai can draw the selected weapon as a free action as if he had the Quick Draw feat. In addition, whenever he threatens a critical hit with the selected weapon, he gains a +2 bonus on the confirmation roll. Finally, his samurai levels count as fighter levels and stack with any fighter levels he possesses for the purposes of meeting the prerequisites for feats that specifically select his chosen weapon, such as Weapon Specialization. : At 3rd level, a samurai gains an unparalleled expertise with his chosen weapons. At 3rd level, the samurai selects either the katana, longbow, naginata, or wakizashi. The samurai can draw the selected weapon as a free action as if he had the Quick Draw feat. In addition, whenever he threatens a critical hit with the selected weapon, he gains a +2 bonus on the confirmation roll. Finally, his samurai levels count as fighter levels and stack with any fighter levels he possesses for the purposes of meeting the prerequisites for feats that specifically select his chosen weapon, such as Weapon Specialization."
+          },
+          {
+            "name": "Mounted Archer",
+            "kind": "Ex",
+            "levels": [
+              4
+            ],
+            "text": "At 4th level, the samurai becomes skilled at firing ranged weapons while mounted. A samurai only takes a –2 penalty on attack rolls with ranged weapons while his mount takes a double move. This penalty increases to –4 while his mount is running. : At 4th level, the samurai becomes skilled at firing ranged weapons while mounted. A samurai only takes a –2 penalty on attack rolls with ranged weapons while his mount takes a double move. This penalty increases to –4 while his mount is running."
+          },
+          {
+            "name": "Banner",
+            "kind": "Ex",
+            "levels": [
+              5
+            ],
+            "text": "At 5th level, a samurai's banner becomes a symbol of inspiration to his allies and companions. As long as the samurai's banner is clearly visible, all allies within 60 feet receive a +2 morale bonus on saving throws against fear and a +1 morale bonus on attack rolls made as part of a charge. At 10th level, and every five levels thereafter, these bonuses increase by +1. The banner must be at least Small or larger and must be carried or displayed by the samurai or his mount to function. : At 5th level, a samurai's banner becomes a symbol of inspiration to his allies and companions. As long as the samurai's banner is clearly visible, all allies within 60 feet receive a +2 morale bonus on saving throws against fear and a +1 morale bonus on attack rolls made as part of a charge. At 10th level, and every five levels thereafter, these bonuses increase by +1. The banner must be at least Small or larger and must be carried or displayed by the samurai or his mount to function."
+          },
+          {
+            "name": "Bonus Feat",
+            "kind": null,
+            "levels": [
+              6,
+              12,
+              18
+            ],
+            "text": "At 6th level, and every six levels thereafter, a samurai gains a bonus feat in addition to those gained from normal advancement. These bonus feats must be selected from those listed as combat feats. The samurai must meet the requirements of these bonus feats. : At 6th level, and every six levels thereafter, a samurai gains a bonus feat in addition to those gained from normal advancement. These bonus feats must be selected from those listed as combat feats. The samurai must meet the requirements of these bonus feats."
+          },
+          {
+            "name": "Greater Resolve",
+            "kind": "Ex",
+            "levels": [
+              9
+            ],
+            "text": "At 9th level, a samurai can spend his resolve to negate some of his most grievous wounds. After a critical hit is confirmed against him, the samurai can spend one use of his resolve as an immediate action to treat that critical hit as a normal hit. Effects that only trigger on a critical hit do not trigger when the samurai uses this ability. : At 9th level, a samurai can spend his resolve to negate some of his most grievous wounds. After a critical hit is confirmed against him, the samurai can spend one use of his resolve as an immediate action to treat that critical hit as a normal hit. Effects that only trigger on a critical hit do not trigger when the samurai uses this ability."
+          },
+          {
+            "name": "Honorable Stand",
+            "kind": "Ex",
+            "levels": [
+              11
+            ],
+            "text": "At 11th level, a samurai can make an honorable stand, deciding to fight the target of his challenge to the bitter end, no matter the cost. He can make an honorable stand once per day at 11th level, plus one additional time per day at 16th level. Declaring an honorable stand is a swift action. While making an honorable stand, the samurai is immune to the shaken, frightened, and panicked conditions. He does not fall unconscious while his hit point total is below 0. Finally, whenever a samurai making an honorable stand must make a saving throw, he can spend one daily use of his resolve to reroll the saving throw after the first roll is made. He must take the result of the second roll, even if it is worse. If a samurai making an honorable stand ever retreats from battle against his challenged foe, he loses the ability to make a challenge for 24 hours. : At 11th level, a samurai can make an honorable stand, deciding to fight the target of his challenge to the bitter end, no matter the cost. He can make an honorable stand once per day at 11th level, plus one additional time per day at 16th level. Declaring an honorable stand is a swift action. While making an honorable stand, the samurai is immune to the shaken, frightened, and panicked conditions. He does not fall unconscious while his hit point total is below 0. Finally, whenever a samurai making an honorable stand must make a saving throw, he can spend one daily use of his resolve to reroll the saving throw after the first roll is made. He must take the result of the second roll, even if it is worse. If a samurai making an honorable stand ever retreats from battle against his challenged foe, he loses the ability to make a challenge for 24 hours."
+          },
+          {
+            "name": "Demanding Challenge",
+            "kind": "Ex",
+            "levels": [
+              12
+            ],
+            "text": "At 12th level, whenever a samurai declares a challenge, his target must pay attention to the threat he poses. As long as the target is within the threatened area of the samurai, it takes a –2 penalty to its AC on attacks made by anyone other than the samurai. : At 12th level, whenever a samurai declares a challenge, his target must pay attention to the threat he poses. As long as the target is within the threatened area of the samurai, it takes a –2 penalty to its AC on attacks made by anyone other than the samurai."
+          },
+          {
+            "name": "Greater Banner",
+            "kind": "Ex",
+            "levels": [
+              14
+            ],
+            "text": "At 14th level, a samurai's banner becomes a rallying call to his allies. All allies within 60 feet receive a +2 morale bonus on saving throws against charm and compulsion spells and effects. In addition, while his banner is displayed, the samurai can spend a standard action to wave the banner through the air, granting all allies within 60 feet an additional saving throw against any one spell or effect that is targeting them. This save is made at the original DC. Spells and effects that do not allow saving throws are unaffected by this ability. An ally cannot benefit from this ability more than once per day. : At 14th level, a samurai's banner becomes a rallying call to his allies. All allies within 60 feet receive a +2 morale bonus on saving throws against charm and compulsion spells and effects. In addition, while his banner is displayed, the samurai can spend a standard action to wave the banner through the air, granting all allies within 60 feet an additional saving throw against any one spell or effect that is targeting them. This save is made at the original DC. Spells and effects that do not allow saving throws are unaffected by this ability. An ally cannot benefit from this ability more than once per day."
+          },
+          {
+            "name": "True Resolve",
+            "kind": "Ex",
+            "levels": [
+              17
+            ],
+            "text": "At 17th level, a samurai can spend uses of his resolve to avoid death. If he has at least two uses of his resolve remaining, he can spend all of the daily uses of his resolve that he has available to him to avoid death. Regardless of the source of the attack that would have killed him, he is left alive, at –1 hit points (or lower if he was already below –1), unconscious, and stable. : At 17th level, a samurai can spend uses of his resolve to avoid death. If he has at least two uses of his resolve remaining, he can spend all of the daily uses of his resolve that he has available to him to avoid death. Regardless of the source of the attack that would have killed him, he is left alive, at –1 hit points (or lower if he was already below –1), unconscious, and stable."
+          },
+          {
+            "name": "Last Stand",
+            "kind": "Ex",
+            "levels": [
+              20
+            ],
+            "text": "At 20th level, a samurai can make a last stand once per day whenever he makes a challenge. While this challenge is in effect, all melee and ranged weapons deal the minimum amount of damage to the samurai, unless the attack scored is a critical hit. In addition, the samurai remains conscious and is not staggered while he is below 0 hit points. While using this ability, the samurai cannot be killed by melee or ranged weapons unless they are wielded by the target of his challenge. Attacks made by opponents that are not the target of his challenge deal no damage when samurai has 0 or fewer hit points. This ability has no effect on spells, environmental effects, supernatural abilities, or any other source of damage other than melee and ranged weapons. Such sources of damage affect him normally and can kill him (although they do not cause him to fall unconscious or to become staggered if they reduce his hit points below 0). This effect lasts until the challenge ends or the samurai takes an offensive action against a target other than the target of his challenge. : At 20th level, a samurai can make a last stand once per day whenever he makes a challenge. While this challenge is in effect, all melee and ranged weapons deal the minimum amount of damage to the samurai, unless the attack scored is a critical hit. In addition, the samurai remains conscious and is not staggered while he is below 0 hit points. While using this ability, the samurai cannot be killed by melee or ranged weapons unless they are wielded by the target of his challenge. Attacks made by opponents that are not the target of his challenge deal no damage when samurai has 0 or fewer hit points. This ability has no effect on spells, environmental effects, supernatural abilities, or any other source of damage other than melee and ranged weapons. Such sources of damage affect him normally and can kill him (although they do not cause him to fall unconscious or to become staggered if they reduce his hit points below 0). This effect lasts until the challenge ends or the samurai takes an offensive action against a target other than the target of his challenge."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Antipaladin",
+      "source": "Advanced Player's Guide",
+      "source_id": "pfrpg_core:antipaladin",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "base"
+      ],
+      "references": [
+        "AoN: Antipaladin (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Antipaladin"
+      ],
+      "description": "Antipaladin: HD d10, skill points 2+Int. Class skills: Bluff, Craft, Disguise, Handle Animal, Intimidate, Knowledge (religion), Profession, Ride. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d10",
+        "starting_wealth": "5d6 x 10 gp (average 175 gp)",
+        "class_skills": [
+          "Bluff",
+          "Craft",
+          "Disguise",
+          "Handle Animal",
+          "Intimidate",
+          "Knowledge (religion)",
+          "Profession",
+          "Ride",
+          "Sense Motive",
+          "Spellcraft",
+          "Stealth"
+        ],
+        "skill_points_per_level": 2,
+        "proficiencies": "Antipaladins are proficient with all simple and martial weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields)",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 1,
+            "fort": 2,
+            "ref": 0,
+            "will": 2,
+            "special": [
+              "Aura of evil",
+              "detect good",
+              "smite good 1/day"
+            ]
+          },
+          {
+            "level": 2,
+            "bab": 2,
+            "fort": 3,
+            "ref": 0,
+            "will": 3,
+            "special": [
+              "Touch of corruption",
+              "unholy resilience"
+            ]
+          },
+          {
+            "level": 3,
+            "bab": 3,
+            "fort": 3,
+            "ref": 1,
+            "will": 3,
+            "special": [
+              "Aura of cowardice",
+              "cruelty",
+              "plague bringer"
+            ]
+          },
+          {
+            "level": 4,
+            "bab": 4,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Channel negative energy",
+              "smite good 2/day"
+            ],
+            "spells_per_day": {
+              "1st": "0"
+            }
+          },
+          {
+            "level": 5,
+            "bab": 5,
+            "fort": 4,
+            "ref": 1,
+            "will": 4,
+            "special": [
+              "Fiendish boon"
+            ],
+            "spells_per_day": {
+              "1st": "1"
+            }
+          },
+          {
+            "level": 6,
+            "bab": 6,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Cruelty"
+            ],
+            "spells_per_day": {
+              "1st": "1"
+            }
+          },
+          {
+            "level": 7,
+            "bab": 7,
+            "fort": 5,
+            "ref": 2,
+            "will": 5,
+            "special": [
+              "Smite good 3/day"
+            ],
+            "spells_per_day": {
+              "1st": "1",
+              "2nd": "0"
+            }
+          },
+          {
+            "level": 8,
+            "bab": 8,
+            "fort": 6,
+            "ref": 2,
+            "will": 6,
+            "special": [
+              "Aura of despair"
+            ],
+            "spells_per_day": {
+              "1st": "1",
+              "2nd": "1"
+            }
+          },
+          {
+            "level": 9,
+            "bab": 9,
+            "fort": 6,
+            "ref": 3,
+            "will": 6,
+            "special": [
+              "Cruelty"
+            ],
+            "spells_per_day": {
+              "1st": "2",
+              "2nd": "1"
+            }
+          },
+          {
+            "level": 10,
+            "bab": 10,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Smite good 4/day"
+            ],
+            "spells_per_day": {
+              "1st": "2",
+              "2nd": "1",
+              "3rd": "0"
+            }
+          },
+          {
+            "level": 11,
+            "bab": 11,
+            "fort": 7,
+            "ref": 3,
+            "will": 7,
+            "special": [
+              "Aura of vengeance"
+            ],
+            "spells_per_day": {
+              "1st": "2",
+              "2nd": "1",
+              "3rd": "1"
+            }
+          },
+          {
+            "level": 12,
+            "bab": 12,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Cruelty"
+            ],
+            "spells_per_day": {
+              "1st": "2",
+              "2nd": "2",
+              "3rd": "1"
+            }
+          },
+          {
+            "level": 13,
+            "bab": 13,
+            "fort": 8,
+            "ref": 4,
+            "will": 8,
+            "special": [
+              "Smite good 5/day"
+            ],
+            "spells_per_day": {
+              "1st": "3",
+              "2nd": "2",
+              "3rd": "1",
+              "4th": "0"
+            }
+          },
+          {
+            "level": 14,
+            "bab": 14,
+            "fort": 9,
+            "ref": 4,
+            "will": 9,
+            "special": [
+              "Aura of sin"
+            ],
+            "spells_per_day": {
+              "1st": "3",
+              "2nd": "2",
+              "3rd": "1",
+              "4th": "1"
+            }
+          },
+          {
+            "level": 15,
+            "bab": 15,
+            "fort": 9,
+            "ref": 5,
+            "will": 9,
+            "special": [
+              "Cruelty"
+            ],
+            "spells_per_day": {
+              "1st": "3",
+              "2nd": "2",
+              "3rd": "2",
+              "4th": "1"
+            }
+          },
+          {
+            "level": 16,
+            "bab": 16,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Smite good 6/day"
+            ],
+            "spells_per_day": {
+              "1st": "3",
+              "2nd": "3",
+              "3rd": "2",
+              "4th": "1"
+            }
+          },
+          {
+            "level": 17,
+            "bab": 17,
+            "fort": 10,
+            "ref": 5,
+            "will": 10,
+            "special": [
+              "Aura of depravity"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "2",
+              "4th": "1"
+            }
+          },
+          {
+            "level": 18,
+            "bab": 18,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Cruelty"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "2",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 19,
+            "bab": 19,
+            "fort": 11,
+            "ref": 6,
+            "will": 11,
+            "special": [
+              "Smite good 7/day"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "3",
+              "3rd": "3",
+              "4th": "2"
+            }
+          },
+          {
+            "level": 20,
+            "bab": 20,
+            "fort": 12,
+            "ref": 6,
+            "will": 12,
+            "special": [
+              "Unholy champion"
+            ],
+            "spells_per_day": {
+              "1st": "4",
+              "2nd": "4",
+              "3rd": "3",
+              "4th": "3"
+            }
+          }
+        ],
+        "features": [
+          {
+            "name": "Weapon and Armor Proficiency",
+            "kind": null,
+            "levels": [],
+            "text": "Antipaladins are proficient with all simple and martial weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields). : Antipaladins are proficient with all simple and martial weapons, with all types of armor (heavy, medium, and light), and with shields (except tower shields)."
+          },
+          {
+            "name": "Aura of Evil",
+            "kind": "Ex",
+            "levels": [
+              1
+            ],
+            "text": "The power of an antipaladin's aura of evil (see the : The power of an antipaladin's aura of evil (see the detect evil spell) is equal to his antipaladin level. A paladin who uses smite evil on an antipaladin deals 2 points of damage per paladin level on his first successful attack."
+          },
+          {
+            "name": "Detect Good",
+            "kind": "Sp",
+            "levels": [
+              1
+            ],
+            "text": "At will, an antipaladin can use : At will, an antipaladin can use detect good , as the spell. An antipaladin can, as a move action, concentrate on a single item or individual within 60 feet and determine if it is good, learning the strength of its aura as if having studied it for 3 rounds. While focusing on one individual or object, the antipaladin does not detect good in any other object or individual within range."
+          },
+          {
+            "name": "Smite Good",
+            "kind": "Su",
+            "levels": [],
+            "text": "Once per day, an antipaladin can call out to the dark powers to crush the forces of good. As a swift action, the antipaladin chooses one target within sight to smite. If this target is good, the antipaladin adds his Charisma bonus (if any) on his attack rolls and adds his antipaladin level on all damage rolls made against the target of his smite. If the target of smite good is an outsider with the good subtype, a good-aligned dragon, or a good creature with levels of cleric or paladin, the bonus to damage on the first successful attack increases to 2 points of damage per level the antipaladin possesses. Regardless of the target, smite good attacks automatically bypass any DR the creature might possess. : Once per day, an antipaladin can call out to the dark powers to crush the forces of good. As a swift action, the antipaladin chooses one target within sight to smite. If this target is good, the antipaladin adds his Charisma bonus (if any) on his attack rolls and adds his antipaladin level on all damage rolls made against the target of his smite. If the target of smite good is an outsider with the good subtype, a good-aligned dragon, or a good creature with levels of cleric or paladin, the bonus to damage on the first successful attack increases to 2 points of damage per level the antipaladin possesses. Regardless of the target, smite good attacks automatically bypass any DR the creature might possess. In addition, while smite good is in effect, the antipaladin gains a deflection bonus equal to his Charisma modifier (if any) to his AC against attacks made by the target of the smite. If the antipaladin targets a creature that is not good, the smite is wasted with no effect. The smite good effect remains until the target of the smite is dead or the next time the antipaladin rests and regains his uses of this ability. At 4th level, and at every three levels thereafter, the antipaladin may smite good one additional time per day, as indicated on Table 2–13, to a maximum of seven times per day at 19th level."
+          },
+          {
+            "name": "Unholy Resilience",
+            "kind": "Su",
+            "levels": [
+              2
+            ],
+            "text": "At 2nd level, an antipaladin gains a bonus equal to his Charisma bonus (if any) on all saving throws. : At 2nd level, an antipaladin gains a bonus equal to his Charisma bonus (if any) on all saving throws."
+          },
+          {
+            "name": "Touch of Corruption",
+            "kind": "Su",
+            "levels": [
+              2
+            ],
+            "text": "Beginning at 2nd level, an antipaladin surrounds his hand with a fiendish flame, causing terrible wounds to open on those he touches. Each day he can use this ability a number of times equal to 1/2 his antipaladin level + his Charisma modifier. As a touch attack, an antipaladin can cause 1d6 points of damage for every two antipaladin levels he possesses. Using this ability is a standard action that does not provoke attacks of opportunity. : Beginning at 2nd level, an antipaladin surrounds his hand with a fiendish flame, causing terrible wounds to open on those he touches. Each day he can use this ability a number of times equal to 1/2 his antipaladin level + his Charisma modifier. As a touch attack, an antipaladin can cause 1d6 points of damage for every two antipaladin levels he possesses. Using this ability is a standard action that does not provoke attacks of opportunity. Alternatively, an antipaladin can use this power to heal undead creatures, restoring 1d6 hit points for every two levels the antipaladin possesses. This ability is modified by any feat, spell, or effect that specifically works with the lay on hands paladin class feature. For example, the Extra Lay On Hands feat grants an antipaladin 2 additional uses of the touch of corruption class feature."
+          },
+          {
+            "name": "Aura of Cowardice",
+            "kind": "Su",
+            "levels": [
+              3
+            ],
+            "text": "At 3rd level, an antipaladin radiates a palpably daunting aura that causes all enemies within 10 feet to take a –4 penalty on saving throws against fear effects. Creatures that are normally immune to fear lose that immunity while within 10 feet of an antipaladin with this ability. This ability functions only while the antipaladin remains conscious, not if he is unconscious or dead. : At 3rd level, an antipaladin radiates a palpably daunting aura that causes all enemies within 10 feet to take a –4 penalty on saving throws against fear effects. Creatures that are normally immune to fear lose that immunity while within 10 feet of an antipaladin with this ability. This ability functions only while the antipaladin remains conscious, not if he is unconscious or dead."
+          },
+          {
+            "name": "Plague Bringer",
+            "kind": "Ex",
+            "levels": [
+              3
+            ],
+            "text": "At 3rd level, the powers of darkness make an antipaladin a beacon of corruption and disease. An antipaladin does not take any damage or take any penalty from diseases. He can still contract diseases and spread them to others, but he is otherwise immune to their effects. : At 3rd level, the powers of darkness make an antipaladin a beacon of corruption and disease. An antipaladin does not take any damage or take any penalty from diseases. He can still contract diseases and spread them to others, but he is otherwise immune to their effects."
+          },
+          {
+            "name": "Cruelty",
+            "kind": "Su",
+            "levels": [
+              3,
+              6,
+              9,
+              12,
+              15,
+              18
+            ],
+            "text": "At 3rd level, and every three levels thereafter, an antipaladin can select one cruelty. Each cruelty adds an effect to the antipaladin's touch of corruption ability. Whenever the antipaladin uses touch of corruption to deal damage to one target, the target also receives the additional effect from one of the cruelties possessed by the antipaladin. This choice is made when the touch is used. The target receives a Fortitude save to avoid this cruelty. If the save is successful, the target takes the damage as normal, but not the effects of the cruelty. The DC of this save is equal to 10 + 1/2 the antipaladin's level + the antipaladin's Charisma modifier. At 3rd level, the antipaladin can select from the following initial cruelties. : At 3rd level, and every three levels thereafter, an antipaladin can select one cruelty. Each cruelty adds an effect to the antipaladin's touch of corruption ability. Whenever the antipaladin uses touch of corruption to deal damage to one target, the target also receives the additional effect from one of the cruelties possessed by the antipaladin. This choice is made when the touch is used. The target receives a Fortitude save to avoid this cruelty. If the save is successful, the target takes the damage as normal, but not the effects of the cruelty. The DC of this save is equal to 10 + 1/2 the antipaladin's level + the antipaladin's Charisma modifier. At 3rd level, the antipaladin can select from the following initial cruelties. Fatigued : The target is fatigued. Shaken : The target is shaken for 1 round per level of the antipaladin. Sickened : The target is sickened for 1 round per level of the antipaladin. At 6th level, an antipaladin adds the following cruelties to the list of those that can be selected. Dazed : The target is dazed for 1 round. Diseased : The target contracts a disease, as if the antipaladin had cast contagion , using his antipaladin level as his caster level. Staggered : The target is staggered for 1 round per two levels of the antipaladin. At 9th level, an antipaladin adds the following cruelties to the list of those that can be selected. Cursed : The target is cursed, as if the antipaladin had cast bestow curse , using his antipaladin level as his caster level. Exhausted : The target is exhausted. The antipaladin must have the fatigue cruelty before selecting this cruelty. Frightened : The target is frightened for 1 round per two levels of the antipaladin. The antipaladin must have the shaken cruelty before selecting this cruelty. Nauseated : The target is nauseated for 1 round per three levels of the antipaladin. The antipaladin must have the sickened cruelty before selecting this cruelty. Poisoned : The target is poisoned, as if the antipaladin had cast poison , using the antipaladin's level as the caster level. At 12th level, an antipaladin adds the following cruelties to the list of those that can be selected. Blinded : The target is blinded for 1 round per level of the antipaladin. Deafened : The target is deafened for 1 round per level of the antipaladin. Paralyzed : The target is paralyzed for 1 round. Stunned : The target is stunned for 1 round per four levels of the antipaladin. These abilities are not cumulative. For example, a 12th-level antipaladin's touch of corruption ability deals 6d6 points of damage and might also cause the target to become fatigued, dazed, poisoned, or diseased. Once a cruelty is chosen, it can't be changed."
+          },
+          {
+            "name": "Channel Negative Energy",
+            "kind": "Su",
+            "levels": [
+              4
+            ],
+            "text": "When an antipaladin reaches 4th level, he gains the supernatural ability to channel negative energy like a : When an antipaladin reaches 4th level, he gains the supernatural ability to channel negative energy like a cleric . Using this ability consumes two uses of his touch of corruption ability. An antipaladin uses his level as his effective cleric level when channeling negative energy. This is a Charisma-based ability."
+          },
+          {
+            "name": "Spells",
+            "kind": null,
+            "levels": [],
+            "text": "Beginning at 4th level, an antipaladin gains the ability to cast a small number of divine spells which are drawn from the : Beginning at 4th level, an antipaladin gains the ability to cast a small number of divine spells which are drawn from the antipaladin spell list presented in Chapter 5. An antipaladin must choose and prepare his spells in advance. To prepare or cast a spell, an antipaladin must have a Charisma score equal to at least 10 + the spell level. The Difficulty Class for a saving throw against an antipaladin's spell is 10 + the spell level + the antipaladin's Charisma modifier. Like other spellcasters, an antipaladin can cast only a certain number of spells of each spell level per day. His base daily spell allotment is the same as that of a paladin and is given on Table 2–13. In addition, he receives bonus spells per day if he has a high Charisma score (see Table 1–3 in the Core Rulebook). When Table 2–13 indicates that the antipaladin gets 0 spells per day of a given spell level, he gains only the bonus spells he would be entitled to based on his Charisma score for that spell level. An antipaladin must spend 1 hour each day in quiet prayer and meditation to regain his daily allotment of spells. An antipaladin may prepare and cast any spell on the antipaladin spell list, provided that he can cast spells of that level, but he must choose which spells to prepare during his daily meditation. Through 3rd level, an antipaladin has no caster level. At 4th level and higher, his caster level is equal to his antipaladin level –3."
+          },
+          {
+            "name": "Fiendish Boon",
+            "kind": "Sp",
+            "levels": [
+              5
+            ],
+            "text": "Upon reaching 5th level, an antipaladin receives a boon from his dark patrons. This boon can take one of two forms. Once the form is chosen, it cannot be changed. : Upon reaching 5th level, an antipaladin receives a boon from his dark patrons. This boon can take one of two forms. Once the form is chosen, it cannot be changed. The first type of bond allows the antipaladin to enhance his weapon as a standard action by calling upon the aid of a fiendish spirit for 1 minute per antipaladin level. When called, the spirit causes the weapon to shed unholy light as a torch. At 5th level, this spirit grants the weapon a +1 enhancement bonus. For every three levels beyond 5th, the weapon gains another +1 enhancement bonus, to a maximum of +6 at 20th level. These bonuses can be added to the weapon, stacking with existing weapon bonuses to a maximum of +5, or they can be used to add any of the following weapon properties: anarchic , flaming , flaming burst , keen , speed , unholy , vicious , vorpal , and wounding . Adding these properties consumes an amount of bonus equal to the property's cost. These bonuses are added to any properties the weapon already has, but duplicate abilities do not stack. If the weapon is not magical, at least a +1 enhancement bonus must be added before any other properties can be added. The bonus and properties granted by the spirit are determined when the spirit is called and cannot be changed until the spirit is called again. The fiendish spirit imparts no bonuses if the weapon is held by anyone other than the antipaladin but resumes giving bonuses if returned to the antipaladin. These bonuses apply to only one end of a double weapon. An antipaladin can use this ability once per day at 5th level, and one additional time per day for every four levels beyond 5th, to a total of four times per day at 17th level. If a weapon bonded with a fiendish spirit is destroyed, the antipaladin loses the use of this ability for 30 days, or until he gains a level, whichever comes first. During this 30-day period, the antipaladin takes a –1 penalty on attack and weapon damage rolls. The second type of bond allows an antipaladin to gain the service of a fiendish servant. This functions as summon monster III , except the duration is permanent and the antipaladin can only gain the service of a single creature and that creature must either have the chaotic and evil subtypes or it must be a fiendish animal. Once selected, the choice is set, but it may be changed whenever the antipaladin gains a level. Upon reaching 7th level, and every two levels thereafter, the level of the summon monster spell increases by one, to a maximum of summon monster IX at 17th level. Once per day, as a full-round action, an antipaladin may magically call his servant to his side. This ability is the equivalent of a spell of a level equal to one-third the antipaladin's level. The servant immediately appears adjacent to the antipaladin. An antipaladin can use this ability once per day at 5th level, and one additional time per day for every four levels thereafter, for a total of four times per day at 17th level. At 11th level, the servant gains the advanced template (see the Pathfinder RPG Bestiary ). At 15th level, an antipaladin's servant gains spell resistance equal to the antipaladin's level + 11. Should the antipaladin's fiendish servant die or be banished, the antipaladin may not summon another servant for 30 days or until he gains an antipaladin level, whichever comes first. During this 30-day period, the antipaladin takes a –1 penalty on attack and weapon damage rolls."
+          },
+          {
+            "name": "Aura of Despair",
+            "kind": "Su",
+            "levels": [
+              8
+            ],
+            "text": "At 8th level, enemies within 10 feet of an antipaladin take a –2 penalty on all saving throws. This penalty does not stack with the penalty from aura of cowardice. : At 8th level, enemies within 10 feet of an antipaladin take a –2 penalty on all saving throws. This penalty does not stack with the penalty from aura of cowardice. This ability functions only while the antipaladin is conscious, not if he is unconscious or dead."
+          },
+          {
+            "name": "Aura of Vengeance",
+            "kind": "Su",
+            "levels": [
+              11
+            ],
+            "text": "At 11th level, an antipaladin can expend two uses of his smite good ability to grant the ability to smite good to all allies within 10 feet, using his bonuses. Allies must use this smite good ability by the start of the antipaladin's next turn and the bonuses last for 1 minute. Using this ability is a free action. Good creatures gain no benefit from this ability. : At 11th level, an antipaladin can expend two uses of his smite good ability to grant the ability to smite good to all allies within 10 feet, using his bonuses. Allies must use this smite good ability by the start of the antipaladin's next turn and the bonuses last for 1 minute. Using this ability is a free action. Good creatures gain no benefit from this ability."
+          },
+          {
+            "name": "Aura of Sin",
+            "kind": "Su",
+            "levels": [
+              14
+            ],
+            "text": "At 14th level, an antipaladin's weapons are treated as evil-aligned for the purposes of overcoming damage reduction. Any attack made against an enemy within 10 feet of him is treated as evil-aligned for the purposes of overcoming damage reduction. This ability functions only while the antipaladin is conscious, not if he is unconscious or dead. : At 14th level, an antipaladin's weapons are treated as evil-aligned for the purposes of overcoming damage reduction. Any attack made against an enemy within 10 feet of him is treated as evil-aligned for the purposes of overcoming damage reduction. This ability functions only while the antipaladin is conscious, not if he is unconscious or dead."
+          },
+          {
+            "name": "Aura of Depravity",
+            "kind": "Su",
+            "levels": [
+              17
+            ],
+            "text": "At 17th level, an antipaladin gains DR 5/good. Each enemy within 10 feet takes a –4 penalty on saving throws against compulsion effects. This ability functions only while the antipaladin is conscious, not if he is unconscious or dead. : At 17th level, an antipaladin gains DR 5/good. Each enemy within 10 feet takes a –4 penalty on saving throws against compulsion effects. This ability functions only while the antipaladin is conscious, not if he is unconscious or dead."
+          },
+          {
+            "name": "Unholy Champion",
+            "kind": "Su",
+            "levels": [
+              20
+            ],
+            "text": "At 20th level, an antipaladin becomes a conduit for the might of the dark powers. His DR increases to 10/good. Whenever he uses smite good and successfully strikes an good outsider, the outsider is also subject to a : At 20th level, an antipaladin becomes a conduit for the might of the dark powers. His DR increases to 10/good. Whenever he uses smite good and successfully strikes an good outsider, the outsider is also subject to a banishment , using his antipaladin level as the caster level (his weapon and unholy symbol automatically count as objects that the subject hates). After the banishment effect and the damage from the attack is resolved, the smite immediately ends. In addition, whenever he channels negative energy or uses touch of corruption to damage a creature, he deals the maximum possible amount."
+          },
+          {
+            "name": "Code of Conduct",
+            "kind": null,
+            "levels": [],
+            "text": "An antipaladin must be of chaotic evil alignment and loses all class features except proficiencies if he willingly and altruistically commits good acts. This does not mean that an antipaladin cannot take actions someone else might qualify as good, only that such actions must always be in service of his own dark ends. An antipaladin's code requires that he place his own interests and desires above all else, as well as impose tyranny, take advantage whenever possible, and punish the good and just, provided such actions don't interfere with his goals. : An antipaladin must be of chaotic evil alignment and loses all class features except proficiencies if he willingly and altruistically commits good acts. This does not mean that an antipaladin cannot take actions someone else might qualify as good, only that such actions must always be in service of his own dark ends. An antipaladin's code requires that he place his own interests and desires above all else, as well as impose tyranny, take advantage whenever possible, and punish the good and just, provided such actions don't interfere with his goals."
+          },
+          {
+            "name": "Associates",
+            "kind": null,
+            "levels": [],
+            "text": "While he may adventure with evil or neutral allies, an antipaladin avoids working with good characters or with anyone who consistently attempts to do good deeds. Under exceptional circumstances, an antipaladin can ally with good associates, but only to defeat them from within and bring ruin to their ranks. An antipaladin does not need an : While he may adventure with evil or neutral allies, an antipaladin avoids working with good characters or with anyone who consistently attempts to do good deeds. Under exceptional circumstances, an antipaladin can ally with good associates, but only to defeat them from within and bring ruin to their ranks. An antipaladin does not need an atonement spell during such an unusual alliance as long as his nefarious goals are met in the end—evil cares only about results. An antipaladin may accept only henchmen, followers, or cohorts who are chaotic evil."
+          }
+        ]
+      }
+    },
+    {
+      "name": "Vigilante",
+      "source": "Ultimate Intrigue",
+      "source_id": "pfrpg_core:vigilante",
+      "prerequisites": [],
+      "tags": [
+        "class",
+        "base"
+      ],
+      "references": [
+        "AoN: Vigilante (Classes)"
+      ],
+      "reference_urls": [
+        "https://aonprd.com/ClassDisplay.aspx?ItemName=Vigilante"
+      ],
+      "description": "Vigilante: HD d8, skill points 6+Int. Class skills: Acrobatics, Appraise, Bluff, Climb, Craft, Diplomacy, Disable Device, Disguise. Progressione su 20 livelli.",
+      "mechanics": {
+        "hd": "d8",
+        "starting_wealth": "5d6 x 10 gp (average 175 gp)",
+        "class_skills": [
+          "Acrobatics",
+          "Appraise",
+          "Bluff",
+          "Climb",
+          "Craft",
+          "Diplomacy",
+          "Disable Device",
+          "Disguise",
+          "Escape Artist",
+          "Intimidate",
+          "Knowledge (dungeoneering)",
+          "Knowledge (engineering)",
+          "Knowledge (local)",
+          "Knowledge (nobility)",
+          "Perception",
+          "Perform",
+          "Profession",
+          "Ride",
+          "Sense Motive",
+          "Sleight of Hand",
+          "Stealth",
+          "Survival",
+          "Swim",
+          "Use Magic Device"
+        ],
+        "skill_points_per_level": 6,
+        "proficiencies": "Vigilantes are proficient with all simple and martial weapons, light armor, medium armor, and shields (except tower shields)",
+        "progression": [
+          {
+            "level": 1,
+            "bab": 0,
+            "fort": 0,
+            "ref": 2,
+            "will": 2,
+            "special": [
+              "Dual identity",
+              "seamless guise",
+              "social talent",
+              "vigilante specialization"
+            ]
+          },
+          {
+            "level": 2,
+            "bab": 1,
+            "fort": 0,
+            "ref": 3,
+            "will": 3,
+            "special": [
+              "Vigilante talent"
+            ]
+          },
+          {
+            "level": 3,
+            "bab": 2,
+            "fort": 1,
+            "ref": 3,
+            "will": 3,
+            "special": [
+              "Social talent",
+              "unshakable"
+            ]
+          },
+          {
+            "level": 4,
+            "bab": 3,
+            "fort": 1,
+            "ref": 4,
+            "will": 4,
+            "special": [
+              "Vigilante talent"
+            ]
+          },
+          {
+            "level": 5,
+            "bab": 3,
+            "fort": 1,
+            "ref": 4,
+            "will": 4,
+            "special": [
+              "Social talent",
+              "startling appearance"
+            ]
+          },
+          {
+            "level": 6,
+            "bab": 4,
+            "fort": 2,
+            "ref": 5,
+            "will": 5,
+            "special": [
+              "Vigilante talent"
+            ]
+          },
+          {
+            "level": 7,
+            "bab": 5,
+            "fort": 2,
+            "ref": 5,
+            "will": 5,
+            "special": [
+              "Social talent"
+            ]
+          },
+          {
+            "level": 8,
+            "bab": 6,
+            "fort": 2,
+            "ref": 6,
+            "will": 6,
+            "special": [
+              "Vigilante talent"
+            ]
+          },
+          {
+            "level": 9,
+            "bab": 6,
+            "fort": 3,
+            "ref": 6,
+            "will": 6,
+            "special": [
+              "Social talent"
+            ]
+          },
+          {
+            "level": 10,
+            "bab": 7,
+            "fort": 3,
+            "ref": 7,
+            "will": 7,
+            "special": [
+              "Vigilante talent"
+            ]
+          },
+          {
+            "level": 11,
+            "bab": 8,
+            "fort": 3,
+            "ref": 7,
+            "will": 7,
+            "special": [
+              "Frightening appearance",
+              "social talent"
+            ]
+          },
+          {
+            "level": 12,
+            "bab": 9,
+            "fort": 4,
+            "ref": 8,
+            "will": 8,
+            "special": [
+              "Vigilante talent"
+            ]
+          },
+          {
+            "level": 13,
+            "bab": 9,
+            "fort": 4,
+            "ref": 8,
+            "will": 8,
+            "special": [
+              "Social talent"
+            ]
+          },
+          {
+            "level": 14,
+            "bab": 10,
+            "fort": 4,
+            "ref": 9,
+            "will": 9,
+            "special": [
+              "Vigilante talent"
+            ]
+          },
+          {
+            "level": 15,
+            "bab": 11,
+            "fort": 5,
+            "ref": 9,
+            "will": 9,
+            "special": [
+              "Social talent"
+            ]
+          },
+          {
+            "level": 16,
+            "bab": 12,
+            "fort": 5,
+            "ref": 10,
+            "will": 10,
+            "special": [
+              "Vigilante talent"
+            ]
+          },
+          {
+            "level": 17,
+            "bab": 12,
+            "fort": 5,
+            "ref": 10,
+            "will": 10,
+            "special": [
+              "Social talent",
+              "stunning appearance"
+            ]
+          },
+          {
+            "level": 18,
+            "bab": 13,
+            "fort": 6,
+            "ref": 11,
+            "will": 11,
+            "special": [
+              "Vigilante talent"
+            ]
+          },
+          {
+            "level": 19,
+            "bab": 14,
+            "fort": 6,
+            "ref": 11,
+            "will": 11,
+            "special": [
+              "Social talent"
+            ]
+          },
+          {
+            "level": 20,
+            "bab": 15,
+            "fort": 6,
+            "ref": 12,
+            "will": 12,
+            "special": [
+              "Vengeance strike",
+              "vigilante talent"
+            ]
+          }
+        ],
+        "features": [
+          {
+            "name": "Weapon and Armor Proficiency",
+            "kind": null,
+            "levels": [],
+            "text": "Vigilantes are proficient with all simple and martial weapons, light armor, medium armor, and shields (except tower shields). : Vigilantes are proficient with all simple and martial weapons, light armor, medium armor, and shields (except tower shields)."
+          },
+          {
+            "name": "Dual Identity",
+            "kind": "Ex",
+            "levels": [
+              1
+            ],
+            "text": "A vigilante hides his true identity, allowing him to move about social circles and nobility without carrying the stigma of his ruthless actions. In effect, the vigilante has two identities: one is a polite member of society while the other is a skilled and cunning warrior. To keep up this charade, the vigilante usually has two names: his true name, used in polite company, and his vigilante name, used to strike fear in the hearts of those who oppose him. Knowledge checks about one do not reveal information about the other, unless the vigilante’s true identity revealed to the world at large. : A vigilante hides his true identity, allowing him to move about social circles and nobility without carrying the stigma of his ruthless actions. In effect, the vigilante has two identities: one is a polite member of society while the other is a skilled and cunning warrior. To keep up this charade, the vigilante usually has two names: his true name, used in polite company, and his vigilante name, used to strike fear in the hearts of those who oppose him. Knowledge checks about one do not reveal information about the other, unless the vigilante’s true identity revealed to the world at large. The vigilante can start each day in either of his identities, referred to simply as social or vigilante. Changing from one identity to another takes 1 minute and must be done out of sight from other creatures to preserve the vigilante’s secret. Changing identities is more than just changing outfits and clothing (although that is certainly a part of it); the process often also involves applying make-up, altering his hair, and adjusting other personal effects. Furthermore, the change is as much a state of mind as of body, so items such as a hat of disguise and similar spells and effects that change the user’s appearance do not reduce the time required to change identities. Most social talents require the vigilante to be in his social identity, but a vigilante who uses vigilante talents in his social identity risks exposing his secret. Despite being a single person, a vigilante’s dual nature allows him to have two alignments, one for each of his identities. When in an identity, he is treated as having that identity’s alignment for all spells, magic items, and abilities that rely on alignment. For the purpose of meeting a qualification for a feat, class, or any ability, he is only eligible if both of his alignments meet the requirements. A vigilante’s two alignments cannot be more than one step from each other on a single alignment axis. For example, a vigilante with a lawful neutral social identity could have a vigilante identity that is lawful good, lawful neutral, lawful evil, neutral, neutral good, or neutral evil. If a vigilante is the target of an effect that would change his alignment, it changes both of his alignments to the new alignment. Any attempts to scry or otherwise locate the vigilante work only if the vigilante is currently in the identity the creature is attempting to locate (or if the creature knows that the two identities are the same individual). Otherwise, the spell or effect has no effect, revealing nothing but darkness, as if the target were invalid or did not exist."
+          },
+          {
+            "name": "Seamless Guise",
+            "kind": "Ex",
+            "levels": [
+              1
+            ],
+            "text": "A vigilante knows how to behave in a way that appears perfectly proper and normal for his current identity. Should anyone suspect him of being anything other than what he appears to be while either in his social or vigilante identity, he can attempt a Disguise check with a +20 circumstance bonus to appear as his current identity, and not as his other identity. : A vigilante knows how to behave in a way that appears perfectly proper and normal for his current identity. Should anyone suspect him of being anything other than what he appears to be while either in his social or vigilante identity, he can attempt a Disguise check with a +20 circumstance bonus to appear as his current identity, and not as his other identity."
+          },
+          {
+            "name": "Social Talent",
+            "kind": null,
+            "levels": [
+              1,
+              3,
+              5,
+              7,
+              9,
+              11,
+              13,
+              15,
+              17,
+              19
+            ],
+            "text": "Starting at 1st level, and every 2 levels thereafter, a vigilante gains a social talent. Unless otherwise noted, a talent can be selected only once. Some talents require the vigilante to meet other prerequisites before they can be chosen, such as having another social talent or attaining a minimum vigilante level. Once a talent has been chosen, it cannot be changed. : Starting at 1st level, and every 2 levels thereafter, a vigilante gains a social talent. Unless otherwise noted, a talent can be selected only once. Some talents require the vigilante to meet other prerequisites before they can be chosen, such as having another social talent or attaining a minimum vigilante level. Once a talent has been chosen, it cannot be changed."
+          },
+          {
+            "name": "Vigilante Specialization",
+            "kind": "Ex",
+            "levels": [
+              1
+            ],
+            "text": "At 1st level, a vigilante must choose to be either an avenger or a stalker. : At 1st level, a vigilante must choose to be either an avenger or a stalker. An avenger gains a base attack bonus equal to his vigilante level instead of using those listed on Table 1–1. He adds this value to any other base attack bonus gained from other classes or racial Hit Dice as normal. A stalker gains an ability called hidden strike, which allows him to deal an extra 1d8 points of precision damage on melee attacks (or ranged attacks from within 30 feet) against foes who are unaware of his presence, who consider him an ally, or who are made flat-footed by startling appearance (see page 17). This extra damage increases by 1d8 at 3rd level and every 2 vigilante levels thereafter. A stalker vigilante can also deal hidden strike damage to a target that he is flanking or that is denied its Dexterity bonus to AC, but in these cases, the damage dice are reduced to d4s. A stalker can deal hidden strike damage against targets with concealment (but not total concealment). Once this choice is made, it can’t be changed. While many vigilante talents are usable by both specializations, some are unique to each specialization. A stalker vigilante can apply only one talent marked with an asterisk (*) to a given hidden strike, and only when that hidden strike is dealt against a foe that is unaware of the stalker vigilante’s presence (or who considers him an ally), unless otherwise noted."
+          },
+          {
+            "name": "Vigilante Talent",
+            "kind": null,
+            "levels": [
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20
+            ],
+            "text": "Starting at 2nd level and every 2 levels thereafter, a vigilante gains a vigilante talent. Unless otherwise noted, a talent can be selected only once. Some talents require the vigilante to meet prerequisites before they can be chosen, such as possessing another vigilante talent, possessing a particular specialization, or attaining a minimum level. Once a talent has been selected, it can’t be changed. : Starting at 2nd level and every 2 levels thereafter, a vigilante gains a vigilante talent. Unless otherwise noted, a talent can be selected only once. Some talents require the vigilante to meet prerequisites before they can be chosen, such as possessing another vigilante talent, possessing a particular specialization, or attaining a minimum level. Once a talent has been selected, it can’t be changed. If the vigilante uses any of these talents while in his social identity, he must succeed at a Disguise check against the Perception checks of all onlookers (without the +20 circumstance bonus from seamless guise) or the onlookers will realize that he is more than his social identity appears to be and perhaps discover the social and vigilante identities are one and the same. If a talent calls for a saving throw, the DC for that save is equal to 10 + 1/2 the vigilante’s level + the vigilante’s Charisma modifier, unless stated otherwise."
+          },
+          {
+            "name": "Unshakable",
+            "kind": "Ex",
+            "levels": [
+              3
+            ],
+            "text": "Starting at 3rd level, a vigilante adds his class level to the DC of any attempts to Intimidate him. : Starting at 3rd level, a vigilante adds his class level to the DC of any attempts to Intimidate him."
+          },
+          {
+            "name": "Startling Appearance",
+            "kind": "Ex",
+            "levels": [
+              5
+            ],
+            "text": "At 5th level, a vigilante learns to use the element of surprise to his advantage, startling foes that are unaware of his presence. Whenever a vigilante with this ability attempts an attack against a foe that is completely unaware of the vigilante’s presence (usually due to Stealth or invisibility), the foe is treated as flat-footed for the rest of the vigilante’s turn (uncanny dodge or a similar ability prevents this effect unless the vigilante is at least 4 levels higher than the foe with uncanny dodge). The foe also takes a –4 penalty on attacks made against the vigilante until the start of the vigilante’s next turn. : At 5th level, a vigilante learns to use the element of surprise to his advantage, startling foes that are unaware of his presence. Whenever a vigilante with this ability attempts an attack against a foe that is completely unaware of the vigilante’s presence (usually due to Stealth or invisibility), the foe is treated as flat-footed for the rest of the vigilante’s turn (uncanny dodge or a similar ability prevents this effect unless the vigilante is at least 4 levels higher than the foe with uncanny dodge). The foe also takes a –4 penalty on attacks made against the vigilante until the start of the vigilante’s next turn."
+          },
+          {
+            "name": "Frightening Appearance",
+            "kind": "Ex",
+            "levels": [
+              11
+            ],
+            "text": "At 11th level, whenever a vigilante with this ability makes an attack against a foe that is unaware of the vigilante’s presence (see startling appearance above), the vigilante can, as a free action, attempt an Intimidate check to demoralize the target of his attack and any enemies within 10 feet who can see the attack. This check is attempted before the attack roll against the foe is made and resolved. The vigilante rolls only one Intimidate check and applies the result to all the targets. If the check succeeds against the target of the vigilante’s attack, that foe is also frightened for 1 round, in addition to being shaken as normal, unless the foe succeeds at a Will save (DC = 10 + 1/2 the vigilante’s class level + his Charisma modifier). : At 11th level, whenever a vigilante with this ability makes an attack against a foe that is unaware of the vigilante’s presence (see startling appearance above), the vigilante can, as a free action, attempt an Intimidate check to demoralize the target of his attack and any enemies within 10 feet who can see the attack. This check is attempted before the attack roll against the foe is made and resolved. The vigilante rolls only one Intimidate check and applies the result to all the targets. If the check succeeds against the target of the vigilante’s attack, that foe is also frightened for 1 round, in addition to being shaken as normal, unless the foe succeeds at a Will save (DC = 10 + 1/2 the vigilante’s class level + his Charisma modifier). Once a creature has been the target of this ability (either as the target of the attack or as a nearby creature, regardless of whether or not it was successful), it is immune to that vigilante’s frightening appearance for 24 hours. This effect is in addition to the bonuses gained from the startling appearance ability. This is a mind-affecting fear effect."
+          },
+          {
+            "name": "Stunning Appearance",
+            "kind": "Ex",
+            "levels": [
+              17
+            ],
+            "text": "At 17th level, a vigilante can leave his foes unable to respond when he appears. Whenever a vigilante with this ability makes a successful attack against a foe that is unaware of the vigilante’s presence (see startling appearance), the foe must make a successful Will save (DC = 10 + 1/2 the vigilante’s class level + his Charisma modifier) or be stunned until the end of the vigilante’s next turn. If the creature has more HD than the vigilante’s class level, it receives a +4 circumstance bonus on this save. This ability is in addition to the effects of startling appearance and frightening appearance. Once a creature has been the target of this ability (regardless of whether or not the saving throw is successful), it is immune to that vigilante’s stunning appearance for 24 hours. This is a mind-affecting fear effect. : At 17th level, a vigilante can leave his foes unable to respond when he appears. Whenever a vigilante with this ability makes a successful attack against a foe that is unaware of the vigilante’s presence (see startling appearance), the foe must make a successful Will save (DC = 10 + 1/2 the vigilante’s class level + his Charisma modifier) or be stunned until the end of the vigilante’s next turn. If the creature has more HD than the vigilante’s class level, it receives a +4 circumstance bonus on this save. This ability is in addition to the effects of startling appearance and frightening appearance. Once a creature has been the target of this ability (regardless of whether or not the saving throw is successful), it is immune to that vigilante’s stunning appearance for 24 hours. This is a mind-affecting fear effect."
+          },
+          {
+            "name": "Vengeance Strike",
+            "kind": "Ex",
+            "levels": [
+              20
+            ],
+            "text": "At 20th level, a vigilante can study a target to strike more viciously. He can spend up to 5 standard actions, which all must be in consecutive rounds. On the following round, he can make a vengeance strike against the studied creature. The target must remain unaware of the vigilante’s presence (or not see him as a threat) until the attack. For each round spent studying the target, the vigilante grants himself one of the following benefits on his vengeance strike: gain a +4 circumstance bonus on the attack roll, deal an additional 3d6 points of precision damage if he hits, or treat the attack roll as if it were 2 higher for the purposes of determining whether the attack hit or threatens a critical hit (to maximum effective roll of 20). Each round of study can be spent in a different way or the same way (they stack with each other), but each round of study must be allocated before the attack roll is made. If the vigilante is an avenger, he automatically confirms any critical hits threatened by his vengeance strike. If the vigilante is a stalker and would normally be able to add a special effect from a vigilante talent with an asterisk (*) to this attack, he can instead add two special effects to his vengeance strike. : At 20th level, a vigilante can study a target to strike more viciously. He can spend up to 5 standard actions, which all must be in consecutive rounds. On the following round, he can make a vengeance strike against the studied creature. The target must remain unaware of the vigilante’s presence (or not see him as a threat) until the attack. For each round spent studying the target, the vigilante grants himself one of the following benefits on his vengeance strike: gain a +4 circumstance bonus on the attack roll, deal an additional 3d6 points of precision damage if he hits, or treat the attack roll as if it were 2 higher for the purposes of determining whether the attack hit or threatens a critical hit (to maximum effective roll of 20). Each round of study can be spent in a different way or the same way (they stack with each other), but each round of study must be allocated before the attack roll is made. If the vigilante is an avenger, he automatically confirms any critical hits threatened by his vengeance strike. If the vigilante is a stalker and would normally be able to add a special effect from a vigilante talent with an asterisk (*) to this attack, he can instead add two special effects to his vengeance strike."
+          }
+        ]
+      }
     }
   ]
 }

@@ -553,13 +553,15 @@ CLASSES_CORE = ["Barbarian", "Bard", "Cleric", "Druid", "Fighter", "Monk",
 # Le 12 classi non-core importate da aonprd (piano
 # planning/2026-07-19-missing-classes-import.md) + le 11 del lotto C4
 # (2026-07-25: Oracle, Summoner, Shaman, Skald, Swashbuckler, Warpriest,
-# Shifter e le 4 occult restanti).
+# Shifter e le 4 occult restanti) + le 5 residue del lotto C4-bis
+# (2026-07-26: Slayer, Ninja, Samurai, Antipaladin, Vigilante).
 CLASSES_MISSING = ["Alchemist", "Arcanist", "Bloodrager", "Brawler", "Cavalier",
                    "Gunslinger", "Hunter", "Inquisitor", "Investigator",
                    "Kineticist", "Medium", "Witch",
                    "Oracle", "Summoner", "Shaman", "Skald", "Swashbuckler",
                    "Warpriest", "Shifter", "Mesmerist", "Occultist", "Psychic",
-                   "Spiritualist"]
+                   "Spiritualist",
+                   "Slayer", "Ninja", "Samurai", "Antipaladin", "Vigilante"]
 
 # Fonte onesta per classe (default "PFRPG Core" per le non mappate). Lo slug di
 # source_id resta "pfrpg_core" per TUTTE le classi (decisione controller:
@@ -587,9 +589,14 @@ CLASS_SOURCES = {"Alchemist": "Advanced Player's Guide",
                  "Mesmerist": "Occult Adventures",
                  "Occultist": "Occult Adventures",
                  "Psychic": "Occult Adventures",
-                 "Spiritualist": "Occult Adventures"}
+                 "Spiritualist": "Occult Adventures",
+                 "Slayer": "Advanced Class Guide",
+                 "Ninja": "Ultimate Combat",
+                 "Samurai": "Ultimate Combat",
+                 "Antipaladin": "Advanced Player's Guide",
+                 "Vigilante": "Ultimate Intrigue"}
 
-# Tag di classe per libro fonte: core (CRB), base (APG/UC/UM), hybrid (ACG),
+# Tag di classe per libro fonte: core (CRB), base (APG/UC/UM/UI), hybrid (ACG),
 # occult (OA). KeyError voluto (fail-fast) se una fonte non e' mappata.
 CLASS_SOURCE_TAGS = {"PFRPG Core": "core",
                      "Advanced Player's Guide": "base",
@@ -597,7 +604,8 @@ CLASS_SOURCE_TAGS = {"PFRPG Core": "core",
                      "Ultimate Magic": "base",
                      "Advanced Class Guide": "hybrid",
                      "Occult Adventures": "occult",
-                     "Ultimate Wilderness": "base"}
+                     "Ultimate Wilderness": "base",
+                     "Ultimate Intrigue": "base"}
 
 
 def parse_spells_known(soup):

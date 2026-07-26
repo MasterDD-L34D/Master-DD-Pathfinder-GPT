@@ -47,9 +47,9 @@
       "is_ogc": true,
       "is_pi": false,
       "cup_allowed": false,
-      "entries": 35,
-      "notes": "Riassunti meccanici di 35 classi: 11 core + Magus (UM) + 6 APG + 1 UC + 9 ACG + 6 OA + 1 UW (Shifter); nessun nome propri. C4 2026-07-25: +11 classi non-core (Oracle, Summoner, Shaman, Skald, Swashbuckler, Warpriest, Shifter, Mesmerist, Occultist, Psychic, Spiritualist) con progressione 20 livelli, spells/day e spells known ove applicabile. Residue fuori: Slayer, Ninja, Samurai, Antipaladin, Vigilante. C2 task 1: mechanics.features core per tutte le 35 (475: name/kind(Ex,Su,Sp)/levels/text da ClassDisplay; sotto-cataloghi talenti tipo rage powers restano aperti).",
-      "last_verified": "2026-07-25"
+      "entries": 40,
+      "notes": "Riassunti meccanici di 40 classi: 11 core + Magus (UM) + 7 APG + 3 UC + 10 ACG + 6 OA + 1 UW (Shifter) + 1 UI (Vigilante); nessun nome propri. C4 2026-07-25: +11 classi non-core (Oracle, Summoner, Shaman, Skald, Swashbuckler, Warpriest, Shifter, Mesmerist, Occultist, Psychic, Spiritualist) con progressione 20 livelli, spells/day e spells known ove applicabile. C4-bis 2026-07-26: +5 residue (Slayer, Ninja, Samurai, Antipaladin, Vigilante) — tutte le classi AoN coperte. C2 task 1: mechanics.features core per tutte le 35 (475: name/kind(Ex,Su,Sp)/levels/text da ClassDisplay; sotto-cataloghi talenti tipo rage powers restano aperti).",
+      "last_verified": "2026-07-26"
     },
     {
       "file": "ogl/races.json",
@@ -255,7 +255,7 @@
     },
     "classes": {
       "path": "ogl/classes.json",
-      "entries": 35
+      "entries": 40
     },
     "races": {
       "path": "ogl/races.json",
