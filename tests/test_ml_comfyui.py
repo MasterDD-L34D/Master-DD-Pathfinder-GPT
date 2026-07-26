@@ -102,3 +102,51 @@ def test_factory_comfyui_variants(monkeypatch):
     assert get_imagine_engine("comfyui-qwen").name == "comfyui-qwen"
     with pytest.raises(ImagineUnavailable, match="sconosciuto"):
         get_imagine_engine("comfyui-xyz")
+
+
+LORAS_ENV = json.dumps({
+    "fantasy-map": {"file": "fantasy_map_v2.safetensors", "strength": 0.8},
+})
+
+
+def test_workflow_sdxl_con_lora():
+    lora = {"file": "fantasy_map_v2.safetensors", "strength": 0.8}
+    wf = build_workflow("sdxl", "un dungeon", 512, 512, 7, lora=lora)
+    # LoraLoader inserito dopo il checkpoint e riferito downstream
+    lora_nodes = [n for n in wf.values() if n["class_type"] == "LoraLoader"]
+    assert len(lora_nodes) == 1
+    assert lora_nodes[0]["inputs"]["lora_name"] == "fantasy_map_v2.safetensors"
+    assert lora_nodes[0]["inputs"]["strength_model"] == 0.8
+    sampler = wf["5"]["inputs"]
+    text_enc = wf["2"]["inputs"]
+    assert sampler["model"][0] != "1"  # il modello arriva dal LoraLoader
+    assert text_enc["clip"][0] != "1"
+
+
+def test_workflow_senza_lora_resta_invariato():
+    wf = build_workflow("sdxl", "p", 64, 64, 1)
+    assert all(n["class_type"] != "LoraLoader" for n in wf.values())
+
+
+def test_lora_registry_da_env(monkeypatch):
+    from src.ml.comfyui import parse_loras
+    monkeypatch.setenv("ML_IMG_LORAS", LORAS_ENV)
+    loras = parse_loras()
+    assert loras["fantasy-map"]["file"] == "fantasy_map_v2.safetensors"
+    # alias sconosciuto: errore onesto
+    engine = ComfyUIEngine("http://127.0.0.1:8188", "sdxl", loras=loras)
+    with pytest.raises(ImagineUnavailable, match="lora sconosciuto"):
+        engine.generate("p", 64, 64, 1, lora="non-esiste")
+
+
+def test_lora_env_malformato(monkeypatch):
+    from src.ml.comfyui import parse_loras
+    monkeypatch.setenv("ML_IMG_LORAS", "{non e' json")
+    with pytest.raises(ImagineUnavailable, match="ML_IMG_LORAS"):
+        parse_loras()
+
+
+def test_fake_engine_rifiuta_lora_onestamente():
+    fake = get_imagine_engine("fake")
+    with pytest.raises(ImagineUnavailable, match="lora"):
+        fake.generate("p", 64, 64, 1, lora="qualcosa")

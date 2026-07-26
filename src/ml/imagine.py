@@ -36,7 +36,7 @@ class ImagineEngine(Protocol):
     name: str
 
     def generate(self, prompt: str, width: int, height: int,
-                 seed: int | None) -> ImagineResult: ...
+                 seed: int | None, lora: str | None = None) -> ImagineResult: ...
 
 
 def _seed_from(prompt: str, seed: int | None) -> int:
@@ -73,7 +73,9 @@ class FakeImagineEngine:
     name = "fake"
 
     def generate(self, prompt: str, width: int, height: int,
-                 seed: int | None) -> ImagineResult:
+                 seed: int | None, lora: str | None = None) -> ImagineResult:
+        if lora:
+            raise ImagineUnavailable("lora non supportato dall'engine fake")
         s = _seed_from(prompt, seed)
         return {"png": _fake_png(s, width, height),
                 "width": width, "height": height, "engine": self.name}
@@ -100,7 +102,9 @@ class FluxImagineEngine:
         self._pipe.to(self._device)
 
     def generate(self, prompt: str, width: int, height: int,
-                 seed: int | None) -> ImagineResult:
+                 seed: int | None, lora: str | None = None) -> ImagineResult:
+        if lora:
+            raise ImagineUnavailable("lora via engine flux diretto non supportato: usa comfyui")
         import io
         import torch
         generator = torch.Generator(device=self._device).manual_seed(
@@ -128,7 +132,9 @@ class ApiImagineEngine:
         self._api_key = api_key
 
     def generate(self, prompt: str, width: int, height: int,
-                 seed: int | None) -> ImagineResult:
+                 seed: int | None, lora: str | None = None) -> ImagineResult:
+        if lora:
+            raise ImagineUnavailable("lora non supportato dall'engine api")
         import json
         import urllib.error
         import urllib.request
@@ -175,8 +181,9 @@ def get_imagine_engine(force: str | None = None) -> ImagineEngine:
         from src.ml.comfyui import DEFAULT_COMFY_URL, ComfyUIEngine
         model = (kind.removeprefix("comfyui-") if kind != "comfyui"
                  else os.environ.get("ML_IMG_COMFY_MODEL", "sdxl"))
+        from src.ml.comfyui import parse_loras
         return ComfyUIEngine(
             base_url=os.environ.get("ML_IMG_COMFY_URL", DEFAULT_COMFY_URL),
-            model=model)
+            model=model, loras=parse_loras())
     raise ImagineUnavailable(f"ML_IMG_ENGINE sconosciuto: {kind!r} "
                              "(attesi: off, fake, flux, api, comfyui[-modello])")
