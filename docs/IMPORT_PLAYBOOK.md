@@ -111,6 +111,8 @@ Chiuso il debito dell'appendice di `reports/pi_feats_triage.md`: 75/77 entry fea
 
 **C4 classi non-core**: `classes.json` 24→**35** (+Oracle, Summoner, Shaman, Skald, Swashbuckler, Warpriest, Shifter, Mesmerist, Occultist, Psychic, Spiritualist) con progressione 20 livelli, `spells_per_day` e `spells_known` (spontanee); nuova fonte Ultimate Wilderness (tag base). Fix parser: split class skills consapevole delle parentesi ("Perform (oratory, percussion, sing, string, wind)" Skald → "Perform" generica). Residue fuori per scelta di scope: Slayer, Ninja, Samurai, Antipaladin, Vigilante.
 
+**C2 task 1 class features core**: `mechanics.features` su tutte le 35 classi (**475 entry**: `{name, kind(Ex|Su|Sp|null), levels[], text}`) da sezione "Class Features" di ClassDisplay — `parse_class_features` (discriminante: `<b>` top-level seguito da ':'; niente controllo tabella perché la pagina è dentro una layout-table) + `_attach_feature_levels` (match Special progressione, tollera singolare/plurale "rage power"→"Rage Powers" e suffissi "trap sense +1"). Serve all'applicazione archetipi nel builder (features `replaces`/`alters` degli archetipi ora hanno il testo base di riferimento). **Aperto (task 2)**: sotto-cataloghi talenti su pagine dedicate (rage powers, mercy, rogue talents, discoveries, hexes, ki powers, deeds...) — markup a lista, lotto separato.
+
 ## 6. Test (pattern)
 
 - **Parser: fixture HTML inline nei test** (stringhe), MAI rete. Includi i casi reali scoperti durante il build (righe-gruppo, en-dash, nomi con parentesi).

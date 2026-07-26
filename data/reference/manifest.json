@@ -48,7 +48,7 @@
       "is_pi": false,
       "cup_allowed": false,
       "entries": 35,
-      "notes": "Riassunti meccanici di 35 classi: 11 core + Magus (UM) + 6 APG + 1 UC + 9 ACG + 6 OA + 1 UW (Shifter); nessun nome propri. C4 2026-07-25: +11 classi non-core (Oracle, Summoner, Shaman, Skald, Swashbuckler, Warpriest, Shifter, Mesmerist, Occultist, Psychic, Spiritualist) con progressione 20 livelli, spells/day e spells known ove applicabile. Residue fuori: Slayer, Ninja, Samurai, Antipaladin, Vigilante.",
+      "notes": "Riassunti meccanici di 35 classi: 11 core + Magus (UM) + 6 APG + 1 UC + 9 ACG + 6 OA + 1 UW (Shifter); nessun nome propri. C4 2026-07-25: +11 classi non-core (Oracle, Summoner, Shaman, Skald, Swashbuckler, Warpriest, Shifter, Mesmerist, Occultist, Psychic, Spiritualist) con progressione 20 livelli, spells/day e spells known ove applicabile. Residue fuori: Slayer, Ninja, Samurai, Antipaladin, Vigilante. C2 task 1: mechanics.features core per tutte le 35 (475: name/kind(Ex,Su,Sp)/levels/text da ClassDisplay; sotto-cataloghi talenti tipo rage powers restano aperti).",
       "last_verified": "2026-07-25"
     },
     {

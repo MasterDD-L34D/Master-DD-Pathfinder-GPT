@@ -801,3 +801,38 @@ def test_attribute_subrace_traits_extended_prose():
     assert subs["Human-Raised"] == ["Integrated", "Wary"]
     assert subs["Flavor Only"] == []
     assert subs["Gia Attribuita"] == ["Wary"]  # non toccata
+
+
+CLASS_FEATURES_HTML = """
+<html><body><span>
+<h2 class="title">Class Features</h2>
+<table><tr><th>Level</th><th>Base Attack Bonus</th><th>Fort Save</th><th>Ref Save</th><th>Will Save</th><th>Special</th></tr>
+<tr><td>1st</td><td>+1</td><td>+2</td><td>+0</td><td>+0</td><td>Fast movement, rage</td></tr>
+<tr><td>2nd</td><td>+2</td><td>+3</td><td>+0</td><td>+0</td><td>Rage power, uncanny dodge</td></tr></table>
+<br /><b>Weapon and Armor Proficiency</b>: A barbarian is proficient with all simple and martial weapons.<br /><br />
+<b>Fast Movement (Ex)</b>: A barbarian's land speed is faster by +10 feet.<br /><br />
+<b>Rage (Ex)</b>: A barbarian can call upon inner reserves of <b>strength</b> and ferocity.<br /><br />
+<b>Rage Powers (Ex)</b>: Starting at 2nd level, a barbarian gains a rage power.<br /><br />
+<h2 class="title">Ex-Barbarians</h2>
+</span></body></html>
+"""
+
+
+def test_parse_class_features_core():
+    """C2 (2026-07-25): features core della classe da ClassDisplay (bold
+    seguito da ':'); kind dal suffisso (Ex)/(Su)/(Sp); levels dallo Special
+    della progressione (match anche singolare/plurale); i bold inline dentro
+    il testo non aprono nuove feature."""
+    entry = parse_class(CLASS_FEATURES_HTML, "Barbarian")
+    feats = entry["mechanics"]["features"]
+    by_name = {f["name"]: f for f in feats}
+    assert set(by_name) == {"Weapon and Armor Proficiency", "Fast Movement",
+                            "Rage", "Rage Powers"}
+    assert by_name["Fast Movement"]["kind"] == "Ex"
+    assert by_name["Fast Movement"]["levels"] == [1]
+    assert by_name["Weapon and Armor Proficiency"]["levels"] == []
+    assert by_name["Rage"]["levels"] == [1]
+    assert by_name["Rage Powers"]["levels"] == [2]
+    # bold inline 'strength' non e' una feature; testo pulito e senza ':'
+    assert by_name["Rage"]["text"].startswith("A barbarian can call upon")
+    assert "strength" in by_name["Rage"]["text"]

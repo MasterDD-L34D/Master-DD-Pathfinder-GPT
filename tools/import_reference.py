@@ -630,6 +630,87 @@ def parse_spells_known(soup):
     return {}
 
 
+def parse_class_features(soup):
+    """Sezione 'Class Features' (h2.title) -> [{name, kind, levels, text}].
+
+    Markup AoN piatto: '<br /><b>Name (Ex)</b>: testo...' — il discriminante
+    del bold-feature e' un <b> fuori tabella il cui next_sibling testuale
+    inizia per ':'; i <b> inline (link, enfasi) non hanno ':' dopo. I figli
+    di <p>/<div> vengono appiattiti un livello (alcune pagine wrappano).
+    levels da match sullo Special della progressione (C2, 2026-07-25); []
+    se nessun match (proficiency, feature fuori tabella)."""
+    from bs4 import NavigableString, Tag
+    feats = []
+    h2 = next((h for h in soup.find_all("h2", class_="title")
+               if "class features" in clean(h.get_text()).lower()), None)
+    if h2 is None:
+        return feats
+    seq = []
+    for el in h2.next_siblings:
+        if isinstance(el, Tag) and el.name == "h2" and "title" in (el.get("class") or []):
+            break
+        if isinstance(el, Tag) and el.name in ("p", "div"):
+            seq.extend(el.children)
+        else:
+            seq.append(el)
+
+    def is_feature_bold(el):
+        # Niente controllo tabella: la pagina e' dentro una layout-table, ma
+        # i bold dell'header di progressione restano annidati nella tabella e
+        # non compaiono mai come sibling top-level in seq.
+        return (isinstance(el, Tag) and el.name == "b"
+                and isinstance(el.next_sibling, NavigableString)
+                and str(el.next_sibling).lstrip().startswith(":"))
+
+    current = None
+    for el in seq:
+        if is_feature_bold(el):
+            if current:
+                feats.append(current)
+            name_raw = clean(el.get_text())
+            m = re.match(r"^(.*?)(?:\s*\((Ex|Su|Sp)\))?$", name_raw)
+            current = {"name": m.group(1).strip(), "kind": m.group(2),
+                       "text_parts": [str(el.next_sibling)]}
+        elif current is not None:
+            if isinstance(el, Tag):
+                current["text_parts"].append(el.get_text(" "))
+            else:
+                current["text_parts"].append(str(el))
+    if current:
+        feats.append(current)
+    out = []
+    for f in feats:
+        text = clean(" ".join(f.pop("text_parts"))).lstrip(":").strip()
+        if f["name"] and text:
+            out.append({"name": f["name"], "kind": f["kind"],
+                        "levels": [], "text": text})
+    return out
+
+
+def _attach_feature_levels(mech):
+    """Riempie levels di mechanics.features dal colonna Special della
+    progressione (match case-insensitive; tollera singolare/plurale tipo
+    'rage power' vs 'Rage Powers' e suffissi numerici tipo 'trap sense +1')."""
+    specials = {}
+    for lvl in mech.get("progression", []):
+        for sp in lvl.get("special", []):
+            base = re.split(r"\s*[+(]", sp)[0].strip().lower()
+            specials.setdefault(base, []).append(lvl["level"])
+
+    def find(name):
+        n = name.lower()
+        if n in specials:
+            return specials[n]
+        if n.endswith("s") and n[:-1] in specials:
+            return specials[n[:-1]]
+        if n + "s" in specials:
+            return specials[n + "s"]
+        return []
+
+    for f in mech.get("features", []):
+        f["levels"] = find(f["name"])
+
+
 def parse_class(html, class_name):
     """Pagina ClassDisplay: HD, wealth, class skills, skill points, tabella progressione.
 
@@ -745,6 +826,8 @@ def parse_class(html, class_name):
     for entry in mech["progression"]:
         if entry["level"] in known:
             entry["spells_known"] = known[entry["level"]]
+    mech["features"] = parse_class_features(soup)
+    _attach_feature_levels(mech)
     desc = (f"{class_name}: HD {mech['hd']}, skill points {mech['skill_points_per_level']}+Int. "
             f"Class skills: {', '.join(mech['class_skills'][:8])}. "
             f"Progressione su {len(mech['progression'])} livelli.")
