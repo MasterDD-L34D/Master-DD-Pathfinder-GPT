@@ -1,3 +1,5 @@
 # Dipendenze OPZIONALI servizi ML (REF-09). L'app base NON le richiede:
 # senza installazione, /ml usa l'engine fake o risponde 501 onesto.
 faster-whisper>=1.1.0
+# E3 diarizzazione v1 (diarize=true): embedding vocali GE2E, no gate HF.
+resemblyzer>=0.1.4

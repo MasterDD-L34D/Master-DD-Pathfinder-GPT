@@ -9,7 +9,7 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-from fastapi import APIRouter, File, HTTPException, UploadFile
+from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 
 from src.ml.asr import AsrUnavailable, get_asr_engine
 from src.ml.storage import save_audio_worm
@@ -34,7 +34,7 @@ def ml_health():
 
 
 @router.post("/transcribe")
-async def transcribe(file: UploadFile = File(...)):
+async def transcribe(file: UploadFile = File(...), diarize: bool = Form(False)):
     data = await file.read()
     if not data:
         raise HTTPException(400, "file vuoto")
@@ -43,6 +43,7 @@ async def transcribe(file: UploadFile = File(...)):
     save_audio_worm(data, file.filename or "audio.bin", _audio_dir())
     try:
         engine = get_asr_engine()
-        return engine.transcribe(data, file.filename or "audio.bin")
+        return engine.transcribe(data, file.filename or "audio.bin",
+                                 diarize=diarize)
     except AsrUnavailable as exc:
         raise HTTPException(501, str(exc)) from exc

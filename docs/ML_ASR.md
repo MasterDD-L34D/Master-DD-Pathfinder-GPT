@@ -63,6 +63,29 @@ Eseguito su `faster-whisper` 1.2.1, modello `small`, `device=cpu`, `compute_type
 - fix collaterale: i 2 test del 501 onesto ora simulano l'assenza di faster-whisper via `sys.modules` invece di dipendere dall'ambiente (restano verdi con la dipendenza installata);
 - clip mp3 e transcript sono gitignored (rigenerabili da ground truth + script).
 
+## Diarizzazione v1 (E3, REQ-010, 2026-07-26)
+
+`POST /ml/transcribe` con campo form `diarize=true` aggiunge la chiave
+`speaker` ("S1".."Sn") a ogni segmento — la chiave opzionale prevista da
+`transcriptImportSchema` (→ `speakerLabel` lato pathmaster, fallback "S?"
+se assente). Implementazione: embedding vocali **resemblyzer** (GE2E,
+modello MIT da GitHub, nessun gate HuggingFace) calcolati sulle fette
+d'audio dei segmenti whisper + clustering in ordine temporale (coseno,
+soglia 0.30, nuovo cluster oltre soglia; ABA riassegnato al cluster
+originale; segmenti <0,6s ereditano l'etichetta). `src/ml/diarize.py`.
+
+Smoke (`faster-whisper` small/cpu + resemblyzer): clip 1 voce → 3/3
+segmenti S1; clip 2 voci (Diego+Elsa concatenate) → S1 sulle battute della
+voce A, S2 sulla battuta della voce B, split esatto al confine (8,2s).
+
+**Privacy (design E3)**: gli embedding sono calcolati in memoria e MAI
+persistiti — il WORM contiene solo l'audio originale (REQ-001). Le
+etichette S1..Sn sono anonime e stabili solo dentro la singola chiamata.
+**REQ-012 (voiceprint persistente) resta fuori scope**: un DB di
+voiceprint è dato biometrico e richiede design dedicato (consenso
+esplicito per-partecipante, storage separato, retention, diritto di
+cancellazione) — da affrontare con REQ-010 completa nel blocco ML Fase 6.
+
 ## Privacy e vincoli
 
 - **Audio originale immutabile (REQ-001)**: WORM in `ML_AUDIO_DIR/<sha16>_<nome>`, dedup per sha256, mai riscritto.

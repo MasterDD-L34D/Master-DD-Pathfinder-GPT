@@ -21,6 +21,7 @@ class TranscriptSegment(TypedDict, total=False):
     end: float
     text: str
     confidence: float
+    speaker: str  # presente solo con diarize=True (E3 v1)
 
 
 class Transcript(TypedDict, total=False):
@@ -33,25 +34,29 @@ class AsrUnavailable(RuntimeError):
 
 
 class AsrEngine(Protocol):
-    def transcribe(self, audio: bytes, filename: str) -> Transcript: ...
+    def transcribe(self, audio: bytes, filename: str,
+                   diarize: bool = False) -> Transcript: ...
 
 
 class FakeAsrEngine:
-    """Engine deterministico: 2 segmenti fissi calati sulla durata stimata."""
+    """Engine deterministico: 2 segmenti fissi calati sulla durata stimata.
+    Con diarize=True assegna speaker finti (S1 alla parte 1, S2 alla 2)."""
 
-    def transcribe(self, audio: bytes, filename: str) -> Transcript:
+    def transcribe(self, audio: bytes, filename: str,
+                   diarize: bool = False) -> Transcript:
         dur = max(len(audio) / 16000.0, 1.0)  # stima grezza ~16KB/s
-        return {
-            "language": "it",
-            "segments": [
-                {"start": 0.0, "end": round(dur / 2, 3),
-                 "text": f"[trascrizione simulata di {filename}, parte 1]",
-                 "confidence": 0.99},
-                {"start": round(dur / 2, 3), "end": round(dur, 3),
-                 "text": f"[trascrizione simulata di {filename}, parte 2]",
-                 "confidence": 0.98},
-            ],
-        }
+        segments: list[TranscriptSegment] = [
+            {"start": 0.0, "end": round(dur / 2, 3),
+             "text": f"[trascrizione simulata di {filename}, parte 1]",
+             "confidence": 0.99},
+            {"start": round(dur / 2, 3), "end": round(dur, 3),
+             "text": f"[trascrizione simulata di {filename}, parte 2]",
+             "confidence": 0.98},
+        ]
+        if diarize:
+            segments[0]["speaker"] = "S1"
+            segments[1]["speaker"] = "S2"
+        return {"language": "it", "segments": segments}
 
 
 class FasterWhisperEngine:
@@ -66,7 +71,8 @@ class FasterWhisperEngine:
                 "(o ML_ASR_ENGINE=fake per il mock)") from exc
         self._model = WhisperModel(model, device=device, compute_type=compute_type)
 
-    def transcribe(self, audio: bytes, filename: str) -> Transcript:
+    def transcribe(self, audio: bytes, filename: str,
+                   diarize: bool = False) -> Transcript:
         import tempfile
         with tempfile.NamedTemporaryFile(suffix="-" + filename, delete=False) as tmp:
             tmp.write(audio)
@@ -86,6 +92,12 @@ class FasterWhisperEngine:
         if not segments_out:
             raise AsrUnavailable("faster-whisper: nessun segmento prodotto "
                                  "(audio muto o non decodificabile?)")
+        if diarize:
+            from faster_whisper.audio import decode_audio
+            from src.ml.diarize import attach_speakers, diarize_segments
+            wav = decode_audio(tmp_path, sampling_rate=16000)
+            attach_speakers(segments_out,
+                            diarize_segments(wav, 16000, segments_out))
         return {"language": info.language or "it", "segments": segments_out}
 
 
