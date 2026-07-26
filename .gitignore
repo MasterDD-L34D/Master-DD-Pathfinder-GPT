@@ -42,3 +42,6 @@ reports/monsters_cr_band.*
 # Smoke ASR: clip e transcript rigenerabili (restano ground_truth.txt ed eval_wer.py)
 data/ml_smoke/clip_it.mp3
 data/ml_smoke/transcript.json
+
+# Audio WORM del servizio ML (REQ-001): dati utente/locali, mai in git
+src/data/ml/audio/
