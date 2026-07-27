@@ -26,11 +26,11 @@
     },
     "statistics": {
       "FOR": 14,
-      "DES": 18,
-      "COS": 12,
+      "DES": 14,
+      "COS": 13,
       "INT": 8,
-      "SAG": 12,
-      "CAR": 18
+      "SAG": 10,
+      "CAR": 17
     },
     "step_labels_count": 16
   },
@@ -54,7 +54,7 @@
     "statistics": {
       "attacco": "+6",
       "danni": "lancia di forza 2d6+6 (empowered infusion)",
-      "ca": 19
+      "ca": 12
     }
   },
   "export": {
@@ -71,28 +71,28 @@
       ],
       "statistiche": {
         "FOR": 14,
-        "DES": 18,
-        "COS": 12,
+        "DES": 14,
+        "COS": 13,
         "INT": 8,
-        "SAG": 12,
-        "CAR": 18,
+        "SAG": 10,
+        "CAR": 17,
         "attacco": "+6",
         "danni": "lancia di forza 2d6+6",
-        "ca": 19
+        "ca": 12
       },
       "statistiche_chiave": {
         "attacco": "+6",
         "danni": "2d6+6",
-        "ca": 19
+        "ca": 12
       },
       "benchmarks": {
         "meta_tier": "T1",
         "ruling_badge": "RAW/RAI/PFS"
       },
       "salvezze": {
-        "Tempra": 4,
-        "Riflessi": 6,
-        "Volontà": 4
+        "Tempra": 3,
+        "Riflessi": 4,
+        "Volontà": 0
       },
       "attack_bonus": {
         "melee": "+6",
@@ -110,12 +110,16 @@
         {
           "nome": "Acrobazia",
           "gradi": 1,
-          "bonus": "+6"
+          "mod_car": 2,
+          "classe": true,
+          "totale": 6
         },
         {
           "nome": "Percezione",
           "gradi": 1,
-          "bonus": "+5"
+          "mod_car": 0,
+          "classe": true,
+          "totale": 4
         }
       ],
       "equipaggiamento": [
@@ -150,7 +154,14 @@
           "rame": 6
         }
       },
-      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo"
+      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "41 -> 24pb, CAR primaria overwhelming soul (suli +2 FOR/+2 CAR)"
+      }
     }
   },
   "body_params": {
@@ -310,11 +321,11 @@
         },
         "statistics": {
           "FOR": 14,
-          "DES": 18,
-          "COS": 12,
+          "DES": 14,
+          "COS": 13,
           "INT": 8,
-          "SAG": 12,
-          "CAR": 18
+          "SAG": 10,
+          "CAR": 17
         },
         "step_labels_count": 16
       },
@@ -338,7 +349,7 @@
         "statistics": {
           "attacco": "+6",
           "danni": "lancia di forza 2d6+6 (empowered infusion)",
-          "ca": 19
+          "ca": 12
         }
       },
       "export": {
@@ -355,28 +366,28 @@
           ],
           "statistiche": {
             "FOR": 14,
-            "DES": 18,
-            "COS": 12,
+            "DES": 14,
+            "COS": 13,
             "INT": 8,
-            "SAG": 12,
-            "CAR": 18,
+            "SAG": 10,
+            "CAR": 17,
             "attacco": "+6",
             "danni": "lancia di forza 2d6+6",
-            "ca": 19
+            "ca": 12
           },
           "statistiche_chiave": {
             "attacco": "+6",
             "danni": "2d6+6",
-            "ca": 19
+            "ca": 12
           },
           "benchmarks": {
             "meta_tier": "T1",
             "ruling_badge": "RAW/RAI/PFS"
           },
           "salvezze": {
-            "Tempra": 4,
-            "Riflessi": 6,
-            "Volontà": 4
+            "Tempra": 3,
+            "Riflessi": 4,
+            "Volontà": 0
           },
           "attack_bonus": {
             "melee": "+6",
@@ -394,12 +405,16 @@
             {
               "nome": "Acrobazia",
               "gradi": 1,
-              "bonus": "+6"
+              "mod_car": 2,
+              "classe": true,
+              "totale": 6
             },
             {
               "nome": "Percezione",
               "gradi": 1,
-              "bonus": "+5"
+              "mod_car": 0,
+              "classe": true,
+              "totale": 4
             }
           ],
           "equipaggiamento": [
@@ -434,7 +449,14 @@
               "rame": 6
             }
           },
-          "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo"
+          "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "41 -> 24pb, CAR primaria overwhelming soul (suli +2 FOR/+2 CAR)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -464,28 +486,28 @@
         ],
         "statistiche": {
           "FOR": 14,
-          "DES": 18,
-          "COS": 12,
+          "DES": 14,
+          "COS": 13,
           "INT": 8,
-          "SAG": 12,
-          "CAR": 18,
+          "SAG": 10,
+          "CAR": 17,
           "attacco": "+6",
           "danni": "lancia di forza 2d6+6",
-          "ca": 19
+          "ca": 12
         },
         "statistiche_chiave": {
           "attacco": "+6",
           "danni": "2d6+6",
-          "ca": 19
+          "ca": 12
         },
         "benchmarks": {
           "meta_tier": "T1",
           "ruling_badge": "RAW/RAI/PFS"
         },
         "salvezze": {
-          "Tempra": 4,
-          "Riflessi": 6,
-          "Volontà": 4
+          "Tempra": 3,
+          "Riflessi": 4,
+          "Volontà": 0
         },
         "attack_bonus": {
           "melee": "+6",
@@ -503,12 +525,16 @@
           {
             "nome": "Acrobazia",
             "gradi": 1,
-            "bonus": "+6"
+            "mod_car": 2,
+            "classe": true,
+            "totale": 6
           },
           {
             "nome": "Percezione",
             "gradi": 1,
-            "bonus": "+5"
+            "mod_car": 0,
+            "classe": true,
+            "totale": 4
           }
         ],
         "equipaggiamento": [
@@ -543,7 +569,14 @@
             "rame": 6
           }
         },
-        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo"
+        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "41 -> 24pb, CAR primaria overwhelming soul (suli +2 FOR/+2 CAR)"
+        }
       }
     },
     "narrative": "Cavaliere cinetico suli che difende le carovane dell'oasi con discipline di Overwhelming Soul."

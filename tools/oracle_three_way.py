@@ -141,7 +141,17 @@ def main() -> int:
                          "diffs": [f"point-buy {cost} > 25 (Epic Fantasy): stats illegali nel corpus"]})
             continue
         race_bonus = None
-        if mods.get("any") and abilities:
+        declared = d.get("flexDeclared")
+        if mods.get("any") and declared:
+            # Contratto E6-A6 (lotto A rebuild corpus): la build dichiara
+            # sheet_payload.bonus_razziale_flessibile — la scelta non si
+            # indovina piu' dallo sheet, si legge la dichiarazione.
+            race_bonus = _STAT_KEYS.get(str(declared).upper())
+            if race_bonus is None:
+                rows.append({"file": rec["file"], "status": "TAVERNA_ERR",
+                             "diffs": [f"bonus_razziale_flessibile non valido: {declared}"]})
+                continue
+        elif mods.get("any") and abilities:
             race_bonus = _flex_choice(abilities, mods, _sheet_scores(d.get("sheetAbilities")))
         class_canon = _canon(ROOT / "data" / "reference" / "ogl" / "classes.json", d["class"])
         draft = {
@@ -191,7 +201,7 @@ def main() -> int:
                      "race_bonus": race_bonus, "budget": budget})
 
     lines = [
-        "# Oracolo a tre vie (v1 | v2 | builder Taverna) — rilancio 2026-07-25",
+        "# Oracolo a tre vie (v1 | v2 | builder Taverna) — rilancio 2026-07-27 (post-rebuild lotto A)",
         "",
         f"Build base: {len(rows)}. Concorde a tre: {n_concordant}. "
         f"Divergenze: {sum(1 for r in rows if r['status'] == 'DIVERGE')}. "
@@ -220,17 +230,13 @@ def main() -> int:
             if classes:
                 defects[r["file"]] = {"classes": sorted(set(classes)),
                                       "diffs": r["diffs"][:3]}
-        # Statline duplicate (investigazione A4, 2026-07-25): fighter_dwarf,
-        # druid_half_orc e ranger_halfelf condividono la stessa statline.
-        for dup in ("fighter_dwarf_shielded.json", "druid_half_orc_feral.json",
-                    "ranger_halfelf_skirmisher.json"):
-            entry = defects.setdefault(dup, {"classes": [], "diffs": []})
-            entry["classes"] = sorted(set(entry["classes"] + ["statline_duplicata"]))
         payload = {
-            "_comment": ("Flag difetti corpus GPT-A (decisione C 2026-07-25): "
-                         "rigenerato da tools/oracle_three_way.py --write. "
-                         "Le build NON presenti qui sono il sottoinsieme legale "
-                         "per i test dei motori. Ricostruzione onesta = lotto futuro (A)."),
+            "_comment": ("Flag difetti corpus GPT-A (decisione C 2026-07-25; lotto A "
+                         "rebuild 2026-07-27): rigenerato da tools/oracle_three_way.py "
+                         "--write. Le build NON presenti qui sono il sottoinsieme "
+                         "legale per i test dei motori. Le build ricostruite dal "
+                         "lotto A (tools/rebuild_corpus_gpt_a.py) portano il blocco "
+                         "di provenance sheet_payload.rebuild_gpt_a."),
             "defects": defects,
         }
         DEFECTS_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2),

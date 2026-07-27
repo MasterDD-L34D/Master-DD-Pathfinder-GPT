@@ -50,7 +50,7 @@
     "statistics": {
       "attacco": "+4",
       "danni": "1d8+3",
-      "ca": 18
+      "ca": 15
     },
     "catalog_version": [
       "2026.04.03"
@@ -76,40 +76,36 @@
         "CAR": 8,
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18
+        "ca": 15
       },
       "statistiche_chiave": {
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18,
-        "CA": 18
+        "ca": 15,
+        "CA": 15
       },
-      "pf_totali": 12,
+      "pf_totali": 11,
       "hp": {
-        "totali": 12,
+        "totali": 11,
         "per_livello": [
           12
         ]
       },
       "salvezze": {
         "Tempra": 4,
-        "Riflessi": 3,
-        "Volontà": 4
+        "Riflessi": 6,
+        "Volontà": 1
       },
       "skills_map": {
         "Percezione": {
           "totale": 5
         },
         "Acrobazia": {
-          "totale": 4
-        },
-        "Conoscenze": {
-          "totale": 3
+          "totale": 5
         }
       },
-      "skill_points": 5,
+      "skill_points": 4,
       "talenti": [
-        "Colpo possente",
         "Iniziativa migliorata"
       ],
       "capacita_classe": [
@@ -139,12 +135,12 @@
       ],
       "slot_incantesimi": "Liv1:4/Liv2:3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
-        "destrezza": 2,
-        "scudo": 1
+        "totale": 15,
+        "armatura": 0,
+        "destrezza": 4,
+        "scudo": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 8,
       "velocita": 9,
       "progressione": [
         {
@@ -154,7 +150,7 @@
             "Tecnica distintiva Bombardier"
           ],
           "talenti": [
-            "Talento di livello 1"
+            "Iniziativa migliorata"
           ]
         }
       ],
@@ -190,13 +186,13 @@
           "base": 1,
           "modificatore": 2,
           "misc": 0,
-          "totale": 3
+          "totale": 6
         },
         "Volontà": {
           "base": 3,
           "modificatore": 1,
           "misc": 0,
-          "totale": 4
+          "totale": 1
         }
       },
       "AC_arm": 0,
@@ -207,10 +203,10 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
-      "CA_touch": 10,
-      "CA_ff": 10,
-      "init": 2,
+      "AC_tot": 15,
+      "CA_touch": 15,
+      "CA_ff": 11,
+      "init": 8,
       "speed": 9,
       "currency": {
         "gp": 100,
@@ -245,12 +241,22 @@
       "skills": [
         {
           "nome": "Percezione",
-          "valore": 0
+          "gradi": 1,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 5
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 1,
+          "mod_car": 4,
+          "classe": false,
+          "totale": 5
         }
       ],
       "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
       "pf_per_livello": "n/d (PF per livello non fornito)",
-      "BAB": "n/d (BAB non fornito)",
+      "BAB": 0,
       "CMB": "n/d (CMB non fornito)",
       "cmb_disarm": "n/d (cmb disarm non fornito)",
       "cmb_trip": "n/d (cmb trip non fornito)",
@@ -263,7 +269,14 @@
       ],
       "lingue": [],
       "sensi": [],
-      "condizioni": []
+      "condizioni": [],
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "tenuta Iniziativa migliorata; droppato Colpo possente: talento da mischia off-concept per un bombardier (bombe a distanza)"
+      }
     }
   },
   "narrative": "Goblin Bombardier pronta/o per il campo, specializzata/o in tattiche da Alchemist.",
@@ -341,7 +354,7 @@
         "statistics": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 15
         },
         "catalog_version": [
           "2026.04.03"
@@ -367,40 +380,36 @@
             "CAR": 8,
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18
+            "ca": 15
           },
           "statistiche_chiave": {
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18,
-            "CA": 18
+            "ca": 15,
+            "CA": 15
           },
-          "pf_totali": 12,
+          "pf_totali": 11,
           "hp": {
-            "totali": 12,
+            "totali": 11,
             "per_livello": [
               12
             ]
           },
           "salvezze": {
             "Tempra": 4,
-            "Riflessi": 3,
-            "Volontà": 4
+            "Riflessi": 6,
+            "Volontà": 1
           },
           "skills_map": {
             "Percezione": {
               "totale": 5
             },
             "Acrobazia": {
-              "totale": 4
-            },
-            "Conoscenze": {
-              "totale": 3
+              "totale": 5
             }
           },
-          "skill_points": 5,
+          "skill_points": 4,
           "talenti": [
-            "Colpo possente",
             "Iniziativa migliorata"
           ],
           "capacita_classe": [
@@ -430,12 +439,12 @@
           ],
           "slot_incantesimi": "Liv1:4/Liv2:3",
           "ac_breakdown": {
-            "totale": 18,
-            "armatura": 5,
-            "destrezza": 2,
-            "scudo": 1
+            "totale": 15,
+            "armatura": 0,
+            "destrezza": 4,
+            "scudo": 0
           },
-          "iniziativa": 2,
+          "iniziativa": 8,
           "velocita": 9,
           "progressione": [
             {
@@ -445,7 +454,7 @@
                 "Tecnica distintiva Bombardier"
               ],
               "talenti": [
-                "Talento di livello 1"
+                "Iniziativa migliorata"
               ]
             }
           ],
@@ -481,13 +490,13 @@
               "base": 1,
               "modificatore": 2,
               "misc": 0,
-              "totale": 3
+              "totale": 6
             },
             "Volontà": {
               "base": 3,
               "modificatore": 1,
               "misc": 0,
-              "totale": 4
+              "totale": 1
             }
           },
           "AC_arm": 0,
@@ -498,10 +507,10 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
-          "CA_touch": 10,
-          "CA_ff": 10,
-          "init": 2,
+          "AC_tot": 15,
+          "CA_touch": 15,
+          "CA_ff": 11,
+          "init": 8,
           "speed": 9,
           "currency": {
             "gp": 100,
@@ -536,12 +545,22 @@
           "skills": [
             {
               "nome": "Percezione",
-              "valore": 0
+              "gradi": 1,
+              "mod_car": 1,
+              "classe": true,
+              "totale": 5
+            },
+            {
+              "nome": "Acrobazia",
+              "gradi": 1,
+              "mod_car": 4,
+              "classe": false,
+              "totale": 5
             }
           ],
           "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
           "pf_per_livello": "n/d (PF per livello non fornito)",
-          "BAB": "n/d (BAB non fornito)",
+          "BAB": 0,
           "CMB": "n/d (CMB non fornito)",
           "cmb_disarm": "n/d (cmb disarm non fornito)",
           "cmb_trip": "n/d (cmb trip non fornito)",
@@ -554,7 +573,14 @@
           ],
           "lingue": [],
           "sensi": [],
-          "condizioni": []
+          "condizioni": [],
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "tenuta Iniziativa migliorata; droppato Colpo possente: talento da mischia off-concept per un bombardier (bombe a distanza)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -590,40 +616,36 @@
           "CAR": 8,
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 15
         },
         "statistiche_chiave": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18,
-          "CA": 18
+          "ca": 15,
+          "CA": 15
         },
-        "pf_totali": 12,
+        "pf_totali": 11,
         "hp": {
-          "totali": 12,
+          "totali": 11,
           "per_livello": [
             12
           ]
         },
         "salvezze": {
           "Tempra": 4,
-          "Riflessi": 3,
-          "Volontà": 4
+          "Riflessi": 6,
+          "Volontà": 1
         },
         "skills_map": {
           "Percezione": {
             "totale": 5
           },
           "Acrobazia": {
-            "totale": 4
-          },
-          "Conoscenze": {
-            "totale": 3
+            "totale": 5
           }
         },
-        "skill_points": 5,
+        "skill_points": 4,
         "talenti": [
-          "Colpo possente",
           "Iniziativa migliorata"
         ],
         "capacita_classe": [
@@ -653,12 +675,12 @@
         ],
         "slot_incantesimi": "Liv1:4/Liv2:3",
         "ac_breakdown": {
-          "totale": 18,
-          "armatura": 5,
-          "destrezza": 2,
-          "scudo": 1
+          "totale": 15,
+          "armatura": 0,
+          "destrezza": 4,
+          "scudo": 0
         },
-        "iniziativa": 2,
+        "iniziativa": 8,
         "velocita": 9,
         "progressione": [
           {
@@ -668,7 +690,7 @@
               "Tecnica distintiva Bombardier"
             ],
             "talenti": [
-              "Talento di livello 1"
+              "Iniziativa migliorata"
             ]
           }
         ],
@@ -704,13 +726,13 @@
             "base": 1,
             "modificatore": 2,
             "misc": 0,
-            "totale": 3
+            "totale": 6
           },
           "Volontà": {
             "base": 3,
             "modificatore": 1,
             "misc": 0,
-            "totale": 4
+            "totale": 1
           }
         },
         "AC_arm": 0,
@@ -721,10 +743,10 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
-        "CA_touch": 10,
-        "CA_ff": 10,
-        "init": 2,
+        "AC_tot": 15,
+        "CA_touch": 15,
+        "CA_ff": 11,
+        "init": 8,
         "speed": 9,
         "currency": {
           "gp": 100,
@@ -759,12 +781,22 @@
         "skills": [
           {
             "nome": "Percezione",
-            "valore": 0
+            "gradi": 1,
+            "mod_car": 1,
+            "classe": true,
+            "totale": 5
+          },
+          {
+            "nome": "Acrobazia",
+            "gradi": 1,
+            "mod_car": 4,
+            "classe": false,
+            "totale": 5
           }
         ],
         "background": "Piromane da laboratorio che testa mutageni e bombe ad area sulle pattuglie nemiche.",
         "pf_per_livello": "n/d (PF per livello non fornito)",
-        "BAB": "n/d (BAB non fornito)",
+        "BAB": 0,
         "CMB": "n/d (CMB non fornito)",
         "cmb_disarm": "n/d (cmb disarm non fornito)",
         "cmb_trip": "n/d (cmb trip non fornito)",
@@ -777,7 +809,14 @@
         ],
         "lingue": [],
         "sensi": [],
-        "condizioni": []
+        "condizioni": [],
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "tenuta Iniziativa migliorata; droppato Colpo possente: talento da mischia off-concept per un bombardier (bombe a distanza)"
+        }
       }
     },
     "narrative": "Goblin Bombardier pronta/o per il campo, specializzata/o in tattiche da Alchemist.",

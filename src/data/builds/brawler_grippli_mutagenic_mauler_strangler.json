@@ -26,11 +26,11 @@
     },
     "statistics": {
       "FOR": 16,
-      "DES": 18,
-      "COS": 12,
+      "DES": 16,
+      "COS": 14,
       "INT": 10,
-      "SAG": 12,
-      "CAR": 8
+      "SAG": 13,
+      "CAR": 7
     },
     "step_labels_count": 16
   },
@@ -54,7 +54,7 @@
     "statistics": {
       "attacco": "+6",
       "danni": "1d6+5",
-      "ca": 19
+      "ca": 15
     }
   },
   "export": {
@@ -71,19 +71,19 @@
       ],
       "statistiche": {
         "FOR": 16,
-        "DES": 18,
-        "COS": 12,
+        "DES": 16,
+        "COS": 14,
         "INT": 10,
-        "SAG": 12,
-        "CAR": 8,
+        "SAG": 13,
+        "CAR": 7,
         "attacco": "+6",
         "danni": "1d6+5",
-        "ca": 19
+        "ca": 15
       },
       "statistiche_chiave": {
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 17
+        "ca": 15
       },
       "benchmarks": {
         "dpr": {
@@ -103,9 +103,9 @@
         "meta_tier": "T3"
       },
       "salvezze": {
-        "Tempra": "n/d (TS Tempra non fornito)",
-        "Riflessi": "n/d (TS Riflessi non fornito)",
-        "Volontà": "n/d (TS Volontà non fornito)",
+        "Tempra": 4,
+        "Riflessi": 6,
+        "Volontà": 2,
         "tempra": "n/d (TS tempra non fornito)",
         "riflessi": "n/d (TS riflessi non fornito)",
         "volonta": "n/d (TS volonta non fornito)"
@@ -143,31 +143,31 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 19,
-      "CA_touch": 10,
-      "CA_ff": 10,
+      "AC_tot": 15,
+      "CA_touch": 15,
+      "CA_ff": 11,
       "velocita": 0,
-      "iniziativa": 0,
-      "pf_totali": "n/d (PF totali non fornito)",
-      "skill_points": 0,
+      "iniziativa": 4,
+      "pf_totali": 13,
+      "skill_points": 4,
       "salvezze_breakdown": {
         "Tempra": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": "n/d (TS Tempra non fornito)"
+          "totale": 4
         },
         "Riflessi": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": "n/d (TS Riflessi non fornito)"
+          "totale": 6
         },
         "Volontà": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": "n/d (TS Volontà non fornito)"
+          "totale": 2
         },
         "tempra": {
           "base": null,
@@ -188,7 +188,7 @@
           "totale": "n/d (TS volonta non fornito)"
         }
       },
-      "BAB": 0,
+      "BAB": 1,
       "init": "+5",
       "speed": "9 m",
       "razza": "Grippli",
@@ -196,26 +196,23 @@
         {
           "nome": "Percezione",
           "gradi": 1,
-          "mod_car": 3,
-          "var": 1,
+          "mod_car": 2,
           "classe": true,
-          "totale": 5
+          "totale": 6
         },
         {
           "nome": "Furtività",
           "gradi": 1,
-          "mod_car": 3,
-          "var": 0,
-          "classe": true,
-          "totale": 4
+          "mod_car": 4,
+          "classe": false,
+          "totale": 5
         },
         {
           "nome": "Acrobazia",
           "gradi": 1,
-          "mod_car": 3,
-          "var": 0,
-          "classe": false,
-          "totale": 4
+          "mod_car": 4,
+          "classe": true,
+          "totale": 8
         }
       ],
       "equipaggiamento": [
@@ -268,7 +265,17 @@
       "pf_per_livello": "n/d (PF per livello non fornito)",
       "modules": {},
       "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
-      "skills_map": {},
+      "skills_map": {
+        "Percezione": {
+          "totale": 6
+        },
+        "Furtività": {
+          "totale": 5
+        },
+        "Acrobazia": {
+          "totale": 8
+        }
+      },
       "spell_levels": [],
       "magia": {},
       "lingue": [],
@@ -278,7 +285,14 @@
       "talenti": [],
       "capacita_classe": [],
       "progressione": [],
-      "ca": 19
+      "ca": 15,
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "29 -> 24pb, FOR/DES primarie mutagenic mauler strangler"
+      }
     }
   },
   "narrative": "Grippli mutageno strettoio: pattinatore di palude che sfrutta mutageno da rana velenosa e strangolamenti acrobatici.",
@@ -348,11 +362,11 @@
         },
         "statistics": {
           "FOR": 16,
-          "DES": 18,
-          "COS": 12,
+          "DES": 16,
+          "COS": 14,
           "INT": 10,
-          "SAG": 12,
-          "CAR": 8
+          "SAG": 13,
+          "CAR": 7
         },
         "step_labels_count": 16
       },
@@ -376,7 +390,7 @@
         "statistics": {
           "attacco": "+6",
           "danni": "1d6+5",
-          "ca": 19
+          "ca": 15
         }
       },
       "export": {
@@ -393,19 +407,19 @@
           ],
           "statistiche": {
             "FOR": 16,
-            "DES": 18,
-            "COS": 12,
+            "DES": 16,
+            "COS": 14,
             "INT": 10,
-            "SAG": 12,
-            "CAR": 8,
+            "SAG": 13,
+            "CAR": 7,
             "attacco": "+6",
             "danni": "1d6+5",
-            "ca": 19
+            "ca": 15
           },
           "statistiche_chiave": {
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 17
+            "ca": 15
           },
           "benchmarks": {
             "dpr": {
@@ -425,9 +439,9 @@
             "meta_tier": "T3"
           },
           "salvezze": {
-            "Tempra": "n/d (TS Tempra non fornito)",
-            "Riflessi": "n/d (TS Riflessi non fornito)",
-            "Volontà": "n/d (TS Volontà non fornito)",
+            "Tempra": 4,
+            "Riflessi": 6,
+            "Volontà": 2,
             "tempra": "n/d (TS tempra non fornito)",
             "riflessi": "n/d (TS riflessi non fornito)",
             "volonta": "n/d (TS volonta non fornito)"
@@ -465,31 +479,31 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 19,
-          "CA_touch": 10,
-          "CA_ff": 10,
+          "AC_tot": 15,
+          "CA_touch": 15,
+          "CA_ff": 11,
           "velocita": 0,
-          "iniziativa": 0,
-          "pf_totali": "n/d (PF totali non fornito)",
-          "skill_points": 0,
+          "iniziativa": 4,
+          "pf_totali": 13,
+          "skill_points": 4,
           "salvezze_breakdown": {
             "Tempra": {
               "base": null,
               "modificatore": null,
               "misc": null,
-              "totale": "n/d (TS Tempra non fornito)"
+              "totale": 4
             },
             "Riflessi": {
               "base": null,
               "modificatore": null,
               "misc": null,
-              "totale": "n/d (TS Riflessi non fornito)"
+              "totale": 6
             },
             "Volontà": {
               "base": null,
               "modificatore": null,
               "misc": null,
-              "totale": "n/d (TS Volontà non fornito)"
+              "totale": 2
             },
             "tempra": {
               "base": null,
@@ -510,7 +524,7 @@
               "totale": "n/d (TS volonta non fornito)"
             }
           },
-          "BAB": 0,
+          "BAB": 1,
           "init": "+5",
           "speed": "9 m",
           "razza": "Grippli",
@@ -518,26 +532,23 @@
             {
               "nome": "Percezione",
               "gradi": 1,
-              "mod_car": 3,
-              "var": 1,
+              "mod_car": 2,
               "classe": true,
-              "totale": 5
+              "totale": 6
             },
             {
               "nome": "Furtività",
               "gradi": 1,
-              "mod_car": 3,
-              "var": 0,
-              "classe": true,
-              "totale": 4
+              "mod_car": 4,
+              "classe": false,
+              "totale": 5
             },
             {
               "nome": "Acrobazia",
               "gradi": 1,
-              "mod_car": 3,
-              "var": 0,
-              "classe": false,
-              "totale": 4
+              "mod_car": 4,
+              "classe": true,
+              "totale": 8
             }
           ],
           "equipaggiamento": [
@@ -588,7 +599,17 @@
           "pf_per_livello": "n/d (PF per livello non fornito)",
           "modules": {},
           "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
-          "skills_map": {},
+          "skills_map": {
+            "Percezione": {
+              "totale": 6
+            },
+            "Furtività": {
+              "totale": 5
+            },
+            "Acrobazia": {
+              "totale": 8
+            }
+          },
           "spell_levels": [],
           "magia": {},
           "lingue": [],
@@ -598,7 +619,14 @@
           "talenti": [],
           "capacita_classe": [],
           "progressione": [],
-          "ca": 19
+          "ca": 15,
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "29 -> 24pb, FOR/DES primarie mutagenic mauler strangler"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -629,19 +657,19 @@
         ],
         "statistiche": {
           "FOR": 16,
-          "DES": 18,
-          "COS": 12,
+          "DES": 16,
+          "COS": 14,
           "INT": 10,
-          "SAG": 12,
-          "CAR": 8,
+          "SAG": 13,
+          "CAR": 7,
           "attacco": "+6",
           "danni": "1d6+5",
-          "ca": 19
+          "ca": 15
         },
         "statistiche_chiave": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 17
+          "ca": 15
         },
         "benchmarks": {
           "dpr": {
@@ -661,9 +689,9 @@
           "meta_tier": "T3"
         },
         "salvezze": {
-          "Tempra": "n/d (TS Tempra non fornito)",
-          "Riflessi": "n/d (TS Riflessi non fornito)",
-          "Volontà": "n/d (TS Volontà non fornito)",
+          "Tempra": 4,
+          "Riflessi": 6,
+          "Volontà": 2,
           "tempra": "n/d (TS tempra non fornito)",
           "riflessi": "n/d (TS riflessi non fornito)",
           "volonta": "n/d (TS volonta non fornito)"
@@ -701,31 +729,31 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 19,
-        "CA_touch": 10,
-        "CA_ff": 10,
+        "AC_tot": 15,
+        "CA_touch": 15,
+        "CA_ff": 11,
         "velocita": 0,
-        "iniziativa": 0,
-        "pf_totali": "n/d (PF totali non fornito)",
-        "skill_points": 0,
+        "iniziativa": 4,
+        "pf_totali": 13,
+        "skill_points": 4,
         "salvezze_breakdown": {
           "Tempra": {
             "base": null,
             "modificatore": null,
             "misc": null,
-            "totale": "n/d (TS Tempra non fornito)"
+            "totale": 4
           },
           "Riflessi": {
             "base": null,
             "modificatore": null,
             "misc": null,
-            "totale": "n/d (TS Riflessi non fornito)"
+            "totale": 6
           },
           "Volontà": {
             "base": null,
             "modificatore": null,
             "misc": null,
-            "totale": "n/d (TS Volontà non fornito)"
+            "totale": 2
           },
           "tempra": {
             "base": null,
@@ -746,7 +774,7 @@
             "totale": "n/d (TS volonta non fornito)"
           }
         },
-        "BAB": 0,
+        "BAB": 1,
         "init": "+5",
         "speed": "9 m",
         "razza": "Grippli",
@@ -754,26 +782,23 @@
           {
             "nome": "Percezione",
             "gradi": 1,
-            "mod_car": 3,
-            "var": 1,
+            "mod_car": 2,
             "classe": true,
-            "totale": 5
+            "totale": 6
           },
           {
             "nome": "Furtività",
             "gradi": 1,
-            "mod_car": 3,
-            "var": 0,
-            "classe": true,
-            "totale": 4
+            "mod_car": 4,
+            "classe": false,
+            "totale": 5
           },
           {
             "nome": "Acrobazia",
             "gradi": 1,
-            "mod_car": 3,
-            "var": 0,
-            "classe": false,
-            "totale": 4
+            "mod_car": 4,
+            "classe": true,
+            "totale": 8
           }
         ],
         "equipaggiamento": [
@@ -824,7 +849,17 @@
         "pf_per_livello": "n/d (PF per livello non fornito)",
         "modules": {},
         "sheet_markdown": "",
-        "skills_map": {},
+        "skills_map": {
+          "Percezione": {
+            "totale": 6
+          },
+          "Furtività": {
+            "totale": 5
+          },
+          "Acrobazia": {
+            "totale": 8
+          }
+        },
         "spell_levels": [],
         "magia": {},
         "lingue": [],
@@ -834,7 +869,14 @@
         "talenti": [],
         "capacita_classe": [],
         "progressione": [],
-        "ca": 19
+        "ca": 15,
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "29 -> 24pb, FOR/DES primarie mutagenic mauler strangler"
+        }
       }
     },
     "narrative": "Grippli mutageno strettoio: pattinatore di palude che sfrutta mutageno da rana velenosa e strangolamenti acrobatici.",

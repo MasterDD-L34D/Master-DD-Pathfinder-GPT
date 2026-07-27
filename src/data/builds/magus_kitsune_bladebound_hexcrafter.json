@@ -25,10 +25,10 @@
       "16": "Chiusura"
     },
     "statistics": {
-      "FOR": 14,
+      "FOR": 10,
       "DES": 16,
-      "COS": 14,
-      "INT": 14,
+      "COS": 13,
+      "INT": 16,
       "SAG": 10,
       "CAR": 12,
       "level": 1
@@ -55,7 +55,7 @@
     "statistics": {
       "attacco": "+5 (falchion nero) / +5 touch spellstrike",
       "danni": "falchion 2d4+4/18-20x2 con Black Blade",
-      "ca": 18,
+      "ca": 14,
       "difese": "Arcane Pool +2 CA, hex Fortune/Misfortune per reroll difensivi"
     }
   },
@@ -93,8 +93,8 @@
           "nome": "Acrobazia",
           "gradi": 1,
           "mod_car": 4,
-          "classe": true,
-          "totale": 8
+          "classe": false,
+          "totale": 5
         }
       ],
       "equipaggiamento": [
@@ -249,10 +249,10 @@
           "16": "Chiusura"
         },
         "statistics": {
-          "FOR": 14,
+          "FOR": 10,
           "DES": 16,
-          "COS": 14,
-          "INT": 14,
+          "COS": 13,
+          "INT": 16,
           "SAG": 10,
           "CAR": 12,
           "level": 1
@@ -279,7 +279,7 @@
         "statistics": {
           "attacco": "+5 (falchion nero) / +5 touch spellstrike",
           "danni": "falchion 2d4+4/18-20x2 con Black Blade",
-          "ca": 18,
+          "ca": 14,
           "difese": "Arcane Pool +2 CA, hex Fortune/Misfortune per reroll difensivi"
         }
       },
@@ -307,8 +307,8 @@
               "nome": "Acrobazia",
               "gradi": 1,
               "mod_car": 4,
-              "classe": true,
-              "totale": 8
+              "classe": false,
+              "totale": 5
             }
           ],
           "equipaggiamento": [
@@ -379,8 +379,8 @@
             "nome": "Acrobazia",
             "gradi": 1,
             "mod_car": 4,
-            "classe": true,
-            "totale": 8
+            "classe": false,
+            "totale": 5
           }
         ],
         "equipaggiamento": [

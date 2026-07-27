@@ -50,7 +50,7 @@
     "statistics": {
       "attacco": null,
       "danni": null,
-      "ca": 15
+      "ca": 12
     },
     "missing_catalog_entries": [
       "items:Abito da viaggiatore",
@@ -79,38 +79,38 @@
         "INT": 10,
         "SAG": 12,
         "CAR": 8,
-        "ca": 15
+        "ca": 12
       },
       "statistiche_chiave": {
         "attacco": null,
         "danni": null,
-        "ca": 15,
-        "CA": 15
+        "ca": 12,
+        "CA": 12
       },
-      "pf_totali": 12,
+      "pf_totali": 9,
       "hp": {
-        "totali": 12,
+        "totali": 9,
         "per_livello": [
           12
         ]
       },
       "salvezze": {
         "Tempra": 2,
-        "Riflessi": 3,
-        "Volontà": 4
+        "Riflessi": 2,
+        "Volontà": 3
       },
       "skills_map": {
+        "Percezione": {
+          "totale": 2
+        },
         "Conoscenze (arcana)": {
-          "totale": 6
+          "totale": 5
         },
         "Sapienza Magica": {
-          "totale": 6
-        },
-        "Percezione": {
           "totale": 5
         }
       },
-      "skill_points": 5,
+      "skill_points": 3,
       "talenti": [
         "Iniziativa migliorata"
       ],
@@ -138,14 +138,12 @@
       ],
       "slot_incantesimi": "1°: 4",
       "ac_breakdown": {
-        "totale": 15,
-        "armatura": 3,
+        "totale": 12,
+        "armatura": 0,
         "destrezza": 2,
-        "deflessione": 0,
-        "misc": 0,
         "scudo": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 6,
       "velocita": 9,
       "progressione": [
         {
@@ -193,13 +191,13 @@
           "base": 1,
           "modificatore": 2,
           "misc": 0,
-          "totale": 3
+          "totale": 2
         },
         "Volontà": {
           "base": 3,
           "modificatore": 1,
           "misc": 0,
-          "totale": 4
+          "totale": 3
         }
       },
       "AC_arm": 0,
@@ -210,10 +208,10 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 15,
-      "CA_touch": 10,
+      "AC_tot": 12,
+      "CA_touch": 12,
       "CA_ff": 10,
-      "init": 2,
+      "init": 6,
       "speed": 9,
       "currency": {
         "gp": 100,
@@ -247,12 +245,29 @@
       "skills": [
         {
           "nome": "Percezione",
-          "valore": 0
+          "gradi": 1,
+          "mod_car": 1,
+          "classe": false,
+          "totale": 2
+        },
+        {
+          "nome": "Conoscenze (arcana)",
+          "gradi": 1,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 5
+        },
+        {
+          "nome": "Sapienza Magica",
+          "gradi": 1,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 5
         }
       ],
       "background": "Piromane accademico in cerca di antiche pergamene elementali.",
       "pf_per_livello": "n/d (PF per livello non fornito)",
-      "BAB": "n/d (BAB non fornito)",
+      "BAB": 0,
       "CMB": "n/d (CMB non fornito)",
       "cmb_disarm": "n/d (cmb disarm non fornito)",
       "cmb_trip": "n/d (cmb trip non fornito)",
@@ -265,7 +280,15 @@
       ],
       "lingue": [],
       "sensi": [],
-      "condizioni": []
+      "condizioni": [],
+      "bonus_razziale_flessibile": "INT",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "statline GPT-A invariata (20pb legale); flex INT (primaria da wizard). NOTA: statline editoriale povera per il concept (INT 10 pre-razziale) ma legale; ribilanciamento fuori perimetro lotto A"
+      }
     }
   },
   "narrative": "Human Evoker pronta/o per il campo, specializzata/o in tattiche da Wizard.",
@@ -343,7 +366,7 @@
         "statistics": {
           "attacco": null,
           "danni": null,
-          "ca": 15
+          "ca": 12
         },
         "missing_catalog_entries": [
           "items:Abito da viaggiatore",
@@ -372,38 +395,38 @@
             "INT": 10,
             "SAG": 12,
             "CAR": 8,
-            "ca": 15
+            "ca": 12
           },
           "statistiche_chiave": {
             "attacco": null,
             "danni": null,
-            "ca": 15,
-            "CA": 15
+            "ca": 12,
+            "CA": 12
           },
-          "pf_totali": 12,
+          "pf_totali": 9,
           "hp": {
-            "totali": 12,
+            "totali": 9,
             "per_livello": [
               12
             ]
           },
           "salvezze": {
             "Tempra": 2,
-            "Riflessi": 3,
-            "Volontà": 4
+            "Riflessi": 2,
+            "Volontà": 3
           },
           "skills_map": {
+            "Percezione": {
+              "totale": 2
+            },
             "Conoscenze (arcana)": {
-              "totale": 6
+              "totale": 5
             },
             "Sapienza Magica": {
-              "totale": 6
-            },
-            "Percezione": {
               "totale": 5
             }
           },
-          "skill_points": 5,
+          "skill_points": 3,
           "talenti": [
             "Iniziativa migliorata"
           ],
@@ -431,14 +454,12 @@
           ],
           "slot_incantesimi": "1°: 4",
           "ac_breakdown": {
-            "totale": 15,
-            "armatura": 3,
+            "totale": 12,
+            "armatura": 0,
             "destrezza": 2,
-            "deflessione": 0,
-            "misc": 0,
             "scudo": 0
           },
-          "iniziativa": 2,
+          "iniziativa": 6,
           "velocita": 9,
           "progressione": [
             {
@@ -486,13 +507,13 @@
               "base": 1,
               "modificatore": 2,
               "misc": 0,
-              "totale": 3
+              "totale": 2
             },
             "Volontà": {
               "base": 3,
               "modificatore": 1,
               "misc": 0,
-              "totale": 4
+              "totale": 3
             }
           },
           "AC_arm": 0,
@@ -503,10 +524,10 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 15,
-          "CA_touch": 10,
+          "AC_tot": 12,
+          "CA_touch": 12,
           "CA_ff": 10,
-          "init": 2,
+          "init": 6,
           "speed": 9,
           "currency": {
             "gp": 100,
@@ -540,12 +561,29 @@
           "skills": [
             {
               "nome": "Percezione",
-              "valore": 0
+              "gradi": 1,
+              "mod_car": 1,
+              "classe": false,
+              "totale": 2
+            },
+            {
+              "nome": "Conoscenze (arcana)",
+              "gradi": 1,
+              "mod_car": 1,
+              "classe": true,
+              "totale": 5
+            },
+            {
+              "nome": "Sapienza Magica",
+              "gradi": 1,
+              "mod_car": 1,
+              "classe": true,
+              "totale": 5
             }
           ],
           "background": "Piromane accademico in cerca di antiche pergamene elementali.",
           "pf_per_livello": "n/d (PF per livello non fornito)",
-          "BAB": "n/d (BAB non fornito)",
+          "BAB": 0,
           "CMB": "n/d (CMB non fornito)",
           "cmb_disarm": "n/d (cmb disarm non fornito)",
           "cmb_trip": "n/d (cmb trip non fornito)",
@@ -558,7 +596,15 @@
           ],
           "lingue": [],
           "sensi": [],
-          "condizioni": []
+          "condizioni": [],
+          "bonus_razziale_flessibile": "INT",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "statline GPT-A invariata (20pb legale); flex INT (primaria da wizard). NOTA: statline editoriale povera per il concept (INT 10 pre-razziale) ma legale; ribilanciamento fuori perimetro lotto A"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -592,38 +638,38 @@
           "INT": 10,
           "SAG": 12,
           "CAR": 8,
-          "ca": 15
+          "ca": 12
         },
         "statistiche_chiave": {
           "attacco": null,
           "danni": null,
-          "ca": 15,
-          "CA": 15
+          "ca": 12,
+          "CA": 12
         },
-        "pf_totali": 12,
+        "pf_totali": 9,
         "hp": {
-          "totali": 12,
+          "totali": 9,
           "per_livello": [
             12
           ]
         },
         "salvezze": {
           "Tempra": 2,
-          "Riflessi": 3,
-          "Volontà": 4
+          "Riflessi": 2,
+          "Volontà": 3
         },
         "skills_map": {
+          "Percezione": {
+            "totale": 2
+          },
           "Conoscenze (arcana)": {
-            "totale": 6
+            "totale": 5
           },
           "Sapienza Magica": {
-            "totale": 6
-          },
-          "Percezione": {
             "totale": 5
           }
         },
-        "skill_points": 5,
+        "skill_points": 3,
         "talenti": [
           "Iniziativa migliorata"
         ],
@@ -651,14 +697,12 @@
         ],
         "slot_incantesimi": "1°: 4",
         "ac_breakdown": {
-          "totale": 15,
-          "armatura": 3,
+          "totale": 12,
+          "armatura": 0,
           "destrezza": 2,
-          "deflessione": 0,
-          "misc": 0,
           "scudo": 0
         },
-        "iniziativa": 2,
+        "iniziativa": 6,
         "velocita": 9,
         "progressione": [
           {
@@ -706,13 +750,13 @@
             "base": 1,
             "modificatore": 2,
             "misc": 0,
-            "totale": 3
+            "totale": 2
           },
           "Volontà": {
             "base": 3,
             "modificatore": 1,
             "misc": 0,
-            "totale": 4
+            "totale": 3
           }
         },
         "AC_arm": 0,
@@ -723,10 +767,10 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 15,
-        "CA_touch": 10,
+        "AC_tot": 12,
+        "CA_touch": 12,
         "CA_ff": 10,
-        "init": 2,
+        "init": 6,
         "speed": 9,
         "currency": {
           "gp": 100,
@@ -760,12 +804,29 @@
         "skills": [
           {
             "nome": "Percezione",
-            "valore": 0
+            "gradi": 1,
+            "mod_car": 1,
+            "classe": false,
+            "totale": 2
+          },
+          {
+            "nome": "Conoscenze (arcana)",
+            "gradi": 1,
+            "mod_car": 1,
+            "classe": true,
+            "totale": 5
+          },
+          {
+            "nome": "Sapienza Magica",
+            "gradi": 1,
+            "mod_car": 1,
+            "classe": true,
+            "totale": 5
           }
         ],
         "background": "Piromane accademico in cerca di antiche pergamene elementali.",
         "pf_per_livello": "n/d (PF per livello non fornito)",
-        "BAB": "n/d (BAB non fornito)",
+        "BAB": 0,
         "CMB": "n/d (CMB non fornito)",
         "cmb_disarm": "n/d (cmb disarm non fornito)",
         "cmb_trip": "n/d (cmb trip non fornito)",
@@ -778,7 +839,15 @@
         ],
         "lingue": [],
         "sensi": [],
-        "condizioni": []
+        "condizioni": [],
+        "bonus_razziale_flessibile": "INT",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "statline GPT-A invariata (20pb legale); flex INT (primaria da wizard). NOTA: statline editoriale povera per il concept (INT 10 pre-razziale) ma legale; ribilanciamento fuori perimetro lotto A"
+        }
       }
     },
     "narrative": "Human Evoker pronta/o per il campo, specializzata/o in tattiche da Wizard.",

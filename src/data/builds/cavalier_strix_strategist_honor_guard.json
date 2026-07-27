@@ -7,12 +7,12 @@
     "step": 16,
     "step_total": 16,
     "statistics": {
-      "FOR": 18,
-      "DES": 15,
+      "FOR": 17,
+      "DES": 13,
       "COS": 14,
       "INT": 12,
-      "SAG": 12,
-      "CAR": 10,
+      "SAG": 10,
+      "CAR": 12,
       "level": 1
     },
     "step_labels": {
@@ -55,7 +55,7 @@
     "statistics": {
       "attacco": "+6",
       "danni": "lancia lunga 1d8+6 (carica a cavallo)",
-      "ca": 19
+      "ca": 12
     }
   },
   "body_params": {
@@ -78,12 +78,12 @@
         "step": 16,
         "step_total": 16,
         "statistics": {
-          "FOR": 18,
-          "DES": 15,
+          "FOR": 17,
+          "DES": 13,
           "COS": 14,
           "INT": 12,
-          "SAG": 12,
-          "CAR": 10,
+          "SAG": 10,
+          "CAR": 12,
           "level": 1
         },
         "step_labels": {
@@ -126,7 +126,7 @@
         "statistics": {
           "attacco": "+6",
           "danni": "lancia lunga 1d8+6 (carica a cavallo)",
-          "ca": 19
+          "ca": 12
         }
       },
       "export": {
@@ -142,20 +142,20 @@
             }
           ],
           "statistiche": {
-            "FOR": 18,
-            "DES": 15,
+            "FOR": 17,
+            "DES": 13,
             "COS": 14,
             "INT": 12,
-            "SAG": 12,
-            "CAR": 10,
+            "SAG": 10,
+            "CAR": 12,
             "attacco": "+6",
             "danni": "lancia lunga 1d8+6",
-            "ca": 19
+            "ca": 12
           },
           "statistiche_chiave": {
             "attacco": "+6",
             "danni": "1d8+6",
-            "ca": 19
+            "ca": 12
           },
           "level": 1,
           "level_checkpoints": [
@@ -171,11 +171,10 @@
           "skills": [
             {
               "nome": "Percezione",
-              "totale": 6
-            },
-            {
-              "nome": "Volare",
-              "totale": 9
+              "gradi": 1,
+              "mod_car": 0,
+              "classe": false,
+              "totale": 1
             }
           ],
           "equipaggiamento": [
@@ -209,7 +208,14 @@
               "rame": 60
             }
           },
-          "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea"
+          "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "33 -> 25pb, FOR primaria honor guard, CAR secondaria strategist"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -238,20 +244,20 @@
           }
         ],
         "statistiche": {
-          "FOR": 18,
-          "DES": 15,
+          "FOR": 17,
+          "DES": 13,
           "COS": 14,
           "INT": 12,
-          "SAG": 12,
-          "CAR": 10,
+          "SAG": 10,
+          "CAR": 12,
           "attacco": "+6",
           "danni": "lancia lunga 1d8+6",
-          "ca": 19
+          "ca": 12
         },
         "statistiche_chiave": {
           "attacco": "+6",
           "danni": "1d8+6",
-          "ca": 19
+          "ca": 12
         },
         "level": 1,
         "level_checkpoints": [
@@ -267,11 +273,10 @@
         "skills": [
           {
             "nome": "Percezione",
-            "totale": 6
-          },
-          {
-            "nome": "Volare",
-            "totale": 9
+            "gradi": 1,
+            "mod_car": 0,
+            "classe": false,
+            "totale": 1
           }
         ],
         "equipaggiamento": [
@@ -305,7 +310,14 @@
             "rame": 60
           }
         },
-        "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea"
+        "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "33 -> 25pb, FOR primaria honor guard, CAR secondaria strategist"
+        }
       }
     },
     "narrative": {
@@ -333,20 +345,20 @@
         }
       ],
       "statistiche": {
-        "FOR": 18,
-        "DES": 15,
+        "FOR": 17,
+        "DES": 13,
         "COS": 14,
         "INT": 12,
-        "SAG": 12,
-        "CAR": 10,
+        "SAG": 10,
+        "CAR": 12,
         "attacco": "+6",
         "danni": "lancia lunga 1d8+6",
-        "ca": 19
+        "ca": 12
       },
       "statistiche_chiave": {
         "attacco": "+6",
         "danni": "1d8+6",
-        "ca": 19
+        "ca": 12
       },
       "level": 1,
       "level_checkpoints": [
@@ -362,11 +374,10 @@
       "skills": [
         {
           "nome": "Percezione",
-          "totale": 6
-        },
-        {
-          "nome": "Volare",
-          "totale": 9
+          "gradi": 1,
+          "mod_car": 0,
+          "classe": false,
+          "totale": 1
         }
       ],
       "equipaggiamento": [
@@ -400,7 +411,14 @@
           "rame": 60
         }
       },
-      "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea"
+      "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "33 -> 25pb, FOR primaria honor guard, CAR secondaria strategist"
+      }
     }
   },
   "fetched_at": "2025-12-11T01:14:21Z",

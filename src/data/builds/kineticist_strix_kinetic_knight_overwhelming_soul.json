@@ -26,10 +26,10 @@
     },
     "statistics": {
       "FOR": 12,
-      "DES": 18,
-      "COS": 12,
+      "DES": 16,
+      "COS": 13,
       "INT": 10,
-      "SAG": 12,
+      "SAG": 10,
       "CAR": 16
     },
     "step_labels_count": 16
@@ -54,7 +54,7 @@
     "statistics": {
       "attacco": "+6",
       "danni": "lancia di forza 2d6+6 (empowered infusion)",
-      "ca": 19
+      "ca": 14
     }
   },
   "export": {
@@ -71,28 +71,28 @@
       ],
       "statistiche": {
         "FOR": 12,
-        "DES": 18,
-        "COS": 12,
+        "DES": 16,
+        "COS": 13,
         "INT": 10,
-        "SAG": 12,
+        "SAG": 10,
         "CAR": 16,
         "attacco": "+6",
         "danni": "lancia di forza 2d6+6",
-        "ca": 19
+        "ca": 14
       },
       "statistiche_chiave": {
         "attacco": "+6",
         "danni": "2d6+6",
-        "ca": 19
+        "ca": 14
       },
       "benchmarks": {
         "meta_tier": "T1",
         "ruling_badge": "RAW/RAI/PFS"
       },
       "salvezze": {
-        "Tempra": 4,
+        "Tempra": 3,
         "Riflessi": 6,
-        "Volontà": 4
+        "Volontà": 0
       },
       "attack_bonus": {
         "melee": "+6",
@@ -109,13 +109,10 @@
       "skills": [
         {
           "nome": "Acrobazia",
-          "gradi": 4,
-          "bonus": "+7"
-        },
-        {
-          "nome": "Volare",
-          "gradi": 4,
-          "bonus": "+9"
+          "gradi": 1,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 8
         }
       ],
       "equipaggiamento": [
@@ -150,7 +147,14 @@
           "rame": 10
         }
       },
-      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale"
+      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "33 -> 25pb, CAR (overwhelming soul) + DES (kinetic knight)"
+      }
     }
   },
   "body_params": {
@@ -310,10 +314,10 @@
         },
         "statistics": {
           "FOR": 12,
-          "DES": 18,
-          "COS": 12,
+          "DES": 16,
+          "COS": 13,
           "INT": 10,
-          "SAG": 12,
+          "SAG": 10,
           "CAR": 16
         },
         "step_labels_count": 16
@@ -338,7 +342,7 @@
         "statistics": {
           "attacco": "+6",
           "danni": "lancia di forza 2d6+6 (empowered infusion)",
-          "ca": 19
+          "ca": 14
         }
       },
       "export": {
@@ -355,28 +359,28 @@
           ],
           "statistiche": {
             "FOR": 12,
-            "DES": 18,
-            "COS": 12,
+            "DES": 16,
+            "COS": 13,
             "INT": 10,
-            "SAG": 12,
+            "SAG": 10,
             "CAR": 16,
             "attacco": "+6",
             "danni": "lancia di forza 2d6+6",
-            "ca": 19
+            "ca": 14
           },
           "statistiche_chiave": {
             "attacco": "+6",
             "danni": "2d6+6",
-            "ca": 19
+            "ca": 14
           },
           "benchmarks": {
             "meta_tier": "T1",
             "ruling_badge": "RAW/RAI/PFS"
           },
           "salvezze": {
-            "Tempra": 4,
+            "Tempra": 3,
             "Riflessi": 6,
-            "Volontà": 4
+            "Volontà": 0
           },
           "attack_bonus": {
             "melee": "+6",
@@ -393,13 +397,10 @@
           "skills": [
             {
               "nome": "Acrobazia",
-              "gradi": 4,
-              "bonus": "+7"
-            },
-            {
-              "nome": "Volare",
-              "gradi": 4,
-              "bonus": "+9"
+              "gradi": 1,
+              "mod_car": 4,
+              "classe": true,
+              "totale": 8
             }
           ],
           "equipaggiamento": [
@@ -434,7 +435,14 @@
               "rame": 10
             }
           },
-          "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale"
+          "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "33 -> 25pb, CAR (overwhelming soul) + DES (kinetic knight)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -464,28 +472,28 @@
         ],
         "statistiche": {
           "FOR": 12,
-          "DES": 18,
-          "COS": 12,
+          "DES": 16,
+          "COS": 13,
           "INT": 10,
-          "SAG": 12,
+          "SAG": 10,
           "CAR": 16,
           "attacco": "+6",
           "danni": "lancia di forza 2d6+6",
-          "ca": 19
+          "ca": 14
         },
         "statistiche_chiave": {
           "attacco": "+6",
           "danni": "2d6+6",
-          "ca": 19
+          "ca": 14
         },
         "benchmarks": {
           "meta_tier": "T1",
           "ruling_badge": "RAW/RAI/PFS"
         },
         "salvezze": {
-          "Tempra": 4,
+          "Tempra": 3,
           "Riflessi": 6,
-          "Volontà": 4
+          "Volontà": 0
         },
         "attack_bonus": {
           "melee": "+6",
@@ -502,13 +510,10 @@
         "skills": [
           {
             "nome": "Acrobazia",
-            "gradi": 4,
-            "bonus": "+7"
-          },
-          {
-            "nome": "Volare",
-            "gradi": 4,
-            "bonus": "+9"
+            "gradi": 1,
+            "mod_car": 4,
+            "classe": true,
+            "totale": 8
           }
         ],
         "equipaggiamento": [
@@ -543,7 +548,14 @@
             "rame": 10
           }
         },
-        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale"
+        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "33 -> 25pb, CAR (overwhelming soul) + DES (kinetic knight)"
+        }
       }
     },
     "narrative": "Guardia strix che sfrutta Kinetic Knight e Overwhelming Soul per proteggere le cittadelle alate."

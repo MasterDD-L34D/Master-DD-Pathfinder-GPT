@@ -50,7 +50,7 @@
     "statistics": {
       "attacco": "+6 (pugnale) / +5 (fionda)",
       "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
-      "ca": 18
+      "ca": 16
     },
     "prerequisite_violations": [
       "Armatura di cuoio borchiato: Light armor proficiency"
@@ -79,38 +79,38 @@
         "CAR": 8,
         "attacco": "+6 (pugnale) / +5 (fionda)",
         "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
-        "ca": 18
+        "ca": 16
       },
       "statistiche_chiave": {
         "attacco": "+6 (pugnale) / +5 (fionda)",
         "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
-        "ca": 18,
-        "CA": 18
+        "ca": 16,
+        "CA": 16
       },
-      "pf_totali": 11,
+      "pf_totali": 10,
       "hp": {
-        "totali": 11,
+        "totali": 10,
         "per_livello": [
           11
         ]
       },
       "salvezze": {
-        "Tempra": 2,
-        "Riflessi": 4,
-        "Volontà": 1
+        "Tempra": 1,
+        "Riflessi": 7,
+        "Volontà": 0
       },
       "skills_map": {
+        "Percezione": {
+          "totale": 4
+        },
         "Furtività": {
           "totale": 9
         },
         "Rapidità di mano": {
-          "totale": 9
-        },
-        "Percezione": {
-          "totale": 6
+          "totale": 12
         },
         "Acrobazia": {
-          "totale": 8
+          "totale": 9
         },
         "Disattivare Congegni": {
           "totale": 9
@@ -118,7 +118,7 @@
       },
       "skill_points": 10,
       "talenti": [
-        "Arma accurata"
+        "Skill Focus (Sleight of Hand)"
       ],
       "capacita_classe": [
         "Attacco furtivo +1d6",
@@ -139,13 +139,12 @@
       ],
       "slot_incantesimi": "Non incantatore",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 3,
-        "destrezza": 4,
-        "misc": 1,
+        "totale": 16,
+        "armatura": 0,
+        "destrezza": 5,
         "scudo": 0
       },
-      "iniziativa": 4,
+      "iniziativa": 5,
       "velocita": 6,
       "progressione": [
         {
@@ -157,7 +156,7 @@
             "PF 11 | TS +2/+4/+1 | CA 18"
           ],
           "talenti": [
-            "Arma accurata"
+            "Skill Focus (Sleight of Hand)"
           ]
         }
       ],
@@ -187,19 +186,19 @@
           "base": 1,
           "modificatore": 1,
           "misc": 0,
-          "totale": 2
+          "totale": 1
         },
         "Riflessi": {
           "base": 0,
           "modificatore": 4,
           "misc": 0,
-          "totale": 4
+          "totale": 7
         },
         "Volontà": {
           "base": 1,
           "modificatore": 0,
           "misc": 0,
-          "totale": 1
+          "totale": 0
         }
       },
       "AC_arm": 0,
@@ -210,10 +209,10 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
-      "CA_touch": 10,
-      "CA_ff": 10,
-      "init": 4,
+      "AC_tot": 16,
+      "CA_touch": 16,
+      "CA_ff": 11,
+      "init": 5,
       "speed": 6,
       "currency": {
         "gp": 100,
@@ -244,7 +243,38 @@
       "skills": [
         {
           "nome": "Percezione",
-          "valore": 0
+          "gradi": 1,
+          "mod_car": 0,
+          "classe": true,
+          "totale": 4
+        },
+        {
+          "nome": "Furtività",
+          "gradi": 1,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 9
+        },
+        {
+          "nome": "Rapidità di mano",
+          "gradi": 1,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 12
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 1,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 9
+        },
+        {
+          "nome": "Disattivare Congegni",
+          "gradi": 1,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 9
         }
       ],
       "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
@@ -252,7 +282,7 @@
         "scheda_pg_markdown_template.md": "# {{ nome }}\n\nTiri Salvezza:** Temp {{ salvezze.Tempra }} / Riflessi {{ salvezze.Riflessi }} / Volontà {{ salvezze['Volontà'] }}\n\n**BAB:** {{ BAB }} | **Iniziativa:** {{ iniziativa }} | **Velocità:** {{ velocita }}\n\nStatistiche:\n{% for label, key in [\n    (\"For\", \"FOR\"),\n    (\"Des\", \"DES\"),\n    (\"Cos\", \"COS\"),\n    (\"Int\", \"INT\"),\n    (\"Sag\", \"SAG\"),\n    (\"Car\", \"CAR\"),\n] %}\n**{{ label }}** {{ statistiche[key] }} (mod {{ (statistiche[key] - 10) // 2 }})\n{% endfor %}\n\n{% if skills %}\nCompetenze:\n{% for skill in skills %}- {{ skill.get('nome') or skill.get('name') }}\n{% endfor %}\n{% endif %}\n\n{% if equipaggiamento %}\nEquipaggiamento:\n{% for item in equipaggiamento %}- {{ item }}\n{% endfor %}\n{% endif %}\n\n{% set ledger_entries = ledger_movimenti or (ledger.movimenti if ledger else []) %}\n{% if ledger_entries %}\nLedger:\n{% for mov in ledger_entries %}- {{ mov.get('voce') or mov.get('oggetto') or mov.get('label') or mov.get('categoria') }}\n{% endfor %}\n{% endif %}\n"
       },
       "pf_per_livello": "n/d (PF per livello non fornito)",
-      "BAB": "n/d (BAB non fornito)",
+      "BAB": 0,
       "CMB": "n/d (CMB non fornito)",
       "cmb_disarm": "n/d (cmb disarm non fornito)",
       "cmb_trip": "n/d (cmb trip non fornito)",
@@ -264,7 +294,14 @@
       "magia": {},
       "lingue": [],
       "sensi": [],
-      "condizioni": []
+      "condizioni": [],
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "SOSTITUZIONE: Arma accurata -> Skill Focus (Sleight of Hand) (concept cutpurse; Arma accurata richiede BAB +1, rogue lv1 BAB +0; reintegrabile dal lv3 quando BAB >= +1)"
+      }
     }
   },
   "narrative": "Halfling Cutpurse pronta/o per il campo, specializzata/o in tattiche da Rogue.",
@@ -342,7 +379,7 @@
         "statistics": {
           "attacco": "+6 (pugnale) / +5 (fionda)",
           "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
-          "ca": 18
+          "ca": 16
         },
         "prerequisite_violations": [
           "Armatura di cuoio borchiato: Light armor proficiency"
@@ -371,38 +408,38 @@
             "CAR": 8,
             "attacco": "+6 (pugnale) / +5 (fionda)",
             "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
-            "ca": 18
+            "ca": 16
           },
           "statistiche_chiave": {
             "attacco": "+6 (pugnale) / +5 (fionda)",
             "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
-            "ca": 18,
-            "CA": 18
+            "ca": 16,
+            "CA": 16
           },
-          "pf_totali": 11,
+          "pf_totali": 10,
           "hp": {
-            "totali": 11,
+            "totali": 10,
             "per_livello": [
               11
             ]
           },
           "salvezze": {
-            "Tempra": 2,
-            "Riflessi": 4,
-            "Volontà": 1
+            "Tempra": 1,
+            "Riflessi": 7,
+            "Volontà": 0
           },
           "skills_map": {
+            "Percezione": {
+              "totale": 4
+            },
             "Furtività": {
               "totale": 9
             },
             "Rapidità di mano": {
-              "totale": 9
-            },
-            "Percezione": {
-              "totale": 6
+              "totale": 12
             },
             "Acrobazia": {
-              "totale": 8
+              "totale": 9
             },
             "Disattivare Congegni": {
               "totale": 9
@@ -410,7 +447,7 @@
           },
           "skill_points": 10,
           "talenti": [
-            "Arma accurata"
+            "Skill Focus (Sleight of Hand)"
           ],
           "capacita_classe": [
             "Attacco furtivo +1d6",
@@ -431,13 +468,12 @@
           ],
           "slot_incantesimi": "Non incantatore",
           "ac_breakdown": {
-            "totale": 18,
-            "armatura": 3,
-            "destrezza": 4,
-            "misc": 1,
+            "totale": 16,
+            "armatura": 0,
+            "destrezza": 5,
             "scudo": 0
           },
-          "iniziativa": 4,
+          "iniziativa": 5,
           "velocita": 6,
           "progressione": [
             {
@@ -449,7 +485,7 @@
                 "PF 11 | TS +2/+4/+1 | CA 18"
               ],
               "talenti": [
-                "Arma accurata"
+                "Skill Focus (Sleight of Hand)"
               ]
             }
           ],
@@ -479,19 +515,19 @@
               "base": 1,
               "modificatore": 1,
               "misc": 0,
-              "totale": 2
+              "totale": 1
             },
             "Riflessi": {
               "base": 0,
               "modificatore": 4,
               "misc": 0,
-              "totale": 4
+              "totale": 7
             },
             "Volontà": {
               "base": 1,
               "modificatore": 0,
               "misc": 0,
-              "totale": 1
+              "totale": 0
             }
           },
           "AC_arm": 0,
@@ -502,10 +538,10 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
-          "CA_touch": 10,
-          "CA_ff": 10,
-          "init": 4,
+          "AC_tot": 16,
+          "CA_touch": 16,
+          "CA_ff": 11,
+          "init": 5,
           "speed": 6,
           "currency": {
             "gp": 100,
@@ -536,7 +572,38 @@
           "skills": [
             {
               "nome": "Percezione",
-              "valore": 0
+              "gradi": 1,
+              "mod_car": 0,
+              "classe": true,
+              "totale": 4
+            },
+            {
+              "nome": "Furtività",
+              "gradi": 1,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 9
+            },
+            {
+              "nome": "Rapidità di mano",
+              "gradi": 1,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 12
+            },
+            {
+              "nome": "Acrobazia",
+              "gradi": 1,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 9
+            },
+            {
+              "nome": "Disattivare Congegni",
+              "gradi": 1,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 9
             }
           ],
           "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
@@ -544,7 +611,7 @@
             "scheda_pg_markdown_template.md": "# {{ nome }}\n\nTiri Salvezza:** Temp {{ salvezze.Tempra }} / Riflessi {{ salvezze.Riflessi }} / Volontà {{ salvezze['Volontà'] }}\n\n**BAB:** {{ BAB }} | **Iniziativa:** {{ iniziativa }} | **Velocità:** {{ velocita }}\n\nStatistiche:\n{% for label, key in [\n    (\"For\", \"FOR\"),\n    (\"Des\", \"DES\"),\n    (\"Cos\", \"COS\"),\n    (\"Int\", \"INT\"),\n    (\"Sag\", \"SAG\"),\n    (\"Car\", \"CAR\"),\n] %}\n**{{ label }}** {{ statistiche[key] }} (mod {{ (statistiche[key] - 10) // 2 }})\n{% endfor %}\n\n{% if skills %}\nCompetenze:\n{% for skill in skills %}- {{ skill.get('nome') or skill.get('name') }}\n{% endfor %}\n{% endif %}\n\n{% if equipaggiamento %}\nEquipaggiamento:\n{% for item in equipaggiamento %}- {{ item }}\n{% endfor %}\n{% endif %}\n\n{% set ledger_entries = ledger_movimenti or (ledger.movimenti if ledger else []) %}\n{% if ledger_entries %}\nLedger:\n{% for mov in ledger_entries %}- {{ mov.get('voce') or mov.get('oggetto') or mov.get('label') or mov.get('categoria') }}\n{% endfor %}\n{% endif %}\n"
           },
           "pf_per_livello": "n/d (PF per livello non fornito)",
-          "BAB": "n/d (BAB non fornito)",
+          "BAB": 0,
           "CMB": "n/d (CMB non fornito)",
           "cmb_disarm": "n/d (cmb disarm non fornito)",
           "cmb_trip": "n/d (cmb trip non fornito)",
@@ -556,7 +623,14 @@
           "magia": {},
           "lingue": [],
           "sensi": [],
-          "condizioni": []
+          "condizioni": [],
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "SOSTITUZIONE: Arma accurata -> Skill Focus (Sleight of Hand) (concept cutpurse; Arma accurata richiede BAB +1, rogue lv1 BAB +0; reintegrabile dal lv3 quando BAB >= +1)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -592,38 +666,38 @@
           "CAR": 8,
           "attacco": "+6 (pugnale) / +5 (fionda)",
           "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
-          "ca": 18
+          "ca": 16
         },
         "statistiche_chiave": {
           "attacco": "+6 (pugnale) / +5 (fionda)",
           "danni": "1d4+2 (pugnale) / 1d3+2 (fionda)",
-          "ca": 18,
-          "CA": 18
+          "ca": 16,
+          "CA": 16
         },
-        "pf_totali": 11,
+        "pf_totali": 10,
         "hp": {
-          "totali": 11,
+          "totali": 10,
           "per_livello": [
             11
           ]
         },
         "salvezze": {
-          "Tempra": 2,
-          "Riflessi": 4,
-          "Volontà": 1
+          "Tempra": 1,
+          "Riflessi": 7,
+          "Volontà": 0
         },
         "skills_map": {
+          "Percezione": {
+            "totale": 4
+          },
           "Furtività": {
             "totale": 9
           },
           "Rapidità di mano": {
-            "totale": 9
-          },
-          "Percezione": {
-            "totale": 6
+            "totale": 12
           },
           "Acrobazia": {
-            "totale": 8
+            "totale": 9
           },
           "Disattivare Congegni": {
             "totale": 9
@@ -631,7 +705,7 @@
         },
         "skill_points": 10,
         "talenti": [
-          "Arma accurata"
+          "Skill Focus (Sleight of Hand)"
         ],
         "capacita_classe": [
           "Attacco furtivo +1d6",
@@ -652,13 +726,12 @@
         ],
         "slot_incantesimi": "Non incantatore",
         "ac_breakdown": {
-          "totale": 18,
-          "armatura": 3,
-          "destrezza": 4,
-          "misc": 1,
+          "totale": 16,
+          "armatura": 0,
+          "destrezza": 5,
           "scudo": 0
         },
-        "iniziativa": 4,
+        "iniziativa": 5,
         "velocita": 6,
         "progressione": [
           {
@@ -670,7 +743,7 @@
               "PF 11 | TS +2/+4/+1 | CA 18"
             ],
             "talenti": [
-              "Arma accurata"
+              "Skill Focus (Sleight of Hand)"
             ]
           }
         ],
@@ -700,19 +773,19 @@
             "base": 1,
             "modificatore": 1,
             "misc": 0,
-            "totale": 2
+            "totale": 1
           },
           "Riflessi": {
             "base": 0,
             "modificatore": 4,
             "misc": 0,
-            "totale": 4
+            "totale": 7
           },
           "Volontà": {
             "base": 1,
             "modificatore": 0,
             "misc": 0,
-            "totale": 1
+            "totale": 0
           }
         },
         "AC_arm": 0,
@@ -723,10 +796,10 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
-        "CA_touch": 10,
-        "CA_ff": 10,
-        "init": 4,
+        "AC_tot": 16,
+        "CA_touch": 16,
+        "CA_ff": 11,
+        "init": 5,
         "speed": 6,
         "currency": {
           "gp": 100,
@@ -757,7 +830,38 @@
         "skills": [
           {
             "nome": "Percezione",
-            "valore": 0
+            "gradi": 1,
+            "mod_car": 0,
+            "classe": true,
+            "totale": 4
+          },
+          {
+            "nome": "Furtività",
+            "gradi": 1,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 9
+          },
+          {
+            "nome": "Rapidità di mano",
+            "gradi": 1,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 12
+          },
+          {
+            "nome": "Acrobazia",
+            "gradi": 1,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 9
+          },
+          {
+            "nome": "Disattivare Congegni",
+            "gradi": 1,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 9
           }
         ],
         "background": "Piccolo borseggiatore delle vie mercantili, maestro nel muoversi tra la folla.",
@@ -765,7 +869,7 @@
           "scheda_pg_markdown_template.md": "# {{ nome }}\n\nTiri Salvezza:** Temp {{ salvezze.Tempra }} / Riflessi {{ salvezze.Riflessi }} / Volontà {{ salvezze['Volontà'] }}\n\n**BAB:** {{ BAB }} | **Iniziativa:** {{ iniziativa }} | **Velocità:** {{ velocita }}\n\nStatistiche:\n{% for label, key in [\n    (\"For\", \"FOR\"),\n    (\"Des\", \"DES\"),\n    (\"Cos\", \"COS\"),\n    (\"Int\", \"INT\"),\n    (\"Sag\", \"SAG\"),\n    (\"Car\", \"CAR\"),\n] %}\n**{{ label }}** {{ statistiche[key] }} (mod {{ (statistiche[key] - 10) // 2 }})\n{% endfor %}\n\n{% if skills %}\nCompetenze:\n{% for skill in skills %}- {{ skill.get('nome') or skill.get('name') }}\n{% endfor %}\n{% endif %}\n\n{% if equipaggiamento %}\nEquipaggiamento:\n{% for item in equipaggiamento %}- {{ item }}\n{% endfor %}\n{% endif %}\n\n{% set ledger_entries = ledger_movimenti or (ledger.movimenti if ledger else []) %}\n{% if ledger_entries %}\nLedger:\n{% for mov in ledger_entries %}- {{ mov.get('voce') or mov.get('oggetto') or mov.get('label') or mov.get('categoria') }}\n{% endfor %}\n{% endif %}\n"
         },
         "pf_per_livello": "n/d (PF per livello non fornito)",
-        "BAB": "n/d (BAB non fornito)",
+        "BAB": 0,
         "CMB": "n/d (CMB non fornito)",
         "cmb_disarm": "n/d (cmb disarm non fornito)",
         "cmb_trip": "n/d (cmb trip non fornito)",
@@ -777,7 +881,14 @@
         "magia": {},
         "lingue": [],
         "sensi": [],
-        "condizioni": []
+        "condizioni": [],
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "SOSTITUZIONE: Arma accurata -> Skill Focus (Sleight of Hand) (concept cutpurse; Arma accurata richiede BAB +1, rogue lv1 BAB +0; reintegrabile dal lv3 quando BAB >= +1)"
+        }
       }
     },
     "narrative": "Halfling Cutpurse pronta/o per il campo, specializzata/o in tattiche da Rogue.",

@@ -11,9 +11,9 @@
     "step": 16,
     "step_total": 16,
     "statistics": {
-      "FOR": 10,
-      "DES": 16,
-      "COS": 12,
+      "FOR": 8,
+      "DES": 14,
+      "COS": 13,
       "INT": 12,
       "SAG": 10,
       "CAR": 18,
@@ -59,7 +59,7 @@
     "statistics": {
       "attacco": "+5",
       "danni": "lira sonica 1d6+CAR / melodia di sabbia",
-      "ca": 17
+      "ca": 13
     }
   },
   "ruling_badge": "validated",
@@ -101,44 +101,42 @@
       ],
       "razza": "Kitsune",
       "statistiche": {
-        "FOR": 10,
-        "DES": 16,
-        "COS": 12,
+        "FOR": 8,
+        "DES": 14,
+        "COS": 13,
         "INT": 12,
         "SAG": 10,
         "CAR": 18,
         "attacco": "+5",
         "danni": "lira sonica 1d6+CAR",
-        "ca": 17
+        "ca": 13
       },
       "hp": {
-        "totali": 11,
+        "totali": 10,
         "per_livello": [
           11
         ]
       },
       "salvezze": {
         "Tempra": 1,
-        "Riflessi": 3,
-        "Volontà": 3
+        "Riflessi": 5,
+        "Volontà": 2
       },
       "skills_map": {
         "Intrattenere (canto)": {
-          "totale": 8
-        },
-        "Percezione": {
-          "totale": 6
-        },
-        "Furtività": {
           "totale": 9
         },
-        "Sapienza Magica": {
+        "Percezione": {
+          "totale": 4
+        },
+        "Furtività": {
           "totale": 7
+        },
+        "Sapienza Magica": {
+          "totale": 5
         }
       },
       "talenti": [
-        "Armonia Letale (Sound Striker)",
-        "Scacciare Sogni (Sandman)",
         "Focalizzazione Abilità: Intrattenere"
       ],
       "equipaggiamento": [
@@ -166,7 +164,7 @@
         "statistics": {
           "attacco": "+5",
           "danni": "lira sonica 1d6+CAR",
-          "ca": 17
+          "ca": 13
         },
         "bench_log": [
           "Build scelta dopo confronto tra 3 varianti: la versione sandman/sound striker è risultata più equilibrata in DPR e controllo."
@@ -176,19 +174,31 @@
       "skills": [
         {
           "nome": "Intrattenere (canto)",
-          "totale": 8
-        },
-        {
-          "nome": "Percezione",
-          "totale": 6
-        },
-        {
-          "nome": "Furtività",
+          "gradi": 1,
+          "mod_car": 5,
+          "classe": true,
           "totale": 9
         },
         {
-          "nome": "Sapienza Magica",
+          "nome": "Percezione",
+          "gradi": 1,
+          "mod_car": 0,
+          "classe": true,
+          "totale": 4
+        },
+        {
+          "nome": "Furtività",
+          "gradi": 1,
+          "mod_car": 3,
+          "classe": true,
           "totale": 7
+        },
+        {
+          "nome": "Sapienza Magica",
+          "gradi": 1,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 5
         }
       ],
       "ledger": {
@@ -210,7 +220,14 @@
           "note": "Movimento auto-generato per QA"
         }
       ],
-      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "31 -> 25pb, CAR primaria bard. Difetto latente: 3 talenti su 1; tenuta Focalizzazione Abilità: Intrattenere (Skill Focus Perform, centrale, nessun prereq); droppati Armonia Letale (Sound Striker) e Scacciare Sogni (Sandman): prereq Perform 5/3 gradi, illegali al lv1 (reintegrabili a lv5/lv3)"
+      }
     },
     "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 1\nFocus su danni sonici e debuff di sonno/illusione."
   },
@@ -275,9 +292,9 @@
         "step": 16,
         "step_total": 16,
         "statistics": {
-          "FOR": 10,
-          "DES": 16,
-          "COS": 12,
+          "FOR": 8,
+          "DES": 14,
+          "COS": 13,
           "INT": 12,
           "SAG": 10,
           "CAR": 18,
@@ -323,7 +340,7 @@
         "statistics": {
           "attacco": "+5",
           "danni": "lira sonica 1d6+CAR / melodia di sabbia",
-          "ca": 17
+          "ca": 13
         }
       },
       "export": {
@@ -340,44 +357,42 @@
           ],
           "razza": "Kitsune",
           "statistiche": {
-            "FOR": 10,
-            "DES": 16,
-            "COS": 12,
+            "FOR": 8,
+            "DES": 14,
+            "COS": 13,
             "INT": 12,
             "SAG": 10,
             "CAR": 18,
             "attacco": "+5",
             "danni": "lira sonica 1d6+CAR",
-            "ca": 17
+            "ca": 13
           },
           "hp": {
-            "totali": 11,
+            "totali": 10,
             "per_livello": [
               11
             ]
           },
           "salvezze": {
             "Tempra": 1,
-            "Riflessi": 3,
-            "Volontà": 3
+            "Riflessi": 5,
+            "Volontà": 2
           },
           "skills_map": {
             "Intrattenere (canto)": {
-              "totale": 8
-            },
-            "Percezione": {
-              "totale": 6
-            },
-            "Furtività": {
               "totale": 9
             },
-            "Sapienza Magica": {
+            "Percezione": {
+              "totale": 4
+            },
+            "Furtività": {
               "totale": 7
+            },
+            "Sapienza Magica": {
+              "totale": 5
             }
           },
           "talenti": [
-            "Armonia Letale (Sound Striker)",
-            "Scacciare Sogni (Sandman)",
             "Focalizzazione Abilità: Intrattenere"
           ],
           "equipaggiamento": [
@@ -405,7 +420,7 @@
             "statistics": {
               "attacco": "+5",
               "danni": "lira sonica 1d6+CAR",
-              "ca": 17
+              "ca": 13
             },
             "bench_log": [
               "Build scelta dopo confronto tra 3 varianti: la versione sandman/sound striker è risultata più equilibrata in DPR e controllo."
@@ -415,19 +430,31 @@
           "skills": [
             {
               "nome": "Intrattenere (canto)",
-              "totale": 8
-            },
-            {
-              "nome": "Percezione",
-              "totale": 6
-            },
-            {
-              "nome": "Furtività",
+              "gradi": 1,
+              "mod_car": 5,
+              "classe": true,
               "totale": 9
             },
             {
-              "nome": "Sapienza Magica",
+              "nome": "Percezione",
+              "gradi": 1,
+              "mod_car": 0,
+              "classe": true,
+              "totale": 4
+            },
+            {
+              "nome": "Furtività",
+              "gradi": 1,
+              "mod_car": 3,
+              "classe": true,
               "totale": 7
+            },
+            {
+              "nome": "Sapienza Magica",
+              "gradi": 1,
+              "mod_car": 1,
+              "classe": true,
+              "totale": 5
             }
           ],
           "ledger": {
@@ -449,7 +476,14 @@
               "note": "Movimento auto-generato per QA"
             }
           ],
-          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "31 -> 25pb, CAR primaria bard. Difetto latente: 3 talenti su 1; tenuta Focalizzazione Abilità: Intrattenere (Skill Focus Perform, centrale, nessun prereq); droppati Armonia Letale (Sound Striker) e Scacciare Sogni (Sandman): prereq Perform 5/3 gradi, illegali al lv1 (reintegrabili a lv5/lv3)"
+          }
         },
         "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 1\nFocus su danni sonici e debuff di sonno/illusione."
       },
@@ -480,44 +514,42 @@
         ],
         "razza": "Kitsune",
         "statistiche": {
-          "FOR": 10,
-          "DES": 16,
-          "COS": 12,
+          "FOR": 8,
+          "DES": 14,
+          "COS": 13,
           "INT": 12,
           "SAG": 10,
           "CAR": 18,
           "attacco": "+5",
           "danni": "lira sonica 1d6+CAR",
-          "ca": 17
+          "ca": 13
         },
         "hp": {
-          "totali": 11,
+          "totali": 10,
           "per_livello": [
             11
           ]
         },
         "salvezze": {
           "Tempra": 1,
-          "Riflessi": 3,
-          "Volontà": 3
+          "Riflessi": 5,
+          "Volontà": 2
         },
         "skills_map": {
           "Intrattenere (canto)": {
-            "totale": 8
-          },
-          "Percezione": {
-            "totale": 6
-          },
-          "Furtività": {
             "totale": 9
           },
-          "Sapienza Magica": {
+          "Percezione": {
+            "totale": 4
+          },
+          "Furtività": {
             "totale": 7
+          },
+          "Sapienza Magica": {
+            "totale": 5
           }
         },
         "talenti": [
-          "Armonia Letale (Sound Striker)",
-          "Scacciare Sogni (Sandman)",
           "Focalizzazione Abilità: Intrattenere"
         ],
         "equipaggiamento": [
@@ -545,7 +577,7 @@
           "statistics": {
             "attacco": "+5",
             "danni": "lira sonica 1d6+CAR",
-            "ca": 17
+            "ca": 13
           },
           "bench_log": [
             "Build scelta dopo confronto tra 3 varianti: la versione sandman/sound striker è risultata più equilibrata in DPR e controllo."
@@ -555,19 +587,31 @@
         "skills": [
           {
             "nome": "Intrattenere (canto)",
-            "totale": 8
-          },
-          {
-            "nome": "Percezione",
-            "totale": 6
-          },
-          {
-            "nome": "Furtività",
+            "gradi": 1,
+            "mod_car": 5,
+            "classe": true,
             "totale": 9
           },
           {
-            "nome": "Sapienza Magica",
+            "nome": "Percezione",
+            "gradi": 1,
+            "mod_car": 0,
+            "classe": true,
+            "totale": 4
+          },
+          {
+            "nome": "Furtività",
+            "gradi": 1,
+            "mod_car": 3,
+            "classe": true,
             "totale": 7
+          },
+          {
+            "nome": "Sapienza Magica",
+            "gradi": 1,
+            "mod_car": 1,
+            "classe": true,
+            "totale": 5
           }
         ],
         "ledger": {
@@ -588,7 +632,14 @@
             "importo": 0,
             "note": "Movimento auto-generato per QA"
           }
-        ]
+        ],
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "31 -> 25pb, CAR primaria bard. Difetto latente: 3 talenti su 1; tenuta Focalizzazione Abilità: Intrattenere (Skill Focus Perform, centrale, nessun prereq); droppati Armonia Letale (Sound Striker) e Scacciare Sogni (Sandman): prereq Perform 5/3 gradi, illegali al lv1 (reintegrabili a lv5/lv3)"
+        }
       }
     },
     "narrative": {
@@ -631,8 +682,6 @@
     }
   ],
   "feat_plan": [
-    "Armonia Letale (Sound Striker)",
-    "Scacciare Sogni (Sandman)",
     "Focalizzazione Abilità: Intrattenere"
   ],
   "citation": {

@@ -50,7 +50,7 @@
     "statistics": {
       "attacco": "+4",
       "danni": "1d8+3",
-      "ca": 18
+      "ca": 12
     },
     "catalog_version": [
       "2026.04.03"
@@ -76,40 +76,36 @@
         "CAR": 8,
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18
+        "ca": 12
       },
       "statistiche_chiave": {
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18,
-        "CA": 18
+        "ca": 12,
+        "CA": 12
       },
-      "pf_totali": 12,
+      "pf_totali": 11,
       "hp": {
-        "totali": 12,
+        "totali": 11,
         "per_livello": [
           12
         ]
       },
       "salvezze": {
-        "Tempra": 4,
-        "Riflessi": 3,
+        "Tempra": 2,
+        "Riflessi": 2,
         "Volontà": 4
       },
       "skills_map": {
         "Percezione": {
-          "totale": 5
+          "totale": 6
         },
         "Acrobazia": {
-          "totale": 4
-        },
-        "Conoscenze": {
           "totale": 3
         }
       },
-      "skill_points": 5,
+      "skill_points": 4,
       "talenti": [
-        "Colpo possente",
         "Iniziativa migliorata"
       ],
       "capacita_classe": [
@@ -139,12 +135,12 @@
       ],
       "slot_incantesimi": "Liv1:4/Liv2:3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
+        "totale": 12,
+        "armatura": 0,
         "destrezza": 2,
-        "scudo": 1
+        "scudo": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 6,
       "velocita": 9,
       "progressione": [
         {
@@ -154,7 +150,7 @@
             "Tecnica distintiva Spirit Dancer + Reanimated Medium"
           ],
           "talenti": [
-            "Talento di livello 1"
+            "Iniziativa migliorata"
           ]
         }
       ],
@@ -184,13 +180,13 @@
           "base": 2,
           "modificatore": 2,
           "misc": 0,
-          "totale": 4
+          "totale": 2
         },
         "Riflessi": {
           "base": 1,
           "modificatore": 2,
           "misc": 0,
-          "totale": 3
+          "totale": 2
         },
         "Volontà": {
           "base": 3,
@@ -208,11 +204,11 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
-      "CA_touch": 10,
+      "AC_tot": 12,
+      "CA_touch": 12,
       "CA_ff": 10,
-      "BAB": "n/d (BAB non fornito)",
-      "init": 2,
+      "BAB": 0,
+      "init": 6,
       "CMB": "n/d (CMB non fornito)",
       "cmb_disarm": "n/d (cmb disarm non fornito)",
       "cmb_trip": "n/d (cmb trip non fornito)",
@@ -257,12 +253,29 @@
       "skills": [
         {
           "nome": "Percezione",
-          "valore": 0
+          "gradi": 1,
+          "mod_car": 2,
+          "classe": true,
+          "totale": 6
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 1,
+          "mod_car": 2,
+          "classe": false,
+          "totale": 3
         }
       ],
       "lingue": [],
       "sensi": [],
-      "condizioni": []
+      "condizioni": [],
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "tenuta Iniziativa migliorata; droppato Colpo possente: concept caster/supporto (spirit dancer)"
+      }
     }
   },
   "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",
@@ -340,7 +353,7 @@
         "statistics": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 12
         },
         "catalog_version": [
           "2026.04.03"
@@ -366,40 +379,36 @@
             "CAR": 8,
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18
+            "ca": 12
           },
           "statistiche_chiave": {
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18,
-            "CA": 18
+            "ca": 12,
+            "CA": 12
           },
-          "pf_totali": 12,
+          "pf_totali": 11,
           "hp": {
-            "totali": 12,
+            "totali": 11,
             "per_livello": [
               12
             ]
           },
           "salvezze": {
-            "Tempra": 4,
-            "Riflessi": 3,
+            "Tempra": 2,
+            "Riflessi": 2,
             "Volontà": 4
           },
           "skills_map": {
             "Percezione": {
-              "totale": 5
+              "totale": 6
             },
             "Acrobazia": {
-              "totale": 4
-            },
-            "Conoscenze": {
               "totale": 3
             }
           },
-          "skill_points": 5,
+          "skill_points": 4,
           "talenti": [
-            "Colpo possente",
             "Iniziativa migliorata"
           ],
           "capacita_classe": [
@@ -429,12 +438,12 @@
           ],
           "slot_incantesimi": "Liv1:4/Liv2:3",
           "ac_breakdown": {
-            "totale": 18,
-            "armatura": 5,
+            "totale": 12,
+            "armatura": 0,
             "destrezza": 2,
-            "scudo": 1
+            "scudo": 0
           },
-          "iniziativa": 2,
+          "iniziativa": 6,
           "velocita": 9,
           "progressione": [
             {
@@ -444,7 +453,7 @@
                 "Tecnica distintiva Spirit Dancer + Reanimated Medium"
               ],
               "talenti": [
-                "Talento di livello 1"
+                "Iniziativa migliorata"
               ]
             }
           ],
@@ -474,13 +483,13 @@
               "base": 2,
               "modificatore": 2,
               "misc": 0,
-              "totale": 4
+              "totale": 2
             },
             "Riflessi": {
               "base": 1,
               "modificatore": 2,
               "misc": 0,
-              "totale": 3
+              "totale": 2
             },
             "Volontà": {
               "base": 3,
@@ -498,11 +507,11 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
-          "CA_touch": 10,
+          "AC_tot": 12,
+          "CA_touch": 12,
           "CA_ff": 10,
-          "BAB": "n/d (BAB non fornito)",
-          "init": 2,
+          "BAB": 0,
+          "init": 6,
           "CMB": "n/d (CMB non fornito)",
           "cmb_disarm": "n/d (cmb disarm non fornito)",
           "cmb_trip": "n/d (cmb trip non fornito)",
@@ -544,10 +553,32 @@
           "show_explain": true,
           "show_ledger": true,
           "decimal_comma": true,
-          "skills": [],
+          "skills": [
+            {
+              "nome": "Percezione",
+              "gradi": 1,
+              "mod_car": 2,
+              "classe": true,
+              "totale": 6
+            },
+            {
+              "nome": "Acrobazia",
+              "gradi": 1,
+              "mod_car": 2,
+              "classe": false,
+              "totale": 3
+            }
+          ],
           "lingue": [],
           "sensi": [],
-          "condizioni": []
+          "condizioni": [],
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "tenuta Iniziativa migliorata; droppato Colpo possente: concept caster/supporto (spirit dancer)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -583,40 +614,36 @@
           "CAR": 8,
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 12
         },
         "statistiche_chiave": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18,
-          "CA": 18
+          "ca": 12,
+          "CA": 12
         },
-        "pf_totali": 12,
+        "pf_totali": 11,
         "hp": {
-          "totali": 12,
+          "totali": 11,
           "per_livello": [
             12
           ]
         },
         "salvezze": {
-          "Tempra": 4,
-          "Riflessi": 3,
+          "Tempra": 2,
+          "Riflessi": 2,
           "Volontà": 4
         },
         "skills_map": {
           "Percezione": {
-            "totale": 5
+            "totale": 6
           },
           "Acrobazia": {
-            "totale": 4
-          },
-          "Conoscenze": {
             "totale": 3
           }
         },
-        "skill_points": 5,
+        "skill_points": 4,
         "talenti": [
-          "Colpo possente",
           "Iniziativa migliorata"
         ],
         "capacita_classe": [
@@ -646,12 +673,12 @@
         ],
         "slot_incantesimi": "Liv1:4/Liv2:3",
         "ac_breakdown": {
-          "totale": 18,
-          "armatura": 5,
+          "totale": 12,
+          "armatura": 0,
           "destrezza": 2,
-          "scudo": 1
+          "scudo": 0
         },
-        "iniziativa": 2,
+        "iniziativa": 6,
         "velocita": 9,
         "progressione": [
           {
@@ -661,7 +688,7 @@
               "Tecnica distintiva Spirit Dancer + Reanimated Medium"
             ],
             "talenti": [
-              "Talento di livello 1"
+              "Iniziativa migliorata"
             ]
           }
         ],
@@ -691,13 +718,13 @@
             "base": 2,
             "modificatore": 2,
             "misc": 0,
-            "totale": 4
+            "totale": 2
           },
           "Riflessi": {
             "base": 1,
             "modificatore": 2,
             "misc": 0,
-            "totale": 3
+            "totale": 2
           },
           "Volontà": {
             "base": 3,
@@ -715,11 +742,11 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
-        "CA_touch": 10,
+        "AC_tot": 12,
+        "CA_touch": 12,
         "CA_ff": 10,
-        "BAB": "n/d (BAB non fornito)",
-        "init": 2,
+        "BAB": 0,
+        "init": 6,
         "CMB": "n/d (CMB non fornito)",
         "cmb_disarm": "n/d (cmb disarm non fornito)",
         "cmb_trip": "n/d (cmb trip non fornito)",
@@ -761,10 +788,32 @@
         "show_explain": true,
         "show_ledger": true,
         "decimal_comma": true,
-        "skills": [],
+        "skills": [
+          {
+            "nome": "Percezione",
+            "gradi": 1,
+            "mod_car": 2,
+            "classe": true,
+            "totale": 6
+          },
+          {
+            "nome": "Acrobazia",
+            "gradi": 1,
+            "mod_car": 2,
+            "classe": false,
+            "totale": 3
+          }
+        ],
         "lingue": [],
         "sensi": [],
-        "condizioni": []
+        "condizioni": [],
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "tenuta Iniziativa migliorata; droppato Colpo possente: concept caster/supporto (spirit dancer)"
+        }
       }
     },
     "narrative": "Oread Spirit Dancer + Reanimated Medium pronta/o per il campo, specializzata/o in tattiche da Medium.",

@@ -26,11 +26,11 @@
     },
     "statistics": {
       "FOR": 14,
-      "DES": 22,
-      "COS": 14,
+      "DES": 14,
+      "COS": 13,
       "INT": 8,
-      "SAG": 12,
-      "CAR": 22
+      "SAG": 10,
+      "CAR": 17
     },
     "step_labels_count": 16
   },
@@ -43,18 +43,18 @@
         "picco": 18
       },
       "livello_5": {
-        "media": 34,
-        "picco": 52
+        "media": 32,
+        "picco": 48
       },
       "livello_10": {
-        "media": 65,
-        "picco": 98
+        "media": 62,
+        "picco": 92
       }
     },
     "statistics": {
-      "attacco": "+20",
-      "danni": "blast doppio 6d6+28 (empower + deadly earth)",
-      "ca": 31
+      "attacco": "+6",
+      "danni": "lancia di forza 2d6+6 (empowered infusion)",
+      "ca": 12
     }
   },
   "export": {
@@ -62,7 +62,7 @@
       "classi": [
         {
           "nome": "Kineticist",
-          "livelli": 10,
+          "livelli": 1,
           "archetipi": [
             "Kinetic Knight",
             "Overwhelming Soul"
@@ -71,93 +71,104 @@
       ],
       "statistiche": {
         "FOR": 14,
-        "DES": 22,
-        "COS": 14,
+        "DES": 14,
+        "COS": 13,
         "INT": 8,
-        "SAG": 12,
-        "CAR": 22,
-        "attacco": "+20",
-        "danni": "blast doppio 6d6+28",
-        "ca": 31
+        "SAG": 10,
+        "CAR": 17,
+        "attacco": "+6",
+        "danni": "lancia di forza 2d6+6",
+        "ca": 12
       },
       "statistiche_chiave": {
-        "attacco": "+20",
-        "danni": "6d6+28",
-        "ca": 31
+        "attacco": "+6",
+        "danni": "2d6+6",
+        "ca": 12
       },
       "benchmarks": {
         "meta_tier": "T1",
         "ruling_badge": "RAW/RAI/PFS"
       },
       "salvezze": {
-        "Tempra": 11,
-        "Riflessi": 13,
-        "Volontà": 11
+        "Tempra": 8,
+        "Riflessi": 9,
+        "Volontà": 3
       },
       "attack_bonus": {
-        "melee": "+20",
-        "ranged": "+22"
+        "melee": "+6",
+        "ranged": "+8"
       },
       "damage": {
-        "ranged": "blast 6d6+28",
-        "special": "deadly earth + cyclone"
+        "ranged": "blast 2d6+6",
+        "special": "blade rush difensivo"
       },
       "bench_log": [
-        "Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati."
+        "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Suli Kinetic Knight/Overwhelming Soul per DPR e badge validati."
       ],
-      "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per guardie dell'oasi.",
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
       "skills": [
         {
           "nome": "Acrobazia",
           "gradi": 10,
-          "bonus": "+15"
+          "mod_car": 2,
+          "classe": true,
+          "totale": 15
         },
         {
           "nome": "Percezione",
           "gradi": 10,
-          "bonus": "+14"
+          "mod_car": 0,
+          "classe": true,
+          "totale": 13
         }
       ],
       "equipaggiamento": [
         "Lancia di forza cinetica",
         "Scudo pesante in adamantio",
-        "Mantello resistente +3"
+        "Corazza rinforzata"
       ],
       "ledger_movimenti": [
         {
-          "voce": "Manutenzione scudi e mantello",
-          "importo": -420
+          "voce": "Affilatura scudo",
+          "importo": -120
         },
         {
-          "voce": "Ricompensa guardia oasi",
-          "importo": 640
+          "voce": "Ricompensa pattuglia oasis",
+          "importo": 180
         }
       ],
       "ledger": {
         "movimenti": [
           {
-            "voce": "Manutenzione scudi e mantello",
-            "importo": -420
+            "voce": "Affilatura scudo",
+            "importo": -120
           },
           {
-            "voce": "Ricompensa guardia oasi",
-            "importo": 640
+            "voce": "Ricompensa pattuglia oasis",
+            "importo": 180
           }
         ],
         "currency": {
-          "oro": 310,
-          "argento": 45,
-          "rame": 18
+          "oro": 90,
+          "argento": 15,
+          "rame": 6
         }
       },
-      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudi e mantello"
+      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 10,
+        "decisione": "41 -> 24pb, CAR primaria overwhelming soul (suli +2 FOR/+2 CAR)"
+      }
     }
   },
   "body_params": {
     "race": "Suli",
     "archetype_primary": "Kinetic Knight",
     "archetype_secondary": "Overwhelming Soul",
-    "focus": "tank elementale a Carisma con blast di forza"
+    "focus": "tank elementale a Carisma con blast di forza e fulmine"
   },
   "build_source": "local spec",
   "class": "Kineticist",
@@ -179,12 +190,12 @@
         "class": "Kineticist",
         "archetype": "Kinetic Knight + Overwhelming Soul",
         "race": "Suli",
-        "level": 10,
+        "level": 1,
         "talenti_chiave": [
-          "Deadly Earth",
-          "Empower",
-          "Armor Infusion",
-          "Wings kinetic flight"
+          "Force Blast",
+          "Kinetic Blade",
+          "Armatura Elementale",
+          "Infused Armor Training"
         ],
         "hr_sources": null,
         "meta_sources": [
@@ -199,9 +210,9 @@
         "minmax_runner"
       ],
       "context": {
-        "key_rotation": "Deadly earth + cyclone su terreno controllato, sustain con overflow",
-        "nova": "Empower + gather full per doppio blast",
-        "safety": "CA 31, scudo + armatura cinetica"
+        "key_rotation": "Gather Power + Force Blast empowered; Kinetic Blade difensiva quando ingaggiato",
+        "nova": "Empowered composite blast con infusion specialization",
+        "safety": "AC 19 base con heavy shield cinetico e resistenze elementali suli"
       }
     },
     "taverna": {
@@ -210,18 +221,18 @@
         "tavern_builder"
       ],
       "context": {
-        "role": "Capitana delle guardie dell'oasi",
-        "hook": "coordina imboscate tra le dune con tempeste di sabbia",
-        "voice": "ordini rapidi con eco di tuono"
+        "role": "Guardia d'elite delle carovane",
+        "hook": "Custode delle vie dell'oasi che tempra sabbia e vento",
+        "voice": "tono calmo e riverberato"
       }
     },
     "checkpoints": {
       "bench_log": [
-        "Ruling Expert: confermate infusioni difensive con armatura e scudo cinetico in modalità PFS.",
-        "MinMax: deadly earth + empower + overflow per picchi sostenuti; controllo dell'area con sabbia e fulmini.",
-        "Narrative: capitana della guarnigione dell'oasi, guida pattuglie di bladestorm tra le dune."
+        "Ruling Expert: validati i replacement Overwhelming Soul (CHA focus) con il carapace armato di Kinetic Knight; nessun overlap con infusions base.",
+        "MinMax: confronto fra varianti a distanza e mischia; la build knight/soul mantiene DPR e CA migliori grazie a heavy shield + gather difensivo.",
+        "Narrative/Taverna: ranger nomade suli che presidia gli accessi dell'oasi con scudi di forza e lampi."
       ],
-      "level": 10,
+      "level": 1,
       "levels": [
         1,
         5,
@@ -239,13 +250,13 @@
     {
       "level": 5,
       "status": "ok",
-      "bench_log": "Overflow su CHA e empower; DPR medio 34",
+      "bench_log": "Elemental Overflow su CHA + shield cinetico; DPR medio 32",
       "ruling_badge": "RAW/RAI/PFS"
     },
     {
       "level": 10,
       "status": "ok",
-      "bench_log": "Deadly earth + empower; T1 confermato",
+      "bench_log": "Armor infusion + empower composite; controllo area elementale",
       "ruling_badge": "RAW/RAI/PFS"
     }
   ],
@@ -259,14 +270,14 @@
   "request": {
     "race": "Suli",
     "archetype": "Kinetic Knight + Overwhelming Soul",
-    "level": 10,
+    "level": 1,
     "level_checkpoints": [
       1,
       5,
       10
     ]
   },
-  "build_id": "build-7bef31875eb8d57e02b3f731",
+  "build_id": "build-325642b43b045ab81b9ad32f",
   "step_audit": {
     "request_timestamp": "2025-12-18T18:46:09Z",
     "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
@@ -282,7 +293,7 @@
   },
   "composite": {
     "build": {
-      "build_id": "build-7bef31875eb8d57e02b3f731",
+      "build_id": "build-325642b43b045ab81b9ad32f",
       "build_state": {
         "class": "Kineticist",
         "mode": "extended",
@@ -310,11 +321,11 @@
         },
         "statistics": {
           "FOR": 14,
-          "DES": 22,
-          "COS": 14,
+          "DES": 14,
+          "COS": 13,
           "INT": 8,
-          "SAG": 12,
-          "CAR": 22
+          "SAG": 10,
+          "CAR": 17
         },
         "step_labels_count": 16
       },
@@ -327,18 +338,18 @@
             "picco": 18
           },
           "livello_5": {
-            "media": 34,
-            "picco": 52
+            "media": 32,
+            "picco": 48
           },
           "livello_10": {
-            "media": 65,
-            "picco": 98
+            "media": 62,
+            "picco": 92
           }
         },
         "statistics": {
-          "attacco": "+20",
-          "danni": "blast doppio 6d6+28 (empower + deadly earth)",
-          "ca": 31
+          "attacco": "+6",
+          "danni": "lancia di forza 2d6+6 (empowered infusion)",
+          "ca": 12
         }
       },
       "export": {
@@ -346,7 +357,7 @@
           "classi": [
             {
               "nome": "Kineticist",
-              "livelli": 10,
+              "livelli": 1,
               "archetipi": [
                 "Kinetic Knight",
                 "Overwhelming Soul"
@@ -355,86 +366,97 @@
           ],
           "statistiche": {
             "FOR": 14,
-            "DES": 22,
-            "COS": 14,
+            "DES": 14,
+            "COS": 13,
             "INT": 8,
-            "SAG": 12,
-            "CAR": 22,
-            "attacco": "+20",
-            "danni": "blast doppio 6d6+28",
-            "ca": 31
+            "SAG": 10,
+            "CAR": 17,
+            "attacco": "+6",
+            "danni": "lancia di forza 2d6+6",
+            "ca": 12
           },
           "statistiche_chiave": {
-            "attacco": "+20",
-            "danni": "6d6+28",
-            "ca": 31
+            "attacco": "+6",
+            "danni": "2d6+6",
+            "ca": 12
           },
           "benchmarks": {
             "meta_tier": "T1",
             "ruling_badge": "RAW/RAI/PFS"
           },
           "salvezze": {
-            "Tempra": 11,
-            "Riflessi": 13,
-            "Volontà": 11
+            "Tempra": 8,
+            "Riflessi": 9,
+            "Volontà": 3
           },
           "attack_bonus": {
-            "melee": "+20",
-            "ranged": "+22"
+            "melee": "+6",
+            "ranged": "+8"
           },
           "damage": {
-            "ranged": "blast 6d6+28",
-            "special": "deadly earth + cyclone"
+            "ranged": "blast 2d6+6",
+            "special": "blade rush difensivo"
           },
           "bench_log": [
-            "Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati."
+            "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Suli Kinetic Knight/Overwhelming Soul per DPR e badge validati."
           ],
-          "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per guardie dell'oasi.",
+          "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
           "skills": [
             {
               "nome": "Acrobazia",
               "gradi": 10,
-              "bonus": "+15"
+              "mod_car": 2,
+              "classe": true,
+              "totale": 15
             },
             {
               "nome": "Percezione",
               "gradi": 10,
-              "bonus": "+14"
+              "mod_car": 0,
+              "classe": true,
+              "totale": 13
             }
           ],
           "equipaggiamento": [
             "Lancia di forza cinetica",
             "Scudo pesante in adamantio",
-            "Mantello resistente +3"
+            "Corazza rinforzata"
           ],
           "ledger_movimenti": [
             {
-              "voce": "Manutenzione scudi e mantello",
-              "importo": -420
+              "voce": "Affilatura scudo",
+              "importo": -120
             },
             {
-              "voce": "Ricompensa guardia oasi",
-              "importo": 640
+              "voce": "Ricompensa pattuglia oasis",
+              "importo": 180
             }
           ],
           "ledger": {
             "movimenti": [
               {
-                "voce": "Manutenzione scudi e mantello",
-                "importo": -420
+                "voce": "Affilatura scudo",
+                "importo": -120
               },
               {
-                "voce": "Ricompensa guardia oasi",
-                "importo": 640
+                "voce": "Ricompensa pattuglia oasis",
+                "importo": 180
               }
             ],
             "currency": {
-              "oro": 310,
-              "argento": 45,
-              "rame": 18
+              "oro": 90,
+              "argento": 15,
+              "rame": 6
             }
           },
-          "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudi e mantello"
+          "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 10,
+            "decisione": "41 -> 24pb, CAR primaria overwhelming soul (suli +2 FOR/+2 CAR)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -455,7 +477,7 @@
         "classi": [
           {
             "nome": "Kineticist",
-            "livelli": 10,
+            "livelli": 1,
             "archetipi": [
               "Kinetic Knight",
               "Overwhelming Soul"
@@ -464,86 +486,97 @@
         ],
         "statistiche": {
           "FOR": 14,
-          "DES": 22,
-          "COS": 14,
+          "DES": 14,
+          "COS": 13,
           "INT": 8,
-          "SAG": 12,
-          "CAR": 22,
-          "attacco": "+20",
-          "danni": "blast doppio 6d6+28",
-          "ca": 31
+          "SAG": 10,
+          "CAR": 17,
+          "attacco": "+6",
+          "danni": "lancia di forza 2d6+6",
+          "ca": 12
         },
         "statistiche_chiave": {
-          "attacco": "+20",
-          "danni": "6d6+28",
-          "ca": 31
+          "attacco": "+6",
+          "danni": "2d6+6",
+          "ca": 12
         },
         "benchmarks": {
           "meta_tier": "T1",
           "ruling_badge": "RAW/RAI/PFS"
         },
         "salvezze": {
-          "Tempra": 11,
-          "Riflessi": 13,
-          "Volontà": 11
+          "Tempra": 8,
+          "Riflessi": 9,
+          "Volontà": 3
         },
         "attack_bonus": {
-          "melee": "+20",
-          "ranged": "+22"
+          "melee": "+6",
+          "ranged": "+8"
         },
         "damage": {
-          "ranged": "blast 6d6+28",
-          "special": "deadly earth + cyclone"
+          "ranged": "blast 2d6+6",
+          "special": "blade rush difensivo"
         },
         "bench_log": [
-          "Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati."
+          "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Suli Kinetic Knight/Overwhelming Soul per DPR e badge validati."
         ],
-        "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per guardie dell'oasi.",
+        "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
         "skills": [
           {
             "nome": "Acrobazia",
             "gradi": 10,
-            "bonus": "+15"
+            "mod_car": 2,
+            "classe": true,
+            "totale": 15
           },
           {
             "nome": "Percezione",
             "gradi": 10,
-            "bonus": "+14"
+            "mod_car": 0,
+            "classe": true,
+            "totale": 13
           }
         ],
         "equipaggiamento": [
           "Lancia di forza cinetica",
           "Scudo pesante in adamantio",
-          "Mantello resistente +3"
+          "Corazza rinforzata"
         ],
         "ledger_movimenti": [
           {
-            "voce": "Manutenzione scudi e mantello",
-            "importo": -420
+            "voce": "Affilatura scudo",
+            "importo": -120
           },
           {
-            "voce": "Ricompensa guardia oasi",
-            "importo": 640
+            "voce": "Ricompensa pattuglia oasis",
+            "importo": 180
           }
         ],
         "ledger": {
           "movimenti": [
             {
-              "voce": "Manutenzione scudi e mantello",
-              "importo": -420
+              "voce": "Affilatura scudo",
+              "importo": -120
             },
             {
-              "voce": "Ricompensa guardia oasi",
-              "importo": 640
+              "voce": "Ricompensa pattuglia oasis",
+              "importo": 180
             }
           ],
           "currency": {
-            "oro": 310,
-            "argento": 45,
-            "rame": 18
+            "oro": 90,
+            "argento": 15,
+            "rame": 6
           }
         },
-        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudi e mantello"
+        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nAffilatura scudo",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 10,
+          "decisione": "41 -> 24pb, CAR primaria overwhelming soul (suli +2 FOR/+2 CAR)"
+        }
       }
     },
     "narrative": "Cavaliere cinetico suli che difende le carovane dell'oasi con discipline di Overwhelming Soul."

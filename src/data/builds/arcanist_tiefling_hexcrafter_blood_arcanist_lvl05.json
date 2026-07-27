@@ -9,8 +9,8 @@
     "statistics": {
       "FOR": 10,
       "DES": 14,
-      "COS": 14,
-      "INT": 20,
+      "COS": 12,
+      "INT": 18,
       "SAG": 12,
       "CAR": 8,
       "level": 5
@@ -53,9 +53,9 @@
       }
     },
     "statistics": {
-      "attacco": "+6",
-      "danni": "raggio occulto 3d6+INT",
-      "ca": 17
+      "attacco": "+4",
+      "danni": "raggio di gelo 1d3+INT",
+      "ca": 13
     }
   },
   "export": {
@@ -63,7 +63,7 @@
       "classi": [
         {
           "nome": "Arcanist",
-          "livelli": 5,
+          "livelli": 1,
           "archetipi": [
             "Hexcrafter",
             "Blood Arcanist"
@@ -73,44 +73,40 @@
       "statistiche": {
         "FOR": 10,
         "DES": 14,
-        "COS": 14,
-        "INT": 20,
+        "COS": 12,
+        "INT": 18,
         "SAG": 12,
         "CAR": 8,
-        "attacco": "+6",
-        "danni": "raggio occulto 3d6+INT",
-        "ca": 17
+        "attacco": "+4",
+        "danni": "raggio di gelo 1d3+INT",
+        "ca": 13
       },
       "statistiche_chiave": {
-        "attacco": "+6",
-        "danni": "raggio occulto 3d6+INT",
-        "ca": 17
+        "attacco": "+4",
+        "danni": "raggio di gelo 1d3+INT",
+        "ca": 13
       },
       "hp": {
-        "totali": 75,
+        "totali": 32,
         "per_livello": [
-          15,
-          15,
-          15,
-          15,
-          15
+          14
         ]
       },
-      "pf_totali": 75,
+      "pf_totali": 32,
       "salvezze": {
-        "Tempra": 3,
-        "Riflessi": 2,
-        "Volontà": 4
+        "Tempra": 2,
+        "Riflessi": 4,
+        "Volontà": 5
       },
       "skills_map": {
         "Conoscenze (arcane)": {
-          "totale": 9
+          "totale": 13
         },
         "Linguistica": {
-          "totale": 4
+          "totale": 13
         },
         "Percezione": {
-          "totale": 2
+          "totale": 6
         }
       },
       "benchmarks": {
@@ -131,9 +127,9 @@
           }
         },
         "statistics": {
-          "attacco": "+6",
-          "danni": "raggio occulto 3d6+INT",
-          "ca": 17
+          "attacco": "+4",
+          "danni": "raggio di gelo 1d3+INT",
+          "ca": 13
         },
         "bench_log": [
           "Varianti testate per ogni checkpoint: maledizioni a contatto (Hexcrafter), blaster infernale (Bloodline), controllo utility (metamagia rapida).",
@@ -143,10 +139,7 @@
       },
       "notes": "Profilo aggiornato con doppi archetipi sinergici e slot flessibili per hex + magie di sangue.",
       "talenti": [
-        "Accuratezza Magica",
-        "Metamagia Rapida",
-        "Spell Focus (necromanzia)",
-        "Raggi Potenziati"
+        "Spell Focus (maledizioni)"
       ],
       "capacita_classe": [
         "Arcane Reservoir",
@@ -156,13 +149,12 @@
       ],
       "equipaggiamento": [
         "Bastone scuro con rune",
-        "Mantello di resistenza +1",
-        "Anello di protezione +1"
+        "Mantello da apprendista"
       ],
       "inventario": [
         "Componenti arcane",
         "Diario di formula arcanist",
-        "Pozione di invisibilità"
+        "Pozione di cura moderata"
       ],
       "magia": {
         "0": [
@@ -176,35 +168,39 @@
           "scagliare raggio",
           "scudo"
         ],
-        "2": [
-          "raggio rovente",
-          "foschia occultante",
-          "potere del sangue"
-        ],
+        "2": [],
         "3": [],
         "4": []
       },
       "ac_breakdown": {
-        "armatura": 4,
-        "destrezza": 2,
-        "naturale": 1,
-        "vario": 1,
-        "totale": 17
+        "totale": 13,
+        "armatura": 0,
+        "destrezza": 3,
+        "scudo": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 3,
       "velocita": 9,
       "skills": [
         {
           "nome": "Conoscenze (arcane)",
-          "totale": 9
+          "gradi": 5,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 13
         },
         {
           "nome": "Linguistica",
-          "totale": 4
+          "gradi": 5,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 13
         },
         {
           "nome": "Percezione",
-          "totale": 2
+          "gradi": 5,
+          "mod_car": 1,
+          "classe": false,
+          "totale": 6
         }
       ],
       "ledger": {
@@ -226,7 +222,14 @@
           "note": "Movimento auto-generato per QA"
         }
       ],
-      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 5,
+        "decisione": "tenuto Spell Focus (maledizioni) (centrale: hex del hexcrafter); droppato Accuratezza Magica (accessorio)"
+      }
     }
   },
   "narrative": {
@@ -256,7 +259,7 @@
       "Hexcrafter",
       "Blood Arcanist"
     ],
-    "level": 5,
+    "level": 1,
     "archetype": "Hexcrafter + Blood Arcanist",
     "level_checkpoints": [
       1,
@@ -269,12 +272,12 @@
     "class": "Arcanist",
     "race": "Tiefling",
     "archetype": "Hexcrafter+Blood Arcanist",
-    "level": 5
+    "level": 1
   },
   "body_params": {},
   "composite": {
     "build": {
-      "build_id": "build-34635f98d428913571f116f4",
+      "build_id": "build-cee36cef2029f6c5c924bfe5",
       "build_state": {
         "class": "Arcanist",
         "mode": "extended",
@@ -285,8 +288,8 @@
         "statistics": {
           "FOR": 10,
           "DES": 14,
-          "COS": 14,
-          "INT": 20,
+          "COS": 12,
+          "INT": 18,
           "SAG": 12,
           "CAR": 8,
           "level": 5
@@ -329,9 +332,9 @@
           }
         },
         "statistics": {
-          "attacco": "+6",
-          "danni": "raggio occulto 3d6+INT",
-          "ca": 17
+          "attacco": "+4",
+          "danni": "raggio di gelo 1d3+INT",
+          "ca": 13
         }
       },
       "export": {
@@ -339,7 +342,7 @@
           "classi": [
             {
               "nome": "Arcanist",
-              "livelli": 5,
+              "livelli": 1,
               "archetipi": [
                 "Hexcrafter",
                 "Blood Arcanist"
@@ -349,44 +352,40 @@
           "statistiche": {
             "FOR": 10,
             "DES": 14,
-            "COS": 14,
-            "INT": 20,
+            "COS": 12,
+            "INT": 18,
             "SAG": 12,
             "CAR": 8,
-            "attacco": "+6",
-            "danni": "raggio occulto 3d6+INT",
-            "ca": 17
+            "attacco": "+4",
+            "danni": "raggio di gelo 1d3+INT",
+            "ca": 13
           },
           "statistiche_chiave": {
-            "attacco": "+6",
-            "danni": "raggio occulto 3d6+INT",
-            "ca": 17
+            "attacco": "+4",
+            "danni": "raggio di gelo 1d3+INT",
+            "ca": 13
           },
           "hp": {
-            "totali": 75,
+            "totali": 32,
             "per_livello": [
-              15,
-              15,
-              15,
-              15,
-              15
+              14
             ]
           },
-          "pf_totali": 75,
+          "pf_totali": 32,
           "salvezze": {
-            "Tempra": 3,
-            "Riflessi": 2,
-            "Volontà": 4
+            "Tempra": 2,
+            "Riflessi": 4,
+            "Volontà": 5
           },
           "skills_map": {
             "Conoscenze (arcane)": {
-              "totale": 9
+              "totale": 13
             },
             "Linguistica": {
-              "totale": 4
+              "totale": 13
             },
             "Percezione": {
-              "totale": 2
+              "totale": 6
             }
           },
           "benchmarks": {
@@ -407,9 +406,9 @@
               }
             },
             "statistics": {
-              "attacco": "+6",
-              "danni": "raggio occulto 3d6+INT",
-              "ca": 17
+              "attacco": "+4",
+              "danni": "raggio di gelo 1d3+INT",
+              "ca": 13
             },
             "bench_log": [
               "Varianti testate per ogni checkpoint: maledizioni a contatto (Hexcrafter), blaster infernale (Bloodline), controllo utility (metamagia rapida).",
@@ -419,10 +418,7 @@
           },
           "notes": "Profilo aggiornato con doppi archetipi sinergici e slot flessibili per hex + magie di sangue.",
           "talenti": [
-            "Accuratezza Magica",
-            "Metamagia Rapida",
-            "Spell Focus (necromanzia)",
-            "Raggi Potenziati"
+            "Spell Focus (maledizioni)"
           ],
           "capacita_classe": [
             "Arcane Reservoir",
@@ -432,13 +428,12 @@
           ],
           "equipaggiamento": [
             "Bastone scuro con rune",
-            "Mantello di resistenza +1",
-            "Anello di protezione +1"
+            "Mantello da apprendista"
           ],
           "inventario": [
             "Componenti arcane",
             "Diario di formula arcanist",
-            "Pozione di invisibilità"
+            "Pozione di cura moderata"
           ],
           "magia": {
             "0": [
@@ -452,35 +447,39 @@
               "scagliare raggio",
               "scudo"
             ],
-            "2": [
-              "raggio rovente",
-              "foschia occultante",
-              "potere del sangue"
-            ],
+            "2": [],
             "3": [],
             "4": []
           },
           "ac_breakdown": {
-            "armatura": 4,
-            "destrezza": 2,
-            "naturale": 1,
-            "vario": 1,
-            "totale": 17
+            "totale": 13,
+            "armatura": 0,
+            "destrezza": 3,
+            "scudo": 0
           },
-          "iniziativa": 2,
+          "iniziativa": 3,
           "velocita": 9,
           "skills": [
             {
               "nome": "Conoscenze (arcane)",
-              "totale": 9
+              "gradi": 5,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 13
             },
             {
               "nome": "Linguistica",
-              "totale": 4
+              "gradi": 5,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 13
             },
             {
               "nome": "Percezione",
-              "totale": 2
+              "gradi": 5,
+              "mod_car": 1,
+              "classe": false,
+              "totale": 6
             }
           ],
           "ledger": {
@@ -502,7 +501,14 @@
               "note": "Movimento auto-generato per QA"
             }
           ],
-          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 5,
+            "decisione": "tenuto Spell Focus (maledizioni) (centrale: hex del hexcrafter); droppato Accuratezza Magica (accessorio)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -523,7 +529,7 @@
         "classi": [
           {
             "nome": "Arcanist",
-            "livelli": 5,
+            "livelli": 1,
             "archetipi": [
               "Hexcrafter",
               "Blood Arcanist"
@@ -533,44 +539,40 @@
         "statistiche": {
           "FOR": 10,
           "DES": 14,
-          "COS": 14,
-          "INT": 20,
+          "COS": 12,
+          "INT": 18,
           "SAG": 12,
           "CAR": 8,
-          "attacco": "+6",
-          "danni": "raggio occulto 3d6+INT",
-          "ca": 17
+          "attacco": "+4",
+          "danni": "raggio di gelo 1d3+INT",
+          "ca": 13
         },
         "statistiche_chiave": {
-          "attacco": "+6",
-          "danni": "raggio occulto 3d6+INT",
-          "ca": 17
+          "attacco": "+4",
+          "danni": "raggio di gelo 1d3+INT",
+          "ca": 13
         },
         "hp": {
-          "totali": 75,
+          "totali": 32,
           "per_livello": [
-            15,
-            15,
-            15,
-            15,
-            15
+            14
           ]
         },
-        "pf_totali": 75,
+        "pf_totali": 32,
         "salvezze": {
-          "Tempra": 3,
-          "Riflessi": 2,
-          "Volontà": 4
+          "Tempra": 2,
+          "Riflessi": 4,
+          "Volontà": 5
         },
         "skills_map": {
           "Conoscenze (arcane)": {
-            "totale": 9
+            "totale": 13
           },
           "Linguistica": {
-            "totale": 4
+            "totale": 13
           },
           "Percezione": {
-            "totale": 2
+            "totale": 6
           }
         },
         "benchmarks": {
@@ -591,9 +593,9 @@
             }
           },
           "statistics": {
-            "attacco": "+6",
-            "danni": "raggio occulto 3d6+INT",
-            "ca": 17
+            "attacco": "+4",
+            "danni": "raggio di gelo 1d3+INT",
+            "ca": 13
           },
           "bench_log": [
             "Varianti testate per ogni checkpoint: maledizioni a contatto (Hexcrafter), blaster infernale (Bloodline), controllo utility (metamagia rapida).",
@@ -603,10 +605,7 @@
         },
         "notes": "Profilo aggiornato con doppi archetipi sinergici e slot flessibili per hex + magie di sangue.",
         "talenti": [
-          "Accuratezza Magica",
-          "Metamagia Rapida",
-          "Spell Focus (necromanzia)",
-          "Raggi Potenziati"
+          "Spell Focus (maledizioni)"
         ],
         "capacita_classe": [
           "Arcane Reservoir",
@@ -616,13 +615,12 @@
         ],
         "equipaggiamento": [
           "Bastone scuro con rune",
-          "Mantello di resistenza +1",
-          "Anello di protezione +1"
+          "Mantello da apprendista"
         ],
         "inventario": [
           "Componenti arcane",
           "Diario di formula arcanist",
-          "Pozione di invisibilità"
+          "Pozione di cura moderata"
         ],
         "magia": {
           "0": [
@@ -636,35 +634,39 @@
             "scagliare raggio",
             "scudo"
           ],
-          "2": [
-            "raggio rovente",
-            "foschia occultante",
-            "potere del sangue"
-          ],
+          "2": [],
           "3": [],
           "4": []
         },
         "ac_breakdown": {
-          "armatura": 4,
-          "destrezza": 2,
-          "naturale": 1,
-          "vario": 1,
-          "totale": 17
+          "totale": 13,
+          "armatura": 0,
+          "destrezza": 3,
+          "scudo": 0
         },
-        "iniziativa": 2,
+        "iniziativa": 3,
         "velocita": 9,
         "skills": [
           {
             "nome": "Conoscenze (arcane)",
-            "totale": 9
+            "gradi": 5,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 13
           },
           {
             "nome": "Linguistica",
-            "totale": 4
+            "gradi": 5,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 13
           },
           {
             "nome": "Percezione",
-            "totale": 2
+            "gradi": 5,
+            "mod_car": 1,
+            "classe": false,
+            "totale": 6
           }
         ],
         "ledger": {
@@ -685,7 +687,14 @@
             "importo": 0,
             "note": "Movimento auto-generato per QA"
           }
-        ]
+        ],
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 5,
+          "decisione": "tenuto Spell Focus (maledizioni) (centrale: hex del hexcrafter); droppato Accuratezza Magica (accessorio)"
+        }
       }
     },
     "narrative": {
@@ -707,7 +716,7 @@
         "Pipeline Ruling Expert → MinMax → Taverna/Narrative completata: badge RAW/RAI/PFS confermato, simulazioni offensive/difensive annotate, background coerente con lignaggio tiefling.",
         "Scelta finale: ibrido Hexcrafter + Blood Arcanist con focus hex debuff + raggi di sangue; mantiene sinergie di talento/metamagia e flessibilità di preparazione arcanist."
       ],
-      "level": 5,
+      "level": 1,
       "levels": [
         1,
         5,
@@ -717,7 +726,7 @@
       "status": "complete"
     }
   },
-  "build_id": "build-34635f98d428913571f116f4",
+  "build_id": "build-cee36cef2029f6c5c924bfe5",
   "step_audit": {
     "request_timestamp": "2025-12-18T18:46:09Z",
     "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
@@ -755,10 +764,7 @@
     }
   ],
   "feat_plan": [
-    "Accuratezza Magica",
-    "Metamagia Rapida",
-    "Spell Focus (necromanzia)",
-    "Raggi Potenziati"
+    "Spell Focus (maledizioni)"
   ],
   "citation": {
     "sources": [],

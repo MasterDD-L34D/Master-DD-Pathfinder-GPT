@@ -563,11 +563,16 @@ def main() -> int:
     registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))["defects"]
     registry_stems = {f[:-len(".json")] for f in registry}
     table_stems = set(DECISIONS)
-    if registry_stems != table_stems:
-        print("ERRORE: tabella decisioni non allineata al registry:",
-              f"solo registry {sorted(registry_stems - table_stems)},",
-              f"solo tabella {sorted(table_stems - registry_stems)}")
+    extra = registry_stems - table_stems
+    if extra:
+        print("ERRORE: build nel registry difetti senza decisione in tabella:",
+              sorted(extra))
         return 1
+    if registry_stems != table_stems:
+        # Dopo il primo rebuild il registry si svuota: la tabella (scope
+        # congelato del lotto A) resta la fonte dei target di rebuild.
+        print(f"nota: registry attuale {len(registry_stems)} build, tabella "
+              f"lotto A {len(table_stems)} — si procede sulla tabella.")
 
     stems = [args.only] if args.only else sorted(DECISIONS)
     n_written = 0

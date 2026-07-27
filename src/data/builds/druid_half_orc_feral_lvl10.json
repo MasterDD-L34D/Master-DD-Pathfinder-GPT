@@ -25,12 +25,12 @@
       "16": "Chiusura"
     },
     "statistics": {
-      "FOR": 16,
-      "DES": 14,
+      "FOR": 15,
+      "DES": 13,
       "COS": 14,
       "INT": 10,
-      "SAG": 12,
-      "CAR": 8
+      "SAG": 17,
+      "CAR": 7
     },
     "step_labels_count": 16
   },
@@ -50,7 +50,7 @@
     "statistics": {
       "attacco": "+4",
       "danni": "1d8+3",
-      "ca": 18
+      "ca": 11
     },
     "catalog_version": [
       "2026.04.03"
@@ -61,75 +61,61 @@
       "classi": [
         {
           "nome": "Druid",
-          "livelli": 10,
+          "livelli": 1,
           "archetipi": [
             "Feral"
           ]
         }
       ],
       "statistiche": {
-        "FOR": 16,
-        "DES": 14,
+        "FOR": 15,
+        "DES": 13,
         "COS": 14,
         "INT": 10,
-        "SAG": 12,
-        "CAR": 8,
+        "SAG": 17,
+        "CAR": 7,
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18
+        "ca": 11
       },
       "statistiche_chiave": {
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18,
-        "CA": 18
+        "ca": 11,
+        "CA": 11
       },
-      "pf_totali": 57,
+      "pf_totali": 83,
       "hp": {
-        "totali": 57,
+        "totali": 83,
         "per_livello": [
-          57
+          12
         ]
       },
       "salvezze": {
-        "Tempra": 4,
-        "Riflessi": 3,
-        "Volontà": 4
+        "Tempra": 9,
+        "Riflessi": 4,
+        "Volontà": 11
       },
       "skills_map": {
         "Percezione": {
-          "totale": 5
+          "totale": 17
         },
         "Acrobazia": {
-          "totale": 4
-        },
-        "Conoscenze": {
-          "totale": 3
+          "totale": 11
         }
       },
-      "skill_points": 50,
+      "skill_points": 40,
       "talenti": [
-        "Colpo possente",
         "Iniziativa migliorata"
       ],
       "capacita_classe": [
         "Addestramento marziale",
         "Specializzazione",
         "Privilegio 1",
-        "Tecnica distintiva Feral",
-        "Privilegio 2",
-        "Privilegio 3",
-        "Privilegio 4",
-        "Privilegio 5",
-        "Privilegio 6",
-        "Privilegio 7",
-        "Privilegio 8",
-        "Privilegio 9",
-        "Privilegio 10"
+        "Tecnica distintiva Feral"
       ],
       "equipaggiamento": [
-        "Arma preferita",
-        "Armatura leggera"
+        "Arma preferita"
       ],
       "inventario": [
         "Arma preferita",
@@ -149,12 +135,12 @@
       ],
       "slot_incantesimi": "Liv1:4/Liv2:3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
-        "destrezza": 2,
-        "scudo": 1
+        "totale": 11,
+        "armatura": 0,
+        "destrezza": 1,
+        "scudo": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 5,
       "velocita": 9,
       "progressione": [
         {
@@ -164,97 +150,7 @@
             "Tecnica distintiva Feral"
           ],
           "talenti": [
-            "Talento di livello 1"
-          ]
-        },
-        {
-          "livello": 2,
-          "privilegi": [
-            "Privilegio 2",
-            "Tecnica distintiva Feral"
-          ],
-          "talenti": [
-            "Talento di livello 2"
-          ]
-        },
-        {
-          "livello": 3,
-          "privilegi": [
-            "Privilegio 3",
-            "Tecnica distintiva Feral"
-          ],
-          "talenti": [
-            "Talento di livello 3"
-          ]
-        },
-        {
-          "livello": 4,
-          "privilegi": [
-            "Privilegio 4",
-            "Tecnica distintiva Feral"
-          ],
-          "talenti": [
-            "Talento di livello 4"
-          ]
-        },
-        {
-          "livello": 5,
-          "privilegi": [
-            "Privilegio 5",
-            "Tecnica distintiva Feral"
-          ],
-          "talenti": [
-            "Talento di livello 5"
-          ]
-        },
-        {
-          "livello": 6,
-          "privilegi": [
-            "Privilegio 6",
-            "Tecnica distintiva Feral"
-          ],
-          "talenti": [
-            "Talento di livello 6"
-          ]
-        },
-        {
-          "livello": 7,
-          "privilegi": [
-            "Privilegio 7",
-            "Tecnica distintiva Feral"
-          ],
-          "talenti": [
-            "Talento di livello 7"
-          ]
-        },
-        {
-          "livello": 8,
-          "privilegi": [
-            "Privilegio 8",
-            "Tecnica distintiva Feral"
-          ],
-          "talenti": [
-            "Talento di livello 8"
-          ]
-        },
-        {
-          "livello": 9,
-          "privilegi": [
-            "Privilegio 9",
-            "Tecnica distintiva Feral"
-          ],
-          "talenti": [
-            "Talento di livello 9"
-          ]
-        },
-        {
-          "livello": 10,
-          "privilegi": [
-            "Privilegio 10",
-            "Tecnica distintiva Feral"
-          ],
-          "talenti": [
-            "Talento di livello 10"
+            "Iniziativa migliorata"
           ]
         }
       ],
@@ -284,19 +180,19 @@
           "base": 2,
           "modificatore": 2,
           "misc": 0,
-          "totale": 4
+          "totale": 9
         },
         "Riflessi": {
           "base": 1,
           "modificatore": 2,
           "misc": 0,
-          "totale": 3
+          "totale": 4
         },
         "Volontà": {
           "base": 3,
           "modificatore": 1,
           "misc": 0,
-          "totale": 4
+          "totale": 11
         }
       },
       "AC_arm": 0,
@@ -307,10 +203,10 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
-      "CA_touch": 10,
+      "AC_tot": 11,
+      "CA_touch": 11,
       "CA_ff": 10,
-      "init": 2,
+      "init": 5,
       "speed": 9,
       "currency": {
         "gp": 100,
@@ -334,7 +230,7 @@
         "1": 4,
         "2": 3
       },
-      "sheet_markdown": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n- Armatura leggera\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
+      "sheet_markdown": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
       "print_mode": false,
       "show_minmax": true,
       "show_vtt": true,
@@ -345,12 +241,22 @@
       "skills": [
         {
           "nome": "Percezione",
-          "valore": 0
+          "gradi": 10,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 17
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 10,
+          "mod_car": 1,
+          "classe": false,
+          "totale": 11
         }
       ],
       "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
       "pf_per_livello": "n/d (PF per livello non fornito)",
-      "BAB": "n/d (BAB non fornito)",
+      "BAB": 7,
       "CMB": "n/d (CMB non fornito)",
       "cmb_disarm": "n/d (cmb disarm non fornito)",
       "cmb_trip": "n/d (cmb trip non fornito)",
@@ -359,15 +265,23 @@
         "scheda_pg_markdown_template.md": "# {{ nome }}\n\nTiri Salvezza:** Temp {{ salvezze.Tempra }} / Riflessi {{ salvezze.Riflessi }} / Volontà {{ salvezze['Volontà'] }}\n\n**BAB:** {{ BAB }} | **Iniziativa:** {{ iniziativa }} | **Velocità:** {{ velocita }}\n\nStatistiche:\n{% for label, key in [\n    (\"For\", \"FOR\"),\n    (\"Des\", \"DES\"),\n    (\"Cos\", \"COS\"),\n    (\"Int\", \"INT\"),\n    (\"Sag\", \"SAG\"),\n    (\"Car\", \"CAR\"),\n] %}\n**{{ label }}** {{ statistiche[key] }} (mod {{ (statistiche[key] - 10) // 2 }})\n{% endfor %}\n\n{% if skills %}\nCompetenze:\n{% for skill in skills %}- {{ skill.get('nome') or skill.get('name') }}\n{% endfor %}\n{% endif %}\n\n{% if equipaggiamento %}\nEquipaggiamento:\n{% for item in equipaggiamento %}- {{ item }}\n{% endfor %}\n{% endif %}\n\n{% set ledger_entries = ledger_movimenti or (ledger.movimenti if ledger else []) %}\n{% if ledger_entries %}\nLedger:\n{% for mov in ledger_entries %}- {{ mov.get('voce') or mov.get('oggetto') or mov.get('label') or mov.get('categoria') }}\n{% endfor %}\n{% endif %}\n"
       },
       "fonti": [
-        "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=10&race=Half+Orc&archetype=Feral"
+        "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=1&race=Half+Orc&archetype=Feral"
       ],
       "lingue": [],
       "sensi": [],
-      "condizioni": []
+      "condizioni": [],
+      "bonus_razziale_flessibile": "SAG",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 10,
+        "decisione": "NUOVA statline editoriale 24pb SAG primaria (feral druid) + flex SAG -> SAG 19 finale. Difetto latente: 2 talenti su 1; tenuta Iniziativa migliorata, droppato Colpo possente (BAB +0 al lv1)"
+      }
     }
   },
   "narrative": "Half Orc Feral pronta/o per il campo, specializzata/o in tattiche da Druid.",
-  "sheet": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n- Armatura leggera\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
+  "sheet": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
   "ledger": {
     "movimenti": [
       {
@@ -389,7 +303,7 @@
   "mode": "extended",
   "composite": {
     "build": {
-      "build_id": "build-0c107161698004d83296cc0b",
+      "build_id": "build-d348fde2447d2ba9e2f9b3ab",
       "build_state": {
         "class": "Druid",
         "mode": "extended",
@@ -416,12 +330,12 @@
           "16": "Chiusura"
         },
         "statistics": {
-          "FOR": 16,
-          "DES": 14,
+          "FOR": 15,
+          "DES": 13,
           "COS": 14,
           "INT": 10,
-          "SAG": 12,
-          "CAR": 8
+          "SAG": 17,
+          "CAR": 7
         },
         "step_labels_count": 16
       },
@@ -441,7 +355,7 @@
         "statistics": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 11
         },
         "catalog_version": [
           "2026.04.03"
@@ -452,75 +366,61 @@
           "classi": [
             {
               "nome": "Druid",
-              "livelli": 10,
+              "livelli": 1,
               "archetipi": [
                 "Feral"
               ]
             }
           ],
           "statistiche": {
-            "FOR": 16,
-            "DES": 14,
+            "FOR": 15,
+            "DES": 13,
             "COS": 14,
             "INT": 10,
-            "SAG": 12,
-            "CAR": 8,
+            "SAG": 17,
+            "CAR": 7,
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18
+            "ca": 11
           },
           "statistiche_chiave": {
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18,
-            "CA": 18
+            "ca": 11,
+            "CA": 11
           },
-          "pf_totali": 57,
+          "pf_totali": 83,
           "hp": {
-            "totali": 57,
+            "totali": 83,
             "per_livello": [
-              57
+              12
             ]
           },
           "salvezze": {
-            "Tempra": 4,
-            "Riflessi": 3,
-            "Volontà": 4
+            "Tempra": 9,
+            "Riflessi": 4,
+            "Volontà": 11
           },
           "skills_map": {
             "Percezione": {
-              "totale": 5
+              "totale": 17
             },
             "Acrobazia": {
-              "totale": 4
-            },
-            "Conoscenze": {
-              "totale": 3
+              "totale": 11
             }
           },
-          "skill_points": 50,
+          "skill_points": 40,
           "talenti": [
-            "Colpo possente",
             "Iniziativa migliorata"
           ],
           "capacita_classe": [
             "Addestramento marziale",
             "Specializzazione",
             "Privilegio 1",
-            "Tecnica distintiva Feral",
-            "Privilegio 2",
-            "Privilegio 3",
-            "Privilegio 4",
-            "Privilegio 5",
-            "Privilegio 6",
-            "Privilegio 7",
-            "Privilegio 8",
-            "Privilegio 9",
-            "Privilegio 10"
+            "Tecnica distintiva Feral"
           ],
           "equipaggiamento": [
-            "Arma preferita",
-            "Armatura leggera"
+            "Arma preferita"
           ],
           "inventario": [
             "Arma preferita",
@@ -540,12 +440,12 @@
           ],
           "slot_incantesimi": "Liv1:4/Liv2:3",
           "ac_breakdown": {
-            "totale": 18,
-            "armatura": 5,
-            "destrezza": 2,
-            "scudo": 1
+            "totale": 11,
+            "armatura": 0,
+            "destrezza": 1,
+            "scudo": 0
           },
-          "iniziativa": 2,
+          "iniziativa": 5,
           "velocita": 9,
           "progressione": [
             {
@@ -555,97 +455,7 @@
                 "Tecnica distintiva Feral"
               ],
               "talenti": [
-                "Talento di livello 1"
-              ]
-            },
-            {
-              "livello": 2,
-              "privilegi": [
-                "Privilegio 2",
-                "Tecnica distintiva Feral"
-              ],
-              "talenti": [
-                "Talento di livello 2"
-              ]
-            },
-            {
-              "livello": 3,
-              "privilegi": [
-                "Privilegio 3",
-                "Tecnica distintiva Feral"
-              ],
-              "talenti": [
-                "Talento di livello 3"
-              ]
-            },
-            {
-              "livello": 4,
-              "privilegi": [
-                "Privilegio 4",
-                "Tecnica distintiva Feral"
-              ],
-              "talenti": [
-                "Talento di livello 4"
-              ]
-            },
-            {
-              "livello": 5,
-              "privilegi": [
-                "Privilegio 5",
-                "Tecnica distintiva Feral"
-              ],
-              "talenti": [
-                "Talento di livello 5"
-              ]
-            },
-            {
-              "livello": 6,
-              "privilegi": [
-                "Privilegio 6",
-                "Tecnica distintiva Feral"
-              ],
-              "talenti": [
-                "Talento di livello 6"
-              ]
-            },
-            {
-              "livello": 7,
-              "privilegi": [
-                "Privilegio 7",
-                "Tecnica distintiva Feral"
-              ],
-              "talenti": [
-                "Talento di livello 7"
-              ]
-            },
-            {
-              "livello": 8,
-              "privilegi": [
-                "Privilegio 8",
-                "Tecnica distintiva Feral"
-              ],
-              "talenti": [
-                "Talento di livello 8"
-              ]
-            },
-            {
-              "livello": 9,
-              "privilegi": [
-                "Privilegio 9",
-                "Tecnica distintiva Feral"
-              ],
-              "talenti": [
-                "Talento di livello 9"
-              ]
-            },
-            {
-              "livello": 10,
-              "privilegi": [
-                "Privilegio 10",
-                "Tecnica distintiva Feral"
-              ],
-              "talenti": [
-                "Talento di livello 10"
+                "Iniziativa migliorata"
               ]
             }
           ],
@@ -675,19 +485,19 @@
               "base": 2,
               "modificatore": 2,
               "misc": 0,
-              "totale": 4
+              "totale": 9
             },
             "Riflessi": {
               "base": 1,
               "modificatore": 2,
               "misc": 0,
-              "totale": 3
+              "totale": 4
             },
             "Volontà": {
               "base": 3,
               "modificatore": 1,
               "misc": 0,
-              "totale": 4
+              "totale": 11
             }
           },
           "AC_arm": 0,
@@ -698,10 +508,10 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
-          "CA_touch": 10,
+          "AC_tot": 11,
+          "CA_touch": 11,
           "CA_ff": 10,
-          "init": 2,
+          "init": 5,
           "speed": 9,
           "currency": {
             "gp": 100,
@@ -725,7 +535,7 @@
             "1": 4,
             "2": 3
           },
-          "sheet_markdown": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n- Armatura leggera\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
+          "sheet_markdown": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
           "print_mode": false,
           "show_minmax": true,
           "show_vtt": true,
@@ -736,12 +546,22 @@
           "skills": [
             {
               "nome": "Percezione",
-              "valore": 0
+              "gradi": 10,
+              "mod_car": 4,
+              "classe": true,
+              "totale": 17
+            },
+            {
+              "nome": "Acrobazia",
+              "gradi": 10,
+              "mod_car": 1,
+              "classe": false,
+              "totale": 11
             }
           ],
           "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
           "pf_per_livello": "n/d (PF per livello non fornito)",
-          "BAB": "n/d (BAB non fornito)",
+          "BAB": 7,
           "CMB": "n/d (CMB non fornito)",
           "cmb_disarm": "n/d (cmb disarm non fornito)",
           "cmb_trip": "n/d (cmb trip non fornito)",
@@ -750,11 +570,19 @@
             "scheda_pg_markdown_template.md": "# {{ nome }}\n\nTiri Salvezza:** Temp {{ salvezze.Tempra }} / Riflessi {{ salvezze.Riflessi }} / Volontà {{ salvezze['Volontà'] }}\n\n**BAB:** {{ BAB }} | **Iniziativa:** {{ iniziativa }} | **Velocità:** {{ velocita }}\n\nStatistiche:\n{% for label, key in [\n    (\"For\", \"FOR\"),\n    (\"Des\", \"DES\"),\n    (\"Cos\", \"COS\"),\n    (\"Int\", \"INT\"),\n    (\"Sag\", \"SAG\"),\n    (\"Car\", \"CAR\"),\n] %}\n**{{ label }}** {{ statistiche[key] }} (mod {{ (statistiche[key] - 10) // 2 }})\n{% endfor %}\n\n{% if skills %}\nCompetenze:\n{% for skill in skills %}- {{ skill.get('nome') or skill.get('name') }}\n{% endfor %}\n{% endif %}\n\n{% if equipaggiamento %}\nEquipaggiamento:\n{% for item in equipaggiamento %}- {{ item }}\n{% endfor %}\n{% endif %}\n\n{% set ledger_entries = ledger_movimenti or (ledger.movimenti if ledger else []) %}\n{% if ledger_entries %}\nLedger:\n{% for mov in ledger_entries %}- {{ mov.get('voce') or mov.get('oggetto') or mov.get('label') or mov.get('categoria') }}\n{% endfor %}\n{% endif %}\n"
           },
           "fonti": [
-            "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=10&race=Half+Orc&archetype=Feral"
+            "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=1&race=Half+Orc&archetype=Feral"
           ],
           "lingue": [],
           "sensi": [],
-          "condizioni": []
+          "condizioni": [],
+          "bonus_razziale_flessibile": "SAG",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 10,
+            "decisione": "NUOVA statline editoriale 24pb SAG primaria (feral druid) + flex SAG -> SAG 19 finale. Difetto latente: 2 talenti su 1; tenuta Iniziativa migliorata, droppato Colpo possente (BAB +0 al lv1)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -775,75 +603,61 @@
         "classi": [
           {
             "nome": "Druid",
-            "livelli": 10,
+            "livelli": 1,
             "archetipi": [
               "Feral"
             ]
           }
         ],
         "statistiche": {
-          "FOR": 16,
-          "DES": 14,
+          "FOR": 15,
+          "DES": 13,
           "COS": 14,
           "INT": 10,
-          "SAG": 12,
-          "CAR": 8,
+          "SAG": 17,
+          "CAR": 7,
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 11
         },
         "statistiche_chiave": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18,
-          "CA": 18
+          "ca": 11,
+          "CA": 11
         },
-        "pf_totali": 57,
+        "pf_totali": 83,
         "hp": {
-          "totali": 57,
+          "totali": 83,
           "per_livello": [
-            57
+            12
           ]
         },
         "salvezze": {
-          "Tempra": 4,
-          "Riflessi": 3,
-          "Volontà": 4
+          "Tempra": 9,
+          "Riflessi": 4,
+          "Volontà": 11
         },
         "skills_map": {
           "Percezione": {
-            "totale": 5
+            "totale": 17
           },
           "Acrobazia": {
-            "totale": 4
-          },
-          "Conoscenze": {
-            "totale": 3
+            "totale": 11
           }
         },
-        "skill_points": 50,
+        "skill_points": 40,
         "talenti": [
-          "Colpo possente",
           "Iniziativa migliorata"
         ],
         "capacita_classe": [
           "Addestramento marziale",
           "Specializzazione",
           "Privilegio 1",
-          "Tecnica distintiva Feral",
-          "Privilegio 2",
-          "Privilegio 3",
-          "Privilegio 4",
-          "Privilegio 5",
-          "Privilegio 6",
-          "Privilegio 7",
-          "Privilegio 8",
-          "Privilegio 9",
-          "Privilegio 10"
+          "Tecnica distintiva Feral"
         ],
         "equipaggiamento": [
-          "Arma preferita",
-          "Armatura leggera"
+          "Arma preferita"
         ],
         "inventario": [
           "Arma preferita",
@@ -863,12 +677,12 @@
         ],
         "slot_incantesimi": "Liv1:4/Liv2:3",
         "ac_breakdown": {
-          "totale": 18,
-          "armatura": 5,
-          "destrezza": 2,
-          "scudo": 1
+          "totale": 11,
+          "armatura": 0,
+          "destrezza": 1,
+          "scudo": 0
         },
-        "iniziativa": 2,
+        "iniziativa": 5,
         "velocita": 9,
         "progressione": [
           {
@@ -878,97 +692,7 @@
               "Tecnica distintiva Feral"
             ],
             "talenti": [
-              "Talento di livello 1"
-            ]
-          },
-          {
-            "livello": 2,
-            "privilegi": [
-              "Privilegio 2",
-              "Tecnica distintiva Feral"
-            ],
-            "talenti": [
-              "Talento di livello 2"
-            ]
-          },
-          {
-            "livello": 3,
-            "privilegi": [
-              "Privilegio 3",
-              "Tecnica distintiva Feral"
-            ],
-            "talenti": [
-              "Talento di livello 3"
-            ]
-          },
-          {
-            "livello": 4,
-            "privilegi": [
-              "Privilegio 4",
-              "Tecnica distintiva Feral"
-            ],
-            "talenti": [
-              "Talento di livello 4"
-            ]
-          },
-          {
-            "livello": 5,
-            "privilegi": [
-              "Privilegio 5",
-              "Tecnica distintiva Feral"
-            ],
-            "talenti": [
-              "Talento di livello 5"
-            ]
-          },
-          {
-            "livello": 6,
-            "privilegi": [
-              "Privilegio 6",
-              "Tecnica distintiva Feral"
-            ],
-            "talenti": [
-              "Talento di livello 6"
-            ]
-          },
-          {
-            "livello": 7,
-            "privilegi": [
-              "Privilegio 7",
-              "Tecnica distintiva Feral"
-            ],
-            "talenti": [
-              "Talento di livello 7"
-            ]
-          },
-          {
-            "livello": 8,
-            "privilegi": [
-              "Privilegio 8",
-              "Tecnica distintiva Feral"
-            ],
-            "talenti": [
-              "Talento di livello 8"
-            ]
-          },
-          {
-            "livello": 9,
-            "privilegi": [
-              "Privilegio 9",
-              "Tecnica distintiva Feral"
-            ],
-            "talenti": [
-              "Talento di livello 9"
-            ]
-          },
-          {
-            "livello": 10,
-            "privilegi": [
-              "Privilegio 10",
-              "Tecnica distintiva Feral"
-            ],
-            "talenti": [
-              "Talento di livello 10"
+              "Iniziativa migliorata"
             ]
           }
         ],
@@ -998,19 +722,19 @@
             "base": 2,
             "modificatore": 2,
             "misc": 0,
-            "totale": 4
+            "totale": 9
           },
           "Riflessi": {
             "base": 1,
             "modificatore": 2,
             "misc": 0,
-            "totale": 3
+            "totale": 4
           },
           "Volontà": {
             "base": 3,
             "modificatore": 1,
             "misc": 0,
-            "totale": 4
+            "totale": 11
           }
         },
         "AC_arm": 0,
@@ -1021,10 +745,10 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
-        "CA_touch": 10,
+        "AC_tot": 11,
+        "CA_touch": 11,
         "CA_ff": 10,
-        "init": 2,
+        "init": 5,
         "speed": 9,
         "currency": {
           "gp": 100,
@@ -1048,7 +772,7 @@
           "1": 4,
           "2": 3
         },
-        "sheet_markdown": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n- Armatura leggera\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
+        "sheet_markdown": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
         "print_mode": false,
         "show_minmax": true,
         "show_vtt": true,
@@ -1059,12 +783,22 @@
         "skills": [
           {
             "nome": "Percezione",
-            "valore": 0
+            "gradi": 10,
+            "mod_car": 4,
+            "classe": true,
+            "totale": 17
+          },
+          {
+            "nome": "Acrobazia",
+            "gradi": 10,
+            "mod_car": 1,
+            "classe": false,
+            "totale": 11
           }
         ],
         "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
         "pf_per_livello": "n/d (PF per livello non fornito)",
-        "BAB": "n/d (BAB non fornito)",
+        "BAB": 7,
         "CMB": "n/d (CMB non fornito)",
         "cmb_disarm": "n/d (cmb disarm non fornito)",
         "cmb_trip": "n/d (cmb trip non fornito)",
@@ -1073,15 +807,23 @@
           "scheda_pg_markdown_template.md": "# {{ nome }}\n\nTiri Salvezza:** Temp {{ salvezze.Tempra }} / Riflessi {{ salvezze.Riflessi }} / Volontà {{ salvezze['Volontà'] }}\n\n**BAB:** {{ BAB }} | **Iniziativa:** {{ iniziativa }} | **Velocità:** {{ velocita }}\n\nStatistiche:\n{% for label, key in [\n    (\"For\", \"FOR\"),\n    (\"Des\", \"DES\"),\n    (\"Cos\", \"COS\"),\n    (\"Int\", \"INT\"),\n    (\"Sag\", \"SAG\"),\n    (\"Car\", \"CAR\"),\n] %}\n**{{ label }}** {{ statistiche[key] }} (mod {{ (statistiche[key] - 10) // 2 }})\n{% endfor %}\n\n{% if skills %}\nCompetenze:\n{% for skill in skills %}- {{ skill.get('nome') or skill.get('name') }}\n{% endfor %}\n{% endif %}\n\n{% if equipaggiamento %}\nEquipaggiamento:\n{% for item in equipaggiamento %}- {{ item }}\n{% endfor %}\n{% endif %}\n\n{% set ledger_entries = ledger_movimenti or (ledger.movimenti if ledger else []) %}\n{% if ledger_entries %}\nLedger:\n{% for mov in ledger_entries %}- {{ mov.get('voce') or mov.get('oggetto') or mov.get('label') or mov.get('categoria') }}\n{% endfor %}\n{% endif %}\n"
         },
         "fonti": [
-          "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=10&race=Half+Orc&archetype=Feral"
+          "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=1&race=Half+Orc&archetype=Feral"
         ],
         "lingue": [],
         "sensi": [],
-        "condizioni": []
+        "condizioni": [],
+        "bonus_razziale_flessibile": "SAG",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 10,
+          "decisione": "NUOVA statline editoriale 24pb SAG primaria (feral druid) + flex SAG -> SAG 19 finale. Difetto latente: 2 talenti su 1; tenuta Iniziativa migliorata, droppato Colpo possente (BAB +0 al lv1)"
+        }
       }
     },
     "narrative": "Half Orc Feral pronta/o per il campo, specializzata/o in tattiche da Druid.",
-    "sheet": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n- Armatura leggera\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
+    "sheet": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 3 / Volontà 4\n\n**BAB:** 0 | **Iniziativa:** 2 | **Velocità:** 9\n\nStatistiche:\n**For** 16 (mod 3)\n**Des** 14 (mod 2)\n**Cos** 14 (mod 2)\n**Int** 10 (mod 0)\n**Sag** 12 (mod 1)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Percezione\n\nEquipaggiamento:\n- Arma preferita\n\nLedger:\n- Equipaggiamento iniziale\n- Ricompensa missione",
     "ledger": {
       "movimenti": [
         {
@@ -1105,7 +847,7 @@
       "2026.04.03"
     ]
   },
-  "source_url": "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=10&race=Half+Orc&archetype=Feral",
+  "source_url": "http://127.0.0.1:8000/modules/minmax_builder.txt?mode=extended&class=Druid&stub=true&level=1&race=Half+Orc&archetype=Feral",
   "reference_catalog_version": "2026.04.03",
   "fetched_at": "2026-04-10T01:56:18Z",
   "request": {
@@ -1117,7 +859,7 @@
     "spec_id": "druid_half_orc_feral",
     "model": null,
     "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
-    "level": 10,
+    "level": 1,
     "level_checkpoints": [
       1,
       5,
@@ -1128,7 +870,7 @@
     "mode": "extended",
     "class": "Druid",
     "stub": true,
-    "level": 10,
+    "level": 1,
     "race": "Half Orc",
     "archetype": "Feral"
   },
@@ -1181,7 +923,7 @@
       ],
       "context": {
         "class": "Druid",
-        "level": 10,
+        "level": 1,
         "talenti_chiave": [
           "Colpo possente",
           "Iniziativa migliorata"
@@ -1201,7 +943,7 @@
       "cache_key": null
     },
     "checkpoints": {
-      "level": 10,
+      "level": 1,
       "levels": [
         1,
         5,
@@ -1209,7 +951,7 @@
       ]
     }
   },
-  "build_id": "build-0c107161698004d83296cc0b",
+  "build_id": "build-d348fde2447d2ba9e2f9b3ab",
   "record_status": "draft",
   "is_deleted": false,
   "deleted_at": null,
@@ -1220,7 +962,7 @@
       "action": "harvest",
       "status": "draft",
       "note": "4 is not of type 'array'; 3 is not of type 'array'",
-      "checkpoint": 10,
+      "checkpoint": 1,
       "source": "druid_half_orc_feral"
     },
     {
@@ -1229,7 +971,7 @@
       "action": "harvest",
       "status": "draft",
       "note": "None is not of type 'string'; 4 is not of type 'array'; 3 is not of type 'array'",
-      "checkpoint": 10,
+      "checkpoint": 1,
       "source": "druid_half_orc_feral"
     }
   ]

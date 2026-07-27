@@ -17,6 +17,14 @@ FEAT_EFFECTS = {
     "Improved Initiative": {"initiative": 4},
 }
 
+# Alias italiani del corpus GPT-A -> nome inglese in FEAT_EFFECTS (contratto
+# 2026-07-27, lotto A: il corpus dichiara "Iniziativa migliorata"; v2 applica
+# gia' il +4 via alias nel suo converter, il builder restava indietro di +4
+# sull'iniziativa rispetto ai due motori — divergenza d'oracolo, non RAW).
+FEAT_NAME_ALIASES = {
+    "Iniziativa migliorata": "Improved Initiative",
+}
+
 
 def parse_selection(feat_name):
     """'Weapon Focus (Longsword)' -> ('Weapon Focus', 'Longsword'); altro -> (name, None)."""
@@ -88,6 +96,7 @@ def apply_feat_effects(sheet):
     mods = {ab: (sc - 10) // 2 for ab, sc in sheet["abilities"].items()}
     for feat in sheet.get("feats", []):
         base, selection = parse_selection(feat)
+        base = FEAT_NAME_ALIASES.get(base, base)
         if base == "Weapon Focus":
             _apply_weapon_focus(sheet, selection)
             continue

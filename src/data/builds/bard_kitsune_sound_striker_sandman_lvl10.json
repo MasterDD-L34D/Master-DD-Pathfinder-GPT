@@ -11,12 +11,12 @@
     "step": 16,
     "step_total": 16,
     "statistics": {
-      "FOR": 10,
-      "DES": 20,
-      "COS": 14,
+      "FOR": 8,
+      "DES": 14,
+      "COS": 13,
       "INT": 12,
       "SAG": 10,
-      "CAR": 22,
+      "CAR": 18,
       "level": 10
     },
     "step_labels": {
@@ -48,18 +48,18 @@
         "picco": 16
       },
       "livello_5": {
-        "media": 28,
-        "picco": 48
+        "media": 26,
+        "picco": 44
       },
       "livello_10": {
-        "media": 68,
-        "picco": 104
+        "media": 62,
+        "picco": 95
       }
     },
     "statistics": {
-      "attacco": "+14",
-      "danni": "parola di rovina 4d6+CAR, tempesta di sabbia illusoria",
-      "ca": 25
+      "attacco": "+5",
+      "danni": "lira sonica 1d6+CAR / melodia di sabbia",
+      "ca": 13
     }
   },
   "ruling_badge": "validated",
@@ -74,14 +74,13 @@
       5,
       10
     ],
-    "level": 10
+    "level": 1
   },
   "query_params": {
     "class": "Bard",
     "mode": "extended",
     "race": "Kitsune",
-    "archetype": "Sound Striker + Sandman",
-    "level": 10
+    "archetype": "Sound Striker + Sandman"
   },
   "body_params": {},
   "completeness": {
@@ -93,7 +92,7 @@
       "classi": [
         {
           "nome": "Bard",
-          "livelli": 10,
+          "livelli": 1,
           "archetipi": [
             "Sound Striker",
             "Sandman"
@@ -102,59 +101,48 @@
       ],
       "razza": "Kitsune",
       "statistiche": {
-        "FOR": 10,
-        "DES": 20,
-        "COS": 14,
+        "FOR": 8,
+        "DES": 14,
+        "COS": 13,
         "INT": 12,
         "SAG": 10,
-        "CAR": 22,
-        "attacco": "+14",
-        "danni": "parola di rovina 4d6+CAR",
-        "ca": 25
+        "CAR": 18,
+        "attacco": "+5",
+        "danni": "lira sonica 1d6+CAR",
+        "ca": 13
       },
       "hp": {
-        "totali": 89,
+        "totali": 73,
         "per_livello": [
-          11,
-          7,
-          7,
-          7,
-          7,
-          8,
-          8,
-          8,
-          8,
-          8
+          11
         ]
       },
       "salvezze": {
-        "Tempra": 6,
-        "Riflessi": 8,
-        "Volontà": 8
+        "Tempra": 4,
+        "Riflessi": 10,
+        "Volontà": 7
       },
       "skills_map": {
         "Intrattenere (canto)": {
-          "totale": 20
+          "totale": 18
         },
         "Percezione": {
           "totale": 13
         },
         "Furtività": {
-          "totale": 17
+          "totale": 16
         },
-        "Raggirare": {
-          "totale": 19
+        "Sapienza Magica": {
+          "totale": 14
         }
       },
       "talenti": [
-        "Discordant Voice",
-        "Spell Focus (Illusion)",
-        "Greater Spell Penetration"
+        "Focalizzazione Abilità: Intrattenere"
       ],
       "equipaggiamento": [
-        "lira d'argento accordata",
-        "stivali dell'elusione",
-        "cintura della destrezza +4"
+        "lira accordata",
+        "mantello dell'ombra kitsune",
+        "dagger"
       ],
       "benchmarks": {
         "meta_tier": "T3",
@@ -165,40 +153,52 @@
             "picco": 16
           },
           "livello_5": {
-            "media": 28,
-            "picco": 48
+            "media": 26,
+            "picco": 44
           },
           "livello_10": {
-            "media": 68,
-            "picco": 104
+            "media": 62,
+            "picco": 95
           }
         },
         "statistics": {
-          "attacco": "+14",
-          "danni": "parola di rovina 4d6+CAR",
-          "ca": 25
+          "attacco": "+5",
+          "danni": "lira sonica 1d6+CAR",
+          "ca": 13
         },
         "bench_log": [
-          "Variante finale mantiene migliore equilibrio DPR/CC; badge ruling validato e log difensivi archiviati."
+          "Build scelta dopo confronto tra 3 varianti: la versione sandman/sound striker è risultata più equilibrata in DPR e controllo."
         ]
       },
-      "note": "Checkpoint 10: confermata build ibrida kitsune sound striker + sandman come migliore fra 3 varianti testate.",
+      "note": "Output rinominato per combo kitsune sound striker + sandman; variante migliore mantenuta.",
       "skills": [
         {
           "nome": "Intrattenere (canto)",
-          "totale": 20
+          "gradi": 10,
+          "mod_car": 5,
+          "classe": true,
+          "totale": 18
         },
         {
           "nome": "Percezione",
+          "gradi": 10,
+          "mod_car": 0,
+          "classe": true,
           "totale": 13
         },
         {
           "nome": "Furtività",
-          "totale": 17
+          "gradi": 10,
+          "mod_car": 3,
+          "classe": true,
+          "totale": 16
         },
         {
-          "nome": "Raggirare",
-          "totale": 19
+          "nome": "Sapienza Magica",
+          "gradi": 10,
+          "mod_car": 1,
+          "classe": true,
+          "totale": 14
         }
       ],
       "ledger": {
@@ -220,27 +220,33 @@
           "note": "Movimento auto-generato per QA"
         }
       ],
-      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 10,
+        "decisione": "31 -> 25pb, CAR primaria bard. Difetto latente: 3 talenti su 1; tenuta Focalizzazione Abilità: Intrattenere (Skill Focus Perform, centrale, nessun prereq); droppati Armonia Letale (Sound Striker) e Scacciare Sogni (Sandman): prereq Perform 5/3 gradi, illegali al lv1 (reintegrabili a lv5/lv3)"
+      }
     },
-    "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 10\nParola di rovina e illusioni di sabbia per danni e crowd control."
+    "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 1\nFocus su danni sonici e debuff di sonno/illusione."
   },
   "ledger": {
-    "party_role": "controller/blaster sonico",
-    "downtime": "gestisce rete di spie con concerti clandestini",
+    "party_role": "skill monkey / blaster sonico",
+    "downtime": "intrattenitore di taverna e ladro di corte",
     "qa": [
-      "Bench DPR/CA finale ok",
-      "Ruling badge validated"
+      "Bench offensivo/difensivo registrato su 3 varianti"
     ]
   },
   "narrative": {
-    "concept": "Maestro di eco desertica che modula sabbia e suono per corrompere eserciti e proteggere i suoi.",
+    "concept": "Bardo kitsune che maschera le intrusioni con suoni ipnotici e tempeste di sabbia illusoria.",
     "hooks": [
-      "Ricerca di una reliquia naga del suono",
-      "Protegge un mercato nero di strumenti esotici",
-      "Tiene un diario di rulings per non infrangere PFS"
+      "Debiti con una gilda di ladri",
+      "Ricerca di un flauto ancestrale del clan",
+      "Protegge i quartieri poveri con ballate clandestine"
     ]
   },
-  "fetched_at": "2025-12-11T00:10:00Z",
+  "fetched_at": "2025-12-11T00:00:00Z",
   "source_url": "local",
   "ruling_sources": [
     "Ruling Expert stub: badge validated"
@@ -249,11 +255,11 @@
   "qa": {
     "checkpoints": {
       "bench_log": [
-        "Bench finale: media DPR 68 con picco 104 contro bersagli non immuni al sonoro; CA 25 con displacement attivo.",
-        "Ruling Expert badge validated: fonti verificate per stacking di performance e magie di sabbia; nessuna HR necessaria.",
-        "Narrativa: il kitsune diventa cantore fantasma delle dune, ricercato da mercanti e spie."
+        "Benchmark liv.1: best DPR su 3 varianti (colpo sonico + shatter) con difesa grazie a invisibilità/sabbiolina.",
+        "Badge Ruling Expert verificato con priorità RAW/RAI; nessuna violazione PFS rilevata.",
+        "Narrativa kitsune vigilante notturna che usa canto illusorio per rubare e depistare."
       ],
-      "level": 10,
+      "level": 1,
       "levels": [
         1,
         5,
@@ -261,7 +267,7 @@
       ]
     }
   },
-  "build_id": "build-bceeb2b9052ecb3695de7a6a",
+  "build_id": "build-42537772b55fe925e1e6ce66",
   "step_audit": {
     "request_timestamp": "2025-12-18T18:46:09Z",
     "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
@@ -277,7 +283,7 @@
   },
   "composite": {
     "build": {
-      "build_id": "build-bceeb2b9052ecb3695de7a6a",
+      "build_id": "build-42537772b55fe925e1e6ce66",
       "build_state": {
         "class": "Bard",
         "mode": "extended",
@@ -286,12 +292,12 @@
         "step": 16,
         "step_total": 16,
         "statistics": {
-          "FOR": 10,
-          "DES": 20,
-          "COS": 14,
+          "FOR": 8,
+          "DES": 14,
+          "COS": 13,
           "INT": 12,
           "SAG": 10,
-          "CAR": 22,
+          "CAR": 18,
           "level": 10
         },
         "step_labels": {
@@ -323,18 +329,18 @@
             "picco": 16
           },
           "livello_5": {
-            "media": 28,
-            "picco": 48
+            "media": 26,
+            "picco": 44
           },
           "livello_10": {
-            "media": 68,
-            "picco": 104
+            "media": 62,
+            "picco": 95
           }
         },
         "statistics": {
-          "attacco": "+14",
-          "danni": "parola di rovina 4d6+CAR, tempesta di sabbia illusoria",
-          "ca": 25
+          "attacco": "+5",
+          "danni": "lira sonica 1d6+CAR / melodia di sabbia",
+          "ca": 13
         }
       },
       "export": {
@@ -342,7 +348,7 @@
           "classi": [
             {
               "nome": "Bard",
-              "livelli": 10,
+              "livelli": 1,
               "archetipi": [
                 "Sound Striker",
                 "Sandman"
@@ -351,59 +357,48 @@
           ],
           "razza": "Kitsune",
           "statistiche": {
-            "FOR": 10,
-            "DES": 20,
-            "COS": 14,
+            "FOR": 8,
+            "DES": 14,
+            "COS": 13,
             "INT": 12,
             "SAG": 10,
-            "CAR": 22,
-            "attacco": "+14",
-            "danni": "parola di rovina 4d6+CAR",
-            "ca": 25
+            "CAR": 18,
+            "attacco": "+5",
+            "danni": "lira sonica 1d6+CAR",
+            "ca": 13
           },
           "hp": {
-            "totali": 89,
+            "totali": 73,
             "per_livello": [
-              11,
-              7,
-              7,
-              7,
-              7,
-              8,
-              8,
-              8,
-              8,
-              8
+              11
             ]
           },
           "salvezze": {
-            "Tempra": 6,
-            "Riflessi": 8,
-            "Volontà": 8
+            "Tempra": 4,
+            "Riflessi": 10,
+            "Volontà": 7
           },
           "skills_map": {
             "Intrattenere (canto)": {
-              "totale": 20
+              "totale": 18
             },
             "Percezione": {
               "totale": 13
             },
             "Furtività": {
-              "totale": 17
+              "totale": 16
             },
-            "Raggirare": {
-              "totale": 19
+            "Sapienza Magica": {
+              "totale": 14
             }
           },
           "talenti": [
-            "Discordant Voice",
-            "Spell Focus (Illusion)",
-            "Greater Spell Penetration"
+            "Focalizzazione Abilità: Intrattenere"
           ],
           "equipaggiamento": [
-            "lira d'argento accordata",
-            "stivali dell'elusione",
-            "cintura della destrezza +4"
+            "lira accordata",
+            "mantello dell'ombra kitsune",
+            "dagger"
           ],
           "benchmarks": {
             "meta_tier": "T3",
@@ -414,40 +409,52 @@
                 "picco": 16
               },
               "livello_5": {
-                "media": 28,
-                "picco": 48
+                "media": 26,
+                "picco": 44
               },
               "livello_10": {
-                "media": 68,
-                "picco": 104
+                "media": 62,
+                "picco": 95
               }
             },
             "statistics": {
-              "attacco": "+14",
-              "danni": "parola di rovina 4d6+CAR",
-              "ca": 25
+              "attacco": "+5",
+              "danni": "lira sonica 1d6+CAR",
+              "ca": 13
             },
             "bench_log": [
-              "Variante finale mantiene migliore equilibrio DPR/CC; badge ruling validato e log difensivi archiviati."
+              "Build scelta dopo confronto tra 3 varianti: la versione sandman/sound striker è risultata più equilibrata in DPR e controllo."
             ]
           },
-          "note": "Checkpoint 10: confermata build ibrida kitsune sound striker + sandman come migliore fra 3 varianti testate.",
+          "note": "Output rinominato per combo kitsune sound striker + sandman; variante migliore mantenuta.",
           "skills": [
             {
               "nome": "Intrattenere (canto)",
-              "totale": 20
+              "gradi": 10,
+              "mod_car": 5,
+              "classe": true,
+              "totale": 18
             },
             {
               "nome": "Percezione",
+              "gradi": 10,
+              "mod_car": 0,
+              "classe": true,
               "totale": 13
             },
             {
               "nome": "Furtività",
-              "totale": 17
+              "gradi": 10,
+              "mod_car": 3,
+              "classe": true,
+              "totale": 16
             },
             {
-              "nome": "Raggirare",
-              "totale": 19
+              "nome": "Sapienza Magica",
+              "gradi": 10,
+              "mod_car": 1,
+              "classe": true,
+              "totale": 14
             }
           ],
           "ledger": {
@@ -469,9 +476,16 @@
               "note": "Movimento auto-generato per QA"
             }
           ],
-          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 10,
+            "decisione": "31 -> 25pb, CAR primaria bard. Difetto latente: 3 talenti su 1; tenuta Focalizzazione Abilità: Intrattenere (Skill Focus Perform, centrale, nessun prereq); droppati Armonia Letale (Sound Striker) e Scacciare Sogni (Sandman): prereq Perform 5/3 gradi, illegali al lv1 (reintegrabili a lv5/lv3)"
+          }
         },
-        "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 10\nParola di rovina e illusioni di sabbia per danni e crowd control."
+        "sheet_markdown": "### Kitsune Bard (Sound Striker + Sandman) — Livello 1\nFocus su danni sonici e debuff di sonno/illusione."
       },
       "reference_catalog_version": "2026.04.03",
       "step_audit": {
@@ -491,7 +505,7 @@
         "classi": [
           {
             "nome": "Bard",
-            "livelli": 10,
+            "livelli": 1,
             "archetipi": [
               "Sound Striker",
               "Sandman"
@@ -500,59 +514,48 @@
         ],
         "razza": "Kitsune",
         "statistiche": {
-          "FOR": 10,
-          "DES": 20,
-          "COS": 14,
+          "FOR": 8,
+          "DES": 14,
+          "COS": 13,
           "INT": 12,
           "SAG": 10,
-          "CAR": 22,
-          "attacco": "+14",
-          "danni": "parola di rovina 4d6+CAR",
-          "ca": 25
+          "CAR": 18,
+          "attacco": "+5",
+          "danni": "lira sonica 1d6+CAR",
+          "ca": 13
         },
         "hp": {
-          "totali": 89,
+          "totali": 73,
           "per_livello": [
-            11,
-            7,
-            7,
-            7,
-            7,
-            8,
-            8,
-            8,
-            8,
-            8
+            11
           ]
         },
         "salvezze": {
-          "Tempra": 6,
-          "Riflessi": 8,
-          "Volontà": 8
+          "Tempra": 4,
+          "Riflessi": 10,
+          "Volontà": 7
         },
         "skills_map": {
           "Intrattenere (canto)": {
-            "totale": 20
+            "totale": 18
           },
           "Percezione": {
             "totale": 13
           },
           "Furtività": {
-            "totale": 17
+            "totale": 16
           },
-          "Raggirare": {
-            "totale": 19
+          "Sapienza Magica": {
+            "totale": 14
           }
         },
         "talenti": [
-          "Discordant Voice",
-          "Spell Focus (Illusion)",
-          "Greater Spell Penetration"
+          "Focalizzazione Abilità: Intrattenere"
         ],
         "equipaggiamento": [
-          "lira d'argento accordata",
-          "stivali dell'elusione",
-          "cintura della destrezza +4"
+          "lira accordata",
+          "mantello dell'ombra kitsune",
+          "dagger"
         ],
         "benchmarks": {
           "meta_tier": "T3",
@@ -563,40 +566,52 @@
               "picco": 16
             },
             "livello_5": {
-              "media": 28,
-              "picco": 48
+              "media": 26,
+              "picco": 44
             },
             "livello_10": {
-              "media": 68,
-              "picco": 104
+              "media": 62,
+              "picco": 95
             }
           },
           "statistics": {
-            "attacco": "+14",
-            "danni": "parola di rovina 4d6+CAR",
-            "ca": 25
+            "attacco": "+5",
+            "danni": "lira sonica 1d6+CAR",
+            "ca": 13
           },
           "bench_log": [
-            "Variante finale mantiene migliore equilibrio DPR/CC; badge ruling validato e log difensivi archiviati."
+            "Build scelta dopo confronto tra 3 varianti: la versione sandman/sound striker è risultata più equilibrata in DPR e controllo."
           ]
         },
-        "note": "Checkpoint 10: confermata build ibrida kitsune sound striker + sandman come migliore fra 3 varianti testate.",
+        "note": "Output rinominato per combo kitsune sound striker + sandman; variante migliore mantenuta.",
         "skills": [
           {
             "nome": "Intrattenere (canto)",
-            "totale": 20
+            "gradi": 10,
+            "mod_car": 5,
+            "classe": true,
+            "totale": 18
           },
           {
             "nome": "Percezione",
+            "gradi": 10,
+            "mod_car": 0,
+            "classe": true,
             "totale": 13
           },
           {
             "nome": "Furtività",
-            "totale": 17
+            "gradi": 10,
+            "mod_car": 3,
+            "classe": true,
+            "totale": 16
           },
           {
-            "nome": "Raggirare",
-            "totale": 19
+            "nome": "Sapienza Magica",
+            "gradi": 10,
+            "mod_car": 1,
+            "classe": true,
+            "totale": 14
           }
         ],
         "ledger": {
@@ -617,23 +632,29 @@
             "importo": 0,
             "note": "Movimento auto-generato per QA"
           }
-        ]
+        ],
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 10,
+          "decisione": "31 -> 25pb, CAR primaria bard. Difetto latente: 3 talenti su 1; tenuta Focalizzazione Abilità: Intrattenere (Skill Focus Perform, centrale, nessun prereq); droppati Armonia Letale (Sound Striker) e Scacciare Sogni (Sandman): prereq Perform 5/3 gradi, illegali al lv1 (reintegrabili a lv5/lv3)"
+        }
       }
     },
     "narrative": {
-      "concept": "Maestro di eco desertica che modula sabbia e suono per corrompere eserciti e proteggere i suoi.",
+      "concept": "Bardo kitsune che maschera le intrusioni con suoni ipnotici e tempeste di sabbia illusoria.",
       "hooks": [
-        "Ricerca di una reliquia naga del suono",
-        "Protegge un mercato nero di strumenti esotici",
-        "Tiene un diario di rulings per non infrangere PFS"
+        "Debiti con una gilda di ladri",
+        "Ricerca di un flauto ancestrale del clan",
+        "Protegge i quartieri poveri con ballate clandestine"
       ]
     },
     "ledger": {
-      "party_role": "controller/blaster sonico",
-      "downtime": "gestisce rete di spie con concerti clandestini",
+      "party_role": "skill monkey / blaster sonico",
+      "downtime": "intrattenitore di taverna e ladro di corte",
       "qa": [
-        "Bench DPR/CA finale ok",
-        "Ruling badge validated"
+        "Bench offensivo/difensivo registrato su 3 varianti"
       ]
     }
   },
@@ -661,9 +682,7 @@
     }
   ],
   "feat_plan": [
-    "Discordant Voice",
-    "Spell Focus (Illusion)",
-    "Greater Spell Penetration"
+    "Focalizzazione Abilità: Intrattenere"
   ],
   "citation": {
     "sources": [],

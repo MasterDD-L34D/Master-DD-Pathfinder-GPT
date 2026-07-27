@@ -25,9 +25,9 @@
       "16": "Chiusura"
     },
     "statistics": {
-      "FOR": 16,
-      "DES": 18,
-      "COS": 16,
+      "FOR": 10,
+      "DES": 16,
+      "COS": 13,
       "INT": 16,
       "SAG": 10,
       "CAR": 12,
@@ -44,19 +44,19 @@
         "picco": 24
       },
       "livello_5": {
-        "media": 44,
-        "picco": 74
+        "media": 36,
+        "picco": 62
       },
       "livello_10": {
-        "media": 102,
-        "picco": 156
+        "media": 92,
+        "picco": 148
       }
     },
     "statistics": {
-      "attacco": "+10/+10 spellstrike (Arcane Accuracy attiva)",
-      "danni": "falchion 2d4+6/15-20x2 con Keen e Shocking Grasp Intensified",
-      "ca": 24,
-      "difese": "Mirror Image + Blur di routine; hex Fortune attivo ad inizio giornata"
+      "attacco": "+5 (falchion nero) / +5 touch spellstrike",
+      "danni": "falchion 2d4+4/18-20x2 con Black Blade",
+      "ca": 14,
+      "difese": "Arcane Pool +2 CA, hex Fortune/Misfortune per reroll difensivi"
     }
   },
   "build_source": "local spec",
@@ -79,7 +79,7 @@
       "output_prefix": "magus_kitsune_bladebound_hexcrafter",
       "class": "Magus",
       "race": "Kitsune",
-      "level": 5,
+      "level": 1,
       "archetype": "Bladebound Hexcrafter",
       "skills": [
         {
@@ -87,89 +87,89 @@
           "gradi": 5,
           "mod_car": 3,
           "classe": true,
-          "totale": 12
+          "totale": 11
         },
         {
           "nome": "Acrobazia",
           "gradi": 5,
           "mod_car": 4,
-          "classe": true,
-          "totale": 12
+          "classe": false,
+          "totale": 9
         }
       ],
       "equipaggiamento": [
         "Falchion Black Blade",
-        "Bracciali dell'armatura +1",
+        "Armatura di cuoio borchiato",
         "Anello di protezione +1"
       ],
       "ledger_movimenti": [
         {
-          "voce": "Affilatura Black Blade avanzata",
-          "importo": -250
+          "voce": "Affilatura Black Blade",
+          "importo": -120
         },
         {
-          "voce": "Ricompensa duelista cittadino",
-          "importo": 400
+          "voce": "Ingaggio duello dimostrativo",
+          "importo": 200
         }
       ],
       "ledger": {
         "movimenti": [
           {
-            "voce": "Affilatura Black Blade avanzata",
-            "importo": -250
+            "voce": "Affilatura Black Blade",
+            "importo": -120
           },
           {
-            "voce": "Ricompensa duelista cittadino",
-            "importo": 400
+            "voce": "Ingaggio duello dimostrativo",
+            "importo": 200
           }
         ],
         "currency": {
-          "oro": 220,
-          "argento": 18,
-          "rame": 9
+          "oro": 85,
+          "argento": 12,
+          "rame": 5
         }
       },
-      "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nAffilatura Black Blade avanzata"
+      "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nAffilatura Black Blade"
     }
   },
-  "ledger": "Arcane Pool a +3, Black Blade con ego crescente e telepatia; incantesimi chiave: Intensified Shocking Grasp, Frostbite Rime, Haste via magus arcana, Hexes Fortune/Misfortune attivi su priorità del gruppo.",
-  "narrative": "La Black Blade matura e guida la kitsune verso duelli d'onore. Ruling Expert conferma la compatibilità di Arcane Accuracy con l'hex Misfortune e lo stacking di Keen. MinMax ha scartato la variante katana DES per minor DPR, mantenendo la falchion keen. La Taverna aggiunge la reputazione di 'Volpe del Fulmine' con duelli messi in scena per coprire le missioni della setta.",
+  "ledger": "Black Blade temprata al livello 1 con focus falchion; riserve Arcane Pool usate per Accurate e bonus CA; slot 1° Hexcrafter per Evil Eye/Misfortune.",
+  "narrative": "La kitsune custodisce una Black Blade ancestrale legata a un patto di volpe: il Ruling Expert conferma che hex e Black Blade coesistono senza conflitti RAW/RAI/PFS. Il MinMax pass ha scelto il crit-fishing con falchion e spellstrike Shocking Grasp per massimizzare i picchi, mentre il modulo Taverna/Narrative intreccia l'identità di spadaccina illusionista con coperture di glamour.",
   "metadata": {
     "pipeline_logs": {
       "ruling_expert": [
-        "Arcane Accuracy + Keen su Black Blade validi con crit multipli; Misfortune applicabile via hex su target spellstrike.",
-        "Haste dal grimorio integrata senza confliggere con Arcane Pool enhancements."
+        "Badge RAW/RAI/PFS confermato: Bladebound non blocca Hexcrafter; Black Blade mantiene Intelligenza anche con spellstrike su armi a due mani.",
+        "Allineamento degli hex (Fortune/Misfortune) compatibile con PFS, nessun requisito di traduzione houserule."
       ],
       "minmax": [
-        "Confronto variante piranha strike: +2 DPR medio ma -2 CA; scartata per obiettivo difensivo.",
-        "Falchion keen + Intensified Shocking Grasp produce spike migliore e mantiene CA 24 con Blur/Mirror Image.",
-        "Debuff preferiti: Frostbite Rime per staggered e entangle, Evil Eye per -2 CA."
+        "Provate 3 varianti: falchion crit-fishing, katana focus DES, wakizashi two-weapon.",
+        "La variante falchion + Black Blade ottiene DPR medio/più alto e migliore CA grazie a Arcane Pool.",
+        "Spellstrike prioritari: Shocking Grasp e Frostbite con Rime Spell per debuff di controllo."
       ],
       "taverna": [
-        "Scene di allenamento con la Black Blade parlante che istruisce giovani spadaccini.",
-        "Narrativa Taverna: il patto kitsune è ora noto come 'Giuramento delle Tre Code', legato ai reroll di Fortune."
+        "Tema 'Lama delle Volpi': glamour kitsune e bladebound senziente che sussurra tattiche.",
+        "Hook narrativo: duelista da taverna che offre letture di ventura usando l'hex Evil Eye."
       ]
     },
     "benchmarks": [
       {
-        "variant": "Falchion keen + Intensified Grasp",
-        "offense_score": 0.91,
-        "defense_score": 0.85
-      },
-      {
-        "variant": "Katana DES + Slashing Grace",
-        "offense_score": 0.76,
+        "variant": "Falchion crit + Shocking Grasp",
+        "offense_score": 0.88,
         "defense_score": 0.82
       },
       {
-        "variant": "Wakizashi dual + debuff",
-        "offense_score": 0.73,
-        "defense_score": 0.78
+        "variant": "Katana finesse + Disruptive",
+        "offense_score": 0.74,
+        "defense_score": 0.79
+      },
+      {
+        "variant": "Dual wakizashi debuff",
+        "offense_score": 0.69,
+        "defense_score": 0.76
       }
     ],
-    "selected_variant": "Falchion keen + Intensified Grasp",
+    "selected_variant": "Falchion crit + Shocking Grasp",
     "ruling_badge": "RAW/RAI/PFS",
-    "selected_variant_notes": "Miglior benchmark offensivo/difensivo mantenendo reroll e immagini illusorie."
+    "selected_variant_notes": "Picco offensivo più alto e miglior accesso a reroll difensivi via Fortune."
   },
   "mode": "extended",
   "mode_normalized": "extended",
@@ -184,7 +184,7 @@
     "race": "Kitsune",
     "archetype": "Bladebound Hexcrafter",
     "spec_id": "magus_kitsune_bladebound_hexcrafter",
-    "level": 5,
+    "level": 1,
     "level_checkpoints": [
       1,
       5,
@@ -208,7 +208,7 @@
   "reference_catalog_version": "2026.04.03",
   "qa": {
     "checkpoints": {
-      "level": 5,
+      "level": 1,
       "levels": [
         1,
         5,
@@ -219,10 +219,10 @@
       "checklist": {}
     }
   },
-  "build_id": "build-d86680a49d303c337eb5b61b",
+  "build_id": "build-452893dd6dc6f9375678a316",
   "composite": {
     "build": {
-      "build_id": "build-d86680a49d303c337eb5b61b",
+      "build_id": "build-452893dd6dc6f9375678a316",
       "build_state": {
         "class": "Magus",
         "mode": "extended",
@@ -249,9 +249,9 @@
           "16": "Chiusura"
         },
         "statistics": {
-          "FOR": 16,
-          "DES": 18,
-          "COS": 16,
+          "FOR": 10,
+          "DES": 16,
+          "COS": 13,
           "INT": 16,
           "SAG": 10,
           "CAR": 12,
@@ -268,19 +268,19 @@
             "picco": 24
           },
           "livello_5": {
-            "media": 44,
-            "picco": 74
+            "media": 36,
+            "picco": 62
           },
           "livello_10": {
-            "media": 102,
-            "picco": 156
+            "media": 92,
+            "picco": 148
           }
         },
         "statistics": {
-          "attacco": "+10/+10 spellstrike (Arcane Accuracy attiva)",
-          "danni": "falchion 2d4+6/15-20x2 con Keen e Shocking Grasp Intensified",
-          "ca": 24,
-          "difese": "Mirror Image + Blur di routine; hex Fortune attivo ad inizio giornata"
+          "attacco": "+5 (falchion nero) / +5 touch spellstrike",
+          "danni": "falchion 2d4+4/18-20x2 con Black Blade",
+          "ca": 14,
+          "difese": "Arcane Pool +2 CA, hex Fortune/Misfortune per reroll difensivi"
         }
       },
       "export": {
@@ -293,7 +293,7 @@
           "output_prefix": "magus_kitsune_bladebound_hexcrafter",
           "class": "Magus",
           "race": "Kitsune",
-          "level": 5,
+          "level": 1,
           "archetype": "Bladebound Hexcrafter",
           "skills": [
             {
@@ -301,49 +301,49 @@
               "gradi": 5,
               "mod_car": 3,
               "classe": true,
-              "totale": 12
+              "totale": 11
             },
             {
               "nome": "Acrobazia",
               "gradi": 5,
               "mod_car": 4,
-              "classe": true,
-              "totale": 12
+              "classe": false,
+              "totale": 9
             }
           ],
           "equipaggiamento": [
             "Falchion Black Blade",
-            "Bracciali dell'armatura +1",
+            "Armatura di cuoio borchiato",
             "Anello di protezione +1"
           ],
           "ledger_movimenti": [
             {
-              "voce": "Affilatura Black Blade avanzata",
-              "importo": -250
+              "voce": "Affilatura Black Blade",
+              "importo": -120
             },
             {
-              "voce": "Ricompensa duelista cittadino",
-              "importo": 400
+              "voce": "Ingaggio duello dimostrativo",
+              "importo": 200
             }
           ],
           "ledger": {
             "movimenti": [
               {
-                "voce": "Affilatura Black Blade avanzata",
-                "importo": -250
+                "voce": "Affilatura Black Blade",
+                "importo": -120
               },
               {
-                "voce": "Ricompensa duelista cittadino",
-                "importo": 400
+                "voce": "Ingaggio duello dimostrativo",
+                "importo": 200
               }
             ],
             "currency": {
-              "oro": 220,
-              "argento": 18,
-              "rame": 9
+              "oro": 85,
+              "argento": 12,
+              "rame": 5
             }
           },
-          "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nAffilatura Black Blade avanzata"
+          "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nAffilatura Black Blade"
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -365,7 +365,7 @@
         "output_prefix": "magus_kitsune_bladebound_hexcrafter",
         "class": "Magus",
         "race": "Kitsune",
-        "level": 5,
+        "level": 1,
         "archetype": "Bladebound Hexcrafter",
         "skills": [
           {
@@ -373,53 +373,53 @@
             "gradi": 5,
             "mod_car": 3,
             "classe": true,
-            "totale": 12
+            "totale": 11
           },
           {
             "nome": "Acrobazia",
             "gradi": 5,
             "mod_car": 4,
-            "classe": true,
-            "totale": 12
+            "classe": false,
+            "totale": 9
           }
         ],
         "equipaggiamento": [
           "Falchion Black Blade",
-          "Bracciali dell'armatura +1",
+          "Armatura di cuoio borchiato",
           "Anello di protezione +1"
         ],
         "ledger_movimenti": [
           {
-            "voce": "Affilatura Black Blade avanzata",
-            "importo": -250
+            "voce": "Affilatura Black Blade",
+            "importo": -120
           },
           {
-            "voce": "Ricompensa duelista cittadino",
-            "importo": 400
+            "voce": "Ingaggio duello dimostrativo",
+            "importo": 200
           }
         ],
         "ledger": {
           "movimenti": [
             {
-              "voce": "Affilatura Black Blade avanzata",
-              "importo": -250
+              "voce": "Affilatura Black Blade",
+              "importo": -120
             },
             {
-              "voce": "Ricompensa duelista cittadino",
-              "importo": 400
+              "voce": "Ingaggio duello dimostrativo",
+              "importo": 200
             }
           ],
           "currency": {
-            "oro": 220,
-            "argento": 18,
-            "rame": 9
+            "oro": 85,
+            "argento": 12,
+            "rame": 5
           }
         },
-        "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nAffilatura Black Blade avanzata"
+        "sheet_markdown": "Conoscenze (arcana)\nFalchion Black Blade\nAffilatura Black Blade"
       }
     },
-    "narrative": "La Black Blade matura e guida la kitsune verso duelli d'onore. Ruling Expert conferma la compatibilità di Arcane Accuracy con l'hex Misfortune e lo stacking di Keen. MinMax ha scartato la variante katana DES per minor DPR, mantenendo la falchion keen. La Taverna aggiunge la reputazione di 'Volpe del Fulmine' con duelli messi in scena per coprire le missioni della setta.",
-    "ledger": "Arcane Pool a +3, Black Blade con ego crescente e telepatia; incantesimi chiave: Intensified Shocking Grasp, Frostbite Rime, Haste via magus arcana, Hexes Fortune/Misfortune attivi su priorità del gruppo."
+    "narrative": "La kitsune custodisce una Black Blade ancestrale legata a un patto di volpe: il Ruling Expert conferma che hex e Black Blade coesistono senza conflitti RAW/RAI/PFS. Il MinMax pass ha scelto il crit-fishing con falchion e spellstrike Shocking Grasp per massimizzare i picchi, mentre il modulo Taverna/Narrative intreccia l'identità di spadaccina illusionista con coperture di glamour.",
+    "ledger": "Black Blade temprata al livello 1 con focus falchion; riserve Arcane Pool usate per Accurate e bonus CA; slot 1° Hexcrafter per Evil Eye/Misfortune."
   },
   "checkpoints": [
     {

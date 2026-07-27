@@ -64,9 +64,9 @@
       }
     },
     "statistics": {
-      "attacco": "+17",
-      "danni": "2d6+10",
-      "ca": 27,
+      "attacco": "+5",
+      "danni": "1d6+2",
+      "ca": 17,
       "FOR": 12,
       "DES": 18,
       "COS": 12,
@@ -92,7 +92,7 @@
       "classi": [
         {
           "nome": "Alchemist",
-          "livelli": 10,
+          "livelli": 1,
           "archetipi": [
             "Vivisectionist"
           ]
@@ -105,61 +105,47 @@
         "INT": 14,
         "SAG": 10,
         "CAR": 8,
-        "attacco": "+17",
-        "danni": "2d6+10",
-        "ca": 27
+        "attacco": "+5",
+        "danni": "1d6+2",
+        "ca": 17
       },
       "statistiche_chiave": {
-        "attacco": "+17",
-        "danni": "2d6+10",
-        "ca": 27
+        "attacco": "+5",
+        "danni": "1d6+2",
+        "ca": 17
       },
-      "pf_totali": 57,
+      "pf_totali": 73,
       "hp": {
-        "totali": 57,
+        "totali": 73,
         "per_livello": [
-          57
+          12
         ]
       },
       "salvezze": {
-        "Tempra": 4,
-        "Riflessi": 3,
-        "Volontà": 4
+        "Tempra": 8,
+        "Riflessi": 13,
+        "Volontà": 3
       },
       "skills_map": {
         "Percezione": {
-          "totale": 5
+          "totale": 13
         },
         "Acrobazia": {
-          "totale": 4
-        },
-        "Conoscenze": {
-          "totale": 3
+          "totale": 16
         }
       },
-      "skill_points": 50,
+      "skill_points": 60,
       "talenti": [
-        "Colpo possente",
         "Iniziativa migliorata"
       ],
       "capacita_classe": [
         "Addestramento marziale",
         "Specializzazione",
         "Privilegio 1",
-        "Tecnica distintiva Vivisectionist",
-        "Privilegio 2",
-        "Privilegio 3",
-        "Privilegio 4",
-        "Privilegio 5",
-        "Privilegio 6",
-        "Privilegio 7",
-        "Privilegio 8",
-        "Privilegio 9",
-        "Privilegio 10"
+        "Tecnica distintiva Vivisectionist"
       ],
       "equipaggiamento": [
-        "Arma preferita",
-        "Armatura leggera"
+        "Arma preferita"
       ],
       "inventario": [
         "Arma preferita",
@@ -169,12 +155,12 @@
       ],
       "slot_incantesimi": "Liv1:4/Liv2:3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
-        "destrezza": 2,
-        "scudo": 1
+        "totale": 17,
+        "armatura": 0,
+        "destrezza": 6,
+        "scudo": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 10,
       "velocita": 9,
       "progressione": [
         {
@@ -184,97 +170,7 @@
             "Tecnica distintiva Vivisectionist"
           ],
           "talenti": [
-            "Talento di livello 1"
-          ]
-        },
-        {
-          "livello": 2,
-          "privilegi": [
-            "Privilegio 2",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 2"
-          ]
-        },
-        {
-          "livello": 3,
-          "privilegi": [
-            "Privilegio 3",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 3"
-          ]
-        },
-        {
-          "livello": 4,
-          "privilegi": [
-            "Privilegio 4",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 4"
-          ]
-        },
-        {
-          "livello": 5,
-          "privilegi": [
-            "Privilegio 5",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 5"
-          ]
-        },
-        {
-          "livello": 6,
-          "privilegi": [
-            "Privilegio 6",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 6"
-          ]
-        },
-        {
-          "livello": 7,
-          "privilegi": [
-            "Privilegio 7",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 7"
-          ]
-        },
-        {
-          "livello": 8,
-          "privilegi": [
-            "Privilegio 8",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 8"
-          ]
-        },
-        {
-          "livello": 9,
-          "privilegi": [
-            "Privilegio 9",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 9"
-          ]
-        },
-        {
-          "livello": 10,
-          "privilegi": [
-            "Privilegio 10",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 10"
+            "Iniziativa migliorata"
           ]
         }
       ],
@@ -305,19 +201,19 @@
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": 4
+          "totale": 8
         },
         "Riflessi": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": 3
+          "totale": 13
         },
         "Volontà": {
           "base": null,
           "modificatore": null,
           "misc": null,
-          "totale": 4
+          "totale": 3
         }
       },
       "pf_per_livello": "n/d (PF per livello non fornito)",
@@ -329,14 +225,14 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
-      "CA_touch": 10,
-      "CA_ff": 10,
-      "BAB": "n/d (BAB non fornito)",
-      "init": 2,
+      "AC_tot": 17,
+      "CA_touch": 17,
+      "CA_ff": 11,
+      "BAB": 7,
+      "init": 10,
       "speed": 9,
       "fonti": [
-        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist"
+        "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
       ],
       "print_mode": false,
       "show_minmax": true,
@@ -348,15 +244,17 @@
       "skills": [
         {
           "nome": "Percezione",
-          "totale": 5
+          "gradi": 10,
+          "mod_car": 0,
+          "classe": true,
+          "totale": 13
         },
         {
           "nome": "Acrobazia",
-          "totale": 4
-        },
-        {
-          "nome": "Conoscenze",
-          "totale": 3
+          "gradi": 10,
+          "mod_car": 6,
+          "classe": false,
+          "totale": 16
         }
       ],
       "spell_levels": [],
@@ -364,7 +262,14 @@
       "lingue": [],
       "sensi": [],
       "condizioni": [],
-      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+      "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 10,
+        "decisione": "tenuta Iniziativa migliorata (utility generica, nessun prerequisito); droppato Colpo possente: prerequisito RAW Forza 13 non rispettato (FOR 12) e slot lv1 = 1"
+      }
     }
   },
   "narrative": "Goblin Vivisectionist ottimizzata con mutageno, ferite furtive e toolkit da laboratorio; flusso Ruling→MinMax→Taverna validato.",
@@ -372,7 +277,7 @@
     "classi": [
       {
         "nome": "Alchemist",
-        "livelli": 10,
+        "livelli": 1,
         "archetipi": [
           "Vivisectionist"
         ]
@@ -387,36 +292,32 @@
       "CAR": 8
     },
     "statistiche_chiave": {
-      "attacco": "+17",
-      "danni": "2d6+10",
-      "ca": 27
+      "attacco": "+5",
+      "danni": "1d6+2",
+      "ca": 17
     },
-    "pf_totali": 57,
+    "pf_totali": 73,
     "hp": {
-      "totali": 57,
+      "totali": 73,
       "per_livello": [
-        57
+        12
       ]
     },
     "salvezze": {
-      "Tempra": 4,
-      "Riflessi": 3,
-      "Volontà": 4
+      "Tempra": 8,
+      "Riflessi": 13,
+      "Volontà": 3
     },
     "skills_map": {
       "Percezione": {
-        "totale": 5
+        "totale": 13
       },
       "Acrobazia": {
-        "totale": 4
-      },
-      "Conoscenze": {
-        "totale": 3
+        "totale": 16
       }
     },
-    "skill_points": 50,
+    "skill_points": 60,
     "talenti": [
-      "Colpo possente",
       "Iniziativa migliorata"
     ],
     "capacita_classe": [
@@ -436,12 +337,12 @@
     "spell_levels": [],
     "slot_incantesimi": "Liv1:4/Liv2:3",
     "ac_breakdown": {
-      "totale": 18,
-      "armatura": 5,
-      "destrezza": 2,
-      "scudo": 1
+      "totale": 17,
+      "armatura": 0,
+      "destrezza": 6,
+      "scudo": 0
     },
-    "iniziativa": 2,
+    "iniziativa": 10,
     "velocita": 9,
     "progressione": [
       {
@@ -451,104 +352,21 @@
           "Tecnica distintiva Vivisectionist"
         ],
         "talenti": [
-          "Talento di livello 1"
-        ]
-      },
-      {
-        "livello": 2,
-        "privilegi": [
-          "Privilegio 2",
-          "Tecnica distintiva Vivisectionist"
-        ],
-        "talenti": [
-          "Talento di livello 2"
-        ]
-      },
-      {
-        "livello": 3,
-        "privilegi": [
-          "Privilegio 3",
-          "Tecnica distintiva Vivisectionist"
-        ],
-        "talenti": [
-          "Talento di livello 3"
-        ]
-      },
-      {
-        "livello": 4,
-        "privilegi": [
-          "Privilegio 4",
-          "Tecnica distintiva Vivisectionist"
-        ],
-        "talenti": [
-          "Talento di livello 4"
-        ]
-      },
-      {
-        "livello": 5,
-        "privilegi": [
-          "Privilegio 5",
-          "Tecnica distintiva Vivisectionist"
-        ],
-        "talenti": [
-          "Talento di livello 5"
-        ]
-      },
-      {
-        "livello": 6,
-        "privilegi": [
-          "Privilegio 6",
-          "Tecnica distintiva Vivisectionist"
-        ],
-        "talenti": [
-          "Talento di livello 6"
-        ]
-      },
-      {
-        "livello": 7,
-        "privilegi": [
-          "Privilegio 7",
-          "Tecnica distintiva Vivisectionist"
-        ],
-        "talenti": [
-          "Talento di livello 7"
-        ]
-      },
-      {
-        "livello": 8,
-        "privilegi": [
-          "Privilegio 8",
-          "Tecnica distintiva Vivisectionist"
-        ],
-        "talenti": [
-          "Talento di livello 8"
-        ]
-      },
-      {
-        "livello": 9,
-        "privilegi": [
-          "Privilegio 9",
-          "Tecnica distintiva Vivisectionist"
-        ],
-        "talenti": [
-          "Talento di livello 9"
-        ]
-      },
-      {
-        "livello": 10,
-        "privilegi": [
-          "Privilegio 10",
-          "Tecnica distintiva Vivisectionist"
-        ],
-        "talenti": [
-          "Talento di livello 10"
+          "Iniziativa migliorata"
         ]
       }
     ],
     "benchmarks": {
       "meta_tier": "T3"
     },
-    "hooks": null
+    "hooks": null,
+    "rebuild_gpt_a": {
+      "tool": "tools/rebuild_corpus_gpt_a.py",
+      "lotto": "A",
+      "data": "2026-07-27",
+      "livello": 10,
+      "decisione": "tenuta Iniziativa migliorata (utility generica, nessun prerequisito); droppato Colpo possente: prerequisito RAW Forza 13 non rispettato (FOR 12) e slot lv1 = 1"
+    }
   },
   "ledger": {
     "movimenti": [
@@ -571,7 +389,7 @@
   "mode": "extended",
   "composite": {
     "build": {
-      "build_id": "build-4d8916840f334ebf0488916a",
+      "build_id": "build-f37351a514fef0e2d99445df",
       "build_state": {
         "class": "Alchemist",
         "mode": "extended",
@@ -637,9 +455,9 @@
           }
         },
         "statistics": {
-          "attacco": "+17",
-          "danni": "2d6+10",
-          "ca": 27,
+          "attacco": "+5",
+          "danni": "1d6+2",
+          "ca": 17,
           "FOR": 12,
           "DES": 18,
           "COS": 12,
@@ -665,7 +483,7 @@
           "classi": [
             {
               "nome": "Alchemist",
-              "livelli": 10,
+              "livelli": 1,
               "archetipi": [
                 "Vivisectionist"
               ]
@@ -678,61 +496,47 @@
             "INT": 14,
             "SAG": 10,
             "CAR": 8,
-            "attacco": "+17",
-            "danni": "2d6+10",
-            "ca": 27
+            "attacco": "+5",
+            "danni": "1d6+2",
+            "ca": 17
           },
           "statistiche_chiave": {
-            "attacco": "+17",
-            "danni": "2d6+10",
-            "ca": 27
+            "attacco": "+5",
+            "danni": "1d6+2",
+            "ca": 17
           },
-          "pf_totali": 57,
+          "pf_totali": 73,
           "hp": {
-            "totali": 57,
+            "totali": 73,
             "per_livello": [
-              57
+              12
             ]
           },
           "salvezze": {
-            "Tempra": 4,
-            "Riflessi": 3,
-            "Volontà": 4
+            "Tempra": 8,
+            "Riflessi": 13,
+            "Volontà": 3
           },
           "skills_map": {
             "Percezione": {
-              "totale": 5
+              "totale": 13
             },
             "Acrobazia": {
-              "totale": 4
-            },
-            "Conoscenze": {
-              "totale": 3
+              "totale": 16
             }
           },
-          "skill_points": 50,
+          "skill_points": 60,
           "talenti": [
-            "Colpo possente",
             "Iniziativa migliorata"
           ],
           "capacita_classe": [
             "Addestramento marziale",
             "Specializzazione",
             "Privilegio 1",
-            "Tecnica distintiva Vivisectionist",
-            "Privilegio 2",
-            "Privilegio 3",
-            "Privilegio 4",
-            "Privilegio 5",
-            "Privilegio 6",
-            "Privilegio 7",
-            "Privilegio 8",
-            "Privilegio 9",
-            "Privilegio 10"
+            "Tecnica distintiva Vivisectionist"
           ],
           "equipaggiamento": [
-            "Arma preferita",
-            "Armatura leggera"
+            "Arma preferita"
           ],
           "inventario": [
             "Arma preferita",
@@ -742,12 +546,12 @@
           ],
           "slot_incantesimi": "Liv1:4/Liv2:3",
           "ac_breakdown": {
-            "totale": 18,
-            "armatura": 5,
-            "destrezza": 2,
-            "scudo": 1
+            "totale": 17,
+            "armatura": 0,
+            "destrezza": 6,
+            "scudo": 0
           },
-          "iniziativa": 2,
+          "iniziativa": 10,
           "velocita": 9,
           "progressione": [
             {
@@ -757,97 +561,7 @@
                 "Tecnica distintiva Vivisectionist"
               ],
               "talenti": [
-                "Talento di livello 1"
-              ]
-            },
-            {
-              "livello": 2,
-              "privilegi": [
-                "Privilegio 2",
-                "Tecnica distintiva Vivisectionist"
-              ],
-              "talenti": [
-                "Talento di livello 2"
-              ]
-            },
-            {
-              "livello": 3,
-              "privilegi": [
-                "Privilegio 3",
-                "Tecnica distintiva Vivisectionist"
-              ],
-              "talenti": [
-                "Talento di livello 3"
-              ]
-            },
-            {
-              "livello": 4,
-              "privilegi": [
-                "Privilegio 4",
-                "Tecnica distintiva Vivisectionist"
-              ],
-              "talenti": [
-                "Talento di livello 4"
-              ]
-            },
-            {
-              "livello": 5,
-              "privilegi": [
-                "Privilegio 5",
-                "Tecnica distintiva Vivisectionist"
-              ],
-              "talenti": [
-                "Talento di livello 5"
-              ]
-            },
-            {
-              "livello": 6,
-              "privilegi": [
-                "Privilegio 6",
-                "Tecnica distintiva Vivisectionist"
-              ],
-              "talenti": [
-                "Talento di livello 6"
-              ]
-            },
-            {
-              "livello": 7,
-              "privilegi": [
-                "Privilegio 7",
-                "Tecnica distintiva Vivisectionist"
-              ],
-              "talenti": [
-                "Talento di livello 7"
-              ]
-            },
-            {
-              "livello": 8,
-              "privilegi": [
-                "Privilegio 8",
-                "Tecnica distintiva Vivisectionist"
-              ],
-              "talenti": [
-                "Talento di livello 8"
-              ]
-            },
-            {
-              "livello": 9,
-              "privilegi": [
-                "Privilegio 9",
-                "Tecnica distintiva Vivisectionist"
-              ],
-              "talenti": [
-                "Talento di livello 9"
-              ]
-            },
-            {
-              "livello": 10,
-              "privilegi": [
-                "Privilegio 10",
-                "Tecnica distintiva Vivisectionist"
-              ],
-              "talenti": [
-                "Talento di livello 10"
+                "Iniziativa migliorata"
               ]
             }
           ],
@@ -878,19 +592,19 @@
               "base": null,
               "modificatore": null,
               "misc": null,
-              "totale": 4
+              "totale": 8
             },
             "Riflessi": {
               "base": null,
               "modificatore": null,
               "misc": null,
-              "totale": 3
+              "totale": 13
             },
             "Volontà": {
               "base": null,
               "modificatore": null,
               "misc": null,
-              "totale": 4
+              "totale": 3
             }
           },
           "pf_per_livello": "n/d (PF per livello non fornito)",
@@ -902,14 +616,14 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
-          "CA_touch": 10,
-          "CA_ff": 10,
-          "BAB": "n/d (BAB non fornito)",
-          "init": 2,
+          "AC_tot": 17,
+          "CA_touch": 17,
+          "CA_ff": 11,
+          "BAB": 7,
+          "init": 10,
           "speed": 9,
           "fonti": [
-            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist"
+            "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
           ],
           "print_mode": false,
           "show_minmax": true,
@@ -921,15 +635,17 @@
           "skills": [
             {
               "nome": "Percezione",
-              "totale": 5
+              "gradi": 10,
+              "mod_car": 0,
+              "classe": true,
+              "totale": 13
             },
             {
               "nome": "Acrobazia",
-              "totale": 4
-            },
-            {
-              "nome": "Conoscenze",
-              "totale": 3
+              "gradi": 10,
+              "mod_car": 6,
+              "classe": false,
+              "totale": 16
             }
           ],
           "spell_levels": [],
@@ -937,7 +653,14 @@
           "lingue": [],
           "sensi": [],
           "condizioni": [],
-          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza"
+          "sheet_markdown": "Percezione Pugnale di servizio Kit di emergenza",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 10,
+            "decisione": "tenuta Iniziativa migliorata (utility generica, nessun prerequisito); droppato Colpo possente: prerequisito RAW Forza 13 non rispettato (FOR 12) e slot lv1 = 1"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -959,7 +682,7 @@
         "classi": [
           {
             "nome": "Alchemist",
-            "livelli": 10,
+            "livelli": 1,
             "archetipi": [
               "Vivisectionist"
             ]
@@ -972,61 +695,47 @@
           "INT": 14,
           "SAG": 10,
           "CAR": 8,
-          "attacco": "+17",
-          "danni": "2d6+10",
-          "ca": 27
+          "attacco": "+5",
+          "danni": "1d6+2",
+          "ca": 17
         },
         "statistiche_chiave": {
-          "attacco": "+17",
-          "danni": "2d6+10",
-          "ca": 27
+          "attacco": "+5",
+          "danni": "1d6+2",
+          "ca": 17
         },
-        "pf_totali": 57,
+        "pf_totali": 73,
         "hp": {
-          "totali": 57,
+          "totali": 73,
           "per_livello": [
-            57
+            12
           ]
         },
         "salvezze": {
-          "Tempra": 4,
-          "Riflessi": 3,
-          "Volontà": 4
+          "Tempra": 8,
+          "Riflessi": 13,
+          "Volontà": 3
         },
         "skills_map": {
           "Percezione": {
-            "totale": 5
+            "totale": 13
           },
           "Acrobazia": {
-            "totale": 4
-          },
-          "Conoscenze": {
-            "totale": 3
+            "totale": 16
           }
         },
-        "skill_points": 50,
+        "skill_points": 60,
         "talenti": [
-          "Colpo possente",
           "Iniziativa migliorata"
         ],
         "capacita_classe": [
           "Addestramento marziale",
           "Specializzazione",
           "Privilegio 1",
-          "Tecnica distintiva Vivisectionist",
-          "Privilegio 2",
-          "Privilegio 3",
-          "Privilegio 4",
-          "Privilegio 5",
-          "Privilegio 6",
-          "Privilegio 7",
-          "Privilegio 8",
-          "Privilegio 9",
-          "Privilegio 10"
+          "Tecnica distintiva Vivisectionist"
         ],
         "equipaggiamento": [
-          "Arma preferita",
-          "Armatura leggera"
+          "Arma preferita"
         ],
         "inventario": [
           "Arma preferita",
@@ -1036,12 +745,12 @@
         ],
         "slot_incantesimi": "Liv1:4/Liv2:3",
         "ac_breakdown": {
-          "totale": 18,
-          "armatura": 5,
-          "destrezza": 2,
-          "scudo": 1
+          "totale": 17,
+          "armatura": 0,
+          "destrezza": 6,
+          "scudo": 0
         },
-        "iniziativa": 2,
+        "iniziativa": 10,
         "velocita": 9,
         "progressione": [
           {
@@ -1051,97 +760,7 @@
               "Tecnica distintiva Vivisectionist"
             ],
             "talenti": [
-              "Talento di livello 1"
-            ]
-          },
-          {
-            "livello": 2,
-            "privilegi": [
-              "Privilegio 2",
-              "Tecnica distintiva Vivisectionist"
-            ],
-            "talenti": [
-              "Talento di livello 2"
-            ]
-          },
-          {
-            "livello": 3,
-            "privilegi": [
-              "Privilegio 3",
-              "Tecnica distintiva Vivisectionist"
-            ],
-            "talenti": [
-              "Talento di livello 3"
-            ]
-          },
-          {
-            "livello": 4,
-            "privilegi": [
-              "Privilegio 4",
-              "Tecnica distintiva Vivisectionist"
-            ],
-            "talenti": [
-              "Talento di livello 4"
-            ]
-          },
-          {
-            "livello": 5,
-            "privilegi": [
-              "Privilegio 5",
-              "Tecnica distintiva Vivisectionist"
-            ],
-            "talenti": [
-              "Talento di livello 5"
-            ]
-          },
-          {
-            "livello": 6,
-            "privilegi": [
-              "Privilegio 6",
-              "Tecnica distintiva Vivisectionist"
-            ],
-            "talenti": [
-              "Talento di livello 6"
-            ]
-          },
-          {
-            "livello": 7,
-            "privilegi": [
-              "Privilegio 7",
-              "Tecnica distintiva Vivisectionist"
-            ],
-            "talenti": [
-              "Talento di livello 7"
-            ]
-          },
-          {
-            "livello": 8,
-            "privilegi": [
-              "Privilegio 8",
-              "Tecnica distintiva Vivisectionist"
-            ],
-            "talenti": [
-              "Talento di livello 8"
-            ]
-          },
-          {
-            "livello": 9,
-            "privilegi": [
-              "Privilegio 9",
-              "Tecnica distintiva Vivisectionist"
-            ],
-            "talenti": [
-              "Talento di livello 9"
-            ]
-          },
-          {
-            "livello": 10,
-            "privilegi": [
-              "Privilegio 10",
-              "Tecnica distintiva Vivisectionist"
-            ],
-            "talenti": [
-              "Talento di livello 10"
+              "Iniziativa migliorata"
             ]
           }
         ],
@@ -1172,19 +791,19 @@
             "base": null,
             "modificatore": null,
             "misc": null,
-            "totale": 4
+            "totale": 8
           },
           "Riflessi": {
             "base": null,
             "modificatore": null,
             "misc": null,
-            "totale": 3
+            "totale": 13
           },
           "Volontà": {
             "base": null,
             "modificatore": null,
             "misc": null,
-            "totale": 4
+            "totale": 3
           }
         },
         "pf_per_livello": "n/d (PF per livello non fornito)",
@@ -1196,14 +815,14 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
-        "CA_touch": 10,
-        "CA_ff": 10,
-        "BAB": "n/d (BAB non fornito)",
-        "init": 2,
+        "AC_tot": 17,
+        "CA_touch": 17,
+        "CA_ff": 11,
+        "BAB": 7,
+        "init": 10,
         "speed": 9,
         "fonti": [
-          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist"
+          "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
         ],
         "print_mode": false,
         "show_minmax": true,
@@ -1215,22 +834,31 @@
         "skills": [
           {
             "nome": "Percezione",
-            "totale": 5
+            "gradi": 10,
+            "mod_car": 0,
+            "classe": true,
+            "totale": 13
           },
           {
             "nome": "Acrobazia",
-            "totale": 4
-          },
-          {
-            "nome": "Conoscenze",
-            "totale": 3
+            "gradi": 10,
+            "mod_car": 6,
+            "classe": false,
+            "totale": 16
           }
         ],
         "spell_levels": [],
         "magia": {},
         "lingue": [],
         "sensi": [],
-        "condizioni": []
+        "condizioni": [],
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 10,
+          "decisione": "tenuta Iniziativa migliorata (utility generica, nessun prerequisito); droppato Colpo possente: prerequisito RAW Forza 13 non rispettato (FOR 12) e slot lv1 = 1"
+        }
       }
     },
     "narrative": "Goblin Vivisectionist ottimizzata con mutageno, ferite furtive e toolkit da laboratorio; flusso Ruling→MinMax→Taverna validato.",
@@ -1238,7 +866,7 @@
       "classi": [
         {
           "nome": "Alchemist",
-          "livelli": 10,
+          "livelli": 1,
           "archetipi": [
             "Vivisectionist"
           ]
@@ -1253,36 +881,32 @@
         "CAR": 8
       },
       "statistiche_chiave": {
-        "attacco": "+17",
-        "danni": "2d6+10",
-        "ca": 27
+        "attacco": "+5",
+        "danni": "1d6+2",
+        "ca": 17
       },
-      "pf_totali": 57,
+      "pf_totali": 73,
       "hp": {
-        "totali": 57,
+        "totali": 73,
         "per_livello": [
-          57
+          12
         ]
       },
       "salvezze": {
-        "Tempra": 4,
-        "Riflessi": 3,
-        "Volontà": 4
+        "Tempra": 8,
+        "Riflessi": 13,
+        "Volontà": 3
       },
       "skills_map": {
         "Percezione": {
-          "totale": 5
+          "totale": 13
         },
         "Acrobazia": {
-          "totale": 4
-        },
-        "Conoscenze": {
-          "totale": 3
+          "totale": 16
         }
       },
-      "skill_points": 50,
+      "skill_points": 60,
       "talenti": [
-        "Colpo possente",
         "Iniziativa migliorata"
       ],
       "capacita_classe": [
@@ -1302,12 +926,12 @@
       "spell_levels": [],
       "slot_incantesimi": "Liv1:4/Liv2:3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
-        "destrezza": 2,
-        "scudo": 1
+        "totale": 17,
+        "armatura": 0,
+        "destrezza": 6,
+        "scudo": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 10,
       "velocita": 9,
       "progressione": [
         {
@@ -1317,104 +941,21 @@
             "Tecnica distintiva Vivisectionist"
           ],
           "talenti": [
-            "Talento di livello 1"
-          ]
-        },
-        {
-          "livello": 2,
-          "privilegi": [
-            "Privilegio 2",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 2"
-          ]
-        },
-        {
-          "livello": 3,
-          "privilegi": [
-            "Privilegio 3",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 3"
-          ]
-        },
-        {
-          "livello": 4,
-          "privilegi": [
-            "Privilegio 4",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 4"
-          ]
-        },
-        {
-          "livello": 5,
-          "privilegi": [
-            "Privilegio 5",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 5"
-          ]
-        },
-        {
-          "livello": 6,
-          "privilegi": [
-            "Privilegio 6",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 6"
-          ]
-        },
-        {
-          "livello": 7,
-          "privilegi": [
-            "Privilegio 7",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 7"
-          ]
-        },
-        {
-          "livello": 8,
-          "privilegi": [
-            "Privilegio 8",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 8"
-          ]
-        },
-        {
-          "livello": 9,
-          "privilegi": [
-            "Privilegio 9",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 9"
-          ]
-        },
-        {
-          "livello": 10,
-          "privilegi": [
-            "Privilegio 10",
-            "Tecnica distintiva Vivisectionist"
-          ],
-          "talenti": [
-            "Talento di livello 10"
+            "Iniziativa migliorata"
           ]
         }
       ],
       "benchmarks": {
         "meta_tier": "T3"
       },
-      "hooks": null
+      "hooks": null,
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 10,
+        "decisione": "tenuta Iniziativa migliorata (utility generica, nessun prerequisito); droppato Colpo possente: prerequisito RAW Forza 13 non rispettato (FOR 12) e slot lv1 = 1"
+      }
     },
     "ledger": {
       "movimenti": [
@@ -1434,7 +975,7 @@
       }
     }
   },
-  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist",
+  "source_url": "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist",
   "fetched_at": "2025-12-10T21:22:32Z",
   "request": {
     "class": "Alchemist",
@@ -1445,7 +986,7 @@
     "spec_id": "Alchemist::Goblin::Vivisectionist",
     "model": null,
     "background": null,
-    "level": 10,
+    "level": 1,
     "level_checkpoints": [
       1,
       5,
@@ -1456,7 +997,7 @@
     "mode": "extended",
     "class": "Alchemist",
     "stub": true,
-    "level": 10,
+    "level": 1,
     "race": "Goblin",
     "archetype": "Vivisectionist"
   },
@@ -1494,7 +1035,7 @@
         "class": "Alchemist",
         "archetype": "Vivisectionist",
         "race": "Goblin",
-        "level": 10,
+        "level": 1,
         "talenti_chiave": [
           "Mutageno ferale",
           "Attacco furtivo da vivisezionista",
@@ -1508,7 +1049,7 @@
       }
     },
     "checkpoints": {
-      "level": 10,
+      "level": 1,
       "levels": [
         1,
         5,
@@ -1518,7 +1059,7 @@
   },
   "spec_id": "Alchemist::Goblin::Vivisectionist",
   "reference_catalog_version": "2026.04.03",
-  "build_id": "build-4d8916840f334ebf0488916a",
+  "build_id": "build-f37351a514fef0e2d99445df",
   "checkpoints": [
     {
       "level": 1,
@@ -1543,25 +1084,14 @@
     }
   ],
   "feat_plan": [
-    "Colpo possente",
-    "Iniziativa migliorata",
-    "Talento di livello 1",
-    "Talento di livello 2",
-    "Talento di livello 3",
-    "Talento di livello 4",
-    "Talento di livello 5",
-    "Talento di livello 6",
-    "Talento di livello 7",
-    "Talento di livello 8",
-    "Talento di livello 9",
-    "Talento di livello 10"
+    "Iniziativa migliorata"
   ],
   "citation": {
     "sources": [
-      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist"
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
     ],
     "reference_urls": [
-      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=10&race=Goblin&archetype=Vivisectionist"
+      "http://localhost:8000/modules/minmax_builder.txt?mode=extended&class=Alchemist&stub=true&level=1&race=Goblin&archetype=Vivisectionist"
     ]
   }
 }

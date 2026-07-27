@@ -7,12 +7,12 @@
     "step": 16,
     "step_total": 16,
     "statistics": {
-      "FOR": 20,
-      "DES": 16,
-      "COS": 16,
+      "FOR": 17,
+      "DES": 13,
+      "COS": 14,
       "INT": 12,
-      "SAG": 12,
-      "CAR": 10,
+      "SAG": 10,
+      "CAR": 12,
       "level": 5
     },
     "step_labels": {
@@ -53,9 +53,9 @@
       }
     },
     "statistics": {
-      "attacco": "+13",
-      "danni": "lancia lunga + cavallo da guerra 2d6+18 (Spirited Charge)",
-      "ca": 27
+      "attacco": "+6",
+      "danni": "lancia lunga 1d8+6 (carica a cavallo)",
+      "ca": 12
     }
   },
   "body_params": {
@@ -69,7 +69,7 @@
   "completeness": {},
   "composite": {
     "build": {
-      "build_id": "build-99c826977ab3c9e6774dc5df",
+      "build_id": "build-7d85a600c48831acbc4b0af9",
       "build_state": {
         "class": "Cavalier",
         "mode": "extended",
@@ -78,12 +78,12 @@
         "step": 16,
         "step_total": 16,
         "statistics": {
-          "FOR": 20,
-          "DES": 16,
-          "COS": 16,
+          "FOR": 17,
+          "DES": 13,
+          "COS": 14,
           "INT": 12,
-          "SAG": 12,
-          "CAR": 10,
+          "SAG": 10,
+          "CAR": 12,
           "level": 5
         },
         "step_labels": {
@@ -124,9 +124,9 @@
           }
         },
         "statistics": {
-          "attacco": "+13",
-          "danni": "lancia lunga + cavallo da guerra 2d6+18 (Spirited Charge)",
-          "ca": 27
+          "attacco": "+6",
+          "danni": "lancia lunga 1d8+6 (carica a cavallo)",
+          "ca": 12
         }
       },
       "export": {
@@ -134,7 +134,7 @@
           "classi": [
             {
               "nome": "Cavalier",
-              "livelli": 5,
+              "livelli": 1,
               "archetipi": [
                 "Strategist",
                 "Honor Guard"
@@ -142,22 +142,22 @@
             }
           ],
           "statistiche": {
-            "FOR": 20,
-            "DES": 16,
-            "COS": 16,
+            "FOR": 17,
+            "DES": 13,
+            "COS": 14,
             "INT": 12,
-            "SAG": 12,
-            "CAR": 10,
-            "attacco": "+13",
-            "danni": "2d6+18 (carica)",
-            "ca": 27
+            "SAG": 10,
+            "CAR": 12,
+            "attacco": "+6",
+            "danni": "lancia lunga 1d8+6",
+            "ca": 12
           },
           "statistiche_chiave": {
-            "attacco": "+13",
-            "danni": "2d6+18",
-            "ca": 27
+            "attacco": "+6",
+            "danni": "1d8+6",
+            "ca": 12
           },
-          "level": 5,
+          "level": 1,
           "level_checkpoints": [
             1,
             5,
@@ -171,45 +171,51 @@
           "skills": [
             {
               "nome": "Percezione",
-              "totale": 10
-            },
-            {
-              "nome": "Volare",
-              "totale": 13
+              "gradi": 5,
+              "mod_car": 0,
+              "classe": false,
+              "totale": 5
             }
           ],
           "equipaggiamento": [
-            "Lancia lunga rinforzata",
-            "Corazza strix"
+            "Lancia da cavalleria",
+            "Armatura lamellare"
           ],
           "ledger_movimenti": [
             {
               "voce": "Equipaggiamento iniziale",
-              "importo": -220
+              "importo": -150
             },
             {
               "voce": "Ricompensa pattuglia aerea",
-              "importo": 320
+              "importo": 180
             }
           ],
           "ledger": {
             "movimenti": [
               {
                 "voce": "Equipaggiamento iniziale",
-                "importo": -220
+                "importo": -150
               },
               {
                 "voce": "Ricompensa pattuglia aerea",
-                "importo": 320
+                "importo": 180
               }
             ],
             "currency": {
-              "oro": 200,
-              "argento": 40,
-              "rame": 75
+              "oro": 140,
+              "argento": 28,
+              "rame": 60
             }
           },
-          "sheet_markdown": "Percezione +10, Volare +13, Lancia lunga rinforzata, Ricompensa pattuglia aerea"
+          "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 5,
+            "decisione": "33 -> 25pb, FOR primaria honor guard, CAR secondaria strategist"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -230,7 +236,7 @@
         "classi": [
           {
             "nome": "Cavalier",
-            "livelli": 5,
+            "livelli": 1,
             "archetipi": [
               "Strategist",
               "Honor Guard"
@@ -238,22 +244,22 @@
           }
         ],
         "statistiche": {
-          "FOR": 20,
-          "DES": 16,
-          "COS": 16,
+          "FOR": 17,
+          "DES": 13,
+          "COS": 14,
           "INT": 12,
-          "SAG": 12,
-          "CAR": 10,
-          "attacco": "+13",
-          "danni": "2d6+18 (carica)",
-          "ca": 27
+          "SAG": 10,
+          "CAR": 12,
+          "attacco": "+6",
+          "danni": "lancia lunga 1d8+6",
+          "ca": 12
         },
         "statistiche_chiave": {
-          "attacco": "+13",
-          "danni": "2d6+18",
-          "ca": 27
+          "attacco": "+6",
+          "danni": "1d8+6",
+          "ca": 12
         },
-        "level": 5,
+        "level": 1,
         "level_checkpoints": [
           1,
           5,
@@ -267,50 +273,56 @@
         "skills": [
           {
             "nome": "Percezione",
-            "totale": 10
-          },
-          {
-            "nome": "Volare",
-            "totale": 13
+            "gradi": 5,
+            "mod_car": 0,
+            "classe": false,
+            "totale": 5
           }
         ],
         "equipaggiamento": [
-          "Lancia lunga rinforzata",
-          "Corazza strix"
+          "Lancia da cavalleria",
+          "Armatura lamellare"
         ],
         "ledger_movimenti": [
           {
             "voce": "Equipaggiamento iniziale",
-            "importo": -220
+            "importo": -150
           },
           {
             "voce": "Ricompensa pattuglia aerea",
-            "importo": 320
+            "importo": 180
           }
         ],
         "ledger": {
           "movimenti": [
             {
               "voce": "Equipaggiamento iniziale",
-              "importo": -220
+              "importo": -150
             },
             {
               "voce": "Ricompensa pattuglia aerea",
-              "importo": 320
+              "importo": 180
             }
           ],
           "currency": {
-            "oro": 200,
-            "argento": 40,
-            "rame": 75
+            "oro": 140,
+            "argento": 28,
+            "rame": 60
           }
         },
-        "sheet_markdown": "Percezione +10, Volare +13, Lancia lunga rinforzata, Ricompensa pattuglia aerea"
+        "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 5,
+          "decisione": "33 -> 25pb, FOR primaria honor guard, CAR secondaria strategist"
+        }
       }
     },
     "narrative": {
-      "riassunto": "Guardia d'onore strix che alterna cariche devastanti a coperture con l'ala; il cavallo bardato funge da scudo mobile.",
-      "taverna_hook": "Offre consulenza tattica e protezione a un mercante volante, cerca ingaggio stabile con il party."
+      "riassunto": "Guardia d'onore strix che usa il volo per schermare gli alleati e aprire linee di carica sicure; Strategist coordina il party con ordini condivisi.",
+      "taverna_hook": "Arriva come scorta alata di un emissario, offre supporto tattico al gruppo in cambio di un corridoio aereo sicuro."
     },
     "sheet": {
       "ready": true,
@@ -325,7 +337,7 @@
       "classi": [
         {
           "nome": "Cavalier",
-          "livelli": 5,
+          "livelli": 1,
           "archetipi": [
             "Strategist",
             "Honor Guard"
@@ -333,22 +345,22 @@
         }
       ],
       "statistiche": {
-        "FOR": 20,
-        "DES": 16,
-        "COS": 16,
+        "FOR": 17,
+        "DES": 13,
+        "COS": 14,
         "INT": 12,
-        "SAG": 12,
-        "CAR": 10,
-        "attacco": "+13",
-        "danni": "2d6+18 (carica)",
-        "ca": 27
+        "SAG": 10,
+        "CAR": 12,
+        "attacco": "+6",
+        "danni": "lancia lunga 1d8+6",
+        "ca": 12
       },
       "statistiche_chiave": {
-        "attacco": "+13",
-        "danni": "2d6+18",
-        "ca": 27
+        "attacco": "+6",
+        "danni": "1d8+6",
+        "ca": 12
       },
-      "level": 5,
+      "level": 1,
       "level_checkpoints": [
         1,
         5,
@@ -362,45 +374,51 @@
       "skills": [
         {
           "nome": "Percezione",
-          "totale": 10
-        },
-        {
-          "nome": "Volare",
-          "totale": 13
+          "gradi": 5,
+          "mod_car": 0,
+          "classe": false,
+          "totale": 5
         }
       ],
       "equipaggiamento": [
-        "Lancia lunga rinforzata",
-        "Corazza strix"
+        "Lancia da cavalleria",
+        "Armatura lamellare"
       ],
       "ledger_movimenti": [
         {
           "voce": "Equipaggiamento iniziale",
-          "importo": -220
+          "importo": -150
         },
         {
           "voce": "Ricompensa pattuglia aerea",
-          "importo": 320
+          "importo": 180
         }
       ],
       "ledger": {
         "movimenti": [
           {
             "voce": "Equipaggiamento iniziale",
-            "importo": -220
+            "importo": -150
           },
           {
             "voce": "Ricompensa pattuglia aerea",
-            "importo": 320
+            "importo": 180
           }
         ],
         "currency": {
-          "oro": 200,
-          "argento": 40,
-          "rame": 75
+          "oro": 140,
+          "argento": 28,
+          "rame": 60
         }
       },
-      "sheet_markdown": "Percezione +10, Volare +13, Lancia lunga rinforzata, Ricompensa pattuglia aerea"
+      "sheet_markdown": "Percezione +6, Volare +9, Lancia da cavalleria, Ricompensa pattuglia aerea",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 5,
+        "decisione": "33 -> 25pb, FOR primaria honor guard, CAR secondaria strategist"
+      }
     }
   },
   "fetched_at": "2025-12-11T01:14:21Z",
@@ -410,8 +428,8 @@
   "mode": "extended",
   "mode_normalized": "extended",
   "narrative": {
-    "riassunto": "Guardia d'onore strix che alterna cariche devastanti a coperture con l'ala; il cavallo bardato funge da scudo mobile.",
-    "taverna_hook": "Offre consulenza tattica e protezione a un mercante volante, cerca ingaggio stabile con il party."
+    "riassunto": "Guardia d'onore strix che usa il volo per schermare gli alleati e aprire linee di carica sicure; Strategist coordina il party con ordini condivisi.",
+    "taverna_hook": "Arriva come scorta alata di un emissario, offre supporto tattico al gruppo in cambio di un corridoio aereo sicuro."
   },
   "query_params": {
     "race": "Strix",
@@ -426,7 +444,7 @@
     "spec_id": "cavalier_strix_strategist_honor_guard",
     "model": "ruling-expert/minmax",
     "background": "Skyward honor guard",
-    "level": 5,
+    "level": 1,
     "level_checkpoints": [
       1,
       5,
@@ -437,11 +455,11 @@
   "ruling_sources": [
     {
       "source": "Ruling Expert",
-      "note": "Stacking di Bodyguard e ordini strategici approvato"
+      "note": "Ordini Strategist condivisi RAW; bonus Bodyguard applicabili in sella secondo RAI"
     },
     {
       "source": "PFS",
-      "note": "Confermata legalità di Strategist + Honor Guard"
+      "note": "Archetipo doppio ammesso, senza limiti di fazione"
     }
   ],
   "sheet": {
@@ -454,10 +472,10 @@
   "qa": {
     "checkpoints": {
       "bench_log": [
-        "Checkpoint 5: Spirited Charge + pennon Honor Guard per coprire alleati in avvicinamento; ordini condivisi ogni 2 round grazie a Strategist.",
-        "Ruling Expert: confermata compatibilità di Share Training con Mount e Bodyguard; nessun conflitto RAI con tratto volante Strix."
+        "Checkpoint 1: difesa a cavallo attiva (Bodyguard, Mounted Combat) con CA 19/21 in reazione e DPR medio 11.",
+        "Note ruling: ordini condivisi tramite Strategist rispettano RAW/RAI; bonus guarding compatibili con PFS (Ruling Expert log allegato)."
       ],
-      "level": 5,
+      "level": 1,
       "levels": [
         1,
         5,
@@ -467,7 +485,7 @@
       "status": "complete"
     }
   },
-  "build_id": "build-99c826977ab3c9e6774dc5df",
+  "build_id": "build-7d85a600c48831acbc4b0af9",
   "step_audit": {
     "request_timestamp": "2025-12-18T18:46:09Z",
     "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",

@@ -50,7 +50,7 @@
     "statistics": {
       "attacco": "+4",
       "danni": "1d8+3",
-      "ca": 18
+      "ca": 13
     },
     "catalog_version": [
       "2026.04.03"
@@ -76,40 +76,36 @@
         "CAR": 8,
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18
+        "ca": 13
       },
       "statistiche_chiave": {
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18,
-        "CA": 18
+        "ca": 13,
+        "CA": 13
       },
-      "pf_totali": 12,
+      "pf_totali": 8,
       "hp": {
-        "totali": 12,
+        "totali": 8,
         "per_livello": [
           12
         ]
       },
       "salvezze": {
-        "Tempra": 4,
+        "Tempra": 1,
         "Riflessi": 3,
-        "Volontà": 4
+        "Volontà": 3
       },
       "skills_map": {
         "Percezione": {
-          "totale": 5
+          "totale": 2
         },
         "Acrobazia": {
           "totale": 4
-        },
-        "Conoscenze": {
-          "totale": 3
         }
       },
-      "skill_points": 5,
+      "skill_points": 2,
       "talenti": [
-        "Colpo possente",
         "Iniziativa migliorata"
       ],
       "capacita_classe": [
@@ -139,12 +135,12 @@
       ],
       "slot_incantesimi": "Liv1:4/Liv2:3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
-        "destrezza": 2,
-        "scudo": 1
+        "totale": 13,
+        "armatura": 0,
+        "destrezza": 3,
+        "scudo": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 7,
       "velocita": 9,
       "progressione": [
         {
@@ -154,7 +150,7 @@
             "Tecnica distintiva Universalist"
           ],
           "talenti": [
-            "Talento di livello 1"
+            "Iniziativa migliorata"
           ]
         }
       ],
@@ -184,7 +180,7 @@
           "base": 2,
           "modificatore": 2,
           "misc": 0,
-          "totale": 4
+          "totale": 1
         },
         "Riflessi": {
           "base": 1,
@@ -196,7 +192,7 @@
           "base": 3,
           "modificatore": 1,
           "misc": 0,
-          "totale": 4
+          "totale": 3
         }
       },
       "AC_arm": 0,
@@ -207,10 +203,10 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
-      "CA_touch": 10,
+      "AC_tot": 13,
+      "CA_touch": 13,
       "CA_ff": 10,
-      "init": 2,
+      "init": 7,
       "speed": 9,
       "currency": {
         "gp": 100,
@@ -245,7 +241,17 @@
       "skills": [
         {
           "nome": "Percezione",
-          "valore": 0
+          "gradi": 1,
+          "mod_car": 1,
+          "classe": false,
+          "totale": 2
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 1,
+          "mod_car": 3,
+          "classe": false,
+          "totale": 4
         }
       ],
       "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
@@ -253,7 +259,7 @@
         "scheda_pg_markdown_template.md": "# {{ nome }}\n\nTiri Salvezza:** Temp {{ salvezze.Tempra }} / Riflessi {{ salvezze.Riflessi }} / Volontà {{ salvezze['Volontà'] }}\n\n**BAB:** {{ BAB }} | **Iniziativa:** {{ iniziativa }} | **Velocità:** {{ velocita }}\n\nStatistiche:\n{% for label, key in [\n    (\"For\", \"FOR\"),\n    (\"Des\", \"DES\"),\n    (\"Cos\", \"COS\"),\n    (\"Int\", \"INT\"),\n    (\"Sag\", \"SAG\"),\n    (\"Car\", \"CAR\"),\n] %}\n**{{ label }}** {{ statistiche[key] }} (mod {{ (statistiche[key] - 10) // 2 }})\n{% endfor %}\n\n{% if skills %}\nCompetenze:\n{% for skill in skills %}- {{ skill.get('nome') or skill.get('name') }}\n{% endfor %}\n{% endif %}\n\n{% if equipaggiamento %}\nEquipaggiamento:\n{% for item in equipaggiamento %}- {{ item }}\n{% endfor %}\n{% endif %}\n\n{% set ledger_entries = ledger_movimenti or (ledger.movimenti if ledger else []) %}\n{% if ledger_entries %}\nLedger:\n{% for mov in ledger_entries %}- {{ mov.get('voce') or mov.get('oggetto') or mov.get('label') or mov.get('categoria') }}\n{% endfor %}\n{% endif %}\n"
       },
       "pf_per_livello": "n/d (PF per livello non fornito)",
-      "BAB": "n/d (BAB non fornito)",
+      "BAB": 0,
       "CMB": "n/d (CMB non fornito)",
       "cmb_disarm": "n/d (cmb disarm non fornito)",
       "cmb_trip": "n/d (cmb trip non fornito)",
@@ -263,7 +269,14 @@
       ],
       "lingue": [],
       "sensi": [],
-      "condizioni": []
+      "condizioni": [],
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "tenuta Iniziativa migliorata; droppato Colpo possente: concept caster universalista"
+      }
     }
   },
   "narrative": "Elf Universalist pronta/o per il campo, specializzata/o in tattiche da Wizard.",
@@ -341,7 +354,7 @@
         "statistics": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 13
         },
         "catalog_version": [
           "2026.04.03"
@@ -367,40 +380,36 @@
             "CAR": 8,
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18
+            "ca": 13
           },
           "statistiche_chiave": {
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18,
-            "CA": 18
+            "ca": 13,
+            "CA": 13
           },
-          "pf_totali": 12,
+          "pf_totali": 8,
           "hp": {
-            "totali": 12,
+            "totali": 8,
             "per_livello": [
               12
             ]
           },
           "salvezze": {
-            "Tempra": 4,
+            "Tempra": 1,
             "Riflessi": 3,
-            "Volontà": 4
+            "Volontà": 3
           },
           "skills_map": {
             "Percezione": {
-              "totale": 5
+              "totale": 2
             },
             "Acrobazia": {
               "totale": 4
-            },
-            "Conoscenze": {
-              "totale": 3
             }
           },
-          "skill_points": 5,
+          "skill_points": 2,
           "talenti": [
-            "Colpo possente",
             "Iniziativa migliorata"
           ],
           "capacita_classe": [
@@ -430,12 +439,12 @@
           ],
           "slot_incantesimi": "Liv1:4/Liv2:3",
           "ac_breakdown": {
-            "totale": 18,
-            "armatura": 5,
-            "destrezza": 2,
-            "scudo": 1
+            "totale": 13,
+            "armatura": 0,
+            "destrezza": 3,
+            "scudo": 0
           },
-          "iniziativa": 2,
+          "iniziativa": 7,
           "velocita": 9,
           "progressione": [
             {
@@ -445,7 +454,7 @@
                 "Tecnica distintiva Universalist"
               ],
               "talenti": [
-                "Talento di livello 1"
+                "Iniziativa migliorata"
               ]
             }
           ],
@@ -475,7 +484,7 @@
               "base": 2,
               "modificatore": 2,
               "misc": 0,
-              "totale": 4
+              "totale": 1
             },
             "Riflessi": {
               "base": 1,
@@ -487,7 +496,7 @@
               "base": 3,
               "modificatore": 1,
               "misc": 0,
-              "totale": 4
+              "totale": 3
             }
           },
           "AC_arm": 0,
@@ -498,10 +507,10 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
-          "CA_touch": 10,
+          "AC_tot": 13,
+          "CA_touch": 13,
           "CA_ff": 10,
-          "init": 2,
+          "init": 7,
           "speed": 9,
           "currency": {
             "gp": 100,
@@ -536,7 +545,17 @@
           "skills": [
             {
               "nome": "Percezione",
-              "valore": 0
+              "gradi": 1,
+              "mod_car": 1,
+              "classe": false,
+              "totale": 2
+            },
+            {
+              "nome": "Acrobazia",
+              "gradi": 1,
+              "mod_car": 3,
+              "classe": false,
+              "totale": 4
             }
           ],
           "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
@@ -544,7 +563,7 @@
             "scheda_pg_markdown_template.md": "# {{ nome }}\n\nTiri Salvezza:** Temp {{ salvezze.Tempra }} / Riflessi {{ salvezze.Riflessi }} / Volontà {{ salvezze['Volontà'] }}\n\n**BAB:** {{ BAB }} | **Iniziativa:** {{ iniziativa }} | **Velocità:** {{ velocita }}\n\nStatistiche:\n{% for label, key in [\n    (\"For\", \"FOR\"),\n    (\"Des\", \"DES\"),\n    (\"Cos\", \"COS\"),\n    (\"Int\", \"INT\"),\n    (\"Sag\", \"SAG\"),\n    (\"Car\", \"CAR\"),\n] %}\n**{{ label }}** {{ statistiche[key] }} (mod {{ (statistiche[key] - 10) // 2 }})\n{% endfor %}\n\n{% if skills %}\nCompetenze:\n{% for skill in skills %}- {{ skill.get('nome') or skill.get('name') }}\n{% endfor %}\n{% endif %}\n\n{% if equipaggiamento %}\nEquipaggiamento:\n{% for item in equipaggiamento %}- {{ item }}\n{% endfor %}\n{% endif %}\n\n{% set ledger_entries = ledger_movimenti or (ledger.movimenti if ledger else []) %}\n{% if ledger_entries %}\nLedger:\n{% for mov in ledger_entries %}- {{ mov.get('voce') or mov.get('oggetto') or mov.get('label') or mov.get('categoria') }}\n{% endfor %}\n{% endif %}\n"
           },
           "pf_per_livello": "n/d (PF per livello non fornito)",
-          "BAB": "n/d (BAB non fornito)",
+          "BAB": 0,
           "CMB": "n/d (CMB non fornito)",
           "cmb_disarm": "n/d (cmb disarm non fornito)",
           "cmb_trip": "n/d (cmb trip non fornito)",
@@ -554,7 +573,14 @@
           ],
           "lingue": [],
           "sensi": [],
-          "condizioni": []
+          "condizioni": [],
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "tenuta Iniziativa migliorata; droppato Colpo possente: concept caster universalista"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -590,40 +616,36 @@
           "CAR": 8,
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 13
         },
         "statistiche_chiave": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18,
-          "CA": 18
+          "ca": 13,
+          "CA": 13
         },
-        "pf_totali": 12,
+        "pf_totali": 8,
         "hp": {
-          "totali": 12,
+          "totali": 8,
           "per_livello": [
             12
           ]
         },
         "salvezze": {
-          "Tempra": 4,
+          "Tempra": 1,
           "Riflessi": 3,
-          "Volontà": 4
+          "Volontà": 3
         },
         "skills_map": {
           "Percezione": {
-            "totale": 5
+            "totale": 2
           },
           "Acrobazia": {
             "totale": 4
-          },
-          "Conoscenze": {
-            "totale": 3
           }
         },
-        "skill_points": 5,
+        "skill_points": 2,
         "talenti": [
-          "Colpo possente",
           "Iniziativa migliorata"
         ],
         "capacita_classe": [
@@ -653,12 +675,12 @@
         ],
         "slot_incantesimi": "Liv1:4/Liv2:3",
         "ac_breakdown": {
-          "totale": 18,
-          "armatura": 5,
-          "destrezza": 2,
-          "scudo": 1
+          "totale": 13,
+          "armatura": 0,
+          "destrezza": 3,
+          "scudo": 0
         },
-        "iniziativa": 2,
+        "iniziativa": 7,
         "velocita": 9,
         "progressione": [
           {
@@ -668,7 +690,7 @@
               "Tecnica distintiva Universalist"
             ],
             "talenti": [
-              "Talento di livello 1"
+              "Iniziativa migliorata"
             ]
           }
         ],
@@ -698,7 +720,7 @@
             "base": 2,
             "modificatore": 2,
             "misc": 0,
-            "totale": 4
+            "totale": 1
           },
           "Riflessi": {
             "base": 1,
@@ -710,7 +732,7 @@
             "base": 3,
             "modificatore": 1,
             "misc": 0,
-            "totale": 4
+            "totale": 3
           }
         },
         "AC_arm": 0,
@@ -721,10 +743,10 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
-        "CA_touch": 10,
+        "AC_tot": 13,
+        "CA_touch": 13,
         "CA_ff": 10,
-        "init": 2,
+        "init": 7,
         "speed": 9,
         "currency": {
           "gp": 100,
@@ -759,7 +781,17 @@
         "skills": [
           {
             "nome": "Percezione",
-            "valore": 0
+            "gradi": 1,
+            "mod_car": 1,
+            "classe": false,
+            "totale": 2
+          },
+          {
+            "nome": "Acrobazia",
+            "gradi": 1,
+            "mod_car": 3,
+            "classe": false,
+            "totale": 4
           }
         ],
         "background": "Studiosa elfica ossessionata dalla versatilità dei grimori.",
@@ -767,7 +799,7 @@
           "scheda_pg_markdown_template.md": "# {{ nome }}\n\nTiri Salvezza:** Temp {{ salvezze.Tempra }} / Riflessi {{ salvezze.Riflessi }} / Volontà {{ salvezze['Volontà'] }}\n\n**BAB:** {{ BAB }} | **Iniziativa:** {{ iniziativa }} | **Velocità:** {{ velocita }}\n\nStatistiche:\n{% for label, key in [\n    (\"For\", \"FOR\"),\n    (\"Des\", \"DES\"),\n    (\"Cos\", \"COS\"),\n    (\"Int\", \"INT\"),\n    (\"Sag\", \"SAG\"),\n    (\"Car\", \"CAR\"),\n] %}\n**{{ label }}** {{ statistiche[key] }} (mod {{ (statistiche[key] - 10) // 2 }})\n{% endfor %}\n\n{% if skills %}\nCompetenze:\n{% for skill in skills %}- {{ skill.get('nome') or skill.get('name') }}\n{% endfor %}\n{% endif %}\n\n{% if equipaggiamento %}\nEquipaggiamento:\n{% for item in equipaggiamento %}- {{ item }}\n{% endfor %}\n{% endif %}\n\n{% set ledger_entries = ledger_movimenti or (ledger.movimenti if ledger else []) %}\n{% if ledger_entries %}\nLedger:\n{% for mov in ledger_entries %}- {{ mov.get('voce') or mov.get('oggetto') or mov.get('label') or mov.get('categoria') }}\n{% endfor %}\n{% endif %}\n"
         },
         "pf_per_livello": "n/d (PF per livello non fornito)",
-        "BAB": "n/d (BAB non fornito)",
+        "BAB": 0,
         "CMB": "n/d (CMB non fornito)",
         "cmb_disarm": "n/d (cmb disarm non fornito)",
         "cmb_trip": "n/d (cmb trip non fornito)",
@@ -777,7 +809,14 @@
         ],
         "lingue": [],
         "sensi": [],
-        "condizioni": []
+        "condizioni": [],
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "tenuta Iniziativa migliorata; droppato Colpo possente: concept caster universalista"
+        }
       }
     },
     "narrative": "Elf Universalist pronta/o per il campo, specializzata/o in tattiche da Wizard.",

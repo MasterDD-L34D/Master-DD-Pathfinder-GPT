@@ -26,11 +26,11 @@
     },
     "statistics": {
       "FOR": 12,
-      "DES": 22,
-      "COS": 14,
+      "DES": 16,
+      "COS": 13,
       "INT": 10,
-      "SAG": 12,
-      "CAR": 20
+      "SAG": 10,
+      "CAR": 16
     },
     "step_labels_count": 16
   },
@@ -43,18 +43,18 @@
         "picco": 18
       },
       "livello_5": {
-        "media": 34,
-        "picco": 52
+        "media": 32,
+        "picco": 48
       },
       "livello_10": {
-        "media": 65,
-        "picco": 98
+        "media": 62,
+        "picco": 92
       }
     },
     "statistics": {
-      "attacco": "+19",
-      "danni": "blast doppio 6d6+26 (empower + deadly earth)",
-      "ca": 31
+      "attacco": "+6",
+      "danni": "lancia di forza 2d6+6 (empowered infusion)",
+      "ca": 14
     }
   },
   "export": {
@@ -62,7 +62,7 @@
       "classi": [
         {
           "nome": "Kineticist",
-          "livelli": 10,
+          "livelli": 1,
           "archetipi": [
             "Kinetic Knight",
             "Overwhelming Soul"
@@ -71,86 +71,90 @@
       ],
       "statistiche": {
         "FOR": 12,
-        "DES": 22,
-        "COS": 14,
+        "DES": 16,
+        "COS": 13,
         "INT": 10,
-        "SAG": 12,
-        "CAR": 20,
-        "attacco": "+19",
-        "danni": "blast doppio 6d6+26",
-        "ca": 31
+        "SAG": 10,
+        "CAR": 16,
+        "attacco": "+6",
+        "danni": "lancia di forza 2d6+6",
+        "ca": 14
       },
       "statistiche_chiave": {
-        "attacco": "+19",
-        "danni": "6d6+26",
-        "ca": 31
+        "attacco": "+6",
+        "danni": "2d6+6",
+        "ca": 14
       },
       "benchmarks": {
         "meta_tier": "T1",
         "ruling_badge": "RAW/RAI/PFS"
       },
       "salvezze": {
-        "Tempra": 11,
-        "Riflessi": 13,
-        "Volontà": 11
+        "Tempra": 8,
+        "Riflessi": 11,
+        "Volontà": 3
       },
       "attack_bonus": {
-        "melee": "+19",
-        "ranged": "+21"
+        "melee": "+6",
+        "ranged": "+8"
       },
       "damage": {
-        "ranged": "blast 6d6+26",
-        "special": "deadly earth + cyclone"
+        "ranged": "blast 2d6+6",
+        "special": "blade rush difensivo"
       },
       "bench_log": [
-        "Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati."
+        "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Strix Kinetic Knight/Overwhelming Soul per DPR e badge validati."
       ],
-      "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per cavalieri dell'aria.",
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
       "skills": [
         {
           "nome": "Acrobazia",
           "gradi": 10,
-          "bonus": "+15"
-        },
-        {
-          "nome": "Volare",
-          "gradi": 10,
-          "bonus": "+17"
+          "mod_car": 4,
+          "classe": true,
+          "totale": 17
         }
       ],
       "equipaggiamento": [
         "Lancia di forza cinetica",
-        "Scudo pesante in adamantio",
-        "Mantello resistente +3"
+        "Corazza di piastre leggermente rinforzata",
+        "Scudo pesante in adamantio"
       ],
       "ledger_movimenti": [
         {
-          "voce": "Manutenzione scudo pesante",
-          "importo": -420
+          "voce": "Equipaggiamento iniziale",
+          "importo": -150
         },
         {
           "voce": "Ricompensa pattuglia strix",
-          "importo": 640
+          "importo": 250
         }
       ],
       "ledger": {
         "movimenti": [
           {
-            "voce": "Manutenzione scudo pesante",
-            "importo": -420
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
           },
           {
             "voce": "Ricompensa pattuglia strix",
-            "importo": 640
+            "importo": 250
           }
         ],
         "currency": {
-          "oro": 310,
-          "argento": 42,
-          "rame": 18
+          "oro": 120,
+          "argento": 35,
+          "rame": 10
         }
       },
-      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudo pesante"
+      "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 10,
+        "decisione": "33 -> 25pb, CAR (overwhelming soul) + DES (kinetic knight)"
+      }
     }
   },
   "body_params": {
@@ -179,12 +183,12 @@
         "class": "Kineticist",
         "archetype": "Kinetic Knight + Overwhelming Soul",
         "race": "Strix",
-        "level": 10,
+        "level": 1,
         "talenti_chiave": [
-          "Deadly Earth",
-          "Empower",
-          "Armor Infusion",
-          "Wings kinetic flight"
+          "Force Blast",
+          "Kinetic Blade",
+          "Armatura Elementale",
+          "Infused Armor Training"
         ],
         "hr_sources": null,
         "meta_sources": [
@@ -199,9 +203,9 @@
         "minmax_runner"
       ],
       "context": {
-        "key_rotation": "Deadly earth + cyclone in volo, sustain con overflow",
-        "nova": "Empower + gather full per doppio blast",
-        "safety": "CA 31, scudo + armatura cinetica"
+        "key_rotation": "Gather Power + Force Blast empowered; Kinetic Blade difensiva quando ingaggiato",
+        "nova": "Empowered composite blast con infusion specialization",
+        "safety": "AC 19 base con heavy shield cinetico e ali per posizionamento"
       }
     },
     "taverna": {
@@ -210,18 +214,18 @@
         "tavern_builder"
       ],
       "context": {
-        "role": "Capitana delle guardie alate",
-        "hook": "coordina incursioni dal cielo",
-        "voice": "ordini rapidi e chiari"
+        "role": "Guardia d'elite volante",
+        "hook": "Custode dei cieli sopra il monastero delle strix",
+        "voice": "tono metallico e disciplinato"
       }
     },
     "checkpoints": {
       "bench_log": [
-        "Ruling Expert: confermate infusioni difensive con armatura e scudo cinetico in modalità PFS.",
-        "MinMax: deadly earth + empower + overflow per picchi sostenuti; volo costante.",
-        "Narrative: capitana della guarnigione aerea, guida pattuglie di bladestorm."
+        "Ruling Expert: validati i replacement Overwhelming Soul (CHA focus) con il carapace armato di Kinetic Knight; nessun overlap con infusions base.",
+        "MinMax: confronto fra varianti a distanza e mischia aerea; la build knight/soul mantiene DPR e CA migliori grazie a heavy shield + gather difensivo.",
+        "Narrative/Taverna: pattuglia strix dell'ordine celestiale che sfrutta ali e scudi cinetici per proteggere la rocca."
       ],
-      "level": 10,
+      "level": 1,
       "levels": [
         1,
         5,
@@ -239,13 +243,13 @@
     {
       "level": 5,
       "status": "ok",
-      "bench_log": "Overflow su CHA e empower; DPR medio 34",
+      "bench_log": "Elemental Overflow su CHA + shield cinetico; DPR medio 32",
       "ruling_badge": "RAW/RAI/PFS"
     },
     {
       "level": 10,
       "status": "ok",
-      "bench_log": "Deadly earth + empower; T1 confermato",
+      "bench_log": "Armor infusion + empower composite; controllo area aereo",
       "ruling_badge": "RAW/RAI/PFS"
     }
   ],
@@ -259,14 +263,14 @@
   "request": {
     "race": "Strix",
     "archetype": "Kinetic Knight + Overwhelming Soul",
-    "level": 10,
+    "level": 1,
     "level_checkpoints": [
       1,
       5,
       10
     ]
   },
-  "build_id": "build-7bb6d904c2e60bf1d3f12859",
+  "build_id": "build-c2fba435427ff74d580e4d12",
   "step_audit": {
     "request_timestamp": "2025-12-18T18:46:09Z",
     "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
@@ -282,7 +286,7 @@
   },
   "composite": {
     "build": {
-      "build_id": "build-7bb6d904c2e60bf1d3f12859",
+      "build_id": "build-c2fba435427ff74d580e4d12",
       "build_state": {
         "class": "Kineticist",
         "mode": "extended",
@@ -310,11 +314,11 @@
         },
         "statistics": {
           "FOR": 12,
-          "DES": 22,
-          "COS": 14,
+          "DES": 16,
+          "COS": 13,
           "INT": 10,
-          "SAG": 12,
-          "CAR": 20
+          "SAG": 10,
+          "CAR": 16
         },
         "step_labels_count": 16
       },
@@ -327,18 +331,18 @@
             "picco": 18
           },
           "livello_5": {
-            "media": 34,
-            "picco": 52
+            "media": 32,
+            "picco": 48
           },
           "livello_10": {
-            "media": 65,
-            "picco": 98
+            "media": 62,
+            "picco": 92
           }
         },
         "statistics": {
-          "attacco": "+19",
-          "danni": "blast doppio 6d6+26 (empower + deadly earth)",
-          "ca": 31
+          "attacco": "+6",
+          "danni": "lancia di forza 2d6+6 (empowered infusion)",
+          "ca": 14
         }
       },
       "export": {
@@ -346,7 +350,7 @@
           "classi": [
             {
               "nome": "Kineticist",
-              "livelli": 10,
+              "livelli": 1,
               "archetipi": [
                 "Kinetic Knight",
                 "Overwhelming Soul"
@@ -355,86 +359,90 @@
           ],
           "statistiche": {
             "FOR": 12,
-            "DES": 22,
-            "COS": 14,
+            "DES": 16,
+            "COS": 13,
             "INT": 10,
-            "SAG": 12,
-            "CAR": 20,
-            "attacco": "+19",
-            "danni": "blast doppio 6d6+26",
-            "ca": 31
+            "SAG": 10,
+            "CAR": 16,
+            "attacco": "+6",
+            "danni": "lancia di forza 2d6+6",
+            "ca": 14
           },
           "statistiche_chiave": {
-            "attacco": "+19",
-            "danni": "6d6+26",
-            "ca": 31
+            "attacco": "+6",
+            "danni": "2d6+6",
+            "ca": 14
           },
           "benchmarks": {
             "meta_tier": "T1",
             "ruling_badge": "RAW/RAI/PFS"
           },
           "salvezze": {
-            "Tempra": 11,
-            "Riflessi": 13,
-            "Volontà": 11
+            "Tempra": 8,
+            "Riflessi": 11,
+            "Volontà": 3
           },
           "attack_bonus": {
-            "melee": "+19",
-            "ranged": "+21"
+            "melee": "+6",
+            "ranged": "+8"
           },
           "damage": {
-            "ranged": "blast 6d6+26",
-            "special": "deadly earth + cyclone"
+            "ranged": "blast 2d6+6",
+            "special": "blade rush difensivo"
           },
           "bench_log": [
-            "Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati."
+            "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Strix Kinetic Knight/Overwhelming Soul per DPR e badge validati."
           ],
-          "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per cavalieri dell'aria.",
+          "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
           "skills": [
             {
               "nome": "Acrobazia",
               "gradi": 10,
-              "bonus": "+15"
-            },
-            {
-              "nome": "Volare",
-              "gradi": 10,
-              "bonus": "+17"
+              "mod_car": 4,
+              "classe": true,
+              "totale": 17
             }
           ],
           "equipaggiamento": [
             "Lancia di forza cinetica",
-            "Scudo pesante in adamantio",
-            "Mantello resistente +3"
+            "Corazza di piastre leggermente rinforzata",
+            "Scudo pesante in adamantio"
           ],
           "ledger_movimenti": [
             {
-              "voce": "Manutenzione scudo pesante",
-              "importo": -420
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
             },
             {
               "voce": "Ricompensa pattuglia strix",
-              "importo": 640
+              "importo": 250
             }
           ],
           "ledger": {
             "movimenti": [
               {
-                "voce": "Manutenzione scudo pesante",
-                "importo": -420
+                "voce": "Equipaggiamento iniziale",
+                "importo": -150
               },
               {
                 "voce": "Ricompensa pattuglia strix",
-                "importo": 640
+                "importo": 250
               }
             ],
             "currency": {
-              "oro": 310,
-              "argento": 42,
-              "rame": 18
+              "oro": 120,
+              "argento": 35,
+              "rame": 10
             }
           },
-          "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudo pesante"
+          "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 10,
+            "decisione": "33 -> 25pb, CAR (overwhelming soul) + DES (kinetic knight)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -455,7 +463,7 @@
         "classi": [
           {
             "nome": "Kineticist",
-            "livelli": 10,
+            "livelli": 1,
             "archetipi": [
               "Kinetic Knight",
               "Overwhelming Soul"
@@ -464,86 +472,90 @@
         ],
         "statistiche": {
           "FOR": 12,
-          "DES": 22,
-          "COS": 14,
+          "DES": 16,
+          "COS": 13,
           "INT": 10,
-          "SAG": 12,
-          "CAR": 20,
-          "attacco": "+19",
-          "danni": "blast doppio 6d6+26",
-          "ca": 31
+          "SAG": 10,
+          "CAR": 16,
+          "attacco": "+6",
+          "danni": "lancia di forza 2d6+6",
+          "ca": 14
         },
         "statistiche_chiave": {
-          "attacco": "+19",
-          "danni": "6d6+26",
-          "ca": 31
+          "attacco": "+6",
+          "danni": "2d6+6",
+          "ca": 14
         },
         "benchmarks": {
           "meta_tier": "T1",
           "ruling_badge": "RAW/RAI/PFS"
         },
         "salvezze": {
-          "Tempra": 11,
-          "Riflessi": 13,
-          "Volontà": 11
+          "Tempra": 8,
+          "Riflessi": 11,
+          "Volontà": 3
         },
         "attack_bonus": {
-          "melee": "+19",
-          "ranged": "+21"
+          "melee": "+6",
+          "ranged": "+8"
         },
         "damage": {
-          "ranged": "blast 6d6+26",
-          "special": "deadly earth + cyclone"
+          "ranged": "blast 2d6+6",
+          "special": "blade rush difensivo"
         },
         "bench_log": [
-          "Check DPR T1 confermato; mantiene badge RAW/RAI/PFS e log bench allegati."
+          "Pipeline Ruling Expert -> MinMax -> Taverna: selezionata la linea Strix Kinetic Knight/Overwhelming Soul per DPR e badge validati."
         ],
-        "rules_status_text": "Allineato a ruling RAW/RAI/PFS; narrativa aggiornata per cavalieri dell'aria.",
+        "rules_status_text": "Badge RAW/RAI/PFS confermato; note PFS su infusioni ammese.",
         "skills": [
           {
             "nome": "Acrobazia",
             "gradi": 10,
-            "bonus": "+15"
-          },
-          {
-            "nome": "Volare",
-            "gradi": 10,
-            "bonus": "+17"
+            "mod_car": 4,
+            "classe": true,
+            "totale": 17
           }
         ],
         "equipaggiamento": [
           "Lancia di forza cinetica",
-          "Scudo pesante in adamantio",
-          "Mantello resistente +3"
+          "Corazza di piastre leggermente rinforzata",
+          "Scudo pesante in adamantio"
         ],
         "ledger_movimenti": [
           {
-            "voce": "Manutenzione scudo pesante",
-            "importo": -420
+            "voce": "Equipaggiamento iniziale",
+            "importo": -150
           },
           {
             "voce": "Ricompensa pattuglia strix",
-            "importo": 640
+            "importo": 250
           }
         ],
         "ledger": {
           "movimenti": [
             {
-              "voce": "Manutenzione scudo pesante",
-              "importo": -420
+              "voce": "Equipaggiamento iniziale",
+              "importo": -150
             },
             {
               "voce": "Ricompensa pattuglia strix",
-              "importo": 640
+              "importo": 250
             }
           ],
           "currency": {
-            "oro": 310,
-            "argento": 42,
-            "rame": 18
+            "oro": 120,
+            "argento": 35,
+            "rame": 10
           }
         },
-        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nManutenzione scudo pesante"
+        "sheet_markdown": "Acrobazia\nLancia di forza cinetica\nEquipaggiamento iniziale",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 10,
+          "decisione": "33 -> 25pb, CAR (overwhelming soul) + DES (kinetic knight)"
+        }
       }
     },
     "narrative": "Guardia strix che sfrutta Kinetic Knight e Overwhelming Soul per proteggere le cittadelle alate."

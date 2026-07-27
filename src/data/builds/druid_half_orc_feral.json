@@ -25,12 +25,12 @@
       "16": "Chiusura"
     },
     "statistics": {
-      "FOR": 16,
-      "DES": 14,
+      "FOR": 15,
+      "DES": 13,
       "COS": 14,
       "INT": 10,
-      "SAG": 12,
-      "CAR": 8
+      "SAG": 17,
+      "CAR": 7
     },
     "step_labels_count": 16
   },
@@ -50,7 +50,7 @@
     "statistics": {
       "attacco": "+4",
       "danni": "1d8+3",
-      "ca": 18
+      "ca": 11
     },
     "catalog_version": [
       "2026.04.03"
@@ -68,48 +68,44 @@
         }
       ],
       "statistiche": {
-        "FOR": 16,
-        "DES": 14,
+        "FOR": 15,
+        "DES": 13,
         "COS": 14,
         "INT": 10,
-        "SAG": 12,
-        "CAR": 8,
+        "SAG": 17,
+        "CAR": 7,
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18
+        "ca": 11
       },
       "statistiche_chiave": {
         "attacco": "+4",
         "danni": "1d8+3",
-        "ca": 18,
-        "CA": 18
+        "ca": 11,
+        "CA": 11
       },
-      "pf_totali": 12,
+      "pf_totali": 11,
       "hp": {
-        "totali": 12,
+        "totali": 11,
         "per_livello": [
           12
         ]
       },
       "salvezze": {
         "Tempra": 4,
-        "Riflessi": 3,
-        "Volontà": 4
+        "Riflessi": 1,
+        "Volontà": 6
       },
       "skills_map": {
         "Percezione": {
-          "totale": 5
+          "totale": 8
         },
         "Acrobazia": {
-          "totale": 4
-        },
-        "Conoscenze": {
-          "totale": 3
+          "totale": 2
         }
       },
-      "skill_points": 5,
+      "skill_points": 4,
       "talenti": [
-        "Colpo possente",
         "Iniziativa migliorata"
       ],
       "capacita_classe": [
@@ -139,12 +135,12 @@
       ],
       "slot_incantesimi": "Liv1:4/Liv2:3",
       "ac_breakdown": {
-        "totale": 18,
-        "armatura": 5,
-        "destrezza": 2,
-        "scudo": 1
+        "totale": 11,
+        "armatura": 0,
+        "destrezza": 1,
+        "scudo": 0
       },
-      "iniziativa": 2,
+      "iniziativa": 5,
       "velocita": 9,
       "progressione": [
         {
@@ -154,7 +150,7 @@
             "Tecnica distintiva Feral"
           ],
           "talenti": [
-            "Talento di livello 1"
+            "Iniziativa migliorata"
           ]
         }
       ],
@@ -190,13 +186,13 @@
           "base": 1,
           "modificatore": 2,
           "misc": 0,
-          "totale": 3
+          "totale": 1
         },
         "Volontà": {
           "base": 3,
           "modificatore": 1,
           "misc": 0,
-          "totale": 4
+          "totale": 6
         }
       },
       "AC_arm": 0,
@@ -207,10 +203,10 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
-      "CA_touch": 10,
+      "AC_tot": 11,
+      "CA_touch": 11,
       "CA_ff": 10,
-      "init": 2,
+      "init": 5,
       "speed": 9,
       "currency": {
         "gp": 100,
@@ -245,12 +241,22 @@
       "skills": [
         {
           "nome": "Percezione",
-          "valore": 0
+          "gradi": 1,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 8
+        },
+        {
+          "nome": "Acrobazia",
+          "gradi": 1,
+          "mod_car": 1,
+          "classe": false,
+          "totale": 2
         }
       ],
       "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
       "pf_per_livello": "n/d (PF per livello non fornito)",
-      "BAB": "n/d (BAB non fornito)",
+      "BAB": 0,
       "CMB": "n/d (CMB non fornito)",
       "cmb_disarm": "n/d (cmb disarm non fornito)",
       "cmb_trip": "n/d (cmb trip non fornito)",
@@ -263,7 +269,15 @@
       ],
       "lingue": [],
       "sensi": [],
-      "condizioni": []
+      "condizioni": [],
+      "bonus_razziale_flessibile": "SAG",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "NUOVA statline editoriale 24pb SAG primaria (feral druid) + flex SAG -> SAG 19 finale. Difetto latente: 2 talenti su 1; tenuta Iniziativa migliorata, droppato Colpo possente (BAB +0 al lv1)"
+      }
     }
   },
   "narrative": "Half Orc Feral pronta/o per il campo, specializzata/o in tattiche da Druid.",
@@ -316,12 +330,12 @@
           "16": "Chiusura"
         },
         "statistics": {
-          "FOR": 16,
-          "DES": 14,
+          "FOR": 15,
+          "DES": 13,
           "COS": 14,
           "INT": 10,
-          "SAG": 12,
-          "CAR": 8
+          "SAG": 17,
+          "CAR": 7
         },
         "step_labels_count": 16
       },
@@ -341,7 +355,7 @@
         "statistics": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 11
         },
         "catalog_version": [
           "2026.04.03"
@@ -359,48 +373,44 @@
             }
           ],
           "statistiche": {
-            "FOR": 16,
-            "DES": 14,
+            "FOR": 15,
+            "DES": 13,
             "COS": 14,
             "INT": 10,
-            "SAG": 12,
-            "CAR": 8,
+            "SAG": 17,
+            "CAR": 7,
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18
+            "ca": 11
           },
           "statistiche_chiave": {
             "attacco": "+4",
             "danni": "1d8+3",
-            "ca": 18,
-            "CA": 18
+            "ca": 11,
+            "CA": 11
           },
-          "pf_totali": 12,
+          "pf_totali": 11,
           "hp": {
-            "totali": 12,
+            "totali": 11,
             "per_livello": [
               12
             ]
           },
           "salvezze": {
             "Tempra": 4,
-            "Riflessi": 3,
-            "Volontà": 4
+            "Riflessi": 1,
+            "Volontà": 6
           },
           "skills_map": {
             "Percezione": {
-              "totale": 5
+              "totale": 8
             },
             "Acrobazia": {
-              "totale": 4
-            },
-            "Conoscenze": {
-              "totale": 3
+              "totale": 2
             }
           },
-          "skill_points": 5,
+          "skill_points": 4,
           "talenti": [
-            "Colpo possente",
             "Iniziativa migliorata"
           ],
           "capacita_classe": [
@@ -430,12 +440,12 @@
           ],
           "slot_incantesimi": "Liv1:4/Liv2:3",
           "ac_breakdown": {
-            "totale": 18,
-            "armatura": 5,
-            "destrezza": 2,
-            "scudo": 1
+            "totale": 11,
+            "armatura": 0,
+            "destrezza": 1,
+            "scudo": 0
           },
-          "iniziativa": 2,
+          "iniziativa": 5,
           "velocita": 9,
           "progressione": [
             {
@@ -445,7 +455,7 @@
                 "Tecnica distintiva Feral"
               ],
               "talenti": [
-                "Talento di livello 1"
+                "Iniziativa migliorata"
               ]
             }
           ],
@@ -481,13 +491,13 @@
               "base": 1,
               "modificatore": 2,
               "misc": 0,
-              "totale": 3
+              "totale": 1
             },
             "Volontà": {
               "base": 3,
               "modificatore": 1,
               "misc": 0,
-              "totale": 4
+              "totale": 6
             }
           },
           "AC_arm": 0,
@@ -498,10 +508,10 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
-          "CA_touch": 10,
+          "AC_tot": 11,
+          "CA_touch": 11,
           "CA_ff": 10,
-          "init": 2,
+          "init": 5,
           "speed": 9,
           "currency": {
             "gp": 100,
@@ -536,12 +546,22 @@
           "skills": [
             {
               "nome": "Percezione",
-              "valore": 0
+              "gradi": 1,
+              "mod_car": 4,
+              "classe": true,
+              "totale": 8
+            },
+            {
+              "nome": "Acrobazia",
+              "gradi": 1,
+              "mod_car": 1,
+              "classe": false,
+              "totale": 2
             }
           ],
           "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
           "pf_per_livello": "n/d (PF per livello non fornito)",
-          "BAB": "n/d (BAB non fornito)",
+          "BAB": 0,
           "CMB": "n/d (CMB non fornito)",
           "cmb_disarm": "n/d (cmb disarm non fornito)",
           "cmb_trip": "n/d (cmb trip non fornito)",
@@ -554,7 +574,15 @@
           ],
           "lingue": [],
           "sensi": [],
-          "condizioni": []
+          "condizioni": [],
+          "bonus_razziale_flessibile": "SAG",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "NUOVA statline editoriale 24pb SAG primaria (feral druid) + flex SAG -> SAG 19 finale. Difetto latente: 2 talenti su 1; tenuta Iniziativa migliorata, droppato Colpo possente (BAB +0 al lv1)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -582,48 +610,44 @@
           }
         ],
         "statistiche": {
-          "FOR": 16,
-          "DES": 14,
+          "FOR": 15,
+          "DES": 13,
           "COS": 14,
           "INT": 10,
-          "SAG": 12,
-          "CAR": 8,
+          "SAG": 17,
+          "CAR": 7,
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18
+          "ca": 11
         },
         "statistiche_chiave": {
           "attacco": "+4",
           "danni": "1d8+3",
-          "ca": 18,
-          "CA": 18
+          "ca": 11,
+          "CA": 11
         },
-        "pf_totali": 12,
+        "pf_totali": 11,
         "hp": {
-          "totali": 12,
+          "totali": 11,
           "per_livello": [
             12
           ]
         },
         "salvezze": {
           "Tempra": 4,
-          "Riflessi": 3,
-          "Volontà": 4
+          "Riflessi": 1,
+          "Volontà": 6
         },
         "skills_map": {
           "Percezione": {
-            "totale": 5
+            "totale": 8
           },
           "Acrobazia": {
-            "totale": 4
-          },
-          "Conoscenze": {
-            "totale": 3
+            "totale": 2
           }
         },
-        "skill_points": 5,
+        "skill_points": 4,
         "talenti": [
-          "Colpo possente",
           "Iniziativa migliorata"
         ],
         "capacita_classe": [
@@ -653,12 +677,12 @@
         ],
         "slot_incantesimi": "Liv1:4/Liv2:3",
         "ac_breakdown": {
-          "totale": 18,
-          "armatura": 5,
-          "destrezza": 2,
-          "scudo": 1
+          "totale": 11,
+          "armatura": 0,
+          "destrezza": 1,
+          "scudo": 0
         },
-        "iniziativa": 2,
+        "iniziativa": 5,
         "velocita": 9,
         "progressione": [
           {
@@ -668,7 +692,7 @@
               "Tecnica distintiva Feral"
             ],
             "talenti": [
-              "Talento di livello 1"
+              "Iniziativa migliorata"
             ]
           }
         ],
@@ -704,13 +728,13 @@
             "base": 1,
             "modificatore": 2,
             "misc": 0,
-            "totale": 3
+            "totale": 1
           },
           "Volontà": {
             "base": 3,
             "modificatore": 1,
             "misc": 0,
-            "totale": 4
+            "totale": 6
           }
         },
         "AC_arm": 0,
@@ -721,10 +745,10 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
-        "CA_touch": 10,
+        "AC_tot": 11,
+        "CA_touch": 11,
         "CA_ff": 10,
-        "init": 2,
+        "init": 5,
         "speed": 9,
         "currency": {
           "gp": 100,
@@ -759,12 +783,22 @@
         "skills": [
           {
             "nome": "Percezione",
-            "valore": 0
+            "gradi": 1,
+            "mod_car": 4,
+            "classe": true,
+            "totale": 8
+          },
+          {
+            "nome": "Acrobazia",
+            "gradi": 1,
+            "mod_car": 1,
+            "classe": false,
+            "totale": 2
           }
         ],
         "background": "Guardiano selvaggio delle foreste, incline a forme ferine aggressive.",
         "pf_per_livello": "n/d (PF per livello non fornito)",
-        "BAB": "n/d (BAB non fornito)",
+        "BAB": 0,
         "CMB": "n/d (CMB non fornito)",
         "cmb_disarm": "n/d (cmb disarm non fornito)",
         "cmb_trip": "n/d (cmb trip non fornito)",
@@ -777,7 +811,15 @@
         ],
         "lingue": [],
         "sensi": [],
-        "condizioni": []
+        "condizioni": [],
+        "bonus_razziale_flessibile": "SAG",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "NUOVA statline editoriale 24pb SAG primaria (feral druid) + flex SAG -> SAG 19 finale. Difetto latente: 2 talenti su 1; tenuta Iniziativa migliorata, droppato Colpo possente (BAB +0 al lv1)"
+        }
       }
     },
     "narrative": "Half Orc Feral pronta/o per il campo, specializzata/o in tattiche da Druid.",

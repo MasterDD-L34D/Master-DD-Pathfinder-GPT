@@ -26,11 +26,11 @@
     },
     "statistics": {
       "FOR": 8,
-      "DES": 18,
-      "COS": 14,
-      "INT": 22,
+      "DES": 14,
+      "COS": 12,
+      "INT": 18,
       "SAG": 12,
-      "CAR": 14
+      "CAR": 10
     },
     "step_labels_count": 16
   },
@@ -43,18 +43,18 @@
         "picco": 16
       },
       "livello_5": {
-        "media": 26,
-        "picco": 42
+        "media": 24,
+        "picco": 38
       },
       "livello_10": {
-        "media": 48,
-        "picco": 74
+        "media": 46,
+        "picco": 70
       }
     },
     "statistics": {
-      "attacco": "+13",
-      "danni": "cone of cold 10d6+10 / slumber+misfortune lockdown",
-      "ca": 22
+      "attacco": "+3",
+      "danni": "raggio di gelo potenziato da cimitero + hex Evil Eye",
+      "ca": 13
     }
   },
   "export": {
@@ -62,7 +62,7 @@
       "classi": [
         {
           "nome": "Witch",
-          "livelli": 10,
+          "livelli": 1,
           "archetipi": [
             "Gravewalker",
             "Hedge Witch"
@@ -71,97 +71,104 @@
       ],
       "statistiche": {
         "FOR": 8,
-        "DES": 18,
-        "COS": 14,
-        "INT": 22,
+        "DES": 14,
+        "COS": 12,
+        "INT": 18,
         "SAG": 12,
-        "CAR": 14,
-        "attacco": "+13",
-        "danni": "cone of cold 10d6+10",
-        "ca": 22
+        "CAR": 10,
+        "attacco": "+3",
+        "danni": "raggio di gelo + hex",
+        "ca": 13
       },
       "statistiche_chiave": {
-        "attacco": "+13",
-        "danni": "10d6+10",
-        "ca": 22
+        "attacco": "+3",
+        "danni": "1d3+INT",
+        "ca": 13
       },
       "benchmarks": {
         "meta_tier": "T1",
         "ruling_badge": "RAW/RAI/PFS"
       },
       "salvezze": {
-        "Tempra": 7,
-        "Riflessi": 7,
-        "Volontà": 11
+        "Tempra": 3,
+        "Riflessi": 6,
+        "Volontà": 8
       },
       "attack_bonus": {
-        "ranged": "+13",
-        "special": "+15 hex touch"
+        "ranged": "+3",
+        "special": "+5 (touch Hex)"
       },
       "damage": {
-        "ranged": "cone of cold 10d6+10",
-        "special": "Misfortune + Slumber + Life Giver"
+        "ranged": "raggio di gelo 1d3+3",
+        "special": "Evil Eye / Misfortune"
       },
       "bench_log": [
-        "Checkpoint 10: major hex online, healing top-tier; badge RAW/RAI/PFS mantenuto"
+        "Pipeline confermata: variante Sylph Gravewalker + Hedge Witch mantiene badge RAW/RAI/PFS e T1."
       ],
-      "rules_status_text": "Badge RAW/RAI/PFS confermato; meta_tier T1 con log bench salvati",
+      "rules_status_text": "Badge RAW/RAI/PFS confermato; necromanzia e healing patron compatibili",
       "skills": [
         {
           "nome": "Conoscenze (arcana)",
           "gradi": 10,
-          "mod_car": 6,
+          "mod_car": 5,
           "classe": true,
-          "totale": 22
+          "totale": 18
         },
         {
           "nome": "Percezione",
           "gradi": 10,
           "mod_car": 1,
-          "classe": true,
-          "totale": 17
+          "classe": false,
+          "totale": 11
         }
       ],
       "equipaggiamento": [
-        "Feticcio necromantico maggiore",
-        "Mantello del vento tempestoso",
-        "Libro degli incantesimi runico avanzato"
+        "Feticcio necromantico",
+        "Mantello del vento",
+        "Grimoire di spine"
       ],
       "ledger_movimenti": [
         {
-          "voce": "Offerte ai defunti illustri",
-          "importo": -320
+          "voce": "Offerte ai defunti",
+          "importo": -60
         },
         {
-          "voce": "Rituale di comando pagato dal casato",
-          "importo": 520
+          "voce": "Consulta spiritica retribuita",
+          "importo": 120
         }
       ],
       "ledger": {
         "movimenti": [
           {
-            "voce": "Offerte ai defunti illustri",
-            "importo": -320
+            "voce": "Offerte ai defunti",
+            "importo": -60
           },
           {
-            "voce": "Rituale di comando pagato dal casato",
-            "importo": 520
+            "voce": "Consulta spiritica retribuita",
+            "importo": 120
           }
         ],
         "currency": {
-          "oro": 260,
-          "argento": 28,
-          "rame": 12
+          "oro": 55,
+          "argento": 12,
+          "rame": 6
         }
       },
-      "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico maggiore\nOfferte ai defunti illustri"
+      "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico\nOfferte ai defunti",
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 10,
+        "decisione": "34 -> 24pb, INT primaria witch (sylph +2 DES/+2 INT)"
+      }
     }
   },
   "body_params": {
     "race": "Sylph",
     "archetype_primary": "Gravewalker",
     "archetype_secondary": "Hedge Witch",
-    "focus": "controllo totale con major hex e supporto curativo T1"
+    "focus": "caster T1 da debuff e supporto curativo con comando dei non morti"
   },
   "build_source": "local spec",
   "class": "Witch",
@@ -183,12 +190,12 @@
         "class": "Witch",
         "archetype": "Gravewalker + Hedge Witch",
         "race": "Sylph",
-        "level": 10,
+        "level": 1,
         "talenti_chiave": [
-          "Misfortune (major)",
-          "Life Giver",
-          "Slumber",
-          "Command Undead"
+          "Evil Eye",
+          "Cackle",
+          "Command Undead",
+          "Healing Hex"
         ],
         "hr_sources": null,
         "meta_sources": [
@@ -203,9 +210,9 @@
         "minmax_runner"
       ],
       "context": {
-        "key_rotation": "Misfortune (major) + Cackle perma, Slumber/Command Undead come azioni decisive",
-        "nova": "Cone of cold potenziato + debuff stacking",
-        "safety": "Life Giver + healing patron mantengono party e undead minion"
+        "key_rotation": "Hex Evil Eye + Cackle per mantenere debuff; Command Undead con save penalizzato",
+        "nova": "Snowball/Chill Touch potenziati da Hex",
+        "safety": "Familiar volante e misure di occultamento da sylph"
       }
     },
     "taverna": {
@@ -214,18 +221,18 @@
         "tavern_builder"
       ],
       "context": {
-        "role": "Somma sorella del coven aereo",
-        "hook": "Tiene in equilibrio i venti funebri e le anime liberate",
-        "voice": "tono calmo, eco di sussurri d'altura"
+        "role": "Mediatrice del coven del vento",
+        "hook": "Serve rituali funebri sospesi nel cielo",
+        "voice": "sussurri ariosi e profumati di incenso"
       }
     },
     "checkpoints": {
       "bench_log": [
-        "Ruling Expert: major hex e possession confermati legali insieme a Life Giver.",
-        "MinMax: combo Slumber/Misfortune + Command Undead mantiene lockdown e sustain; DPR stabile con cone of cold.",
-        "Narrative/Taverna: oracolo volante che trama con gli spiriti del vento e dei defunti."
+        "Ruling Expert: validata la sovrapposizione di Familiar/Hex fra Gravewalker e Hedge Witch; patron Healing compatibile con spirit binding.",
+        "MinMax: confronto varianti controllo vs. blast; la Sylph mantiene iniziativa alta e hex full-progression.",
+        "Narrative/Taverna: mediatrice aerea che lega anime con incensi curativi per il suo coven di sylph."
       ],
-      "level": 10,
+      "level": 1,
       "levels": [
         1,
         5,
@@ -263,14 +270,14 @@
   "request": {
     "race": "Sylph",
     "archetype": "Gravewalker + Hedge Witch",
-    "level": 10,
+    "level": 1,
     "level_checkpoints": [
       1,
       5,
       10
     ]
   },
-  "build_id": "build-5fde228d1df8f241b04924d8",
+  "build_id": "build-22e26558b7187fb06f18b394",
   "step_audit": {
     "request_timestamp": "2025-12-18T18:46:09Z",
     "client_fingerprint_hash": "stub-fingerprint-00000000000000000000000000000000",
@@ -286,7 +293,7 @@
   },
   "composite": {
     "build": {
-      "build_id": "build-5fde228d1df8f241b04924d8",
+      "build_id": "build-22e26558b7187fb06f18b394",
       "build_state": {
         "class": "Witch",
         "mode": "extended",
@@ -314,11 +321,11 @@
         },
         "statistics": {
           "FOR": 8,
-          "DES": 18,
-          "COS": 14,
-          "INT": 22,
+          "DES": 14,
+          "COS": 12,
+          "INT": 18,
           "SAG": 12,
-          "CAR": 14
+          "CAR": 10
         },
         "step_labels_count": 16
       },
@@ -331,18 +338,18 @@
             "picco": 16
           },
           "livello_5": {
-            "media": 26,
-            "picco": 42
+            "media": 24,
+            "picco": 38
           },
           "livello_10": {
-            "media": 48,
-            "picco": 74
+            "media": 46,
+            "picco": 70
           }
         },
         "statistics": {
-          "attacco": "+13",
-          "danni": "cone of cold 10d6+10 / slumber+misfortune lockdown",
-          "ca": 22
+          "attacco": "+3",
+          "danni": "raggio di gelo potenziato da cimitero + hex Evil Eye",
+          "ca": 13
         }
       },
       "export": {
@@ -350,7 +357,7 @@
           "classi": [
             {
               "nome": "Witch",
-              "livelli": 10,
+              "livelli": 1,
               "archetipi": [
                 "Gravewalker",
                 "Hedge Witch"
@@ -359,90 +366,97 @@
           ],
           "statistiche": {
             "FOR": 8,
-            "DES": 18,
-            "COS": 14,
-            "INT": 22,
+            "DES": 14,
+            "COS": 12,
+            "INT": 18,
             "SAG": 12,
-            "CAR": 14,
-            "attacco": "+13",
-            "danni": "cone of cold 10d6+10",
-            "ca": 22
+            "CAR": 10,
+            "attacco": "+3",
+            "danni": "raggio di gelo + hex",
+            "ca": 13
           },
           "statistiche_chiave": {
-            "attacco": "+13",
-            "danni": "10d6+10",
-            "ca": 22
+            "attacco": "+3",
+            "danni": "1d3+INT",
+            "ca": 13
           },
           "benchmarks": {
             "meta_tier": "T1",
             "ruling_badge": "RAW/RAI/PFS"
           },
           "salvezze": {
-            "Tempra": 7,
-            "Riflessi": 7,
-            "Volontà": 11
+            "Tempra": 3,
+            "Riflessi": 6,
+            "Volontà": 8
           },
           "attack_bonus": {
-            "ranged": "+13",
-            "special": "+15 hex touch"
+            "ranged": "+3",
+            "special": "+5 (touch Hex)"
           },
           "damage": {
-            "ranged": "cone of cold 10d6+10",
-            "special": "Misfortune + Slumber + Life Giver"
+            "ranged": "raggio di gelo 1d3+3",
+            "special": "Evil Eye / Misfortune"
           },
           "bench_log": [
-            "Checkpoint 10: major hex online, healing top-tier; badge RAW/RAI/PFS mantenuto"
+            "Pipeline confermata: variante Sylph Gravewalker + Hedge Witch mantiene badge RAW/RAI/PFS e T1."
           ],
-          "rules_status_text": "Badge RAW/RAI/PFS confermato; meta_tier T1 con log bench salvati",
+          "rules_status_text": "Badge RAW/RAI/PFS confermato; necromanzia e healing patron compatibili",
           "skills": [
             {
               "nome": "Conoscenze (arcana)",
               "gradi": 10,
-              "mod_car": 6,
+              "mod_car": 5,
               "classe": true,
-              "totale": 22
+              "totale": 18
             },
             {
               "nome": "Percezione",
               "gradi": 10,
               "mod_car": 1,
-              "classe": true,
-              "totale": 17
+              "classe": false,
+              "totale": 11
             }
           ],
           "equipaggiamento": [
-            "Feticcio necromantico maggiore",
-            "Mantello del vento tempestoso",
-            "Libro degli incantesimi runico avanzato"
+            "Feticcio necromantico",
+            "Mantello del vento",
+            "Grimoire di spine"
           ],
           "ledger_movimenti": [
             {
-              "voce": "Offerte ai defunti illustri",
-              "importo": -320
+              "voce": "Offerte ai defunti",
+              "importo": -60
             },
             {
-              "voce": "Rituale di comando pagato dal casato",
-              "importo": 520
+              "voce": "Consulta spiritica retribuita",
+              "importo": 120
             }
           ],
           "ledger": {
             "movimenti": [
               {
-                "voce": "Offerte ai defunti illustri",
-                "importo": -320
+                "voce": "Offerte ai defunti",
+                "importo": -60
               },
               {
-                "voce": "Rituale di comando pagato dal casato",
-                "importo": 520
+                "voce": "Consulta spiritica retribuita",
+                "importo": 120
               }
             ],
             "currency": {
-              "oro": 260,
-              "argento": 28,
-              "rame": 12
+              "oro": 55,
+              "argento": 12,
+              "rame": 6
             }
           },
-          "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico maggiore\nOfferte ai defunti illustri"
+          "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico\nOfferte ai defunti",
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 10,
+            "decisione": "34 -> 24pb, INT primaria witch (sylph +2 DES/+2 INT)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -463,7 +477,7 @@
         "classi": [
           {
             "nome": "Witch",
-            "livelli": 10,
+            "livelli": 1,
             "archetipi": [
               "Gravewalker",
               "Hedge Witch"
@@ -472,90 +486,97 @@
         ],
         "statistiche": {
           "FOR": 8,
-          "DES": 18,
-          "COS": 14,
-          "INT": 22,
+          "DES": 14,
+          "COS": 12,
+          "INT": 18,
           "SAG": 12,
-          "CAR": 14,
-          "attacco": "+13",
-          "danni": "cone of cold 10d6+10",
-          "ca": 22
+          "CAR": 10,
+          "attacco": "+3",
+          "danni": "raggio di gelo + hex",
+          "ca": 13
         },
         "statistiche_chiave": {
-          "attacco": "+13",
-          "danni": "10d6+10",
-          "ca": 22
+          "attacco": "+3",
+          "danni": "1d3+INT",
+          "ca": 13
         },
         "benchmarks": {
           "meta_tier": "T1",
           "ruling_badge": "RAW/RAI/PFS"
         },
         "salvezze": {
-          "Tempra": 7,
-          "Riflessi": 7,
-          "Volontà": 11
+          "Tempra": 3,
+          "Riflessi": 6,
+          "Volontà": 8
         },
         "attack_bonus": {
-          "ranged": "+13",
-          "special": "+15 hex touch"
+          "ranged": "+3",
+          "special": "+5 (touch Hex)"
         },
         "damage": {
-          "ranged": "cone of cold 10d6+10",
-          "special": "Misfortune + Slumber + Life Giver"
+          "ranged": "raggio di gelo 1d3+3",
+          "special": "Evil Eye / Misfortune"
         },
         "bench_log": [
-          "Checkpoint 10: major hex online, healing top-tier; badge RAW/RAI/PFS mantenuto"
+          "Pipeline confermata: variante Sylph Gravewalker + Hedge Witch mantiene badge RAW/RAI/PFS e T1."
         ],
-        "rules_status_text": "Badge RAW/RAI/PFS confermato; meta_tier T1 con log bench salvati",
+        "rules_status_text": "Badge RAW/RAI/PFS confermato; necromanzia e healing patron compatibili",
         "skills": [
           {
             "nome": "Conoscenze (arcana)",
             "gradi": 10,
-            "mod_car": 6,
+            "mod_car": 5,
             "classe": true,
-            "totale": 22
+            "totale": 18
           },
           {
             "nome": "Percezione",
             "gradi": 10,
             "mod_car": 1,
-            "classe": true,
-            "totale": 17
+            "classe": false,
+            "totale": 11
           }
         ],
         "equipaggiamento": [
-          "Feticcio necromantico maggiore",
-          "Mantello del vento tempestoso",
-          "Libro degli incantesimi runico avanzato"
+          "Feticcio necromantico",
+          "Mantello del vento",
+          "Grimoire di spine"
         ],
         "ledger_movimenti": [
           {
-            "voce": "Offerte ai defunti illustri",
-            "importo": -320
+            "voce": "Offerte ai defunti",
+            "importo": -60
           },
           {
-            "voce": "Rituale di comando pagato dal casato",
-            "importo": 520
+            "voce": "Consulta spiritica retribuita",
+            "importo": 120
           }
         ],
         "ledger": {
           "movimenti": [
             {
-              "voce": "Offerte ai defunti illustri",
-              "importo": -320
+              "voce": "Offerte ai defunti",
+              "importo": -60
             },
             {
-              "voce": "Rituale di comando pagato dal casato",
-              "importo": 520
+              "voce": "Consulta spiritica retribuita",
+              "importo": 120
             }
           ],
           "currency": {
-            "oro": 260,
-            "argento": 28,
-            "rame": 12
+            "oro": 55,
+            "argento": 12,
+            "rame": 6
           }
         },
-        "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico maggiore\nOfferte ai defunti illustri"
+        "sheet_markdown": "Conoscenze (arcana)\nFeticcio necromantico\nOfferte ai defunti",
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 10,
+          "decisione": "34 -> 24pb, INT primaria witch (sylph +2 DES/+2 INT)"
+        }
       }
     },
     "narrative": "Veggente sylph che unisce Gravewalker e Hedge Witch per guidare anime e curare con rituali del vento."

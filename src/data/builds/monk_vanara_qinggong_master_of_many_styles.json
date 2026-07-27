@@ -54,7 +54,7 @@
     "statistics": {
       "attacco": "+5",
       "danni": "1d8+3",
-      "ca": 18,
+      "ca": 15,
       "tempra": 4,
       "riflessi": 5,
       "volonta": 5
@@ -91,7 +91,7 @@
         "CAR": 8,
         "attacco": "+5",
         "danni": "1d8+3",
-        "ca": 18,
+        "ca": 15,
         "tempra": 4,
         "riflessi": 5,
         "volonta": 5
@@ -99,27 +99,27 @@
       "statistiche_chiave": {
         "attacco": "+5",
         "danni": "1d8+3",
-        "ca": 18,
-        "CA": 18
+        "ca": 15,
+        "CA": 15
       },
-      "pf_totali": 11,
+      "pf_totali": 10,
       "hp": {
-        "totali": 11,
+        "totali": 10,
         "per_livello": [
           11
         ]
       },
       "salvezze": {
-        "Tempra": 4,
-        "Riflessi": 5,
-        "Volontà": 5
+        "Tempra": 3,
+        "Riflessi": 6,
+        "Volontà": 6
       },
       "skills_map": {
         "Acrobazia": {
-          "totale": 7
+          "totale": 8
         },
         "Furtività": {
-          "totale": 7
+          "totale": 8
         },
         "Percezione": {
           "totale": 8
@@ -131,14 +131,21 @@
           "gradi": 1,
           "mod_car": 4,
           "classe": true,
-          "totale": 7
+          "totale": 8
         },
         {
           "nome": "Furtività",
           "gradi": 1,
           "mod_car": 4,
           "classe": true,
-          "totale": 7
+          "totale": 8
+        },
+        {
+          "nome": "Percezione",
+          "gradi": 1,
+          "mod_car": 4,
+          "classe": true,
+          "totale": 8
         }
       ],
       "equipaggiamento": [
@@ -181,10 +188,8 @@
       },
       "sheet_markdown": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 5 / Volontà 5\n\n**BAB:** 0 | **Iniziativa:** 4 | **Velocità:** 9\n\nStatistiche:\n**For** 14 (mod 2)\n**Des** 16 (mod 3)\n**Cos** 12 (mod 1)\n**Int** 10 (mod 0)\n**Sag** 16 (mod 3)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Acrobazia\n- Furtività\n\nEquipaggiamento:\n- Kama bilanciati\n- Corazza di seta\n- Cintura dell'agilità\n\nLedger:\n- Donazione al monastero\n- Ricompensa duello rituale\n- Equipaggiamento iniziale\n- Ricompensa per scouting su canopia",
       "talenti": [
-        "Tiger Style",
-        "Crane Style",
-        "Dodge",
-        "Tiger Style + Crane Style"
+        "Scorpion Style",
+        "Dodge"
       ],
       "capacita_classe": [
         "Flurry of Blows",
@@ -205,10 +210,10 @@
       "iniziativa": 4,
       "velocita": 9,
       "ac_breakdown": {
-        "base": 10,
-        "des": 3,
-        "sag": 3,
-        "dodge": 2
+        "totale": 15,
+        "armatura": 0,
+        "destrezza": 4,
+        "scudo": 0
       },
       "magia": {
         "ki_powers": [
@@ -221,19 +226,19 @@
           "base": 3,
           "modificatore": 1,
           "misc": 0,
-          "totale": 4
+          "totale": 3
         },
         "Riflessi": {
           "base": 2,
           "modificatore": 3,
           "misc": 0,
-          "totale": 5
+          "totale": 6
         },
         "Volontà": {
           "base": 2,
           "modificatore": 3,
           "misc": 0,
-          "totale": 5
+          "totale": 6
         }
       },
       "pf_per_livello": "n/d (PF per livello non fornito)",
@@ -245,10 +250,10 @@
       "AC_dodge": 0,
       "AC_misc": 0,
       "AC_base": 10,
-      "AC_tot": 18,
-      "CA_touch": 10,
-      "CA_ff": 10,
-      "BAB": "n/d (BAB non fornito)",
+      "AC_tot": 15,
+      "CA_touch": 15,
+      "CA_ff": 11,
+      "BAB": 0,
       "init": 4,
       "CMB": "n/d (CMB non fornito)",
       "cmb_disarm": "n/d (cmb disarm non fornito)",
@@ -280,7 +285,14 @@
       "lingue": [],
       "sensi": [],
       "condizioni": [],
-      "inventario": []
+      "inventario": [],
+      "rebuild_gpt_a": {
+        "tool": "tools/rebuild_corpus_gpt_a.py",
+        "lotto": "A",
+        "data": "2026-07-27",
+        "livello": 1,
+        "decisione": "4 talenti su 2 consentiti (1 base + 1 bonus monk). SOSTITUZIONE: Tiger Style -> Scorpion Style (stile coerente col concept Master of Many Styles; prereq Improved Unarmed Strike concesso dal monk; Tiger Style richiede Acrobatics 3 gradi, illegale al lv1); Crane Style -> Dodge (prereq DES 13 ok; Crane richiede Acrobatics 2 gradi, illegale al lv1; Dodge ne resta prerequisito per il reintegro ai livelli successivi); droppata la voce combinata 'Tiger Style + Crane Style' (assente dal catalogo: non un talento)"
+      }
     }
   },
   "narrative": "Vanara acrobata addestrato nei monasteri delle Scimmie Nascoste; combina le sostituzioni Qinggong con gli stili multipli del Master of Many Styles per alternare Tiger/Crane, controllare il terreno con passi di ki e colpire in salto i bersagli chiave.",
@@ -430,7 +442,7 @@
         "statistics": {
           "attacco": "+5",
           "danni": "1d8+3",
-          "ca": 18,
+          "ca": 15,
           "tempra": 4,
           "riflessi": 5,
           "volonta": 5
@@ -467,7 +479,7 @@
             "CAR": 8,
             "attacco": "+5",
             "danni": "1d8+3",
-            "ca": 18,
+            "ca": 15,
             "tempra": 4,
             "riflessi": 5,
             "volonta": 5
@@ -475,27 +487,27 @@
           "statistiche_chiave": {
             "attacco": "+5",
             "danni": "1d8+3",
-            "ca": 18,
-            "CA": 18
+            "ca": 15,
+            "CA": 15
           },
-          "pf_totali": 11,
+          "pf_totali": 10,
           "hp": {
-            "totali": 11,
+            "totali": 10,
             "per_livello": [
               11
             ]
           },
           "salvezze": {
-            "Tempra": 4,
-            "Riflessi": 5,
-            "Volontà": 5
+            "Tempra": 3,
+            "Riflessi": 6,
+            "Volontà": 6
           },
           "skills_map": {
             "Acrobazia": {
-              "totale": 7
+              "totale": 8
             },
             "Furtività": {
-              "totale": 7
+              "totale": 8
             },
             "Percezione": {
               "totale": 8
@@ -507,14 +519,21 @@
               "gradi": 1,
               "mod_car": 4,
               "classe": true,
-              "totale": 7
+              "totale": 8
             },
             {
               "nome": "Furtività",
               "gradi": 1,
               "mod_car": 4,
               "classe": true,
-              "totale": 7
+              "totale": 8
+            },
+            {
+              "nome": "Percezione",
+              "gradi": 1,
+              "mod_car": 4,
+              "classe": true,
+              "totale": 8
             }
           ],
           "equipaggiamento": [
@@ -557,10 +576,8 @@
           },
           "sheet_markdown": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 5 / Volontà 5\n\n**BAB:** 0 | **Iniziativa:** 4 | **Velocità:** 9\n\nStatistiche:\n**For** 14 (mod 2)\n**Des** 16 (mod 3)\n**Cos** 12 (mod 1)\n**Int** 10 (mod 0)\n**Sag** 16 (mod 3)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Acrobazia\n- Furtività\n\nEquipaggiamento:\n- Kama bilanciati\n- Corazza di seta\n- Cintura dell'agilità\n\nLedger:\n- Donazione al monastero\n- Ricompensa duello rituale\n- Equipaggiamento iniziale\n- Ricompensa per scouting su canopia",
           "talenti": [
-            "Tiger Style",
-            "Crane Style",
-            "Dodge",
-            "Tiger Style + Crane Style"
+            "Scorpion Style",
+            "Dodge"
           ],
           "capacita_classe": [
             "Flurry of Blows",
@@ -581,10 +598,10 @@
           "iniziativa": 4,
           "velocita": 9,
           "ac_breakdown": {
-            "base": 10,
-            "des": 3,
-            "sag": 3,
-            "dodge": 2
+            "totale": 15,
+            "armatura": 0,
+            "destrezza": 4,
+            "scudo": 0
           },
           "magia": {
             "ki_powers": [
@@ -597,19 +614,19 @@
               "base": 3,
               "modificatore": 1,
               "misc": 0,
-              "totale": 4
+              "totale": 3
             },
             "Riflessi": {
               "base": 2,
               "modificatore": 3,
               "misc": 0,
-              "totale": 5
+              "totale": 6
             },
             "Volontà": {
               "base": 2,
               "modificatore": 3,
               "misc": 0,
-              "totale": 5
+              "totale": 6
             }
           },
           "pf_per_livello": "n/d (PF per livello non fornito)",
@@ -621,10 +638,10 @@
           "AC_dodge": 0,
           "AC_misc": 0,
           "AC_base": 10,
-          "AC_tot": 18,
-          "CA_touch": 10,
-          "CA_ff": 10,
-          "BAB": "n/d (BAB non fornito)",
+          "AC_tot": 15,
+          "CA_touch": 15,
+          "CA_ff": 11,
+          "BAB": 0,
           "init": 4,
           "CMB": "n/d (CMB non fornito)",
           "cmb_disarm": "n/d (cmb disarm non fornito)",
@@ -656,7 +673,14 @@
           "lingue": [],
           "sensi": [],
           "condizioni": [],
-          "inventario": []
+          "inventario": [],
+          "rebuild_gpt_a": {
+            "tool": "tools/rebuild_corpus_gpt_a.py",
+            "lotto": "A",
+            "data": "2026-07-27",
+            "livello": 1,
+            "decisione": "4 talenti su 2 consentiti (1 base + 1 bonus monk). SOSTITUZIONE: Tiger Style -> Scorpion Style (stile coerente col concept Master of Many Styles; prereq Improved Unarmed Strike concesso dal monk; Tiger Style richiede Acrobatics 3 gradi, illegale al lv1); Crane Style -> Dodge (prereq DES 13 ok; Crane richiede Acrobatics 2 gradi, illegale al lv1; Dodge ne resta prerequisito per il reintegro ai livelli successivi); droppata la voce combinata 'Tiger Style + Crane Style' (assente dal catalogo: non un talento)"
+          }
         }
       },
       "reference_catalog_version": "2026.04.03",
@@ -693,7 +717,7 @@
           "CAR": 8,
           "attacco": "+5",
           "danni": "1d8+3",
-          "ca": 18,
+          "ca": 15,
           "tempra": 4,
           "riflessi": 5,
           "volonta": 5
@@ -701,27 +725,27 @@
         "statistiche_chiave": {
           "attacco": "+5",
           "danni": "1d8+3",
-          "ca": 18,
-          "CA": 18
+          "ca": 15,
+          "CA": 15
         },
-        "pf_totali": 11,
+        "pf_totali": 10,
         "hp": {
-          "totali": 11,
+          "totali": 10,
           "per_livello": [
             11
           ]
         },
         "salvezze": {
-          "Tempra": 4,
-          "Riflessi": 5,
-          "Volontà": 5
+          "Tempra": 3,
+          "Riflessi": 6,
+          "Volontà": 6
         },
         "skills_map": {
           "Acrobazia": {
-            "totale": 7
+            "totale": 8
           },
           "Furtività": {
-            "totale": 7
+            "totale": 8
           },
           "Percezione": {
             "totale": 8
@@ -733,14 +757,21 @@
             "gradi": 1,
             "mod_car": 4,
             "classe": true,
-            "totale": 7
+            "totale": 8
           },
           {
             "nome": "Furtività",
             "gradi": 1,
             "mod_car": 4,
             "classe": true,
-            "totale": 7
+            "totale": 8
+          },
+          {
+            "nome": "Percezione",
+            "gradi": 1,
+            "mod_car": 4,
+            "classe": true,
+            "totale": 8
           }
         ],
         "equipaggiamento": [
@@ -783,10 +814,8 @@
         },
         "sheet_markdown": "# \n\nTiri Salvezza:** Temp 4 / Riflessi 5 / Volontà 5\n\n**BAB:** 0 | **Iniziativa:** 4 | **Velocità:** 9\n\nStatistiche:\n**For** 14 (mod 2)\n**Des** 16 (mod 3)\n**Cos** 12 (mod 1)\n**Int** 10 (mod 0)\n**Sag** 16 (mod 3)\n**Car** 8 (mod -1)\n\nCompetenze:\n- Acrobazia\n- Furtività\n\nEquipaggiamento:\n- Kama bilanciati\n- Corazza di seta\n- Cintura dell'agilità\n\nLedger:\n- Donazione al monastero\n- Ricompensa duello rituale\n- Equipaggiamento iniziale\n- Ricompensa per scouting su canopia",
         "talenti": [
-          "Tiger Style",
-          "Crane Style",
-          "Dodge",
-          "Tiger Style + Crane Style"
+          "Scorpion Style",
+          "Dodge"
         ],
         "capacita_classe": [
           "Flurry of Blows",
@@ -807,10 +836,10 @@
         "iniziativa": 4,
         "velocita": 9,
         "ac_breakdown": {
-          "base": 10,
-          "des": 3,
-          "sag": 3,
-          "dodge": 2
+          "totale": 15,
+          "armatura": 0,
+          "destrezza": 4,
+          "scudo": 0
         },
         "magia": {
           "ki_powers": [
@@ -823,19 +852,19 @@
             "base": 3,
             "modificatore": 1,
             "misc": 0,
-            "totale": 4
+            "totale": 3
           },
           "Riflessi": {
             "base": 2,
             "modificatore": 3,
             "misc": 0,
-            "totale": 5
+            "totale": 6
           },
           "Volontà": {
             "base": 2,
             "modificatore": 3,
             "misc": 0,
-            "totale": 5
+            "totale": 6
           }
         },
         "pf_per_livello": "n/d (PF per livello non fornito)",
@@ -847,10 +876,10 @@
         "AC_dodge": 0,
         "AC_misc": 0,
         "AC_base": 10,
-        "AC_tot": 18,
-        "CA_touch": 10,
-        "CA_ff": 10,
-        "BAB": "n/d (BAB non fornito)",
+        "AC_tot": 15,
+        "CA_touch": 15,
+        "CA_ff": 11,
+        "BAB": 0,
         "init": 4,
         "CMB": "n/d (CMB non fornito)",
         "cmb_disarm": "n/d (cmb disarm non fornito)",
@@ -882,7 +911,14 @@
         "lingue": [],
         "sensi": [],
         "condizioni": [],
-        "inventario": []
+        "inventario": [],
+        "rebuild_gpt_a": {
+          "tool": "tools/rebuild_corpus_gpt_a.py",
+          "lotto": "A",
+          "data": "2026-07-27",
+          "livello": 1,
+          "decisione": "4 talenti su 2 consentiti (1 base + 1 bonus monk). SOSTITUZIONE: Tiger Style -> Scorpion Style (stile coerente col concept Master of Many Styles; prereq Improved Unarmed Strike concesso dal monk; Tiger Style richiede Acrobatics 3 gradi, illegale al lv1); Crane Style -> Dodge (prereq DES 13 ok; Crane richiede Acrobatics 2 gradi, illegale al lv1; Dodge ne resta prerequisito per il reintegro ai livelli successivi); droppata la voce combinata 'Tiger Style + Crane Style' (assente dal catalogo: non un talento)"
+        }
       }
     },
     "narrative": "Vanara acrobata addestrato nei monasteri delle Scimmie Nascoste; combina le sostituzioni Qinggong con gli stili multipli del Master of Many Styles per alternare Tiger/Crane, controllare il terreno con passi di ki e colpire in salto i bersagli chiave.",
@@ -930,10 +966,8 @@
     }
   ],
   "feat_plan": [
-    "Tiger Style",
-    "Crane Style",
-    "Dodge",
-    "Tiger Style + Crane Style"
+    "Scorpion Style",
+    "Dodge"
   ],
   "citation": {
     "sources": [],

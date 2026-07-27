@@ -32,8 +32,11 @@ def _registry_stems():
 
 
 def test_tabella_allineata_al_registry():
-    assert set(rb.DECISIONS) == _registry_stems()
+    # Scope congelato lotto A: 26 build. Il registry si svuota dopo il
+    # rebuild: la tabella resta un sopra-insieme (ogni build flaggata ha
+    # una decisione), mai il contrario.
     assert len(rb.DECISIONS) == 26
+    assert _registry_stems() <= set(rb.DECISIONS)
 
 
 def test_statline_entro_budget_25():
