@@ -63,6 +63,14 @@ class ComfyUIEngine:
         try:
             with urllib.request.urlopen(req, timeout=60) as resp:
                 return json.loads(resp.read())
+        except urllib.error.HTTPError as exc:
+            # errore applicativo (es. workflow invalido): il body spiega cosa
+            try:
+                body = exc.read().decode("utf-8", "replace")[:400]
+            except Exception:
+                body = ""
+            raise ImagineUnavailable(
+                f"ComfyUI: HTTP {exc.code} da {url.split(self._base)[-1]}: {body}") from exc
         except (urllib.error.URLError, ConnectionError, OSError) as exc:
             raise ImagineUnavailable(
                 f"ComfyUI non raggiungibile su {self._base} "

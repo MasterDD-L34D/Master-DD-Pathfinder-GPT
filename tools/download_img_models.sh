@@ -22,7 +22,10 @@ dl "$HF/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae
 dl "$HF/city96/FLUX.1-schnell-gguf/resolve/main/flux1-schnell-Q4_K_S.gguf" "$CU/diffusion_models" flux1-schnell-Q4_K_S.gguf 6460
 dl "$HF/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors" "$CU/text_encoders" t5xxl_fp8_e4m3fn.safetensors 4660
 dl "$HF/city96/stable-diffusion-3.5-medium-gguf/resolve/main/sd3.5_medium-Q4_K_S.gguf" "$CU/diffusion_models" sd3.5_medium-Q4_K_S.gguf 1660
+# VAE 16ch di SD3.5 (la GGUF non la include; la VAE SDXL a 4ch NON va bene)
+dl "$HF/Inect2/VAE_SD3.5/resolve/main/diffusion_pytorch_model_V2.safetensors" "$CU/vae" sd35_vae.safetensors 155
 dl "$HF/QuantStack/Qwen-Image-GGUF/resolve/main/Qwen_Image-Q4_K_S.gguf" "$CU/diffusion_models" Qwen_Image-Q4_K_S.gguf 11570
-dl "$HF/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors" "$CU/text_encoders" qwen_2.5_vl_7b_fp8_scaled.safetensors 8940
+# Encoder VL in GGUF (il fp8_scaled safetensors non si mixa con unet GGUF)
+dl "$HF/ggml-org/Qwen2.5-VL-7B-Instruct-GGUF/resolve/main/Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf" "$CU/text_encoders" Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf 4680
 
 echo "=== DOWNLOAD COMPLETATI ==="

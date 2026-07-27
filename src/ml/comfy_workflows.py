@@ -88,7 +88,9 @@ def _flux(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None
 
 
 def _sd35m(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None) -> dict:
-    # SD 3.5 Medium GGUF: UnetLoaderGGUF + TripleCLIPLoader
+    # SD 3.5 Medium GGUF: UnetLoaderGGUF + TripleCLIPLoader + VAE 16ch
+    # dedicata (la GGUF non la include; quella SDXL a 4 canali NON decodifica
+    # i latent SD3 a 16 canali — bug smoke IMG-06). Latent: EmptySD3LatentImage.
     wf = {
         "1": {"class_type": "UnetLoaderGGUF",
               "inputs": {"unet_name": "sd3.5_medium-Q4_K_S.gguf"}},
@@ -100,7 +102,7 @@ def _sd35m(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | Non
               "inputs": {"text": prompt, "clip": ["2", 0]}},
         "4": {"class_type": "CLIPTextEncode",
               "inputs": {"text": "", "clip": ["2", 0]}},
-        "5": {"class_type": "EmptyLatentImage",
+        "5": {"class_type": "EmptySD3LatentImage",
               "inputs": {"width": width, "height": height, "batch_size": 1}},
         "6": {"class_type": "KSampler",
               "inputs": {"seed": seed, "steps": 25, "cfg": 4.5,
@@ -108,12 +110,10 @@ def _sd35m(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | Non
                          "denoise": 1.0,
                          "model": ["1", 0], "positive": ["3", 0],
                          "negative": ["4", 0], "latent_image": ["5", 0]}},
-        # La GGUF di SD3.5 non include la VAE: la prendiamo dal checkpoint
-        # SDXL gia' presente (stessa VAE, nessun download extra).
-        "9": {"class_type": "CheckpointLoaderSimple",
-              "inputs": {"ckpt_name": "sd_xl_base_1.0.safetensors"}},
+        "9": {"class_type": "VAELoader",
+              "inputs": {"vae_name": "sd35_vae.safetensors"}},
         "7": {"class_type": "VAEDecode",
-              "inputs": {"samples": ["6", 0], "vae": ["9", 2]}},
+              "inputs": {"samples": ["6", 0], "vae": ["9", 0]}},
         "8": {"class_type": "SaveImage",
               "inputs": {"filename_prefix": "taverna_img", "images": ["7", 0]}},
     }
@@ -123,12 +123,15 @@ def _sd35m(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | Non
 
 
 def _qwen(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None) -> dict:
-    # Qwen-Image GGUF: UnetLoaderGGUF + CLIPLoaderGGUF (VL 7B) + VAE dedicato
+    # Qwen-Image GGUF: UnetLoaderGGUF + CLIPLoaderGGUF (VL 7B GGUF — il
+    # fp8_scaled safetensors NON si mixa con unet GGUF, bug smoke IMG-06)
+    # + VAE dedicato.
     wf = {
         "1": {"class_type": "UnetLoaderGGUF",
               "inputs": {"unet_name": "Qwen_Image-Q4_K_S.gguf"}},
         "2": {"class_type": "CLIPLoaderGGUF",
-              "inputs": {"clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors"}},
+              "inputs": {"clip_name": "Qwen2.5-VL-7B-Instruct-Q4_K_M.gguf",
+                         "type": "qwen_image"}},
         "3": {"class_type": "VAELoader",
               "inputs": {"vae_name": "qwen_image_vae.safetensors"}},
         "4": {"class_type": "CLIPTextEncode",
