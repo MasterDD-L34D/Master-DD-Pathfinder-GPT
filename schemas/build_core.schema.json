@@ -340,6 +340,7 @@
         },
         "dpr_snapshot": {
           "type": "object",
+          "description": "DEPRECATO (G2, REF-06, 2026-07-28): stima DPR GPT-A non verificata. A livello 1 la fonte del DPR e' il motore pathmaster-dd (computeDpr, ENG-18); a L5+ valgono come 'stima GPT-A non verificata' fino a Leva 2 / class features. Vedi dpr_snapshot_deprecation.",
           "patternProperties": {
             "^livello_[0-9]+$": {
               "type": "object",
@@ -361,6 +362,40 @@
             }
           },
           "additionalProperties": false
+        },
+        "dpr_snapshot_deprecation": {
+          "type": "object",
+          "description": "Marker deprecazione G2 (REF-06): dpr_snapshot GPT-A non piu' oracolo. Campi attesi: stato='deprecated', task, data, motivo, sostituto_l1, badge_l5plus, rimozione_prevista.",
+          "properties": {
+            "stato": {
+              "type": "string",
+              "enum": [
+                "deprecated"
+              ]
+            },
+            "task": {
+              "type": "string"
+            },
+            "data": {
+              "type": "string"
+            },
+            "tool": {
+              "type": "string"
+            },
+            "motivo": {
+              "type": "string"
+            },
+            "sostituto_l1": {
+              "type": "string"
+            },
+            "badge_l5plus": {
+              "type": "string"
+            },
+            "rimozione_prevista": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
         },
         "missing_catalog_entries": {
           "type": "array",

@@ -489,6 +489,12 @@ Stato test: `114 passed, 1 skipped` (inclusi `tests/test_rag.py` e `tests/test_b
 
 ### Generare il database di build (e i dump dei moduli)
 
+> **Nota G2 (REF-06, 2026-07-28):** la componente DPR del MinMax Builder e'
+> DEPRECATA — i `dpr_snapshot` GPT-A sono stime non verificate (badge
+> obbligatorio; il DPR L1 e' delegato al motore pathmaster-dd `computeDpr`).
+> Il tool resta vivo per la generazione orchestrata delle build (flow/export),
+> non come oracolo DPR. Vedi docstring di `tools/generate_build_db.py`.
+
 Uno script di utilità (`tools/generate_build_db.py`) raccoglie automaticamente le build PF1e per tutte le classi target interrogando l'endpoint del **MinMax Builder** e, in parallelo, scarica i moduli grezzi indispensabili per ricostruire schede complete (base profile, taverna/narrativa, template scheda):
 
 ```bash

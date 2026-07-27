@@ -41,6 +41,19 @@ deprecation_notes:
     `computeDpr` del motore quando disponibile e dichiararlo "engine
     deterministico verificato"; per livelli superiori, MAI presentare il DPR
     GPT come affidabile — badge "stima non verificata" e rimando esplicito.
+  dpr_deprecation_g2_2026_07_28: >
+    DEPRECAZIONE ESEGUITA (G2, REF-06 chiuso). (1) La delega L1 e' effettiva:
+    la fonte del DPR di livello 1 e' il motore pathmaster-dd (`computeDpr`,
+    ENG-18), non piu' il dpr_snapshot del modulo. (2) I `benchmark.dpr_snapshot`
+    del corpus build (`src/data/builds`, incl. strict/) sono marcati
+    `dpr_snapshot_deprecation.stato = "deprecated"` (tool
+    `tools/deprecate_dpr_snapshot_gpt_a.py`): a L5+ restano nel dato SOLO come
+    "stima GPT-A non verificata", mai come oracolo — il badge e' obbligatorio
+    in ogni output che li cita. (3) Il confronto engine-vs-GPT in pathmaster-dd
+    (`dpr-reconciliation.test.ts`) e' report informativo, non gate. (4)
+    Rimozione dello snapshot e deprecazione completa del calcolo DPR del
+    modulo: dopo Leva 2 (motore copre L5+ / class features). Il modulo resta
+    layer di orchestrazione/UX (flow, export, companion).
 
 triggers:
   - ottimizza

@@ -55,6 +55,16 @@
       "attacco": "+4",
       "danni": "incantesimi di controllo + bastone 1d6+2",
       "ca": 19
+    },
+    "dpr_snapshot_deprecation": {
+      "stato": "deprecated",
+      "task": "G2 (REF-06)",
+      "data": "2026-07-28",
+      "tool": "tools/deprecate_dpr_snapshot_gpt_a.py",
+      "motivo": "DPR GPT-A/MinMax non verificato: a L5+ sovrastima il motore deterministico (delta fino al 99%, report dpr-reconciliation).",
+      "sostituto_l1": "computeDpr (ENG-18) del motore pathmaster-dd: fonte delegata per il DPR di livello 1 (delta medio -0.9% alla riconciliazione 2026-07-25).",
+      "badge_l5plus": "stima GPT-A non verificata — fino a chiusura Leva 2 / class features del motore",
+      "rimozione_prevista": "dopo Leva 2 (motore copre L5+): deprecazione completa MinMax e rimozione dello snapshot"
     }
   },
   "export": {
@@ -325,6 +335,16 @@
           "attacco": "+4",
           "danni": "incantesimi di controllo + bastone 1d6+2",
           "ca": 19
+        },
+        "dpr_snapshot_deprecation": {
+          "stato": "deprecated",
+          "task": "G2 (REF-06)",
+          "data": "2026-07-28",
+          "tool": "tools/deprecate_dpr_snapshot_gpt_a.py",
+          "motivo": "DPR GPT-A/MinMax non verificato: a L5+ sovrastima il motore deterministico (delta fino al 99%, report dpr-reconciliation).",
+          "sostituto_l1": "computeDpr (ENG-18) del motore pathmaster-dd: fonte delegata per il DPR di livello 1 (delta medio -0.9% alla riconciliazione 2026-07-25).",
+          "badge_l5plus": "stima GPT-A non verificata — fino a chiusura Leva 2 / class features del motore",
+          "rimozione_prevista": "dopo Leva 2 (motore copre L5+): deprecazione completa MinMax e rimozione dello snapshot"
         }
       },
       "export": {

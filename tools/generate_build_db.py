@@ -1,4 +1,14 @@
-"""Utility per popolare il database locale di build MinMax Builder."""
+"""Utility per popolare il database locale di build MinMax Builder.
+
+DEPRECATA la componente DPR (G2, REF-06, 2026-07-28): i `dpr_snapshot` che
+questo tool produce/legge sono STIME GPT-A non verificate (sovrastima fino al
+99% a L5+, report dpr-reconciliation pathmaster-dd). Il DPR di livello 1 e'
+delegato al motore deterministico (`computeDpr`, ENG-18); il corpus build e'
+marcato `benchmark.dpr_snapshot_deprecation` (vedi
+`tools/deprecate_dpr_snapshot_gpt_a.py`). Il tool resta in repo per la
+generazione orchestrata delle build (flow/export), ma ogni valore DPR va
+presentato con badge "stima non verificata" — rimozione dopo Leva 2.
+"""
 
 from __future__ import annotations
 
