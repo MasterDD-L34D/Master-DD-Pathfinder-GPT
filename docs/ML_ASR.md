@@ -86,12 +86,42 @@ voiceprint è dato biometrico e richiede design dedicato (consenso
 esplicito per-partecipante, storage separato, retention, diritto di
 cancellazione) — da affrontare con REQ-010 completa nel blocco ML Fase 6.
 
+### DER su sintetico degradato (2026-07-27)
+
+Harness DER in casa (`src/ml/der.py` + CLI `data/ml_smoke/eval_der.py`,
+~70 righe, nessuna dipendenza nuova): NIST semplificato su griglia da
+10 ms — DER = (miss + false alarm + confusion) / speaker-time reference,
+con mapping ottimo S1..Sn → speaker veri per forza bruta (le etichette
+ipotesi sono anonime); overlap contato per speaker-time come NIST; niente
+collare di tolleranza ai confini (semplificazione dichiarata).
+
+Campione `data/ml_smoke/clip_overlap.wav` (gitignored, rigenerabile con
+`gen_overlap_clip.py`): clip_a (Diego, 8,2s) + clip_b (Elsa, 7,2s) mixate
+con **3,0s di overlap artificiale** al centro + rumore bianco leggero;
+ground truth a intervalli in `ground_truth_overlap.json` (presenza clip
+nel mix, non attività vocale esatta — approssimazione dichiarata).
+
+Risultato pipeline reale (faster-whisper small/cpu + resemblyzer,
+`diarize=true`): **DER 35,0%** (scored 15,4s speaker-time; miss 3,4s,
+confusion 2,0s, false alarm 0; mapping S1→A, S2→B corretto). La pipeline
+tiene i due cluster ma **sull'overlap whisper attribuisce il parlato
+misto a una sola voce** (i segmenti whisper non possono rappresentare due
+speaker simultanei) e la voce B entra solo a overlap finito: il DER sale
+da ~0% (2voci senza overlap) a 35%. È il comportamento atteso di una
+diarizzazione segment-level su audio sovrapposto, documentato com'è.
+
+**Questa misura NON chiude REQ-010**: il gate formale della REQ-010 piena
+richiede DER/attribution misurati su **audio reale di sessione**
+(registrazione di gioco multivoce annotata), che oggi non esiste. Il
+sintetico degradato serve solo a fissare un harness e un baseline di
+riferimento; REQ-010 piena resta aperta in attesa di audio reale.
+
 ## Privacy e vincoli
 
 - **Audio originale immutabile (REQ-001)**: WORM in `ML_AUDIO_DIR/<sha16>_<nome>`, dedup per sha256, mai riscritto.
 - **Consenso (REQ-002)**: gate lato pathmaster alla creazione sessione; questo servizio è un transcodificatore "dumb" e non gestisce consenso.
 - **Upload max**: 200 MB (sessioni da ore restano fuori v1).
-- **Fuori scope v1**: diarizzazione (REQ-010), voiceprint (REQ-012), purge (REQ-015), misura WER/CER (serve corpus audio reale).
+- **Fuori scope v1**: voiceprint (REQ-012), purge (REQ-015), misura WER/CER formale (serve corpus audio reale). Diarizzazione: v1 shipped (sezione sopra); DER/attribution su audio reale resta gate aperto di REQ-010 piena.
 
 ## Test
 

@@ -1,0 +1,18 @@
+{
+  "nota": "intervalli di PRESENZA delle clip nel mix (voce A = it-IT-DiegoNeural, voce B = it-IT-ElsaNeural), non attivita' vocale esatta",
+  "overlap_seconds": 3.0,
+  "b_gain": 0.9,
+  "noise_amplitude": 0.003,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 8.18,
+      "speaker": "A"
+    },
+    {
+      "start": 5.18,
+      "end": 12.38,
+      "speaker": "B"
+    }
+  ]
+}
