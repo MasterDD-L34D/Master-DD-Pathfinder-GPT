@@ -116,6 +116,56 @@ richiede DER/attribution misurati su **audio reale di sessione**
 sintetico degradato serve solo a fissare un harness e un baseline di
 riferimento; REQ-010 piena resta aperta in attesa di audio reale.
 
+### DER su conversazioni reali italiane (ASR-ItaCSC, 2026-07-28)
+
+Dataset **ASR-ItaCSC** (Magic Data Technology Co., Ltd., via MagicHub,
+"Magic Data open-source license"; fonte, licenza e attribuzione in
+`data/ml_benchmark/NOTICE.md`): 14 conversazioni spontanee registrate su
+mobile indoor, 3 coppie di parlanti, WAV 16 kHz mono **una traccia per
+speaker** + TXT per traccia con `[start,end]\tspeaker\tgender\ttesto` —
+timestamp e speaker già presenti, **nessun forced alignment necessario**
+(converter `data/ml_benchmark/prepare_itacsc_groundtruth.py`, test
+`tests/test_prepare_itacsc_groundtruth.py`).
+
+**Metodo**: per ogni conversazione scelta si mixano le due tracce 50/50 in
+mono (stesso clock condiviso, verificato: il primo turno annotato di G0002
+"OK grande Fra sì sta registrando" [1,2-4,3s] coincide col primo segmento
+whisper del mix [1,0-8,4s]) e si limita ai **primi 300 s** (costo CPU);
+ground truth = unione dei turni annotati delle due tracce sulla stessa
+finestra (overlap naturale, contato per speaker-time dalla griglia di
+`src/ml/der.py`). Pipeline reale invariata: faster-whisper small/cpu/int8
++ resemblyzer, `diarize=true` (`data/ml_benchmark/run_itacsc_der.py`).
+Criteri di scelta: una conversazione per coppia di parlanti (3 voci
+diverse per genere), coprendo il caso peggiore F/F e l'overlap massimo
+del corpus: A0001_S001 (F+M, overlap 116 s su 1301 s), A0002_S006 (F+M,
+overlap 298,7 s — il massimo), A0003_S001 (F+F, overlap 106 s).
+
+**Risultati** (300 s per conversazione, griglia 10 ms, mapping ottimo):
+
+| conversazione | DER | scored (speaker-time) | miss | false alarm | confusion | mapping |
+|---|---|---|---|---|---|---|
+| A0001_S001 (F+M) | **53,3%** | 303,8 s | 0,7 s | 79,0 s | 82,1 s | S1→G0002 (un solo cluster!) |
+| A0002_S006 (F+M) | **81,0%** | 334,6 s | 0,3 s | 116,2 s | 154,3 s | S1→G0003, S2→G0004 (S2: 4 s) |
+| A0003_S001 (F+F) | **38,8%** | 278,2 s | 31,2 s | 37,2 s | 39,6 s | S1→G0006, S2→G0005 (bilanciato) |
+
+Media aritmetica: **57,7%** — molto peggio del baseline sintetico (35,0%).
+Diagnosi onesta, confermata dai transcript (gitignored): su audio reale
+mobile il clustering sequenziale resemblyzer (soglia 0,30) **collassa i
+due parlanti in un cluster unico** nei casi F+M (A0001: 48/48 segmenti
+S1; A0002: S2 solo 4 s su 296) mentre separa bene la coppia F/F (A0003:
+S1 137 s / S2 108 s) — l'effetto "una sola voce sull'overlap" visto sul
+sintetico qui si somma al fallimento di separazione; inoltre i segmenti
+whisper fondono turni brevi adiacenti (A0001: 299,9 s coperti su 300),
+gonfiando il false alarm nei micro-silenzi fra turni. Il sintetico TTS
+(voci pulite e molto distanti) era quindi un proxy **ottimista**.
+
+**Frase onesta**: questa è una misura su conversazioni reali italiane
+annotate — proxy molto più fedele del sintetico — ma **NON è ancora il
+gate formale REQ-010**, che resta "audio reale di sessione di gioco"
+(registrazione multivoce consensuale annotata). Zip, mix, transcript e
+ground truth JSON restano in `data/ml_benchmark/itacsc/` (gitignored,
+rigenerabili; licenza Magic Data: dati mai in git).
+
 ## Privacy e vincoli
 
 - **Audio originale immutabile (REQ-001)**: WORM in `ML_AUDIO_DIR/<sha16>_<nome>`, dedup per sha256, mai riscritto.

@@ -44,5 +44,9 @@ data/ml_smoke/*.mp3
 data/ml_smoke/*.wav
 data/ml_smoke/transcript*.json
 
+# Benchmark DER su ASR-ItaCSC: dataset, mix, transcript e ground truth
+# rigenerabili (licenza Magic Data: dati mai in git, vedi data/ml_benchmark/NOTICE.md)
+data/ml_benchmark/itacsc/
+
 # Audio WORM del servizio ML (REQ-001): dati utente/locali, mai in git
 src/data/ml/audio/
