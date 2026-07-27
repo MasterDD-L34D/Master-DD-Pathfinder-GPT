@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
 import time
 import urllib.error
 import urllib.parse
@@ -21,6 +22,13 @@ from src.ml.comfy_workflows import MODELS, build_workflow
 from src.ml.imagine import ImagineUnavailable, _seed_from
 
 DEFAULT_COMFY_URL = "http://127.0.0.1:8188"
+
+_UNREACHABLE_MSG = ("ComfyUI non raggiungibile su {base} (avvia: "
+                    "run_nvidia_gpu.bat in ComfyUI_windows_portable)")
+
+
+class _ComfyDown(ImagineUnavailable):
+    """Server non raggiungibile: il chiamante puo' tentare l'autostart."""
 
 
 def parse_loras() -> dict:
@@ -72,12 +80,44 @@ class ComfyUIEngine:
             raise ImagineUnavailable(
                 f"ComfyUI: HTTP {exc.code} da {url.split(self._base)[-1]}: {body}") from exc
         except (urllib.error.URLError, ConnectionError, OSError) as exc:
-            raise ImagineUnavailable(
-                f"ComfyUI non raggiungibile su {self._base} "
-                "(avvia: run_nvidia_gpu.bat in ComfyUI_windows_portable)") from exc
+            raise _ComfyDown(_UNREACHABLE_MSG.format(base=self._base)) from exc
+
+    def _is_up(self) -> bool:
+        try:
+            with urllib.request.urlopen(f"{self._base}/system_stats", timeout=3):
+                return True
+        except Exception:
+            return False
+
+    def _autostart(self) -> bool:
+        """Nota operativa F3: ComfyUI si avvia AL BISOGNO. Se
+        ML_IMG_COMFY_START_CMD e' configurata, lo lancia e attende la
+        readiness (polling /system_stats). Ritorna True se il server e' su."""
+        cmd = os.environ.get("ML_IMG_COMFY_START_CMD", "")
+        if not cmd:
+            return False
+        subprocess.Popen(cmd, cwd=os.environ.get("ML_IMG_COMFY_START_CWD") or None,
+                         shell=True,
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        timeout_s = int(os.environ.get("ML_IMG_COMFY_START_TIMEOUT_S", "180"))
+        deadline = time.monotonic() + timeout_s
+        while time.monotonic() < deadline:
+            if self._is_up():
+                return True
+            time.sleep(max(self._poll_s, 0.5))
+        return False
 
     def generate(self, prompt: str, width: int, height: int,
                  seed: int | None, lora: str | None = None) -> dict:
+        try:
+            return self._generate_once(prompt, width, height, seed, lora)
+        except _ComfyDown:
+            if self._autostart():
+                return self._generate_once(prompt, width, height, seed, lora)
+            raise ImagineUnavailable(_UNREACHABLE_MSG.format(base=self._base))
+
+    def _generate_once(self, prompt: str, width: int, height: int,
+                       seed: int | None, lora: str | None = None) -> dict:
         seed_val = _seed_from(prompt, seed)
         lora_spec = None
         if lora:

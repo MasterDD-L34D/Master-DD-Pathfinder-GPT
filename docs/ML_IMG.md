@@ -54,6 +54,21 @@ La request accetta `"lora": "fantasy-map"`: il workflow guadagna un nodo
 flux rifiutano `lora` con 501 onesto. Alias sconosciuto o env malformato →
 501. Niente path arbitrari dalla API: i file LoRA si registrano solo da env.
 
+### Avvio al bisogno (autostart)
+
+Con `ML_IMG_ENGINE=comfyui`, se ComfyUI non risponde l'engine può avviarlo
+da solo (verificato: boot + generazione in ~20 s):
+
+```bash
+ML_IMG_COMFY_START_CMD=cmd /c run_nvidia_gpu.bat
+ML_IMG_COMFY_START_CWD=C:/AI/ferrospora-spike/ComfyUI_windows_portable
+ML_IMG_COMFY_START_TIMEOUT_S=240
+```
+
+Senza `ML_IMG_COMFY_START_CMD` il comportamento resta il 501 onesto con
+istruzioni di avvio manuale. Su questa macchina la configurazione è già in
+`.env` (engine default `comfyui` + modello `sdxl`).
+
 ## Note
 
 - Il fake combina sempre prompt+seed: seed uguale su prompt diversi NON dà

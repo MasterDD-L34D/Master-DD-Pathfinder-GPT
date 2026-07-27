@@ -80,6 +80,54 @@ def test_engine_unreachable_is_honest(monkeypatch):
         engine.generate("p", 64, 64, 1)
 
 
+def test_autostart_lancia_comfy_e_riprova(monkeypatch):
+    """Server giu' + ML_IMG_COMFY_START_CMD: spawn + attesa readiness + retry."""
+    monkeypatch.setenv("ML_IMG_COMFY_START_CMD", "cmd /c run_nvidia_gpu.bat")
+    monkeypatch.setenv("ML_IMG_COMFY_START_CWD", "C:/comfy")
+    monkeypatch.setenv("ML_IMG_COMFY_START_TIMEOUT_S", "5")
+    spawned = []
+    monkeypatch.setattr("subprocess.Popen", lambda *a, **k: spawned.append((a, k)) or type("P", (), {})())
+
+    state = {"prompt_failed": False}
+
+    def fake_urlopen(req, timeout=0):
+        url = req.full_url if hasattr(req, "full_url") else req
+        if url.endswith("/system_stats"):
+            return FakeResp({"system": {}})
+        if url.endswith("/prompt"):
+            if not state["prompt_failed"]:
+                state["prompt_failed"] = True  # primo tentativo: server giu'
+                raise URLError("connection refused")
+            return FakeResp({"prompt_id": "pid-1"})
+        if "/history/" in url:
+            return FakeResp({"pid-1": {"outputs": {"7": {"images": [
+                {"filename": "x.png", "subfolder": "", "type": "output"}]}}}})
+        if "/view" in url:
+            return FakeResp(b"\x89PNG\r\n\x1a\nx", binary=True)
+        raise AssertionError(url)
+
+    monkeypatch.setattr("urllib.request.urlopen", fake_urlopen)
+    engine = ComfyUIEngine("http://127.0.0.1:8188", "sdxl", poll_interval_s=0)
+    out = engine.generate("p", 64, 64, 1)
+    assert out["png"].startswith(b"\x89PNG")
+    assert spawned, "Popen non invocato per l'autostart"
+
+
+def test_autostart_fallito_restituisce_501(monkeypatch):
+    """Autostart configurato ma il server non sale mai: 501 onesto finale."""
+    monkeypatch.setenv("ML_IMG_COMFY_START_CMD", "cmd /c run_nvidia_gpu.bat")
+    monkeypatch.setenv("ML_IMG_COMFY_START_TIMEOUT_S", "0")
+    monkeypatch.setattr("subprocess.Popen", lambda *a, **k: type("P", (), {})())
+
+    def boom(req, timeout=0):
+        raise URLError("connection refused")
+
+    monkeypatch.setattr("urllib.request.urlopen", boom)
+    engine = ComfyUIEngine("http://127.0.0.1:8188", "sdxl")
+    with pytest.raises(ImagineUnavailable, match="run_nvidia_gpu"):
+        engine.generate("p", 64, 64, 1)
+
+
 def test_engine_poll_timeout(monkeypatch):
     def fake_urlopen(req, timeout=0):
         url = req.full_url if hasattr(req, "full_url") else req
