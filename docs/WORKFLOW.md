@@ -58,6 +58,41 @@ Il builder deterministico è consumato dall'harness a tre vie di pathmaster-dd c
 | **Regola ground-truth condivisa** | Permanente | Doc = ipotesi; git + SRD = verità. La concordanza a tre NON è correttezza: nei disaccordi si apre il SRD, non si vota a maggioranza. |
 | **Copertura oracolo** | **29/29 raggiunta; rilancio ESEGUITO** | 2026-07-25 sera: rilancio completo sulle 28 build base (`tools/oracle-three-way.mjs` + `tools/oracle_three_way.py`, report `reports/oracle_three_way.md`). **2 bug condivisi v1+v2 trovati e fixati** (`99f72c4`: kasatha abilityAdjustments str/wis/int−2 → **dex/wis** da AoN; hunter BAB "full" → **threeQuarter**): hunter_kasatha tornata CONCORDE. Stati finali: 2 concorde, 1 diverge (nota: limite dichiarato engine Taverna — effetti talenti fuori modello, §4), 10 `FUORI_BUDGET_GPT` (point-buy 26–41 > 25: stats illegali corpus), 10 `FEAT_ILLEGALE_GPT` (conteggio talenti > RAW a lv1, nota spike), 2 `PREREQ_ILLEGALE_GPT` (prerequisito non soddisfatto), 4 flex indeterminato, 3 statline duplicate (A4: fighter_dwarf = druid_half_orc = ranger_halfelf). **Decisione C (2026-07-25)**: registry `src/data/builds/_oracle_defects.json` (26 build flaggate, rigenerato dall'oracolo) = sottoinsieme legale per i test dei motori; ricostruzione onesta del corpus = lotto futuro (A). |
 
+### 5.1 Lotto A (G1) — tabella decisioni rebuild corpus GPT-A (2026-07-27)
+
+Decisioni controller 2026-07-25 (congelate): budget point-buy **25 (Epic Fantasy)**; talenti centrali tenuti, accessori droppati, prerequisiti RAW al livello; sostituzioni dichiarate; statline duplicate ridisegnate 25pb editoriali; flex dichiarato via contratto `sheet_payload.bonus_razziale_flessibile` (E6-A6); derivati (PF/TS/CA/BAB/skill) ricalcolati dal builder `src/pc`, mai mantenuti GPT-A. La stessa tabella vive come dati auditabili (`DECISIONS`) in cima a `tools/rebuild_corpus_gpt_a.py` (dry-run `--dry-run`, backup in `src/data/builds/archive/`, idempotente; test `tests/test_rebuild_corpus_gpt_a.py`).
+
+| Build | Difetti | Correzione |
+|---|---|---|
+| alchemist-goblin-vivisectionist | feat_count | tieni Iniziativa migliorata; droppa Colpo possente (RAW Forza 13, FOR 12) |
+| alchemist_goblin_bombardier | feat_count | tieni Iniziativa migliorata; droppa Colpo possente (mischia, off-concept bombe) |
+| arcanist_tiefling_hexcrafter_blood_arcanist | feat_count | tieni Spell Focus (maledizioni) (hex); droppa Accuratezza Magica |
+| barbarian_fetchling_invulnerable_rager | feat_count | tieni Colpo possente (FOR 16, BAB pieno); droppa Iniziativa migliorata |
+| bard_kitsune_sound_striker_sandman | stats 31pb | nuova 8/14/13/12/10/18 (25pb, CAR); latente: 3 talenti → tieni Focalizzazione Abilità: Intrattenere, droppa Armonia Letale + Scacciare Sogni (prereq Perform 5/3 gradi, illegali lv1) |
+| bloodrager-shabti-steelblood-metamagic-rager | feat_count | tieni Colpo possente; droppa Iniziativa migliorata |
+| brawler_grippli_mutagenic_mauler_strangler | stats 29pb | nuova 16/16/14/10/13/7 (24pb, FOR/DES) |
+| cavalier_strix_strategist_honor_guard | stats 33pb | nuova 17/13/14/12/10/12 (25pb, FOR primaria, CAR strategist) |
+| cleric_samsaran_cloistered_evangelist | feat_count | tieni Iniziativa migliorata; droppa Colpo possente (concept bardico) |
+| druid_half_orc_feral | flex + duplicata | NUOVA 15/13/14/10/17/7 (24pb, SAG) + flex SAG → SAG 19; latente: 2 talenti → tieni Iniziativa migliorata |
+| druid_wayang_mooncaller_shapeshifter | feat_count | tieni Iniziativa migliorata; droppa Colpo possente (RAW BAB +1, BAB +0) |
+| fighter_dwarf_shielded | duplicata | tiene statline 16/14/14/10/12/8 (20pb) e i 2 talenti (slot fighter 3): legale |
+| fighter_weapon_master_human | flex | statline invariata (20pb); flex FOR → FOR 18 |
+| gunslinger_strix_gun_tank | stats 27pb | nuova 13/17/14/10/14/8 (24pb, DES/COS) |
+| gunslinger_tengu_pistolero_bolt_ace | stats 26pb | nuova 12/18/13/10/14/8 (25pb, DES bolt ace) |
+| investigator_catfolk_empiricist_psychic_detective | stats 40pb | nuova 10/16/12/17/12/8 (25pb, INT) |
+| kineticist_strix_kinetic_knight_overwhelming_soul | stats 33pb | nuova 12/16/13/10/10/16 (25pb, CAR/DES) |
+| kineticist_suli_kinetic_knight_overwhelming_soul | stats 41pb | nuova 14/14/13/8/10/17 (24pb, CAR) |
+| magus_kitsune_bladebound_hexcrafter | stats 27pb | nuova 10/16/13/16/10/12 (25pb, INT/DES); sheet_payload.statistiche era assente: ora garantito |
+| medium_oread_spirit_dancer_reanimated_medium | feat_count | tieni Iniziativa migliorata; droppa Colpo possente (concept caster) |
+| monk_vanara_qinggong_master_of_many_styles | feat_count + prereq | 4→2: Tiger Style → **Scorpion Style** (sostituzione dichiarata; prereq IUS concesso monk), Crane Style → **Dodge**; droppata voce combinata "Tiger Style + Crane Style" (non in catalogo) |
+| ranger_halfelf_skirmisher | flex + duplicata | NUOVA 14/17/13/10/14/8 (24pb, DES) + flex DES → DES 19; latente: 2 talenti → tieni Iniziativa migliorata |
+| rogue_halfling_cutpurse | prereq | Arma accurata → **Skill Focus (Sleight of Hand)** (sostituzione dichiarata; BAB +1 irraggiungibile al lv1, reintegro lv3) |
+| witch_sylph_gravewalker_hedge_witch | stats 34pb | nuova 8/14/12/18/12/10 (24pb, INT) |
+| wizard_elf_universalist | feat_count | tieni Iniziativa migliorata; droppa Colpo possente (concept caster) |
+| wizard_human_evoker | flex | statline invariata (20pb legale, editoriale povera: dichiarato); flex INT |
+
+Limiti dichiarati del rebuild: archetipi non modellati dal builder (restano flavor); aumenti caratteristica lv4/8 non modellati (varianti _lvl05/_lvl10 tengono la statline del lv1); varianti ereditano i talenti corretti del lv1 (scelta legale a ogni livello), `progressione[lv>1].talenti = []`; equip/inventario/attacco/danni/velocità restano flavor GPT-A (builder senza equip: CA = 10 + DES + taglia); skill GPT trattate come scelte (nomi IT→EN mappati, gradi = livello fino a budget, totali dal builder; "Conoscenze" generico droppato).
+
 ## 6. Come si riprende in futuro (checklist)
 
 1. Leggi `sessione-2026-07-16/HANDOFF_ATTIVO.md` (stato corrente) e `AGENTS.md`.
