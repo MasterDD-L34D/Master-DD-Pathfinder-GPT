@@ -70,6 +70,7 @@ class ImagineRequest(BaseModel):
     seed: int | None = None
     engine: str | None = None  # override puntuale (es. testare flux con env=fake)
     lora: str | None = None    # alias dal registry ML_IMG_LORAS (solo comfyui)
+    negative_prompt: str | None = Field(default=None, max_length=2000)
 
 
 @router.post("/imagine")
@@ -77,7 +78,7 @@ def imagine(req: ImagineRequest):
     try:
         engine = get_imagine_engine(req.engine)
         result = engine.generate(req.prompt, req.width, req.height, req.seed,
-                                 lora=req.lora)
+                                 lora=req.lora, negative_prompt=req.negative_prompt)
     except ImagineUnavailable as exc:
         raise HTTPException(501, str(exc)) from exc
     image_dir = _image_dir()
@@ -85,7 +86,7 @@ def imagine(req: ImagineRequest):
     save_image_manifest(image_id, {
         "prompt": req.prompt, "seed": req.seed, "engine": result["engine"],
         "width": result["width"], "height": result["height"],
-        "sha256": sha, "lora": req.lora,
+        "sha256": sha, "lora": req.lora, "negative_prompt": req.negative_prompt,
     }, image_dir)
     return {"imageId": image_id, "sha256": sha, "mimeType": "image/png",
             "width": result["width"], "height": result["height"],

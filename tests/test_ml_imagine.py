@@ -91,6 +91,22 @@ def test_imagine_input_validation(monkeypatch, tmp_path):
     assert client.post("/ml/imagine", json={"prompt": ""}).status_code == 422
     assert client.post("/ml/imagine", json={"prompt": "x", "width": 32}).status_code == 422
     assert client.post("/ml/imagine", json={"prompt": "x" * 2001}).status_code == 422
+    assert client.post("/ml/imagine", json={"prompt": "x", "negative_prompt": "y" * 2001}).status_code == 422
+
+
+def test_imagine_negative_prompt_end_to_end(monkeypatch, tmp_path):
+    client = _client(monkeypatch, tmp_path)
+    resp = client.post("/ml/imagine", json={
+        "prompt": "mappa dungeon", "negative_prompt": "griglia",
+        "width": 64, "height": 64, "seed": 3})
+    assert resp.status_code == 200, resp.text
+    data = resp.json()
+    meta = json.loads((tmp_path / f"{data['imageId']}.json").read_text(encoding="utf-8"))
+    assert meta["negative_prompt"] == "griglia"
+    # il negative entra nel seed: stesso prompt/seed senza negative -> altro sha
+    other = client.post("/ml/imagine", json={
+        "prompt": "mappa dungeon", "width": 64, "height": 64, "seed": 3}).json()
+    assert other["sha256"] != data["sha256"]
 
 
 def test_imagine_get_errors(monkeypatch, tmp_path):

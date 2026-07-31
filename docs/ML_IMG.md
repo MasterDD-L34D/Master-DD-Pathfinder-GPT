@@ -9,24 +9,30 @@ token), ratificata in PRD §9.2. Contratto completo:
 ```
 POST /ml/imagine
 { "prompt": "dungeon di pietra umida", "width": 1024, "height": 768,
-  "seed": 42, "engine": "comfyui-sdxl", "lora": "fantasy-map" }
+  "seed": 42, "engine": "comfyui-sdxl", "lora": "fantasy-map",
+  "negative_prompt": "grid, watermark, text" }
 → 200 { "imageId": "img_<sha16>", "sha256": "...", "mimeType": "image/png",
         "width": 1024, "height": 768, "engine": "comfyui-sdxl" }
-→ 422 input invalido (prompt vuoto/>2000 char, width/height fuori 64..1536)
+→ 422 input invalido (prompt vuoto/>2000 char, width/height fuori 64..1536,
+  negative_prompt >2000 char)
 → 501 nessun engine configurato/disponibile (messaggio con istruzioni)
 
 GET /ml/imagine/{imageId} → 200 bytes PNG · 404 · 400 (id malformato)
 ```
 
-- `seed`, `width`, `height`, `engine` sono opzionali (default 1024×1024,
-  engine da env). `engine` nella request forza un engine diverso dal
-  default (utile per provare `flux` senza cambiare env).
+- `seed`, `width`, `height`, `engine`, `lora`, `negative_prompt` sono
+  opzionali (default 1024×1024, engine da env, negative vuoto).
+  `engine` nella request forza un engine diverso dal default (utile per
+  provare `flux` senza cambiare env). Il negative prompt (IMG-08) finisce nel
+  nodo `CLIPTextEncode` negativo dei workflow (flux-schnell a cfg 1.0 lo
+  ignora) ed entra nel seed: stesso prompt+seed con negative diversi →
+  immagini diverse.
 - Le immagini sono **WORM content-addressed** in `data/ml/images/`
   (override env `ML_IMG_DIR`): stesso contenuto → stesso `imageId`.
 - Ogni PNG ha un **manifest sidecar** `img_<sha16>.json` (write-once come
-  il PNG) con `prompt`, `seed`, `engine`, `width`, `height`, `sha256`,
-  `lora` e `created_at` (UTC): la provenienza della generazione sopravvive
-  al riavvio senza un DB.
+  il PNG) con `prompt`, `negative_prompt`, `seed`, `engine`, `width`,
+  `height`, `sha256`, `lora` e `created_at` (UTC): la provenienza della
+  generazione sopravvive al riavvio senza un DB.
 
 ## Engine (`ML_IMG_ENGINE`, default `off`)
 
@@ -57,6 +63,35 @@ La request accetta `"lora": "fantasy-map"`: il workflow guadagna un nodo
 `LoraLoader` (strength su model+clip). Solo engine `comfyui-*`: fake/api/
 flux rifiutano `lora` con 501 onesto. Alias sconosciuto o env malformato →
 501. Niente path arbitrari dalla API: i file LoRA si registrano solo da env.
+Le chiavi opzionali `cfg` e `steps` nella entry (IMG-08) sovrascrivono i
+valori del KSampler **solo per quel LoRA**: servono per le impostazioni
+consigliate dall'autore del LoRA, senza toccare i default dei workflow.
+
+#### LoRA battlemap installato (IMG-08, 2026-08-01)
+
+- **"DnD Battlemaps Generator"** (SDXL 1.0), alias registry `battlemap`:
+  file `dnd_battlemaps_generator_v1.safetensors` in
+  `ComfyUI/models/loras/` (fuori dal repo, niente git), registry in `.env`:
+  `{"battlemap": {"file": "...", "strength": 0.8, "cfg": 5.0, "steps": 35}}`.
+- **Fonte**: mirror HuggingFace
+  [`Fixedbot/sdxl_dnd_battlemap_lora`](https://huggingface.co/Fixedbot/sdxl_dnd_battlemap_lora)
+  (**Apache-2.0**, download anonimo). SHA256
+  `a4ac881262a0683141a8cd85c66a4b9a9b9bccef821107ca4510dd9e57a40a6b`
+  (23.390.424 byte) — **verificato byte-identico** al file Civitai
+  [model 2164519 / version 2437520](https://civitai.com/models/2164519)
+  (stesso autore/contenuto; Civitai richiede login per il download e dichiara
+  allowNoCredit, allowCommercialUse {Image, RentCivit, Rent}, allowDerivatives).
+- **Ricetta d'uso** (dall'autore + prove locali): trigger
+  `dnd battle map, top down view, 2d:` all'inizio del prompt; strength 0.8
+  (range 0.7-0.9); cfg 5.0 (range 4.5-6.0); steps 35 (range 30-40);
+  negative `blurry, grainy, 3d render, isometric, perspective, tilted, grid,
+  watermark, text` (+ `legend, parchment, border, frame` se compaiono
+  legenda/cornice da "mappa pubblicata" — il LoRA è trainato anche su
+  battlemap con legenda). Descrivere il layout esplicitamente (entrate/uscite
+  sui bordi); aspect ratio coerente con la forma (es. galleria → 1344x768).
+- **Limite osservato**: su aspect non quadrati il modello tende a ignorare il
+  vincolo top-down (scene in prospettiva): rafforzare con
+  `orthographic plan view seen directly from above` nel prompt.
 
 ### Avvio al bisogno (autostart)
 

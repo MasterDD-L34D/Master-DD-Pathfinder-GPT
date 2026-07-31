@@ -5,12 +5,16 @@ con class_type + inputs. Parametrizzati da (prompt, width, height, seed).
 Aggiungere un modello = aggiungere una entry in MODELS con il suo builder.
 LoRA (IMG-07): registry nominato via env ML_IMG_LORAS; quando richiesto si
 inserisce un LoraLoader che patcha MODEL+CLIP a valle del loader base.
+La entry puo' anche dichiarare "cfg"/"steps" consigliati dall'autore del
+LoRA (IMG-08): applicati come override al KSampler, solo per quel LoRA.
+Negative prompt (IMG-08): il nodo CLIPTextEncode negativo riceve il testo
+passato dalla API (default ""); flux-schnell (cfg 1.0) lo ignora.
 """
 from __future__ import annotations
 
 from typing import Callable
 
-LoraSpec = dict  # {"file": str, "strength": float}
+LoraSpec = dict  # {"file": str, "strength": float, "cfg"?: float, "steps"?: int}
 
 
 def _inject_lora(wf: dict, lora: LoraSpec, model_src: list, clip_src: list, node_id: str) -> dict:
@@ -31,14 +35,31 @@ def _inject_lora(wf: dict, lora: LoraSpec, model_src: list, clip_src: list, node
     return wf
 
 
-def _sdxl(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None) -> dict:
+def _apply_sampler_overrides(wf: dict, lora: LoraSpec) -> dict:
+    """Override opzionali cfg/steps dal registry LoRA (IMG-08): alcuni LoRA
+    dichiarano impostazioni consigliate dall'autore (es. battlemap: cfg 5,
+    steps 35) che diventano parte del registry, non magic number nel workflow."""
+    cfg, steps = lora.get("cfg"), lora.get("steps")
+    if cfg is None and steps is None:
+        return wf
+    for node in wf.values():
+        if node["class_type"] == "KSampler":
+            if cfg is not None:
+                node["inputs"]["cfg"] = cfg
+            if steps is not None:
+                node["inputs"]["steps"] = steps
+    return wf
+
+
+def _sdxl(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None,
+          negative_prompt: str = "") -> dict:
     wf = {
         "1": {"class_type": "CheckpointLoaderSimple",
               "inputs": {"ckpt_name": "sd_xl_base_1.0.safetensors"}},
         "2": {"class_type": "CLIPTextEncode",
               "inputs": {"text": prompt, "clip": ["1", 1]}},
         "3": {"class_type": "CLIPTextEncode",
-              "inputs": {"text": "", "clip": ["1", 1]}},
+              "inputs": {"text": negative_prompt, "clip": ["1", 1]}},
         "4": {"class_type": "EmptyLatentImage",
               "inputs": {"width": width, "height": height, "batch_size": 1}},
         "5": {"class_type": "KSampler",
@@ -57,8 +78,11 @@ def _sdxl(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None
     return wf
 
 
-def _flux(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None) -> dict:
-    # FLUX.1-schnell GGUF: UnetLoaderGGUF + DualCLIPLoader + VAE dedicato
+def _flux(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None,
+          negative_prompt: str = "") -> dict:
+    # FLUX.1-schnell GGUF: UnetLoaderGGUF + DualCLIPLoader + VAE dedicato.
+    # N.B. schnell gira a cfg=1.0: il negative non viene usato (input negative
+    # cablato sul positivo); negative_prompt e' accettato ma ignorato qui.
     wf = {
         "1": {"class_type": "UnetLoaderGGUF",
               "inputs": {"unet_name": "flux1-schnell-Q4_K_S.gguf"}},
@@ -87,7 +111,8 @@ def _flux(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None
     return wf
 
 
-def _sd35m(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None) -> dict:
+def _sd35m(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None,
+           negative_prompt: str = "") -> dict:
     # SD 3.5 Medium GGUF: UnetLoaderGGUF + TripleCLIPLoader + VAE 16ch
     # dedicata (la GGUF non la include; quella SDXL a 4 canali NON decodifica
     # i latent SD3 a 16 canali — bug smoke IMG-06). Latent: EmptySD3LatentImage.
@@ -101,7 +126,7 @@ def _sd35m(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | Non
         "3": {"class_type": "CLIPTextEncode",
               "inputs": {"text": prompt, "clip": ["2", 0]}},
         "4": {"class_type": "CLIPTextEncode",
-              "inputs": {"text": "", "clip": ["2", 0]}},
+              "inputs": {"text": negative_prompt, "clip": ["2", 0]}},
         "5": {"class_type": "EmptySD3LatentImage",
               "inputs": {"width": width, "height": height, "batch_size": 1}},
         "6": {"class_type": "KSampler",
@@ -122,7 +147,8 @@ def _sd35m(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | Non
     return wf
 
 
-def _qwen(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None) -> dict:
+def _qwen(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None = None,
+          negative_prompt: str = "") -> dict:
     # Qwen-Image GGUF: UnetLoaderGGUF + CLIPLoaderGGUF (VL 7B GGUF — il
     # fp8_scaled safetensors NON si mixa con unet GGUF, bug smoke IMG-06)
     # + VAE dedicato.
@@ -137,7 +163,7 @@ def _qwen(prompt: str, width: int, height: int, seed: int, lora: LoraSpec | None
         "4": {"class_type": "CLIPTextEncode",
               "inputs": {"text": prompt, "clip": ["2", 0]}},
         "5": {"class_type": "CLIPTextEncode",
-              "inputs": {"text": "", "clip": ["2", 0]}},
+              "inputs": {"text": negative_prompt, "clip": ["2", 0]}},
         "6": {"class_type": "EmptyLatentImage",
               "inputs": {"width": width, "height": height, "batch_size": 1}},
         "7": {"class_type": "KSampler",
@@ -165,11 +191,15 @@ MODELS: dict[str, Callable[..., dict]] = {
 
 
 def build_workflow(model: str, prompt: str, width: int, height: int, seed: int,
-                   lora: LoraSpec | None = None) -> dict:
+                   lora: LoraSpec | None = None, negative_prompt: str = "") -> dict:
     from src.ml.imagine import ImagineUnavailable
     builder = MODELS.get(model)
     if not builder:
         raise ImagineUnavailable(
             f"workflow sconosciuto: {model!r} (attesi: {', '.join(MODELS)})")
-    return builder(prompt, width, height, seed, lora=lora)
+    wf = builder(prompt, width, height, seed, lora=lora,
+                 negative_prompt=negative_prompt)
+    if lora:
+        _apply_sampler_overrides(wf, lora)
+    return wf
 

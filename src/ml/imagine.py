@@ -36,13 +36,16 @@ class ImagineEngine(Protocol):
     name: str
 
     def generate(self, prompt: str, width: int, height: int,
-                 seed: int | None, lora: str | None = None) -> ImagineResult: ...
+                 seed: int | None, lora: str | None = None,
+                 negative_prompt: str | None = None) -> ImagineResult: ...
 
 
-def _seed_from(prompt: str, seed: int | None) -> int:
+def _seed_from(prompt: str, seed: int | None,
+               negative_prompt: str | None = None) -> int:
     """Il prompt entra SEMPRE nel seed (esplicito o meno): seed uguale su
-    prompt diversi non deve dare immagini identiche."""
-    material = f"{prompt}|{seed if seed is not None else ''}"
+    prompt diversi non deve dare immagini identiche. Vale anche per il
+    negative prompt (IMG-08): cambia il condizionamento, quindi cambia seed."""
+    material = f"{prompt}|{negative_prompt or ''}|{seed if seed is not None else ''}"
     return int.from_bytes(hashlib.sha256(material.encode("utf-8")).digest()[:8], "big")
 
 
@@ -73,10 +76,11 @@ class FakeImagineEngine:
     name = "fake"
 
     def generate(self, prompt: str, width: int, height: int,
-                 seed: int | None, lora: str | None = None) -> ImagineResult:
+                 seed: int | None, lora: str | None = None,
+                 negative_prompt: str | None = None) -> ImagineResult:
         if lora:
             raise ImagineUnavailable("lora non supportato dall'engine fake")
-        s = _seed_from(prompt, seed)
+        s = _seed_from(prompt, seed, negative_prompt)
         return {"png": _fake_png(s, width, height),
                 "width": width, "height": height, "engine": self.name}
 
@@ -102,14 +106,16 @@ class FluxImagineEngine:
         self._pipe.to(self._device)
 
     def generate(self, prompt: str, width: int, height: int,
-                 seed: int | None, lora: str | None = None) -> ImagineResult:
+                 seed: int | None, lora: str | None = None,
+                 negative_prompt: str | None = None) -> ImagineResult:
         if lora:
             raise ImagineUnavailable("lora via engine flux diretto non supportato: usa comfyui")
         import io
         import torch
         generator = torch.Generator(device=self._device).manual_seed(
-            _seed_from(prompt, seed))
-        image = self._pipe(prompt, width=width, height=height,
+            _seed_from(prompt, seed, negative_prompt))
+        image = self._pipe(prompt, negative_prompt=negative_prompt or "",
+                           width=width, height=height,
                            num_inference_steps=4,  # schnell: pochi step
                            generator=generator).images[0]
         buf = io.BytesIO()
@@ -132,7 +138,8 @@ class ApiImagineEngine:
         self._api_key = api_key
 
     def generate(self, prompt: str, width: int, height: int,
-                 seed: int | None, lora: str | None = None) -> ImagineResult:
+                 seed: int | None, lora: str | None = None,
+                 negative_prompt: str | None = None) -> ImagineResult:
         if lora:
             raise ImagineUnavailable("lora non supportato dall'engine api")
         import json
@@ -141,6 +148,8 @@ class ApiImagineEngine:
         body = {"prompt": prompt, "width": width, "height": height}
         if seed is not None:
             body["seed"] = seed
+        if negative_prompt:
+            body["negative_prompt"] = negative_prompt
         headers = {"content-type": "application/json"}
         if self._api_key:
             headers["authorization"] = f"Bearer {self._api_key}"

@@ -108,17 +108,21 @@ class ComfyUIEngine:
         return False
 
     def generate(self, prompt: str, width: int, height: int,
-                 seed: int | None, lora: str | None = None) -> dict:
+                 seed: int | None, lora: str | None = None,
+                 negative_prompt: str | None = None) -> dict:
         try:
-            return self._generate_once(prompt, width, height, seed, lora)
+            return self._generate_once(prompt, width, height, seed, lora,
+                                       negative_prompt)
         except _ComfyDown:
             if self._autostart():
-                return self._generate_once(prompt, width, height, seed, lora)
+                return self._generate_once(prompt, width, height, seed, lora,
+                                           negative_prompt)
             raise ImagineUnavailable(_UNREACHABLE_MSG.format(base=self._base))
 
     def _generate_once(self, prompt: str, width: int, height: int,
-                       seed: int | None, lora: str | None = None) -> dict:
-        seed_val = _seed_from(prompt, seed)
+                       seed: int | None, lora: str | None = None,
+                       negative_prompt: str | None = None) -> dict:
+        seed_val = _seed_from(prompt, seed, negative_prompt)
         lora_spec = None
         if lora:
             lora_spec = self._loras.get(lora)
@@ -126,7 +130,8 @@ class ComfyUIEngine:
                 raise ImagineUnavailable(
                     f"lora sconosciuto: {lora!r} (registry ML_IMG_LORAS: "
                     f"{', '.join(self._loras) or 'vuoto'})")
-        wf = build_workflow(self._model, prompt, width, height, seed_val, lora=lora_spec)
+        wf = build_workflow(self._model, prompt, width, height, seed_val,
+                            lora=lora_spec, negative_prompt=negative_prompt or "")
         posted = self._json(f"{self._base}/prompt", {"prompt": wf})
         pid = posted.get("prompt_id")
         if not pid:

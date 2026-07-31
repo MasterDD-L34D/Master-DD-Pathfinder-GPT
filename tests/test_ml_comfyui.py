@@ -198,3 +198,70 @@ def test_fake_engine_rifiuta_lora_onestamente():
     fake = get_imagine_engine("fake")
     with pytest.raises(ImagineUnavailable, match="lora"):
         fake.generate("p", 64, 64, 1, lora="qualcosa")
+
+
+# --- negative prompt (IMG-08) ---
+
+
+def test_workflow_sdxl_negative_prompt():
+    wf = build_workflow("sdxl", "un dungeon", 512, 512, 42,
+                        negative_prompt="griglia, watermark")
+    assert wf["3"]["inputs"]["text"] == "griglia, watermark"
+    # omesso: resta la stringa vuota di prima
+    wf2 = build_workflow("sdxl", "un dungeon", 512, 512, 42)
+    assert wf2["3"]["inputs"]["text"] == ""
+
+
+def test_workflow_negative_prompt_anche_sd35m_e_qwen():
+    wf = build_workflow("sd35m", "p", 64, 64, 1, negative_prompt="neg")
+    assert wf["4"]["inputs"]["text"] == "neg"
+    wf = build_workflow("qwen", "p", 64, 64, 1, negative_prompt="neg")
+    assert wf["5"]["inputs"]["text"] == "neg"
+
+
+def test_engine_passa_negative_prompt_al_workflow(monkeypatch):
+    posted = []
+
+    def fake_urlopen(req, timeout=0):
+        url = req.full_url if hasattr(req, "full_url") else req
+        if url.endswith("/prompt"):
+            posted.append(json.loads(req.data.decode())["prompt"])
+            return FakeResp({"prompt_id": "pid-1"})
+        if "/history/" in url:
+            return FakeResp({"pid-1": {"outputs": {"7": {"images": [
+                {"filename": "x.png", "subfolder": "", "type": "output"}]}}}})
+        if "/view" in url:
+            return FakeResp(b"\x89PNG\r\n\x1a\nx", binary=True)
+        raise AssertionError(url)
+
+    monkeypatch.setattr("urllib.request.urlopen", fake_urlopen)
+    engine = ComfyUIEngine("http://127.0.0.1:8188", "sdxl", poll_interval_s=0)
+    engine.generate("p", 64, 64, 1, negative_prompt="griglia")
+    assert posted[0]["3"]["inputs"]["text"] == "griglia"
+
+
+def test_fake_engine_negative_prompt_cambia_seed():
+    fake = get_imagine_engine("fake")
+    a = fake.generate("p", 64, 64, 42)
+    b = fake.generate("p", 64, 64, 42, negative_prompt="griglia")
+    assert a["png"] != b["png"]
+    # stesso (prompt, negative, seed) -> deterministico
+    c = fake.generate("p", 64, 64, 42, negative_prompt="griglia")
+    assert b["png"] == c["png"]
+
+
+# --- override cfg/steps da registry LoRA (IMG-08) ---
+
+
+def test_lora_cfg_steps_override_sul_sampler():
+    lora = {"file": "l.safetensors", "strength": 0.8, "cfg": 5.0, "steps": 35}
+    wf = build_workflow("sdxl", "p", 64, 64, 1, lora=lora)
+    assert wf["5"]["inputs"]["cfg"] == 5.0
+    assert wf["5"]["inputs"]["steps"] == 35
+
+
+def test_lora_senza_override_lascia_i_default():
+    lora = {"file": "l.safetensors", "strength": 0.8}
+    wf = build_workflow("sdxl", "p", 64, 64, 1, lora=lora)
+    assert wf["5"]["inputs"]["cfg"] == 7.0
+    assert wf["5"]["inputs"]["steps"] == 25
