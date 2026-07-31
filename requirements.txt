@@ -12,3 +12,4 @@ sentence-transformers>=2.3
 numpy
 streamlit>=1.35
 beautifulsoup4  # opzionale, usato da tools/enrich_reference.py per scraping d20pfsrd
+python-dotenv>=1.0  # src/config.py carica .env (graceful se assente; CAM-08/09: senza, ML_IMG_* non si caricavano)
