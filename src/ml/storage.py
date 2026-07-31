@@ -3,7 +3,9 @@ e delle immagini generate (F3: content-addressed, write-once)."""
 from __future__ import annotations
 
 import hashlib
+import json
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 
 
@@ -33,4 +35,24 @@ def save_image_worm(data: bytes, image_dir: Path) -> tuple[Path, str, str]:
     if not path.exists():
         path.write_bytes(data)
     return path, sha, image_id
+
+
+def save_image_manifest(image_id: str, meta: dict, image_dir: Path) -> Path:
+    """Scrive (una sola volta) il sidecar `image_dir/<imageId>.json` coi
+    metadati di generazione (prompt, seed, engine, dimensioni, sha256,
+    lora; `created_at` UTC aggiunto qui).
+
+    Write-once come il PNG: content-addressed vuol dire che lo stesso
+    imageId puo' arrivare da una rigenerazione identica — il primo manifest
+    resta (dedup WORM, nessuna riscrittura). Ritorna il path."""
+    image_dir.mkdir(parents=True, exist_ok=True)
+    path = image_dir / f"{image_id}.json"
+    if not path.exists():
+        payload = {
+            "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            **meta,
+        }
+        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2,
+                                   sort_keys=True) + "\n", encoding="utf-8")
+    return path
 

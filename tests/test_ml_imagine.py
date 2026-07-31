@@ -1,4 +1,5 @@
 """Test per il servizio img-gen /ml/imagine (F3, contratto img-gen-design)."""
+import json
 import sys
 from pathlib import Path
 
@@ -6,7 +7,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from fastapi.testclient import TestClient
 
-from src.ml.storage import save_image_worm
+from src.ml.storage import save_image_manifest, save_image_worm
 
 PNG_MAGIC = b"\x89PNG\r\n\x1a\n"
 
@@ -96,3 +97,35 @@ def test_imagine_get_errors(monkeypatch, tmp_path):
     client = _client(monkeypatch, tmp_path)
     assert client.get("/ml/imagine/non-esiste").status_code == 400
     assert client.get("/ml/imagine/img_0000000000000000").status_code == 404
+
+
+def test_save_image_manifest_is_worm(tmp_path):
+    meta = {"prompt": "dungeon", "seed": 42, "engine": "fake",
+            "width": 64, "height": 64, "sha256": "ab" * 32}
+    p1 = save_image_manifest("img_" + "ab" * 8, meta, tmp_path)
+    data1 = json.loads(p1.read_text(encoding="utf-8"))
+    assert data1["prompt"] == "dungeon"
+    assert data1["seed"] == 42
+    assert data1["engine"] == "fake"
+    assert data1["created_at"]  # timestamp presente
+    # write-once: un secondo save (meta diversi) NON riscrive il manifest
+    p2 = save_image_manifest("img_" + "ab" * 8, {**meta, "prompt": "altro"}, tmp_path)
+    assert p2 == p1
+    assert json.loads(p1.read_text(encoding="utf-8"))["prompt"] == "dungeon"
+
+
+def test_imagine_writes_manifest_sidecar(monkeypatch, tmp_path):
+    client = _client(monkeypatch, tmp_path)
+    resp = client.post("/ml/imagine", json={
+        "prompt": "ritratto token goblin", "width": 128, "height": 128, "seed": 7})
+    assert resp.status_code == 200, resp.text
+    data = resp.json()
+    manifest = tmp_path / f"{data['imageId']}.json"
+    assert manifest.exists()
+    meta = json.loads(manifest.read_text(encoding="utf-8"))
+    assert meta["prompt"] == "ritratto token goblin"
+    assert meta["seed"] == 7
+    assert meta["engine"] == "fake"
+    assert (meta["width"], meta["height"]) == (128, 128)
+    assert meta["sha256"] == data["sha256"]
+    assert meta["created_at"]

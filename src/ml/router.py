@@ -17,7 +17,7 @@ from pydantic import BaseModel, Field
 
 from src.ml.asr import AsrUnavailable, get_asr_engine
 from src.ml.imagine import ImagineUnavailable, get_imagine_engine
-from src.ml.storage import save_audio_worm, save_image_worm
+from src.ml.storage import save_audio_worm, save_image_manifest, save_image_worm
 
 router = APIRouter(prefix="/ml", tags=["ml"])
 
@@ -80,7 +80,13 @@ def imagine(req: ImagineRequest):
                                  lora=req.lora)
     except ImagineUnavailable as exc:
         raise HTTPException(501, str(exc)) from exc
-    _, sha, image_id = save_image_worm(result["png"], _image_dir())
+    image_dir = _image_dir()
+    _, sha, image_id = save_image_worm(result["png"], image_dir)
+    save_image_manifest(image_id, {
+        "prompt": req.prompt, "seed": req.seed, "engine": result["engine"],
+        "width": result["width"], "height": result["height"],
+        "sha256": sha, "lora": req.lora,
+    }, image_dir)
     return {"imageId": image_id, "sha256": sha, "mimeType": "image/png",
             "width": result["width"], "height": result["height"],
             "engine": result["engine"]}

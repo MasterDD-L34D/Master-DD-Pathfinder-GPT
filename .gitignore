@@ -50,3 +50,6 @@ data/ml_benchmark/itacsc/
 
 # Audio WORM del servizio ML (REQ-001): dati utente/locali, mai in git
 src/data/ml/audio/
+
+# Immagini WORM del servizio img-gen (F3): PNG + manifest sidecar, mai in git
+src/data/ml/images/

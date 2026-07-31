@@ -23,6 +23,10 @@ GET /ml/imagine/{imageId} → 200 bytes PNG · 404 · 400 (id malformato)
   default (utile per provare `flux` senza cambiare env).
 - Le immagini sono **WORM content-addressed** in `data/ml/images/`
   (override env `ML_IMG_DIR`): stesso contenuto → stesso `imageId`.
+- Ogni PNG ha un **manifest sidecar** `img_<sha16>.json` (write-once come
+  il PNG) con `prompt`, `seed`, `engine`, `width`, `height`, `sha256`,
+  `lora` e `created_at` (UTC): la provenienza della generazione sopravvive
+  al riavvio senza un DB.
 
 ## Engine (`ML_IMG_ENGINE`, default `off`)
 
