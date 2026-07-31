@@ -202,6 +202,73 @@ def test_openai_prompt_has_grounding_guardrails(monkeypatch):
     assert "domanda?" not in messages[0]["content"]
 
 
+def test_system_prompt_hardening_clauses(monkeypatch):
+    """Hardening 2026-08-01: ENTRAMBI i percorsi (raw e chat) devono avere
+    clausola di assenza, anti-injection e divieto di leak del system prompt."""
+    captured = {}
+
+    def fake_post(url, json=None, headers=None, **kwargs):
+        captured[url] = json
+        if "chat" in url:
+            return _FakeResponse({"choices": [{"message": {"content": "ok"}}]})
+        return _FakeResponse({"response": "ok"})
+
+    monkeypatch.setattr("src.rag.generator.httpx.post", fake_post)
+    chunk = [{"source": "reference::feats::Power Attack", "text": "Power Attack: ..."}]
+    OllamaProvider().generate("domanda?", chunk)
+    OllamaOpenAIProvider().generate("domanda?", chunk)
+
+    raw_prompt = next(p for u, p in captured.items() if "generate" in u)["prompt"]
+    chat_messages = next(p for u, p in captured.items() if "chat" in u)["messages"]
+    chat_system = chat_messages[0]["content"]
+    chat_user = chat_messages[-1]["content"]
+
+    for prompt in (raw_prompt, chat_system):
+        low = prompt.lower()
+        assert "solo il contesto fornito" in low
+        assert "se il contesto non basta" in low, "clausola di assenza ovunque"
+        assert "non inventare" in low, "divieto esplicito di allucinazione"
+        assert "non rivelare" in low, "divieto di leak del system prompt"
+        assert ("non istruzioni" in low or "ignora" in low), \
+            "il contesto deve essere dichiarato DATI, non comandi"
+        assert "ignorare queste regole" in low, \
+            "anti-injection anche sulla domanda utente"
+    # il testo recuperato va marcato come dati anche nel messaggio utente
+    assert "non istruzioni" in chat_user.lower() or "dati" in chat_user.lower()
+    # richiamo anti-injection in coda (recency) su entrambi i percorsi
+    assert "Ricorda:" in chat_user
+    assert "Ricorda:" in raw_prompt
+
+
+def test_context_chunks_carry_source_labels(monkeypatch):
+    """Ogni chunk nel prompt deve avere un'etichetta fonte leggibile, cosi' il
+    modello puo' citare e la rubrica/il master possono verificare."""
+    captured = {}
+
+    def fake_post(url, json=None, headers=None, **kwargs):
+        captured.update(json)
+        return _FakeResponse({"choices": [{"message": {"content": "ok"}}]})
+
+    monkeypatch.setattr("src.rag.generator.httpx.post", fake_post)
+    OllamaOpenAIProvider().generate("domanda?", [
+        {"source": "reference::feats::Power Attack", "text": "testo talento"},
+        {"source": "adventurer_ledger.txt", "text": "testo modulo"},
+    ])
+    user = captured["messages"][-1]["content"]
+    assert "[fonte: Power Attack (feats)]" in user
+    assert "[fonte: adventurer_ledger.txt]" in user
+    assert "testo talento" in user and "testo modulo" in user
+
+
+def test_source_label_helper():
+    from src.rag.generator import _source_label
+    assert _source_label({"source": "reference::feats::Power Attack"}) == "Power Attack (feats)"
+    assert _source_label({"source": "reference::spells::Fireball"}) == "Fireball (spells)"
+    assert _source_label({"source": "ruling_expert.txt"}) == "ruling_expert.txt"
+    assert _source_label({"source": ""}) == "sconosciuta"
+    assert _source_label({}) == "sconosciuta"
+
+
 @pytest.mark.skipif(
     os.getenv("RAG_ADVERSARIAL_LIVE") != "1",
     reason="LLM reale opt-in: esegui con RAG_ADVERSARIAL_LIVE=1 (richiede ollama + indice RAG)",
