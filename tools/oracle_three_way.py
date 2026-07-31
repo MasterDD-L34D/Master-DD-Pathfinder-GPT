@@ -12,7 +12,13 @@ Razze flessibili (mods {"any": 2}): la scelta del bonus e' derivata
 deterministicamente provando le 6 caratteristiche e tenendo quella che
 riproduce le statistiche finali dello sheet.
 
-Uso: .venv/Scripts/python tools/oracle_three_way.py [--write]
+Uso: .venv/Scripts/python tools/oracle_three_way.py [--check | --write]
+
+Default (nessun flag): read-only, stampa il report su stdout senza
+scrivere nulla. `--write` rigenera report + registry difetti.
+`--check` (gate): read-only, exit 1 se il registry su disco non
+coincide con quello ricalcolato dal dump corrente (drift).
+Test: tests/test_oracle_three_way.py.
 """
 from __future__ import annotations
 
@@ -111,17 +117,68 @@ def _compare(sheet: dict, v: dict | None, label: str, diffs: list):
             diffs.append(f"{label} {a}: taverna {tab_ab.get(a)} vs {v_ab[a]}")
 
 
-def main() -> int:
+def _render_report(rows: list) -> str:
+    """Testo del report Markdown (deterministico: niente date bruciate)."""
+    n_concordant = sum(1 for r in rows if r["status"] == "CONCORDE")
+    lines = [
+        "# Oracolo a tre vie (v1 | v2 | builder Taverna)",
+        "",
+        "Rigenerato da `tools/oracle_three_way.py --write` sul dump "
+        "`pathmaster-dd/data/reference/oracle-three-way.json`.",
+        "",
+        f"Build base: {len(rows)}. Concorde a tre: {n_concordant}. "
+        f"Divergenze: {sum(1 for r in rows if r['status'] == 'DIVERGE')}. "
+        f"Errori: {sum(1 for r in rows if r['status'] != 'CONCORDE' and r['status'] != 'DIVERGE')}.",
+        "",
+        "| Build | Esito | Divergenze |",
+        "|---|---|---|",
+    ]
+    for r in rows:
+        diffs = "; ".join(r["diffs"]) if r["diffs"] else "—"
+        lines.append(f"| {r['file'].replace('.json', '')} | {r['status']} | {diffs} |")
+    return "\n".join(lines) + "\n"
+
+
+def _defects_payload(rows: list) -> dict:
+    """Registry difetti corpus (flag gpt_defect): generato deterministicamente
+    dall'oracolo. I test dei motori filtrano su questo file (build sane =
+    non presenti nel registry)."""
+    defects = {}
+    for r in rows:
+        classes = []
+        if r["status"] in _DEFECT_CLASSES:
+            classes.append(_DEFECT_CLASSES[r["status"]])
+        if "prerequisito non soddisfatto" in " ".join(r["diffs"]):
+            classes.append("prerequisito_non_soddisfatto")
+        if classes:
+            defects[r["file"]] = {"classes": sorted(set(classes)),
+                                  "diffs": r["diffs"][:3]}
+    return {
+        "_comment": ("Flag difetti corpus GPT-A (decisione C 2026-07-25; lotto A "
+                     "rebuild 2026-07-27): rigenerato da tools/oracle_three_way.py "
+                     "--write. Le build NON presenti qui sono il sottoinsieme "
+                     "legale per i test dei motori. Le build ricostruite dal "
+                     "lotto A (tools/rebuild_corpus_gpt_a.py) portano il blocco "
+                     "di provenance sheet_payload.rebuild_gpt_a."),
+        "defects": defects,
+    }
+
+
+def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--write", action="store_true")
-    args = ap.parse_args()
+    mode = ap.add_mutually_exclusive_group()
+    mode.add_argument("--write", action="store_true",
+                      help="rigenera report e registry difetti su disco")
+    mode.add_argument("--check", action="store_true",
+                      help="read-only: exit 1 se il registry su disco e' "
+                           "in drift rispetto al ricalcolo dal dump")
+    args = ap.parse_args(argv)
 
     from src.pc.engine import build_character
     from src.pc.models import CharacterDraft
 
     dump = json.loads(DUMP_PATH.read_text(encoding="utf-8"))
     rows = []
-    n_concordant = 0
     COST = {7: -4, 8: -2, 9: -1, 10: 0, 11: 1, 12: 2, 13: 3,
             14: 5, 15: 7, 16: 10, 17: 13, 18: 17}
     BUDGETS = [(10, "Low Fantasy"), (15, "Standard Fantasy"),
@@ -196,53 +253,29 @@ def main() -> int:
         _compare(sheet, rec.get("v1"), "v1", diffs)
         _compare(sheet, rec.get("v2"), "v2", diffs)
         status = "CONCORDE" if not diffs else "DIVERGE"
-        n_concordant += status == "CONCORDE"
         rows.append({"file": rec["file"], "status": status, "diffs": diffs,
                      "race_bonus": race_bonus, "budget": budget})
 
-    lines = [
-        "# Oracolo a tre vie (v1 | v2 | builder Taverna) — rilancio 2026-07-27 (post-rebuild lotto A)",
-        "",
-        f"Build base: {len(rows)}. Concorde a tre: {n_concordant}. "
-        f"Divergenze: {sum(1 for r in rows if r['status'] == 'DIVERGE')}. "
-        f"Errori: {sum(1 for r in rows if r['status'] != 'CONCORDE' and r['status'] != 'DIVERGE')}.",
-        "",
-        "| Build | Esito | Divergenze |",
-        "|---|---|---|",
-    ]
-    for r in rows:
-        diffs = "; ".join(r["diffs"]) if r["diffs"] else "—"
-        lines.append(f"| {r['file'].replace('.json', '')} | {r['status']} | {diffs} |")
-    text = "\n".join(lines) + "\n"
+    text = _render_report(rows)
     print(text[:3000])
+    if args.check:
+        payload = _defects_payload(rows)
+        current = (json.loads(DEFECTS_PATH.read_text(encoding="utf-8"))
+                   if DEFECTS_PATH.exists() else None)
+        if current == payload:
+            print(f"CHECK OK: registry difetti allineato "
+                  f"({len(payload['defects'])} build flaggate).")
+            return 0
+        print("CHECK FALLITO: registry difetti in drift rispetto al dump "
+              "corrente — rilanciare con --write e investigare il delta.")
+        return 1
     if args.write:
         REPORT_PATH.write_text(text, encoding="utf-8")
-        # Registry difetti corpus (flag gpt_defect): generato deterministicamente
-        # dall'oracolo. I test dei motori filtrano su questo file (build sane
-        # = non presenti nel registry).
-        defects = {}
-        for r in rows:
-            classes = []
-            if r["status"] in _DEFECT_CLASSES:
-                classes.append(_DEFECT_CLASSES[r["status"]])
-            if "prerequisito non soddisfatto" in " ".join(r["diffs"]):
-                classes.append("prerequisito_non_soddisfatto")
-            if classes:
-                defects[r["file"]] = {"classes": sorted(set(classes)),
-                                      "diffs": r["diffs"][:3]}
-        payload = {
-            "_comment": ("Flag difetti corpus GPT-A (decisione C 2026-07-25; lotto A "
-                         "rebuild 2026-07-27): rigenerato da tools/oracle_three_way.py "
-                         "--write. Le build NON presenti qui sono il sottoinsieme "
-                         "legale per i test dei motori. Le build ricostruite dal "
-                         "lotto A (tools/rebuild_corpus_gpt_a.py) portano il blocco "
-                         "di provenance sheet_payload.rebuild_gpt_a."),
-            "defects": defects,
-        }
+        payload = _defects_payload(rows)
         DEFECTS_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2),
                                 encoding="utf-8")
         print(f"Report: {REPORT_PATH}")
-        print(f"Registry difetti: {DEFECTS_PATH} ({len(defects)} build flaggate)")
+        print(f"Registry difetti: {DEFECTS_PATH} ({len(payload['defects'])} build flaggate)")
     return 0
 
 

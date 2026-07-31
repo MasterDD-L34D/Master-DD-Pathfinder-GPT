@@ -1,4 +1,6 @@
-# Oracolo a tre vie (v1 | v2 | builder Taverna) — rilancio 2026-07-27 (post-rebuild lotto A)
+# Oracolo a tre vie (v1 | v2 | builder Taverna)
+
+Rigenerato da `tools/oracle_three_way.py --write` sul dump `pathmaster-dd/data/reference/oracle-three-way.json`.
 
 Build base: 28. Concorde a tre: 23. Divergenze: 5. Errori: 0.
 
