@@ -34,11 +34,11 @@ Android, ignorati).
 | `data_races_alternative_traits.xml` | 702 | Race, Trait, ChangedTraits, ReplacedTraits, Description, ShowInSpecials, HasEffect, Source | **Importato (D1)**: `pathbuilder-race-traits.json` — 702 tratti alternativi su 59 razze (race/trait/replaces/changes/source) |
 | `race_builder_traits.xml` | 229 | RacialTrait, Category, Type, RP, PowerLevel, MaxTakable, AddMethod, Description | Race builder (RP = race points) |
 | `data_background_traits.xml` | 1.569 | Name, Type, Description, ClassSkill(Choice), Skill(Bonus), Fort/Reflex/Will, Initiative, rAlign/rClass/rFaction/rRace/rReligion, Source, Ref | Tratti (background) con bonus meccanici strutturati |
-| `data_armor.xml` | 58 | Armor, Category, Bonus, MaxDex, CheckPenalty, Arcane_Spell, Speed_30ft, Weight1 | Confronto con pcgen-equipment |
-| `data_armor_magic.xml` | 68 | Categories, Effect | Qualità magiche per armature |
-| `data_weapons.xml` | 313 | Weapon, Category, Proficiency, Damage, DamageType, CritRange, CritMultiplier, RangeIncrement, Hands, Finessable, WeaponGroup, UsesAmmo, DefaultDamage, naturalWeapon | Confronto con pcgen-equipment |
-| `data_weapon_effects.xml` | 97 | Name, Categories, Damage | Qualità magiche per armi |
-| `data_equipment_slotted.xml` | 2.855 | Name, Item, Slot, Cost, Weight, BonusType, EffectType, Amount, DefaultAmount, Description, Finished, Source, Ref | Oggetti magici a slot |
+| `data_armor.xml` | 58 | Armor, Category, Bonus, MaxDex, CheckPenalty, Arcane_Spell, Speed_30ft, Weight1 | **Importato (D4)**: `pathbuilder-equipment.json` — 58 armature/scudi (stat strutturate; MaxDex 99→null, CheckPenalty magnitudine→segno meno, Arcane_Spell frazione→%, Speed -1→null) |
+| `data_armor_magic.xml` | 68 | Categories, Effect | Qualità magiche per armature (non importato in D4: candidato D6) |
+| `data_weapons.xml` | 313 | Weapon, Category, Proficiency, Damage, DamageType, CritRange, CritMultiplier, RangeIncrement, Hands, Finessable, WeaponGroup, UsesAmmo, DefaultDamage, naturalWeapon | **Importato (D4)**: `pathbuilder-equipment.json` — 313 armi (13 senza danno dichiarato, 2 doppie con critico per estremità; MAI costo/peso: assenti nel dato) |
+| `data_weapon_effects.xml` | 97 | Name, Categories, Damage | Qualità magiche per armi (non importato in D4: candidato D6) |
+| `data_equipment_slotted.xml` | 2.855 | Name, Item, Slot, Cost, Weight, BonusType, EffectType, Amount, DefaultAmount, Description, Finished, Source, Ref | **Importato (D4)**: `pathbuilder-equipment.json` — 2.783 oggetti nome+costo+slot (72 righe template senza Name saltate; 6 nomi duplicati dichiarati; MAI Description/Ref/BonusType/Amount) |
 | `data_spells.xml` | 2.922 | name, school, subschool, descriptor, castingTime, components, range, area, effect, targets, duration, savingThrow, sr, description, source, spellLevelsDisplay + una colonna per classe (Alchemist…Wizard) + domain/bloodline/patron/mythic | Confronto con pcgen-spells (livelli per classe già in colonna) |
 | `data_feat_metadata.xml` | 100 | name, count | Statistiche d'uso cloud Pathbuilder (talenti più presi: Weapon Focus 3123, Power Attack 2646, Dodge 2143…) |
 
@@ -157,6 +157,51 @@ Note di formato specifiche:
   race-builder Lizardfolk/Gnoll (Src=ARG) restano `playable: false`.
 - `ReplacedTraits`/`ChangedTraits`: nomi di tratti separati da `&`; 44
   tratti hanno `ChangedTraits`, ogni tratto sostituisce o cambia qualcosa.
+
+## `data_weapons` / `data_armor` / `data_equipment_slotted` — equipaggiamento (import D4, 2026-08-07)
+
+Importati da `tools/import_pathbuilder_equipment.py` in
+`pathbuilder-equipment.json` (pathmaster `rules-engine-v2/src/data/`).
+Catalogo unificato lato motore: `src/catalogs/equipment.ts` (PCGen vince sui
+valori duplicati, PB aggiunge copertura — v. `docs/superpowers/pcgen-import.md`
+e `packages/rules-engine-v2/INTERPRETATIONS.md`).
+
+Note di formato (ricognizione 2026-08-07):
+
+- **`data_weapons.xml` (313)**: `Proficiency` -1 naturale/disarmato, 0
+  semplice, 1 da guerra, 2 esotica, 3 da fuoco; `Category` 0 leggera, 1 una
+  mano, 2 due mani, 3 da tiro, 4/5 da fuoco a una/due mani, 6 naturale.
+  Mappe **dichiarate** nel JSON (derivate da ispezione dei membri, non da
+  documentazione PB assente). `Damage` `-1` / `DamageType` `0` / `CritRange`
+  `-1` = assenti nel dato → `null` dichiarato (13 armi senza danno: touch
+  attack, reti, blast cinetici). `CritRange` è il MINIMO del dado (19 =
+  19-20). `Hands` 0 = una mano/leggera, 1 = due mani. `WeaponGroup` separa
+  i gruppi con `&`. Armi doppie (2: Gnome hooked hammer, Taiaha): `Damage`
+  e `CritMultiplier` per estremità (`1d8&1d6`, `3&4`) → `critMultipliers`
+  lista. **Costo/peso assenti nel dato: mai inventati** (il catalogo
+  unificato li prende da PCGen).
+- **`data_armor.xml` (58)**: `Category` 0 leggera, 1 media, 2 pesante, 3
+  scudo, 4 scudo torre, 5 accessorio magico (8 righe "Bracers of Armor +N",
+  escluse dai preset e dichiarate). `MaxDex` 99 = nessun cap → `null`.
+  `CheckPenalty` è la MAGNITUDINE positiva (5 = ACP -5 RAW): il segno meno è
+  applicato in export. `Arcane_Spell` è una frazione (0.3 = 30%).
+  `Speed_30ft` -1 = n/a (scudi) → `null`. **Costo assente nel dato.**
+- **`data_equipment_slotted.xml` (2.855)**: esportate le 2.783 righe con
+  `Name` (tutte `Finished=Yes`): name, cost (mo, anche frazionario; una riga
+  con separatore migliaia "25,000" → 25000), slot (codice 0-25), slotLabel,
+  source. **72 righe senza Name** sono template di bonus
+  (EffectType/BonusType/Amount), non oggetti: saltate e conteggiate
+  (`slottedUnnamedSkipped`). 11 righe con Name senza `Slot` → null
+  dichiarato. 6 nomi duplicati con slot/fonte diversi (Darkflare,
+  Pantograph, Troll styptic, Goblinvine, Leechwort, Winterbite): entrambe
+  le voci restano, dichiarati nel report. MAI esportati: `Description` (PI),
+  `Ref` (URL d20pfsrd), `BonusType`/`Amount` — l'enhancement magico resta
+  preset di nome + stat base, MAI bonus inventato.
+- **Mappa slot (dichiarata nel JSON)**: 0 belt, 1 body, 2 chest, 3 eyes, 4
+  feet, 5 hands, 6 head, 7 headband, 8 neck, 9 shoulders, 10 wrists, 11
+  slotless, 12 ring, 13 rod, 14 staff, 15 adventuring-gear, 16 book, 17
+  tool, 18 religious-item, 19 outfit, 20 alchemical-component, 21
+  animal-gear, 22 potion, 23 scroll, 24 wand, 25 ammunition.
 
 ## Formato dei requisiti strutturati dei feat (`data_feats.xml`)
 
