@@ -20,7 +20,7 @@ Android, ignorati).
 | Gruppo | File | Righe | Contenuto |
 |---|---|---|---|
 | `data_specials_*` | 188 | 4.253 | Feature di classe selezionabili (rage powers, scoperte, exploit, domini, bloodline, ordini, deed, hex, talenti da ladro…) |
-| `data_archetypes_*` | 42 | 5.069 | Archetipi di classe (uno per classe, incluse ninja/samurai/unchained) |
+| `data_archetypes_*` | 42 | 5.069 | Archetipi di classe (uno per classe, incluse ninja/samurai/unchained) — **importato (D2)**: `pathbuilder-archetypes.json` |
 | compagni (`data_animals`, `data_familiars*`, `data_eidolons_*`, `data_unchained_eidolons_*`) | 8 | 658 | Compagni animali, famigli, eidolon (forme base, evoluzioni, sottotipi) |
 | altri dataset principali | 15 | 13.125 | feats, classi, razze, equipaggiamento, armi/armature, incantesimi, tratti, ecc. |
 
@@ -77,13 +77,47 @@ File più grandi: `barbarian_rage_powers` 228, `cleric_domains` 206,
 alcuni file "hub" (`oracle_mysteries`, `medium_spirits`, bloodline…) hanno solo
 nome+Source+Ref (la Description sta altrove o è assente).
 
-## `data_archetypes_*` — archetipi
+## `data_archetypes_*` — archetipi (import D2, 2026-08-07)
 
-Campi: `ArchetypeName`, `ArchetypeSpecial`, `Level`, `Changed`, `Replaced`,
-`Details`, `Display`, `EffectMethod`, `Race` (opzionale), `Completed`,
-`Source`, `Ref`. Ogni riga = una voce di modifica dell'archetipo (feature
-aggiunta/cambiata/sostituita a un dato livello). Uso previsto: supporto agli
-archetipi nel builder (non importato in PB-1).
+Importati da `tools/import_pathbuilder_archetypes.py` verso
+`pathmaster-dd/packages/rules-engine-v2/src/data/pathbuilder-archetypes.json`
+(solo nomi + meccaniche, MAI le `<Details>`). Forma del JSON: per classe
+(nome file), per archetipo: `source`, `race` (archetipi razziali) ed
+`entries` = lista di `{special, level, replaced[], changed[], effectHook?}`.
+
+Campi reali: `ArchetypeName`, `ArchetypeSpecial`, `Level`, `Changed`,
+`Replaced`, `Details` (PI, mai esportata), `Display`, `EffectMethod`, `Race`
+(opzionale), `Completed`, `Source`, `Ref`. Ogni riga = una voce di modifica
+dell'archetipo (feature aggiunta/cambiata/sostituita a un dato livello).
+Conteggi: 42 file, **5.069 righe → 1.361 archetipi, 5.063 entries**.
+
+Note di formato specifiche:
+
+- `<ArchetypeName>` compare **solo sulla prima riga** del blocco archetipo
+  (con `<Source>`, `<Details>`, `<Ref>`); le righe seguenti ereditano
+  l'archetipo corrente. Nessun nome duplicato dentro una classe.
+- `<Replaced>`/`<Changed>`: voci separate da `&`; i suffissi progressivi
+  (`Trap Sense +1&...&+6`, `Weapon Training 1..4`) restano parte del nome
+  (progressione = dato onesto, non dedotta). Un solo separatore di coda nel
+  dataset (`Smite Evil&`, paladin): tollerato.
+- `<Completed>Yes</Completed>`: sentinella di fine blocco — 6 righe hanno
+  SOLO Completed e sono saltate (`report.skippedCompletedSentinels`).
+- 3 entries senza `<Level>` (Clone Master "Bomb", Esoteric "Unarmed Strike",
+  Contemplative "Know the Unseen Disciples"): `level: null` dichiarato.
+- `<EffectMethod>` = hook interno dell'app (camelCase), NON un effetto:
+  esportato come `effectHook` dichiarato, mai decodificato.
+- `<Race>` (100 archetipi razziali): una riga per archetipo → `race` a
+  livello archetipo, `null` altrove.
+- **Slot rivelazione oracle numerati per ordine di concessione**:
+  "Revelation 1..6" = livelli 1°/3°/7°/11°/15°/19° (verificato su Spirit
+  Guide: "Revelation 2&3&5" = RAW ACG 106 rivelazioni di 3°/7°/15°).
+- Classi PB fuori dal nostro corpus classi (`unchained_rogue`, `omdura`):
+  importate comunque (sono dataset); la risoluzione motore le raggiunge solo
+  se la classe esiste in `classes.json` (comportamento dichiarato).
+- Motore (D2): catena **curato (`ARCHETYPE_REPLACEMENTS`, 46) > PB >
+  sconosciuto** in `catalogs/archetypes.ts`; mappa nomi→feature-ID ESPLICITA
+  in `catalogs/archetypes-pb.ts` (registro scelte: rules-engine-v2
+  `INTERPRETATIONS.md` § "Archetipi Pathbuilder").
 
 ## Compagni
 
