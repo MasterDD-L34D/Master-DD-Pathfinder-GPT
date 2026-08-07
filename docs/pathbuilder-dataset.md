@@ -30,8 +30,8 @@ Android, ignorati).
 |---|---|---|---|
 | `data_feats.xml` | 3.320 | FeatName, Category, EffectMethod, RequirementMethod, MaxTakable, Prerequisites, Description, URL, Source + requisiti strutturati `r*` (vedi sotto) | (b) `pathbuilder-feats.json` (senza Description) + confronto con pcgen-feats |
 | `data_classes.xml` | 163 | Classname, Category, Method, Requirements, RequiredBAB/Level/Feats/Specials/…SpellLevel, PackPrestige, Description, Source, Ref | Arricchimento `classes.json` (report, niente merge cieco) |
-| `data_races.xml` | 669 | Race, Trait, Description, ShowInSpecials, HasEffect, Src | Tratti razziali per razza (supporto races.json) |
-| `data_races_alternative_traits.xml` | 702 | Race, Trait, ChangedTraits, ReplacedTraits, Description, ShowInSpecials, HasEffect, Source | Tratti razziali alternativi |
+| `data_races.xml` | 669 | Race, Trait, Description, ShowInSpecials, HasEffect, Src | **Importato (D1)**: `pathbuilder-races.json` — 74 razze (name/size/abilityAdjustments dal dato/flexible/playable/source) |
+| `data_races_alternative_traits.xml` | 702 | Race, Trait, ChangedTraits, ReplacedTraits, Description, ShowInSpecials, HasEffect, Source | **Importato (D1)**: `pathbuilder-race-traits.json` — 702 tratti alternativi su 59 razze (race/trait/replaces/changes/source) |
 | `race_builder_traits.xml` | 229 | RacialTrait, Category, Type, RP, PowerLevel, MaxTakable, AddMethod, Description | Race builder (RP = race points) |
 | `data_background_traits.xml` | 1.569 | Name, Type, Description, ClassSkill(Choice), Skill(Bonus), Fort/Reflex/Will, Initiative, rAlign/rClass/rFaction/rRace/rReligion, Source, Ref | Tratti (background) con bonus meccanici strutturati |
 | `data_armor.xml` | 58 | Armor, Category, Bonus, MaxDex, CheckPenalty, Arcane_Spell, Speed_30ft, Weight1 | Confronto con pcgen-equipment |
@@ -92,6 +92,37 @@ archetipi nel builder (non importato in PB-1).
 statblock completo (ac/bab/save/skill/…). `data_eidolons_*` e
 `data_unchained_eidolons_*`: forme base, evoluzioni (con `Cost`, `ReqLevel`,
 `ReqForms`, `TimesSelectable`), sottotipi.
+
+## `data_races*` — razze (import D1, 2026-08-07)
+
+Importati da `tools/import_pathbuilder_races.py` verso
+`pathmaster-dd/packages/rules-engine-v2/src/data/pathbuilder-races.json` e
+`pathbuilder-race-traits.json` (solo nomi + meccaniche, MAI le Description).
+
+Note di formato specifiche:
+
+- `<Race>` compare **solo sulla prima riga** del blocco razza; le righe
+  seguenti ereditano la razza corrente. `data_races.xml`: 669 righe → 74
+  razze; `data_races_alternative_traits.xml`: 702 righe → 59 razze.
+- `<Src>` (races) / `<Source>` (alternative traits) è presente solo su
+  alcune righe ma uniforme per razza; il blocco Human non ha Src (source
+  `null` dichiarata).
+- **Ability adjustments non strutturati**: vivono nella Description del
+  tratto `Ability Bonus`. L'importer parsa SOLO il formato regolare
+  segno+numero adiacente al nome caratteristica (`+2 Constitution`,
+  `–2 Charisma`, sigle `+2 Str`; meno U+2013/U+2212/ASCII): 15 razze su 74.
+  Le altre 59 (incluse quasi tutte le ARG, dove Pathbuilder applica i bonus
+  via hook interni `HasEffect`) hanno `abilityAdjustments: null`
+  **dichiarato**, mai inventato — elenco nel `report` del JSON.
+- Razze flex (`+2 to One Ability Score`): Human, Half-Elf, Half-Orc →
+  `flexible: true` (coerente col contratto E6-A6 del converter).
+- Taglia: tratto il cui nome è una categoria di taglia; 22 razze senza
+  tratto taglia → `size: null` dichiarata.
+- `playable`: **lista esplicita** nell'importer (`PLAYABLE_PC_RACES` =
+  7 core CRB + 30 ARG featured/uncommon), NON un filtro per Src: le schede
+  race-builder Lizardfolk/Gnoll (Src=ARG) restano `playable: false`.
+- `ReplacedTraits`/`ChangedTraits`: nomi di tratti separati da `&`; 44
+  tratti hanno `ChangedTraits`, ogni tratto sostituisce o cambia qualcosa.
 
 ## Formato dei requisiti strutturati dei feat (`data_feats.xml`)
 
