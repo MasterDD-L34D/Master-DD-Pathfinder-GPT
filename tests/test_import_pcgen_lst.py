@@ -304,6 +304,152 @@ def test_main_scrive_i_tre_json(tmp_path):
 
 
 # ---------------------------------------------------------------------------
+# BONUS strutturati dei talenti (slice BONUS 2026-08-07): parse grezzo dei tag
+# BONUS:* su ogni talento. Forme REALI prelevate dai file del clone
+# (ricognizione 2026-08-07): letterale+TYPE (Dodge), TS (Iron Will), formula
+# max(3,TL)+PRERULE (Toughness), %LIST (Skill Focus/Weapon Focus), formula con
+# '=' dentro parentesi (DruidWildShape), PRE negata in coda, scope PC|STAT,
+# modificatore non riconosciuto (TYPE.Sling, forma reale di uc_feats.lst).
+# ---------------------------------------------------------------------------
+
+BONUS_LST = """\
+SOURCELONG:Core Rulebook	SOURCESHORT:CR
+Dodge	CATEGORY:FEAT	TYPE:Combat	BONUS:COMBAT|AC|1|TYPE=Dodge
+Iron Will	CATEGORY:FEAT	TYPE:General	BONUS:SAVE|Will|2
+Great Fortitude	CATEGORY:FEAT	TYPE:General	BONUS:SAVE|Fortitude|2
+Lightning Reflexes	CATEGORY:FEAT	TYPE:General	BONUS:SAVE|Reflex|2
+Toughness	CATEGORY:FEAT	TYPE:General	BONUS:HP|CURRENTMAX|max(3,TL)|PRERULE:1,DAMAGE_HP
+Skill Focus	CATEGORY:FEAT	TYPE:General.SkillFocus	STACK:NO	MULT:YES	CHOOSE:SKILL|TYPE=Base	BONUS:SKILL|%LIST|3|TYPE=SkillFocus
+Weapon Focus	CATEGORY:FEAT	TYPE:Combat	STACK:NO	MULT:YES	BONUS:WEAPONPROF=%LIST|TOHIT|WeaponFocusToHit
+Gritty Savant	CATEGORY:FEAT	TYPE:Combat	BONUS:SAVE|Will|CHA-WIS	BONUS:VAR|GritPoints|1
+Improvisation	CATEGORY:FEAT	TYPE:General	BONUS:SKILL|Acrobatics|ImprovisationBonus|!PRESKILL:1,Acrobatics=1
+Primal Physique	CATEGORY:FEAT	TYPE:General	BONUS:PC|STAT|STR,CON|2
+Sling Adept	CATEGORY:FEAT	TYPE:Combat	BONUS:COMBAT|GLOBALRANGEPENALTY|2|TYPE.Sling
+Wild Shape Savant	CATEGORY:FEAT	TYPE:General	BONUS:VAR|DruidWildShape|MIN(4,classlevel("TYPE=PC")+classlevel("TYPE=NPC")-classlevel("Druid"))
+No Bonus	CATEGORY:FEAT	TYPE:General	DESC:x
+"""
+
+
+def test_parse_bonus_tag_letterale_e_type():
+    node = pc.parse_bonus_tag("COMBAT|AC|1|TYPE=Dodge")
+    assert node == {
+        "raw": "COMBAT|AC|1|TYPE=Dodge",
+        "group": "COMBAT",
+        "path": ["AC"],
+        "value": "1",
+        "valueNumber": 1,
+        "type": "Dodge",
+        "recognized": True,
+    }
+
+
+def test_parse_bonus_tag_salvezza():
+    node = pc.parse_bonus_tag("SAVE|Will|2")
+    assert node["group"] == "SAVE"
+    assert node["path"] == ["Will"]
+    assert node["valueNumber"] == 2
+    assert node["recognized"] is True
+    assert "type" not in node
+    assert "conditions" not in node
+
+
+def test_parse_bonus_tag_formula_e_prerule():
+    # Toughness PF: valore formula (mai inventato a numero) + PRERULE raw.
+    node = pc.parse_bonus_tag("HP|CURRENTMAX|max(3,TL)|PRERULE:1,DAMAGE_HP")
+    assert node["group"] == "HP"
+    assert node["path"] == ["CURRENTMAX"]
+    assert node["value"] == "max(3,TL)"
+    assert "valueNumber" not in node
+    assert node["conditions"] == ["PRERULE:1,DAMAGE_HP"]
+    assert node["recognized"] is True
+
+
+def test_parse_bonus_tag_scelta_list_con_valore_letterale():
+    # Skill Focus: l'abilita' e' una SCELTA (%LIST), il 3 e' letterale.
+    node = pc.parse_bonus_tag("SKILL|%LIST|3|TYPE=SkillFocus")
+    assert node["group"] == "SKILL"
+    assert node["path"] == ["%LIST"]
+    assert node["valueNumber"] == 3
+    assert node["type"] == "SkillFocus"
+
+
+def test_parse_bonus_tag_gruppo_con_scelta():
+    # Weapon Focus: il gruppo stesso porta la scelta, il valore e' un VAR.
+    node = pc.parse_bonus_tag("WEAPONPROF=%LIST|TOHIT|WeaponFocusToHit")
+    assert node["group"] == "WEAPONPROF=%LIST"
+    assert node["path"] == ["TOHIT"]
+    assert node["value"] == "WeaponFocusToHit"
+    assert "valueNumber" not in node
+    assert node["recognized"] is True
+
+
+def test_parse_bonus_tag_pre_negata_preservata():
+    node = pc.parse_bonus_tag("SKILL|Acrobatics|ImprovisationBonus|!PRESKILL:1,Acrobatics=1")
+    assert node["conditions"] == ["!PRESKILL:1,Acrobatics=1"]
+    assert node["recognized"] is True
+
+
+def test_parse_bonus_tag_scope_pc_stat():
+    node = pc.parse_bonus_tag("PC|STAT|STR,CON|2")
+    assert node["group"] == "PC"
+    assert node["path"] == ["STAT", "STR,CON"]
+    assert node["valueNumber"] == 2
+    assert node["recognized"] is True
+
+
+def test_parse_bonus_tag_modificatore_sconosciuto_flaggato():
+    # Forma reale (uc_feats.lst): TYPE.Sling non e' TYPE=... — dichiarato,
+    # MAI scartato in silenzio ne' interpretato a tentativi.
+    node = pc.parse_bonus_tag("COMBAT|GLOBALRANGEPENALTY|2|TYPE.Sling")
+    assert node["recognized"] is False
+    assert node["unparsed"] == ["TYPE.Sling"]
+    assert node["raw"] == "COMBAT|GLOBALRANGEPENALTY|2|TYPE.Sling"
+
+
+def test_parse_bonus_tag_formula_con_uguale_dentro_parentesi():
+    # Il "TYPE=PC" dentro classlevel("...") NON e' il tipo del bonus: lo split
+    # rispetta le parentesi tonde.
+    node = pc.parse_bonus_tag(
+        'VAR|DruidWildShape|MIN(4,classlevel("TYPE=PC")+classlevel("TYPE=NPC")-classlevel("Druid"))')
+    assert node["group"] == "VAR"
+    assert node["path"] == ["DruidWildShape"]
+    assert "type" not in node
+    assert node["value"].startswith("MIN(4,classlevel(")
+    assert node["recognized"] is True
+
+
+def test_feats_from_records_bonus_campi_e_conteggi():
+    entries, stats = pc.feats_from_records(pc.iter_lst_records(BONUS_LST), "CR")
+    by_name = {e["name"]: e for e in entries}
+
+    dodge = by_name["Dodge"]["bonus"]
+    assert dodge == [{
+        "raw": "COMBAT|AC|1|TYPE=Dodge",
+        "group": "COMBAT", "path": ["AC"], "value": "1",
+        "valueNumber": 1, "type": "Dodge", "recognized": True,
+    }]
+
+    # multi-BONUS: tutti, in ordine, niente scartato
+    gritty = by_name["Gritty Savant"]["bonus"]
+    assert [b["raw"] for b in gritty] == [
+        "SAVE|Will|CHA-WIS", "VAR|GritPoints|1"]
+
+    # talento senza BONUS: lista vuota, non campo assente
+    assert by_name["No Bonus"]["bonus"] == []
+
+    bonus_stats = stats["bonus"]
+    assert bonus_stats["feats_with_bonus"] == 12
+    assert bonus_stats["total_tags"] == 13
+    assert bonus_stats["by_group"] == {
+        "COMBAT": 2, "SAVE": 4, "HP": 1, "SKILL": 2,
+        "WEAPONPROF=%LIST": 1, "VAR": 2, "PC": 1}
+    assert bonus_stats["literal_value"] == 8
+    assert bonus_stats["with_type"] == 2
+    assert bonus_stats["recognized"] == 12
+    assert bonus_stats["unrecognized"] == 1
+
+
+# ---------------------------------------------------------------------------
 # Smoke sui dati REALI (salta se il clone PCGen non c'e'): il parser non deve
 # rompersi sui 2939 file veri e gli spot-check RAW devono reggere.
 # ---------------------------------------------------------------------------
@@ -341,3 +487,45 @@ def test_dati_reali_spot_check():
     assert equip["counts"]["UE"] > 0
     for book in ("CR", "APG", "ACG", "ARG", "UM", "UC", "UE", "OA"):
         assert spells["counts"][book] > 0
+
+
+@pytest.mark.skipif(not (REAL_ROOT / "data/pathfinder/paizo").is_dir(),
+                    reason="clone PCGen assente")
+def test_dati_reali_bonus_spot_check():
+    """Slice BONUS: spot-check RAW dei tag BONUS sui dati veri."""
+    feats = pc.build_catalog(REAL_ROOT, "feats")
+    by_name = {e["name"]: e for e in feats["entries"]}
+
+    def only(name):
+        (node,) = by_name[name]["bonus"]
+        return node
+
+    dodge = only("Dodge")
+    assert dodge["group"] == "COMBAT" and dodge["path"] == ["AC"]
+    assert dodge["valueNumber"] == 1 and dodge["type"] == "Dodge"
+
+    assert only("Iron Will")["path"] == ["Will"]
+    assert only("Iron Will")["valueNumber"] == 2
+    assert only("Great Fortitude")["path"] == ["Fortitude"]
+    assert only("Lightning Reflexes")["path"] == ["Reflex"]
+
+    tough = only("Toughness")
+    assert tough["group"] == "HP" and tough["path"] == ["CURRENTMAX"]
+    assert tough["value"] == "max(3,TL)" and "valueNumber" not in tough
+    assert tough["conditions"] == ["PRERULE:1,DAMAGE_HP"]
+
+    sf = only("Skill Focus")
+    assert sf["group"] == "SKILL" and sf["path"] == ["%LIST"]
+    assert sf["valueNumber"] == 3 and sf["type"] == "SkillFocus"
+
+    wf = only("Weapon Focus")
+    assert wf["group"] == "WEAPONPROF=%LIST" and wf["value"] == "WeaponFocusToHit"
+
+    # ogni talento porta il campo bonus (lista, vuota se senza BONUS)
+    for e in feats["entries"]:
+        assert isinstance(e["bonus"], list)
+    # sanita' aggregata: i BONUS ci sono e quasi tutti si parsano
+    total = sum(s["bonus"]["total_tags"] for s in feats["stats"].values())
+    unrecognized = sum(s["bonus"]["unrecognized"] for s in feats["stats"].values())
+    assert total > 400
+    assert unrecognized / total < 0.05

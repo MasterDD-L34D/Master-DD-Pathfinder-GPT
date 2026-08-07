@@ -7,6 +7,7 @@ emissione di TRE JSON committati in
 `pathmaster-dd/packages/rules-engine-v2/src/data/`:
 
 - pcgen-feats.json     — talenti con prerequisiti GREZZI strutturati
+                         + effetti BONUS grezzi parsati (slice BONUS)
 - pcgen-equipment.json — armi/armature/scudi con stat RAW
 - pcgen-spells.json    — incantesimi con livelli per classe
 
@@ -289,6 +290,108 @@ COVERED_PRE_TAGS = ("PREMULT", "PREABILITY", "PREVARGTEQ", "PRESTAT",
                     "PRECLASS", "PRESKILL", "PREALIGN")
 
 
+# ---------------------------------------------------------------------------
+# BONUS strutturati (slice BONUS 2026-08-07)
+# ---------------------------------------------------------------------------
+#
+# I tag BONUS:* dei talenti codificano gli EFFETTI meccanici (es.
+# `BONUS:COMBAT|AC|1|TYPE=Dodge`). Prima erano letti solo per `ac_bonus`
+# dell'equipment; ora ogni talento porta l'albero grezzo parsato in `bonus`.
+# Come per i prerequisiti: niente buttato via, niente interpretato a
+# tentativi — cio' che non rientra nella forma riconosciuta resta RAW col
+# flag `recognized: false` e i segmenti non classificati in `unparsed`.
+#
+# Forma riconosciuta: segmenti posizionali `GRUPPO|...path...|VALORE` seguiti
+# da modificatori `TYPE=...` e condizioni `PRE*`/`!PRE*` raw. `valueNumber` e'
+# presente SOLO se il valore e' un intero letterale (le formule `max(3,TL)`,
+# i riferimenti a VAR e i `%LIST` restano stringhe raw).
+
+def _split_pipes(text: str) -> list:
+    """Split su '|' rispettando la profondita' di () e [].
+
+    Serve perche' le formule possono contenere '=' e virgole dentro chiamate
+    (`MIN(4,classlevel("TYPE=PC")+...)`) e i PREMULT contengono '[...],[...]'.
+    """
+    parts, depth, current = [], 0, []
+    for ch in text:
+        if ch in "([":
+            depth += 1
+        elif ch in ")]":
+            depth -= 1
+        if ch == "|" and depth == 0:
+            parts.append("".join(current))
+            current = []
+        else:
+            current.append(ch)
+    parts.append("".join(current))
+    return parts
+
+
+_INT_LITERAL = re.compile(r"-?\d+")
+
+
+def parse_bonus_tag(value: str) -> dict:
+    """Un tag BONUS (senza il prefisso 'BONUS:') -> nodo grezzo strutturato.
+
+    Chiavi: raw/group/path/value/recognized sempre; valueNumber solo se
+    intero letterale; type solo se `TYPE=...`; conditions solo se ci sono
+    PRE* in coda; unparsed solo se ci sono segmenti non classificati (->
+    recognized False).
+    """
+    segments = _split_pipes(value)
+    positional = []
+    node = {"raw": value, "recognized": True}
+    conditions = []
+    unparsed = []
+    seen_modifier = False
+    for seg in segments:
+        if seg.startswith("TYPE="):
+            node["type"] = seg[len("TYPE="):]
+            seen_modifier = True
+        elif seg.startswith("PRE") or seg.startswith("!PRE"):
+            conditions.append(seg)
+            seen_modifier = True
+        elif seen_modifier or seg.startswith("TYPE."):
+            # Un modificatore dopo i modificatori, o una forma TYPE.x (reale:
+            # `BONUS:COMBAT|GLOBALRANGEPENALTY|2|TYPE.Sling`): non la
+            # interpretiamo, la dichiariamo.
+            unparsed.append(seg)
+        else:
+            positional.append(seg)
+    if unparsed or len(positional) < 2:
+        node["recognized"] = False
+    node["group"] = positional[0] if positional else ""
+    node["path"] = positional[1:-1] if len(positional) >= 2 else []
+    node["value"] = positional[-1] if positional else ""
+    if _INT_LITERAL.fullmatch(node["value"]):
+        node["valueNumber"] = int(node["value"])
+    if conditions:
+        node["conditions"] = conditions
+    if unparsed:
+        node["unparsed"] = unparsed
+    return node
+
+
+def _empty_bonus_stats() -> dict:
+    return {"feats_with_bonus": 0, "total_tags": 0, "by_group": {},
+            "literal_value": 0, "with_type": 0,
+            "recognized": 0, "unrecognized": 0}
+
+
+def _bonus_stats_add(stats: dict, nodes: list) -> None:
+    if nodes:
+        stats["feats_with_bonus"] += 1
+    for node in nodes:
+        stats["total_tags"] += 1
+        group = node["group"] or "(vuoto)"
+        stats["by_group"][group] = stats["by_group"].get(group, 0) + 1
+        if "valueNumber" in node:
+            stats["literal_value"] += 1
+        if "type" in node:
+            stats["with_type"] += 1
+        stats["recognized" if node["recognized"] else "unrecognized"] += 1
+
+
 def _coverage_add(cov: dict, nodes: list) -> None:
     """Conta le occorrenze per tag: covered vs not_normalized."""
 
@@ -328,16 +431,26 @@ def _number(value):
 
 
 def feats_from_records(records, book: str):
-    """Record LST -> (entries talenti, stats)."""
+    """Record LST -> (entries talenti, stats).
+
+    I tag BONUS:* (effetti meccanici) finiscono in `bonus` come nodi grezzi
+    parsati (parse_bonus_tag): niente scartato, le forme non riconosciute
+    restano raw col flag dichiarato. Nota perimetro: i `.MOD` dei talenti
+    (es. `CATEGORY=FEAT|X.MOD`, varianti condizionali) sono ignorati qui come
+    gia' per i prerequisiti — i loro BONUS NON entrano (dichiarato in doc).
+    """
     by_name = {}
     order = []
     stats = {"duplicates_overridden": 0,
-             "prereq_coverage": {"covered": {}, "not_normalized": {}}}
+             "prereq_coverage": {"covered": {}, "not_normalized": {}},
+             "bonus": _empty_bonus_stats()}
     for name, tags in records:
         if not name or name.endswith((".MOD", ".FORGET")) or ".COPY=" in name:
             continue
         nodes = prereq_tree(tags)
         _coverage_add(stats["prereq_coverage"], nodes)
+        bonus = [parse_bonus_tag(v) for v in _tag_values(tags, "BONUS")]
+        _bonus_stats_add(stats["bonus"], bonus)
         stack = _tag_value(tags, "STACK")
         if name in by_name:
             stats["duplicates_overridden"] += 1
@@ -354,6 +467,7 @@ def feats_from_records(records, book: str):
             "choose": _tag_value(tags, "CHOOSE"),
             "prerequisites": nodes,
             "derived": derive_prereqs(nodes),
+            "bonus": bonus,
             "source_page": _tag_value(tags, "SOURCEPAGE"),
         }
     return [by_name[n] for n in order], stats
@@ -657,6 +771,22 @@ def _print_report(payloads: dict, classes_report: dict) -> None:
                     not_norm[tag] = not_norm.get(tag, 0) + n
             print(f"  PRE* normalizzati: {dict(sorted(covered.items(), key=lambda kv: -kv[1]))}")
             print(f"  PRE* grezzi (non normalizzati): {dict(sorted(not_norm.items(), key=lambda kv: -kv[1]))}")
+            bonus = _empty_bonus_stats()
+            for book_stats in payload["stats"].values():
+                bs = book_stats["bonus"]
+                bonus["feats_with_bonus"] += bs["feats_with_bonus"]
+                bonus["total_tags"] += bs["total_tags"]
+                for group, n in bs["by_group"].items():
+                    bonus["by_group"][group] = bonus["by_group"].get(group, 0) + n
+                for k in ("literal_value", "with_type", "recognized", "unrecognized"):
+                    bonus[k] += bs[k]
+            total = bonus["total_tags"] or 1
+            print(f"  BONUS: {bonus['total_tags']} tag su {bonus['feats_with_bonus']} talenti | "
+                  f"gruppi {dict(sorted(bonus['by_group'].items(), key=lambda kv: -kv[1]))}")
+            print(f"  BONUS: valore letterale {bonus['literal_value']}/{bonus['total_tags']} "
+                  f"({bonus['literal_value'] / total:.0%}) | "
+                  f"TYPE= {bonus['with_type']} ({bonus['with_type'] / total:.0%}) | "
+                  f"non riconosciuti {bonus['unrecognized']} ({bonus['unrecognized'] / total:.1%})")
     if classes_report:
         print("[classi] SOLO REPORT (classes.json curato resta la fonte):")
         for book, names in classes_report.items():
