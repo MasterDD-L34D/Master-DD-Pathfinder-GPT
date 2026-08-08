@@ -12,9 +12,11 @@ emissione di TRE JSON committati in
 - pcgen-spells.json    — incantesimi con livelli per classe
 
 Perimetro DECISO (dichiarato, estensione = aggiungere righe a BOOKS):
-- libri: CR, APG, ACG, ARG, UM, UC, UE, OA (niente bestiari: i mostri sono
-  fuori scope; niente um_*_wordsofpower.lst: sistema alternativo PRERULE
-  WORDSOFPOWER);
+- libri: CR, APG, ACG, ARG, UM, UC, UE, OA + (Fase A 2026-08-08) UI, UW,
+  HA, PU, AG. Scarti dichiarati nel commento di BOOKS: mythic/campaign/
+  codex+bestiari/beginner_box/core_essentials NON importati; Villain Codex
+  non presente nel clone. Niente um_*_wordsofpower.lst: sistema alternativo
+  PRERULE WORDSOFPOWER;
 - classi: SOLO report a stdout (conteggi/nomi per libro): il nostro
   classes.json (40 classi, E6-A7) resta la fonte — niente pcgen-classes.json;
 - DESC/BENEFIT MAI esportati: policy del progetto = solo meccaniche + nomi,
@@ -113,6 +115,38 @@ BOOKS = {
            "feats": ["oa_feats.lst"],
            "equipment": ["oa_equip.lst"],
            "spells": ["oa_spells.lst"]},
+    # Fase A (2026-08-08): manuali fuori linea core PRESENTI nel clone.
+    # Scarti DICHIARATI (nel clone, NON importati): mythic_adventures
+    # (sistema mythic = regole alternative, come words of power),
+    # ultimate_campaign (solo uca_feats.lst, gestione campagna),
+    # monster_codex + bestiari (contenuto mostri/PNG, fuori scope A1),
+    # beginner_box (sottoinsieme del CR), core_essentials (plumbing).
+    # Villain Codex: NON presente nel clone sparse (dichiarato).
+    "UI": {"dir": "roleplaying_game/ultimate_intrigue",
+           "title": "Ultimate Intrigue",
+           "feats": ["ui_feats.lst"],
+           "equipment": ["ui_equip_arms_armor.lst"],
+           "spells": ["ui_spells.lst"]},
+    "UW": {"dir": "roleplaying_game/ultimate_wilderness",
+           "title": "Ultimate Wilderness",
+           "feats": ["uw_feats.lst"],
+           "equipment": ["uw_equip_arms_armor.lst"],
+           "spells": ["uw_spells.lst"]},
+    "HA": {"dir": "roleplaying_game/horror_adventures",
+           "title": "Horror Adventures",
+           "feats": ["ha_feats.lst"],
+           "equipment": ["ha_equip_arms_armor.lst"],
+           "spells": ["ha_spells.lst"]},
+    "PU": {"dir": "roleplaying_game/pathfinder_unchained",
+           "title": "Pathfinder Unchained",
+           "feats": ["pu_feats.lst"],
+           "equipment": ["pu_equip.lst"],
+           "spells": ["pu_spells.lst"]},
+    "AG": {"dir": "roleplaying_game/adventurers_guide",
+           "title": "Adventurer's Guide",
+           "feats": ["ag_feats.lst"],
+           "equipment": ["ag_equip_arms_armor.lst"],
+           "spells": ["ag_spells.lst"]},
 }
 
 OUTPUT_FILES = {"feats": "pcgen-feats.json",
@@ -812,7 +846,8 @@ def main(argv=None) -> int:
         for book, cfg in BOOKS.items()
         for f in [next((x for x in
                         ["cr_classes.lst", "apg_classes.lst", "acg_classes.lst",
-                         "um_classes.lst", "uc_classes.lst", "oa_classes.lst"]
+                         "um_classes.lst", "uc_classes.lst", "oa_classes.lst",
+                         "ui_classes.lst", "uw_classes.lst"]
                         if (pcgen_root / DATA_SUBDIR / cfg["dir"] / x).is_file()),
                        None)]
         if f

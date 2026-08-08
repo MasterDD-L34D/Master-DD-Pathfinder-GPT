@@ -116,3 +116,61 @@ def test_unmapped_grant_names_reported_not_dropped():
     # Unmapped: SOLO report, mai nel dataset e mai indovinato.
     assert classes.get("Odd") is None
     assert report["unmapped_names"] == {"Something Weird ~ X": 1}
+
+
+# ---------------------------------------------------------------------------
+# Fase A (2026-08-08): con UI/UW in BOOK_CLASS_FILES anche Vigilante e
+# Shifter hanno i grant di proficienza (erano corpus_missing dichiarati D6).
+# Smoke sui dati REALI (salta se il clone PCGen non c'e').
+# ---------------------------------------------------------------------------
+
+import os  # noqa: E402
+
+import pytest  # noqa: E402
+
+REAL_ROOT = Path(os.environ.get(
+    "PCGEN_REPO", r"C:\Users\VGit\Downloads\pcgen-repo"))
+
+
+@pytest.mark.skipif(not (REAL_ROOT / "data/pathfinder/paizo").is_dir(),
+                    reason="clone PCGen assente")
+def test_dati_reali_vigilante_shifter_proficiencies():
+    doc = imp.build_file(REAL_ROOT)
+    classes = doc["classes"]
+    assert "Vigilante" in classes  # Ultimate Intrigue
+    assert "Shifter" in classes    # Ultimate Wilderness
+
+    vig = {(g["kind"], g.get("value"))
+           for g in classes["Vigilante"]["grants"]}
+    # record reale ui_abilities_class.lst (verificato 2026-08-08):
+    # TYPE=WeaponProfMartial + TYPE=ArmorProfMedium + TYPE=ShieldProf
+    assert ("weapon_type", "martial") in vig
+    assert ("armor_type", "medium") in vig
+    assert ("shield", None) in vig
+    # GAP DEL DATO PCGen colmato da SUPPLEMENTO CURATO (flag "curated": true,
+    # mai silenzioso): il record PCGen del Vigilante NON concede
+    # "Weapon Prof ~ Simple" ne' "Armor Prof ~ Light" come grant separati,
+    # ma il RAW si' — "proficient with all simple and martial weapons,
+    # light armor, medium armor, and shields (except tower shields)"
+    # (UI p.9, AoN ClassDisplay Vigilante verificato 2026-08-08).
+    vig_simple = [g for g in classes["Vigilante"]["grants"]
+                  if g["kind"] == "weapon_type" and g.get("value") == "simple"]
+    vig_light = [g for g in classes["Vigilante"]["grants"]
+                 if g["kind"] == "armor_type" and g.get("value") == "light"]
+    assert len(vig_simple) == 1 and vig_simple[0]["curated"] is True
+    assert len(vig_light) == 1 and vig_light[0]["curated"] is True
+
+    shifter = classes["Shifter"]["grants"]
+    explicit = {g.get("value") for g in shifter if g["kind"] == "weapon"}
+    # record reale uw_abilities_class.lst: lista esplicita di 10 armi
+    assert {"Club", "Scimitar", "Sickle", "Quarterstaff"} <= explicit
+    kinds = {(g["kind"], g.get("value")) for g in shifter}
+    assert ("armor_type", "medium") in kinds
+    assert ("shield", None) in kinds
+    # stesso supplemento curato per l'armatura leggera (UW p.26, AoN
+    # ClassDisplay Shifter verificato 2026-08-08: "proficient with light
+    # and medium armor"); il divieto del metallo resta NON modellato
+    # (dichiarato, come le restrizioni druidiche D6)
+    light = [g for g in shifter
+             if g["kind"] == "armor_type" and g.get("value") == "light"]
+    assert len(light) == 1 and light[0]["curated"] is True

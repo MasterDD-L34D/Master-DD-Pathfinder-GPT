@@ -105,6 +105,17 @@ CLASS_ALIASES = {
 # Verdetti DICHIARATI sulle divergenze note, da verifica su Archives of
 # Nethys (2026-08-07). DICHIARAZIONE, non correzione: i dati delle fonti
 # restano com'e' e la fonte operativa (Taverna) non cambia.
+#
+# CORREZIONI CURATE GIA' APPLICATE (la divergenza si e' CHIUSA col dato
+# corretto alla fonte, con nota di correzione nel dato stesso — non un
+# merge silenzioso):
+# - 2026-08-08 ("overwhelming presence", "psychic"): Taverna 4 -> 9
+#   (RAW AoN verificato 2026-08-07, https://aonprd.com/SpellDisplay.aspx?
+#   ItemName=Overwhelming%20Presence; PB concorde). Nota di correzione in
+#   data/reference/ogl/spells.json; registro in INTERPRETATIONS.md di
+#   rules-engine-v2 (sezione D5). spellLevelFor cambia di conseguenza:
+#   impatto derivato verificato NULLO (nessuna build corpus dichiara la
+#   spell); ENGINE_VERSION "16" (stesso bump delle tabelle slot Fase A).
 DIVERGENCE_VERDICTS: dict[tuple[str, str], dict] = {
     ("commune with nature", "druid"): {
         "raw": "druid 5 (ranger 4, hunter 4, psychic 5, shaman 5)",
@@ -145,15 +156,6 @@ DIVERGENCE_VERDICTS: dict[tuple[str, str], dict] = {
         "assessment": "Taverna fonta la versione VC (illusion, 1), PB la "
                       "versione AA (transmutation, 2): omonimia RAW reale.",
         "source": "https://aonprd.com/SpellDisplay.aspx?ItemName=Fool%27s%20Gold%20(VC)",
-    },
-    ("overwhelming presence", "psychic"): {
-        "raw": "psychic 9 (sorcerer/wizard 9, cleric/oracle 9, "
-               "bard/mesmerist/skald/inquisitor 6; witch non in lista)",
-        "assessment": "PB concorde col RAW; il valore Taverna (4) e' "
-                      "difforme (probabile errore del dato Taverna). "
-                      "Dichiarato: la fonte operativa resta Taverna, "
-                      "INVARIATA in questa slice.",
-        "source": "https://aonprd.com/SpellDisplay.aspx?ItemName=Overwhelming%20Presence",
     },
     ("soul transfer", "sorcerer"): {
         "raw": "sorcerer/wizard 7 (witch 7, cleric/oracle 7, psychic 7, "
@@ -394,7 +396,9 @@ def build(taverna_path: Path, pcgen_path: Path, pb_path: Path) -> dict:
             "sources": {
                 "taverna": "Master-DD-Taverna/data/reference/ogl/spells.json "
                            "(2.820 entry OGL) — AMPIEZZA, fonte OPERATIVA del "
-                           "motore (spellLevelFor), INVARIATA da D5",
+                           "motore (spellLevelFor). Correzione curata Fase A "
+                           "2026-08-08: Overwhelming Presence psychic 4->9 "
+                           "(vedi commento CORREZIONI CURATE nel builder)",
                 "pcgen": "pcgen-spells.json (import A1, 1.740 entry) — STRUTTURA",
                 "pathbuilder": "pathbuilder-spells.json (import D5, 2.922 entry) "
                                "— COPERTURA per classe",
@@ -407,9 +411,11 @@ def build(taverna_path: Path, pcgen_path: Path, pb_path: Path) -> dict:
             "operative_source": "Il motore continua a usare spellLevelFor "
                                 "Taverna (catalogs/taverna-spell-data.ts) come "
                                 "UNICA fonte operativa dei livelli per il "
-                                "derivato: NESSUN cambio silenzioso — questa "
-                                "slice non modifica alcun livello usato dal "
-                                "calcolo (ENGINE_VERSION invariata).",
+                                "derivato: NESSUN cambio silenzioso — le uniche "
+                                "modifiche ai livelli operativi sono le "
+                                "correzioni curate dichiarate (vedi CORREZIONI "
+                                "CURATE nel builder; ENGINE_VERSION bump "
+                                "documentato in INTERPRETATIONS.md).",
             "conflict_policy": "Mai merge silenzioso: i livelli di ogni fonte "
                                "restano SEPARATI per spell; le divergenze di "
                                "livello per classe sono registrate e "

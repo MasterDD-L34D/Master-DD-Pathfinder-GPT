@@ -529,3 +529,65 @@ def test_dati_reali_bonus_spot_check():
     unrecognized = sum(s["bonus"]["unrecognized"] for s in feats["stats"].values())
     assert total > 400
     assert unrecognized / total < 0.05
+
+
+# ---------------------------------------------------------------------------
+# Fase A (2026-08-08): BOOKS esteso ai manuali fuori linea core PRESENTI nel
+# clone — Ultimate Intrigue (UI), Ultimate Wilderness (UW), Horror Adventures
+# (HA), Pathfinder Unchained (PU), Adventurer's Guide (AG).
+# Scarti DICHIARATI (presenti nel clone ma NON aggiunti): mythic_adventures
+# (sistema mythic = regole alternative, stessa disciplina di words of power),
+# ultimate_campaign (solo uca_feats.lst, regole di gestione campagna),
+# monster_codex e bestiari (contenuto mostri/PNG, fuori scope dal perimetro
+# A1), beginner_box (sottoinsieme del CR), core_essentials (plumbing PCGen,
+# non contenuto). Villain Codex: NON presente nel clone sparse (dichiarato
+# nell'handoff come candidato; non importabile).
+# ---------------------------------------------------------------------------
+
+NEW_BOOKS = ("UI", "UW", "HA", "PU", "AG")
+
+
+def test_books_estesi_configurati():
+    assert set(NEW_BOOKS) <= set(pc.BOOKS)
+    for book in NEW_BOOKS:
+        cfg = pc.BOOKS[book]
+        assert cfg["dir"].startswith("roleplaying_game/")
+        assert cfg["feats"] and cfg["equipment"] and cfg["spells"]
+
+
+@pytest.mark.skipif(not (REAL_ROOT / "data/pathfinder/paizo").is_dir(),
+                    reason="clone PCGen assente")
+def test_dati_reali_new_books_spot_check():
+    feats = pc.build_catalog(REAL_ROOT, "feats")
+    by_name = {e["name"]: e for e in feats["entries"]}
+    # spot-check RAW: un talento per libro nuovo (nomi verificati nel clone)
+    assert by_name["Acrobatic Spellcaster"]["source_book"] == "UI"
+    assert by_name["Ambush Awareness"]["source_book"] == "UW"
+
+    spells = pc.build_catalog(REAL_ROOT, "spells")
+    spell_names = {e["name"] for e in spells["entries"]}
+    assert "Alpha Instinct" in spell_names  # Ultimate Wilderness
+
+    equip = pc.build_catalog(REAL_ROOT, "equipment")
+    # conteggi minimi per libro (sanita': nessun libro nuovo e' vuoto)
+    for book in NEW_BOOKS:
+        assert feats["counts"][book] > 0
+    for book in ("UI", "UW", "HA", "AG"):
+        assert spells["counts"][book] > 0
+    # PU spells = 0, verificato nel clone 2026-08-08 e DICHIARATO:
+    # pu_spells.lst (lista Unchained Summoner) e' INTERAMENTE commentato
+    # upstream in PCGen master -> nessun record attivo da importare.
+    assert spells["counts"]["PU"] == 0
+    # Equipaggiamento: UI/UW/AG portano armi/armature mundane; HA e PU no,
+    # verificato nel clone 2026-08-08 e DICHIARATO:
+    # - HA (ha_equip_arms_armor.lst): solo .COPY di basi "(Base)" del CR per
+    #   oggetti magici specifici -> copie cross-libro non risolte (0 entry,
+    #   stats.copies_unresolved le conta); l'unico item proprio e' VISIBLE:NO;
+    # - PU (pu_equip.lst): file placeholder vuoto (2 righe di commento);
+    # - UW: 1 arma propria (Seedpod); i .MOD "Tribal Weapon Group" su armi CR
+    #   sono cross-libro non risolti (contati in mods_unresolved).
+    assert equip["counts"]["UI"] > 0
+    assert equip["counts"]["UW"] > 0
+    assert equip["counts"]["AG"] > 0
+    assert equip["counts"]["HA"] == 0
+    assert equip["counts"]["PU"] == 0

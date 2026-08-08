@@ -545,3 +545,37 @@ def test_dati_reali_abilities_spot_check():
     unrecognized = sum(s["bonus"]["unrecognized"] for s in payload["stats"].values())
     assert total > 1000
     assert unrecognized / total < 0.10
+
+
+# ---------------------------------------------------------------------------
+# Fase A (2026-08-08): BOOK_CLASS_FILES esteso a UI/UW (classi PC Vigilante e
+# Shifter), HA/PU/AG (abilities soltanto: HA ha solo il phantom "Undead
+# Phantom" — non una classe PC, classes.lst NON configurato, dichiarato; PU
+# non ha classes.lst — le varianti Unchained vivono negli abilities; AG ha
+# solo prestige class — classes.lst NON configurato, fuori perimetro,
+# dichiarato come per HA).
+# ---------------------------------------------------------------------------
+
+@pytest.mark.skipif(not (REAL_ROOT / "data/pathfinder/paizo").is_dir(),
+                    reason="clone PCGen assente")
+def test_dati_reali_vigilante_shifter():
+    progression = pcc.build_progression(REAL_ROOT)
+    by_class = {e["class"]: e for e in progression["entries"]}
+    # le due classi PC dei manuali fuori linea core (D6: erano corpus_missing)
+    assert "Vigilante" in by_class  # Ultimate Intrigue
+    assert "Shifter" in by_class    # Ultimate Wilderness
+    assert "UI" in by_class["Vigilante"]["source_books"]
+    assert "UW" in by_class["Shifter"]["source_books"]
+    assert by_class["Vigilante"]["grants"]
+    assert by_class["Shifter"]["grants"]
+    # il phantom di Horror Adventures NON e' una classe PC: fuori perimetro
+    assert "Undead Phantom" not in by_class
+
+    abilities = pcc.build_abilities(REAL_ROOT)
+    by_key = {e["key"]: e for e in abilities["entries"]}
+    # spot-check RAW (nomi verificati nel clone 2026-08-08)
+    assert "Social Talent ~ Case The Joint" in by_key      # UI, pool vigilante
+    assert by_key["Shifter ~ Weapon and Armor Proficiencies"]["class"] == "Shifter"
+    # conteggi per libro (sanita': nessun libro nuovo e' sparito)
+    for book in ("UI", "UW", "HA", "PU", "AG"):
+        assert abilities["counts"][book] > 0

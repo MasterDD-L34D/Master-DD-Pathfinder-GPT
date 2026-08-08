@@ -147,9 +147,10 @@ def test_copertura_dichiarata(generated):
     )
     # i pool del corpus devono essere coperti dal dato PCGen nella misura
     # MISURATA e dichiarata (i dataset importati sono la linea core
-    # CR/APG/ACG/ARG/UM/UC/UE/OA: le feature da altri manuali restano
-    # scoperte, non inventate). Soglie sui valori osservati, col margine
-    # giusto perche' un miglioramento del match non rompa il test.
+    # CR/APG/ACG/ARG/UM/UC/UE/OA + Fase A 2026-08-08 UI/UW/HA/PU/AG: le
+    # feature da altri manuali restano scoperte, non inventate). Soglie sui
+    # valori osservati, col margine giusto perche' un miglioramento del
+    # match non rompa il test.
     by_pool = {}
     for e in generated["entries"]:
         if e["pool"] in ("rage power", "rogue talent", "revelation"):
@@ -159,10 +160,12 @@ def test_copertura_dichiarata(generated):
     assert by_pool["rage power"][1] / by_pool["rage power"][0] > 0.55
     assert by_pool["rogue talent"][1] / by_pool["rogue talent"][0] > 0.35
     assert by_pool["revelation"][1] / by_pool["revelation"][0] > 0.45
-    # vigilante/social: Ultimate Intrigue non e' nei dataset PCGen importati
-    # (CR/APG/ACG/ARG/UM/UC/UE/OA) -> tutto dichiarato non coperto.
+    # vigilante/social: Fase A (2026-08-08) — Ultimate Intrigue e' ora nei
+    # dataset PCGen importati: i pool del Vigilante hanno la meccanica
+    # (matched 699 -> 825, unmatched 853 -> 727 su tutto il pool).
     vigilante = [e for e in generated["entries"] if e["class"] == "Vigilante"]
-    assert vigilante and all(not e["prereqs_known"] for e in vigilante)
+    known = sum(1 for e in vigilante if e["prereqs_known"])
+    assert vigilante and known > 60
 
 
 def test_provenance_dichiarata(generated):

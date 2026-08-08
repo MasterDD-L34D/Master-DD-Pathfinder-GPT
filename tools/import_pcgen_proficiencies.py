@@ -43,8 +43,10 @@ Regole dichiarate:
   contati uno a uno (scope dichiarato: solo proficienze).
 
 Perimetro: i BOOK_CLASS_FILES di import_pcgen_classes (CR/APG/ACG/ARG/UM/UC/
-OA; UE senza file di classe; Ultimate Intrigue/Wilderness fuori -> Vigilante
-e Shifter corpus_missing dichiarati). DESC/BENEFIT MAI letti.
+OA + Fase A 2026-08-08: UI/UW con Vigilante e Shifter, HA/PU/AG abilities).
+Gap del dato colmati SOLO da supplemento curato dichiarato (vedi
+CURATED_SUPPLEMENT: grant con "curated": true e puntamento RAW AoN, mai
+silenziosi). DESC/BENEFIT MAI letti.
 
 Uso:
   python tools/import_pcgen_proficiencies.py                 # scrive il JSON
@@ -130,6 +132,36 @@ FEAT_PROF_MAP = {
 # "Exotic Weapon Proficiency (Katana)" -> arma esplicita.
 _FEAT_CHOICE_RE = re.compile(
     r"^(?:Exotic|Martial) Weapon Proficiency \((.+)\)$")
+
+# SUPPLEMENTO CURATO (Fase A 2026-08-08): gap del dato PCGen colmati a mano
+# col RAW verificato su AoN — MAI silenzioso: ogni grant porta
+# "curated": true e il puntamento RAW in "raw". Il record PCGen del
+# Vigilante (ui_abilities_class.lst) concede SOLO marziali/medie/scudo,
+# ma il RAW e' "proficient with all simple and martial weapons, light
+# armor, medium armor, and shields (except tower shields)" (Ultimate
+# Intrigue p.9, AoN ClassDisplay Vigilante, verificato 2026-08-08). Stesso
+# gap per l'armatura leggera dello Shifter (Ultimate Wilderness p.26, AoN
+# ClassDisplay Shifter, verificato 2026-08-08: "proficient with light and
+# medium armor"; il divieto del metallo resta NON modellato, dichiarato
+# come le restrizioni druidiche D6).
+CURATED_SUPPLEMENT: dict[str, list[dict]] = {
+    "Vigilante": [
+        {"kind": "weapon_type", "value": "simple", "level": 1,
+         "curated": True,
+         "raw": "CURATO: RAW UI p.9 (AoN ClassDisplay Vigilante, 2026-08-08) "
+                "— il record PCGen omette il grant separato delle semplici"},
+        {"kind": "armor_type", "value": "light", "level": 1,
+         "curated": True,
+         "raw": "CURATO: RAW UI p.9 (AoN ClassDisplay Vigilante, 2026-08-08) "
+                "— il record PCGen omette il grant separato delle leggere"},
+    ],
+    "Shifter": [
+        {"kind": "armor_type", "value": "light", "level": 1,
+         "curated": True,
+         "raw": "CURATO: RAW UW p.26 (AoN ClassDisplay Shifter, 2026-08-08) "
+                "— il record PCGen omette il grant separato delle leggere"},
+    ],
+}
 
 # Valori ARMORTYPE= (con e senza prefisso ArmorProf, entrambe attestate).
 ARMORTYPE_MAP = {
@@ -483,8 +515,19 @@ def build_file(pcgen_root: Path, corpus_classes: list[str] | None = None,
     all_grants = 0
     choices: dict[str, int] = {}
     deity: list[str] = []
+    curated_applied = 0
     for cls in sorted(by_class):
         grants = _dedupe(by_class[cls]["grants"])
+        # Supplemento curato (gap PCGen dichiarati): aggiunto SOLO se il
+        # fatto non e' gia' nel dato verbatim — il dato vince sempre.
+        for supp in CURATED_SUPPLEMENT.get(cls, []):
+            key = (supp["kind"], supp.get("value"), supp["level"])
+            if (supp["kind"], supp.get("value")) not in {
+                    (g["kind"], g.get("value")) for g in grants}:
+                grants.append(dict(supp))
+                grants.sort(key=lambda g: (g["kind"], str(g.get("value")),
+                                           g["level"]))
+                curated_applied += 1
         classes_out[cls] = {"grants": grants}
         all_grants += len(grants)
         for g in grants:
@@ -527,6 +570,7 @@ def build_file(pcgen_root: Path, corpus_classes: list[str] | None = None,
         "counts": {
             "classes": len(classes_out),
             "grants": all_grants,
+            "curated_supplements": curated_applied,
             "corpus_covered": sorted(corpus_covered),
             "corpus_missing": sorted(corpus_missing),
             "unmapped_names": dict(sorted(report["unmapped_names"].items())),

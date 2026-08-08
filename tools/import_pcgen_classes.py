@@ -33,7 +33,10 @@ Livello di un grant da riga MOD: il gate `PREVARGTEQ:<var>,<N>` con N intero
 concessioni non gated — es. Weapon and Armor Proficiency — sono di 1°).
 I gate restano comunque grezzi in `conditions`: niente buttato via.
 
-Perimetro DECISO (come import_pcgen_lst): libri CR/APG/ACG/ARG/UM/UC/OA
+Perimetro DECISO (come import_pcgen_lst): libri CR/APG/ACG/ARG/UM/UC/OA +
+(Fase A 2026-08-08) UI/UW/HA/PU/AG — vedi il commento di BOOK_CLASS_FILES
+per gli scarti dichiarati su classes.lst (HA: solo phantom; PU: nessun
+classes.lst; AG: solo prestige class).
 (ARG non ha classes.lst; UE non ha file di classe: configurati vuoti, non
 errori). DESC/BENEFIT MAI esportati. I `.MOD` sui record ability (bonus
 aggiunti a feature esistenti) NON si fondono — stessa scelta dei feat,
@@ -100,6 +103,31 @@ BOOK_CLASS_FILES = {
            "classes": ["oa_classes.lst"],
            "abilities": ["oa_abilities_class.lst"],
            "mod_files": ["oa_abilities_class.lst"]},
+    # Fase A (2026-08-08): manuali fuori linea core. UI/UW portano le classi
+    # PC Vigilante e Shifter (corpus_missing D6). Scarti DICHIARATI:
+    # - HA: il suo classes.lst definisce solo "Undead Phantom" (un phantom,
+    #   TYPE:Monster — NON una classe PC): classes non configurato;
+    # - PU: nessun classes.lst (le varianti Unchained vivono negli abilities
+    #   come record/MOD sulle classi base);
+    # - AG: il suo classes.lst definisce solo prestige class (il corpus
+    #   classes.json non ne ha): classes non configurato.
+    "UI": {"dir": BOOKS["UI"]["dir"],
+           "classes": ["ui_classes.lst"],
+           "abilities": ["ui_abilities_class.lst"],
+           "mod_files": ["ui_abilities_class.lst"]},
+    "UW": {"dir": BOOKS["UW"]["dir"],
+           "classes": ["uw_classes.lst"],
+           "abilities": ["uw_abilities_class.lst"],
+           "mod_files": ["uw_abilities_class.lst"]},
+    "HA": {"dir": BOOKS["HA"]["dir"], "classes": [],
+           "abilities": ["ha_abilities_class.lst"],
+           "mod_files": ["ha_abilities_class.lst"]},
+    "PU": {"dir": BOOKS["PU"]["dir"], "classes": [],
+           "abilities": ["pu_abilities_class.lst"],
+           "mod_files": ["pu_abilities_class.lst"]},
+    "AG": {"dir": BOOKS["AG"]["dir"], "classes": [],
+           "abilities": ["ag_abilities_class.lst"],
+           "mod_files": ["ag_abilities_class.lst"]},
 }
 
 OUTPUT_FILES = {"progression": "pcgen-class-progression.json",

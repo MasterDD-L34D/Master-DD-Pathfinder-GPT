@@ -340,21 +340,22 @@ def test_dati_reali_conteggi_e_copertura():
     index = bss.build(REAL_TAVERNA, REAL_PCGEN, REAL_PB)
     counts = index["counts"]
     assert counts["taverna"] == 2820
-    assert counts["pcgen"] == 1720  # 1.740 entry, 20 nomi in 2 libri
+    assert counts["pcgen"] == 2001  # 2.023 entry (Fase A: +UI/UW/HA/AG),
+                                    # 22 nomi in 2 libri
     assert counts["pb"] == 2922
-    assert counts["union"] == 3079
-    assert counts["intersection"]["tavernaPcgen"] == 1634
+    assert counts["union"] == 3092
+    assert counts["intersection"]["tavernaPcgen"] == 1868
     assert counts["intersection"]["tavernaPb"] == 2749
-    assert counts["intersection"]["pcgenPb"] == 1634
-    assert counts["intersection"]["allThree"] == 1634
-    # copertura aggiunta: PB porta 173 spell nuove (fuori Taverna+PCGen),
-    # PCGen 86 (varianti e spell fuori catalogo Taverna)
-    assert counts["only"]["pb"] == 173
-    assert counts["only"]["pcgen"] == 86
-    assert counts["only"]["taverna"] == 71
-    # duplicati interni PCGen: 20 nomi fusi a unione di classi, 0 conflitti
+    assert counts["intersection"]["pcgenPb"] == 1900
+    assert counts["intersection"]["allThree"] == 1866
+    # copertura aggiunta: PB porta 139 spell nuove (fuori Taverna+PCGen),
+    # PCGen 99 (varianti e spell fuori catalogo Taverna)
+    assert counts["only"]["pb"] == 139
+    assert counts["only"]["pcgen"] == 99
+    assert counts["only"]["taverna"] == 69
+    # duplicati interni PCGen: 22 nomi fusi a unione di classi, 0 conflitti
     dup = index["report"]["pcgenInternalDuplicates"]
-    assert len(dup["mergedNames"]) == 20
+    assert len(dup["mergedNames"]) == 22
     assert dup["conflicts"] == []
 
 
@@ -369,7 +370,6 @@ def test_dati_reali_divergenze_esatte_classificate():
         ("withdraw affliction", "spiritualist"),
         ("fool's gold", "sorcerer"),
         ("fool's gold", "wizard"),
-        ("overwhelming presence", "psychic"),
         ("soul transfer", "sorcerer"),
         ("soul transfer", "wizard"),
         ("soul transfer", "witch"),
@@ -387,3 +387,33 @@ def test_dati_reali_divergenze_esatte_classificate():
     for d in divs.values():
         assert d["verdict"] is not None
         assert d["verdict"]["source"]
+
+
+@pytest.mark.skipif(not _real_ok, reason=REAL_REASON)
+def test_dati_reali_overwhelming_presence_correzione_curata():
+    """Fase A (2026-08-08): la divergenza D5 ("overwhelming presence",
+    psychic: Taverna 4 vs PB 9) si e' CHIUSA con la correzione curata sul
+    dato Taverna (4 -> 9, RAW AoN verificato 2026-08-07) — non e' sparita
+    in silenzio: il dato porta la nota di correzione e il registro e' in
+    INTERPRETATIONS.md di rules-engine-v2."""
+    spells = json.loads(REAL_TAVERNA.read_text(encoding="utf-8"))["entries"]
+    op = next(e for e in spells if e["name"] == "Overwhelming Presence")
+    assert op["mechanics"]["spell_level"]["psychic"] == 9
+    assert "CORREZIONE CURATA" in op["notes"]
+    assert "slot:6" in op["tags"] and "slot:4" not in op["tags"]
+
+    index = bss.build(REAL_TAVERNA, REAL_PCGEN, REAL_PB)
+    entry = index["spells"]["overwhelming presence"]
+    # dove una fonte copre lo psychic, concorda a 9: nessuna divergenza.
+    # PCGen NON copre psychic per questa spell (dato UM, verificato
+    # 2026-08-08): assenza di copertura, non divergenza — dichiarato.
+    assert "psychic" not in entry["sources"]["pcgen"]["levels"]
+    for name, src in entry["sources"].items():
+        if "psychic" in src["levels"]:
+            assert src["levels"]["psychic"] == 9, name
+    divs = {(d["spell"], d["class"])
+            for d in index["report"]["divergences"]}
+    assert ("overwhelming presence", "psychic") not in divs
+    # il verdetto storico e' rimosso dalla tabella (la divergenza e' chiusa):
+    # la correzione vive nel commento CORREZIONI CURATE del builder
+    assert ("overwhelming presence", "psychic") not in bss.DIVERGENCE_VERDICTS

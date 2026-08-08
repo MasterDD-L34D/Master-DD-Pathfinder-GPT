@@ -39485,7 +39485,7 @@
         "spell",
         "overwhelming-presence",
         "school:enchantment",
-        "slot:4",
+        "slot:6",
         "class:bard",
         "class:cleric",
         "class:oracle",
@@ -39515,11 +39515,11 @@
           "cleric/oracle": 9,
           "inquisitor": 6,
           "sorcerer/wizard": 9,
-          "psychic": 4,
+          "psychic": 9,
           "mesmerist": 6
         }
       },
-      "notes": "Aggiunta da cache gist PathfinderSpellsJSON (expansion 2026-07-25): assente dal catalogo storico."
+      "notes": "Aggiunta da cache gist PathfinderSpellsJSON (expansion 2026-07-25): assente dal catalogo storico. CORREZIONE CURATA 2026-08-08: psychic 4 -> 9 (RAW verificato su https://aonprd.com/SpellDisplay.aspx?ItemName=Overwhelming%20Presence — divergenza D5 documentata in INTERPRETATIONS.md di rules-engine-v2); tag slot 4 -> 6 di conseguenza (minimo sui livelli di classe)."
     },
     {
       "name": "Pernicious Poison",
