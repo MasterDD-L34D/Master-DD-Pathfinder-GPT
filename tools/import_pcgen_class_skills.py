@@ -58,10 +58,16 @@ from tools.import_pcgen_classes import BOOK_CLASS_FILES  # noqa: E402
 
 OUTPUT_FILE = "pcgen-class-skills.json"
 
-# Le tre forme del nome, come compaiono in `KEY:` (forme 2 e 3).
+# Le forme del nome, come compaiono in `KEY:` (forme 2 e 3).
 KEY_SUFFIX = " ~ Class Skills"
 KEY_PREFIX = "Class Skills ~ "
 KEY_CORE_SUFFIX = " Core Class Skills"
+# ⚠️ Forma BREVE, senza la parola "Class": e' quella dell'Unchained Rogue, la
+# classe piu' usata fra quelle che restavano scoperte. E' un pattern piu' LARGO
+# degli altri -- `~ Skills` puo' finire su un'abilita' che non c'entra -- ed e'
+# per questo che una voce conta solo se porta anche un CSKILL. Il filtro sta
+# gia' in `from_abilities_file`, che scarta prima di guardare la chiave.
+KEY_SHORT_SUFFIX = " ~ Skills"
 
 
 def _skills(value: str) -> list[str]:
@@ -82,6 +88,8 @@ def _class_from_key(key: str) -> str | None:
         return key[len(KEY_PREFIX):].strip()
     if key.endswith(KEY_CORE_SUFFIX):
         return key[: -len(KEY_CORE_SUFFIX)].strip()
+    if key.endswith(KEY_SHORT_SUFFIX):
+        return key[: -len(KEY_SHORT_SUFFIX)].strip()
     return None
 
 
@@ -131,6 +139,32 @@ def from_abilities_file(text: str, book: str) -> list[dict]:
     return out
 
 
+# ⚠️ I LIBRI FUORI DA `roleplaying_game/`. Misurato: li' dentro ci sono altri
+# 218 file con CSKILL, ed e' dove vivono le prestige da Player Companion,
+# Campaign Setting e Adventure Path (Living Monolith, Evangelist, Hinterlander).
+# `BOOK_CLASS_FILES` copre solo i manuali base, per costruzione: qui si cammina
+# l'albero invece di elencare i file, perche' quelle collane sono decine di
+# volumi e un elenco a mano sarebbe vecchio dal giorno dopo.
+#
+# ⚠️ ORDINE: questi vengono DOPO i manuali base. Il consumatore tiene la PRIMA
+# voce per classe, quindi una definizione del manuale batte una variante da AP.
+EXTRA_TREES = ["player_companion", "campaign_setting", "adventure_path"]
+
+
+def _extra_files(pcgen_root: Path) -> list[tuple[str, Path]]:
+    """(etichetta, file) per i libri fuori da roleplaying_game."""
+    out: list[tuple[str, Path]] = []
+    for tree in EXTRA_TREES:
+        radice = pcgen_root / DATA_SUBDIR / tree
+        if not radice.is_dir():
+            continue
+        for path in sorted(radice.rglob("*.lst")):
+            nome = path.name
+            if nome.endswith("_classes.lst") or "abilities_class" in nome:
+                out.append((f"{tree}/{path.parent.name}", path))
+    return out
+
+
 def build(pcgen_root: Path) -> dict:
     entries: list[dict] = []
     counts: dict[str, int] = {}
@@ -149,6 +183,15 @@ def build(pcgen_root: Path) -> dict:
                     path.read_text(encoding="utf-8", errors="replace"), book)
         entries += found
         counts[book] = len(found)
+
+    extra = 0
+    for etichetta, path in _extra_files(pcgen_root):
+        testo = path.read_text(encoding="utf-8", errors="replace")
+        trovate = (from_classes_file(testo, etichetta) if path.name.endswith("_classes.lst")
+                   else from_abilities_file(testo, etichetta))
+        entries += trovate
+        extra += len(trovate)
+    counts["(altre collane)"] = extra
 
     return {
         "_provenance": {

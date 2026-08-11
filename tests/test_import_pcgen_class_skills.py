@@ -29,3 +29,30 @@ def test_la_classe_viene_dalla_KEY_non_dal_nome_visualizzato():
     assert len(voci) == 1
     assert voci[0]["class"] == "Alchemist", "la classe viene dalla KEY"
     assert voci[0]["skills"] == ["Appraise", "TYPE=Craft", "Disable Device"]
+
+
+def test_anche_la_forma_breve_tilde_skills():
+    """`KEY:<Classe> ~ Skills`, senza la parola 'Class'.
+
+    E' la forma con cui PCGen dichiara l'Unchained Rogue -- la classe piu' usata
+    fra quelle che restavano scoperte (16 schede sul dato utente). Cercare solo
+    `~ Class Skills` la lasciava fuori.
+
+    ⚠️ Il pattern e' piu' LARGO degli altri due: `~ Skills` puo' finire su
+    un'abilita' che con le abilita' di classe non c'entra. Per questo la voce
+    conta solo se porta anche un `CSKILL` -- il test qui sotto lo verifica al
+    contrario.
+    """
+    from tools import import_pcgen_class_skills as pcs
+
+    lst = (
+        "Skills\tKEY:Unchained Rogue ~ Skills\tCATEGORY:Special Ability\t"
+        "CSKILL:Acrobatics|Bluff|Stealth\n"
+        # Stessa forma di chiave, NESSUN CSKILL: non e' una lista di abilita'
+        # di classe e non deve entrare.
+        "Skills\tKEY:Qualcosa ~ Skills\tCATEGORY:Special Ability\tTYPE:Altro\n"
+    )
+    voci = pcs.from_abilities_file(lst, "PU")
+
+    assert [v["class"] for v in voci] == ["Unchained Rogue"]
+    assert voci[0]["skills"] == ["Acrobatics", "Bluff", "Stealth"]
